@@ -4,17 +4,17 @@ description: Archiviazione di Azure protegge i dati mediante la crittografia aut
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/17/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527898"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -32,6 +32,8 @@ Ogni BLOB in blocchi, BLOB di accodamento o BLOB di pagine che è stato scritto 
 
 Per altre informazioni sui moduli di crittografia sottostanti la crittografia di archiviazione di Azure, vedere [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
+Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed disks, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) per macchine virtuali Windows o [la crittografia lato server di Azure Managed](../../virtual-machines/linux/disk-encryption.md) disks per macchine virtuali Linux.
+
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
 I dati in un nuovo account di archiviazione vengono crittografati con le chiavi gestite da Microsoft. È possibile utilizzare chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni:
@@ -41,18 +43,56 @@ I dati in un nuovo account di archiviazione vengono crittografati con le chiavi 
 
 La tabella seguente confronta le opzioni di gestione delle chiavi per la crittografia di archiviazione di Azure.
 
-|                                        |    Chiavi gestite da Microsoft                             |    Chiavi gestite dal cliente                                                                                                                        |    Chiavi fornite dal cliente                                                          |
-|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|    Operazioni di crittografia/decrittografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Servizi di archiviazione di Azure supportati    |    Tutti                                                |    Archiviazione BLOB, File di Azure<sup>1, 2</sup>                                                                                                               |    Archiviazione BLOB                                                                  |
-|    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Archivio chiavi personalizzato del cliente                                                                 |
-|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Controllo chiave                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
+| Parametro di gestione delle chiavi | Chiavi gestite da Microsoft | Chiavi gestite dal cliente | Chiavi fornite dal cliente |
+|--|--|--|--|
+| Operazioni di crittografia/decrittografia | Azure | Azure | Azure |
+| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione BLOB |
+| Archiviazione chiavi | Archivio chiavi Microsoft | Insieme di credenziali chiave di Azure | Archivio chiavi personalizzato del cliente |
+| Responsabilità della rotazione delle chiavi | Microsoft | Customer | Customer |
+| Controllo chiave | Microsoft | Customer | Customer |
 
 <sup>1</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione code, vedere [creare un account che supporta chiavi gestite dal cliente per le code](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione tabelle, vedere [creare un account che supporta chiavi gestite dal cliente per le tabelle](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 
-Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed disks, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) per macchine virtuali Windows o [la crittografia lato server di Azure Managed](../../virtual-machines/linux/disk-encryption.md) disks per macchine virtuali Linux.
+## <a name="encryption-scopes-for-blob-storage-preview"></a>Ambiti di crittografia per l'archiviazione BLOB (anteprima)
+
+Per impostazione predefinita, un account di archiviazione viene crittografato con una chiave con ambito limitato all'account di archiviazione. È possibile scegliere di usare chiavi gestite da Microsoft o chiavi gestite dal cliente archiviate in Azure Key Vault per proteggere e controllare l'accesso alla chiave che crittografa i dati.
+
+Gli ambiti di crittografia consentono di gestire facoltativamente la crittografia a livello del contenitore o di un singolo BLOB. È possibile usare gli ambiti di crittografia per creare confini sicuri tra i dati che si trovano nello stesso account di archiviazione, ma appartenenti a clienti diversi.
+
+È possibile creare uno o più ambiti di crittografia per un account di archiviazione usando il provider di risorse di archiviazione di Azure. Quando si crea un ambito di crittografia, si specifica se l'ambito è protetto con una chiave gestita da Microsoft o con una chiave gestita dal cliente archiviata in Azure Key Vault. Diversi ambiti di crittografia nello stesso account di archiviazione possono usare chiavi gestite da Microsoft o gestite dal cliente.
+
+Dopo aver creato un ambito di crittografia, è possibile specificare tale ambito di crittografia per una richiesta di creazione di un contenitore o di un BLOB. Per ulteriori informazioni su come creare un ambito di crittografia, vedere [creare e gestire ambiti di crittografia (anteprima)](../blobs/encryption-scope-manage.md).
+
+> [!NOTE]
+> Gli ambiti di crittografia non sono supportati con account di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) durante la fase di anteprima.
+
+> [!IMPORTANT]
+> L'anteprima degli ambiti di crittografia è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
+>
+> Per evitare costi imprevisti, assicurarsi di disabilitare gli ambiti di crittografia attualmente non necessari.
+
+### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Creare un contenitore o un BLOB con un ambito di crittografia
+
+I BLOB creati in un ambito di crittografia vengono crittografati con la chiave specificata per tale ambito. È possibile specificare un ambito di crittografia per un singolo BLOB quando si crea il BLOB oppure è possibile specificare un ambito di crittografia predefinito quando si crea un contenitore. Quando si specifica un ambito di crittografia predefinito al livello di un contenitore, tutti i BLOB in tale contenitore vengono crittografati con la chiave associata all'ambito predefinito.
+
+Quando si crea un BLOB in un contenitore con un ambito di crittografia predefinito, è possibile specificare un ambito di crittografia che esegue l'override dell'ambito di crittografia predefinito se il contenitore è configurato in modo da consentire le sostituzioni dell'ambito di crittografia predefinito. Per impedire le sostituzioni dell'ambito di crittografia predefinito, configurare il contenitore per negare gli override per un singolo BLOB.
+
+Le operazioni di lettura su un BLOB che appartiene a un ambito di crittografia si verificano in modo trasparente, purché l'ambito di crittografia non sia disabilitato.
+
+### <a name="disable-an-encryption-scope"></a>Disabilitare un ambito di crittografia
+
+Quando si disabilita un ambito di crittografia, le operazioni di lettura o scrittura successive eseguite con l'ambito di crittografia avranno esito negativo con codice di errore HTTP 403 (accesso negato). Se si riabilita l'ambito di crittografia, le operazioni di lettura e scrittura proseguiranno di nuovo normalmente.
+
+Quando un ambito di crittografia è disabilitato, non viene più fatturato. Disabilitare gli ambiti di crittografia non necessari per evitare addebiti superflui.
+
+Se l'ambito di crittografia è protetto con chiavi gestite dal cliente per Azure Key Vault, è anche possibile eliminare la chiave associata nell'insieme di credenziali delle chiavi per disabilitare l'ambito di crittografia. Tenere presente che le chiavi gestite dal cliente nel Azure Key Vault sono protette dalla protezione con eliminazione temporanea e ripulitura e una chiave eliminata è soggetta al comportamento definito da tali proprietà. Per ulteriori informazioni, vedere uno degli argomenti seguenti nella documentazione di Azure Key Vault:
+
+- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md)
+- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/soft-delete-cli.md)
+
+> [!NOTE]
+> Non è possibile eliminare un ambito di crittografia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,11 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75965618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526555"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
@@ -29,7 +30,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 [Visualizzare le operazioni di distribuzione](../../azure-resource-manager/templates/deployment-history.md)
 
-[Visualizzare i log attività per gestire le risorse di Azure](../../resource-group-audit.md)
+[Visualizzare i log attività per gestire le risorse di Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una VM arrestata
 Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazione.
@@ -37,7 +38,7 @@ Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazi
 ### <a name="cause"></a>Causa
 La richiesta di avvio della VM arrestata deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non ha spazio disponibile per soddisfare la richiesta.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 * Arrestare tutte le VM nel set di disponibilità e quindi riavviare ogni VM.
   
   1. Fare clic su **gruppi**di risorse  >  *il gruppo*di risorse  >  **risorse**il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della*macchina virtuale*  >  **Stop**.
@@ -50,7 +51,7 @@ Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di al
 ### <a name="cause"></a>Causa
 La richiesta di ridimensionamento della VM deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non supporta le dimensioni della VM richieste.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   
@@ -61,5 +62,4 @@ La richiesta di ridimensionamento della VM deve essere eseguita nel cluster orig
   3. Selezionare la VM ridimensionata e fare clic su **Avvia**, quindi avviare ognuna delle VM arrestate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si verificano problemi durante la creazione di una nuova VM Windows in Azure, vedere [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](../windows/troubleshoot-deployment-new-vm.md).
-
+Se si verificano problemi durante la creazione di una nuova VM Windows in Azure, vedere [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](./troubleshoot-deployment-new-vm-windows.md).

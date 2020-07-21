@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039008"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524506"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
 
@@ -53,9 +53,9 @@ API di creazione per le app in pacchetto:
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
+Nella tabella seguente sono elencati i valori minimi e consigliati per l'host contenitore. I requisiti possono variare a seconda del volume di traffico.
 
-|Contenitore| Minima | Implementazione consigliata | PROGRAMMI<br>(Minimo, massimo)|
+|Contenitore| Minima | Consigliato | PROGRAMMI<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
@@ -108,7 +108,7 @@ La directory di montaggio dell'input può contenere contemporaneamente i modelli
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Versione|GET, POST|Solo contenitore|`{APP_ID}_v{APP_VERSION}.gz`|
-|Staging|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
+|Gestione temporanea|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
 |Produzione|GET, POST|Azure e contenitore|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -237,11 +237,11 @@ Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-r
 
 Con il contenitore sono disponibili entrambe le versioni V2 e [v3](luis-migration-api-v3.md) dell'API.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
+## <a name="query-the-containers-prediction-endpoint"></a>Eseguire una query sull'endpoint di stima del contenitore
 
-Il contenitore fornisce API dell'endpoint di stima di query basate su REST. Gli endpoint per le app pubblicate (gestione temporanea o produzione) hanno una route _diversa_ rispetto agli endpoint per le app con versione.
+Il contenitore fornisce le API dell'endpoint di stima della query basata su REST. Gli endpoint per le app pubblicate (gestione temporanea o produzione) hanno una route _diversa_ rispetto agli endpoint per le app con versione.
 
-Usare l'host, `http://localhost:5000`, per le API del contenitore.
+Usare l'host `http://localhost:5000` per le API del contenitore.
 
 # <a name="v3-prediction-endpoint"></a>[Endpoint di previsione V3](#tab/v3)
 
@@ -252,7 +252,7 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Type|Scopo|
+|Query parameter (Parametro di query)|Tipo|Scopo|
 |--|--|--|
 |`query`|string|Espressione dell'utente.|
 |`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. L'impostazione predefinita è false.|
@@ -268,7 +268,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Type|Scopo|
+|Query parameter (Parametro di query)|Tipo|Scopo|
 |--|--|--|
 |`q`|string|Espressione dell'utente.|
 |`timezoneOffset`|d'acquisto|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|

@@ -1,5 +1,5 @@
 ---
-title: Creare un pool di host in Desktop virtuale Windows con PowerShell - Azure
+title: 'Creazione di desktop virtuale Windows: pool host 2019 PowerShell-Azure'
 description: Come creare un pool di host in Desktop virtuale Windows con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79bd13deb66998c8a1acde28774b47fd567d368c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204711"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527643"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 

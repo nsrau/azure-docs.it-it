@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76842402"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526504"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori file system
 
@@ -72,9 +73,9 @@ Questo problema può verificarsi se il file system non è stato arrestato in mod
 
 Per Linux sono disponibili diversi file system Checker. I più comuni per le distribuzioni in Azure sono: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
-Per risolvere il problema, avviare la macchina virtuale in modalità di emergenza usando la [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) e usare tale strumento per ripristinare la file System. Se la console seriale non è abilitata nella macchina virtuale o non funziona, vedere la sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) di questo articolo.
+Per risolvere il problema, avviare la macchina virtuale in modalità di emergenza usando la [console seriale](./serial-console-linux.md) e usare tale strumento per ripristinare la file System. Se la console seriale non è abilitata nella macchina virtuale o non funziona, vedere la sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) di questo articolo.
 
 ## <a name="use-the-serial-console"></a>Usare la console seriale
 
@@ -82,8 +83,8 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
    > [!Note]
    > Per ulteriori informazioni sull'utilizzo della console seriale per Linux, vedere:
-   > * [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Usare la console seriale per le chiamate SysRq e NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](../linux/serial-console-grub-single-user-mode.md)
+   > * [Usare la console seriale per le chiamate SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selezionare il pulsante icona di alimentazione, quindi selezionare Riavvia macchina virtuale. Se la console seriale non è abilitata o non è connessa correttamente, il pulsante non verrà visualizzato.
 
@@ -133,7 +134,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
 ## <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
-1. Alleghi il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi VM Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) della riga di comando oppure è possibile automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Alleghi il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi VM Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia](./troubleshoot-recovery-disks-linux.md) della riga di comando oppure è possibile automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Individuare l'etichetta dell'unità del disco di sistema collegato. In questo caso, si presuppone che l'etichetta del disco di sistema collegato sia/dev/sdc1. Sostituirlo con il valore appropriato per la macchina virtuale.
 
@@ -177,6 +178,5 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Usare il portale per collegare un disco dati a una macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Usare il portale per collegare un disco dati a una macchina virtuale Linux](../linux/attach-disk-portal.md)

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: fc4e8766f77a41a3a53e3db3098a6d9cefd628d6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 306983e612793eb92dd95fe57e7177da17874893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525433"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitoraggio di Azure per soluzioni SAP (anteprima)
 
 ## <a name="overview"></a>Panoramica  
 
-Monitoraggio di Azure per le soluzioni SAP è un prodotto di monitoraggio nativo di Azure per i clienti che esegue i loro paesaggi SAP in Azure. Il prodotto è compatibile con [SAP in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started) e [SAP in istanze large di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+Monitoraggio di Azure per le soluzioni SAP è un prodotto di monitoraggio nativo di Azure per i clienti che esegue i loro paesaggi SAP in Azure. Il prodotto è compatibile con [SAP in macchine virtuali di Azure](./hana-get-started.md) e [SAP in istanze large di Azure](./hana-overview-architecture.md).  
 Con monitoraggio di Azure per le soluzioni SAP, i clienti possono raccogliere dati di telemetria dall'infrastruttura e dai database di Azure in una posizione centrale e correlare visivamente i dati di telemetria per una risoluzione dei problemi più rapida.  
 
 Il monitoraggio di Azure per le soluzioni SAP è disponibile tramite Azure Marketplace. Offre un'esperienza di installazione semplice e intuitiva e richiede solo pochi clic per distribuire la risorsa per monitoraggio di Azure per le soluzioni SAP, nota come **risorsa di monitoraggio SAP**.  
@@ -42,7 +42,7 @@ Database supportati:
 - Database SAP HANA 
 - Microsoft SQL Server  
 
-Monitoraggio di Azure per le soluzioni SAP sfrutta la potenza delle funzionalità di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) esistenti, ad esempio log Analytics e [cartelle di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) per fornire funzionalità di monitoraggio aggiuntive. I clienti possono creare [visualizzazioni personalizzate](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview#getting-started) modificando le cartelle di lavoro predefinite fornite da monitoraggio di Azure per le soluzioni SAP, scrivere [query personalizzate](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e creare [avvisi personalizzati](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) usando l'area di lavoro di Azure log Analytics, sfruttare il [periodo di conservazione flessibile](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e connettere i dati di monitoraggio con il proprio sistema di ticket.
+Monitoraggio di Azure per le soluzioni SAP sfrutta la potenza delle funzionalità di [monitoraggio di Azure](../../../azure-monitor/overview.md) esistenti, ad esempio log Analytics e [cartelle di lavoro](../../../azure-monitor/platform/workbooks-overview.md) per fornire funzionalità di monitoraggio aggiuntive. I clienti possono creare [visualizzazioni personalizzate](../../../azure-monitor/platform/workbooks-overview.md#getting-started) modificando le cartelle di lavoro predefinite fornite da monitoraggio di Azure per le soluzioni SAP, scrivere [query personalizzate](../../../azure-monitor/log-query/get-started-portal.md) e creare [avvisi personalizzati](../../../azure-monitor/learn/tutorial-response.md) usando l'area di lavoro di Azure log Analytics, sfruttare il [periodo di conservazione flessibile](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e connettere i dati di monitoraggio con il proprio sistema di ticket.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quali dati vengono raccolti da monitoraggio di Azure per le soluzioni SAP?
 
@@ -87,11 +87,11 @@ I componenti principali dell'architettura sono:
 - Monitoraggio di Azure per la risorsa soluzioni SAP: un posto di destinazione per i clienti per visualizzare i dati di telemetria del monitoraggio 
 - Gruppo di risorse gestite: distribuito automaticamente come parte del monitoraggio di Azure per la distribuzione delle risorse di soluzioni SAP. Le risorse distribuite nel gruppo di risorse gestite contribuiscono alla raccolta dei dati di telemetria. Le risorse chiave distribuite e il loro scopo sono:  
    - Macchina virtuale di Azure: nota anche come macchina virtuale dell' *agente di raccolta*. Si tratta di una macchina virtuale Standard_B2ms. Lo scopo principale di questa macchina virtuale è ospitare il *payload di monitoraggio*. Il monitoraggio del payload si riferisce alla logica di raccolta dei dati di telemetria dai sistemi di origine e al trasferimento dei dati raccolti al Framework di monitoraggio. Nel diagramma precedente il payload di monitoraggio contiene la logica per connettersi al database SAP HANA sulla porta SQL.
-   - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts): questa risorsa viene distribuita per contenere in modo sicuro SAP Hana le credenziali del database e per archiviare le informazioni sui [provider](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers).  
+   - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): questa risorsa viene distribuita per contenere in modo sicuro SAP Hana le credenziali del database e per archiviare le informazioni sui [provider](./azure-monitor-providers.md).  
    - Area di lavoro Log Analytics: destinazione in cui risiedono i dati di telemetria.  
-      - La visualizzazione è basata sui dati di telemetria in Log Analytics usando le [cartelle di lavoro di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). I clienti possono personalizzare la visualizzazione. I clienti possono anche aggiungere le proprie cartelle di lavoro o una visualizzazione specifica all'interno delle cartelle di lavoro nel dashboard di Azure per la funzionalità di aggiornamento automatico con una granularità minima di 30 minuti.  
+      - La visualizzazione è basata sui dati di telemetria in Log Analytics usando le [cartelle di lavoro di Azure](../../../azure-monitor/platform/workbooks-overview.md). I clienti possono personalizzare la visualizzazione. I clienti possono anche aggiungere le proprie cartelle di lavoro o una visualizzazione specifica all'interno delle cartelle di lavoro nel dashboard di Azure per la funzionalità di aggiornamento automatico con una granularità minima di 30 minuti.  
       - I clienti possono usare l'area di lavoro esistente nella stessa sottoscrizione della risorsa di monitoraggio SAP scegliendo questa opzione al momento della distribuzione. 
-      - I clienti possono utilizzare kusto Query Language (KQL) per eseguire [query](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) sulle tabelle non elaborate all'interno log Analytics area di lavoro. Esaminare i *log personalizzati*.  
+      - I clienti possono utilizzare kusto Query Language (KQL) per eseguire [query](../../../azure-monitor/log-query/log-query-overview.md) sulle tabelle non elaborate all'interno log Analytics area di lavoro. Esaminare i *log personalizzati*.  
 
 > [!Note]
 > I clienti sono responsabili dell'applicazione di patch e della gestione della macchina virtuale, distribuita nel gruppo di risorse gestite.  
@@ -113,5 +113,5 @@ Monitoraggio di Azure per le soluzioni SAP è un prodotto gratuito (nessuna tari
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sui provider e creare la prima risorsa di monitoraggio di Azure per soluzioni SAP.
- - Altre informazioni sui [provider](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers)
- - Hai domande su monitoraggio di Azure per le soluzioni SAP? Vedere la sezione [domande frequenti](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+ - Altre informazioni sui [provider](./azure-monitor-providers.md)
+ - Hai domande su monitoraggio di Azure per le soluzioni SAP? Vedere la sezione [domande frequenti](./azure-monitor-faq.md)

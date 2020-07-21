@@ -1,14 +1,14 @@
 ---
-title: Usare i servizi cognitivi NLP per arricchire le conversazioni
+title: Usare la PNL con LUIS per la chat bot
 description: Servizi cognitivi offre due servizi di elaborazione del linguaggio naturale, Language Understanding e QnA Maker, ciascuno con uno scopo diverso. Comprendere quando utilizzare ogni servizio e il modo in cui si complimentano tra loro.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0a7d1ebd652be96e546df488af31ffe868dbab90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: beaa8b7033aeff3958632b3703323754e5ad5084
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524472"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>USA Servizi cognitivi con l'elaborazione del linguaggio naturale (PNL) per arricchire le conversazioni bot
 

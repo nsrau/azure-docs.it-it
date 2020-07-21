@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362374"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524302"
 ---
 # <a name="add-parameters-to-commands"></a>Aggiungere parametri ai comandi
 
@@ -54,16 +54,19 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nome               | `OnOff`           | Nome descrittivo per il parametro                                                                           |
        | È globale          | unchecked       | Casella di controllo che indica se un valore per questo parametro viene applicato globalmente a tutti i comandi nell'applicazione|
-       | Obbligatoria           | checked         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando |
+       | Necessario           | checked         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando |
        | Risposta per il parametro obbligatorio      |Editor semplice >`On or Off?`      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto |
-       | Type               | String          | Tipo di parametro, ad esempio numero, stringa, data/ora o geografia   |
+       | Type               | Stringa          | Tipo di parametro, ad esempio numero, stringa, data/ora o geografia   |
        | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | Per le stringhe, questo limita gli input a un set di valori possibili. |
        | Valori di input predefiniti     | `on`, `off`           | Set di valori possibili e relativi alias         |
        
         
    1. Per aggiungere valori di input predefiniti, selezionare **Aggiungi un input predefinito** e nella finestra **nuovo elemento** digitare **nome** come indicato nella tabella precedente. In questo caso, gli alias non vengono usati, quindi è possibile lasciarli vuoti. 
+
     > [!div class="mx-imgBorder"]
-        > ![Crea parametro](media/custom-commands/create-on-off-parameter.png)
+
+    > ![Crea parametro](media/custom-commands/create-on-off-parameter.png)
+
    1. Selezionare **Save (Salva** ) per salvare tutte le configurazioni del parametro.
  
  ### <a name="add-subjectdevice-parameter"></a>Aggiungi parametro SubjectDevice 
@@ -75,9 +78,9 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
        | ------------------ | --------------------- |
        | Nome               | `SubjectDevice`         |
        | È globale          | unchecked             |
-       | Obbligatoria           | checked               |
+       | Necessario           | checked               |
        | Risposta per il parametro obbligatorio     | Editor semplice >`Which device do you want to control?`    | 
-       | Type               | String                |          |
+       | Type               | Stringa                |          |
        | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | 
        | Valori di input predefiniti | `tv`, `fan`               |
        | Alias ( `tv` )      | `television`, `telly`     |
@@ -104,7 +107,7 @@ turn something {OnOff}
 turn something
 ```
 
-Seleziona **Salva**.
+Selezionare **Salva**.
 
 > [!TIP]
 > Nell'editor frasi di esempio usare le parentesi graffe per fare riferimento ai parametri. - `turn {OnOff} the {SubjectDevice}`Usare TAB per il completamento automatico supportato da parametri creati in precedenza.
@@ -121,9 +124,9 @@ Modificare la regola di completamento esistente **ConfirmationResponse**.
     ```
     Ok, turning the {SubjectDevice} {OnOff}
     ```
-1. Seleziona **Salva**.
+1. Selezionare **Salva**.
 
-### <a name="try-it-out"></a>Procedura
+### <a name="try-it-out"></a>Provare questa operazione
 1. Selezionare l'icona del **Training** presente nella parte superiore del riquadro destro.
 
 1. Al termine del training, selezionare **test**. Verrà visualizzato un test della finestra **dell'applicazione** .
@@ -147,7 +150,7 @@ Aggiungere la **temperatura** del nuovo parametro con la configurazione seguente
 | Configurazione      | Valore consigliato     |
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
-| Obbligatoria           | checked         |
+| Necessario           | checked         |
 | Risposta per il parametro obbligatorio      | Editor semplice >`What temperature would you like?`
 | Type               | Number          |
 
@@ -168,7 +171,7 @@ Modificare le regole di completamento esistenti in base alla configurazione segu
 | Condizioni         | Temperatura > parametro obbligatorio           |
 | Azioni           | Invia risposta vocale >`Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Procedura
+### <a name="try-it-out"></a>Provare questa operazione
 
 Eseguire il **Training** e il **test** delle modifiche con alcune interazioni.
 
@@ -184,7 +187,7 @@ Aggiungere un parametro denominato **DateTime** con la configurazione seguente.
    | Impostazione                           | Valore consigliato                     | 
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
-   | Obbligatoria                          | checked                                 |
+   | Necessario                          | checked                                 |
    | Risposta per il parametro obbligatorio   | Editor semplice >`For what time?`            | 
    | Type                              | Datetime                                |
    | Impostazioni predefinite data                     | Se la data non è presente, usare oggi            |
@@ -210,7 +213,7 @@ Modificare le regole di completamento esistenti in base alla configurazione segu
    | Azioni    | Invia risposta vocale-`Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Procedura
+### <a name="try-it-out"></a>Provare questa operazione
 
 Eseguire il **Training** e **testare** le modifiche.
 - Input: impostare la sveglia per domani a mezzogiorno

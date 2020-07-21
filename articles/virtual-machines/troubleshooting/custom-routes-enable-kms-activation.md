@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c2050969e95b521554bba100b688add3a987a80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526742"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L'attivazione di Windows ha esito negativo in uno scenario di tunneling forzato
 
@@ -43,7 +43,7 @@ L'indirizzo IP 23.102.135.246 è l'indirizzo del server di gestione delle chiavi
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Germania|kms.core.cloudapi.de|51.4.143.248|
 |Azure US Government|kms.core.usgovcloudapi.net|23.97.0.13|
-|Azure Cina 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
+|21Vianet per Azure Cina|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
 Per aggiungere la route personalizzata, seguire questa procedura:
@@ -53,9 +53,9 @@ Per aggiungere la route personalizzata, seguire questa procedura:
  
 
 > [!NOTE] 
-> L'attivazione usa indirizzi IP pubblici e sarà interessata da uno SKU standard Load Balancer la configurazione. Per informazioni sui requisiti, vedere attentamente le [connessioni in uscita in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) .
+> L'attivazione usa indirizzi IP pubblici e sarà interessata da uno SKU standard Load Balancer la configurazione. Per informazioni sui requisiti, vedere attentamente le [connessioni in uscita in Azure](../../load-balancer/load-balancer-outbound-connections.md) .
 
-1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](/powershell/azure/authenticate-azureps).
 2. Eseguire i comandi seguenti:
 
     ```powershell
@@ -77,7 +77,7 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
+3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
     ```console
     psping kms.core.windows.net:1688
@@ -89,7 +89,7 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](/powershell/azure/authenticate-azureps).
 2. Eseguire i comandi seguenti:
 
     ```powershell
@@ -107,7 +107,7 @@ Per aggiungere la route personalizzata, seguire questa procedura:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
+3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
     ```console
     psping kms.core.windows.net:1688
@@ -117,7 +117,5 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Chiavi di configurazione di client del Servizio di gestione delle chiavi](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
-)
-- [Review and Select Activation Methods](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
-) (Esaminare e selezionare i metodi di attivazione)
+- [Chiavi di configurazione di client del Servizio di gestione delle chiavi](/windows-server/get-started/kmsclientkeys)
+- [Review and Select Activation Methods](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11)) (Esaminare e selezionare i metodi di attivazione)

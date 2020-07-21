@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510816"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528384"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Abilitare l'eliminazione temporanea in condivisioni file di Azure
 
@@ -33,7 +33,7 @@ Le sezioni seguenti illustrano come abilitare e usare l'eliminazione temporanea 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client file. Nell'esempio seguente viene abilitata l'eliminazione temporanea per tutte le condivisioni file in un account di archiviazione:
+I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.1-Preview del modulo AZ. storage. Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client file. Nell'esempio seguente viene abilitata l'eliminazione temporanea per tutte le condivisioni file in un account di archiviazione:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -70,7 +70,7 @@ Per ripristinare una condivisione file eliminata temporaneamente:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per ripristinare una condivisione file temporaneamente eliminata, usare il comando seguente:
+I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.1-Preview del modulo AZ. storage. Per ripristinare una condivisione file temporaneamente eliminata, usare il comando seguente:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -91,7 +91,7 @@ Per interrompere l'uso dell'eliminazione temporanea o eliminare definitivamente 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per disabilitare l'eliminazione temporanea nell'account di archiviazione è possibile usare il comando seguente:
+I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.1-Preview del modulo AZ. storage. Per disabilitare l'eliminazione temporanea nell'account di archiviazione è possibile usare il comando seguente:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

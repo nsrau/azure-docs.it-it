@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527881"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
@@ -117,7 +118,7 @@ In questo esempio, AzCopy trasferisce la `C:\myDirectory\photos` Directory e il 
 
 #### <a name="use-wildcard-characters"></a>Usa caratteri jolly
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin ( `;` ).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con un punto e virgola ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -188,7 +189,7 @@ Questo esempio genera una directory denominata `C:\myDirectory\myFileShareDirect
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file tramite semicolin ( `;` ).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file usando un punto e virgola ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ In questo esempio, AzCopy trasferisce la `https://mystorageaccount.file.core.win
 
 #### <a name="use-wildcard-characters"></a>Usa caratteri jolly
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin ( `;` ).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con un punto e virgola ( `;` ).
 
 |    |     |
 |--------|-----------|

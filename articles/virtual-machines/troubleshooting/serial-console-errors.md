@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526436"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Errori comuni nella console seriale di Azure
 Nella console seriale di Azure è presente un set di errori noti. Si tratta di un elenco di questi errori e dei relativi passaggi di mitigazione.
@@ -40,7 +40,7 @@ Non è possibile determinare il gruppo di risorse per l'account di archiviazione
 Il provisioning per questa macchina virtuale non è stato ancora completato. Assicurarsi che la macchina virtuale sia completamente distribuita e ripetere la connessione alla console seriale. | È ancora possibile eseguire il provisioning della macchina virtuale o del set di scalabilità di macchine virtuali. Attendere del tempo e riprovare.
 Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario aggiungere l'accesso al firewall a `*.console.azure.com` . Un approccio più dettagliato ma più lungo consiste nel consentire l'accesso del firewall agli [intervalli IP del data center Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), che cambiano abbastanza regolarmente.
 Console seriale non funziona con un account di archiviazione usando Azure Data Lake Storage Gen2 con spazi dei nomi gerarchici. | Si tratta di un problema noto con gli spazi dei nomi gerarchici. Per attenuare, verificare che l'account di archiviazione della diagnostica di avvio della macchina virtuale non venga creato con Azure Data Lake Storage Gen2. Questa opzione può essere impostata solo al momento della creazione dell'account di archiviazione. Potrebbe essere necessario creare un account di archiviazione di diagnostica di avvio separato senza Azure Data Lake Storage Gen2 abilitato per attenuare questo problema.
-Si è verificato un errore durante la connessione della console seriale alla macchina virtuale:' Forbidden ' (SubscriptionNotEnabled)-nome sottoscrizione non definito. ID \<subscription id> in stato non abilitato non definito | Questo problema può verificarsi se la sottoscrizione in cui un utente ha creato il Cloud Shell account di archiviazione è stata disabilitata. Per attenuare, avviare Cloud Shell ed [eseguire i passaggi necessari](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) per effettuare il provisioning di un account di archiviazione di supporto per cloud Shell nella sottoscrizione corrente.
+Si è verificato un errore durante la connessione della console seriale alla macchina virtuale:' Forbidden ' (SubscriptionNotEnabled)-nome sottoscrizione non definito. ID \<subscription id> in stato non abilitato non definito | Questo problema può verificarsi se la sottoscrizione in cui un utente ha creato il Cloud Shell account di archiviazione è stata disabilitata. Per attenuare, avviare Cloud Shell ed [eseguire i passaggi necessari](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) per effettuare il provisioning di un account di archiviazione di supporto per cloud Shell nella sottoscrizione corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulla [console seriale di Azure per macchine virtuali Linux](./serial-console-linux.md)

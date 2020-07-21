@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525416"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -85,7 +86,7 @@ I repository EUS (Extended Update Support) sono disponibili per i clienti che vo
 Al momento della stesura di questo articolo, il supporto per EUS è terminato per RHEL versione 7.4 e precedenti. Per ulteriori informazioni, vedere la sezione "Red Hat Enterprise Linux manutenzione estesa" della [documentazione di Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support) .
 * Il supporto per RHEL 7.4 EUS termina il 31 agosto 2019
 * Il supporto per RHEL 7.5 EUS termina il 30 aprile 2020
-* Il supporto per RHEL 7.6 EUS termina il 31 ottobre 2020
+* Il supporto per RHEL 7,6 EUS termina il 31 maggio 2021
 * Il supporto per RHEL 7.7 EUS termina il 30 agosto 2021
 
 ### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Abilitare EUS per una macchina virtuale RHEL (blocco della versione su una versione secondaria specifica)
@@ -167,7 +168,7 @@ Se si usa una configurazione di rete per limitare ulteriormente l'accesso da VM 
 >Le nuove immagini di Azure Government per il governo degli Stati Uniti, a partire dal 2020 gennaio, utilizzeranno un indirizzo IP pubblico menzionato in precedenza nell'intestazione globale di Azure.
 
 >[!NOTE]
->Si noti inoltre che Azure Germania è deprecato a favore delle aree pubbliche della Germania. Per i clienti di Azure Germania è consigliabile iniziare a puntare a RHUI pubblici seguendo [questa procedura.](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers)
+>Si noti inoltre che Azure Germania è deprecato a favore delle aree pubbliche della Germania. Per i clienti di Azure Germania è consigliabile iniziare a puntare a RHUI pubblici seguendo [questa procedura.](#manual-update-procedure-to-use-the-azure-rhui-servers)
 
 ## <a name="azure-rhui-infrastructure"></a>Infrastruttura RHUI di Azure
 

@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c298ee691b476fb58c567490ab2e62e45aba3e7c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526946"
 ---
 # <a name="updated-ndv2-series"></a>Serie NDv2 aggiornate
 
@@ -23,9 +24,9 @@ Le istanze di NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e 
 
 In modo critico, il NDv2 è progettato per la scalabilità verticale sia a livello di calcolo (sfruttando 8 GPU per macchina virtuale) sia per la scalabilità orizzontale (sfruttando più macchine virtuali che operano insieme) carichi di lavoro. La serie NDv2 supporta ora le reti back-end InfiniBand EDR 100-Gigabit, simili a quelle disponibili nella serie HB della VM HPC, per consentire il clustering a prestazioni elevate per gli scenari paralleli, incluso il training distribuito per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli usati dalle librerie NCCL2 di NVIDIA, consentendo un clustering di GPU senza problemi.
 
-> Quando si [Abilita InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
+> Quando si [Abilita InfiniBand](./workloads/hpc/enable-infiniband.md) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
 >
-> A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e immagini del Marketplace. 
+> A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](./windows/generation-2.md) e immagini del Marketplace. 
 >
 > Nota: la ND40s_v2 con 16 GB di memoria per GPU non è più disponibile in anteprima ed è stata sostituita dalla ND40rs_v2 aggiornata.
 

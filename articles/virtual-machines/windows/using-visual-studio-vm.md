@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525535"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è un modo semplice e rapido per avere subito a disposizione un ambiente di sviluppo pienamente operativo. In [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio.
@@ -23,7 +23,7 @@ L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è 
 Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Non tutte le sottoscrizioni sono idonee per la distribuzione di immagini di Windows 10. Per altre informazioni vedere [Usare client Windows in Azure per scenari di sviluppo/test](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Non tutte le sottoscrizioni sono idonee per la distribuzione di immagini di Windows 10. Per altre informazioni vedere [Usare client Windows in Azure per scenari di sviluppo/test](./client-images.md)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quali configurazioni e versioni sono disponibili?
 Le immagini per le versioni principali più recenti, Visual Studio 2019, Visual Studio 2017 e Visual Studio 2015, sono disponibili in Azure Marketplace.  Per ogni versione principale sono elencate la versione originariamente rilasciata sul Web (RTW) e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
@@ -77,9 +77,9 @@ Azure offre un'ampia gamma di macchine virtuali di diverse dimensioni. Poiché V
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Per altre informazioni sulle dimensioni delle macchine virtuali più recenti, vedere [Dimensioni per le macchine virtuali Windows in Azure](/azure/virtual-machines/windows/sizes).
+Per altre informazioni sulle dimensioni delle macchine virtuali più recenti, vedere [Dimensioni per le macchine virtuali Windows in Azure](./sizes.md).
 
-Con Azure è possibile optare per una soluzione diversa da quella iniziale ridimensionando la macchina virtuale. È possibile effettuare il provisioning di una nuova macchina virtuale con una dimensione più appropriata oppure ridimensionare la macchina virtuale esistente in base al diverso hardware sottostante. Per altre informazioni, vedere [Ridimensionare una VM Windows](/azure/virtual-machines/windows/resize-vm).
+Con Azure è possibile optare per una soluzione diversa da quella iniziale ridimensionando la macchina virtuale. È possibile effettuare il provisioning di una nuova macchina virtuale con una dimensione più appropriata oppure ridimensionare la macchina virtuale esistente in base al diverso hardware sottostante. Per altre informazioni, vedere [Ridimensionare una VM Windows](./resize-vm.md).
 
 ## <a name="after-the-vm-is-running-whats-next"></a>Che cosa si deve fare dopo che la macchina virtuale è in esecuzione?
 Visual Studio segue il modello "Bring Your Own License" di Azure. Come per un'installazione in hardware proprietario, uno dei primi passaggi è quello di associare una licenza all'installazione di Visual Studio. Per sbloccare Visual Studio:
@@ -96,7 +96,7 @@ In sintesi, usare l'Utilità preparazione sistema (Sysprep) e arrestare la macch
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.* </center>
 
-Per altre informazioni, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource).
+Per altre informazioni, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](./capture-image-resource.md).
 
 > [!IMPORTANT]
 > Non dimenticare di usare Sysprep per preparare la macchina virtuale. Se si omette questo passaggio, Azure non potrà effettuare il provisioning di una macchina virtuale in base a tale immagine.

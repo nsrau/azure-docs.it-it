@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di host sessione desktop virtuale di Windows-Azure
+title: Risolvere i problemi dell'host sessione desktop virtuale Windows 2019-Azure
 description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,21 +8,21 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362510"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527660"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Risolvere i problemi di configurazione della macchina virtuale host sessione
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-vm-configuration.md).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 

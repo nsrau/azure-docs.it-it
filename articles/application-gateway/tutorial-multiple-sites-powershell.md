@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b351a828c47058025247a3edd95f31dc6cc84295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806189"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524966"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Creare un gateway applicazione che ospita più siti Web tramite Azure PowerShell
 
@@ -30,7 +30,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Creare set di scalabilità di macchine virtuali con i pool back-end
 > * Creare un record CNAME nel dominio
 
-![Esempio di routing multisito](./media/tutorial-multiple-sites-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Gateway applicazione multisito":::
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -125,6 +125,10 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 I listener sono necessari per permettere al gateway applicazione di instradare il traffico ai pool di indirizzi back-end nel modo appropriato. In questo articolo vengono creati due listener per i due domini. Vengono creati i listener per i domini *contoso.com* e *Fabrikam.com* .
 
 Creare il primo listener usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end create in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *contosoRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+
+>[!NOTE]
+> Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
+>Per usare più nomi host e caratteri jolly in un listener usando Azure PowerShell, è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio: `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

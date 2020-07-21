@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527456"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -114,12 +115,12 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:** Come viene gestita la quota per spot?
 
-**R:** Le istanze di spot e le istanze standard avranno pool di quote distinti. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** Le istanze di spot e le istanze standard avranno pool di quote distinti. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **D:** È possibile richiedere una quota aggiuntiva per le macchine virtuali spot?
 
-**R:** Sì, è possibile inviare la richiesta di aumento della quota per le macchine virtuali spot attraverso il [processo di richiesta di quota standard](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sì, è possibile inviare la richiesta di aumento della quota per le macchine virtuali spot attraverso il [processo di richiesta di quota standard](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **D:** È possibile convertire I set di scalabilità esistenti in set di scalabilità spot?
@@ -157,7 +158,7 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Sì                               |
 | Pagamento in base al consumo                | Sì                               |
-| Provider di servizi cloud | [Contattare il partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Provider di servizi cloud | [Contattare il partner](/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
 | Sponsorizzato                    | Sì                               |
 | Versione di valutazione gratuita                   | Non disponibile                     |
@@ -165,7 +166,7 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:** Dove è possibile pubblicare le domande?
 
-**R:** È possibile pubblicare e contrassegnare la domanda con `azure-spot` in [Domande e risposte](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** È possibile pubblicare e contrassegnare la domanda con `azure-spot` in [Domande e risposte](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

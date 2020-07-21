@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528401"
 ---
 # <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
 
@@ -188,12 +189,16 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Elimina         | x              | Eliminare una versione BLOB. |
+| Delete         | x              | Eliminare una versione BLOB. |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
 Il controllo delle versioni dei BLOB è disponibile in anteprima nelle aree seguenti:
 
+- Stati Uniti orientali 2
+- Stati Uniti centrali
+- Europa settentrionale
+- Europa occidentale
 - Francia centrale
 - Canada orientale
 - Canada centrale

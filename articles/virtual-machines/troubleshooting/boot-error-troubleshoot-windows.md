@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526759"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L'arresto della macchina virtuale Windows di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi
 
@@ -24,7 +25,7 @@ Questo articolo illustra i passaggi per risolvere i problemi relativi ai messagg
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, è possibile che nella schermata venga visualizzato il messaggio "riavvio", "arresto in corso" o "arresto dei servizi".
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, è possibile che nella schermata venga visualizzato il messaggio "riavvio", "arresto in corso" o "arresto dei servizi".
 
 ![Riavvio, arresto e arresto delle schermate dei servizi](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,7 +41,7 @@ Windows utilizza il processo di arresto per eseguire operazioni di manutenzione 
 
 2. Scollegare il disco contenente i file necessari dalla macchina virtuale funzionante e connettere il disco alla macchina virtuale interruppe. Viene chiamato il disco dell' **utilità**.
 
-Usare la [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) per completare i passaggi seguenti:
+Usare la [console seriale](./serial-console-windows.md) per completare i passaggi seguenti:
 
 1. Aprire una finestra di PowerShell amministrativa e verificare se il servizio smette di rispondere dopo l'arresto.
 
@@ -80,13 +81,13 @@ Se il problema non si risolve dopo l'attesa dell'elaborazione delle modifiche, �
 
 **Collegare il disco del sistema operativo alla macchina virtuale di ripristino**
 
-1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
-2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Connettersi tramite Desktop remoto alla macchina virtuale di ripristino.
 
-4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di procedere al passaggio successivo. Per altre informazioni, vedere [decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non può essere avviato](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di procedere al passaggio successivo. Per altre informazioni, vedere [decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non può essere avviato](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Individuare il file dump e inviare un ticket di supporto**
 
@@ -141,7 +142,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Scollegare il disco del sistema operativo e quindi riconnettere il disco del sistema operativo alla macchina virtuale interessata](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Scollegare il disco del sistema operativo e quindi riconnettere il disco del sistema operativo alla macchina virtuale interessata](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Avviare la macchina virtuale e accedere alla console seriale.
 

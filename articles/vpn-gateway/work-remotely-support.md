@@ -2,16 +2,17 @@
 title: 'Lavorare in remoto con P2S: gateway VPN di Azure'
 description: Questa pagina descrive come sfruttare il gateway VPN per abilitare il funzionamento in modalità remota a causa della pandemia COVID-19.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302706b67900bd0dd82aabfa750bba48918b134a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525365"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Lavorare in remoto con il gateway VPN di Azure da punto a sito
 

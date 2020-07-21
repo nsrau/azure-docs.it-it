@@ -3,15 +3,16 @@ title: Ripristinare macchine virtuali VMware con il server di Backup di Azure
 description: Usare server di Backup di Azure (MAB) per ripristinare le macchine virtuali VMware in esecuzione su un server VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524523"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
 
-Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per ripristinare i punti di ripristino delle macchine virtuali VMware. Per una panoramica sull'uso di MAB per ripristinare i dati, vedere [ripristinare i dati protetti](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). Nel Console di amministrazione di MAB sono disponibili due modi per trovare i dati ripristinabili, ovvero la ricerca o l'esplorazione. Durante il ripristino, può essere necessario o meno ripristinare i dati o le macchine virtuali nella stessa posizione. Per questo motivo, MAB supporta tre opzioni di ripristino per i backup di macchine virtuali VMware:
+Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per ripristinare i punti di ripristino delle macchine virtuali VMware. Per una panoramica sull'uso di MAB per ripristinare i dati, vedere [ripristinare i dati protetti](./backup-azure-alternate-dpm-server.md). Nel Console di amministrazione di MAB sono disponibili due modi per trovare i dati ripristinabili, ovvero la ricerca o l'esplorazione. Durante il ripristino, può essere necessario o meno ripristinare i dati o le macchine virtuali nella stessa posizione. Per questo motivo, MAB supporta tre opzioni di ripristino per i backup di macchine virtuali VMware:
 
 * **Ripristino nel percorso originale**: usare questa opzione per ripristinare una macchina virtuale protetta nel percorso originale. È possibile ripristinare una macchina virtuale nel percorso originale solo se non sono stati aggiunti o eliminati dischi, perché il backup è stato eseguito. In caso di aggiunta o eliminazione di dischi, è necessario usare il ripristino in un percorso alternativo.
 

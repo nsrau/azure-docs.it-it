@@ -1,5 +1,5 @@
 ---
-title: Personalizzare le proprietà RDP con PowerShell-Azure
+title: Personalizzare le proprietà RDP con PowerShell Spring 2020-Azure
 description: Come personalizzare le proprietà RDP per desktop virtuale Windows con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259921"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527762"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
+# <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizzare le proprietà di Remote Desktop Protocol (RDP) per un pool host
 
 >[!IMPORTANT]
 >Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
@@ -37,7 +37,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Abilitato | N/A |
+| Modalità multimonitor | Attivato | N/D |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 

@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772619"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526657"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
 
-Questo articolo descrive la risoluzione dei problemi di prestazioni generiche della macchina virtuale (VM) tramite il monitoraggio e l'osservazione dei colli di bottiglia e fornisce la possibile correzione per i problemi che possono verificarsi. Oltre al monitoraggio, è anche possibile usare Perfinsights che può fornire un report con le procedure consigliate e i colli di bottiglia delle chiavi per l'IO/CPU/memoria. Perfinsights è disponibile per le macchine virtuali [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) in Azure.
+Questo articolo descrive la risoluzione dei problemi di prestazioni generiche della macchina virtuale (VM) tramite il monitoraggio e l'osservazione dei colli di bottiglia e fornisce la possibile correzione per i problemi che possono verificarsi. Oltre al monitoraggio, è anche possibile usare Perfinsights che può fornire un report con le procedure consigliate e i colli di bottiglia delle chiavi per l'IO/CPU/memoria. Perfinsights è disponibile per le macchine virtuali [Windows](./how-to-use-perfinsights.md) e [Linux](./how-to-use-perfinsights-linux.md) in Azure.
 
 In questo articolo viene illustrato come usare il monitoraggio per diagnosticare i colli di bottiglia delle prestazioni.
 
@@ -29,7 +30,7 @@ In questo articolo viene illustrato come usare il monitoraggio per diagnosticare
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoraggio delle macchine virtuali IAAS di Azure
 
-Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
+Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
 
 ![Il monitoraggio non è abilitato](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -68,7 +69,7 @@ L'archiviazione è un livello molto importante quando si prevede di analizzare l
 
 Per configurare queste opzioni:
 
-1.  Selezionare **metrica**.
+1.  Selezionare **Metriche**.
 2.  Selezionare la **risorsa** (account di archiviazione).
 3.  Selezionare lo **spazio dei nomi**
 4.  Selezionare **metrica**.
@@ -100,7 +101,7 @@ Per individuare eventuali colli di bottiglia delle risorse, esaminare i dati. Se
 
 ### <a name="cpu-observe-trends"></a>Tendenze di osservazione CPU
 
-Quando si esaminano i problemi di prestazioni, tenere presenti le tendenze e comprendere se influiscono sull'utente. Nelle sezioni successive verranno usati i grafici di monitoraggio del portale per mostrare le tendenze. Possono inoltre essere utili per fare riferimento a differenze tra i comportamenti delle risorse nello stesso periodo di tempo. Per personalizzare i grafici, fare clic su [piattaforma dati di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+Quando si esaminano i problemi di prestazioni, tenere presenti le tendenze e comprendere se influiscono sull'utente. Nelle sezioni successive verranno usati i grafici di monitoraggio del portale per mostrare le tendenze. Possono inoltre essere utili per fare riferimento a differenze tra i comportamenti delle risorse nello stesso periodo di tempo. Per personalizzare i grafici, fare clic su [piattaforma dati di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md).
 
 Spiking: la chiodatura potrebbe essere correlata a un'attività pianificata o a un evento noto. Se è possibile identificare l'attività, determinare se l'attività viene eseguita al livello di prestazioni necessario. Se le prestazioni sono accettabili, potrebbe non essere necessario aumentare le risorse.
 
@@ -119,7 +120,7 @@ Se l'applicazione o il processo non è in esecuzione con il livello di prestazio
 
 Se la macchina virtuale è stata aumentata e la CPU è ancora in esecuzione 95%, determinare se questa impostazione offre prestazioni migliori o una velocità effettiva delle applicazioni superiore a un livello accettabile. In caso contrario, risolvere i problemi relativi a application\process. singoli
 
-È possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) per analizzare il processo che determina il consumo della CPU. 
+È possibile usare Perfinsights per [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md) per analizzare il processo che determina il consumo della CPU. 
 
 ## <a name="check-for-memory-bottleneck"></a>Verifica il collo di bottiglia della memoria
 
@@ -150,13 +151,13 @@ Per risolvere un utilizzo elevato della memoria, eseguire una delle attività se
 
 Se dopo l'aggiornamento a una macchina virtuale di dimensioni maggiori si scopre che è ancora presente un aumento costante costante fino al 100%, identificare l'applicazione, il processo e la risoluzione dei problemi.
 
-È possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) per analizzare il processo che determina il consumo di memoria. 
+È possibile usare Perfinsights per [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md) per analizzare il processo che determina il consumo di memoria. 
 
 ## <a name="check-for-disk-bottleneck"></a>Verifica il collo di bottiglia del disco
 
 Per controllare il sottosistema di archiviazione per la macchina virtuale, controllare la diagnostica a livello di macchina virtuale di Azure usando i contatori nella diagnostica della macchina virtuale e anche la diagnostica dell'account di archiviazione.
 
-Per la risoluzione dei problemi specifici della macchina virtuale, è possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), che consente di analizzare il processo che guida i/o. 
+Per la risoluzione dei problemi specifici della macchina virtuale, è possibile usare Perfinsights per [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md), che consente di analizzare il processo che guida i/o. 
 
 Si noti che non sono presenti contatori per gli account di archiviazione Premium e con ridondanza della zona. Per i problemi correlati a questi contatori, generare un caso di supporto.
 
@@ -207,9 +208,9 @@ Per determinare se si sta raggiungendo il limite di IOPS, passare alla diagnosti
 
 Con le nuove offerte di disco in archiviazione standard, i limiti di IOPS e velocità effettiva possono variare, ma il limite cumulativo dell'account di archiviazione standard è 20000 IOPS (archiviazione Premium presenta limiti diversi a livello di account o di disco). Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
 
-* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../windows/disk-scalability-targets.md).
 
-#### <a name="references"></a>Riferimenti
+#### <a name="references"></a>Bibliografia
 
 * [Obiettivi di scalabilità e prestazioni per gli account di archiviazione BLOB di pagine Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
@@ -223,19 +224,19 @@ Controllare i limiti di velocità effettiva dei dischi rigidi virtuali collegati
 
 Le nuove offerte di dischi con archiviazione standard hanno limiti di IOPS e velocità effettiva diversi (i IOPS non sono esposti per ogni disco rigido virtuale). Esaminare i dati per verificare se si stanno raggiungendo i limiti della velocità effettiva combinata di MB dei dischi rigidi virtuali a livello di macchina virtuale usando la lettura e la scrittura su disco, quindi ottimizzare la configurazione dell'archiviazione delle macchine virtuali per ridimensionare i limiti del disco rigido virtuale precedenti. Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
 
-* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../windows/disk-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Monitoraggio e aggiornamento latenza elevata del disco
 
 Ridurre la latenza del client e ottimizzare i/o delle VM per scalare i limiti precedenti
 
-* [Ottimizzazione di IO per Windows in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Ottimizzazione di IO per Windows in Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Ottimizzazione di IO per Linux in Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Ottimizzazione di IO per Linux in Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>Riduzione della limitazione
 
-Se si raggiungono i limiti superiori degli account di archiviazione, bilanciare nuovamente i dischi rigidi virtuali tra gli account di archiviazione. Vedere [obiettivi di scalabilità e prestazioni per archiviazione di Azure](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+Se si raggiungono i limiti superiori degli account di archiviazione, bilanciare nuovamente i dischi rigidi virtuali tra gli account di archiviazione. Vedere [obiettivi di scalabilità e prestazioni per archiviazione di Azure](../../storage/common/scalability-targets-standard-account.md).
 
 ### <a name="increase-throughput-and-reduce-latency"></a>Aumentare la velocità effettiva e ridurre la latenza
 
@@ -243,9 +244,9 @@ Se si ha un'applicazione sensibile alla latenza e si richiede una velocità effe
 
 Questi articoli illustrano gli scenari specifici:
 
-* [Migrazione ad Archiviazione Premium di Azure](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migrazione ad Archiviazione Premium di Azure](../windows/migrate-to-managed-disks.md)
 
-* [Usare archiviazione Premium di Azure con SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Usare archiviazione Premium di Azure con SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

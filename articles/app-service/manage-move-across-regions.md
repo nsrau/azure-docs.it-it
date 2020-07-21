@@ -4,14 +4,14 @@ description: Informazioni su come spostare le risorse del servizio app da un'are
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945478"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524855"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
+# <a name="move-an-app-service-resource-to-another-region"></a>Spostare una risorsa del servizio app in un'altra area
 
 Questo articolo descrive come spostare le risorse del servizio app in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area di Azure, per distribuire le funzionalità o i servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità.
 
@@ -25,7 +25,7 @@ Per semplificare la copia dell'app, è possibile [clonare una singola app del se
 - Assicurarsi che l'area di destinazione supporti il servizio app e qualsiasi servizio correlato, di cui si desidera spostare le risorse.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 

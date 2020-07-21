@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526036"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -138,7 +138,7 @@ Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni 
 Una richiesta I/O è un'unità di operazioni di input/output che verrà eseguita dall'applicazione. L'identificazione della natura delle richieste I/O, ovvero casuali o sequenziali, di lettura o scrittura, grandi o piccole, consentirà di determinare i requisiti relativi alle prestazioni per l'applicazione. È importante comprendere la natura delle richieste I/O, in modo da prendere le decisioni corrette durante la progettazione dell'infrastruttura dell'applicazione. Le richieste I/O devono essere distribuite in modo uniforme per ottenere le migliori prestazioni possibili.
 
 La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O sono le dimensioni della richiesta di operazioni di input/output generata dall'applicazione. Le dimensioni di I/O hanno un impatto significativo sulle prestazioni, in particolare sui valori di IOPS e larghezza di banda che l'applicazione è in grado di ottenere. La formula seguente illustra la relazione tra IOPS, dimensioni di I/O e larghezza di banda/velocità effettiva.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Diagramma che mostra l'equazione i O P S volte che la dimensione è uguale alla velocità effettiva.](media/premium-storage-performance/image1.png)
 
 Alcune applicazioni consentono di modificare le relative dimensioni di I/O, mentre altre applicazioni non lo consentono. Ad esempio, SQL Server determina automaticamente le dimensioni di I/O ottimali e non fornisce agli utenti manopole per la modifica. D'altra parte, Oracle fornisce un parametro denominato [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) che consente di configurare la dimensione delle richieste I/O del database.
 
@@ -154,7 +154,7 @@ Se si usa un'applicazione che consente la modifica delle dimensioni di I/O, usar
 
 Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di banda/velocità effettiva per l'applicazione. Prendere in considerazione un'applicazione che usa un disco P30. Il valore massimo di IOPS e larghezza di banda/velocità effettiva che può essere raggiunto da un disco P30 è pari a 5000 IOPS e 200 MB al secondo, rispettivamente. Se l'applicazione richiede il valore di IOPS massimo dal disco P30 e si usano dimensioni di I/O minori, ad esempio 8 KB, il valore di larghezza di banda risultante che si potrà ottenere è pari a 40 MB al secondo. Se l'applicazione richiede il valore massimo di larghezza di banda/velocità effettiva dal disco P30 e si usano dimensioni di I/O maggiori, ad esempio 1024 KB, il valore di IOPS risultante sarà più basso, ad esempio 200 IOPS. È quindi necessario perfezionare le dimensioni di I/O in modo che soddisfino i requisiti relativi a IOPS e velocità effettiva/larghezza di banda dell'applicazione. La tabella seguente riepiloga le diverse dimensioni di I/O e i valori di IOPS e velocità effettiva corrispondenti per un disco P30.
 
-| Requisiti dell'applicazione | Dimensioni di I/O | IOPS | Velocità effettiva/Larghezza di banda |
+| Requisiti dell'applicazione | Dimensioni di I/O | Operazioni di I/O al secondo | Velocità effettiva/Larghezza di banda |
 | --- | --- | --- | --- |
 | Operazioni di I/O al secondo max |8 KB |5\.000 |40 MB al secondo |
 | Velocità effettiva massima |1024 KB |200 |200 MB al secondo |
@@ -371,13 +371,13 @@ In SQL Server ,ad esempio, l'impostazione del valore MAXDOP per una query su "4"
 
 *Profondità ottimale della coda*  
 Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente illustra la relazione tra IOPS, latenza e profondità della coda.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Un diagramma che mostra l'equazione I O P S volte latenza corrisponde alla profondità della coda.](media/premium-storage-performance/image6.png)
 
 È consigliabile non configurare la profondità della coda su un valore elevato, specificando invece un valore ottimale, in grado di offrire un numero di IOPS sufficiente per l'applicazione, senza influire sulle latenze. Ad esempio, se la latenza dell'applicazione deve essere pari a 1 millisecondo, la profondità della coda necessaria per ottenere 5.000 IOPS sarà QD = 5000 x 0,001 = 5.
 
 *Profondità della coda per un volume con striping*  
 Per un volume con striping è consigliabile mantenere una profondità della coda sufficientemente elevata da consentire a ogni disco di avere individualmente un picco di profondità della coda. Ad esempio, si consideri un'applicazione che effettua il push di una profondità della coda pari a 2 e lo striping include quattro dischi. Le due richieste I/O verranno trasmesse a due dischi e i due dischi rimanenti saranno inattivi. È quindi consigliabile configurare la profondità della coda in modo che tutti i dischi siano occupati. La formula seguente illustra come determinare la profondità della coda dei volumi con striping.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Diagramma che mostra l'equazione Q D per disco volte il numero di colonne per volume è uguale a Q D del volume con striping.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitazione
 

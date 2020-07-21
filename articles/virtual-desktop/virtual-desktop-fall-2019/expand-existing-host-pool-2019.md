@@ -1,5 +1,5 @@
 ---
-title: Espandi pool host esistente con nuovi host sessione-Azure
+title: Espandi pool host esistente con nuovi host sessione rientri 2019-Azure
 description: Come espandere un pool di host esistente con nuovi host di sessione nel desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527541"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Espandi un pool di host esistente con nuovi host sessione (2019)
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../expand-existing-host-pool.md).
@@ -76,7 +76,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 [Per eseguire il provisioning di un nuovo pool host](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](create-host-pools-azure-marketplace-2019.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni scheda:
 
-### <a name="basics"></a>Operazioni di base
+### <a name="basics"></a>Informazioni di base
 
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 

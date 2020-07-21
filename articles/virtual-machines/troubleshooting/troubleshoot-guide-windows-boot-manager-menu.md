@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373349"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526540"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Impossibile avviare la macchina virtuale Windows a causa di Windows Boot Manager
 
@@ -29,7 +29,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui Windows Bo
 
 La macchina virtuale è bloccata in attesa di un prompt utente e non viene avviata a meno che non venga richiesto manualmente.
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato Windows Boot Manager con il messaggio *scegliere un sistema operativo da avviare oppure premere TAB per selezionare uno strumento:*.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato Windows Boot Manager con il messaggio *scegliere un sistema operativo da avviare oppure premere TAB per selezionare uno strumento:*.
 
 Figura 1
  
@@ -53,7 +53,7 @@ Panoramica del processo:
 
 Se si ha accesso alla console seriale, è possibile ottenere tempi di avvio più rapidi in due modi. Ridurre il tempo di attesa *DISPLAYBOOTMENU* oppure rimuovere completamente il flag.
 
-1. Seguire le istruzioni per accedere alla [console seriale di Azure per Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) per accedere alla console basata su testo.
+1. Seguire le istruzioni per accedere alla [console seriale di Azure per Windows](./serial-console-windows.md) per accedere alla console basata su testo.
 
    > [!NOTE]
    > Se non si riesce ad accedere alla console seriale, passare a [creare e accedere a una macchina virtuale di ripristino](#create-and-access-a-repair-vm).
@@ -77,7 +77,7 @@ Se si ha accesso alla console seriale, è possibile ottenere tempi di avvio più
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurare per tempi di avvio più rapidi in una macchina virtuale di ripristino
@@ -154,4 +154,4 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 ### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per riassemblare la macchina virtuale.

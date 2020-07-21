@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025130"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525042"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Eseguire il backup di macchine virtuali del carico di lavoro nel cloud privato CloudSimple usando Veeam B&R
 
@@ -194,7 +195,7 @@ Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configurare l'archiviazione BLOB di Azure per la conservazione dei dati a lungo termine
 
 1. Creare un account di archiviazione per utilizzo generico (GPv2) di tipo standard e un contenitore BLOB come descritto nel Introduzione video Microsoft [con archiviazione di Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
-2. Creare un contenitore di archiviazione di Azure, come descritto in creare un riferimento al [contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container) .
+2. Creare un contenitore di archiviazione di Azure, come descritto in creare un riferimento al [contenitore](/rest/api/storageservices/create-container) .
 2. Scaricare l' `azcopy` utilità da riga di comando per Linux da Microsoft. È possibile usare i comandi seguenti nella shell bash in CentOS 7,5.
 
     ```
@@ -205,7 +206,7 @@ Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in
     sudo yum -y install icu
     ```
 
-3. Usare il `azcopy` comando per copiare i file di backup da e verso il contenitore BLOB.  Per i comandi dettagliati, vedere [trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-linux.md) .
+3. Usare il `azcopy` comando per copiare i file di backup da e verso il contenitore BLOB.  Per i comandi dettagliati, vedere [trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-v10.md) .
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>Console vCenter del cloud privato: installare Veeam B&R
 
@@ -259,7 +260,7 @@ Creare una regola del firewall usando per consentire al server di backup Veeam d
 
 Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 
 ### <a name="cloudsimple-references"></a>Riferimenti a CloudSimple
 
@@ -290,8 +291,8 @@ Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](esc
 * [Creare una macchina virtuale Linux nel portale di Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Come collegare un disco dati gestito a una macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Introduzione con archiviazione di Azure-video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-linux.md)
+* [Create Container](/rest/api/storageservices/create-container)
+* [Trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### <a name="vmware-references"></a>Riferimenti VMware
 

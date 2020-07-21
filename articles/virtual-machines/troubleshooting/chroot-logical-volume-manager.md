@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74684138"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526878"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -28,7 +29,7 @@ Questa guida alla risoluzione dei problemi è utile per gli scenari in cui una V
 
 Eseguire uno snapshot della macchina virtuale interessata. 
 
-Lo snapshot verrà quindi collegato a una macchina virtuale di **ripristino** . Seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) per informazioni su come creare uno **snapshot**.
+Lo snapshot verrà quindi collegato a una macchina virtuale di **ripristino** . Seguire le istruzioni riportate [qui](../linux/snapshot-copy-managed-disk.md#use-azure-portal) per informazioni su come creare uno **snapshot**.
 
 ## <a name="create-a-rescue-vm"></a>Creare una macchina virtuale di ripristino
 È in genere consigliabile una macchina virtuale di ripristino della stessa versione del sistema operativo o di una versione simile. Usare la stessa **area** e il **gruppo di risorse** della VM interessata
@@ -189,7 +190,7 @@ Eseguire il comando **LVS** per verificare quali **LVS** sono disponibili per il
 
 Uscire dall'ambiente **chroot** montare la richiesta **LV**
 
-![Avanzato](./media/chroot-logical-volume-manager/advanced.png)
+![Avanzate](./media/chroot-logical-volume-manager/advanced.png)
 
 Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
@@ -197,18 +198,18 @@ Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
 Tutti LVs devono essere visibili come partizioni montate
 
-![Avanzato](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Eseguire una query sul **kernel** installato
 
-![Avanzato](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessario, rimuovere o aggiornare il **kernel** 
  ![ Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Esempio 3: abilitare la console seriale
-Se l'accesso non è stato possibile alla console seriale di Azure, verificare i parametri di configurazione di GRUB per la VM Linux e correggerli. Informazioni dettagliate sono disponibili [in questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+Se l'accesso non è stato possibile alla console seriale di Azure, verificare i parametri di configurazione di GRUB per la VM Linux e correggerli. Informazioni dettagliate sono disponibili [in questo documento](./serial-console-grub-proactive-configuration.md)
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Esempio 4: caricamento del kernel con un volume di swap LVM problematico
 
@@ -273,4 +274,4 @@ Altre informazioni su:
 
  [Console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
-[Modalità utente singolo](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[Modalità utente singolo](./serial-console-grub-single-user-mode.md)

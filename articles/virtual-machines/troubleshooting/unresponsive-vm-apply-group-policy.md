@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526011"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La macchina virtuale non risponde quando si applicano Criteri di gruppo criteri per utenti e gruppi locali
 
@@ -26,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui la scherma
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare uno screenshot della macchina virtuale, viene bloccato il caricamento dello schermo con il messaggio: "applicazione criteri di gruppo criteri di utenti e gruppi locali".
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare uno screenshot della macchina virtuale, viene bloccato il caricamento dello schermo con il messaggio: "applicazione criteri di gruppo criteri di utenti e gruppi locali".
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot dell'applicazione del caricamento del criterio Utenti e gruppi locali di Criteri di gruppo (Windows Server 2012 R2).":::
 
@@ -57,7 +58,7 @@ Questo è il criterio problematico:
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Passaggio 1: Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per preparare una macchina virtuale di ripristino.
+1. Usare i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per preparare una macchina virtuale di ripristino.
 2. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="step-2-disable-the-policy"></a>Passaggio 2: Disabilitare il criterio
@@ -139,7 +140,7 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 ### <a name="step-4-rebuild-the-vm"></a>Passaggio 4: Ricreare la macchina virtuale
 
-Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.
+Usare [il passaggio 5 dei comandi di ripristino della macchina](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) virtuale per riassemblare la macchina virtuale.
 
 Se il problema è stato risolto, il criterio è ora disabilitato localmente. Per una soluzione permanente, non usare il criterio CleanupProfiles nelle VM. Usare un metodo diverso per eseguire la pulizia del profilo.
 
@@ -149,4 +150,4 @@ Non usare questo criterio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In caso di problemi quando si applicano Windows Update, vedere la pagina relativa [alla mancata risposta della macchina virtuale con l'errore "C01A001D" durante l'applicazione di Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+In caso di problemi quando si applicano Windows Update, vedere la pagina relativa [alla mancata risposta della macchina virtuale con l'errore "C01A001D" durante l'applicazione di Windows Update](./unresponsive-vm-apply-windows-update.md).

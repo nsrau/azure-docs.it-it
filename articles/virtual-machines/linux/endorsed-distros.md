@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: e51eeb32ecd306986dc22d6bfa09ee95b8b87852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2edc8d0116778e292f0e44761100d3c1e9212ff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527388"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
 
-In Azure Marketplace sono disponibili immagini Linux fornite da partner. Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco di distribuzioni approvate. Per le distribuzioni che non sono disponibili dal Marketplace, è possibile portare il proprio Linux seguendo le linee guida disponibili in [creare e caricare un disco rigido virtuale che contiene il sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+In Azure Marketplace sono disponibili immagini Linux fornite da partner. Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco di distribuzioni approvate. Per le distribuzioni che non sono disponibili dal Marketplace, è possibile portare il proprio Linux seguendo le linee guida disponibili in [creare e caricare un disco rigido virtuale che contiene il sistema operativo Linux](./create-upload-generic.md).
 
 ## <a name="supported-distributions-and-versions"></a>Distribuzioni e versioni supportate
 
@@ -35,17 +36,17 @@ L'agente Linux di Azure è già preinstallato nelle immagini di Azure Marketplac
 | --- | --- | --- | --- |
 | CentOS di software Wave Rogue |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: nel kernel |Pacchetto: in [repository](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) in "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS è ora la [fine del ciclo di vita](https://coreos.com/os/eol/) a partire dal 26 maggio 2020. |Non più disponibile | | |
-| Debian da Credativ |8. x, 9. x |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Pianale container Linux di Kinvolk| Stabile, perimetrale| | |
-| Oracle Linux da Oracle |6. x, 7. x, 8. x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux da Red Hat |6. x, 7. x, 8. x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian da Credativ |8.x, 9.x |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+|Pianale container Linux di Kinvolk| Stable, Edge| | |
+| Oracle Linux da Oracle |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux da Red Hat |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise di SUSE |SLES/SLES per SAP 11. x, 12. x, 15. x <br/> [Ciclo di vita delle immagini del cloud pubblico SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Nel kernel |Pacchetto:<p> per 11 in [Cloud: strumenti](https://build.opensuse.org/project/show/Cloud:Tools) archivio<br>per 12 inclusi nel modulo "Cloud pubblico" in "python-azure-agent"<br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE di SUSE |openSUSE Leap 15. x |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE di SUSE |openSUSE Leap 15.x |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu by Canonical |Ubuntu Server e Pro. 16. x, 18. x, 20. x<p>Per informazioni sul supporto esteso per Ubuntu 12,04 e 14,04, vedere la pagina relativa alla [manutenzione estesa della sicurezza di Ubuntu](https://www.ubuntu.com/esm). |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Cadenza aggiornamento immagine
 
-Azure richiede che gli autori delle distribuzioni di Linux approvate aggiornino regolarmente le proprie immagini in Azure Marketplace con le patch e le correzioni di sicurezza più recenti, con una cadenza trimestrale o più rapida. Le immagini aggiornate in Azure Marketplace sono disponibili automaticamente ai clienti come nuove versioni di uno SKU di immagine. Altre informazioni su come trovare immagini Linux: [trovare immagini di VM Linux in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+Azure richiede che gli autori delle distribuzioni di Linux approvate aggiornino regolarmente le proprie immagini in Azure Marketplace con le patch e le correzioni di sicurezza più recenti, con una cadenza trimestrale o più rapida. Le immagini aggiornate in Azure Marketplace sono disponibili automaticamente ai clienti come nuove versioni di uno SKU di immagine. Altre informazioni su come trovare immagini Linux: [trovare immagini di VM Linux in Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Kernel ottimizzati per Azure
 

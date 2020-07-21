@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224452"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525603"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure
 
 È possibile usare l'interfaccia della riga di comando di Azure per creare e gestire risorse di Azure a un prompt dei comandi o per creare script. In questo articolo vengono usati script dell'interfaccia della riga di comando di Azure per distribuire un database Oracle Database 12c da un'immagine della raccolta di Azure Marketplace.
 
-Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per ulteriori informazioni, vedere la [Guida all'installazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
+Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per ulteriori informazioni, vedere la [Guida all'installazione dell'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 
@@ -33,7 +33,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
 
 *   Per eseguire il processo di backup e ripristino, è necessario innanzitutto creare una macchina virtuale Linux con un'istanza installata di Oracle Database 12c. L'immagine di Marketplace usata per creare la macchina virtuale viene denominata *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
-    Per informazioni su come creare un database Oracle, vedere [Creare un database Oracle Database](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Per informazioni su come creare un database Oracle, vedere [Creare un database Oracle Database](./oracle-database-quick-create.md).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Passaggio 2: Eseguire la connessione alla VM
@@ -572,6 +572,3 @@ az group delete --name myResourceGroup
 [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 
 [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
-
-
-

@@ -10,11 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 092d3893c3cc5473debf8f7d51f393751cfd82bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79476587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526819"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
@@ -95,5 +96,4 @@ Per rendere effettiva la modifica, è necessario riavviare la macchina virtuale.
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Abilitare la diagnostica di avvio tramite l'interfaccia della riga di comando di Azure
 
-Per abilitare la diagnostica di avvio in una macchina virtuale di Azure esistente, è possibile usare l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [az vm boot-diagnostics](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Per abilitare la diagnostica di avvio in una macchina virtuale di Azure esistente, è possibile usare l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

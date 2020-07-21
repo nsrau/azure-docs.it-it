@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869293"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524997"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Gestire risorse e attività del cloud privato
 
@@ -36,13 +37,13 @@ Selezionare un cloud privato per altre informazioni e azioni.
 
 ## <a name="private-cloud-summary"></a>Riepilogo del cloud privato
 
-Visualizzare un riepilogo completo del cloud privato selezionato.  La pagina Riepilogo include i server DNS distribuiti nel cloud privato.  È possibile configurare l'inoltro DNS da server DNS locali ai server DNS del cloud privato.  Per altre informazioni sull'inoltro DNS, vedere [Configurare il DNS per la risoluzione dei nomi per vCenter del cloud privato da workstation locali](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
+Visualizzare un riepilogo completo del cloud privato selezionato.  La pagina Riepilogo include i server DNS distribuiti nel cloud privato.  È possibile configurare l'inoltro DNS da server DNS locali ai server DNS del cloud privato.  Per altre informazioni sull'inoltro DNS, vedere [Configurare il DNS per la risoluzione dei nomi per vCenter del cloud privato da workstation locali](./on-premises-dns-setup.md).
 
 ![Riepilogo del cloud privato](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Azioni disponibili
 
-* [Avvio del client vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Accedere a vCenter per il cloud privato.
+* [Avvio del client vSphere](./vcenter-access.md). Accedere a vCenter per il cloud privato.
 * [Acquisto di nodi](create-nodes.md). Aggiungere nodi al cloud privato.
 * [Espansione](expand-private-cloud.md). Aggiungere nodi al cloud privato.
 * **Aggiornamento**. Aggiornare le informazioni contenute in questa pagina.
@@ -57,10 +58,10 @@ Visualizzare l'elenco di VLAN/subnet definite per il cloud privato selezionato. 
 
 ### <a name="available-actions"></a>Azioni disponibili
 
-* [Aggiunta di VLAN/subnet](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Aggiungere una VLAN/subset al cloud privato.
+* [Aggiunta di VLAN/subnet](./create-vlan-subnet.md). Aggiungere una VLAN/subset al cloud privato.
 
 Selezionare una VLAN/subnet per le azioni seguenti
-* [Collegamento di una tabella firewall](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Collegare una tabella firewall al cloud privato.
+* [Collegamento di una tabella firewall](./firewall.md). Collegare una tabella firewall al cloud privato.
 * **Modifica**
 * **Aggiunta** (solo VLAN/subnet definite dall'utente)
 

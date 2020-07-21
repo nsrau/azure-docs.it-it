@@ -1,17 +1,18 @@
 ---
-title: 'Archiviazione Premium di Azure: Progettazione per le prestazioni sulle macchine virtuali di Windows | Microsoft Docs'
-description: Progettare applicazioni a prestazioni elevate con i Managed Disks SSD Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
+title: 'Archiviazione Premium di Azure: progettazione per prestazioni elevate'
+description: Progettare applicazioni a prestazioni elevate con i dischi SSD Premium gestiti di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 06ac680ef48d9602f6e7487eb9ebecee9f3ae080
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 46c917a2d27f5efaa1e902db0d5da5375578b8b8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526037"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
@@ -19,15 +20,15 @@ ms.locfileid: "84017605"
 > [!NOTE]
 > In alcuni casi, quello che sembra essere un problema di prestazioni del disco è in realtà un collo di bottiglia a livello di rete. In queste situazioni, è consigliabile ottimizzare le [prestazioni di rete](../../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
-> Se si desidera eseguire il benchmarking del disco, vedere l'articolo [Benchmarking di un disco](disks-benchmarks.md).
+> Se si cerca di eseguire il benchmarking del disco, vedere l'articolo [Benchmarking di un disco](disks-benchmarks.md).
 >
 > Se la macchina virtuale supporta la rete accelerata, è necessario assicurarsi che sia abilitata. Se non è abilitata, è possibile abilitarla nelle macchine virtuali già distribuite sia in [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che in [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Prima di iniziare, se non si ha alcuna esperienza con l'Archiviazione Premium, leggere gli articoli relativi alla [selezione di un tipo di disco di Azure per le macchine virtuali IaaS](disks-types.md) e agli [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
+Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli relativi alla [selezione di un tipo di disco di Azure per le macchine virtuali IaaS](disks-types.md) e agli [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 
-Se si desidera eseguire il benchmarking del disco, vedere l'articolo [Benchmarking di un disco](disks-benchmarks.md).
+Se si cerca di eseguire il benchmarking del disco, vedere l'articolo [Benchmarking di un disco](disks-benchmarks.md).
 
 Altre informazioni sui tipi di disco disponibili: [Selezionare un tipo di disco](disks-types.md)  
 

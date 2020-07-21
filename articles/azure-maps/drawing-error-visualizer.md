@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791121"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524744"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizzatore errori di disegno di Mappe di Azure
 
@@ -23,7 +23,7 @@ Il visualizzatore errori di disegno è un'applicazione Web autonoma che consente
 
 Prima di poter scaricare il visualizzatore errori di disegno, è necessario:
 
-1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
 3. [Creare una risorsa Creator](how-to-manage-creator.md)
 

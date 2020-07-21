@@ -8,19 +8,20 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204685"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527813"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitare l'eliminazione accidentale di condivisioni file di Azure
 
-Archiviazione di Azure offre ora l'eliminazione temporanea per le condivisioni file (anteprima). L'eliminazione temporanea consente di recuperare i dati quando vengono eliminati per errore da un'applicazione o da un altro utente dell'account di archiviazione.
+Archiviazione di Azure offre ora l'eliminazione temporanea per le condivisioni file (anteprima). L'eliminazione temporanea consente di ripristinare la condivisione file quando viene erroneamente eliminata da un'applicazione o da un altro utente dell'account di archiviazione.
 
 ## <a name="how-soft-delete-preview-works"></a>Funzionamento dell'eliminazione temporanea (anteprima)
 
-Quando l'eliminazione temporanea per le condivisioni file di Azure è abilitata, se viene eliminata una condivisione file, passa a uno stato eliminato temporaneamente anziché essere cancellata definitivamente. È possibile configurare il tempo entro il quale i dati eliminati temporaneamente possono essere recuperati prima dell'eliminazione definitiva.
+Quando l'eliminazione temporanea per le condivisioni file di Azure è abilitata, se viene eliminata una condivisione file, passa a uno stato eliminato temporaneamente anziché essere cancellata definitivamente. È possibile configurare la quantità di tempo durante il quale i dati eliminati temporaneamente sono ripristinabili prima che vengano eliminati definitivamente ed eliminare la condivisione in qualsiasi momento durante questo periodo di conservazione. Dopo l'annullamento dell'eliminazione, la condivisione e tutti i contenuti, inclusi gli snapshot, verranno ripristinati allo stato in cui si trovava prima dell'eliminazione. L'eliminazione temporanea funziona solo su un livello di condivisione file. i singoli file eliminati verranno comunque cancellati definitivamente.
 
 L'eliminazione temporanea può essere abilitata in condivisioni file nuove o esistenti. ed è anche compatibile con le versioni precedenti. Non è quindi necessario apportare modifiche alle applicazioni per usufruire della protezione offerta da questa funzionalità. 
 

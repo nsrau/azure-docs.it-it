@@ -3,12 +3,12 @@ title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079888"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524489"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Risolvere i problemi durante il backup delle condivisioni file di Azure
 
@@ -57,6 +57,9 @@ Nella portale di Azure **aprire gli**  >  **Backup Infrastructure**  >  **accoun
 >Un insieme di credenziali di servizi di ripristino può essere eliminato solo dopo l'annullamento della registrazione di tutti gli account di archiviazione registrati con l'insieme di credenziali.
 
 ## <a name="common-backup-or-restore-errors"></a>Errori comuni di backup o ripristino
+
+>[!NOTE]
+>Fare riferimento a [questo documento](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) per assicurarsi di disporre di autorizzazioni sufficienti per l'esecuzione di operazioni di backup o ripristino.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-operazione non riuscita perché la condivisione file non è stata trovata
 
@@ -313,7 +316,7 @@ Codice di errore: UserErrorBackupAFSInDeleteState
 
 Messaggio di errore: il backup non è riuscito perché la condivisione file di Azure associata è stata eliminata definitivamente
 
-Controllare se la condivisione file di cui è stato eseguito il backup è stata eliminata definitivamente. In caso affermativo, arrestare il backup per la condivisione file per evitare errori di backup ripetuti. Per informazioni su come arrestare la protezione, vedere [arrestare la protezione per la condivisione file di Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Controllare se la condivisione file di cui è stato eseguito il backup è stata eliminata definitivamente. In caso affermativo, arrestare il backup per la condivisione file per evitare errori di backup ripetuti. Per informazioni su come arrestare la protezione, vedere [arrestare la protezione per la condivisione file di Azure](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,11 +12,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 110e8d3be88fb2e1bd958f40d5defa23f8c679f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525399"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -25,7 +26,7 @@ Informazioni generali sull'esecuzione di SAP Business Suite in IBM Db2 per LUW s
 
 Per altre informazioni e aggiornamenti su SAP in Db2 per LUW in Azure vedere la nota SAP [2233094]. 
 
-Sono pubblicati vari articoli sul carico di lavoro SAP in Azure.  Si consiglia di iniziare con [carico di lavoro SAP in Azure - Introduzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started), quindi selezionare l'area di interesse
+Sono pubblicati vari articoli sul carico di lavoro SAP in Azure.  Si consiglia di iniziare con [carico di lavoro SAP in Azure - Introduzione](./get-started.md), quindi selezionare l'area di interesse
 
 Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area coperta in questo documento:
 
@@ -43,7 +44,7 @@ Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area copert
 | [2002167] |Red Hat Enterprise Linux 7.x: installazione e aggiornamento |
 | [1597355] |Raccomandazione sullo spazio di scambio per Linux |
 
-Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP), nonché le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP), nonché le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Supporto della versione di IBM Db2 per Linux, UNIX e Windows
@@ -72,7 +73,7 @@ In alternativa, è possibile usare i pool di archiviazione Windows (disponibili 
 
 Per i dischi contenenti i percorsi di archiviazione Db2 per le directory sapdata e saptmp, è necessario specificare una dimensione del settore del disco pari a 512 kB. Quando si usano i pool di archiviazione di Windows, è necessario creare manualmente i pool di archiviazione con l'interfaccia della riga di comando usando il parametro `-LogicalSectorSizeDefault`. Per altre informazioni, vedere <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Per la VM serie M di Azure la latenza di scrittura nei log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per i log delle transazioni Db2. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Per la VM serie M di Azure la latenza di scrittura nei log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per i log delle transazioni Db2. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md).
 
 ### <a name="backuprestore"></a>Backup/Ripristino
 La funzionalità di backup/ripristino per IBM Db2 per LUW è supportata esattamente come nei sistemi operativi Windows Server standard e in Hyper-V.

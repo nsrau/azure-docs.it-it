@@ -4,29 +4,24 @@ description: Viene illustrato come utilizzare il catalogo di backup del servizio
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527830"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 
 ## <a name="overview"></a>Panoramica
 
 In questa esercitazione viene illustrata l'operazione di ripristino eseguita su un dispositivo StorSimple serie 8000 usando un set di backup esistente. Usare il pannello **Catalogo di backup** pannello per ripristinare un volume da un backup locale o nel cloud. Il pannello **Catalogo di backup** visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. L'operazione di ripristino da un set di backup porta immediatamente il volume online, mentre i dati vengono scaricati in background.
-
-Come metodo alternativo per avviare il ripristino, passare a **Dispositivi > [Dispositivo] > Volumi**. Nel pannello **Volumi**, selezionare un volume, fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida e quindi selezionare **Ripristina**.
 
 ## <a name="before-you-restore"></a>Prima di avviare il ripristino
 

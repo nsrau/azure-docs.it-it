@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837931"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527210"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Qual è il tempo necessario per una migrazione?
 
@@ -29,7 +29,7 @@ I clienti che avevano macchine virtuali IaaS (classiche) attive o arrestate ma a
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Perché viene visualizzato l'errore "NewClassicVMCreationNotAllowedForSubscription"?
 
-Nell'ambito del processo di ritiro, le macchine virtuali IaaS (classiche) non sono più disponibili per i nuovi clienti. L'utente è stato identificato come nuovo cliente e quindi l'operazione non è stata autorizzata. È consigliabile usare [macchine virtuali di Azure con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se non è possibile usare macchine virtuali di Azure con ARM, contattare il supporto per l'inserimento della sottoscrizione nell'elenco elementi consentiti.
+Nell'ambito del processo di ritiro, le macchine virtuali IaaS (classiche) non sono più disponibili per i nuovi clienti. L'utente è stato identificato come nuovo cliente e quindi l'operazione non è stata autorizzata. È consigliabile usare [macchine virtuali di Azure con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se non è possibile usare macchine virtuali di Azure con ARM, contattare il supporto tecnico per aggiungere la sottoscrizione all'elenco Consenti.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Il piano di migrazione influisce sui servizi o sulle applicazioni esistenti in esecuzione nelle macchine virtuali di Azure? 
 

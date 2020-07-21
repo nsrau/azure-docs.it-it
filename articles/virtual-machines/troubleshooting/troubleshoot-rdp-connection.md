@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: c65161b6c0ffb0623260a9d896b10bf99eeeced2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a259217280be343f383372a066d4033368c2b651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526696"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
@@ -66,13 +67,13 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Impostare la **Modalità** su **Reset configuration only** (Reimposta solo configurazione) quindi fare clic sul pulsante **Aggiorna**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verificare le regole del gruppo di sicurezza di rete**. Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+2. **Verificare le regole del gruppo di sicurezza di rete**. Usare la [verifica del flusso IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Rivedere la diagnostica di avvio della macchina virtuale**. Questa procedura di risoluzione dei problemi esamina i log della console della macchina virtuale per stabilire se la macchina virtuale segnala un problema. Poiché la diagnostica di avvio non è abilitata su tutte le macchine virtuali, la procedura può essere facoltativa.
    
     Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](boot-diagnostics.md).
 
-4. **Reimpostare la scheda di interfaccia di rete per la macchina virtuale**. Per altre informazioni, vedere [How to reset NIC for Azure Windows VM](../windows/reset-network-interface.md) (Come reimpostare la scheda di interfaccia di rete per la VM Windows di Azure).
+4. **Reimpostare la scheda di interfaccia di rete per la macchina virtuale**. Per altre informazioni, vedere [How to reset NIC for Azure Windows VM](./reset-network-interface.md) (Come reimpostare la scheda di interfaccia di rete per la VM Windows di Azure).
 5. **Controllare l'integrità delle risorse della VM**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità delle risorse**. Una macchina virtuale integra viene indicata come **Disponibile**:
@@ -96,7 +97,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
    
     Al termine di questa operazione i dati temporanei del disco vanno persi e gli indirizzi IP dinamici associati alla macchina virtuale vengono aggiornati.
 
-9. **Verificare il routing**. Usare la funzionalità [Hop successivo](../../network-watcher/network-watcher-check-next-hop-portal.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
+9. **Verificare il routing**. Usare la funzionalità [Hop successivo](../../network-watcher/diagnose-vm-network-routing-problem.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Assicurarsi che ogni firewall locale o firewall nel computer consenta il traffico TCP 3389 in uscita verso Azure.
 
@@ -108,7 +109,7 @@ Se non è già stato fatto, [installare e configurare la versione più recente d
 Negli esempi seguenti vengono usate alcune variabili, ad esempio `myResourceGroup`, `myVM` e `myVMAccessExtension`. Sostituire i nomi e i percorsi delle variabili con i valori personalizzati.
 
 > [!NOTE]
-> Reimpostare le credenziali utente e la configurazione della connessione RDP usando il cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) di PowerShell. Negli esempi seguenti `myVMAccessExtension` è un nome specificato come parte del processo. Se in precedenza è stato usato il VMAccessAgent, è possibile ottenere il nome dell'estensione esistente usando `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` per controllare le proprietà della VM. Esaminare quindi la sezione dell'output relativa alle estensioni per visualizzare il nome.
+> Reimpostare le credenziali utente e la configurazione della connessione RDP usando il cmdlet [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension) di PowerShell. Negli esempi seguenti `myVMAccessExtension` è un nome specificato come parte del processo. Se in precedenza è stato usato il VMAccessAgent, è possibile ottenere il nome dell'estensione esistente usando `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` per controllare le proprietà della VM. Esaminare quindi la sezione dell'output relativa alle estensioni per visualizzare il nome.
 
 Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di connettersi alla VM. Se ancora non è possibile connettersi, procedere al passaggio successivo.
 
@@ -185,7 +186,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Verificare il routing**. Usare la funzionalità [Hop successivo](../../network-watcher/network-watcher-check-next-hop-portal.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
+6. **Verificare il routing**. Usare la funzionalità [Hop successivo](../../network-watcher/diagnose-vm-network-routing-problem.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Assicurarsi che ogni firewall locale o firewall nel computer consenta il traffico TCP 3389 in uscita verso Azure.
 
@@ -211,7 +212,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
    
    ![Verificare gli endpoint di Servizi cloud nel portale di Azure](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   Se non è presente un endpoint che consente il traffico RDP, [creare un endpoint di Servizi cloud](../windows/classic/setup-endpoints.md). Consentire il traffico TCP sulla porta privata 3389.
+   Se non è presente un endpoint che consente il traffico RDP, [creare un endpoint di Servizi cloud](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). Consentire il traffico TCP sulla porta privata 3389.
 3. **Rivedere la diagnostica di avvio della macchina virtuale**. Questa procedura di risoluzione dei problemi esamina i log della console della macchina virtuale per stabilire se la macchina virtuale segnala un problema. Poiché la diagnostica di avvio non è abilitata su tutte le macchine virtuali, la procedura può essere facoltativa.
    
     Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
@@ -246,7 +247,5 @@ Quando si tenta di connettersi alla VM tramite RDP, potrebbe essere visualizzato
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 Se non si è verificato alcuno di questi errori e non è ancora possibile connettersi alla VM tramite Desktop remoto, leggere [la guida dettagliata alla risoluzione dei problemi per Desktop remoto](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Per la risoluzione dei problemi di accesso alle applicazioni in esecuzione in una VM, vedere [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure).
-* Se si verificano problemi relativi all'uso di SSH (Secure Shell) per la connessione a una VM Linux in Azure, vedere [Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
+* Per la risoluzione dei problemi di accesso alle applicazioni in esecuzione in una VM, vedere [Troubleshoot access to an application running on an Azure VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json) (Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure).
+* Se si verificano problemi relativi all'uso di SSH (Secure Shell) per la connessione a una VM Linux in Azure, vedere [Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
