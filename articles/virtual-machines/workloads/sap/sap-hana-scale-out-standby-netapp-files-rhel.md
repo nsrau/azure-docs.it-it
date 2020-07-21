@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: a15741beae29bb11c2b50de18e0c6fb180456524
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e17dcf02c920dc1a824a165fb3d667833267cac7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414505"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507506"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su Red Hat Enterprise Linux 
 
@@ -55,7 +55,7 @@ ms.locfileid: "85414505"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-Questo articolo descrive come distribuire un sistema di SAP HANA a disponibilità elevata in una configurazione con scalabilità orizzontale con standby in Azure Red Hat Enterprise Linux macchine virtuali (VM), usando [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/) per i volumi di archiviazione condivisa.  
+Questo articolo descrive come distribuire un sistema di SAP HANA a disponibilità elevata in una configurazione con scalabilità orizzontale con standby in Azure Red Hat Enterprise Linux macchine virtuali (VM), usando [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) per i volumi di archiviazione condivisa.  
 
 Nelle configurazioni di esempio, nei comandi di installazione e così via, l'istanza di HANA è **03** e l'ID di sistema Hana è **HN1**. Gli esempi sono basati su HANA 2,0 SP4 e Red Hat Enterprise Linux per SAP 7,6. 
 
@@ -91,7 +91,7 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
 
 ## <a name="overview"></a>Panoramica
 
-Un metodo per ottenere la disponibilità elevata di HANA consiste nel configurare il failover automatico dell'host. Per configurare il failover automatico dell'host, aggiungere una o più macchine virtuali al sistema HANA e configurarle come nodi standby. Quando si verifica un errore nel nodo attivo, il nodo standby assume automaticamente il valore. Nella configurazione presentata con macchine virtuali di Azure si ottiene il failover automatico usando [NFS in Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
+Un metodo per ottenere la disponibilità elevata di HANA consiste nel configurare il failover automatico dell'host. Per configurare il failover automatico dell'host, aggiungere una o più macchine virtuali al sistema HANA e configurarle come nodi standby. Quando si verifica un errore nel nodo attivo, il nodo standby assume automaticamente il valore. Nella configurazione presentata con macchine virtuali di Azure si ottiene il failover automatico usando [NFS in Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
 > [!NOTE]
 > Il nodo standby deve accedere a tutti i volumi del database. I volumi HANA devono essere montati come volumi NFSv4. Il meccanismo di blocco basato sul lease di file migliorato nel protocollo NFSv4 viene usato per la `I/O` schermatura. 
@@ -106,7 +106,7 @@ Nel diagramma precedente, che segue SAP HANA consigli sulla rete, tre subnet son
 * Per la comunicazione con il sistema di archiviazione
 * Per la comunicazione interna HANA tra nodi
 
-I volumi di Azure NetApp si trovano in una subnet separata, [delegata a Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+I volumi di Azure NetApp si trovano in una subnet separata, [delegata a Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
 Per questa configurazione di esempio, le subnet sono:  
 
@@ -127,21 +127,21 @@ Prima di distribuire Azure NetApp Files, richiedere l'onboarding per Azure NetAp
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Distribuire le risorse di Azure NetApp Files  
 
-Le istruzioni seguenti presuppongono che la [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)sia già stata distribuita. Le risorse Azure NetApp Files e le macchine virtuali in cui verranno montate le risorse di Azure NetApp Files devono essere distribuite nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering.  
+Le istruzioni seguenti presuppongono che la [rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md)sia già stata distribuita. Le risorse Azure NetApp Files e le macchine virtuali in cui verranno montate le risorse di Azure NetApp Files devono essere distribuite nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering.  
 
-1. Se le risorse non sono già state distribuite, richiedere l' [onboarding per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Se le risorse non sono già state distribuite, richiedere l' [onboarding per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-register.md).  
 
-2. Per creare un account NetApp nell'area di Azure selezionata, seguire le istruzioni riportate in [creare un account NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+2. Per creare un account NetApp nell'area di Azure selezionata, seguire le istruzioni riportate in [creare un account NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 
-3. Configurare un pool di capacità Azure NetApp Files seguendo le istruzioni riportate in [configurare un pool di capacità Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+3. Configurare un pool di capacità Azure NetApp Files seguendo le istruzioni riportate in [configurare un pool di capacità Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 
-   L'architettura HANA presentata in questo articolo usa un singolo pool di capacità Azure NetApp Files al livello di *servizio ultra* . Per i carichi di lavoro HANA in Azure, è consigliabile usare un [livello di servizio](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)Azure NetApp files *ultra* o *Premium* .  
+   L'architettura HANA presentata in questo articolo usa un singolo pool di capacità Azure NetApp Files al livello di *servizio ultra* . Per i carichi di lavoro HANA in Azure, è consigliabile usare un [livello di servizio](../../../azure-netapp-files/azure-netapp-files-service-levels.md)Azure NetApp files *ultra* o *Premium* .  
 
-4. Delegare una subnet a Azure NetApp Files, come descritto nelle istruzioni in [delegare una subnet a Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+4. Delegare una subnet a Azure NetApp Files, come descritto nelle istruzioni in [delegare una subnet a Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Distribuire Azure NetApp Files volumi seguendo le istruzioni riportate in [creare un volume NFS per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+5. Distribuire Azure NetApp Files volumi seguendo le istruzioni riportate in [creare un volume NFS per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-   Quando si distribuiscono i volumi, assicurarsi di selezionare la versione **NFSv 4.1** . Distribuire i volumi nella [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) di Azure NetApp Files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. 
+   Quando si distribuiscono i volumi, assicurarsi di selezionare la versione **NFSv 4.1** . Distribuire i volumi nella [subnet](/rest/api/virtualnetwork/subnets) di Azure NetApp Files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. 
    
    Tenere presente che le risorse Azure NetApp Files e le macchine virtuali di Azure devono trovarsi nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering. Ad esempio, **HN1**-data-Mnt00001, **HN1**-log-mnt00001 e così via, sono i nomi di volume e NFS://10.9.0.4/**HN1**-data-mnt00001, NFS://10.9.0.4/**HN1**-log-mnt00001 e così via, sono i percorsi dei file per i volumi Azure NetApp files.  
 
@@ -159,10 +159,10 @@ Quando si crea la Azure NetApp Files per SAP HANA la scalabilità orizzontale co
 
 - Il pool di capacità minimo è 4 TB (TiB).  
 - La dimensione minima del volume è 100 gibibyte (GiB).
-- Azure NetApp Files e tutte le macchine virtuali in cui verranno montati i volumi di Azure NetApp Files devono trovarsi nella stessa rete virtuale di Azure o in [reti virtuali con peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) nella stessa area.  
+- Azure NetApp Files e tutte le macchine virtuali in cui verranno montati i volumi di Azure NetApp Files devono trovarsi nella stessa rete virtuale di Azure o in [reti virtuali con peering](../../../virtual-network/virtual-network-peering-overview.md) nella stessa area.  
 - La rete virtuale selezionata deve avere una subnet delegata a Azure NetApp Files.
-- La velocità effettiva di un volume Azure NetApp Files è una funzione della quota del volume e del livello di servizio, come documentato nel [livello di servizio per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Quando si dimensionano i volumi di HANA Azure NetApp, assicurarsi che la velocità effettiva risultante soddisfi i requisiti di sistema HANA.  
-- Con i [criteri di esportazione](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)Azure NetApp files, è possibile controllare i client consentiti, il tipo di accesso (lettura/scrittura, sola lettura e così via). 
+- La velocità effettiva di un volume Azure NetApp Files è una funzione della quota del volume e del livello di servizio, come documentato nel [livello di servizio per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Quando si dimensionano i volumi di HANA Azure NetApp, assicurarsi che la velocità effettiva risultante soddisfi i requisiti di sistema HANA.  
+- Con i [criteri di esportazione](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)Azure NetApp files, è possibile controllare i client consentiti, il tipo di accesso (lettura/scrittura, sola lettura e così via). 
 - La funzionalità Azure NetApp Files non è ancora in grado di riconoscere la zona. Attualmente, la funzionalità non viene distribuita in tutte le zone di disponibilità in un'area di Azure. Tenere presente le implicazioni di latenza potenziali in alcune aree di Azure.  
 
 > [!IMPORTANT]
@@ -170,7 +170,7 @@ Quando si crea la Azure NetApp Files per SAP HANA la scalabilità orizzontale co
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionamento per il database HANA in Azure NetApp Files
 
-La velocità effettiva di un volume Azure NetApp Files è una funzione delle dimensioni del volume e del livello di servizio, come documentato nel [livello di servizio per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+La velocità effettiva di un volume Azure NetApp Files è una funzione delle dimensioni del volume e del livello di servizio, come documentato nel [livello di servizio per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
 Quando si progetta l'infrastruttura per SAP in Azure, tenere presenti alcuni requisiti minimi di archiviazione da parte di SAP, che si traduce in caratteristiche di velocità effettiva minime:
 
@@ -178,7 +178,7 @@ Quando si progetta l'infrastruttura per SAP in Azure, tenere presenti alcuni req
 - Attività di lettura di almeno 400 MB/s per/Hana/data per le dimensioni di I/O di 16 MB e 64 MB.  
 - Attività di scrittura di almeno 250 MB/s per/Hana/data con dimensioni di I/O di 16 MB e 64 MB. 
 
-I [limiti di velocità effettiva di Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB della quota del volume sono:
+I [limiti di velocità effettiva di Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TiB della quota del volume sono:
 - Livello di archiviazione Premium-64 MiB/s  
 - Livello di archiviazione Ultra-128 MiB/s  
 
@@ -209,13 +209,13 @@ La configurazione SAP HANA per il layout presentato in questo articolo, usando A
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Distribuire macchine virtuali Linux tramite il portale di Azure
 
 Per prima cosa è necessario creare i volumi Azure NetApp Files. Eseguire quindi i passaggi seguenti:
-1. Creare le [subnet della rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) nella [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). 
+1. Creare le [subnet della rete virtuale di Azure](../../../virtual-network/virtual-network-manage-subnet.md) nella [rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md). 
 1. Distribuire le macchine virtuali. 
 1. Creare le interfacce di rete aggiuntive e alleghi le interfacce di rete alle VM corrispondenti.  
 
    Ogni macchina virtuale dispone di tre interfacce di rete, che corrispondono alle tre subnet della rete virtuale di Azure ( `client` `storage` e `hana` ). 
 
-   Per altre informazioni, vedere [creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics).  
+   Per altre informazioni, vedere [creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete](../../linux/multiple-nics.md).  
 
 > [!IMPORTANT]
 > Per carichi di lavoro SAP HANA, è fondamentale una bassa latenza. Per ottenere una bassa latenza, collaborare con il rappresentante Microsoft per assicurarsi che le macchine virtuali e i volumi Azure NetApp Files vengano distribuiti in prossimità. Quando si sta caricando un [nuovo SAP Hana sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) che usa SAP Hana Azure NetApp files, inviare le informazioni necessarie. 
@@ -233,7 +233,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
    b. Selezionare il set di disponibilità creato in precedenza per SAP HANA.  
 
-   c. Selezionare la subnet della rete virtuale di Azure client. Selezionare [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Selezionare la subnet della rete virtuale di Azure client. Selezionare [rete accelerata](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
    Quando si distribuiscono le macchine virtuali, il nome dell'interfaccia di rete viene generato automaticamente. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete generate automaticamente, che sono collegate alla subnet della rete virtuale di Azure client come **hanadb1-client**, **hanadb2-client**e **hanadb3-client**. 
 
@@ -255,7 +255,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
  
     f. Ripetere i passaggi da b a e per le macchine virtuali rimanenti (in questo esempio, **hanadb2** e **hanadb3**).
  
-    g. Per il momento, lasciare le macchine virtuali in stato di arresto. Successivamente, verrà abilitata la [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per tutte le interfacce di rete appena collegate.  
+    g. Per il momento, lasciare le macchine virtuali in stato di arresto. Successivamente, verrà abilitata la [rete accelerata](../../../virtual-network/create-vm-accelerated-networking-cli.md) per tutte le interfacce di rete appena collegate.  
 
 6. Abilitare la rete accelerata per le interfacce di rete aggiuntive per le `storage` subnet e seguendo `hana` questa procedura:  
 
@@ -719,7 +719,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 7. Lo spazio di archiviazione usato da Azure NetApp Files ha un limite di dimensioni del file di 16 terabyte (TB). SAP HANA non è in grado di riconoscere in modo implicito il limite di archiviazione e non crea automaticamente un nuovo file di dati quando viene raggiunto il limite delle dimensioni del file pari a 16 TB. Poiché SAP HANA tenta di espandere il file oltre i 16 TB, il tentativo provocherà errori e, infine, in un arresto anomalo del server di indice. 
 
    > [!IMPORTANT]
-   > Per evitare che SAP HANA tenti di espandere i file di dati oltre il [limite di 16 TB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) del sottosistema di archiviazione, impostare i parametri seguenti in `global.ini` .  
+   > Per evitare che SAP HANA tenti di espandere i file di dati oltre il [limite di 16 TB](../../../azure-netapp-files/azure-netapp-files-resource-limits.md) del sottosistema di archiviazione, impostare i parametri seguenti in `global.ini` .  
    > - datavolume_striping = true
    > - datavolume_striping_size_gb = 15000 per ulteriori informazioni, vedere la nota SAP [2400005](https://launchpad.support.sap.com/#/notes/2400005).
    > Tenere presente la nota SAP [2631285](https://launchpad.support.sap.com/#/notes/2631285). 

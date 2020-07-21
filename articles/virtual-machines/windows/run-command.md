@@ -8,11 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: c6fbe66d8fbbb92c7fb668cc565da8446d97ab0a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 76ff9ff9479351eb3ec2a0e973fe3c44562adf55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508424"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -22,7 +23,7 @@ La funzionalità Esegui comando usa l'agente macchina virtuale per eseguire gli 
 
 ## <a name="benefits"></a>Vantaggi
 
-È possibile accedere alle macchine virtuali in diversi modi. La funzionalità Esegui comando può eseguire script nelle macchine virtuali in modalità remota, tramite l'agente per la macchina virtuale. La funzionalità Esegui comando può essere usata tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) per le macchine virtuali Windows.
+È possibile accedere alle macchine virtuali in diversi modi. La funzionalità Esegui comando può eseguire script nelle macchine virtuali in modalità remota, tramite l'agente per la macchina virtuale. La funzionalità Esegui comando può essere usata tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) per le macchine virtuali Windows.
 
 Questa funzionalità è utile in tutti gli scenari in cui si vuole eseguire uno script all'interno di una macchina virtuale. È uno dei pochi modi per risolvere e correggere i problemi in una macchina virtuale che non ha la porta RDP o SSH aperta a causa di una configurazione non corretta della rete o dell'utente amministratore.
 
@@ -93,7 +94,7 @@ Dopo aver scelto il comando, selezionare **Esegui** per eseguire lo script. Lo s
 
 ## <a name="powershell"></a>PowerShell
 
-L'esempio seguente usa il cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) per eseguire uno script di PowerShell in una macchina virtuale di Azure. Il cmdlet si aspetta che lo script a cui fa riferimento il parametro `-ScriptPath` sia presente nella posizione in cui il cmdlet viene eseguito.
+L'esempio seguente usa il cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) per eseguire uno script di PowerShell in una macchina virtuale di Azure. Il cmdlet si aspetta che lo script a cui fa riferimento il parametro `-ScriptPath` sia presente nella posizione in cui il cmdlet viene eseguito.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

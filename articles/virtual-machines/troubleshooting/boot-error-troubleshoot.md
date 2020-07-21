@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56ee4b9e541aa4b374acbb59cf64da34046a06c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769609"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509070"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Risolvere i problemi di avvio di macchine virtuali di Azure
 
@@ -35,5 +36,5 @@ Questo articolo elenca gli errori comuni che possono verificarsi all'avvio di un
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Diagnostica di avvio](boot-diagnostics.md)
-- [Console seriale per la macchina virtuale](../windows/serial-console.md)
-- [Risolvere i problemi di una VM Windows collegando il disco del sistema operativo in una VM di ripristino](../windows/troubleshoot-recovery-disks.md)
+- [Console seriale per la macchina virtuale](./serial-console-windows.md)
+- [Risolvere i problemi di una VM Windows collegando il disco del sistema operativo in una VM di ripristino](./troubleshoot-recovery-disks-windows.md)

@@ -6,11 +6,12 @@ ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77667789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505466"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Query per avvisi del log in Monitoraggio di Azure
 Le [regole di avviso basate sui log di Monitoraggio di Azure](alerts-unified-log.md) vengono eseguite a intervalli regolari, pertanto è necessario assicurarsi che siano scritte in modo da ridurre al minimo il sovraccarico e la latenza. Questo articolo include consigli per la scrittura di query efficienti per gli avvisi del log e un processo per la conversione delle query esistenti. 
@@ -49,7 +50,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
+>Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
 
 ## <a name="examples"></a>Esempi
 Gli esempi seguenti includono query di log che usano `search` e `union` con indicazione delle procedure che è possibile usare per modificare queste query per l'uso con le regole di avviso.
@@ -216,4 +217,3 @@ on Hour
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sugli [avvisi del log](alerts-log.md) in Monitoraggio di Azure.
 - Informazioni sulle [query nei log](../log-query/log-query-overview.md).
-

@@ -4,16 +4,16 @@ description: Usare Funzioni di Azure per pianificare un'attività che si connett
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254277"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506078"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un Istanza gestita SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione C# viene creata in base a un modello di trigger timer predefinito in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per il Istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) per potersi connettere da funzioni di Azure. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un Istanza gestita SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione C# viene creata in base a un modello di trigger timer predefinito in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per il Istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](../azure-sql/managed-instance/public-endpoint-configure.md) per potersi connettere da funzioni di Azure. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
@@ -23,7 +23,7 @@ Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile
 
 + Questo articolo illustra un comando Transact-SQL che esegue un'operazione di pulizia in blocco nella tabella **SalesOrderHeader** nel database di esempio AdventureWorksLT. Per creare il database di esempio AdventureWorksLT, completare la procedura descritta nell'articolo [creare un database nel database SQL di Azure usando il portale di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ È necessario aggiungere una [regola del firewall a livello di server](../sql-database/sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva. Questa regola è necessaria per poter accedere all'istanza del database SQL dal computer locale.  
++ È necessario aggiungere una [regola del firewall a livello di server](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva. Questa regola è necessaria per poter accedere all'istanza del database SQL dal computer locale.  
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 

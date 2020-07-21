@@ -4,24 +4,25 @@ description: Come usare le aree geografiche per la ridondanza e per eseguire il 
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080233"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506282"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Ripristino di emergenza geografico di funzioni di Azure
 
 Quando si verifica un tempo di inattività per intere aree o Data Center di Azure, è fondamentale che il calcolo continui l'elaborazione in un'area diversa.  In questo articolo vengono illustrate alcune strategie che è possibile usare per distribuire le funzioni per consentire il ripristino di emergenza.
 
-## <a name="basic-concepts"></a>Concetti fondamentali
+## <a name="basic-concepts"></a>Concetti di base
 
 Funzioni di Azure vengono eseguite in un'area specifica.  Per ottenere una disponibilità più elevata, è possibile distribuire le stesse funzioni in più aree.  In più aree è possibile fare in modo che funzioni in esecuzione nel modello attivo */attivo* o nel modello *attivo/passivo* .  
 
 * Attivo/attivo. Entrambe le aree sono eventi attivi e di ricezione (duplicato o rotazionale). Active/Active è consigliato per le funzioni HTTPS in combinazione con lo sportello anteriore di Azure.
 * Attivo/passivo. Un'area è attiva e riceve eventi, mentre un database secondario è inattivo.  Quando è necessario il failover, l'area secondaria viene attivata e acquisisce la sovrascrittura.  Questa operazione è consigliata per funzioni non HTTP come bus di servizio e hub eventi.
 
-Per altre informazioni sulle distribuzioni [in più aree, vedere come eseguire app in più aree](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) .
+Per altre informazioni sulle distribuzioni [in più aree, vedere come eseguire app in più aree](/azure/architecture/reference-architectures/app-service-web-app/multi-region) .
 
 ## <a name="activeactive-for-https-functions"></a>Active/Active per le funzioni HTTPS
 

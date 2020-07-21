@@ -12,11 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509359"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
@@ -78,13 +79,13 @@ Se si usano le zone di disponibilità, provare un'altra zona all'interno dell'ar
 
 Se la richiesta di allocazione è di grandi dimensioni (oltre 500 core), consultare le informazioni disponibili nelle sezioni seguenti per suddividere la richiesta in distribuzioni di dimensioni minori.
 
-Provare a [ridistribuire la macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). La ridistribuzione della VM consente di allocare la macchina virtuale in un nuovo cluster all'interno dell'area.
+Provare a [ridistribuire la macchina virtuale](./redeploy-to-new-node-windows.md). La ridistribuzione della VM consente di allocare la macchina virtuale in un nuovo cluster all'interno dell'area.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errori di allocazione per dimensioni di VM precedenti (Av1, Dv1, DSv1, D15v2, DS15v2 e così via)
 
 Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, si consiglia ai clienti che usano le macchine virtuali serie legacy di provare a passare alle VM più recenti equivalenti in base alle indicazioni seguenti: queste VM sono ottimizzate per l'hardware più recente e consentiranno di sfruttare i vantaggi offerti da prezzi e prestazioni migliori. 
 
-|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
+|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Ulteriori informazioni|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
@@ -93,7 +94,7 @@ Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuo
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Errori di allocazione per distribuzioni di grandi dimensioni (oltre 500 core)
 
-Ridurre il numero di istanze delle dimensioni di VM richieste e quindi ripetere l'operazione di distribuzione. Inoltre, per distribuzioni più grandi, può essere utile valutare i [set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Il numero di istanze di VM può essere aumentato o ridotto automaticamente in base alla richiesta o a una pianificazione definita e si hanno maggiori possibilità di eseguire correttamente l'allocazione perché le distribuzioni possono essere distribuite in più cluster. 
+Ridurre il numero di istanze delle dimensioni di VM richieste e quindi ripetere l'operazione di distribuzione. Inoltre, per distribuzioni più grandi, può essere utile valutare i [set di scalabilità di macchine virtuali di Azure](../../virtual-machine-scale-sets/index.yml). Il numero di istanze di VM può essere aumentato o ridotto automaticamente in base alla richiesta o a una pianificazione definita e si hanno maggiori possibilità di eseguire correttamente l'allocazione perché le distribuzioni possono essere distribuite in più cluster. 
 
 ## <a name="background-information"></a>Informazioni generali
 ### <a name="how-allocation-works"></a>Come funziona l'allocazione
@@ -104,5 +105,3 @@ I server nei data center di Azure sono partizionati in cluster. In genere, viene
 Quando una richiesta di allocazione è bloccata su un cluster, la probabilità di non riuscire a trovare risorse disponibili è più alta, perché il pool di risorse disponibili è più ridotto. Inoltre, se la richiesta di allocazione è bloccata su un cluster, ma il tipo di risorsa richiesto non è supportato da quel cluster, la richiesta non viene eseguita correttamente anche se nel cluster ci sono risorse disponibili. Il diagramma 3 seguente illustra un'allocazione bloccata non riuscita perché nel solo cluster candidato non sono presenti risorse disponibili. Il diagramma 4 illustra un'allocazione bloccata non riuscita perché il solo cluster candidato non supporta le dimensioni della VM richieste, anche se nel cluster ci sono risorse disponibili.
 
 ![Errore di allocazione bloccata](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

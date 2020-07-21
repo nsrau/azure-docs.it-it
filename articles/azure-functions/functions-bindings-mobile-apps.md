@@ -5,19 +5,19 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506333"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
 > [!NOTE]
 > Le associazioni di App per dispositivi mobili di Azure sono disponibili solo per Funzioni di Azure 1.x. Non sono supportate in funzioni di Azure 2. x e versioni successive.
 
-Questo articolo descrive come usare le associazioni di [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
+Questo articolo descrive come usare le associazioni di [app per dispositivi mobili](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
 
 Le associazioni di app per dispositivi mobili consentono di leggere e aggiornare le tabelle di dati nelle app per dispositivi mobili.
 
@@ -141,7 +141,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 | **nome**| n/d | Nome del parametro di input nella firma della funzione.|
 |**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
 | **id**| **Id** | Identificatore del record da recuperare. Può essere statico o basato sul trigger che richiama la funzione. Se, ad esempio, si usa un trigger della coda per la funzione, `"id": "{queueTrigger}"` userà il valore di stringa del messaggio della coda come ID del record da recuperare.|
-|**connection**|**Connection**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
+|**connection**|**Connessione**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|Il nome di un'impostazione dell'app con la chiave API dell'app per dispositivi mobili. Specificare la chiave API se si [implementa una chiave API nell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) oppure se si [implementa una chiave API nell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Per specificare la chiave, creare un'impostazione nell'app per le funzioni che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

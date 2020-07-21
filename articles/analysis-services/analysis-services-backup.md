@@ -4,16 +4,18 @@ description: Questo articolo descrive come eseguire il backup e il ripristino de
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871290"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506996"
 ---
-# <a name="backup-and-restore"></a>Backup e ripristino
+# <a name="analysis-services-database-backup-and-restore"></a>Backup e ripristino di Analysis Services database
 
 Il backup dei database modello tabulare in Azure Analysis Services è molto simile a quello di Analysis Services in locale. La differenza principale è dove vengono archiviati i file di backup. I file di backup devono essere salvati in un contenitore in un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). È possibile usare un account di archiviazione e un contenitore già esistenti, o è possibile crearne di nuovi durante la configurazione delle impostazioni di archiviazione per il server.
 
@@ -39,7 +41,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 2.  Fare clic su **Abilitata** e quindi su **Impostazioni di archiviazione**.
 
-    ![Abilitare](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Abilita](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Selezionare l'account di archiviazione o crearne uno nuovo.
 

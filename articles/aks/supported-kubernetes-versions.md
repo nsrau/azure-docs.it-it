@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243797"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507064"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -131,7 +131,7 @@ Per la cronologia delle versioni precedenti, vedere [qui](https://en.wikipedia.o
 | 1.17  | 09-19 dicembre  | 19 gennaio   | 20 luglio  | 1,20 GA | 
 | 1.18  | Mar-23-20  | 20 maggio   | 20 agosto  | 1,21 GA | 
 | 1,19  | Aug-04-20  | 20 agosto   | 20 nov  | 1,22 GA | 
-| 1.20  | * Nov 20    | * Dec 21   | * Jan 21  | 1,23 GA | 
+| 1,20  | * Nov 20    | * Dec 20   | * Jan 21  | 1,23 GA | 
 
 \*Conferma della data di rilascio upstream in sospeso.
 
@@ -139,7 +139,7 @@ Per la cronologia delle versioni precedenti, vedere [qui](https://en.wikipedia.o
 
 **Cosa accade quando un utente aggiorna un cluster Kubernetes con una versione secondaria non supportata?**
 
-Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. ad esempio:
+Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Ad esempio:
 
 - Se la versione più recente di AKS supportata è *1.15. a* e l'utente si trova su *1.14. b* o versioni precedenti, l'utente non è più supportato.
 - Quando l'aggiornamento da *1.14. b* a *1.15. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.
@@ -181,4 +181,4 @@ Per informazioni su come aggiornare il cluster, vedere [Aggiornare un cluster de
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

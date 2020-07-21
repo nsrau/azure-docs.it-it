@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735915"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509314"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la GPU
 
@@ -31,11 +31,11 @@ Le dimensioni delle VM ottimizzate per GPU sono macchine virtuali specializzate 
 
 Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure, è necessario installare i driver GPU NVIDIA o AMD.
 
-- Per le macchine virtuali supportate da GPU NVIDIA, l' [estensione driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) installa i driver NVIDIA CUDA o Grid appropriati. Installare o gestire l'estensione usando il portale di Azure o strumenti come i modelli di Azure PowerShell Azure o Azure Resource Manager. Vedere la [documentazione dell'estensione dei driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) per informazioni sui sistemi operativi supportati e sui passaggi di distribuzione. Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview) (Funzionalità ed estensioni macchina virtuale di Azure).
+- Per le macchine virtuali supportate da GPU NVIDIA, l' [estensione driver GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) installa i driver NVIDIA CUDA o Grid appropriati. Installare o gestire l'estensione usando il portale di Azure o strumenti come i modelli di Azure PowerShell Azure o Azure Resource Manager. Vedere la [documentazione dell'estensione dei driver GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) per informazioni sui sistemi operativi supportati e sui passaggi di distribuzione. Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features](./extensions/overview.md) (Funzionalità ed estensioni macchina virtuale di Azure).
 
-   In alternativa, è possibile installare manualmente i driver GPU NVIDIA. Vedere [installare driver GPU NVIDIA in VM serie n che eseguono Windows](/azure/virtual-machines/windows/n-series-driver-setup) o [installare driver GPU NVIDIA in VM serie n che eseguono Linux](/azure/virtual-machines/linux/n-series-driver-setup) per i passaggi di sistema, i driver, l'installazione e la verifica supportati.
+   In alternativa, è possibile installare manualmente i driver GPU NVIDIA. Vedere [installare driver GPU NVIDIA in VM serie n che eseguono Windows](./windows/n-series-driver-setup.md) o [installare driver GPU NVIDIA in VM serie n che eseguono Linux](./linux/n-series-driver-setup.md) per i passaggi di sistema, i driver, l'installazione e la verifica supportati.
 
-- Per le macchine virtuali supportate da GPU AMD, vedere [installare driver GPU AMD in VM serie N che eseguono Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) per i sistemi operativi, i driver, l'installazione e i passaggi di verifica supportati.
+- Per le macchine virtuali supportate da GPU AMD, vedere [installare driver GPU AMD in VM serie N che eseguono Windows](./windows/n-series-amd-driver-setup.md) per i sistemi operativi, i driver, l'installazione e i passaggi di verifica supportati.
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 

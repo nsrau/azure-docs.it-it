@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919414"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508866"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
 
@@ -33,7 +34,7 @@ Per altre informazioni sui set di disponibilità, vedere [gestire la disponibili
 
 ## <a name="resource-health-information"></a>Informazioni su Integrità risorse
 
-Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo impiegato per la risoluzione dei problemi, in particolare lo scopo è ridurre il tempo impiegato per determinare se il problema è interno all'applicazione o dovuto a un evento specifico della piattaforma Azure. Per altre informazioni, vedere [comprendere e usare integrità risorse](../../resource-health/resource-health-overview.md).
+Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo impiegato per la risoluzione dei problemi, in particolare lo scopo è ridurre il tempo impiegato per determinare se il problema è interno all'applicazione o dovuto a un evento specifico della piattaforma Azure. Per altre informazioni, vedere [comprendere e usare integrità risorse](../../service-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Azioni e gli eventi che possono generare il riavvio della macchina virtuale
 
@@ -45,8 +46,8 @@ Altri aggiornamenti, invece, richiedono il riavvio. In questi casi, le macchine 
 
 Per informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux, vedere gli articoli elencati qui. Gli articoli forniscono informazioni di base sul processo di manutenzione pianificata di Azure e su come pianificare la manutenzione per ridurre ulteriormente l'impatto.
 
-- [Manutenzione pianificata per le macchine virtuali in Azure](../windows/planned-maintenance.md)
-- [Come pianificare la manutenzione nelle VM di Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Manutenzione pianificata per le macchine virtuali in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Come pianificare la manutenzione nelle VM di Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Aggiornamenti con mantenimento della memoria
 
@@ -71,7 +72,7 @@ Il riavvio della macchina virtuale si verifica solitamente anche quando si esegu
 
 ### <a name="azure-security-center-and-windows-update"></a>Centro sicurezza di Azure e Windows Update
 
-Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nella macchina virtuale Windows. Il Centro sicurezza cerca gli aggiornamenti più recenti anche per i sistemi Linux. Se nella macchina virtuale non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglia l'applicazione. L'applicazione di questi aggiornamenti di sistema è controllata tramite il Centro sicurezza nel portale di Azure. Dopo l'applicazione di alcuni aggiornamenti, potrebbe essere necessario il riavvio della macchina virtuale. Per altre informazioni, vedere [Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure](../../security-center/security-center-apply-system-updates.md).
+Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nella macchina virtuale Windows. Il Centro sicurezza cerca gli aggiornamenti più recenti anche per i sistemi Linux. Se nella macchina virtuale non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglia l'applicazione. L'applicazione di questi aggiornamenti di sistema è controllata tramite il Centro sicurezza nel portale di Azure. Dopo l'applicazione di alcuni aggiornamenti, potrebbe essere necessario il riavvio della macchina virtuale. Per altre informazioni, vedere [Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure](../../security-center/security-center-virtual-machine-protection.md).
 
 Analogamente ai server locali, Azure non esegue il push degli aggiornamenti da Windows Update alle macchine virtuali Windows, perché queste macchine sono pensate per essere gestite dagli utenti. Tuttavia si consiglia di lasciare abilitata l'impostazione automatica di Windows Update. Con l'installazione automatica degli aggiornamenti da Windows Update, il riavvio può anche verificarsi dopo l'applicazione degli aggiornamenti. Per altre informazioni, vedere [Windows Update: domande frequenti](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -114,7 +115,7 @@ La durata dell'arresto può essere di cinque minuti o molto più lunga. Di segui
 
 **Superamento dei limiti di I/O**
 
-È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (L'archiviazione su disco standard è limitata a 500 IOPS). Per attenuare questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale Guest, a seconda del carico di lavoro. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (L'archiviazione su disco standard è limitata a 500 IOPS). Per attenuare questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale Guest, a seconda del carico di lavoro. 
 
 ### <a name="other-incidents"></a>Altri eventi imprevisti
 

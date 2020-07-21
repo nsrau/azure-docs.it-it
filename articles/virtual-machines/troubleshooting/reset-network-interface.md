@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706597"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509223"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
 
@@ -47,7 +47,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
 
 #### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Verificare che sia installata [la versione più recente di Azure PowerShell](/powershell/azure/overview).
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
 
     ```powershell
@@ -90,7 +90,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 
 #### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-1. Verificare che sia installato [il Azure PowerShell più recente](https://docs.microsoft.com/powershell/azure/overview) .
+1. Verificare che sia installato [il Azure PowerShell più recente](/powershell/azure/overview) .
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
 
     ```powershell

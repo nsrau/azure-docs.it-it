@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14df0f131aaef8a4c24e2d1eb242a9b440e7c7b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868024"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507591"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Guida introduttiva-creare una soluzione VMware di Azure tramite il servizio CloudSimple
 
@@ -86,4 +87,4 @@ Per configurare la capacità con pagamento in base al consumo per un ambiente cl
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creazione di un cloud privato e configurazione dell'ambiente](quickstart-create-private-cloud.md)
-* Altre informazioni sul [servizio CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)
+* Altre informazioni sul [servizio CloudSimple](./cloudsimple-service.md)

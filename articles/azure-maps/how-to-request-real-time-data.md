@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784d6a94562e8b5a709d65abdadef46ca71de395
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505959"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere dati di transito pubblico in tempo reale usando il servizio Mobility di Azure Maps
 
@@ -24,7 +24,7 @@ In questo articolo si apprenderà come richiedere i prossimi arrivi in tempo rea
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di tutto è necessario avere un account Azure Maps e una chiave di sottoscrizione per effettuare chiamate alle API di transito pubblico di Azure maps. Per informazioni, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare un account Azure maps. Seguire i passaggi in [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
+Prima di tutto è necessario avere un account Azure Maps e una chiave di sottoscrizione per effettuare chiamate alle API di transito pubblico di Azure maps. Per informazioni, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-azure-maps-account) per creare un account Azure maps. Seguire i passaggi in [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 

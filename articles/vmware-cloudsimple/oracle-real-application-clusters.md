@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793041"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507672"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Ottimizzare il cloud privato di CloudSimple per l'installazione di Oracle RAC
 
@@ -168,7 +169,7 @@ Per distribuire un cluster vSphere nel cloud privato, seguire questa procedura:
 
 i criteri rete VSAN definiscono gli errori da tollerare e lo striping del disco per i dati archiviati nei dischi delle macchine virtuali.  I criteri di archiviazione creati devono essere applicati ai dischi della VM durante la creazione della macchina virtuale.
 
-1. [Accedere al client vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) del cloud privato.
+1. [Accedere al client vSphere](./vcenter-access.md) del cloud privato.
 2. Scegliere **criteri e profili**dal menu in alto.
 3. Nel menu a sinistra selezionare **criteri di archiviazione della macchina virtuale** e quindi selezionare **Crea criteri di archiviazione delle macchine virtuali**.
 4. Immettere un nome significativo per il criterio e fare clic su **Avanti**.
@@ -258,7 +259,7 @@ Le regole di affinità da macchina virtuale a host assicurano che la macchina vi
 13. Selezionare il gruppo host creato.
 14. Fare clic su **OK** per creare la regola.
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 
 * [Informazioni sui criteri di rete VSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
 * [Attributo VMware MultiWriter per VMDK condivisi](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509122"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -70,7 +70,7 @@ Per il contratto Enterprise Agreement:
 
 •   Caricare una VM personalizzata e distribuirla usando un modello di Resource Manager o Azure PowerShell.
 
-Per altre informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le risorse seguenti:
 
  - [Panoramica del vantaggio Azure Hybrid use](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
@@ -78,7 +78,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
  - [Vantaggio Azure Hybrid use per Windows Server e Windows client](../windows/hybrid-use-benefit-licensing.md).
 
- - [Come usare il vantaggio Hybrid Use in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [Come usare il vantaggio Hybrid Use in Azure](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Come attivare il credito mensile per Visual Studio Enterprise (BizSpark)
 

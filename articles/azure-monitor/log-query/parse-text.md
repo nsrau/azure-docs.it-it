@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672447"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505704"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizzare i dati di testo in log di Monitoraggio di Azure
-Alcuni dati di log raccolti da Monitoraggio di Azure includeranno più informazioni in una singola proprietà. L'analisi di questi dati in più proprietà ne semplifica l'uso nelle query. Un esempio comune è un [log personalizzato](../../log-analytics/log-analytics-data-sources-custom-logs.md) che raccoglie un'intera voce di registro con più valori in una singola proprietà. Creando proprietà separate per i diversi valori, è possibile eseguire ricerche e aggregare in ciascuna di esse.
+Alcuni dati di log raccolti da Monitoraggio di Azure includeranno più informazioni in una singola proprietà. L'analisi di questi dati in più proprietà ne semplifica l'uso nelle query. Un esempio comune è un [log personalizzato](../platform/data-sources-custom-logs.md) che raccoglie un'intera voce di registro con più valori in una singola proprietà. Creando proprietà separate per i diversi valori, è possibile eseguire ricerche e aggregare in ciascuna di esse.
 
 Questo articolo descrive diverse opzioni per l'analisi dei dati di log in Monitoraggio di Azure quando i dati vengono inseriti e quando vengono recuperati in una query, confrontando i rispettivi vantaggi.
 
@@ -22,7 +23,7 @@ Questo articolo descrive diverse opzioni per l'analisi dei dati di log in Monito
 È possibile analizzare i dati in fase di inserimento quando i dati vengono raccolti o al momento della query durante l'analisi dei dati con una query. Ogni strategia offre vantaggi esclusivi, come descritto di seguito.
 
 ### <a name="parse-data-at-collection-time"></a>Analizzare i dati in fase di raccolta
-Quando si analizzano i dati in fase di raccolta, configurare [campi personalizzati](../../log-analytics/log-analytics-custom-fields.md) che creano nuove proprietà nella tabella. Le query non devono includere una logica di analisi ma semplicemente usare queste proprietà come qualsiasi altro campo nella tabella.
+Quando si analizzano i dati in fase di raccolta, configurare [campi personalizzati](../platform/custom-fields.md) che creano nuove proprietà nella tabella. Le query non devono includere una logica di analisi ma semplicemente usare queste proprietà come qualsiasi altro campo nella tabella.
 
 I vantaggi di questo metodo sono i seguenti:
 

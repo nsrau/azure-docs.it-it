@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167007"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509019"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux
 
@@ -25,7 +26,7 @@ La console seriale nel portale di Azure fornisce l'accesso a una console basata 
 
 La console seriale funziona allo stesso modo per istanze di macchine virtuali e per set di scalabilità di macchine virtuali. In questo documento, se non diversamente specificato, ogni riferimento a macchine virtuali include in modo implicito le istanze dei set di scalabilità di macchine virtuali.
 
-Per la documentazione sulla console seriale per Windows, vedere [console seriale per Windows](../windows/serial-console.md).
+Per la documentazione sulla console seriale per Windows, vedere [console seriale per Windows](./serial-console-windows.md).
 
 > [!NOTE]
 > La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
@@ -37,7 +38,7 @@ Per la documentazione sulla console seriale per Windows, vedere [console seriale
 
 - Un account che usa la console seriale deve avere il [ruolo Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per la macchina virtuale e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md)
 
-- L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve avere un utente basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
+- L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve avere un utente basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](../extensions/vmaccess.md#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
 
 - Per la VM o l'istanza del set di scalabilità di macchine virtuali deve essere abilitata la [diagnostica di avvio](boot-diagnostics.md)
 
@@ -49,11 +50,11 @@ Per la documentazione sulla console seriale per Windows, vedere [console seriale
 
 
 > [!NOTE]
-> La console seriale richiede un utente locale con una password configurata. Le VM o i set di scalabilità di macchine virtuali configurati solo con una chiave pubblica SSH non saranno in grado di accedere alla console seriale. Per creare un utente locale con una password, usare l'[estensione VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) disponibile nel portale selezionando **Reimposta password** nel portale di Azure e creare un utente locale con una password.
+> La console seriale richiede un utente locale con una password configurata. Le VM o i set di scalabilità di macchine virtuali configurati solo con una chiave pubblica SSH non saranno in grado di accedere alla console seriale. Per creare un utente locale con una password, usare l'[estensione VMAccess](../extensions/vmaccess.md) disponibile nel portale selezionando **Reimposta password** nel portale di Azure e creare un utente locale con una password.
 > È possibile anche reimpostare la password di amministratore nell'account [usando GRUB per eseguire l'avvio in modalità utente singolo](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Disponibilità distribuzione Linux console seriale
-Affinché la console seriale funzioni correttamente, il sistema operativo guest deve essere configurato per leggere e scrivere i messaggi della console nella porta seriale. Per la maggior parte delle [distribuzioni di Azure Linux approvate](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) la console seriale è configurata per impostazione predefinita Se si seleziona **Console seriale** nella sezione **Supporto e risoluzione dei problemi** del portale di Azure si consente l'accesso alla console seriale.
+Affinché la console seriale funzioni correttamente, il sistema operativo guest deve essere configurato per leggere e scrivere i messaggi della console nella porta seriale. Per la maggior parte delle [distribuzioni di Azure Linux approvate](../linux/endorsed-distros.md) la console seriale è configurata per impostazione predefinita Se si seleziona **Console seriale** nella sezione **Supporto e risoluzione dei problemi** del portale di Azure si consente l'accesso alla console seriale.
 
 > [!NOTE]
 > Se non viene visualizzato nulla nella console seriale, verificare che la diagnostica di avvio sia abilitata nella macchina virtuale. Se si preme **invio** , si correggeranno spesso i problemi che non vengono visualizzati nella console seriale.
@@ -68,7 +69,7 @@ CoreOS      | L'accesso alla console seriale è abilitato per impostazione prede
 SUSE        | Le immagini SLES più recenti disponibili in Azure hanno l'accesso alla console seriale abilitato per impostazione predefinita. Se si usano versioni precedenti (fino alla 10) di SLES in Azure, vedere l'[articolo della Knowledge Base](https://www.novell.com/support/kb/doc.php?id=3456486) per abilitare la console seriale.
 Oracle Linux        | L'accesso alla console seriale è abilitato per impostazione predefinita.
 
-### <a name="custom-linux-images"></a>Immagini personalizzate di Linux
+### <a name="custom-linux-images"></a>Immagini Linux personalizzate
 Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console nel file */etc/inittab* per l'esecuzione di un terminale in `ttyS0`. Ad esempio: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Potrebbe anche essere necessario generare un Getty in ttyS0. Questa operazione può essere eseguita con `systemctl start serial-getty@ttyS0.service` .
 
 Sarà anche possibile aggiungere ttyS0 come destinazione per l'output seriale. Per altre informazioni sulla configurazione di un'immagine personalizzata per l'uso con la console seriale, vedere i requisiti di sistema generali in [creare e caricare un disco rigido virtuale Linux in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
@@ -82,7 +83,7 @@ Scenario          | Azioni nella console seriale
 File *FSTAB* interrotti | Premere il tasto **INVIO** per continuare e usare un editor di testo per correggere il file *FSTAB*. Per farlo potrebbe essere necessario essere in modalità utente singolo. Per altre informazioni, vedere la sezione relativa alla console seriale di [come correggere i problemi di fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [usare la console seriale per accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).
 Regole del firewall non corrette |  Se sono state configurate iptables per bloccare la connettività SSH, è possibile usare la console seriale per interagire con la macchina virtuale senza che sia necessario SSH. Per ulteriori informazioni, vedere la pagina relativa a [iptables Man](https://linux.die.net/man/8/iptables).<br>Analogamente, se il firewall blocca l'accesso SSH, è possibile accedere alla macchina virtuale tramite la console seriale e riconfigurare il firewall. Per ulteriori informazioni, vedere la [documentazione relativa ai firewall](https://firewalld.org/documentation/).
 Danneggiamento/Controllo del file system | Vedere la sezione console seriale della [macchina virtuale Linux di Azure non può essere avviata a causa di errori di file System](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) per altri dettagli sulla risoluzione dei problemi relativi ai file System danneggiati con la console seriale.
-Problemi di configurazione di SSH | Accedere alla console seriale e modificare le impostazioni. Console seriale può essere usato indipendentemente dalla configurazione SSH di una macchina virtuale perché non richiede che la macchina virtuale disponga della connettività di rete per funzionare. Una guida alla risoluzione dei problemi è disponibile in [risolvere i problemi relativi alle connessioni SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o viene rifiutata](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). [Per informazioni dettagliate sulla risoluzione dei problemi di connessione a una VM Linux in Azure](./detailed-troubleshoot-ssh-connection.md) , sono disponibili altri dettagli.
+Problemi di configurazione di SSH | Accedere alla console seriale e modificare le impostazioni. Console seriale può essere usato indipendentemente dalla configurazione SSH di una macchina virtuale perché non richiede che la macchina virtuale disponga della connettività di rete per funzionare. Una guida alla risoluzione dei problemi è disponibile in [risolvere i problemi relativi alle connessioni SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o viene rifiutata](./troubleshoot-ssh-connection.md). [Per informazioni dettagliate sulla risoluzione dei problemi di connessione a una VM Linux in Azure](./detailed-troubleshoot-ssh-connection.md) , sono disponibili altri dettagli.
 Interazione con bootloader | Riavviare la macchina virtuale all'interno del pannello della console seriale per accedere a GRUB nella VM Linux. Per altri dettagli e informazioni specifiche della distribuzione, vedere [usare la console seriale per accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Disabilitare la console seriale
@@ -98,7 +99,7 @@ L'accesso alla console seriale è consentito solo agli utenti che hanno un ruolo
 Tutti i dati inviati in entrambe le direzioni vengono crittografati durante il transito.
 
 ### <a name="audit-logs"></a>Log di controllo
-Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale di Azure, che ne ha anche il controllo.
+Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](./boot-diagnostics.md) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale di Azure, che ne ha anche il controllo.
 
 > [!CAUTION]
 > Non viene registrata alcuna password di accesso per la console. Tuttavia, se i comandi eseguiti nella console contengono o restituiscono password, segreti, nomi utente o qualsiasi altra forma di informazioni personali, tali elementi verranno scritti nei log di diagnostica di avvio della macchina virtuale, insieme a qualsiasi altro testo visibile, durante l'implementazione della funzione di scorrimento all'indietro della console seriale. Questi log sono circolari e solo gli utenti con autorizzazioni di lettura per l'account di archiviazione di diagnostica possono accedervi. Se si inseriscono tutti i comandi dei datator che contengono segreti o informazioni personali, è consigliabile usare SSH, a meno che la console seriale non sia assolutamente necessaria.
@@ -170,6 +171,5 @@ R. Sì. Poiché la console seriale non richiede le chiavi SSH, è sufficiente co
 * Usare la console seriale per [accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).
 * Usare la console seriale per le [chiamate NMI e SysRq](serial-console-nmi-sysrq.md).
 * Informazioni su come usare la console seriale per [abilitare GRUB in diverse distribuzioni](serial-console-grub-proactive-configuration.md)
-* La console seriale è disponibile anche per le [macchine virtuali Windows](../windows/serial-console.md).
+* La console seriale è disponibile anche per le [macchine virtuali Windows](./serial-console-windows.md).
 * Altre informazioni sulla [diagnostica di avvio](boot-diagnostics.md).
-

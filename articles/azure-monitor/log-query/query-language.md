@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505738"
 ---
 # <a name="azure-monitor-log-queries"></a>Query di log di Monitoraggio di Azure
 
@@ -19,7 +19,7 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 - [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.
 - [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md) è una lezione per la scrittura di query e l'uso con i dati di log di Monitoraggio di Azure.
@@ -27,9 +27,9 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 ## <a name="concepts"></a>Concetti
 
 - [Analizzare i dati di log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) offre una breve panoramica delle query di log e descrive la struttura dei dati di log di Monitoraggio di Azure.
-- [Visualizzazione e analisi dei dati di log in Monitoraggio di Azure](../../azure-monitor/log-query/portals.md) illustra i portali in cui vengono create ed eseguite query di log.
+- [Visualizzazione e analisi dei dati di log in Monitoraggio di Azure](./log-query-overview.md) illustra i portali in cui vengono create ed eseguite query di log.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 - [Riferimento al linguaggio di query](/azure/kusto/query) è il riferimento completo al linguaggio per il linguaggio di query Kusto.
 - [Differenze del linguaggio di query di log in Monitoraggio di Azure](data-explorer-difference.md) descrive le differenze tra le versioni del linguaggio di query Kusto.

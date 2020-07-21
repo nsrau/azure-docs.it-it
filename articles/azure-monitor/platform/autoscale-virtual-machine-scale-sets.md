@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373880"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505537"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
 
 > [!NOTE]
-> Mentre questa procedura dettagliata illustra i passaggi per set di scalabilità di macchine virtuali, le stesse informazioni si applicano alla scalabilità automatica di [Servizi Cloud](https://azure.microsoft.com/services/cloud-services/), [App Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Per l'impostazione di una scalabilità in ingresso/uscita semplice in un set di scalabilità di macchine virtuali basato su una semplice metrica delle prestazioni, ad esempio CPU, vedere i documenti [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> Mentre questa procedura dettagliata illustra i passaggi per set di scalabilità di macchine virtuali, le stesse informazioni si applicano alla scalabilità automatica di [Servizi Cloud](https://azure.microsoft.com/services/cloud-services/), [App Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](../../api-management/api-management-key-concepts.md) Per l'impostazione di una scalabilità in ingresso/uscita semplice in un set di scalabilità di macchine virtuali basato su una semplice metrica delle prestazioni, ad esempio CPU, vedere i documenti [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) e [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
@@ -195,7 +195,7 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
             }
           }
     ```
-    Per i campi e i valori supportati, vedere la [documentazione sull'API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/azure/dn931928.aspx). Ora l'impostazione di scalabilità automatica contiene i tre profili descritti in precedenza.
+    Per i campi e i valori supportati, vedere la [documentazione sull'API REST per il ridimensionamento automatico](/rest/api/monitor/autoscalesettings). Ora l'impostazione di scalabilità automatica contiene i tre profili descritti in precedenza.
 
 7. Verrà esaminata infine la sezione **notification** per la scalabilità automatica. Le notifiche di ridimensionamento automatico consentono di eseguire tre operazioni quando un'azione di aumento o riduzione del numero di istanze viene correttamente attivata.
    - Inviare una notifica all'amministratore e ai coamministratori della sottoscrizione.
@@ -243,9 +243,9 @@ Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
 [Procedure consigliate per il ridimensionamento automatico di Azure](autoscale-best-practices.md)
 
-[Gestire il ridimensionamento automatico con PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Gestire il ridimensionamento automatico con PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](cli-samples.md#autoscale)
+[Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](../samples/cli-samples.md#autoscale)
 
 [Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](autoscale-webhook-email.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80300979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509036"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Errore di avvio: questo non è un disco di avvio
 
@@ -27,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui il disco n
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato un messaggio che indica che non si tratta di un disco di avvio. Inserire un floppy di avvio e premere un tasto qualsiasi per riprovare.. .'.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato un messaggio che indica che non si tratta di un disco di avvio. Inserire un floppy di avvio e premere un tasto qualsiasi per riprovare.. .'.
 
    Figura 1
 
@@ -52,7 +52,7 @@ Questo messaggio di errore indica che il processo di avvio del sistema operativo
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 2. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="set-partition-status-to-active"></a>Imposta lo stato della partizione su attivo
@@ -148,4 +148,4 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 ### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per riassemblare la macchina virtuale.

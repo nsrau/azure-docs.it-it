@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508900"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Non è possibile stabilire una connessione RDP a una macchina virtuale perché questa viene avviata in modalità provvisoria
 
@@ -79,7 +79,7 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 3. Verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 
@@ -143,4 +143,4 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
     bcdedit /store F:\boot\bcd /enum
     ```
 
-5. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
+5. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](./troubleshoot-recovery-disks-portal-windows.md). Controllare quindi se il problema è stato risolto.

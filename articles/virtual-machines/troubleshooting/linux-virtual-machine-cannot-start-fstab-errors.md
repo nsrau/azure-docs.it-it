@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509053"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
 
-Non è possibile connettersi a una macchina virtuale (VM) Linux di Azure usando una connessione Secure Shell (SSH). Quando si esegue la funzionalità di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) nella [portale di Azure](https://portal.azure.com/), vengono visualizzate le voci di log simili agli esempi seguenti:
+Non è possibile connettersi a una macchina virtuale (VM) Linux di Azure usando una connessione Secure Shell (SSH). Quando si esegue la funzionalità di [diagnostica di avvio](./boot-diagnostics.md) nella [portale di Azure](https://portal.azure.com/), vengono visualizzate le voci di log simili agli esempi seguenti:
 
 ## <a name="examples"></a>Esempi
 
@@ -106,8 +106,8 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 
 ### <a name="using-single-user-mode"></a>Uso della modalità utente singolo
 
-1. Connettersi alla [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
-2. Usare la console seriale per eseguire la modalità [utente](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode) singolo in modalità utente singolo
+1. Connettersi alla [console seriale](./serial-console-linux.md).
+2. Usare la console seriale per eseguire la modalità [utente](../linux/serial-console-grub-single-user-mode.md) singolo in modalità utente singolo
 3. Quando la macchina virtuale è stata avviata in modalità utente singolo. Utilizzare l'editor di testo preferito per aprire il file fstab. 
 
    ```
@@ -140,7 +140,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 
 ### <a name="using-root-password"></a>Uso della password radice
 
-1. Connettersi alla [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+1. Connettersi alla [console seriale](./serial-console-linux.md).
 2. Accedere al sistema usando un utente e una password locali.
 
    > [!Note]
@@ -188,7 +188,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 
 ## <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
-1. Alleghi il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi VM Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) della riga di comando oppure è possibile automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Alleghi il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi VM Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia](./troubleshoot-recovery-disks-linux.md) della riga di comando oppure è possibile automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Dopo aver montato il disco di sistema come disco dati nella macchina virtuale di ripristino, eseguire il backup del file fstab prima di apportare modifiche, quindi seguire i passaggi successivi per correggere il file fstab.
 
@@ -217,7 +217,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
    > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
    > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
    > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire questo comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man. Si noti che il disco che si vuole ripristinare è ora montato in una nuova macchina virtuale. Sebbene gli UUID siano coerenti, gli ID di partizione del dispositivo (ad esempio, "/dev/sda1") sono diversi in questa macchina virtuale. Le partizioni file system della VM non riuscita originale che si trovano in un disco rigido virtuale non di sistema non sono disponibili per la VM di ripristino [usando i comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux)della riga di comando.
+   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man. Si noti che il disco che si vuole ripristinare è ora montato in una nuova macchina virtuale. Sebbene gli UUID siano coerenti, gli ID di partizione del dispositivo (ad esempio, "/dev/sda1") sono diversi in questa macchina virtuale. Le partizioni file system della VM non riuscita originale che si trovano in un disco rigido virtuale non di sistema non sono disponibili per la VM di ripristino [usando i comandi dell'interfaccia](./troubleshoot-recovery-disks-linux.md)della riga di comando.
    > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
 
 7. Modificare o impostare come commento le righe errate o non necessarie nel file fstab per consentire l'avvio corretto della macchina virtuale.
@@ -240,5 +240,5 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure](./troubleshoot-recovery-disks-portal-linux.md)

@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507948"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenari supportati nelle istanze Large di HANA
 Questo articolo descrive gli scenari supportati e i dettagli dell'architettura per le istanze large di HANA (HLI).
@@ -62,11 +63,11 @@ Ogni server di cui è stato effettuato il provisioning è preconfigurato con set
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Da nodo a nodo|
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Da nodo a nodo|
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
@@ -134,11 +135,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -169,11 +170,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -194,7 +195,7 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- La distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- La distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Singolo nodo con ripristino di emergenza che usa la replica di archiviazione
  
@@ -209,11 +210,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -231,9 +232,9 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "necessari per l'installazione di HANA") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
-- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)per il ripristino di emergenza.
+- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](./hana-overview-high-availability-disaster-recovery.md)per il ripristino di emergenza.
 - Il volume di avvio per la *classe di tipo i di SKU* viene replicato nel nodo di ripristino di emergenza.
 
 
@@ -250,11 +251,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -280,9 +281,9 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "necessari per l'installazione di HANA") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
-- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)per il ripristino di emergenza. 
+- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](./hana-overview-high-availability-disaster-recovery.md)per il ripristino di emergenza. 
 - Nel sito di ripristino di emergenza: i dati, i backup del log, i log e i volumi condivisi per QA (contrassegnati come "installazione dell'istanza di QA") sono configurati per l'installazione dell'istanza di QA.
 - Il volume di avvio per la *classe di tipo i di SKU* viene replicato nel nodo di ripristino di emergenza.
 
@@ -305,11 +306,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
@@ -332,7 +333,7 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - STONITH: per l'installazione STONITH è configurato un SBD. Tuttavia, l'utilizzo di STONITH è facoltativo.
 
 
@@ -351,11 +352,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
@@ -386,11 +387,11 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - STONITH: per l'installazione STONITH è configurato un SBD. Tuttavia, l'utilizzo di STONITH è facoltativo.
 - Nel sito di ripristino di emergenza: *sono necessari due set di volumi di archiviazione* per la replica del nodo primario e secondario.
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "necessari per l'installazione di HANA") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
-- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)per il ripristino di emergenza. 
+- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](./hana-overview-high-availability-disaster-recovery.md)per il ripristino di emergenza. 
 - Nel sito di ripristino di emergenza: i dati, i backup del log, i log e i volumi condivisi per QA (contrassegnati come "installazione dell'istanza di QA") sono configurati per l'installazione dell'istanza di QA.
 - Il volume di avvio per la *classe di tipo i di SKU* viene replicato nel nodo di ripristino di emergenza.
 
@@ -410,11 +411,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -451,11 +452,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -487,11 +488,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -526,11 +527,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI |
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -554,7 +555,7 @@ I punti di montaggio seguenti sono preconfigurati:
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 -  Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "necessari per l'installazione di HANA") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
-- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)per il ripristino di emergenza. 
+- Nel sito di ripristino di emergenza: i dati, i backup del log e i volumi condivisi (contrassegnati come "replica di archiviazione") vengono replicati tramite snapshot dal sito di produzione. Questi volumi vengono montati solo durante il failover. Per altre informazioni, vedere [procedura di failover](./hana-overview-high-availability-disaster-recovery.md)per il ripristino di emergenza. 
 - Il volume di avvio per la *classe di tipo i di SKU* viene replicato nel nodo di ripristino di emergenza.
 
 
@@ -571,11 +572,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -593,9 +594,9 @@ I punti di montaggio seguenti sono preconfigurati in entrambe le unità HLI (pri
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - Il nodo primario viene sincronizzato con il nodo ripristino di emergenza tramite la replica di sistema HANA. 
-- [Copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
+- [Copertura globale](../../../expressroute/expressroute-global-reach.md) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
 
 
 
@@ -612,11 +613,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -643,11 +644,11 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni essenziali
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Per informazioni sulle dimensioni del database in memoria supportate in un ambiente a più SID, vedere [panoramica e architettura](./hana-overview-architecture.md).
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "istanza di PROD nel sito di ripristino di emergenza") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza 
 - Nel sito di ripristino di emergenza: i dati, i backup del log, i log e i volumi condivisi per QA (contrassegnati come "installazione dell'istanza di QA") sono configurati per l'installazione dell'istanza di QA.
 - Il nodo primario viene sincronizzato con il nodo ripristino di emergenza tramite la replica di sistema HANA. 
-- [Copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
+- [Copertura globale](../../../expressroute/expressroute-global-reach.md) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Disponibilità elevata e ripristino di emergenza con HSR 
  
@@ -662,11 +663,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -692,7 +693,7 @@ I punti di montaggio seguenti sono preconfigurati:
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "istanza di ripristino di emergenza") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
 - Il nodo del sito primario viene sincronizzato con il nodo ripristino di emergenza tramite la replica di sistema HANA. 
-- [Copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
+- [Copertura globale](../../../expressroute/expressroute-global-reach.md) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Disponibilità elevata e ripristino di emergenza con HSR (costo ottimizzato)
  
@@ -707,11 +708,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -741,7 +742,7 @@ I punti di montaggio seguenti sono preconfigurati:
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati (contrassegnati come "istanza di ripristino di emergenza") per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
 - Nel sito di ripristino di emergenza: i dati, i backup del log, i log e i volumi condivisi per QA (contrassegnati come "installazione dell'istanza di QA") sono configurati per l'installazione dell'istanza di QA.
 - Il nodo del sito primario viene sincronizzato con il nodo ripristino di emergenza tramite la replica di sistema HANA. 
-- [Copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
+- [Copertura globale](../../../expressroute/expressroute-global-reach.md) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>Scalabilità orizzontale con il ripristino di emergenza con HSR
  
@@ -758,11 +759,11 @@ Sono preconfigurate le interfacce di rete seguenti:
 
 | Interfaccia logica NIC | Tipo di SKU | Nome con sistema operativo SUSE | Nome con sistema operativo RHEL | Caso d'uso|
 | --- | --- | --- | --- | --- |
-| Una | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Da client a HLI/HSR |
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
 | b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
@@ -788,9 +789,9 @@ I punti di montaggio seguenti sono preconfigurati:
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 - Nel sito di ripristino di emergenza: i volumi e i punti di montaggio sono configurati per l'installazione dell'istanza di HANA di produzione nell'unità di ripristino di emergenza HLI. 
 - Il nodo del sito primario viene sincronizzato con il nodo ripristino di emergenza tramite la replica di sistema HANA. 
-- [Copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
+- [Copertura globale](../../../expressroute/expressroute-global-reach.md) viene usato per collegare insieme i circuiti ExpressRoute per creare una rete privata tra le reti regionali.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Infrastruttura e connettività per le](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) istanze large di Hana
-- [Disponibilità elevata e ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) per istanze large di Hana
+- [Infrastruttura e connettività per le](./hana-overview-infrastructure-connectivity.md) istanze large di Hana
+- [Disponibilità elevata e ripristino di emergenza](./hana-overview-high-availability-disaster-recovery.md) per istanze large di Hana

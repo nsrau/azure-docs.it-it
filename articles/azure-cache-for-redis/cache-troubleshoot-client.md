@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829670"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506435"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Risolvere i problemi relativi al lato client di cache di Azure per Redis
 
@@ -84,12 +84,14 @@ Una richiesta/risposta di grandi dimensioni può causare un timeout. Si supponga
 
 Nell'esempio seguente, la richiesta "A" e "B" vengono inviate rapidamente al server. Il server inizia A inviare rapidamente le risposte "A" e "B". A causa dei tempi di trasferimento dei dati, la risposta ' B ' deve attendere il timeout della risposta ' A ' anche se il server ha risposto rapidamente.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
-         |-------- 1 Second Timeout (B) ----------|
-         |-Request B-|
-                |- Read Response A --------|
-                                           |- Read Response B-| (**TIMEOUT**)
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
 
 Non è semplice misurare questa richiesta/risposta. È possibile instrumentare il codice client per tenere traccia di richieste e risposte di grandi dimensioni.
 

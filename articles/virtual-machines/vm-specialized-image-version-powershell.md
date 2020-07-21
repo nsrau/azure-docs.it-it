@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: fdf1e6cf15279a0ff5be4b45385a13a3b967d22e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508753"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Creare una VM usando un'immagine specializzata 
 
 Creare una macchina virtuale da una versione di immagine specializzata archiviata in una raccolta di immagini condivise. Se si vuole creare una VM usando una versione di immagine generalizzata, vedere [creare una VM usando un'immagine generalizzata](vm-generalized-image-version-powershell.md).
 
-Quando si dispone di una versione di immagine specializzata, è possibile creare una o più nuove macchine virtuali. usando il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). 
+Quando si dispone di una versione di immagine specializzata, è possibile creare una o più nuove macchine virtuali. usando il cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). 
 
 In questo esempio viene usato l'ID di definizione dell'immagine per assicurarsi che la nuova macchina virtuale userà la versione più recente di un'immagine. È anche possibile usare una versione specifica usando l'ID versione dell'immagine per `Set-AzVMSourceImage -Id` . Ad esempio, per usare l'immagine versione *1.0.0* , digitare: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 

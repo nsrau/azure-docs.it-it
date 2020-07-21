@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505806"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transizione dalla ricerca log di Log Analytics ai log di Monitoraggio di Azure
 La ricerca log in Log Analytics di recente è stata sostituita da una nuova esperienza per l'analisi dei log di Monitoraggio di Azure. La pagina Ricerca log attualmente è ancora accessibile mediante la voce di menu **Log (versione classica)** nella pagina **Aree di lavoro di Log Analytics** del portale di Azure, ma verrà rimossa il 15 febbraio 2019. Questo articolo descrive le differenze tra le due esperienze allo scopo di agevolare la transizione dalla ricerca log. 
@@ -57,7 +58,7 @@ Nei log di Monitoraggio di Azure è necessario modificare la query per restituir
 ![Drill-down dei log di Monitoraggio di Azure](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Intervieni
-In Ricerca log è possibile [avviare un runbook](take-action.md) dal risultato di una ricerca selezionando **Intervieni**.
+In Ricerca log è possibile [avviare un runbook](../platform/action-groups.md) dal risultato di una ricerca selezionando **Intervieni**.
 
 ![Intervieni](media/log-search-transition/take-action-log-search.png)
 

@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830061"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505483"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Come aggiornare le regole di avviso o le regole di azione quando la risorsa di destinazione si sposta in un'altra area di Azure
 
-Questo articolo descrive il motivo per cui le regole di [avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) e le [regole di azione](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) esistenti possono essere interessate quando si spostano altre risorse di Azure tra le aree e come identificare e risolvere tali problemi. Vedere la documentazione principale sullo [spostamento delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region) per ulteriori informazioni su quando è utile spostare le risorse tra le aree e un elenco di controllo della progettazione di un processo di spostamento.
+Questo articolo descrive il motivo per cui le regole di [avviso](./alerts-overview.md) e le [regole di azione](./alerts-action-rules.md) esistenti possono essere interessate quando si spostano altre risorse di Azure tra le aree e come identificare e risolvere tali problemi. Vedere la documentazione principale sullo [spostamento delle risorse](../../azure-resource-manager/management/move-region.md) per ulteriori informazioni su quando è utile spostare le risorse tra le aree e un elenco di controllo della progettazione di un processo di spostamento.
 
 ## <a name="why-the-problem-exists"></a>Perché il problema esiste
 
-Le regole di avviso e le regole di azione fanno riferimento ad altre risorse di Azure. Gli esempi includono [macchine virtuali di Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate), [SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-move-resources-across-regions)e archiviazione di [Azure](https://docs.microsoft.com/azure/storage/common/storage-account-move). Quando si spostano le risorse a cui fanno riferimento le regole, è probabile che le regole smettano di funzionare correttamente perché non riescono a trovare le risorse a cui fanno riferimento.
+Le regole di avviso e le regole di azione fanno riferimento ad altre risorse di Azure. Gli esempi includono [macchine virtuali di Azure](../../site-recovery/azure-to-azure-tutorial-migrate.md), [SQL di Azure](../../azure-sql/database/move-resources-across-regions.md)e archiviazione di [Azure](../../storage/common/storage-account-move.md). Quando si spostano le risorse a cui fanno riferimento le regole, è probabile che le regole smettano di funzionare correttamente perché non riescono a trovare le risorse a cui fanno riferimento.
 
 Esistono due motivi principali per cui le regole potrebbero smettere di funzionare dopo aver spostato le risorse di destinazione:
 
@@ -94,20 +94,20 @@ Se **solo alcune** risorse nell'ambito sono state spostate, è necessario rimuov
 
 ### <a name="change-scope-of-a-rule-using-rest-api"></a>Modificare l'ambito di una regola con l'API REST
 
-1. Ottenere la regola esistente ([avvisi metrica](https://docs.microsoft.com/rest/api/monitor/metricalerts/get), [avvisi del log attività](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/get))
-2. Modificare l'ambito ([avvisi del log attività](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/update))
-3. Ridistribuire la regola ([avvisi metrica](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [avvisi del log attività](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/createorupdate))
+1. Ottenere la regola esistente ([avvisi metrica](/rest/api/monitor/metricalerts/get), [avvisi del log attività](/rest/api/monitor/activitylogalerts/get))
+2. Modificare l'ambito ([avvisi del log attività](/rest/api/monitor/activitylogalerts/update))
+3. Ridistribuire la regola ([avvisi metrica](/rest/api/monitor/metricalerts/createorupdate), [avvisi del log attività](/rest/api/monitor/activitylogalerts/createorupdate))
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>Modificare l'ambito di una regola con PowerShell
 
-1. Ottenere la regola esistente ([avvisi metrica](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2), [avvisi del log attività](https://docs.microsoft.com/powershell/module/az.monitor/get-azactivitylogalert), [regole di azione](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Get-AzActionRule)).
+1. Ottenere la regola esistente ([avvisi metrica](/powershell/module/az.monitor/get-azmetricalertrulev2), [avvisi del log attività](/powershell/module/az.monitor/get-azactivitylogalert), [regole di azione](/powershell/module/az.alertsmanagement/get-azactionrule)).
 2. Modificare l'ambito. Se necessario, suddividere in due regole (rilevanti per alcuni casi di avvisi delle metriche, come indicato in precedenza).
-3. Ridistribuire la regola ([avvisi metrica](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [avvisi del log attività](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [regole di azione](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Ridistribuire la regola ([avvisi metrica](/powershell/module/az.monitor/add-azmetricalertrulev2), [avvisi del log attività](/powershell/module/az.monitor/enable-azactivitylogalert), [regole di azione](/powershell/module/az.alertsmanagement/set-azactionrule)).
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modificare l'ambito di una regola usando l'interfaccia della riga di comando di Azure
 
-1.  Ottenere la regola esistente ([avvisi metrica](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [avvisi del log attività](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Aggiornare direttamente l'ambito della regola ([avvisi metrica](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [avvisi del log attività](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
+1.  Ottenere la regola esistente ([avvisi metrica](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [avvisi del log attività](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Aggiornare direttamente l'ambito della regola ([avvisi metrica](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [avvisi del log attività](/cli/azure/monitor/activity-log/alert/scope))
 3.  Se necessario, suddividere in due regole (rilevanti per alcuni casi di avvisi delle metriche, come indicato in precedenza).
 
 ## <a name="next-steps"></a>Passaggi successivi

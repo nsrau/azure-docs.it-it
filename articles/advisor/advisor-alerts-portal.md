@@ -3,18 +3,18 @@ title: Creare avvisi di Azure Advisor per nuove raccomandazioni utilizzando port
 description: Crea avvisi Azure Advisor per la nuova raccomandazione
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 351d1faf0cb049babe1091aaac465ff975ab47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507217"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Creare avvisi di Azure Advisor per nuove raccomandazioni usando il portale di Azure 
 
 Questo articolo illustra come configurare un avviso per nuove raccomandazioni da Azure Advisor usando il portale di Azure. 
 
-Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse, un evento viene archiviato nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). È possibile configurare avvisi per questi eventi da Azure Advisor usando un'esperienza di creazione di avvisi specifica della raccomandazione. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse su cui si desidera ricevere gli avvisi. 
+Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse, un evento viene archiviato nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile configurare avvisi per questi eventi da Azure Advisor usando un'esperienza di creazione di avvisi specifica della raccomandazione. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse su cui si desidera ricevere gli avvisi. 
 
 È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
 
@@ -32,7 +32,7 @@ Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di 
 > [!NOTE] 
 > Gli avvisi di Advisor sono attualmente disponibili solo per i consigli relativi a disponibilità elevata, prestazioni e costi. Le raccomandazioni sulla sicurezza non sono supportate. 
 
-## <a name="create-alert-rule"></a>Creare la regola di avviso
+## <a name="create-alert-rule"></a>Creare una regola di avviso
 1. Nel **portale**selezionare **Azure Advisor**.
 
     ![Azure Advisor nel portale](./media/advisor-alerts/create1.png)
@@ -57,7 +57,7 @@ Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di 
 
     ![Gruppo di azione avvisi di Advisor](./media/advisor-alerts/create6.png)
 
-7. Nella sezione **gruppi di azione** selezionare **Aggiungi esistente** per usare un gruppo di azioni già creato oppure selezionare **Crea nuovo** per configurare un nuovo gruppo di [azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. Nella sezione **gruppi di azione** selezionare **Aggiungi esistente** per usare un gruppo di azioni già creato oppure selezionare **Crea nuovo** per configurare un nuovo gruppo di [azioni](../azure-monitor/platform/action-groups.md). 
 
     ![Avviso di Advisor Aggiungi esistente](./media/advisor-alerts/create7.png)
 

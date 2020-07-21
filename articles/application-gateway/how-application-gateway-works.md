@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506554"
 ---
 # <a name="how-an-application-gateway-works"></a>Funzionamento del gateway applicazione
 
@@ -62,7 +62,7 @@ Un gateway applicazione inserisce quattro intestazioni aggiuntive per tutte le r
 
 I valori validi per x-inoltred-proto sono HTTP o HTTPS. X-inoltred-Port specifica la porta in cui la richiesta ha raggiunto il gateway applicazione. L'intestazione X-Original-host contiene l'intestazione host originale con cui è arrivata la richiesta. Questa intestazione è utile nell'integrazione del sito Web di Azure, in cui l'intestazione host in ingresso viene modificata prima che il traffico venga indirizzato al back-end. Se l'affinità di sessione è abilitata come opzione, aggiunge un cookie di affinità gestito dal gateway.
 
-È possibile configurare il gateway applicazione per modificare le intestazioni usando le [intestazioni HTTP di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) o per modificare il percorso dell'URI usando un'impostazione di sostituzione del percorso. Tuttavia, a meno che non sia configurato a tale scopo, tutte le richieste in ingresso vengono inoltrate al back-end.
+È possibile configurare il gateway applicazione per modificare intestazioni e URL di richiesta e risposta usando [le intestazioni HTTP di riscrittura e l'URL](rewrite-http-headers-url.md) oppure per modificare il percorso dell'URI usando un'impostazione di sostituzione del percorso. Tuttavia, a meno che non sia configurato a tale scopo, tutte le richieste in ingresso vengono inoltrate al back-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

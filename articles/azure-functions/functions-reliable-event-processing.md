@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506027"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
 
@@ -69,7 +70,7 @@ L'introduzione delle librerie di gestione degli errori alle funzioni consente di
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) è un esempio di una libreria di gestione degli errori temporanei e di resilienza per le applicazioni C#.
 
-Quando si utilizzano librerie di classi C# precompilate, i [filtri eccezioni](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) consentono di eseguire codice ogni volta che si verifica un'eccezione non gestita.
+Quando si utilizzano librerie di classi C# precompilate, i [filtri eccezioni](/dotnet/csharp/language-reference/keywords/try-catch) consentono di eseguire codice ogni volta che si verifica un'eccezione non gestita.
 
 Gli esempi che illustrano come usare i filtri eccezioni sono disponibili nel repository di [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) .
 

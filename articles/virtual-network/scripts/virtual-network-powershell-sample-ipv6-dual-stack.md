@@ -12,13 +12,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dfc6da8dcf33f49ceb203b32e81033fd81fa329
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507489"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale (anteprima)
+# <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Configurare gli endpoint IPv6 nella rete virtuale con Azure PowerShell esempio di script (anteprima)
 
 Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, regole del gruppo di sicurezza di rete doppie e IP duali pubblici.
 

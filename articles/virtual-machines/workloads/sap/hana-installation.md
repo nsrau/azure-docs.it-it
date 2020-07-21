@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117122"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507846"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -41,11 +42,11 @@ Prima di iniziare l'installazione di HANA, verificare quanto segue:
 
 Dopo aver ricevuto le unità di istanze Large di HANA da Microsoft, convalidare le impostazioni seguenti e apportare le necessarie modifiche.
 
-Il **primo passaggio** dopo aver ricevuto l'istanza large di Hana e stabilito l'accesso e la connettività alle istanze consiste nell'archiviare portale di Azure se le istanze vengono visualizzate con gli SKU e il sistema operativo corretti. Leggere il [controllo delle istanze large di Azure Hana tramite portale di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) per i passaggi necessari per eseguire i controlli.
+Il **primo passaggio** dopo aver ricevuto l'istanza large di Hana e stabilito l'accesso e la connettività alle istanze consiste nell'archiviare portale di Azure se le istanze vengono visualizzate con gli SKU e il sistema operativo corretti. Leggere il [controllo delle istanze large di Azure Hana tramite portale di Azure](./hana-li-portal.md) per i passaggi necessari per eseguire i controlli.
 
 Il **secondo passaggio** dopo aver ricevuto l'istanza large di Hana e aver stabilito l'accesso e la connettività alle istanze consiste nel registrare il sistema operativo dell'istanza con il provider del sistema operativo. Questo passaggio include la registrazione del sistema operativo Linux SUSE in un'istanza di SMT SUSE che è stata distribuita in una macchina virtuale di Azure. 
 
-L'unità di istanze Large di HANA può connettersi a questa istanza SMT. Per altre informazioni, vedere [Configurazione del server SMT per SUSE Linux](hana-setup-smt.md). In alternativa, è necessario registrare il sistema operativo Red Hat con la gestione sottoscrizione di RedHat a cui eseguire la connessione. Per altre informazioni, vedere la sezione Osservazioni in [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informazioni su SAP HANA in Azure - istanze Large). 
+L'unità di istanze Large di HANA può connettersi a questa istanza SMT. Per altre informazioni, vedere [Configurazione del server SMT per SUSE Linux](hana-setup-smt.md). In alternativa, è necessario registrare il sistema operativo Red Hat con la gestione sottoscrizione di RedHat a cui eseguire la connessione. Per altre informazioni, vedere la sezione Osservazioni in [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json) (Informazioni su SAP HANA in Azure - istanze Large). 
 
 Questo passaggio è necessario per l'applicazione di patch al sistema operativo, che è responsabilità del cliente. Per quanto riguarda SUSE, la documentazione relativa all'installazione e alla configurazione di SMT è disponibile in questa pagina sull'[installazione di SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
@@ -126,10 +127,10 @@ Per SAP HANA in Azure (istanze Large), la sincronizzazione dell'ora eseguita in 
 ## <a name="networking"></a>Rete
 Si presuppone che siano state seguite le indicazioni relative alla progettazione delle reti virtuali di Azure e alla connessione di queste reti virtuali alle istanze Large di HANA come descritto nei documenti seguenti:
 
-- [Panoramica e architettura di SAP HANA (istanza large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Panoramica e architettura di SAP HANA (istanza large) in Azure](./hana-overview-architecture.md)
 - [Infrastruttura e connettività di SAP HANA (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-È opportuno citare alcuni dettagli in relazione alla rete delle singole unità. Ogni unità di istanza Large di HANA include due o tre indirizzi IP assegnati a due o tre porte NIC. Tre indirizzi IP vengono usati nelle configurazioni con scalabilità orizzontale HANA e nello scenario di replica di sistema HANA. Uno degli indirizzi IP assegnati alla scheda di interfaccia di rete dell'unità è esterno al pool di indirizzi IP del server che è stato descritto in [SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+È opportuno citare alcuni dettagli in relazione alla rete delle singole unità. Ogni unità di istanza Large di HANA include due o tre indirizzi IP assegnati a due o tre porte NIC. Tre indirizzi IP vengono usati nelle configurazioni con scalabilità orizzontale HANA e nello scenario di replica di sistema HANA. Uno degli indirizzi IP assegnati alla scheda di interfaccia di rete dell'unità è esterno al pool di indirizzi IP del server che è stato descritto in [SAP HANA in Azure (istanze Large)](./hana-overview-architecture.md).
 
 Per altre informazioni sui dettagli Ethernet per l'architettura, vedere [Scenari supportati nelle istanze Large di Hana](hana-supported-scenario.md).
 
@@ -264,7 +265,3 @@ Per altre informazioni sul layout di archiviazione per l'architettura in uso, ve
 
 
  
-
-
-
-

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 60ce5b868b2a8f955b32e372201613ba66d49eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f77eaba7cd0c29899a81352f5550becb0e4128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508594"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Creare una macchina virtuale Windows in una zona di disponibilità con PowerShell
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 ## <a name="check-vm-sku-availability"></a>Verificare la disponibilità dello SKU di VM
 La disponibilità delle dimensioni delle macchine virtuali, o SKU, può variare in base all'area e alla zona. Per semplificare la pianificazione dell'uso delle zone di disponibilità, è possibile elencare gli SKU di VM disponibili per area e zona di Azure. Questa possibilità assicura la scelta di dimensioni adeguate per le macchine virtuali e l'ottenimento della resilienza desiderata tra le aree. Per altre informazioni sui tipi e sulle dimensioni delle VM, vedere la [panoramica delle dimensioni delle VM](sizes.md).
 
-È possibile visualizzare gli SKU di VM disponibili con il comando [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku). L'esempio seguente elenca gli SKU di VM disponibili nell'area *eastus2*:
+È possibile visualizzare gli SKU di VM disponibili con il comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku). L'esempio seguente elenca gli SKU di VM disponibili nell'area *eastus2*:
 
 ```powershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
@@ -61,7 +61,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus2*. 
+Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus2*. 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS2
@@ -105,7 +105,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location e
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Creare una scheda di rete per la macchina virtuale 
-Creare una scheda di rete con [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) per la macchina virtuale. La scheda di rete connette la macchina virtuale a una subnet, a un gruppo di sicurezza di rete e a un indirizzo IP pubblico.
+Creare una scheda di rete con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) per la macchina virtuale. La scheda di rete connette la macchina virtuale a una subnet, a un gruppo di sicurezza di rete e a un indirizzo IP pubblico.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -128,7 +128,7 @@ $vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Creare la macchina virtuale con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Creare la macchina virtuale con [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```powershell
 New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
@@ -136,7 +136,7 @@ New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 
 ## <a name="confirm-zone-for-managed-disk"></a>Confermare la zona per il disco gestito
 
-La risorsa indirizzo IP della macchina virtuale è stata creata nella stessa zona disponibilità della macchina virtuale. La risorsa disco gestito per la VM viene creata nella stessa zona di disponibilità. È possibile verificarlo con [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk):
+La risorsa indirizzo IP della macchina virtuale è stata creata nella stessa zona disponibilità della macchina virtuale. La risorsa disco gestito per la VM viene creata nella stessa zona di disponibilità. È possibile verificarlo con [Get-AzDisk](/powershell/module/az.compute/get-azdisk):
 
 ```powershell
 Get-AzDisk -ResourceGroupName myResourceGroup

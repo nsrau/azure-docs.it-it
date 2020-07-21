@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506537"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -58,7 +59,7 @@ Se si usa Visual Studio, è possibile ottenere le estensioni installando i [pacc
 
 ### <a name="configuring-authentication--authorization"></a>La configurazione del servizio di autenticazione/autorizzazione è in corso
 
-Le associazioni descritte in questo articolo richiedono l'uso di un'identità. In questo modo Microsoft Graph applica le autorizzazioni e le interazioni di controllo. L'identità può essere un utente con accesso all'applicazione o l'applicazione stessa. Per configurare l'identità, impostare l'[autenticazione/autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) con Azure Active Directory. È anche necessario richiedere tutte le autorizzazioni delle risorse richieste per le funzioni.
+Le associazioni descritte in questo articolo richiedono l'uso di un'identità. In questo modo Microsoft Graph applica le autorizzazioni e le interazioni di controllo. L'identità può essere un utente con accesso all'applicazione o l'applicazione stessa. Per configurare l'identità, impostare l'[autenticazione/autorizzazione del servizio app](../app-service/overview-authentication-authorization.md) con Azure Active Directory. È anche necessario richiedere tutte le autorizzazioni delle risorse richieste per le funzioni.
 
 > [!Note] 
 > L'estensione Microsoft Graph supporta solo l'autenticazione di Azure AD. Gli utenti devono accedere con un account aziendale o dell'istituto di istruzione.
@@ -668,7 +669,7 @@ Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
-- STREAM
+- Flusso
 - string
 - Microsoft.Graph.DriveItem
 
@@ -816,7 +817,7 @@ Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
-- STREAM
+- Flusso
 - string
 - Microsoft.Graph.DriveItem
 
@@ -982,7 +983,7 @@ I webhook consentono di rispondere agli eventi in Microsoft Graph. Per supportar
 - Un'[associazione di input per la sottoscrizione webhook di Microsoft Graph](#webhook-input) che consente di elencare le sottoscrizioni esistenti e, facoltativamente, di aggiornarle.
 - Un'[associazione di output per la sottoscrizione webhook di Microsoft Graph](#webhook-output) che consente di creare o eliminare le sottoscrizioni webhook.
 
-Le associazioni stesse non richiedono alcuna autorizzazione Azure AD, ma è necessario richiedere le autorizzazioni relative al tipo di risorsa a cui si vuole rispondere. Per un elenco delle autorizzazioni necessarie per ogni tipo di risorsa, consultare le [autorizzazioni per la sottoscrizione](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+Le associazioni stesse non richiedono alcuna autorizzazione Azure AD, ma è necessario richiedere le autorizzazioni relative al tipo di risorsa a cui si vuole rispondere. Per un elenco delle autorizzazioni necessarie per ogni tipo di risorsa, consultare le [autorizzazioni per la sottoscrizione](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Per altre informazioni sui webhook, vedere [Usare i webhook in Microsoft Graph].
 

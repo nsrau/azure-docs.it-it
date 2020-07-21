@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707766"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508033"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Panoramica delle macchine virtuali serie HB
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 | Core                            | 60 (SMT disabilitato)                |
 | CPU                              | AMD EPYC 7551 *                   |
 | Frequenza CPU (non-AVX)          | ~ 2,55 GHz (singolo + tutti i core)   |
-| Memory                           | 4 GB/Core (Totale 240)            |
+| Memoria                           | 4 GB/Core (Totale 240)            |
 | Disco locale                       | 700 GB NVMe                      |
 | Infiniband                       | 100 GB EDR Mellanox ConnectX-5 * * |
 | Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC * * * |
@@ -65,6 +65,6 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulle dimensioni delle VM HPC per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
+* Scopri di più sulle dimensioni delle VM HPC per [Linux](../../sizes-hpc.md) e [Windows](../../sizes-hpc.md) in Azure.
 
-* Scopri di più su [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+* Scopri di più su [HPC](/azure/architecture/topics/high-performance-computing/) in Azure.

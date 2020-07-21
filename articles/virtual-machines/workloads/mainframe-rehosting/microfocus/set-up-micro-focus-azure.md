@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 7647283444ba41a5d629ba8a26fc711a699cd78d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561099"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507897"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installare Micro Focus Enterprise Server 5,0 e Enterprise Developer 5,0 in Azure
 
@@ -42,7 +42,7 @@ Prima di iniziare, verificare i prerequisiti seguenti:
     > [!Note]
     > Sono disponibili alcune opzioni per il controllo dell'accesso alle macchine virtuali:
     > -   Una procedura consigliata consiste nell'impostare [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Un tunnel [di rete privata virtuale (VPN) da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell) .
+    > -   Un tunnel [di rete privata virtuale (VPN) da sito a sito](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
     > -   Una macchina virtuale JumpBox.
 
 ## <a name="install-enterprise-server"></a>Installare Enterprise Server
@@ -125,8 +125,8 @@ Quando si caricano gli sviluppatori aziendali, è stata completata la distribuzi
 
 **Passaggi successivi**
 
--   [Configurare l'applicazione BankDemo](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/demo)
+-   [Configurare l'applicazione BankDemo](./demo.md)
 
--   [Eseguire Enterprise Server in contenitori Docker](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
+-   [Eseguire Enterprise Server in contenitori Docker](./run-enterprise-server-container.md)
 
--   [Migrazione delle applicazioni mainframe](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migrazione delle applicazioni mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

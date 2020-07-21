@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 444f7cd7094a688c43d9aedce67d293e3c32e273
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082935"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508560"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portale
 
@@ -42,7 +42,7 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 
 - Le dimensioni della macchina virtuale devono essere nella stessa famiglia di dimensioni dell'host dedicato. Se, ad esempio, l'host dedicato è DSv3, è possibile che le dimensioni della macchina virtuale siano Standard_D4s_v3, ma non una Standard_A4_v2. 
 - La macchina virtuale deve trovarsi nella stessa area dell'host dedicato.
-- La macchina virtuale non può far parte di un gruppo di posizionamento di prossimità. Rimuovere la macchina virtuale dal gruppo di posizionamento vicino prima di trasferirla in un host dedicato. Per altre informazioni, vedere [spostare una macchina virtuale da un gruppo di posizionamento vicino](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- La macchina virtuale non può far parte di un gruppo di posizionamento di prossimità. Rimuovere la macchina virtuale dal gruppo di posizionamento vicino prima di trasferirla in un host dedicato. Per altre informazioni, vedere [spostare una macchina virtuale da un gruppo di posizionamento vicino](./proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - La macchina virtuale non può trovarsi in un set di disponibilità.
 - Se la macchina virtuale si trova in una zona di disponibilità, deve corrispondere alla stessa zona di disponibilità del gruppo host. Le impostazioni della zona di disponibilità per la macchina virtuale e il gruppo host devono corrispondere.
 

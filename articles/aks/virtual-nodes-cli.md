@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8806390fe772491b629276b21734947a149d67e4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1cfbe1db33661dd712dfbc53670fb8f0525a481
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507030"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -86,7 +86,7 @@ Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure ven
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet*. Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16*:
 
@@ -149,7 +149,7 @@ Per concedere l'accesso corretto al cluster del servizio Azure Kubernetes per l'
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio creata nel passaggio precedente. Ottenere l'ID della subnet usando il comando [az network vnet subnet show][az-network-vnet-subnet-show]:
 
@@ -271,7 +271,7 @@ Al pod viene assegnato un indirizzo IP interno della subnet di rete virtuale di 
 Per testare il pod in esecuzione nel nodo virtuale, passare all'applicazione demo con un client Web. Poiché al pod è assegnato un indirizzo IP interno, è possibile eseguire rapidamente il test di questa connettività da un altro pod nel cluster del servizio Azure Kubernetes. Creare un pod test e collegarvi una sessione terminal:
 
 ```console
-kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=debian
 ```
 
 Installare `curl` nel pod usando `apt-get`:

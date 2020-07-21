@@ -4,22 +4,21 @@ description: Informazioni su come controllare l'ammissione di pod usando PodSecu
 services: container-service
 ms.topic: article
 ms.date: 06/30/2020
-ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dd526b7825279d886c60fbb1820222a75abab03e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507081"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
-<!--
 > [!WARNING]
-> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
-
-**This document and feature are set for deprecation.**
--->
+> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020** a favore di criteri di [Azure per AKS](use-pod-security-on-azure-policy.md).
+>
+> Dopo che i criteri di sicurezza pod (anteprima) sono deprecati, è necessario disabilitare la funzionalità in tutti i cluster esistenti usando la funzionalità deprecata per eseguire gli aggiornamenti futuri del cluster e rimanere nel supporto tecnico di Azure.
+>
+> È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Fare clic qui per informazioni sulla [migrazione a criteri di Azure da criteri di sicurezza pod (anteprima)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 Per migliorare la sicurezza del cluster AKS, è possibile limitare i pod che è possibile pianificare. I pod che richiedono risorse non consentite non possono essere eseguiti nel cluster AKS. Questo accesso viene definito usando i criteri di sicurezza pod. Questo articolo illustra come usare i criteri di sicurezza di pod per limitare la distribuzione di pod in AKS.
 
@@ -35,7 +34,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.61 o versioni successive. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
+### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 
 Per usare i criteri di sicurezza di Pod, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione *aks-preview* dell'interfaccia della riga di comando di Azure usando il comando [az extension add][az-extension-add], quindi verificare la disponibilità di eventuali aggiornamenti usando il comando [az extension update][az-extension-update]:
 
@@ -48,6 +47,8 @@ az extension update --name aks-preview
 ```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>Registrare il provider di funzionalità dei criteri di sicurezza Pod
+
+**Il documento e la funzionalità sono impostati per la deprecazione il 15 ottobre 2020.**
 
 Per creare o aggiornare un cluster AKS per usare i criteri di sicurezza Pod, abilitare prima di tutto un flag funzionalità per la sottoscrizione. Per registrare il flag della funzionalità *PodSecurityPolicyPreview* , usare il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
@@ -395,7 +396,7 @@ Eliminare il Pod senza privilegi NGINX usando il comando [kubectl Delete][kubect
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per disabilitare i criteri di sicurezza di Pod, usare di nuovo il comando [AZ AKS Update][az-aks-update] . Nell'esempio seguente vengono disabilitati i criteri di sicurezza Pod nel nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 

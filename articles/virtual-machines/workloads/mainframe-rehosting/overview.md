@@ -10,11 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507880"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Riallocazione del mainframe in macchine virtuali di Azure
 
@@ -69,11 +70,11 @@ Attività iniziali
 
 L'ambiente IBM DB2 pureScale fornisce un cluster di database per Azure. Non è identico all'ambiente originale, ma offre una disponibilità e una scalabilità simili a IBM DB2 per z/OS in esecuzione in un'installazione parallela di Sysplex.
 
-Per iniziare, vedere [IBM DB2 pureScale in Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+Per iniziare, vedere [IBM DB2 pureScale in Azure](../../linux/ibm-db2-purescale-azure.md).
 
 ## <a name="considerations"></a>Considerazioni
 
-Quando si esegue la migrazione di carichi di lavoro mainframe nell'infrastruttura distribuita come servizio (IaaS) di Azure, è possibile scegliere tra diversi tipi di risorse di calcolo scalabili e su richiesta, incluse le macchine virtuali di Azure. Azure offre una gamma di macchine virtuali [Linux](/azure/virtual-machines/linux/overview) e [Windows](/azure/virtual-machines/windows/overview) .
+Quando si esegue la migrazione di carichi di lavoro mainframe nell'infrastruttura distribuita come servizio (IaaS) di Azure, è possibile scegliere tra diversi tipi di risorse di calcolo scalabili e su richiesta, incluse le macchine virtuali di Azure. Azure offre una gamma di macchine virtuali [Linux](../../linux/overview.md) e [Windows](../../windows/overview.md) .
 
 ### <a name="compute"></a>Calcolo
 
@@ -85,21 +86,21 @@ Informazioni su come [spostare il calcolo mainframe in Azure](./concepts/mainfra
 
 Azure offre contratti di servizio (SLA) basati sull'impegno. La disponibilità di più nove è l'impostazione predefinita e i contratti di servizio possono essere ottimizzati con la replica locale o geografica dei servizi. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
 
-Con Azure IaaS, ad esempio una macchina virtuale, funzioni di sistema specifiche forniscono il supporto per il failover, ad esempio le istanze del clustering di failover e i set di disponibilità. Quando si usano risorse della piattaforma distribuita come servizio (PaaS) di Azure, la piattaforma gestisce automaticamente il failover. Gli esempi includono il [database SQL di Azure](/azure/sql-database/sql-database-technical-overview) e [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Con Azure IaaS, ad esempio una macchina virtuale, funzioni di sistema specifiche forniscono il supporto per il failover, ad esempio le istanze del clustering di failover e i set di disponibilità. Quando si usano risorse della piattaforma distribuita come servizio (PaaS) di Azure, la piattaforma gestisce automaticamente il failover. Gli esempi includono il [database SQL di Azure](../../../azure-sql/database/sql-database-paas-overview.md) e [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### <a name="scalability"></a>Scalabilità
 
-I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](/azure/virtual-machines/linux/sizes) e [Windows](/azure/virtual-machines/windows/sizes) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
+I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](../../linux/sizes.md) e [Windows](../../windows/sizes.md) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
 
 ### <a name="storage"></a>Archiviazione
 
-Nel cloud è possibile disporre di una gamma di opzioni di archiviazione flessibili e scalabili e si paga solo per gli elementi necessari. [Archiviazione di Azure](/azure/storage/common/storage-introduction) offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica affidabile e un archivio NoSQL. Per le macchine virtuali, i dischi gestiti e non gestiti offrono risorse di archiviazione su disco persistenti e sicure.
+Nel cloud è possibile disporre di una gamma di opzioni di archiviazione flessibili e scalabili e si paga solo per gli elementi necessari. [Archiviazione di Azure](../../../storage/common/storage-introduction.md) offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica affidabile e un archivio NoSQL. Per le macchine virtuali, i dischi gestiti e non gestiti offrono risorse di archiviazione su disco persistenti e sicure.
 
 Informazioni su come [spostare l'archiviazione mainframe in Azure](./concepts/mainframe-storage-azure.md).
 
 ### <a name="backup-and-recovery"></a>Backup e ripristino
 
-La gestione del sito di ripristino di emergenza può essere una proposta costosa. Azure offre opzioni facili da implementare e convenienti per il [backup](/azure/backup/backup-introduction-to-azure-backup), il [ripristino](/azure/site-recovery/site-recovery-overview)e la [ridondanza](/azure/storage/common/storage-redundancy) a livello locale o regionale, oppure tramite la ridondanza geografica.
+La gestione del sito di ripristino di emergenza può essere una proposta costosa. Azure offre opzioni facili da implementare e convenienti per il [backup](../../../backup/backup-overview.md), il [ripristino](../../../site-recovery/site-recovery-overview.md)e la [ridondanza](../../../storage/common/storage-redundancy.md) a livello locale o regionale, oppure tramite la ridondanza geografica.
 
 ## <a name="azure-government-for-mainframe-migrations"></a>Azure per enti pubblici per migrazioni mainframe
 
@@ -117,7 +118,7 @@ Vedere anche la pagina relativa alla
 
 - [White paper sugli argomenti del mainframe](mainframe-white-papers.md)
 - [Migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Risoluzione dei problemi](/azure/virtual-machines/troubleshooting/)
+- [Risoluzione dei problemi](../../troubleshooting/index.yml)
 - [Demistificazione della migrazione da mainframe ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

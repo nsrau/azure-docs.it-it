@@ -2,19 +2,19 @@
 title: 'Rete WAN virtuale: Azure AD tenant per gruppi di utenti diversi: autenticazione Azure AD'
 description: È possibile usare la VPN P2S per connettersi alla VNet usando l'autenticazione Azure AD
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: a1471226bcc22373904e65f95d0c07c2d5041f55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749826"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507693"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant Azure Active Directory per le connessioni del protocollo OpenVPN da punto a sito
+# <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory (AD) per le connessioni del protocollo OpenVPN P2S
 
 Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Se si vuole che un diverso set di utenti sia in grado di connettersi a Gateway diversi, è possibile registrare più app in Active Directory e collegarle a diversi gateway.
 
@@ -123,11 +123,11 @@ Usare questo [collegamento](https://go.microsoft.com/fwlink/?linkid=2117554) per
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminare](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![eliminazione](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminare](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![eliminazione](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Per diagnosticare i problemi di connessione
 

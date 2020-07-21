@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80411081"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508050"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare la microfocus CICS BankDemo per Micro Focus Enterprise Developer 4,0 in Azure
 
@@ -146,7 +146,7 @@ La query deve essere eseguita senza errori. Al termine, si disporrà del databas
     > [!NOTE]
     > La compilazione a livello di soluzione genera errori, perché HCOSS non è stato configurato.
 
-6. Quando il progetto viene compilato, esaminare la finestra di **output** . L'aspetto dovrebbe essere simile a quanto riportato di seguito.
+6. Quando il progetto viene compilato, esaminare la finestra di **output** . L'aspetto dovrebbe essere simile all'immagine seguente.
 
      ![Finestra di output che mostra la compilazione riuscita](media/05-demo-output.png)
 
@@ -273,7 +273,7 @@ Congratulazioni! Viene ora eseguita un'applicazione CICS in Azure usando Micro F
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire Enterprise Server in contenitori Docker in Azure](run-enterprise-server-container.md)
-- [Migrazione del mainframe-portale](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Migrazione del mainframe-portale](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Macchine virtuali](../../../linux/overview.md)
+- [Risoluzione dei problemi](../../../troubleshooting/index.yml)
 - [Demistificazione della migrazione da mainframe ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

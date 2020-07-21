@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203183"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506809"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -49,7 +49,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Usare il portale di Azure per impostare un nome di dominio personalizzato per il gateway self-hosted
 
-1. Selezionare i **gateway** in **Impostazioni**.
+1. Selezionare i **gateway** in **distribuzione e infrastruttura**.
 2. Selezionare il gateway self-hosted per cui si vuole configurare il nome di dominio.
 3. Selezionare **nomi host** in **Impostazioni**.
 4. Selezionare **+ Aggiungi**

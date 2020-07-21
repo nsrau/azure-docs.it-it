@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697341"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506486"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
 
@@ -48,7 +49,7 @@ Per usare i bundle di estensione, aggiornare il *host.jssu* file in modo da incl
 
 ## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Libreria di classi C con Visual Studio
 
-In **Visual Studio**è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
+In **Visual Studio**è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -62,7 +63,7 @@ Se si usa `Install-Package` per fare riferimento a un'associazione, non è neces
 
 ## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Libreria di classi C# con Visual Studio Code
 
-In **Visual Studio Code**, installare i pacchetti per un progetto libreria di classi C# dal prompt dei comandi usando il comando [DotNet add Package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nel interfaccia della riga di comando di .NET Core. Nell'esempio seguente viene illustrato come aggiungere un'associazione:
+In **Visual Studio Code**, installare i pacchetti per un progetto libreria di classi C# dal prompt dei comandi usando il comando [DotNet add Package](/dotnet/core/tools/dotnet-add-package) nel interfaccia della riga di comando di .NET Core. Nell'esempio seguente viene illustrato come aggiungere un'associazione:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

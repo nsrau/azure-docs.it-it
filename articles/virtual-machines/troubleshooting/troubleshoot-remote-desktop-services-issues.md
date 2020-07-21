@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508883"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -218,7 +218,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituirlo con il valore appropriato nella macchina virtuale. 
 
@@ -234,7 +234,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
+4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](./troubleshoot-recovery-disks-portal-windows.md). Controllare quindi se il problema è stato risolto.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

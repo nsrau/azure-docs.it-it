@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833537"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505772"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Aggiornamento delle visualizzazioni del dashboard Log Analytics
 
@@ -25,7 +25,7 @@ Questa nuova tecnologia di visualizzazione sta aprendo la strada per esperienze 
 
 I dashboard di Azure sono un modo per visualizzare lo stato dell'intera superficie di attacco di Azure. Sono progettati per fornire un unico riquadro di vetro allo stato di Azure estate e consentire un'ampia gamma di scelte rapide per le azioni comuni. 
 
-Per altre informazioni, vedere [dashboard di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+Per altre informazioni, vedere [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Aggiornamento di parti del dashboard Log Analytics
@@ -68,7 +68,7 @@ Log Analytics visualizzazioni aggiunte a un dashboard hanno un comportamento spe
 
 ### <a name="query-time-scope---30-day-limit"></a>Ambito tempo query-limite di 30 giorni
 
-Poiché i dashboard possono contenere più visualizzazioni di più query, l'ambito temporale per una singola query bloccata è limitato a 30 giorni. Una singola query può essere eseguita solo in un intervallo di tempo minore o uguale a 30 giorni. Questa limitazione consiste nel garantire un tempo di caricamento del dashboard ragionevole.
+Poiché i dashboard possono contenere più visualizzazioni di più query, l'intervallo temporale per una singola query bloccata è limitato a 30 giorni. Una singola query può essere eseguita solo in un intervallo di tempo minore o uguale a 30 giorni. Questa limitazione consiste nel garantire un tempo di caricamento del dashboard ragionevole.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>Valori dei dati di query-25 valori e altro raggruppamento
 

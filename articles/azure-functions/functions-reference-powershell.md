@@ -4,11 +4,12 @@ description: Informazioni su come sviluppare funzioni usando PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697273"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506129"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -18,7 +19,7 @@ Una funzione di Azure di PowerShell (funzione) viene rappresentata come uno scri
 
 Analogamente ad altri tipi di funzioni, le funzioni di script di PowerShell accettano parametri che corrispondono ai nomi di tutte le associazioni di input definite nel `function.json` file. `TriggerMetadata`Viene inoltre passato un parametro che contiene informazioni aggiuntive sul trigger che ha avviato la funzione.
 
-Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È necessario avere completato anche la [Guida introduttiva di funzioni per PowerShell](functions-create-first-function-powershell.md) per creare la prima funzione di PowerShell.
+Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È necessario avere completato anche la [Guida introduttiva di funzioni per PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) per creare la prima funzione di PowerShell.
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 
@@ -124,7 +125,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Type | Posizione | Descrizione |
+| Nome | Tipo | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
