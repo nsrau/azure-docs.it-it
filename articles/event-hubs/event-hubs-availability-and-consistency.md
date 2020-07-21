@@ -3,12 +3,12 @@ title: Disponibilità e coerenza - Hub eventi di Azure | Microsoft Docs
 description: Come fornire la quantità massima di disponibilità e coerenza con l'Hub eventi di Azure usando le partizioni.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537208"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilità e coerenza nell'Hub eventi
 
@@ -86,7 +86,7 @@ finally
 
 Con questa configurazione, tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Per fare un confronto, se non è presente un'affinità a una singola partizione, il servizio dell'Hub eventi invia l'evento alla partizione successiva disponibile.
 
-Una possibile soluzione per garantire l'ordinamento ottimizzando allo stesso tempo i tempi di attività sarebbe l'aggregazione di eventi come parte dell'applicazione di elaborazione di eventi. Il modo più semplice per eseguire questa operazione è contrassegnare l'evento con una proprietà con numero di sequenza personalizzato. Il codice seguente mostra un esempio:
+Una possibile soluzione per garantire l'ordinamento ottimizzando allo stesso tempo i tempi di attività sarebbe l'aggregazione di eventi come parte dell'applicazione di elaborazione di eventi. Il modo più semplice per eseguire questa operazione è contrassegnare l'evento con una proprietà con numero di sequenza personalizzato. Il codice seguente visualizza un esempio:
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 o versione successiva)](#tab/latest)
 
@@ -141,5 +141,5 @@ In questo esempio l'evento viene inviato a una delle partizioni disponibili nell
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica del servizio Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Panoramica del servizio Hub eventi](./event-hubs-about.md)
 * [Creare un hub eventi](event-hubs-create.md)

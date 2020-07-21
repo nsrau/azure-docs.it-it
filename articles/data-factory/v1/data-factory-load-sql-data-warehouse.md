@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81419307"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537599"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -46,7 +46,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Archivio BLOB di Azure: questo esperimento usa l'archivio BLOB di Azure (GRS) per l'archiviazione di set di dati di test TPC-H.  Se non si ha un account di archiviazione di Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](../../storage/common/storage-account-create.md).
-* Dati [TPC-H](http://www.tpc.org/tpch/): si userà TPC-H come set di dati di test.  A tale scopo, è necessario usare `dbgen` dal toolkit TPC-H, che consente di generare il set di dati.  È possibile scaricare il codice sorgente per `dbgen` dagli [strumenti TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilarlo autonomamente oppure scaricare il file binario compilato da [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Eseguire dbgen.exe con i comandi seguenti per generare un file flat da 1 TB per la tabella `lineitem` distribuito tra 10 file:
+* Dati [TPC-H](http://www.tpc.org/tpch/): si userà TPC-H come set di dati di test.  A tale scopo, è necessario usare `dbgen` dal toolkit TPC-H, che consente di generare il set di dati.  È possibile scaricare il codice sorgente per `dbgen` dagli [strumenti TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp) e compilarlo autonomamente oppure scaricare il file binario compilato da [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Eseguire dbgen.exe con i comandi seguenti per generare un file flat da 1 TB per la tabella `lineitem` distribuito tra 10 file:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`

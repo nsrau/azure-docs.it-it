@@ -3,18 +3,18 @@ title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537310"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
-Hub eventi di Azure è una servizio di elaborazione degli eventi scalabile che inserisce ed elabora grandi volumi di eventi e dati, con bassa latenza e affidabilità elevata. Vedere [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md) per una panoramica generale.
+Hub eventi di Azure è una servizio di elaborazione degli eventi scalabile che inserisce ed elabora grandi volumi di eventi e dati, con bassa latenza e affidabilità elevata. Vedere [Che cos'è Hub eventi?](./event-hubs-about.md) per una panoramica generale.
 
-Questo articolo si basa sulle informazioni presenti nella [panoramica](event-hubs-what-is-event-hubs.md) e contiene dettagli tecnici e informazioni sull'implementazione relativi ai componenti e alle funzionalità di Hub eventi.
+Questo articolo si basa sulle informazioni presenti nella [panoramica](./event-hubs-about.md) e contiene dettagli tecnici e informazioni sull'implementazione relativi ai componenti e alle funzionalità di Hub eventi.
 
 ## <a name="namespace"></a>Spazio dei nomi
 Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, identificato dal [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), in cui si crea uno o più hub eventi o argomenti Kafka. 
@@ -33,7 +33,7 @@ Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *a
 
 ### <a name="publishing-an-event"></a>Pubblicazione di un evento
 
-È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](https://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che i Publisher non siano a conoscenza delle partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (introdotta nella sezione successiva) o la relativa identità tramite il token SAS.
+È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](./event-hubs-dotnet-framework-getstarted-send.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](https://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che i Publisher non siano a conoscenza delle partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (introdotta nella sezione successiva) o la relativa identità tramite il token SAS.
 
 La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP richiede di stabilire un socket bidirezionale persistente oltre alla sicurezza a livello di trasporto (TLS) o SSL/TLS. AMQP presenta costi di rete maggiori durante l'inizializzazione della sessione, tuttavia HTTPS richiede un sovraccarico TLS aggiuntivo per ogni richiesta. AMQP offre prestazioni più elevate per i server di pubblicazione più attivi.
 
@@ -101,7 +101,7 @@ Un *offset* è la posizione di un evento all'interno di una partizione. Un offse
 Se un lettore si disconnette da una partizione, quando riconnette inizia a leggere in corrispondenza del checkpoint inviato in precedenza dall’ulitimo lettore di tale partizione in tale gruppo di consumer. Quando il lettore si connette, passa l'offset all'hub eventi per specificare la posizione da cui iniziare la lettura. In questo modo è possibile usare la funzionalità di checkpoint sia per contrassegnare gli eventi come "completi" dalle applicazioni a valle sia per fornire la resilienza in caso di failover tra i lettori in esecuzione in computer diversi. È possibile tornare a dati precedenti specificando un offset inferiore da questo processo di checkpoint. Tramite questo meccanismo il checkpoint consente sia la resilienza del failover che la riproduzione del flusso di eventi.
 
 > [!NOTE]
-> Se si usa l'archivio BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelli generalmente disponibili in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
+> Se si usa l'archivio BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelli generalmente disponibili in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
@@ -113,7 +113,7 @@ Tutti i consumer di Hub eventi si connettono tramite una sessione AMQP 1.0 e un 
 
 #### <a name="connect-to-a-partition"></a>Connettersi a una partizione
 
-Quando ci si connette alle partizioni, è pratica comune usare un meccanismo di leasing per coordinare le connessioni di lettura a partizioni specifiche. In questo modo, è possibile che ogni partizione in un gruppo di consumer disponga di un solo lettore attivo. Il checkpoint, il leasing e la gestione dei lettori sono semplificati tramite i client all'interno degli SDK di hub eventi, che fungono da agenti di consumer intelligenti. Si tratta di:
+Quando ci si connette alle partizioni, è pratica comune usare un meccanismo di leasing per coordinare le connessioni di lettura a partizioni specifiche. In questo modo, è possibile che ogni partizione in un gruppo di consumer disponga di un solo lettore attivo. Il checkpoint, il leasing e la gestione dei lettori sono semplificati tramite i client all'interno degli SDK di hub eventi, che fungono da agenti di consumer intelligenti. I tipi disponibili sono i seguenti:
 
 - [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) per .NET
 - [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) per Java

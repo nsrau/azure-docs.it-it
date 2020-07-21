@@ -4,11 +4,12 @@ description: Analisi dettagliata delle impostazioni di scalabilità automatica e
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75364306"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539381"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
 Le impostazioni di scalabilità automatica permettono di eseguire la giusta quantità di risorse per gestire il carico variabile dell'applicazione. È possibile configurare le impostazioni di scalabilità automatica in modo che vengano attivate in base alle metriche che indicano le prestazioni o il carico oppure in base a una data e un'ora pianificate. Questo articolo analizza in dettaglio l'anatomia di un'impostazione di scalabilità automatica. L'articolo inizia dallo schema e dalle proprietà di un'impostazione e quindi descrive i diversi tipi di profilo che è possibile configurare. L'articolo descrive infine in che modo la funzionalità di scalabilità automatica determina quale profilo eseguire in ogni momento specifico.
@@ -105,7 +106,7 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 | metricTrigger | timeAggregation | Metodo di aggregazione usato per aggregare le metriche campionate. Ad esempio, **TimeAggregation = "Average"** deve aggregare le metriche campionate in base alla media. Nel caso precedente considerare i dieci esempi da 1 minuto e calcolarne la media. |
 | regola | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
 | scaleAction | direction | "Increase" per aumentare, "Decrease" per ridurre.|
-| scaleAction | Valore | Indica di quanto aumentare o ridurre la capacità della risorsa. |
+| scaleAction | value | Indica di quanto aumentare o ridurre la capacità della risorsa. |
 | scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"**, la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
 
 ## <a name="autoscale-profiles"></a>Profili di scalabilità automatica
@@ -304,5 +305,4 @@ Per altre informazioni sulla scalabilità automatica, vedere le risorse seguenti
 * [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931953.aspx)
-
+* [API REST per il ridimensionamento automatico](/rest/api/monitor/autoscalesettings)

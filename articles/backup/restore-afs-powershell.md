@@ -3,11 +3,12 @@ title: Ripristinare File di Azure con PowerShell
 description: Questo articolo illustra come ripristinare File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201966"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538548"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Ripristinare File di Azure con PowerShell
 
@@ -23,7 +24,7 @@ Questo articolo illustra come ripristinare un'intera condivisione file o file sp
 
 ## <a name="fetch-recovery-points"></a>Recuperare i punti di recupero
 
-Usare [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) per elencare tutti i punti di ripristino per l'elemento di cui è stato eseguito il backup.
+Usare [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) per elencare tutti i punti di ripristino per l'elemento di cui è stato eseguito il backup.
 
 Nello script seguente:
 
@@ -62,7 +63,7 @@ Dopo aver selezionato il punto di ripristino pertinente, ripristinare la condivi
 
 ## <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Ripristinare una condivisione file di Azure in un percorso alternativo
 
-Usare [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) per ripristinare il punto di ripristino selezionato. Specificare questi parametri per identificare il percorso alternativo:
+Usare [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) per ripristinare il punto di ripristino selezionato. Specificare questi parametri per identificare il percorso alternativo:
 
 * **TargetStorageAccountName**: account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
 * **TargetFileShareName**: le condivisioni file nell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
@@ -85,7 +86,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ## <a name="restore-an-azure-file-to-an-alternate-location"></a>Ripristinare un file di Azure in un percorso alternativo
 
-Usare [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) per ripristinare il punto di ripristino selezionato. Specificare questi parametri per identificare il percorso alternativo e per identificare in modo univoco il file che si desidera ripristinare.
+Usare [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) per ripristinare il punto di ripristino selezionato. Specificare questi parametri per identificare il percorso alternativo e per identificare in modo univoco il file che si desidera ripristinare.
 
 * **TargetStorageAccountName**: account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
 * **TargetFileShareName**: le condivisioni file nell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
@@ -120,7 +121,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Ripristinare più file o cartelle nel percorso originale o in un percorso alternativo
 
-Usare il comando [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) passando il percorso di tutti i file o le cartelle che si vuole ripristinare come valore per il parametro **MultipleSourceFilePath** .
+Usare il comando [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) passando il percorso di tutti i file o le cartelle che si vuole ripristinare come valore per il parametro **MultipleSourceFilePath** .
 
 ### <a name="restore-multiple-files"></a>Ripristinare più file
 

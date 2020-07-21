@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538905"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -27,11 +27,11 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 
 **Tipo di disco VM** | **ADE (d.m./dm-crypt)** | **ADE e KEK**
 --- | --- | ---
-**Non gestiti** | Sì | Sì
-**Gestito**  | Sì | Sì
+**Non gestito** | Sì | Sì
+**Gestiti**  | Sì | Sì
 
-- Scopri di più su [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Leggere le [domande frequenti](../security/azure-security-disk-encryption-faq.md) sulla crittografia del disco della macchina virtuale di Azure.
+- Scopri di più su [Ade](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Leggere le [domande frequenti](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sulla crittografia del disco della macchina virtuale di Azure.
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -45,7 +45,7 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 
 Prima di iniziare, eseguire le operazioni seguenti:
 
-1. Assicurarsi di disporre di una o più VM [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con Ade abilitato.
+1. Assicurarsi di disporre di una o più VM [Windows](../virtual-machines/linux/disk-encryption-overview.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con Ade abilitato.
 2. [Esaminare la matrice di supporto per il](backup-support-matrix-iaas.md) backup delle macchine virtuali di Azure
 3. [Creare](backup-azure-arm-vms-prepare.md#create-a-vault) un insieme di credenziali per il backup dei servizi di ripristino, se non è già presente.
 4. Se si Abilita la crittografia per le macchine virtuali che sono già abilitate per il backup, è sufficiente fornire il backup con le autorizzazioni per accedere al Key Vault in modo che i backup possano continuare senza alcuna distorsione. [Altre](#provide-permissions) informazioni sull'assegnazione di queste autorizzazioni.
@@ -66,7 +66,7 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 
       ![Pannello Scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Fare quindi clic su **OK**.
+5. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Quindi fare clic su **OK**.
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.
     - I dettagli dei criteri predefiniti vengono elencati nel menu a discesa.
 

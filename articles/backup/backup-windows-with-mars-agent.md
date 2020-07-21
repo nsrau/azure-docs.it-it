@@ -3,11 +3,12 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604846"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538633"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
 
@@ -52,7 +53,7 @@ Per creare un criterio di backup:
     ![Seleziona elementi per backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Nella pagina **selezionare gli elementi di cui eseguire il backup** selezionare **Avanti**.
-1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Selezionare quindi **Avanti**.
+1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Quindi selezionare **Avanti**.
 
     * Quando viene creato un backup, viene creato un punto di ripristino.
     * Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -64,7 +65,7 @@ Per creare un criterio di backup:
 
         ![Configurare una pianificazione di backup settimanale](./media/backup-configure-vault/week-schedule.png)
 
-1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Selezionare quindi **Avanti**.
+1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Quindi selezionare **Avanti**.
 
     * Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata dell'archiviazione.
     * Per un'impostazione di conservazione giornaliera, si indica che al momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. In alternativa, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
@@ -103,7 +104,7 @@ Per eseguire un trasferimento offline:
 1. Scrivere i dati di backup in un percorso di gestione temporanea.
 1. Usare lo strumento AzureOfflineBackupDiskPrep per copiare i dati dal percorso di gestione temporanea a uno o più dischi SATA.
 
-    Lo strumento crea un processo di importazione di Azure. Per altre informazioni, vedere [che cos'è il servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    Lo strumento crea un processo di importazione di Azure. Per altre informazioni, vedere [che cos'è il servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md).
 1. Inviare i dischi SATA a un Data Center di Azure.
 
     Nel Data Center i dati del disco vengono copiati in un account di archiviazione di Azure. Backup di Azure copia i dati dall'account di archiviazione all'insieme di credenziali e vengono pianificati i backup incrementali.
@@ -114,7 +115,7 @@ Per altre informazioni sul seeding offline, vedere [usare Azure Data Box per il 
 
 È possibile controllare la modalità di utilizzo della larghezza di banda per l'agente MARS abilitando la limitazione delle richieste di rete. La limitazione è utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma si desidera controllare la quantità di larghezza di banda utilizzata dall'attività di backup e ripristino.
 
-La limitazione di rete in backup di Azure usa la [qualità del servizio (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) nel sistema operativo locale.
+La limitazione di rete in backup di Azure usa la [qualità del servizio (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) nel sistema operativo locale.
 
 La limitazione di rete per i backup è disponibile in Windows Server 2012 e versioni successive e in Windows 8 e versioni successive. I sistemi operativi devono eseguire i Service Pack più recenti.
 

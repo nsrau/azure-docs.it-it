@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 978cb7ece1f8b3e16815c1dc49e4983dc393cbfc
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539721"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Note sulla versione per l'estensione app Web di Azure per Application Insights
 
@@ -21,7 +21,7 @@ Questo articolo contiene le note sulla versione per l'estensione app Web di Azur
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 - Come individuare la versione dell'estensione attualmente in corso
-    - Passare a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Per ulteriori informazioni, vedere [la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) .
+    - Passare a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Per ulteriori informazioni, vedere [la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti](./azure-web-apps.md?tabs=net#troubleshooting) .
 
 - Cosa accade se si usano le estensioni private?
     - Disinstallare le estensioni del sito privato poiché non è più supportato.

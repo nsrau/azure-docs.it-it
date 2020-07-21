@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539194"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS usando un database SQL di Azure multi-tenant partizionato
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ L'articolo presenta due parti principali:
 - [Esercitazione](#goto_1_tutorial) che presenta il codice dello script di PowerShell che effettua il provisioning e la catalogazione.
   - L'esercitazione utilizza l'applicazione SaaS Wingtip Tickets, adattata al modello di database partizionato multi-tenant.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Modello di database
 
@@ -110,7 +111,7 @@ Gli script di provisioning del tenant in questa esercitazione supportano entramb
 
 I dati del tenant vengono quindi inizializzati e registrati nella mappa partizioni del catalogo. Nell'applicazione di esempio, ai database che contengono più tenant viene assegnato un nome generico, ad esempio *tenants1* o *tenants2*. Ai database contenenti un singolo tenant viene assegnato il nome del tenant. Le convenzioni di denominazione specifiche usate nell'esempio non sono una parte essenziale del modello, poiché l'uso di un catalogo consente l'assegnazione di un nome qualsiasi al database.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Inizio dell'esercitazione
 

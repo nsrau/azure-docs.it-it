@@ -4,12 +4,12 @@ description: Panoramica dei modelli di integrazione di Smart Contract nell'antep
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254634"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538349"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -134,7 +134,7 @@ Questo modello viene in genere implementato usando l'approccio seguente:
 -   La modifica dello stato viene esposta come un evento per un consumer downstream.
 -   Il consumer downstream riceve l'evento e attiva l'esecuzione di codice esterno.
 
-![Transizione del controllo al processo esterno](./media/integration-patterns/transition-external-process.png)
+![Il diagramma mostra una modifica dello stato all'interno del contratto che causa il passaggio di un evento al Ledger distribuito. Blockchain Workbench preleva quindi l'evento e lo pubblica.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Restituzione del controllo dal contratto intelligente
 
@@ -142,7 +142,7 @@ A seconda della possibilità di personalizzare il sistema esterno, potrebbe esse
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Recapito diretto da Azure Blockchain Workbench nel formato previsto
 
-![](./media/integration-patterns/direct-delivery.png)
+![Il diagramma mostra un messaggio P I dal sistema esterno selezionato da blockchain Workbench tramite il bus di servizio. Blockchain Workbench invia quindi un messaggio come transazione a Ledger distribuito, per conto dell'agente. Viene passato a contract, dove causa una modifica dello stato.](./media/integration-patterns/direct-delivery.png)
 
 In questo modello la comunicazione con il contratto e la successiva modifica dello stato hanno luogo secondo il processo precedente, in base al quale:
 

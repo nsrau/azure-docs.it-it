@@ -3,11 +3,12 @@ title: Panoramica degli insiemi di credenziali di Servizi di ripristino
 description: Una panoramica e un confronto tra gli insiemi di credenziali di Servizi di ripristino e gli insiemi di credenziali di Backup di Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539041"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -35,9 +36,9 @@ Gli insiemi di credenziali dei servizi di ripristino sono basati sul modello di 
 
 Un insieme di credenziali dei Servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
 
-Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insieme di credenziali. Vedere come [è possibile modificare le impostazioni di archiviazione](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insieme di credenziali. Vedere come [è possibile modificare le impostazioni di archiviazione](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Per altre informazioni sulla ridondanza di archiviazione, vedere questi articoli sulla ridondanza [geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) e [locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) .
+Per altre informazioni sulla ridondanza di archiviazione, vedere questi articoli sulla ridondanza [geografica](../storage/common/storage-redundancy.md) e [locale](../storage/common/storage-redundancy.md) .
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestione degli insiemi di credenziali di Servizi di ripristino nel portale
 
@@ -61,7 +62,7 @@ Le sezioni seguenti contengono collegamenti ad articoli che spiegano come usare 
 ### <a name="back-up-data"></a>Dati di backup
 
 - [Backup di una macchina virtuale di Azure](backup-azure-vms-first-look-arm.md)
-- [Backup di Windows Server o della workstation di Windows](backup-try-azure-backup-in-10-mins.md)
+- [Backup di Windows Server o della workstation di Windows](./backup-windows-with-mars-agent.md)
 - [Backup dei carichi di lavoro DPM in Azure](backup-azure-dpm-introduction.md)
 - [Preparazione del backup dei carichi di lavoro con il server di Backup di Azure](backup-azure-microsoft-azure-backup.md)
 
@@ -81,9 +82,9 @@ Le sezioni seguenti contengono collegamenti ad articoli che spiegano come usare 
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) è un consulente cloud personalizzato che consente di ottimizzare l'uso di Azure. Analizza l'utilizzo di Azure e fornisce indicazioni tempestive per ottimizzare e proteggere le distribuzioni. Fornisce consigli in quattro categorie: disponibilità elevata, sicurezza, prestazioni e costi.
+[Azure Advisor](../advisor/index.yml) è un consulente cloud personalizzato che consente di ottimizzare l'uso di Azure. Analizza l'utilizzo di Azure e fornisce indicazioni tempestive per ottimizzare e proteggere le distribuzioni. Fornisce consigli in quattro categorie: disponibilità elevata, sicurezza, prestazioni e costi.
 
-Azure Advisor fornisce le [raccomandazioni](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) orarie per le macchine virtuali di cui non è stato eseguito il backup, quindi non è possibile eseguire il backup di macchine virtuali importanti. È anche possibile controllare le raccomandazioni eseguendone la ripetizione.  È possibile fare clic sull'indicazione e abilitare il backup sulle VM inline specificando l'insieme di credenziali (in cui verranno archiviati i backup) e i criteri di backup (pianificazione dei backup e conservazione delle copie di backup).
+Azure Advisor fornisce le [raccomandazioni](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) orarie per le macchine virtuali di cui non è stato eseguito il backup, quindi non è possibile eseguire il backup di macchine virtuali importanti. È anche possibile controllare le raccomandazioni eseguendone la ripetizione.  È possibile fare clic sull'indicazione e abilitare il backup sulle VM inline specificando l'insieme di credenziali (in cui verranno archiviati i backup) e i criteri di backup (pianificazione dei backup e conservazione delle copie di backup).
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

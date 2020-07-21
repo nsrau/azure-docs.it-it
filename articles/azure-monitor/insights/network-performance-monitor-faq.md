@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539670"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -19,11 +19,11 @@ ms.locfileid: "86184549"
 
 Questo articolo presenta le domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure.
 
-[Monitoraggio prestazioni rete](/azure/networking/network-monitoring-overview) è una soluzione di [monitoraggio della rete ibrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) basata sul cloud che consente di monitorare le prestazioni di rete tra i vari punti nell'infrastruttura di rete. Con questa soluzione è anche possibile monitorare la connettività di rete agli [endpoint di servizio e applicazione](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md), nonché [monitorare le prestazioni di Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) è una soluzione di [monitoraggio della rete ibrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) basata sul cloud che consente di monitorare le prestazioni di rete tra i vari punti nell'infrastruttura di rete. Con questa soluzione è anche possibile monitorare la connettività di rete agli [endpoint di servizio e applicazione](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md), nonché [monitorare le prestazioni di Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Monitoraggio prestazioni rete rileva i problemi di rete come i buchi neri del traffico, gli errori di routing e i problemi che i metodi di monitoraggio delle reti tradizionali non sono in grado di rilevare. La soluzione genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Garantisce anche una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un dispositivo o segmento di rete specifico. 
 
-Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) sono disponibili online.
+Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) sono disponibili online.
 
 ## <a name="set-up-and-configure-agents"></a>Installare e configurare agenti
 
@@ -149,7 +149,7 @@ NetworkMonitoring
 Monitoraggio prestazioni rete identifica solo l'indirizzo IP e il nome host degli hop di rete sottostanti (commutatori, router, server e così via) tra gli IP di origine e di destinazione. Rileva inoltre la latenza tra questi hop identificati. Non esegue il monitoraggio dei singoli hop sottostanti.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>Monitoraggio prestazioni rete può essere usato per monitorare la connettività di rete tra Azure e AWS?
-Sì. Per informazioni, vedere l'articolo [Monitor Azure, AWS, and on-premises networks using NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) (Monitorare Azure, AWS e le reti locali usando Monitoraggio prestazioni rete).
+Sì. Per informazioni, vedere l'articolo [Monitor Azure, AWS, and on-premises networks using NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) (Monitorare Azure, AWS e le reti locali usando Monitoraggio prestazioni rete).
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>Il valore di utilizzo della larghezza di banda di ExpressRoute riguarda la larghezza di banda in ingresso o quella in uscita?
 Il valore di utilizzo della larghezza di banda corrisponde al totale della larghezza di banda in ingresso e in uscita. Il valore è espresso in bit al secondo.
@@ -188,9 +188,9 @@ Monitoraggio prestazioni rete può monitorare la connettività tra reti in quals
 Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
-Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
+Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](../../expressroute/how-to-npm.md).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -231,7 +231,7 @@ Questa situazione può verificarsi se il firewall dell'host o il firewall interm
 * Per verificare che il firewall dell'host non blocchi le comunicazioni sulla porta richiesta, visualizzare lo stato di integrità dei nodi di origine e di destinazione dalla visualizzazione seguente: Monitoraggio prestazioni rete -> Configurazione -> Nodi. 
   Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b desiderato.
 * Per verificare che un firewall di rete intermedio o un gruppo di sicurezza di rete di Azure non blocchi le comunicazioni sulla porta richiesta, eseguire l'utilità PsPing di terze parti usando le istruzioni seguenti:
-  * L'utilità PsPing è disponibile [qui](https://technet.microsoft.com/sysinternals/psping.aspx) per il download. 
+  * L'utilità PsPing è disponibile [qui](/sysinternals/downloads/psping) per il download. 
   * Eseguire il comando seguente dal nodo di origine.
     * psping-n 15 \<destination node IPAddress\> :P Ortnumber per impostazione predefinita NPM usa la porta 8084. Se si è esplicitamente cambiato il numero di porta tramite lo script EnableRules.ps1, immettere il numero di porta impostato. Questo è un ping dal computer di Azure al sistema locale.
 * Controllare se i ping hanno esito positivo. Se l'esito è negativo, significa che il traffico su questa porta viene bloccato da un firewall di rete intermedio o da un gruppo di sicurezza di rete di Azure.

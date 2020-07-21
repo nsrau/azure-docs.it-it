@@ -3,11 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538650"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -29,7 +30,7 @@ Le opzioni di backup variano a seconda della posizione in cui è installato l'ag
 **Installazione** | **Dettagli**
 --- | ---
 Scaricare la versione più recente dell'agente MARS | È possibile scaricare la versione più recente dell'agente dall'insieme di credenziali oppure [scaricarla direttamente](https://aka.ms/azurebackup_agent).
-Installazione diretta in un computer | È possibile installare l'agente MARS direttamente in un server Windows locale o in una VM Windows in cui è in esecuzione uno dei [sistemi operativi supportati](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installazione diretta in un computer | È possibile installare l'agente MARS direttamente in un server Windows locale o in una VM Windows in cui è in esecuzione uno dei [sistemi operativi supportati](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Installazione in un server di backup | Quando si configura DPM o il server di Backup di Microsoft Azure per eseguire il backup in Azure, si scarica e installa nel server l'agente di Servizi di ripristino di Microsoft Azure. È possibile installare l'agente nei [sistemi operativi supportati](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) nella matrice di supporto del server di backup.
 
 > [!NOTE]
@@ -84,7 +85,7 @@ Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della c
 - Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 - Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
-Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.
@@ -127,7 +128,7 @@ I sistemi operativi seguenti sono al termine del supporto ed è vivamente consig
 
 Se gli impegni esistenti impediscono l'aggiornamento del sistema operativo, è consigliabile eseguire la migrazione dei server Windows alle macchine virtuali di Azure e sfruttare i backup delle VM di Azure per continuare a rimanere protetti. Visitare la [pagina](https://azure.microsoft.com/migration/windows-server/) relativa alla migrazione per ulteriori informazioni sulla migrazione di Windows Server.
 
-Per gli ambienti locali o ospitati, in cui non è possibile aggiornare il sistema operativo o eseguire la migrazione ad Azure, attivare gli aggiornamenti della sicurezza estesa affinché i computer continuino a rimanere protetti e supportati. Si noti che solo edizioni specifiche sono idonee per gli aggiornamenti della sicurezza estesi. Per ulteriori informazioni, visitare la [pagina delle domande frequenti](https://www.microsoft.com/cloud-platform/extended-security-updates) .
+Per gli ambienti locali o ospitati, in cui non è possibile aggiornare il sistema operativo o eseguire la migrazione ad Azure, attivare gli aggiornamenti della sicurezza estesa affinché i computer continuino a rimanere protetti e supportati. Si noti che solo edizioni specifiche sono idonee per gli aggiornamenti della sicurezza estesi. Per ulteriori informazioni, visitare la [pagina delle domande frequenti](https://www.microsoft.com/windows-server/extended-security-updates) .
 
 | **Sistema operativo**                                       | **File/cartelle** | **Stato del sistema** | **Requisiti del software/modulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

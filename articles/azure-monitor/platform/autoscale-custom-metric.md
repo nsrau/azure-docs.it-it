@@ -4,17 +4,18 @@ description: Informazioni su come ridimensionare la risorsa in base a una metric
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e744e6a91eb6fbe23a6b45f95c39b1acfdcb61f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425120"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539585"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure
 Questo articolo descrive come ridimensionare la risorsa in base a una metrica personalizzata nel portale di Azure.
 
 La scalabilità automatica di monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [servizi cloud](https://azure.microsoft.com/services/cloud-services/), [servizio app-app Web](https://azure.microsoft.com/services/app-service/web/), [Azure Esplora dati cluster](https://azure.microsoft.com/services/data-explorer/) ,   
-Servizi di [gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e ambiente del servizio di integrazione.
+Servizi di [gestione API](../../api-management/api-management-key-concepts.md)e ambiente del servizio di integrazione.
 
 ## <a name="lets-get-started"></a>Introduzione
 In questo articolo si presuppone che l'utente abbia un'app Web con Application Insights configurato. Se non è già stato fatto, è possibile [configurare Application Insights per il sito Web ASP.NET][1].
@@ -35,16 +36,15 @@ In questo articolo si presuppone che l'utente abbia un'app Web con Application I
   > Nota: se si verifica un problema relativo alla metrica delle risorse e la capacità corrente è inferiore alla capacità predefinita, per assicurare la disponibilità della risorsa, la funzionalità di scalabilità automatica aumenterà il numero di istanze fino al valore predefinito. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non ridurrà il numero di istanze.
 - Fare clic su 'Salva'
 
-A questo punto è stata creata l'impostazione di scalabilità automatica per l'app Web in base a una metrica personalizzata.
+Complimenti. è stata creata l'impostazione di scalabilità automatica per l'app Web in base a una metrica personalizzata.
 
 > Nota: gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
 
 <!--Reference-->
-[1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
+[1]: ../app/asp-net.md
 [2]: https://portal.azure.com
 [3]: ./media/autoscale-custom-metric/azure-monitor-launch.png
 [4]: ./media/autoscale-custom-metric/discover-autoscale-azure-monitor.png
 [5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
 [7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png
-

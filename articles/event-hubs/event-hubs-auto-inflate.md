@@ -3,11 +3,12 @@ title: Aumentare automaticamente le unità elaborate - Hub eventi di Azure | Mic
 description: Abilitare Aumento automatico in uno spazio dei nomi per aumentare le unità elaborate.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537242"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
 Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. L'uso di Hub eventi, quindi, spesso aumenta dopo che si è iniziato a usare il servizio. Questo tipo di utilizzo richiede l'aumento delle [unità](event-hubs-scalability.md#throughput-units) elaborate predeterminate per scalare Hub eventi e gestire velocità di trasferimento maggiori. La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le prestazioni aumentando il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
@@ -113,5 +114,4 @@ Per il modello completo, vedere il modello [Create Event Hubs namespace and enab
 
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-
+* [Panoramica di Hub eventi](./event-hubs-about.md)

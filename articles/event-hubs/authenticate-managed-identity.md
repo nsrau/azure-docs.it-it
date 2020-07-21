@@ -3,12 +3,12 @@ title: Autenticazione di un'identità gestita con Azure Active Directory
 description: Questo articolo fornisce informazioni sull'autenticazione di un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e9bfb9c4649732ac5afc80dfb0a522ff9f333be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318097"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537276"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
 Hub eventi di Azure supporta l'autenticazione Azure Active Directory (Azure AD) con [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso alle risorse di hub eventi usando Azure AD credenziali di applicazioni in esecuzione in macchine virtuali (VM) di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.
@@ -18,7 +18,7 @@ Questo articolo illustra come autorizzare l'accesso a un hub eventi usando un'id
 ## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 Prima di poter usare le identità gestite per le risorse di Azure per autorizzare le risorse di hub eventi dalla macchina virtuale, è prima necessario abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
-- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

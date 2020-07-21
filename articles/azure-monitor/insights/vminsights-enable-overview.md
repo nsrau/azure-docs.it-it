@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507076"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539619"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Abilita Panoramica Monitoraggio di Azure per le macchine virtuali
 
@@ -68,7 +68,7 @@ Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log An
 
 Se non si dispone di un'area di lavoro Log Analytics, è possibile crearne una utilizzando una delle risorse seguenti:
 * [Interfaccia della riga di comando di Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
@@ -91,9 +91,9 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
 |Windows Server 2016 | X | X |
-|R2 per Windows Server 2012 | X | X |
+|Windows Server 2012 R2 | X | X |
 |Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
+|Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
 |Windows 8 | X | X |
@@ -184,7 +184,7 @@ La tabella seguente descrive le origini connesse supportate dalla funzionalità 
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
 
 Per abilitare e accedere alle funzionalità di Monitoraggio di Azure per le macchine virtuali, è necessario avere il ruolo di *collaboratore log Analytics* . Per visualizzare le prestazioni, l'integrità e la mappa dei dati, è necessario avere il ruolo di *lettore di monitoraggio* per la macchina virtuale di Azure. L'area di lavoro Log Analytics deve essere configurata per Monitoraggio di Azure per le macchine virtuali.
 

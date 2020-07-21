@@ -3,12 +3,12 @@ title: Conservazione e archiviazione dei dati in Azure Application Insights | Mi
 description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540061"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -74,7 +74,7 @@ Per le pagine Web, aprire la finestra di debug del browser.
 Questo sarebbe possibile scrivendo un [plug-in del processore di telemetria](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Per quanto tempo vengono conservati i dati?
-I punti dati non elaborati, ovvero gli elementi su cui è possibile eseguire query in Analytics e ispezionare nella ricerca, vengono conservati per un massimo di 730 giorni. È possibile [selezionare una durata di conservazione](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) di 30, 60, 90, 120, 180, 270, 365, 550 o 730 giorni. Se è necessario conservare i dati più di 730 giorni, è possibile usare l' [esportazione continua](../../azure-monitor/app/export-telemetry.md) per copiarli in un account di archiviazione durante l'inserimento dei dati. 
+I punti dati non elaborati, ovvero gli elementi su cui è possibile eseguire query in Analytics e ispezionare nella ricerca, vengono conservati per un massimo di 730 giorni. È possibile [selezionare una durata di conservazione](./pricing.md#change-the-data-retention-period) di 30, 60, 90, 120, 180, 270, 365, 550 o 730 giorni. Se è necessario conservare i dati più di 730 giorni, è possibile usare l' [esportazione continua](../../azure-monitor/app/export-telemetry.md) per copiarli in un account di archiviazione durante l'inserimento dei dati. 
 
 I dati conservati per più di 90 giorni comporteranno addebiti aggiuntivi. Scopri di più sui prezzi di Application Insights nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -122,7 +122,7 @@ Sì, alcuni canali di dati di telemetria manterranno i dati in locale se non è 
 
 I canali di telemetria che usano l'archiviazione locale creano file temporanei nelle directory TEMP o APPDATA, che sono limitati all'account specifico che esegue l'applicazione. Ciò può verificarsi quando un endpoint è stato temporaneamente non disponibile o si raggiunge il limite della limitazione delle richieste. Una volta risolto il problema, il canale di telemetria riprenderà l'invio di tutti i dati nuovi e persistenti.
 
-I dati salvati in modalità permanente non sono crittografati localmente. Se si tratta di un problema, esaminare i dati e limitare la raccolta di dati privati. Per ulteriori informazioni, vedere [come esportare ed eliminare dati privati](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).
+I dati salvati in modalità permanente non sono crittografati localmente. Se si tratta di un problema, esaminare i dati e limitare la raccolta di dati privati. Per ulteriori informazioni, vedere [come esportare ed eliminare dati privati](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
 
 Se un cliente deve configurare questa directory con specifici requisiti di sicurezza, può essere configurata per ogni Framework. Assicurarsi che il processo che esegue l'applicazione abbia accesso in scrittura a questa directory, ma assicurarsi anche che la directory sia protetta per evitare la lettura da parte di utenti malintenzionati dei dati di telemetria.
 
@@ -204,16 +204,16 @@ Non è consigliabile impostare in modo esplicito l'applicazione in modo che usi 
 | --- | --- | --- |
 | Servizi app di Azure  | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | App per le funzioni di Azure | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
-|.NET | Supportato, la configurazione varia a seconda della versione. | Per informazioni dettagliate sulla configurazione di .NET 4,7 e versioni precedenti, fare riferimento a [queste istruzioni](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione .NET del [sistema operativo](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) per il supporto di TLS 1,2.
+|.NET | Supportato, la configurazione varia a seconda della versione. | Per informazioni dettagliate sulla configurazione di .NET 4,7 e versioni precedenti, fare riferimento a [queste istruzioni](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione .NET del [sistema operativo](/windows-server/security/tls/tls-registry-settings)  +  [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) per il supporto di TLS 1,2.
 |Node.js |  Supportato, nella versione 10.5.0, potrebbe essere necessaria la configurazione. | Usare la [documentazione ufficiale Node.js TLS/SSL](https://nodejs.org/api/tls.html) per qualsiasi configurazione specifica dell'applicazione. |
 |Java | Supportato, supporto JDK per TLS 1.2 aggiunto in [JDK 6 aggiornamento 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 per impostazione predefinita](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
-| Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
-| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
+| Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
+| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
 | Windows Server 2008 SP2 | Il supporto per TLS 1.2 richiede un aggiornamento. | Vedere [Aggiornamento per aggiungere il supporto per TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
-|Windows Vista | Non supportato. | N/A
+|Windows Vista | Non supportato. | N/D
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verificare la versione di OpenSSL in esecuzione nella distribuzione Linux
 
@@ -247,9 +247,9 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
-| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>Sessione<br/>users |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>users |
 | [Installare Status Monitor in IIS][redfield] |Dipendenze<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>Sessione<br/>users |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>users |
 | [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiamare TrackMetric][api] |Valori numerici<br/>**Proprietà** |
@@ -266,11 +266,11 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 | **Proprietà** |**Qualsiasi dato, in base al codice** |
 | DeviceContext |`Id`, IP, impostazioni locali, modello di dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome del ruolo, tipo di dispositivo |
 | ClientContext  |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra. |
-| Sessione |`session id` |
+| sessione |`session id` |
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
 | Metriche |Nome e valore della metrica. |
-| Eventi |Nome e valore dell'evento. |
+| Events |Nome e valore dell'evento. |
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
 | Ajax |Chiamate HTTP dalla pagina Web al server |
@@ -286,7 +286,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 È possibile [disattivare alcuni dei dati modificando ApplicationInsights.config][config]
 
 > [!NOTE]
-> Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) illustra le opzioni disponibili.
+> Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](./ip-collection.md) illustra le opzioni disponibili.
 
 ## <a name="credits"></a>Credits
 Questo prodotto include i dati GeoLite2 creati da MaxMind, disponibili da [https://www.maxmind.com](https://www.maxmind.com) .

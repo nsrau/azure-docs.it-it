@@ -1,5 +1,5 @@
 ---
-title: Ambienti di calcolo supportati da Azure Data Factory
+title: Ambienti di calcolo supportati da Azure Data Factory versione 1
 description: Informazioni sugli ambienti di calcolo che è possibile usare nelle pipeline di Azure Data Factory (ad esempio, Azure HDInsight) per trasformare o elaborare i dati.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022011"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537565"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
+# <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambienti di calcolo supportati da Azure Data Factory versione 1
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Servizi collegati di calcolo](../compute-linked-services.md).
 
@@ -25,7 +26,7 @@ Questo articolo illustra gli ambienti di calcolo che è possibile usare per elab
 
 La tabella seguente presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
-| Ambiente di calcolo                      | attività                               |
+| Ambiente di calcolo                      | Attività                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
@@ -329,7 +330,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà   | Descrizione                              | Obbligatoria |
+| Proprietà   | Descrizione                              | Obbligatorio |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |

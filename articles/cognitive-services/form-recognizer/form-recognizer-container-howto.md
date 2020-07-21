@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538021"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installare ed eseguire i contenitori di riconoscimento form (anteprima)
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Riconoscimento modulo di Azure applica la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e tabelle dai moduli, associando i valori e le voci della tabella alle coppie chiave-valore e quindi restituendo dati strutturati che includono le relazioni nel file originale. 
 
 Per ridurre la complessità e integrare facilmente un modello di Riconoscimento modulo personalizzato nel processo di automazione dl flusso di lavoro o in un'altra applicazione, è possibile chiamare il modello usando una semplice API REST. Sono necessari solo cinque documenti modulo (o un modulo vuoto e due moduli compilati), in modo che sia possibile ottenere risultati rapidamente, accuratamente e personalizzati in base al contenuto specifico. senza alcun intervento manuale impegnativo né competenze approfondite di data science. E non è neanche necessario assegnare etichette o annotare dati.
-
-> [!IMPORTANT]
-> I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
 | Funzione | Funzionalità |
 |----------|----------|
@@ -35,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare i prerequisiti seguenti:
 
-| Obbligatoria | Scopo |
+| Necessario | Scopo |
 |----------|---------|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
@@ -64,14 +63,6 @@ Questa chiave viene usata per avviare il contenitore ed è disponibile nella pag
 
 > [!IMPORTANT]
 > Queste chiavi di sottoscrizione vengono usate per accedere all'API di servizi cognitivi. Non condividere le chiavi. Archiviarli in modo sicuro, ad esempio usando Azure Key Vault. Si consiglia inoltre di rigenerare regolarmente queste chiavi. È necessaria una sola chiave per effettuare una chiamata API. Quando si rigenera la prima chiave, è possibile usare la seconda chiave per l'accesso continuo al servizio.
-
-## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
-
-Compilare e inviare il [modulo di richiesta](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>Computer host
 
@@ -248,7 +239,7 @@ services:
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey`, oltre che `FormRecognizer:ComputerVisionApiKey` e `FormRecognizer:ComputerVisionEndpointUri`, per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
+## <a name="query-the-containers-prediction-endpoint"></a>Eseguire una query sull'endpoint di stima del contenitore
 
 |Contenitore|Endpoint|
 |--|--|
@@ -328,7 +319,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](for
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento modulo. In sintesi:
 

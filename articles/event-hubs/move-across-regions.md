@@ -3,12 +3,12 @@ title: Spostare uno spazio dei nomi di hub eventi di Azure in un'altra area | Mi
 description: Questo articolo illustra come spostare uno spazio dei nomi di hub eventi di Azure dall'area corrente a un'altra area.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537072"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Spostare uno spazio dei nomi di hub eventi di Azure in un'altra area
 Esistono diversi scenari in cui si vuole spostare lo spazio dei nomi di hub eventi esistente da un'area a un'altra. Ad esempio, è possibile creare uno spazio dei nomi con la stessa configurazione per il test. È anche possibile creare uno spazio dei nomi secondario in un'altra area nell'ambito della [pianificazione del ripristino di emergenza](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -23,7 +23,7 @@ Esistono diversi scenari in cui si vuole spostare lo spazio dei nomi di hub even
 - Se è stata abilitata la **funzionalità di acquisizione** per hub eventi nello spazio dei nomi, spostare [Azure Storage o Azure Data Lake Store](../storage/common/storage-account-move.md) gli account di generazione 2 o [Azure Data Lake Store di generazione 1](../data-lake-store/data-lake-store-migration-cross-region.md) prima di spostare lo spazio dei nomi di hub eventi. È anche possibile spostare il gruppo di risorse che contiene gli spazi dei nomi dell'hub eventi e di archiviazione nell'altra area seguendo questa procedura in modo analogo a quelli descritti in questo articolo. 
 - Se lo spazio dei nomi di hub eventi si trova in un **cluster di hub eventi**, [creare un cluster dedicato](event-hubs-dedicated-cluster-create-portal.md) nell' **area di destinazione** prima di procedere con i passaggi descritti in questo articolo. È anche possibile usare il [modello di avvio rapido in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) per creare un cluster di hub eventi. Nel modello rimuovere la parte relativa allo spazio dei nomi di JSON per creare solo il cluster. 
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene le impostazioni che descrivono lo spazio dei nomi di hub eventi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -54,7 +54,7 @@ Distribuire il modello per creare uno spazio dei nomi di hub eventi nell'area di
 
 4. Selezionare **Crea**.
 
-5. Selezionare **Compila un modello personalizzato nell'editor**.
+5. Selezionare **Creare un modello personalizzato nell'editor**.
 
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
@@ -108,5 +108,5 @@ Per eliminare uno spazio dei nomi di hub eventi (origine o destinazione) usando 
 In questa esercitazione è stato spostato uno spazio dei nomi di hub eventi di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../site-recovery/azure-to-azure-tutorial-migrate.md)

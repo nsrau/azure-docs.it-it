@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83210541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540112"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifiche alle risorse basate sull'area di lavoro (anteprima)
 
-Prima dell'introduzione delle [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), i dati Application Insights sono stati archiviati separatamente dagli altri dati di log in monitoraggio di Azure. Entrambi sono basati su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL). Questa operazione è descritta in [log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Prima dell'introduzione delle [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), i dati Application Insights sono stati archiviati separatamente dagli altri dati di log in monitoraggio di Azure. Entrambi sono basati su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL). Questa operazione è descritta in [log in monitoraggio di Azure](../platform/data-platform-logs.md).
 
 Con i dati delle risorse Application Insights basati sull'area di lavoro vengono archiviati in un'area di lavoro Log Analytics con altri dati di monitoraggio e dati dell'applicazione. Questo semplifica la configurazione consentendo di analizzare più facilmente i dati tra più soluzioni e di sfruttare le funzionalità delle aree di lavoro.
 
@@ -63,11 +63,11 @@ Tabella legacy: disponibilità
 |duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Type|string|
+|itemType|string|Type|Stringa|
 |posizione|string|Location|string|
-|message|string|Messaggio|string|
+|message|string|Message|string|
 |name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -105,7 +105,7 @@ Tabella legacy: browserTimings
 |customDimensions|dinamico|Proprietà|Dinamico|
 |customMeasurements|dinamico|Misurazioni|Dinamico|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |name|string|Nome|Datetime|
@@ -152,9 +152,9 @@ Tabella legacy: dipendenze
 |duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Type|string|
+|itemType|string|Type|Stringa|
 |name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -167,7 +167,7 @@ Tabella legacy: dipendenze
 |esito positivo|string|Operazione completata|Bool|
 |target|string|Destinazione|string|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|tipo|string|TipoDipendenza|string|
+|type|string|TipoDipendenza|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -194,7 +194,7 @@ Tabella legacy: customEvents
 |customDimensions|dinamico|Proprietà|Dinamico|
 |customMeasurements|dinamico|Misurazioni|Dinamico|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |name|string|Nome|stringa|
@@ -243,8 +243,8 @@ Tabella legacy: customMetrics
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|Valore|real|rimosso||
-|valueCount|INT|ValueCount|INT|
+|value|real|rimosso||
+|valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
 |valueStdDev|real|ValueStdDev|real|
@@ -274,9 +274,9 @@ Tabella legacy: visualizzazioni
 |duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Type|string|
+|itemType|string|Type|Stringa|
 |name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -328,7 +328,7 @@ Tabella legacy: performanceCounters
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|Valore|real|Value|real|
+|value|real|valore|real|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -352,24 +352,24 @@ Tabella legacy: richieste
 |customDimensions|dinamico|Proprietà|Dinamico|
 |customMeasurements|dinamico|Misurazioni|Dinamico|
 |duration|real|DurationMs|Real|
-|`id`|string|`Id`|string|
+|`id`|string|`Id`|Stringa|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Type|string|
-|name|string|Nome|string|
+|itemType|string|Type|Stringa|
+|name|string|Nome|Stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|performanceBucket|string|PerformanceBucket|string|
-|resultCode|string|ResultCode|string|
+|performanceBucket|string|PerformanceBucket|Stringa|
+|resultCode|string|ResultCode|Stringa|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|source|string|Source (Sorgente)|string|
+|source|string|Source (Sorgente)|Stringa|
 |esito positivo|string|Operazione completata|Bool|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|url|string|URL|string|
+|url|string|URL|Stringa|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -403,10 +403,10 @@ Tabella legacy: eccezioni
 |innermostMessage|string|InnermostMessage|string|
 |innermostMethod|string|InnermostMethod|string|
 |innermostType|string|InnermostType|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|message|string|Messaggio|string|
+|message|string|Message|string|
 |method|string|Metodo|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -419,9 +419,9 @@ Tabella legacy: eccezioni
 |problemId|string|ProblemId|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|severityLevel|INT|SeverityLevel|INT|
+|severityLevel|int|SeverityLevel|int|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|tipo|stringa|ExceptionType|string|
+|type|stringa|ExceptionType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -448,17 +448,17 @@ Tabella legacy: tracce
 |customDimensions|dinamico|Proprietà|dinamico|
 |customMeasurements|dinamico|Misurazioni|dinamico|
 |iKey|string|IKey|string|
-|itemCount|INT|ItemCount|INT|
+|itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|message|string|Messaggio|string|
+|message|string|Message|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|severityLevel|INT|SeverityLevel|INT|
+|severityLevel|int|SeverityLevel|int|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -467,4 +467,4 @@ Tabella legacy: tracce
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
-* [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
+* [Scrivere query di Analisi](../log-query/log-query-overview.md)

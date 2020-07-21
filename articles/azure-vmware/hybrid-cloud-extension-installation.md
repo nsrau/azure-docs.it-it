@@ -2,19 +2,19 @@
 title: Installare Hybrid Cloud Extension (HCX)
 description: Configurare la soluzione VMware Hybrid Cloud Extension (HCX) per il cloud privato della soluzione Azure VMware (AVS)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367547"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539160"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installare HCX per la soluzione Azure VMware
 
 Questo articolo illustra le procedure per la configurazione della soluzione VMWare Hybrid Cloud Extension (HCX) per il cloud privato della soluzione VMWare di Azure (AVS). HCX consente la migrazione dei carichi di lavoro VMware nel cloud e in altri siti connessi tramite vari tipi di migrazione supportati da HCX predefiniti.
 
-HCX Advanced, l'installazione predefinita, supporta fino a tre siti esterni. Se sono necessari più di tre siti, i clienti possono abilitare il componente aggiuntivo HCX Enterprise tramite il supporto. L'installazione di HCX Enterprise comporta addebiti aggiuntivi per i clienti dopo la disponibilità generale (GA), ma fornisce [funzionalità aggiuntive](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, l'installazione predefinita, supporta fino a tre vCenter. Se sono necessari più di tre, i clienti hanno la possibilità di abilitare il componente aggiuntivo HCX Enterprise tramite il supporto. L'installazione di HCX Enterprise comporta addebiti aggiuntivi per i clienti dopo la disponibilità generale (GA), ma fornisce [funzionalità aggiuntive](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Esaminare innanzitutto [Prima di iniziare](#before-you-begin), [Requisiti della versione software](#software-version-requirements) e [Prerequisiti](#prerequisites) con attenzione. 
@@ -190,7 +190,7 @@ In seguito all'installazione eseguire la procedura seguente.
     
    ![Selezionare il profilo di rete della replica di vSphere](./media/hybrid-cloud-extension-installation/vsphere-replication-network-profile.png)
 
-1. In **Seleziona opzioni distribuite per le estensioni di rete**selezionare il DVS su cui si trovano le reti le VM che verranno integrate e connesse.  Selezionare **Continua**.  
+1. In **Seleziona opzioni distribuite per le estensioni di rete**selezionare il DVS su cui si trovano le reti le VM che verranno integrate e connesse.  Seleziona **Continua**.  
       
     ![Selezionare i commutatori virtuali distribuiti](./media/hybrid-cloud-extension-installation/distributed-switches.png)
 

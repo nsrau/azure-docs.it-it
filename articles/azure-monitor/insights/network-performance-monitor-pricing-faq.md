@@ -6,20 +6,21 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654393"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539653"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modifiche ai prezzi per il Monitoraggio prestazioni rete di Azure
 
-In risposta al feedback degli utenti, di recente è stata introdotta una [nuova esperienza di acquisto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) per i vari servizi di monitoraggio disponibili in Azure. Questo articolo illustra le modifiche ai prezzi relative a [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) di Azure in un semplice formato basato su domanda e risposta.
+In risposta al feedback degli utenti, di recente è stata introdotta una [nuova esperienza di acquisto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) per i vari servizi di monitoraggio disponibili in Azure. Questo articolo illustra le modifiche ai prezzi relative a [Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) di Azure in un semplice formato basato su domanda e risposta.
 
 Monitoraggio prestazioni rete è costituito da tre componenti:
-* [Monitoraggio delle prestazioni](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Monitoraggio endpoint di servizio](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [Monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Monitoraggio delle prestazioni](../../networking/network-monitoring-overview.md#performance-monitor)
+* [Monitoraggio endpoint di servizio](../../networking/network-monitoring-overview.md)
+* [Monitoraggio di ExpressRoute](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
 Le sezioni seguenti illustrano le modifiche dei prezzi per i componenti di Monitoraggio delle prestazioni di rete.
 
@@ -108,7 +109,6 @@ Una connessione è un test della raggiungibilità di un endpoint (URL o servizio
 
 Vedere la sezione [monitoraggio della connessione](https://azure.microsoft.com/pricing/details/network-watcher/) per il costo del monitoraggio di un endpoint per l'intero mese. Gli addebiti per i dati sono disponibili nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) di Log Analytics, nella sezione Inserimento dati.
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 
 [Domande frequenti sui prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): la sezione delle domande frequenti contiene informazioni sul livello gratuito, il prezzo per nodo e altri dati relativi ai prezzi.
-

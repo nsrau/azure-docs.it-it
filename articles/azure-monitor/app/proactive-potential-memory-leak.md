@@ -3,17 +3,18 @@ title: Rilevare le perdite di memoria-rilevamento intelligente applicazione Azur
 description: Monitorare le applicazioni con Azure Application Insights per rilevare potenziali perdite di memoria.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539891"
 ---
 # <a name="memory-leak-detection-preview"></a>Rilevamento della perdita di memoria (anteprima)
 
 Application Insights analizza automaticamente il consumo di memoria di ogni processo dell'applicazione e può generare un avviso in caso di potenziali perdite di memoria o aumento del consumo di memoria.
 
-Questa funzionalità non richiede una configurazione specifica a parte la [configurazione dei contatori delle prestazioni](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) per l'app. La funzionalità è attiva quando l'app genera una quantità sufficiente di dati di telemetria dei contatori delle prestazioni della memoria (ad esempio, byte privati).
+Questa funzionalità non richiede una configurazione specifica a parte la [configurazione dei contatori delle prestazioni](./performance-counters.md) per l'app. La funzionalità è attiva quando l'app genera una quantità sufficiente di dati di telemetria dei contatori delle prestazioni della memoria (ad esempio, byte privati).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
 Una notifica tipica viene generata in seguito a un aumento consistente del consumo di memoria per un lungo periodo di tempo, in uno o più processi e/o in uno o più computer che fanno parte dell'applicazione. Si usano algoritmi di apprendimento automatico per rilevare un aumento del consumo di memoria corrispondente al modello di una perdita di memoria.

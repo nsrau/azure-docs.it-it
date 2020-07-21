@@ -9,11 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84611048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537698"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,8 +33,8 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` . **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 | encodingName     | Tipo di codifica utilizzato per leggere/scrivere file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| tipo | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Snapper**o **LZ4**. da usare quando si salva il file. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file **ZipDeflate** e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` , usare `preserveZipFileNameAsFolder` nell' [origine dell'attività di copia](#json-as-source) per controllare se mantenere il nome del file zip come struttura di cartelle. | No.  |
-| livello | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| type<br/>(*in `compression` *) | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Snapper**o **LZ4**. da usare quando si salva il file. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file **ZipDeflate** e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` , usare `preserveZipFileNameAsFolder` nell' [origine dell'attività di copia](#json-as-source) per controllare se mantenere il nome del file zip come struttura di cartelle. | No.  |
+| livello<br/>(*in `compression` *) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Di seguito è riportato un esempio di set di dati JSON nell'archivio BLOB di Azure:
 
@@ -64,6 +65,8 @@ Di seguito è riportato un esempio di set di dati JSON nell'archivio BLOB di Azu
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal sink JSON.
+
+Informazioni su come estrarre i dati dai file JSON ed eseguire il mapping all'archivio dati/formato sink o viceversa dal [mapping dello schema](copy-activity-schema-and-type-mapping.md).
 
 ### <a name="json-as-source"></a>JSON come origine
 
@@ -202,13 +205,13 @@ La tabella seguente elenca le proprietà supportate da un'origine JSON. È possi
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
-| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | Stringa | partitionRootPath |
 | Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | Stringa | rowUrlColumn |
 | Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o`false` <br> Spostare`['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Documento singolo | Mapping dei flussi di dati leggere un documento JSON da ogni file | no | `true` o `false` | singleDocument |
-| Nomi di colonna non racchiusi tra virgolette | Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` |  unquotedColumnNames
+| Nomi di colonna non racchiusi tra virgolette | Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` |  unquotedColumnNames |
 | Con commenti | Select **ha commenti** se i dati JSON hanno commenti in stile C o C++ | no | `true` o `false` | asComments |
 | Virgoletta singola | Legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` | singleQuoted |
 | Barra rovesciata con escape | Selezionare la **barra rovesciata** con caratteri di escape se vengono usate barre rovesciate per l'escape dei caratteri nei dati JSON | no | `true` o `false` | backslashEscape |

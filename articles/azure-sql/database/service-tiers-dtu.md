@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84037952"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539177"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +59,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU e edtu, vedere [modello di acquisto basato su DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||Basic|Standard|Premium|
+|Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
 | DTU massime | 5 | 3000 | 4000 | 
@@ -69,7 +70,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU pool elastico, archiviazione e limiti del database in pool
 
-| | **Base** | **Standard** | **Premium** |
+| **Base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Dimensioni massime di archiviazione per ogni database  | 2 GB | 1 TB | 1 TB |
 | Dimensioni massime di archiviazione per ogni pool | 156 GB | 4 TB | 4 TB |
@@ -120,7 +121,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -136,7 +137,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Elimina |2 |
+| Delete |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

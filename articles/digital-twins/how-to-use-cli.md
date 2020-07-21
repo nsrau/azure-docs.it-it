@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 53b20ded8e4b4a003beff1ef8489ecd9ff3451ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537463"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
 
@@ -35,4 +36,4 @@ Oltre alla gestione generale dell'istanza, l'interfaccia della riga di comando Ã
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per un'alternativa ai comandi dell'interfaccia della riga di comando, vedere How to manage an Azure Digital Twins instance using APIs and SDKs:
-* [Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md)
+* [*Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md)

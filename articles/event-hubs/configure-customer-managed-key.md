@@ -3,12 +3,12 @@ title: Configurare la propria chiave per la crittografia dei dati inattivi di hu
 description: Questo articolo fornisce informazioni su come configurare la propria chiave per la crittografia dei dati REST di hub eventi di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479828"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537259"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -41,7 +41,7 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiavi
 Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita dal cliente allo spazio dei nomi di hub eventi di Azure. Hub eventi supporta solo Azure Key Vault. Se si Abilita l'opzione **crittografia con chiave gestita dal cliente** nella sezione precedente, è necessario importare la chiave in Azure Key Vault. Inoltre, le chiavi devono essere **eliminate temporaneamente** e **non vengono rieliminate** configurate per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/general/soft-delete-powershell.md) o l' [interfaccia](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)della riga di comando.
 
-1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [Guida introduttiva](../key-vault/general/overview.md)Azure Key Vault. Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
+1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [Guida introduttiva](../key-vault/general/overview.md)Azure Key Vault. Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [informazioni su chiavi, segreti e certificati](../key-vault/general/about-keys-secrets-certificates.md).
 1. Per attivare l'eliminazione temporanea e ripulire la protezione durante la creazione di un insieme di credenziali, usare il comando [AZ per Vault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .
 
     ```azurecli-interactive
@@ -395,12 +395,12 @@ In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le in
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 Come procedura consigliata, abilitare sempre i log, come illustrato nella sezione precedente. Consente di tenere traccia delle attività quando è abilitata la crittografia BYOK. Consente inoltre di rientrare nell'ambito dei problemi.
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
-| Action | Codice di errore | Stato risultante dei dati |
+| Azione | Codice di errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
 | Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessible |
 | Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessible |
@@ -419,7 +419,3 @@ Di seguito sono riportati i codici di errore comuni da cercare quando è abilita
 Vedere gli articoli seguenti:
 - [Panoramica di Hub eventi](event-hubs-about.md)
 - [Panoramica di Key Vault](../key-vault/general/overview.md)
-
-
-
-

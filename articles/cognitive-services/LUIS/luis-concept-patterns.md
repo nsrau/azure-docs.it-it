@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683913"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538055"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
@@ -41,7 +41,7 @@ I criteri risolvono le situazioni seguenti:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>I criteri non sono una garanzia della finalità
 I criteri usano una combinazione di tecnologie di stima. L'impostazione di una finalità per l'espressione di un modello in un criterio non è una garanzia per la stima della finalità ma è un segnale.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>I modelli non migliorano il rilevamento delle entità di Machine Learning
 

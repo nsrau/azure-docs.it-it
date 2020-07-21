@@ -3,11 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538462"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -28,7 +29,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 
 - È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure.
 - Il server di destinazione deve essere registrato nello stesso insieme di credenziali dell'origine.
-- Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+- Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Prima di ripristinare il database "Master", avviare l'istanza di SQL Server in modalità utente singolo usando l'opzione di avvio **-m AzureWorkloadBackup**.
   - Il valore per **-m** è il nome del client.
   - La connessione può essere aperta solo dal nome client specificato.
@@ -71,23 +72,32 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
    - **Percorso alternativo**: ripristinare il database in un percorso alternativo e salvare il database di origine originale.
    - **Sovrascrivi database**: ripristina i dati nella stessa istanza di SQL Server dell'origine. Questa opzione sovrascrive il database originale.
 
-    > [!IMPORTANT]
-    > Se il database selezionato appartiene a un gruppo di disponibilità Always On, SQL Server non consente di sovrascrivere il database. È disponibile solo **Percorso alternativo**.
-    >
+        > [!IMPORTANT]
+        > Se il database selezionato appartiene a un gruppo di disponibilità Always On, SQL Server non consente di sovrascrivere il database. È disponibile solo **Percorso alternativo**.
+        >
    - **Ripristina come file**: anziché ripristinare come database, ripristinare i file di backup che possono essere ripristinati come database in un secondo momento in qualsiasi computer in cui i file sono presenti usando SQL Server Management Studio.
      ![Menu Configurazione di ripristino](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Ripristinare in un percorso alternativo
 
 1. Nel menu **configurazione ripristino** , in **where to Restore**, selezionare **percorso alternativo**.
-2. Selezionare il nome di SQL Server e l'istanza in cui si vuole ripristinare il database.
-3. Nella finestra di dialogo **Nome del database ripristinato** inserire il nome del database di destinazione.
-4. Se applicabile, scegliere **Sovrascrivere se il database con lo stesso nome esiste già nell'istanza selezionata di SQL**.
-5. Selezionare **OK**.
+1. Selezionare il nome di SQL Server e l'istanza in cui si vuole ripristinare il database.
+1. Nella finestra di dialogo **Nome del database ripristinato** inserire il nome del database di destinazione.
+1. Se applicabile, scegliere **Sovrascrivere se il database con lo stesso nome esiste già nell'istanza selezionata di SQL**.
+1. Selezionare **punto di ripristino**e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
 
-    ![Fornire valori per il menu Configurazione di ripristino](./media/backup-azure-sql-database/restore-configuration.png)
+    ![Seleziona punto di ripristino](./media/backup-azure-sql-database/select-restore-point.png)
 
-6. In **Seleziona punto di ripristino**selezionare se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o per eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
+    ![Ripristino temporizzato](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+
+1. Nel menu **Configurazione avanzata**:
+
+    - Se si desidera lasciare il database non operativo dopo il ripristino, abilitare **RESTORE WITH NORECOVERY**.
+    - Se si desidera modificare il percorso di ripristino nel server di destinazione, immettere nuovi percorsi di destinazione.
+
+        ![Immettere i percorsi di destinazione](./media/backup-azure-sql-database/target-paths.png)
+
+1. Fare clic su **OK** per attivare il ripristino. Tenere traccia dello stato di avanzamento del ripristino nell'area **notifiche** o tenerne traccia nella visualizzazione **processi di backup** nell'insieme di credenziali.
 
     > [!NOTE]
     > Il ripristino temporizzato è disponibile solo per i backup del log per i database in modalità di recupero con registrazione completa e con registrazione minima delle operazioni bulk.
@@ -103,13 +113,13 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
     > [!NOTE]
     > Il ripristino temporizzato è disponibile solo per i backup del log per i database in modalità di recupero con registrazione completa e con registrazione minima delle operazioni bulk.
 
-### <a name="restore-as-files"></a>Ripristina come file
+### <a name="restore-as-files"></a>Ripristinare come file
 
-Per ripristinare i dati di backup come file con estensione bak anziché come database, scegliere **Ripristina come file**. Una volta scaricati i file in un percorso specificato, è possibile utilizzare questi file in qualsiasi computer in cui si desidera ripristinarli come database. Grazie alla possibilità di spostare questi file in qualsiasi computer, è ora possibile ripristinare i dati tra sottoscrizioni e aree geografiche.
+Per ripristinare i dati di backup come file con estensione bak anziché come database, scegliere **Ripristina come file**. Una volta scaricati i file in un percorso specificato, è possibile utilizzare questi file in qualsiasi computer in cui si desidera ripristinarli come database. Poiché è possibile spostare questi file in qualsiasi computer, è ora possibile ripristinare i dati tra sottoscrizioni e aree geografiche.
 
-1. Nel menu **configurazione ripristino** , in percorso **da ripristinare**Selezionare **Ripristina come file**.
-2. Selezionare il nome del SQL Server in cui si desidera ripristinare i file di backup.
-3. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari. In genere, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata quando viene specificato come percorso di destinazione consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata su di essi.<BR>
+1. In **dove e come ripristinare**selezionare **Ripristina come file**.
+1. Selezionare il nome del SQL Server in cui si desidera ripristinare i file di backup.
+1. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari. In genere, quando viene specificato come percorso di destinazione, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata in essi.<BR>
 
     >Per ripristinare i file di backup del database in una condivisione file di Azure montata nella macchina virtuale di destinazione registrata, verificare che NT AUTHORITY\SYSTEM abbia accesso alla condivisione file. È possibile eseguire i passaggi indicati di seguito per concedere le autorizzazioni di lettura/scrittura per l'AFS montato sulla macchina virtuale:
     >
@@ -119,15 +129,13 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
     >- Avviare un ripristino come file dall'insieme di credenziali per il backup a `\\<storageacct>.file.core.windows.net\<filesharename>` come percorso<BR>
     È possibile scaricare PsExec tramite<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
-4. Selezionare **OK**.
+1. Selezionare **OK**.
 
     ![Selezionare Ripristina come file](./media/backup-azure-sql-database/restore-as-files.png)
 
-5. Selezionare il **punto di ripristino** corrispondente a cui verranno ripristinati tutti i file con estensione bak disponibili.
+1. Selezionare **punto di ripristino**e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
 
-    ![Selezionare un punto di ripristino](./media/backup-azure-sql-database/restore-point.png)
-
-6. Tutti i file di backup associati al punto di ripristino selezionato vengono scaricati nel percorso di destinazione. È possibile ripristinare i file come database in qualsiasi computer in cui sono presenti usando SQL Server Management Studio.
+1. Tutti i file di backup associati al punto di ripristino selezionato vengono scaricati nel percorso di destinazione. È possibile ripristinare i file come database in qualsiasi computer in cui sono presenti usando SQL Server Management Studio.
 
     ![File di backup ripristinati nel percorso di destinazione](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -143,40 +151,16 @@ Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire l
 1. Dopo aver selezionato una data, il grafico della sequenza temporale indica i punti di recupero disponibili in un intervallo continuo.
 1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Selezionare **OK**.
 
-    ![Selezionare un'ora di ripristino](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
-
-1. Nel menu **configurazione avanzata** , se si desidera lasciare il database non operativo dopo il ripristino, abilitare **RESTORE WITH NORECOVERY**.
-1. Se si vuole modificare il percorso di ripristino nel server di destinazione, specificare un nuovo percorso di destinazione.
-1. Selezionare **OK**.
-
-    ![Menu configurazione avanzata](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. Nel menu **Ripristina** selezionare **Ripristina** per avviare il processo di ripristino.
-1. Tenere traccia dello stato di avanzamento del ripristino nell'area **notifiche** o monitorarlo selezionando **Ripristina processi** dal menu database.
-
-    ![Avanzamento del processo di ripristino](./media/backup-azure-sql-database/restore-job-notification.png)
-
 ### <a name="restore-to-a-specific-restore-point"></a>Ripristinare uno specifico punto di ripristino
 
 Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire le operazioni seguenti:
 
 1. Selezionare un punto di recupero dall’elenco e fare clic su **OK** per completare la procedura dei punti di ripristino.
 
-    ![Scegliere un punto di ripristino con registrazione completa](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+    ![Scegliere un punto di ripristino con registrazione completa](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
     > Per impostazione predefinita, vengono visualizzati i punti di ripristino degli ultimi 30 giorni. È possibile visualizzare i punti di ripristino più vecchi di 30 giorni facendo clic su **filtro** e selezionando un intervallo personalizzato.
-
-1. Nel menu **configurazione avanzata** , se si desidera lasciare il database non operativo dopo il ripristino, abilitare **RESTORE WITH NORECOVERY**.
-1. Se si vuole modificare il percorso di ripristino nel server di destinazione, specificare un nuovo percorso di destinazione.
-1. Selezionare **OK**.
-
-    ![Menu configurazione avanzata](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. Nel menu **Ripristina** selezionare **Ripristina** per avviare il processo di ripristino.
-1. Tenere traccia dello stato di avanzamento del ripristino nell'area **notifiche** o monitorarlo selezionando **Ripristina processi** dal menu database.
-
-    ![Avanzamento del processo di ripristino](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Ripristinare i database con un numero elevato di file
 

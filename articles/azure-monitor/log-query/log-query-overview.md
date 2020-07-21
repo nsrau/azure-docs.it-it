@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82591653"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539602"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in monitoraggio di Azure
 Le query di log consentono di sfruttare appieno il valore dei dati raccolti nei [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta.
 
-Alcune funzionalità di monitoraggio di Azure, ad esempio [Insights](../insights/insights-overview.md) e [Solutions](../insights/solutions-inventory.md) , elaborano i dati di log senza esporre le query sottostanti. Per sfruttare appieno le altre funzionalità di monitoraggio di Azure, è necessario comprendere come vengono costruite le query e come usarle per analizzare in modo interattivo i dati nei log di monitoraggio di Azure.
+Alcune funzionalità di monitoraggio di Azure, ad esempio [Insights](../insights/insights-overview.md) e [Solutions](../monitor-reference.md) , elaborano i dati di log senza esporre le query sottostanti. Per sfruttare appieno le altre funzionalità di monitoraggio di Azure, è necessario comprendere come vengono costruite le query e come usarle per analizzare in modo interattivo i dati nei log di monitoraggio di Azure.
 
 Usare questo articolo come punto di partenza per acquisire familiarità con le query di log in monitoraggio di Azure. Risponde a domande comuni e fornisce collegamenti ad altra documentazione che fornisce ulteriori dettagli e lezioni.
 

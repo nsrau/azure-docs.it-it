@@ -3,11 +3,12 @@ title: Eseguire il backup di una farm di SharePoint con Azure Stack
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint in Azure Stack. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657937"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538786"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Eseguire il backup di una farm di SharePoint con Azure Stack
 
@@ -101,7 +102,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. In **Specificare i criteri di conservazione online** è possibile specificare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
-1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
 
 1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver fatto clic su **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
 

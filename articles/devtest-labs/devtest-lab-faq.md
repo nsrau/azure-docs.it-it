@@ -2,13 +2,13 @@
 title: Domande frequenti su Azure DevTest Labs | Documentazione Microsoft
 description: Questo articolo offre risposte ad alcune domande frequenti su Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481664"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537487"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -200,7 +200,7 @@ Per copiare le macchine virtuali esistenti in DevTest Labs:
 Sì, è possibile collegare più dischi alle macchine virtuali.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Le immagini di seconda generazione (Gen 2) sono supportate da DevTest Labs?
-No. Il servizio DevTest Labs non supporta le [immagini Gen 2](../virtual-machines/windows/generation-2.md). Se per un'immagine sono disponibili sia la versione Gen 1 che la Gen 2, DevTest Labs visualizza solo la versione Gen 1 durante la creazione di una macchina virtuale. Se è disponibile solo la versione di Gen 2 non verrà visualizzata nessuna immagine. 
+Sì. Il servizio DevTest Labs supporta le [Immagini di generazione 2](../virtual-machines/windows/generation-2.md). Tuttavia, se per un'immagine sono disponibili entrambe le versioni di generazione 1 e di generazione 2, DevTest Labs Mostra solo la versione di generazione 1 dell'immagine durante la creazione di una macchina virtuale. Viene visualizzata l'immagine se è disponibile solo la versione di generazione 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Per usare un'immagine del sistema operativo per le operazioni di test è necessario acquistare un abbonamento a MSDN?
 Per usare immagini del sistema operativo client Windows (Windows 7 o versioni successive) per attività di sviluppo o test in Azure, eseguire una delle operazioni seguenti:
@@ -212,7 +212,7 @@ Per altre informazioni sui crediti Azure per ogni offerta MSDN, vedere [Credito 
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Come è possibile automatizzare il processo di eliminazione di tutte le macchine virtuali nel lab?
-Il proprietario del lab può eliminare le macchine virtuali dal lab tramite il portale di Azure. È anche possibile eliminare tutte le macchine virtuali del lab usando uno script di PowerShell. Nell'esempio seguente, modificare i valori dei parametri sotto il commento **Values to change** (Valori da modificare). È possibile recuperare i valori subscriptionId, labResourceGroup e labName dal riquadro Lab nel portale di Azure.
+Il proprietario del lab può eliminare le macchine virtuali dal lab tramite il portale di Azure. È anche possibile eliminare tutte le macchine virtuali del lab usando uno script di PowerShell. Nell'esempio seguente, modificare i valori dei parametri sotto il commento **Values to change** (Valori da modificare). È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello del lab nel portale di Azure.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -340,9 +340,9 @@ Per altre toolchain di integrazione continua/recapito continuo è possibile otte
 ## <a name="networking"></a>Rete
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando è consigliabile creare una nuova rete virtuale per l'ambiente DevTest Labs e quando usare invece una rete virtuale esistente?
-Se le macchine virtuali devono interagire con l'infrastruttura esistente, può essere utile usare una rete virtuale esistente all'interno dell'ambiente DevTest Labs. Se si usa ExpressRoute, può essere utile ridurre al minimo la quantità di reti virtuali/subnet, in modo da non frammentare lo spazio degli indirizzi IP assegnato per l'uso nelle sottoscrizioni.
+Se le macchine virtuali devono interagire con l'infrastruttura esistente, può essere utile usare una rete virtuale esistente all'interno dell'ambiente DevTest Labs. Se si usa ExpressRoute, è possibile ridurre al minimo il numero di reti virtuali/subnet in modo da non frammentare lo spazio degli indirizzi IP che viene assegnato per l'uso nelle sottoscrizioni.
 
-In questo caso considerare anche l'uso del criterio di peering di rete virtuale ([modello Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Questo approccio consente la comunicazione rete virtuale/subnet tra le sottoscrizioni. In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale.
+Prendere in considerazione l'uso del modello di peering di rete virtuale ([modello hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Questo approccio consente la comunicazione rete virtuale/subnet tra le sottoscrizioni. In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale.
 
 Esistono [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md) al numero di reti virtuali per sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203136"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539772"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -41,7 +41,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
 
-### <a name="discovery"></a>Scoperta
+### <a name="discovery"></a>Individuazione
 
 Mapping dei servizi genera automaticamente una mappa di riferimento delle dipendenze tra server, processi e servizi di terze parti. La soluzione rileva e mappa tutte le dipendenze TCP, identificando le connessioni impreviste, i sistemi remoti di terze parti da cui si dipende e le dipendenze da aree tradizionali non note della rete, ad esempio Active Directory. Mapping dei servizi rileva i tentativi di connessione di rete non riusciti effettuati dai sistemi gestiti permettendo di identificare potenziali configurazioni del server errate, interruzioni dei servizi e problemi di rete.
 
@@ -241,7 +241,7 @@ Mapping dei servizi si integra con ricerca di log per visualizzare un conteggio 
 
 ## <a name="service-desk-integration"></a>Integrazione di Service Desk
 
-L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](../platform/itsmc-overview.md).
 
 Il riquadro del **Service Desk del computer** elenca tutti gli eventi di gestione dei servizi IT per il server selezionato nell'intervallo di tempo selezionato. Se ci sono elementi correnti, viene visualizzata un'icona per il server e il riquadro del Service Desk del computer elenca gli elementi.
 
@@ -270,7 +270,7 @@ Il riquadro relativo alle **prestazioni del computer** mostra le metriche di pre
 
 ![Riquadro delle prestazioni del computer](media/service-map/machine-performance.png)
 
-Per visualizzare i dati sulle prestazioni, potrebbe essere necessario [abilitare i contatori delle prestazioni di Log Analytics appropriati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Contatori da attivare:
+Per visualizzare i dati sulle prestazioni, potrebbe essere necessario [abilitare i contatori delle prestazioni di Log Analytics appropriati](../platform/data-sources-performance-counters.md).  Contatori da attivare:
 
 Windows:
 - Processore(*)\\% di tempo processore
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API REST
 
-Tutti i dati relativi a server, processi e dipendenze in Mapping dei servizi sono disponibili tramite l'[API REST di Mapping dei servizi](https://docs.microsoft.com/rest/api/servicemap/).
+Tutti i dati relativi a server, processi e dipendenze in Mapping dei servizi sono disponibili tramite l'[API REST di Mapping dei servizi](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 

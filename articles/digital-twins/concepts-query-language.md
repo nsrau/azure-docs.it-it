@@ -7,22 +7,25 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537495"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
 Tenere presente che il centro dei dispositivi gemelli digitali di Azure è il [**grafo gemello**](concepts-twins-graph.md), costruito dai **gemelli digitali** e dalle **relazioni**. È possibile eseguire query su questo grafico per ottenere informazioni sui gemelli digitali e sulle relazioni in esso contenute. Queste query sono scritte in un linguaggio di query personalizzato simile a SQL denominato **Azure Digital gemells query Store linguaggio**.
 
-Per inviare una query al servizio da un'app client, si userà l' **API di query**dei dispositivi digitali gemelli di Azure. Questo consente agli sviluppatori di scrivere query e applicare filtri per trovare set di dispositivi gemelli digitali nel grafico gemello e altre informazioni sullo scenario dei gemelli digitali di Azure.
+Per inviare una query al servizio da un'app client, si userà l' [**API di query**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview)dei dispositivi digitali gemelli di Azure. Questo consente agli sviluppatori di scrivere query e applicare filtri per trovare set di dispositivi gemelli digitali nel grafico gemello e altre informazioni sullo scenario dei gemelli digitali di Azure.
 
 ## <a name="query-language-features"></a>Funzionalità del linguaggio di query
 
 I dispositivi gemelli digitali di Azure forniscono funzionalità di query complete rispetto al grafo gemello. Le query vengono descritte usando la sintassi simile a SQL, in un linguaggio di query simile al [linguaggio di query dell'hub](../iot-hub/iot-hub-devguide-query-language.md) Internet con molte funzionalità confrontabili.
+
+> [!NOTE]
+> Tutte le operazioni di query di Azure Digital Twins fanno distinzione tra maiuscole e minuscole.
 
 Di seguito sono riportate le operazioni disponibili in Azure Digital Gemells Query Store lingua:
 * Ottiene i gemelli dalle proprietà dei gemelli digitali.
@@ -37,4 +40,4 @@ Di seguito sono riportate le operazioni disponibili in Azure Digital Gemells Que
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come scrivere query e vedere esempi di codice client in [procedura: eseguire una query sul grafico gemello](how-to-query-graph.md).
+Informazioni su come scrivere query e vedere esempi di codice client in [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).

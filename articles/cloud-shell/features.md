@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506566"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538174"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
 
@@ -49,19 +49,19 @@ L'unità Azure consente una facile individuazione e la navigazione tra le risors
 È possibile continuare a utilizzare i consueti [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure) per gestire queste risorse indipendentemente dall'unità in cui ci si trova.
 Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente nel portale di Azure che tramite i cmdlet di Azure PowerShell, vengono applicate anche all'unità Azure.  È possibile eseguire `dir -Force` per aggiornare le risorse.
 
-![](media/features-powershell/azure-drive.png)
+![Screenshot di un Azure Cloud Shell da inizializzare e un elenco di risorse di directory.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Gestire Exchange Online
 
 PowerShell in Cloud Shell contiene una compilazione privata del modulo Exchange Online.  Eseguire `Connect-EXOPSSession` per ottenere i cmdlet di Exchange.
 
-![](media/features-powershell/exchangeonline.png)
+![Screenshot di un Azure Cloud Shell esecuzione dei comandi Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
  Eseguire `Get-Command -Module tmp_*`
 > [!NOTE]
 > Il nome del modulo dovrebbe iniziare con `tmp_` , se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Screenshot di un Azure Cloud Shell che esegue il comando Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Stretta integrazione con strumenti open source
 
@@ -78,7 +78,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
 |Contenitori             |[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altro                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [INTERFACCIA della riga di comando di Office 365](https://pnp.github.io/office365-cli/)|
+|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [INTERFACCIA della riga di comando di Office 365](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Lingue supportate
 

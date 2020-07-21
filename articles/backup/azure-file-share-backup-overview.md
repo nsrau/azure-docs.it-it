@@ -3,11 +3,12 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539092"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
@@ -20,9 +21,9 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 * **Funzionalità di gestione predefinite**: è possibile pianificare i backup e specificare il periodo di memorizzazione desiderato senza l'overhead aggiuntivo di eliminazione dei dati.
 * **Ripristino istantaneo**: il backup di condivisioni file di Azure usa snapshot di condivisione file, pertanto è possibile selezionare solo i file che si desidera ripristinare immediatamente.
 * Avvisi **e report**: è possibile configurare avvisi per gli errori di backup e ripristino e usare la soluzione di creazione di report fornita da backup di Azure per ottenere informazioni dettagliate sui backup nelle condivisioni file.
-* **Protezione da eliminazioni accidentali delle condivisioni file**: backup di Azure consente la [funzionalità di eliminazione](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) temporanea a livello di account di archiviazione con un periodo di memorizzazione di 14 giorni. Anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per un periodo di conservazione configurabile, consentendo il ripristino corretto e completo del contenuto di origine e degli snapshot senza perdita di dati.
+* **Protezione da eliminazioni accidentali delle condivisioni file**: backup di Azure consente la [funzionalità di eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea a livello di account di archiviazione con un periodo di memorizzazione di 14 giorni. Anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per un periodo di conservazione configurabile, consentendo il ripristino corretto e completo del contenuto di origine e degli snapshot senza perdita di dati.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Architettura di backup di condivisione file di Azure](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 

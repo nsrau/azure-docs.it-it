@@ -4,15 +4,16 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538769"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
-Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azure con il servizio [backup di Azure](backup-introduction-to-azure-backup.md) .
+Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azure con il servizio [backup di Azure](./backup-overview.md) .
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +83,7 @@ Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il ser
 
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
 
-Backup di Azure offre una soluzione di backup di flusso per database di SAP HANA con un RPO di 15 minuti. Backint è certificata da SAP per offrire un supporto di backup nativo che sfrutta le API native di SAP HANA. Altre informazioni [sul backup di SAP Hana database nelle VM di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Backup di Azure offre una soluzione di backup di flusso per database di SAP HANA con un RPO di 15 minuti. Backint è certificata da SAP per offrire un supporto di backup nativo che sfrutta le API native di SAP HANA. Altre informazioni [sul backup di SAP Hana database nelle VM di Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual è il ritardo massimo che è possibile aspettarsi nell'ora di inizio del backup dall'ora di backup pianificata configurata nel criterio di backup della macchina virtuale?
 
@@ -128,7 +129,11 @@ Il processo di ripristino rimane invariato. Se il punto di ripristino è tempori
 
 [Altre informazioni](backup-azure-vms-automation.md#restore-an-azure-vm) su come eseguire questa procedura in PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>È possibile ripristinare una macchina virtuale che è stata eliminata?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Se il ripristino non riesce a creare la macchina virtuale, cosa accade ai dischi inclusi nel ripristino?
+
+In caso di ripristino di una macchina virtuale gestita, anche se la creazione della macchina virtuale ha esito negativo, i dischi verranno comunque ripristinati.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>È possibile ripristinare una macchina virtuale che è stata eliminata?
 
 Sì. Anche se si elimina la macchina virtuale, è possibile passare all'elemento di backup corrispondente nell'insieme di credenziali ed eseguire il ripristino da un punto di ripristino.
 
@@ -142,13 +147,13 @@ La funzionalità di [ripristino istantaneo](backup-instant-restore-capability.md
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Cosa accade quando si modificano le impostazioni dell'insieme di credenziali delle chiavi per la VM crittografata?
 
-Dopo aver modificato le impostazioni dell'insieme di credenziali delle chiavi per la VM crittografata, i backup continueranno a funzionare con il nuovo set di dettagli. Tuttavia, dopo il ripristino da un punto di ripristino prima della modifica, sarà necessario ripristinare i segreti in un insieme di credenziali delle chiavi prima di poter creare la macchina virtuale. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Dopo aver modificato le impostazioni dell'insieme di credenziali delle chiavi per la VM crittografata, i backup continueranno a funzionare con il nuovo set di dettagli. Tuttavia, dopo il ripristino da un punto di ripristino prima della modifica, sarà necessario ripristinare i segreti in un insieme di credenziali delle chiavi prima di poter creare la macchina virtuale. Per altre informazioni, vedere questo [articolo](./backup-azure-restore-key-secret.md).
 
-Operazioni come il rollup di segreto/chiave non richiedono questo passaggio e lo stesso insieme di credenziali delle chiavi può essere usato dopo il ripristino.
+Operazioni come il rollup della chiave/segreto non richiedono questo passaggio e lo stesso insieme di credenziali delle chiavi può essere usato dopo il ripristino.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>È possibile accedere alla VM una volta ripristinato a causa di una relazione tra una macchina virtuale e il controller di dominio?
 
-Sì, si accede alla macchina virtuale dopo il ripristino a causa di una relazione di una macchina virtuale con il controller di dominio. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Sì, si accede alla macchina virtuale dopo il ripristino a causa di una relazione di una macchina virtuale con il controller di dominio. Per altre informazioni, vedere questo [articolo](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 

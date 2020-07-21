@@ -3,12 +3,12 @@ title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320584"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537181"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -261,7 +261,7 @@ Hub eventi supporta due tipi di [log di diagnostica](event-hubs-diagnostic-logs.
 
 ### <a name="support-and-sla"></a>Contratto di servizio e supporto
 
-Il supporto tecnico per hub eventi è disponibile tramite la [pagina delle domande e risposte Microsoft per il bus di servizio di Azure](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente.
+Il supporto tecnico per hub eventi è disponibile tramite la [pagina delle domande e risposte Microsoft per il bus di servizio di Azure](/answers/topics/azure-service-bus.html). Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente.
 
 Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti 
 
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Panoramica di Hub eventi](./event-hubs-about.md)
 * [Creare un hub eventi](event-hubs-create.md)
 * [Aumento automatico di Hub eventi](event-hubs-auto-inflate.md)

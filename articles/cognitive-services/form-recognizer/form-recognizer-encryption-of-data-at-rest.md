@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 782e03f572f007b8523c3ae797dd626c383a01f4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: b897de94ad8cdb628520f9386b076f762a5cc230
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310717"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537953"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il riconoscimento moduli
 
@@ -24,8 +24,6 @@ Il riconoscitore di form di Azure crittografa automaticamente i dati quando veng
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente sono solo risorse disponibili create dopo l'11 maggio 2020. Per usare CMK con il riconoscimento del modulo, è necessario creare una nuova risorsa di riconoscimento del modulo. Dopo aver creato la risorsa, è possibile usare Azure Key Vault per configurare l'identità gestita.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

@@ -3,17 +3,18 @@ title: Eliminazione temporanea per backup di Azure
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538837"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminazione temporanea per backup di Azure
 
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare tali attacchi, backup di Azure offre ora funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione.
 
-Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o elimina accidentalmente i dati di backup), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione dei dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente.
+Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o elimina accidentalmente i dati di backup), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione per i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente.
 
 La protezione per l'eliminazione temporanea è disponibile per questi servizi:
 
@@ -28,7 +29,7 @@ Questo diagramma di flusso Mostra i diversi passaggi e Stati di un elemento di b
 
 L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose.  La disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test). Questa funzionalità può essere disabilitata solo dal proprietario dell'insieme di credenziali. Se questa funzionalità viene disabilitata, tutte le successive eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. I dati di backup presenti nello stato di eliminazione temporanea prima di disabilitare questa funzionalità rimarranno in stato di eliminazione temporanea per il periodo di 14 giorni. Per eliminare definitivamente questi elementi immediatamente, è necessario annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente.
 
- È importante ricordare che quando l'eliminazione temporanea è disabilitata, la funzionalità è disabilitata per tutti i tipi di carichi di lavoro, inclusi i carichi di lavoro di SQL Server e SAP HANA. Ad esempio, una volta abilitata l' [Anteprima di SQL Server/SAP Hana](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) per una sottoscrizione, non è possibile disabilitare l'eliminazione temporanea solo per SQL Server o SAP Hana i database mantenendola abilitata per le macchine virtuali nello stesso insieme di credenziali. È possibile creare insiemi di credenziali separati per il controllo granulare.
+ È importante ricordare che quando l'eliminazione temporanea è disabilitata, la funzionalità è disabilitata per tutti i tipi di carichi di lavoro, inclusi i carichi di lavoro di SQL Server e SAP HANA. Ad esempio, una volta abilitata l' [Anteprima di SQL Server/SAP Hana](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) per una sottoscrizione, non è possibile disabilitare l'eliminazione temporanea solo per SQL Server o SAP Hana i database mantenendola abilitata per le macchine virtuali nello stesso insieme di credenziali. È possibile creare insiemi di credenziali separati per il controllo granulare.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Disabilitazione dell'eliminazione temporanea con portale di Azure
 
@@ -45,7 +46,7 @@ Per disabilitare l'eliminazione temporanea, attenersi alla procedura seguente:
 > [!IMPORTANT]
 > La versione AZ. RecoveryServices necessaria per usare l'eliminazione temporanea con Azure PS è min 2.2.0. Usare ```Install-Module -Name Az.RecoveryServices -Force``` per ottenere la versione più recente.
 
-Per disabilitare, usare il cmdlet [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) di PS.
+Per disabilitare, usare il cmdlet [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) di PS.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -68,7 +69,7 @@ I dati di backup in stato di eliminazione temporanea prima della disabilitazione
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
-Attenersi ai passaggi descritti di seguito.
+A tale scopo, seguire questa procedura:
 
 1. Seguire i passaggi per [disabilitare l'eliminazione](#enabling-and-disabling-soft-delete)temporanea.
 
@@ -86,11 +87,11 @@ Attenersi ai passaggi descritti di seguito.
 
 5. Scegliere **Elimina dati di backup** per eliminare definitivamente i dati di backup.
 
-   ![Scegliere Elimina dati di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Scegliere Elimina dati di backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
-   ![Digitare il nome dell'elemento di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digitare il nome dell'elemento di backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 

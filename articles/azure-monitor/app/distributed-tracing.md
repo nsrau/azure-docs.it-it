@@ -6,11 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539993"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
@@ -20,9 +21,9 @@ Nelle architetture monolitiche, abbiamo usato per eseguire il debug con stack di
 
 Qui viene fornita la traccia distribuita.  
 
-La traccia distribuita è l'equivalente degli stack di chiamate per le architetture di microservizi e cloud moderne, con l'aggiunta di un profiler di prestazioni semplicistico. Monitoraggio di Azure offre due esperienze per l'utilizzo dei dati di traccia distribuita. La prima è costituita dalla vista della [diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), che è analoga a uno stack di chiamate con l'aggiunta di una dimensione temporale. La vista della diagnostica delle transazioni offre visibilità su una singola transazione o richiesta ed è utile per individuare la causa principale dei problemi di affidabilità e i colli di bottiglia delle prestazioni per ogni singola richiesta.
+La traccia distribuita è l'equivalente degli stack di chiamate per le architetture di microservizi e cloud moderne, con l'aggiunta di un profiler di prestazioni semplicistico. Monitoraggio di Azure offre due esperienze per l'utilizzo dei dati di traccia distribuita. La prima è costituita dalla vista della [diagnostica delle transazioni](./transaction-diagnostics.md), che è analoga a uno stack di chiamate con l'aggiunta di una dimensione temporale. La vista della diagnostica delle transazioni offre visibilità su una singola transazione o richiesta ed è utile per individuare la causa principale dei problemi di affidabilità e i colli di bottiglia delle prestazioni per ogni singola richiesta.
 
-Monitoraggio di Azure offre inoltre una vista della [mappa delle applicazioni](https://docs.microsoft.com/azure/application-insights/app-insights-app-map), che aggrega numerose transazioni per mostrare una visualizzazione topologica dell'interazione tra i sistemi, con informazioni sulle prestazioni medie e sulla frequenza degli errori. 
+Monitoraggio di Azure offre inoltre una vista della [mappa delle applicazioni](./app-map.md), che aggrega numerose transazioni per mostrare una visualizzazione topologica dell'interazione tra i sistemi, con informazioni sulle prestazioni medie e sulla frequenza degli errori. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Come abilitare la traccia distribuita
 
@@ -32,16 +33,16 @@ L'abilitazione della traccia distribuita tra i servizi di un'applicazione è sem
 
 Gli agenti Application Insights e/o gli SDK per .NET, .NET Core, Java, Node.js e JavaScript supportano in modo nativo la traccia distribuita. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-Dopo avere installato e configurato la versione corretta di Application Insights SDK, le informazioni di traccia vengono raccolte automaticamente per le librerie, le tecnologie e i framework più diffusi da agenti di raccolta delle dipendenze dell'SDK automatici. L'elenco completo delle tecnologie supportate è disponibile nella [documentazione sulla raccolta automatica delle dipendenze](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Dopo avere installato e configurato la versione corretta di Application Insights SDK, le informazioni di traccia vengono raccolte automaticamente per le librerie, le tecnologie e i framework più diffusi da agenti di raccolta delle dipendenze dell'SDK automatici. L'elenco completo delle tecnologie supportate è disponibile nella [documentazione sulla raccolta automatica delle dipendenze](./auto-collect-dependencies.md).
 
- È anche possibile tenere traccia manualmente di qualsiasi tecnologia con una chiamata a [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) in [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ È anche possibile tenere traccia manualmente di qualsiasi tecnologia con una chiamata a [TrackDependency](./api-custom-events-metrics.md) in [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Eseguire l'abilitazione tramite OpenCensus
 

@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361939"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539857"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurare Bring your own Storage (BYOS) per Application Insights Profiler e Snapshot Debugger
 
@@ -21,9 +21,9 @@ Quando si usa Application Insights Profiler o Snapshot Debugger, gli artefatti g
 Con Bring your own storage, questi elementi vengono caricati in un account di archiviazione controllato dall'utente. Ciò significa che è possibile controllare i criteri di crittografia inattivi, i criteri di gestione della durata e l'accesso alla rete. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione.
 
 > [!NOTE]
-> Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](../platform/private-link-security.md)
 >
-> Se si abilitano le chiavi gestite dal cliente, è necessario avere una propria risorsa di archiviazione. Per ulteriori informazioni sulle chiavi gestite dal cliente per Application Insights, [vedere la documentazione.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+> Se si abilitano le chiavi gestite dal cliente, è necessario avere una propria risorsa di archiviazione. Per ulteriori informazioni sulle chiavi gestite dal cliente per Application Insights, [vedere la documentazione.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Come verrà eseguito l'accesso all'account di archiviazione?
 1. Gli agenti in esecuzione nelle macchine virtuali o nel servizio app caricherà gli artefatti (profili, snapshot e simboli) nei contenitori BLOB nell'account. Questo processo comporta il contatto con il servizio Application Insights Profiler o Snapshot Debugger per ottenere un token di firma di accesso condiviso (SAS) a un nuovo BLOB nell'account di archiviazione.
@@ -31,7 +31,7 @@ Con Bring your own storage, questi elementi vengono caricati in un account di ar
 1. Quando si visualizzano le tracce del profiler o l'analisi del debugger snapshot, il servizio recupererà i risultati dell'analisi dall'archiviazione BLOB.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Ad esempio, Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
+* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Ex. Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
 * Concedere il ruolo "collaboratore dati BLOB di archiviazione" all'applicazione AAD "accesso all'archiviazione Trusted dei servizi di diagnostica" nell'account di archiviazione tramite l'interfaccia utente di controllo di accesso (IAM).
 * Se il collegamento privato è abilitato, configurare l'impostazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. 
 
@@ -60,7 +60,7 @@ Una volta aggiunto, il ruolo verrà visualizzato nella sezione "assegnazioni di 
 _ ![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1,1_ 
 
-Se si usa anche un collegamento privato, è necessaria una configurazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. Vedere la [documentazione sulla sicurezza della rete di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Se si usa anche un collegamento privato, è necessaria una configurazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. Vedere la [documentazione sulla sicurezza della rete di archiviazione](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Collegare l'account di archiviazione alla risorsa Application Insights
 Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger), sono disponibili due opzioni:
@@ -73,7 +73,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
 
 1. Assicurarsi di aver installato AZ PowerShell 4.2.0 o versione successiva.
 
-    Per installare Azure PowerShell, vedere la [documentazione ufficiale di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Per installare Azure PowerShell, vedere la [documentazione ufficiale di Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Installare l'estensione Application Insights PowerShell.
     ```powershell
@@ -85,7 +85,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Per altre informazioni su come eseguire l'accesso, vedere la [documentazione di Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Per altre informazioni su come eseguire l'accesso, vedere la [documentazione di Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Rimuovere l'account di archiviazione precedente collegato alla risorsa Application Insights.
 
@@ -121,7 +121,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
 
 1. Assicurarsi di aver installato l'interfaccia della riga di comando di Azure.
 
-    Per installare l'interfaccia della riga di comando di Azure, vedere la [documentazione ufficiale dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando
+    Per installare l'interfaccia della riga di comando di Azure, vedere la [documentazione ufficiale dell'interfaccia](/cli/azure/install-azure-cli)della riga di comando
 
 1. Installare l'estensione dell'interfaccia della riga di comando Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
     ```
 
     > [!NOTE]
-    > Per eseguire gli aggiornamenti sugli account di archiviazione collegati alla risorsa Application Insights, vedere la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)della riga di comando di Application Insights.
+    > Per eseguire gli aggiornamenti sugli account di archiviazione collegati alla risorsa Application Insights, vedere la [documentazione dell'interfaccia](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)della riga di comando di Application Insights.
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configurare usando Azure Resource Manager modello
 

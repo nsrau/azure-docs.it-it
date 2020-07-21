@@ -7,30 +7,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538004"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 I contenitori di Riconoscimento modulo di Azure consentono di creare un'architettura per le applicazioni ottimizzata per sfruttare i vantaggi delle funzionalità cloud avanzate e della posizione fisica dei dispositivi perimetrali.
 
 Per configurare l'ambiente di runtime dei contenitori di Riconoscimento modulo, si usano gli argomenti del comando `docker run`. Questo contenitore prevede diverse impostazioni obbligatorie e alcune facoltative. Per alcuni esempi, vedere la sezione ["Comandi docker run di esempio"](#example-docker-run-commands). Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
-
-> [!IMPORTANT]
-> I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Le [`ApiKey`](#apikey-configuration-setting)impostazioni [`Billing`](#billing-configuration-setting), e [`Eula`](#eula-setting) vengono utilizzate insieme. È necessario specificare valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](form-recognizer-container-howto.md#billing) (Fatturazione).
+> Le [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) Impostazioni, e [`Eula`](#eula-setting) vengono utilizzate insieme. È necessario specificare valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](form-recognizer-container-howto.md#billing) (Fatturazione).
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
@@ -48,7 +47,7 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Riconos
 
 Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di **Form Recognizer Overview** (Panoramica di Riconoscimento modulo).
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
@@ -77,16 +76,16 @@ Per il contenitore di Riconoscimento modulo è necessario un montaggio di input 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](form-recognizer-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni dell'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 
-|Facoltativo| Name | Tipo di dati | Descrizione |
+|Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Obbligatoria| `Input` | Stringa | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obbligatoria| `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Necessario| `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`. Una volta avviata, l'esecuzione del contenitore continua finché non la si [arresta](form-recognizer-container-howto.md#stop-the-container).
 
-* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano una barra\\rovesciata () come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
+* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano una barra rovesciata ( \\ ) come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
 * **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
 Sostituire {_argument_name_} nella tabella seguente con i propri valori:

@@ -4,12 +4,12 @@ description: Verifica delle operazioni personalizzate con Azure Application Insi
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690856"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540044"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -300,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 
 Nell'esempio seguente un messaggio in arrivo viene verificato in maniera simile a quanto avviene per una richiesta HTTP in ingresso:
 
@@ -346,7 +346,7 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
-Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti di `DependencyTelemetry` che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti di `DependencyTelemetry` che migliorano l' [esperienza di diagnostica delle transazioni](./transaction-diagnostics.md):
 - `Azure queue`per le code di archiviazione di Azure
 - `Azure Event Hubs`per hub eventi di Azure
 - `Azure Service Bus`per il bus di servizio di Azure
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 L'eliminazione provoca l'interruzione dell'operazione, quindi è possibile procedere in questo modo anziché chiamare `StopOperation`.
 
-*Avviso*: in alcuni casi un'eccezione non gestita può [impedire che venga chiamato ](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` rendendo impossibile la verifica delle operazioni.
+*Avviso*: in alcuni casi un'eccezione non gestita può [impedire che venga chiamato ](/dotnet/csharp/language-reference/keywords/try-finally) `finally` rendendo impossibile la verifica delle operazioni.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Elaborazione e verifica di operazioni parallele
 

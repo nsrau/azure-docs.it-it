@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193276"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538667"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -16,7 +16,7 @@ ms.locfileid: "82193276"
 
 ## <a name="about-dpmmabs"></a>Informazioni su DPM/MAB
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) è una soluzione aziendale che consente di configurare, semplificare e gestire il backup e il ripristino di dati e computer aziendali. e fa parte della famiglia di prodotti [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing).
+[System Center DPM](/system-center/dpm/dpm-overview) è una soluzione aziendale che consente di configurare, semplificare e gestire il backup e il ripristino di dati e computer aziendali. e fa parte della famiglia di prodotti [System Center](https://www.microsoft.com/system-center/pricing).
 
 MAB è un prodotto server che può essere usato per eseguire il backup di server fisici, macchine virtuali e app locali in esecuzione su di essi.
 
@@ -50,7 +50,7 @@ Per altre informazioni:
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-**Scenario** | **Agent** | **Posizione**
+**Scenario** | **Agent** | **Località**
 --- | --- | ---
 **Backup di carichi di lavoro e computer locali** | L'agente protezione DPM/MAB viene eseguito nei computer di cui si vuole eseguire il backup.<br/><br/> Agente MARS nel server DPM/MAB.<br/> La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  | DPM/MAB deve essere eseguito in locale.
 
@@ -71,7 +71,7 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 **Scenario** | **DPM/MAB**
 --- | ---
 **Server di Backup di Microsoft Azure in una macchina virtuale di Azure** |  Windows 2016 datacenter.<br/><br/> Windows 2019 datacenter.<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard_A4_v2 minimo con quattro core e 8 GB di RAM.
-**DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard_A4_v2 minimo con quattro core e 8 GB di RAM.
+**DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard_A4_v2 minimo con quattro core e 8 GB di RAM.
 **Server di Backup di Microsoft Azure in locale** |  MAB V3 e versioni successive: Windows Server 2016 o Windows Server 2019
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versione successiva.<br/><br/> VM VMware: System Center 2012 R2 con aggiornamento 5 o versione successiva.
 
@@ -82,7 +82,7 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 
 **Problema** | **Dettagli**
 --- | ---
-**Installazione** | Installare DPM/MAB in un computer con un solo scopo.<br/><br/> Non installare DPM/MAB in un controller di dominio, in un computer con l'installazione del ruolo server applicazioni, in un computer che esegue Microsoft Exchange Server o System Center Operations Manager o in un nodo del cluster.<br/><br/> [Esaminare tutti i requisiti di sistema di DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Installazione** | Installare DPM/MAB in un computer con un solo scopo.<br/><br/> Non installare DPM/MAB in un controller di dominio, in un computer con l'installazione del ruolo server applicazioni, in un computer che esegue Microsoft Exchange Server o System Center Operations Manager o in un nodo del cluster.<br/><br/> [Esaminare tutti i requisiti di sistema di DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Dominio** | DPM/MAB deve essere aggiunto a un dominio. Installare e quindi aggiungere DPM o il server di Backup di Microsoft Azure a un dominio. Lo spostamento di DPM o del server di Backup di Microsoft Azure in un nuovo dominio dopo la distribuzione non è supportato.
 **Storage** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
@@ -131,13 +131,13 @@ Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 - `.microsoftonline.com`
 - `.windows.net`
 
-Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
+Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 
 - Azure Active Directory (12076:5060)
 - Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 - Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
-Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.
@@ -153,6 +153,13 @@ Connesso | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azu
 Nessuna connettività per più di 15 giorni | Attivo | Nessun backup su disco o in Azure.<br/><br/> È possibile eseguire il ripristino dal disco o da Azure.
 Nessuna connettività per più di 15 giorni | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azure.<br/><br/> Se la sottoscrizione è scaduta, è possibile eseguire il ripristino dal disco o da Azure.<br/><br/> Se la sottoscrizione viene ritirata, non è possibile eseguire il ripristino dal disco o da Azure. I punti di ripristino di Azure vengono eliminati.
 
+## <a name="domain-and-domain-trusts-support"></a>Supporto di trust di dominio e dominio
+
+|Requisito |Dettagli |
+|---------|---------|
+|Dominio    | Il server DPM/MAB deve trovarsi in un dominio Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
+|Trust tra domini   |  DPM/MAB supporta la protezione dei dati tra foreste, a condizione che si stabilisca una relazione di trust bidirezionale a livello di foresta tra le foreste separate.   <BR><BR>   DPM/MAB può proteggere i server e le workstation tra domini, all'interno di una foresta che abbia una relazione di trust bidirezionale con il dominio del server DPM/MAB. Per proteggere i computer in gruppi di lavoro o domini non trusted, vedere [eseguire il backup e il ripristino dei carichi di lavoro in gruppi di lavoro e domini non trusted.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+
 ## <a name="dpmmabs-storage-support"></a>Supporto dell'archiviazione per DPM o il server di Backup di Microsoft Azure
 
 I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiviazione su disco locale.
@@ -161,7 +168,7 @@ I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiv
 --- | ---
 **MBS** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Archiviazione del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | I dati vengono archiviati nei dischi di Azure collegati alla macchina virtuale DPM/MAB e gestiti in DPM/MAB. Il numero di dischi che è possibile usare per il pool di archiviazione DPM/MAB è limitato dalle dimensioni della macchina virtuale.<br/><br/> VM a2:4 dischi; VM A3:8 dischi; VM A4:16 dischi, con una dimensione massima di 1 TB per ogni disco. Ciò determina il pool di archiviazione di backup totale disponibile.<br/><br/> La quantità di dati di cui è possibile eseguire il backup dipende dal numero e dalle dimensioni dei dischi collegati.
-**Conservazione dei dati del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Si consiglia di conservare i dati per un giorno nel disco di Azure DPM/MAB ed eseguire il backup da DPM/MAB nell'insieme di credenziali per un periodo di conservazione più lungo. In questo modo è possibile proteggere una maggiore quantità di dati tramite l'offload nel servizio Backup di Azure.
+**Conservazione dei dati del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Si consiglia di conservare i dati per un giorno nel disco di Azure DPM/MAB ed eseguire il backup da DPM/MAB nell'insieme di credenziali per un periodo di conservazione più lungo. In questo modo è possibile proteggere una quantità maggiore di dati tramite l'offload in backup di Azure.
 
 ### <a name="modern-backup-storage-mbs"></a>Modern Backup Storage (MBS)
 
@@ -174,11 +181,11 @@ Da DPM 2016/MAB V2 (in esecuzione su Windows Server 2016) e versioni successive,
 
 ## <a name="supported-backups-to-mabs"></a>Backup nel server di Backup di Microsoft Azure supportati
 
-Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con server di Backup di Azure, vedere la [matrice di protezione server di backup di Azure](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
+Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con server di Backup di Azure, vedere la [matrice di protezione server di backup di Azure](./backup-mabs-protection-matrix.md#protection-support-matrix).
 
 ## <a name="supported-backups-to-dpm"></a>Backup in DPM supportati
 
-Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con Data Protection Manager, vedere l'articolo su [cosa è possibile eseguire il backup di DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con Data Protection Manager, vedere l'articolo su [cosa è possibile eseguire il backup di DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
 
 - I carichi di lavoro del cluster sottoposti a backup da DPM/MAB devono trovarsi nello stesso dominio di DPM/MAB o in un dominio figlio o trusted.
 - È possibile usare l'autenticazione NTLM/del certificato per eseguire il backup dei dati in gruppi di lavoro o domini non attendibili.
@@ -188,4 +195,4 @@ Per informazioni sui vari server e carichi di lavoro che è possibile proteggere
 - [Vedere altre informazioni](backup-architecture.md#architecture-back-up-to-dpmmabs) sull'architettura del server di Backup di Microsoft Azure.
 - [Rivedere](backup-support-matrix-mars-agent.md) gli scenari supportati per l'agente di Servizi di ripristino di Microsoft Azure.
 - [Installare](backup-azure-microsoft-azure-backup.md) un server di Backup di Microsoft Azure.
-- [Configurare DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
+- [Configurare DPM](/system-center/dpm/install-dpm).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539823"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -21,7 +21,7 @@ Quando vengono presentati i conteggi delle metriche nel portale, vengono rinorma
 ## <a name="brief-summary"></a>Riepilogo breve
 
 * Sono disponibili tre tipi diversi di campionamento, ovvero il campionamento adattivo, il campionamento a frequenza fissa e il campionamento per inserimento.
-* Il campionamento adattivo è abilitato per impostazione predefinita in tutte le versioni più recenti del Application Insights ASP.NET e ASP.NET Core SDK (Software Development Kit). Viene usato anche da [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+* Il campionamento adattivo è abilitato per impostazione predefinita in tutte le versioni più recenti del Application Insights ASP.NET e ASP.NET Core SDK (Software Development Kit). Viene usato anche da [funzioni di Azure](../../azure-functions/functions-overview.md).
 * Il campionamento a frequenza fissa è disponibile nelle versioni recenti degli SDK Application Insights per ASP.NET, ASP.NET Core, Java (sia l'agente che l'SDK) e Python.
 * Il campionamento di inserimento funziona sull'endpoint del servizio Application Insights. Si applica solo quando non è attivo alcun altro campionamento. Se l'SDK campiona i dati di telemetria, il campionamento per inserimento è disabilitato.
 * Per le applicazioni Web, se si registrano eventi personalizzati ed è necessario assicurarsi che un set di eventi venga mantenuto o rimosso insieme, gli eventi devono avere lo stesso `OperationId` valore.
@@ -36,6 +36,7 @@ La tabella seguente riepiloga i tipi di campionamento disponibili per ogni SDK e
 | ASP.NET Core | [Sì (attiva per impostazione predefinita)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sì](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Solo se non è attivo alcun altro campionamento |
 | Funzioni di Azure | [Sì (attiva per impostazione predefinita)](#configuring-adaptive-sampling-for-azure-functions) | No | Solo se non è attivo alcun altro campionamento |
 | Java | No | [Sì](#configuring-fixed-rate-sampling-for-java-applications) | Solo se non è attivo alcun altro campionamento |
+| Node.JS | No | [Sì](./nodejs.md#sampling) | Solo se non è attivo alcun altro campionamento
 | Python | No | [Sì](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo se non è attivo alcun altro campionamento |
 | Tutti gli altri | No | No | [Sì](#ingestion-sampling) |
 
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Configurazione del campionamento adattivo per funzioni di Azure
 
-Seguire le istruzioni disponibili in [Questa pagina](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) per configurare il campionamento adattivo per le app in esecuzione in funzioni di Azure.
+Seguire le istruzioni disponibili in [Questa pagina](../../azure-functions/functions-monitoring.md#configure-sampling) per configurare il campionamento adattivo per le app in esecuzione in funzioni di Azure.
 
 ## <a name="fixed-rate-sampling"></a>Campionamento a frequenza fissa
 
@@ -481,7 +482,7 @@ Se le condizioni per l'uso di altre forme di campionamento non sono valide per u
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Sapere se il campionamento è in esecuzione
 
-Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analisi](../../azure-monitor/app/analytics.md) simile alla seguente:
+Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analisi](../log-query/log-query-overview.md) simile alla seguente:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -586,4 +587,4 @@ Nelle versioni precedenti a v 2.5.0-beta2 di ASP.NET SDK e v 2.2.0-beta3 di ASP.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md) può garantire un controllo più rigoroso sui dati inviati dall'SDK.
-* Vedere l'articolo sulla rete [per sviluppatori ottimizzare la telemetria con Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Vedere l'articolo sulla rete [per sviluppatori ottimizzare la telemetria con Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

@@ -1,15 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539432"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -120,13 +120,22 @@ Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti super
 
 È anche possibile aumentare i periodi da monitorare e il numero di violazioni per consentire il filtro degli avvisi in modo che vengano generati solo in base alla definizione di deviazione significativa specificata dall'utente. [Altre informazioni sulle opzioni avanzate delle soglie dinamiche](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
+> [!NOTE]
+>
+> È consigliabile scegliere una *granularità di aggregazione (periodo)* maggiore della *frequenza di valutazione*, per ridurre la probabilità che manchi la prima valutazione della serie temporale aggiunta nei casi seguenti:
+> - Regola di avviso metrica che monitora più dimensioni: quando viene aggiunta una nuova combinazione di valori di dimensione
+> - Regola di avviso metrica che monitora più risorse: quando una nuova risorsa viene aggiunta all'ambito
+> - Regola di avviso metrica che monitora una metrica che non viene emessa continuamente (metrica di tipo sparse): quando la metrica viene emessa dopo un periodo di tempo superiore a 24 ore in cui non è stata emessa
+
+
+
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoraggio su larga scala mediante gli avvisi delle metriche in Monitoraggio di Azure
 
 Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse (dello stesso tipo) con una regola di avviso di metrica, per le risorse presenti nella stessa area di Azure. 
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Servizio | Public Azure (Azure pubblico) | Enti governativi | Cina |
+| Service | Public Azure (Azure pubblico) | Enti governativi | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali  | **Sì** | No | No |
 | Database di SQL Server | **Sì** | **Sì** | No |

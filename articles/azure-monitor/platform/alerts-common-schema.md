@@ -4,12 +4,12 @@ description: Informazioni sullo schema di avviso comune, perché è consigliabil
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710933"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539483"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -31,7 +31,7 @@ Ciò significa che è possibile avere un minor numero di integrazioni, rendendo 
 
 Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avviso. I miglioramenti che verranno visualizzati sono elencati di seguito:
 
-| Action | Miglioramenti|
+| Azione | Miglioramenti|
 |:---|:---|
 | SMS | Un modello SMS coerente per tutti i tipi di avviso. |
 | Posta elettronica | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
@@ -52,8 +52,8 @@ Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita 
 > 1. Per impostazione predefinita, i tipi di avviso seguenti supportano lo schema comune (non è richiesto il consenso esplicito):
 >     * Avvisi del rilevamento intelligente
 > 1. Attualmente i tipi di avviso seguenti non supportano lo schema comune:
->     * Avvisi generati da [monitoraggio di Azure per le macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Avvisi generati da [Gestione costi di Azure](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+>     * Avvisi generati da [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md)
+>     * Avvisi generati da [Gestione costi di Azure](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Tramite il portale di Azure
 
@@ -64,9 +64,9 @@ Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita 
 
 ### <a name="through-the-action-groups-rest-api"></a>Tramite l'API REST dei gruppi di azioni
 
-È anche possibile usare l' [API dei gruppi di azioni](https://docs.microsoft.com/rest/api/monitor/actiongroups) per acconsentire esplicitamente allo schema di avviso comune. Quando si [Crea o si aggiorna](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) la chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su "true" (per acconsentire esplicitamente) o "false" (per rifiutare esplicitamente) per una delle azioni seguenti: indirizzo di posta elettronica/webhook/app per la logica/Runbook di automazione e funzioni di Azure.
+È anche possibile usare l' [API dei gruppi di azioni](/rest/api/monitor/actiongroups) per acconsentire esplicitamente allo schema di avviso comune. Quando si [Crea o si aggiorna](/rest/api/monitor/actiongroups/createorupdate) la chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su "true" (per acconsentire esplicitamente) o "false" (per rifiutare esplicitamente) per una delle azioni seguenti: indirizzo di posta elettronica/webhook/app per la logica/Runbook di automazione e funzioni di Azure.
 
-Il corpo della richiesta seguente, ad esempio, per l'API REST di [creazione o aggiornamento](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) effettuerà le operazioni seguenti:
+Il corpo della richiesta seguente, ad esempio, per l'API REST di [creazione o aggiornamento](/rest/api/monitor/actiongroups/createorupdate) effettuerà le operazioni seguenti:
 
 * Abilitare lo schema di avviso comune per l'azione di posta elettronica "posta elettronica di John Doe"
 * Disabilitare lo schema di avviso comune per l'azione di posta elettronica "messaggio di posta elettronica di Jane Smith"
@@ -121,7 +121,4 @@ Il corpo della richiesta seguente, ad esempio, per l'API REST di [creazione o ag
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](./alerts-common-schema-integrations.md) 

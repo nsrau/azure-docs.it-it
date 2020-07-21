@@ -3,12 +3,12 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539959"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Viene usato [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) raggruppa gli elementi in periodi di tempo di un minuto.
+* Viene usato [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics) raggruppa gli elementi in periodi di tempo di un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Query per visualizzare i valori delle metriche
 
@@ -212,4 +212,3 @@ Noam Ben Zeev mostra come elaborare dati esportati usando l'analisi di flusso.
 * [Esportazione continua](export-telemetry.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

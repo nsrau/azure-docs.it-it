@@ -4,12 +4,12 @@ description: Automatizzare i report personalizzati giornalieri/settimanali/mensi
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82161491"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540078"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -31,9 +31,9 @@ Ogni azienda ha esigenze di report univoche, ad esempio:
 
 È possibile [eseguire una query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/) per generare report personalizzati in base alla pianificazione scelta. Le opzioni seguenti consentono di essere subito operativi:
 
-* [Automatizzare i report con Microsoft Flow](automate-with-flow.md)
+* [Automatizzare i report con Microsoft Flow](../platform/logicapp-flow-connector.md)
 * [Automatizzare i report con App per la logica](automate-with-logic-apps.md)
-* Usare il modello di [funzione di Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
+* Usare il modello di [funzione di Azure](../../azure-functions/functions-create-first-azure-function.md) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
 
     ![Modello di funzione di Azure](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Creare un _app per le funzioni di Azure. (Application Insights è_ necessario solo se si vuole monitorare la nuova app per le funzioni con Application Insights)
 
-   Vedere la documentazione di funzioni di Azure per informazioni su come [creare un'app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) per le funzioni
+   Vedere la documentazione di funzioni di Azure per informazioni su come [creare un'app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) per le funzioni
 
 2. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa **.
 
@@ -83,7 +83,7 @@ availabilityResults
 4. Selezionare il **_modello digest pianificato di Application Insights_**.
 
      > [!NOTE]
-     > Per impostazione predefinita, le app per le funzioni vengono create con Runtime versione 3. x. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights. Passare a configurazione > impostazioni di runtime funzione per modificare la versione di Runtime. ![schermata di runtime](./media/automate-custom-reports/change-runtime-v.png)
+     > Per impostazione predefinita, le app per le funzioni vengono create con Runtime versione 3. x. È necessario fare [riferimento al runtime di funzioni di Azure versione](../../azure-functions/set-runtime-version.md) **1. x** per usare il modello di digest pianificato Application Insights. Passare a configurazione > impostazioni di runtime funzione per modificare la versione di Runtime. ![schermata di runtime](./media/automate-custom-reports/change-runtime-v.png)
 
    ![Screenshot del modello di Application Insights per la nuova app per le funzioni](./media/automate-custom-reports/function-app-04.png)
 
@@ -106,7 +106,7 @@ availabilityResults
    * SendGridAPI =SendGrid API Key
 
      > [!NOTE]
-     > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
+     > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](../../azure-functions/functions-bindings-sendgrid.md). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
 
 8. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)**.
 
@@ -152,5 +152,5 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
 * Altre informazioni sulla creazione di [query di Analisi](../../azure-monitor/log-query/get-started-queries.md).
 * Altre informazioni sull'[esecuzione di query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/)
-* Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+* Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 * Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).

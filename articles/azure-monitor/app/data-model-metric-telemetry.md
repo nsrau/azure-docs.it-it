@@ -4,11 +4,12 @@ description: Modello di dati di Application Insights per la metrica dei dati di 
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540010"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrica dei dati di telemetria: modello di dati di Application Insights
 
@@ -23,7 +24,7 @@ Metrica che rappresenta i contatori di sistema e di processo:
 | **Nome .NET**             | **Nome indipendente dalla piattaforma** | **Nome API REST** | **Descrizione**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Lavoro in corso... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | CPU computer totale
-| `\Memory\Available Bytes`                 | Lavoro in corso... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra la quantità di memoria fisica, espressa in byte, disponibile per l'esecuzione dei processi nel computer. Viene calcolata sommando la quantità di spazio negli elenchi di memoria azzerata, libera e in standby. La memoria libera è la memoria pronta all'uso. La memoria azzerata è composta da pagine di memoria piene di zero per impedire ai processi successivi di visualizzare i dati usati da un processo precedente. La memoria in standby è la memoria rimossa dal working set di un processo (la relativa memoria fisica) durante il trasferimento su disco, ma ancora disponibile per essere richiamata. Vedere [Oggetto Memory](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Memory\Available Bytes`                 | Lavoro in corso... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra la quantità di memoria fisica, espressa in byte, disponibile per l'esecuzione dei processi nel computer. Viene calcolata sommando la quantità di spazio negli elenchi di memoria azzerata, libera e in standby. La memoria libera è la memoria pronta all'uso. La memoria azzerata è composta da pagine di memoria piene di zero per impedire ai processi successivi di visualizzare i dati usati da un processo precedente. La memoria in standby è la memoria rimossa dal working set di un processo (la relativa memoria fisica) durante il trasferimento su disco, ma ancora disponibile per essere richiamata. Vedere [Oggetto Memory](/previous-versions/ms804008(v=msdn.10))
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Lavoro in corso... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU del processo che ospita l'applicazione
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Lavoro in corso... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memoria usata dal processo che ospita l'applicazione
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Lavoro in corso... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | frequenza delle operazioni I/O eseguite dal processo che ospita l'applicazione

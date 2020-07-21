@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333353"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539347"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
-Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/fundamentals/trust-center.md).  
+Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 Questo articolo illustra il modo in cui i dati vengono raccolti, elaborati e protetti da Log Analytics. È possibile usare gli agenti per connettersi al servizio Web, usare System Center Operations Manager per raccogliere dati operativi o recuperare dati da Diagnostica di Azure per usarli in Log Analytics. 
 
@@ -42,9 +42,9 @@ Non è consigliabile impostare in modo esplicito l'agente perché usi solo il pr
 |Piattaforma/linguaggio | Supporto | Altre informazioni |
 | --- | --- | --- |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
-| Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
-| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
+| Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
+| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
 
 ## <a name="data-segregation"></a>Separazione dei dati
 Dopo essere stati inseriti nel servizio Log Analytics, i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'area di lavoro. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio. I dati sono archiviati in un database dedicato nel cluster di archiviazione nell'area selezionata.
@@ -175,4 +175,3 @@ Per accedere all'area di lavoro Log Analytics, accedere al portale di Azure usan
 * È possibile ottenere informazioni su come raccogliere i dati con Log Analytics per le macchine virtuali di Azure seguendo la [guida introduttiva alle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 *  Se si desidera raccogliere dati da computer Windows o Linux fisici o virtuali nell'ambiente in uso, vedere [Avvio rapido per i computer Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) o la [Avvio rapido per i computer Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
-

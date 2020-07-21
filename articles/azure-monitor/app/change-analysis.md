@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82836783"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540163"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
 Quando si verifica un problema o un'interruzione di un sito Live, determinare rapidamente la causa principale è fondamentale. Le soluzioni di monitoraggio standard potrebbero segnalare un problema. Potrebbero anche indicare quale componente ha avuto esito negativo. Tuttavia, questo avviso non descriverà mai immediatamente la cause dell'errore. Si sa che il sito ha funzionato cinque minuti fa e ora è danneggiato. Cosa è cambiato negli ultimi cinque minuti? Questa è la domanda che l'analisi delle modifiche dell'applicazione è progettata per rispondere in monitoraggio di Azure.
 
-Basandosi sulle potenzialità di [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce informazioni approfondite sulle modifiche apportate alle applicazioni Azure per aumentare l'osservabilità e ridurre MTTR (tempo medio per il ripristino).
+Basandosi sulle potenzialità di [Azure Resource Graph](../../governance/resource-graph/overview.md), l'analisi delle modifiche fornisce informazioni approfondite sulle modifiche apportate alle applicazioni Azure per aumentare l'osservabilità e ridurre MTTR (tempo medio per il ripristino).
 
 > [!IMPORTANT]
 > L'analisi delle modifiche è attualmente in anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio. Questa versione non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità vincolate. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -34,7 +35,7 @@ Query di analisi delle modifiche dell'applicazione per Azure Resource Manager pr
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Modifiche alle proprietà rilevate Azure Resource Manager
 
-Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. È possibile rilevare le impostazioni rilevate, ad esempio le identità gestite, l'aggiornamento del sistema operativo della piattaforma e i nomi host.
+Usando il [grafo delle risorse di Azure](../../governance/resource-graph/overview.md), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. È possibile rilevare le impostazioni rilevate, ad esempio le identità gestite, l'aggiornamento del sistema operativo della piattaforma e i nomi host.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager modifiche alle impostazioni con proxy
 
@@ -58,7 +59,7 @@ Attualmente sono supportate le dipendenze seguenti:
 
 Il servizio di analisi delle modifiche dell'applicazione calcola e aggrega i dati delle modifiche dalle origini dati indicate in precedenza. Fornisce un set di analisi per consentire agli utenti di spostarsi agevolmente in tutte le modifiche alle risorse e identificare le modifiche rilevanti nel contesto di risoluzione dei problemi o di monitoraggio.
 Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente. Non sono disponibili implementazioni di prestazioni o costi per la sottoscrizione. Quando si Abilita l'analisi delle modifiche per le app Web (o si Abilita lo strumento diagnostica e Risolvi i problemi), questo avrà un impatto trascurabile sulle prestazioni dell'app Web e nessun costo per la fatturazione.
-Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
+Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizzazioni per l'analisi delle modifiche dell'applicazione
 
@@ -118,7 +119,7 @@ Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al li
 
 Prerequisiti:
 
-- PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Eseguire lo script riportato di seguito:
 
@@ -158,4 +159,4 @@ Passare allo strumento diagnostica e risoluzione dei problemi per una macchina v
 
 - Abilitare Application Insights per le [app di app Azure Services](azure-web-apps.md).
 - Abilitare Application Insights per [le macchine virtuali di Azure e i set di scalabilità di macchine virtuali di Azure con IIS](azure-vm-vmss-apps.md).
-- Scopri di più su [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), che consente di migliorare l'analisi del risparmio energia.
+- Scopri di più su [Azure Resource Graph](../../governance/resource-graph/overview.md), che consente di migliorare l'analisi del risparmio energia.

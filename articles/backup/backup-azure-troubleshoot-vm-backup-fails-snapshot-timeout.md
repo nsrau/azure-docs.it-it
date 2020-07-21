@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864403"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538820"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -28,7 +28,7 @@ L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in u
 - **Aprire portale di Azure > > VM impostazioni > riquadro proprietà** > verificare che **lo stato** della macchina virtuale sia **in esecuzione** e che **lo stato dell'agente** sia **pronto**. Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, riavviare l'agente<br>
   - Per le macchine virtuali Windows, attenersi alla [procedura seguente](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
   - Per le macchine virtuali Linux, attenersi alla [procedura seguente](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
-- **Aprire portale di Azure > impostazioni > VM > estensioni** > assicurarsi che tutte le estensioni siano in stato di **provisioning completato** . In caso contrario, attenersi alla [seguente procedura](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) per risolvere il problema.
+- **Aprire portale di Azure > impostazioni > VM > estensioni** > assicurarsi che tutte le estensioni siano in stato di **provisioning completato** . In caso contrario, attenersi alla [seguente procedura](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) per risolvere il problema.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
@@ -52,7 +52,7 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 **Codice di errore**: UserErrorVmProvisioningStateFailed<br>
 **Messaggio di errore**: lo stato di provisioning della macchina virtuale non è riuscito<br>
 
-Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** . Per altre informazioni, vedere [Stati di provisioning](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states).
+Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** . Per altre informazioni, vedere [Stati di provisioning](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
 
 - Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup su richiesta. Questa azione reinstallerà le estensioni ed eseguirà il processo di backup.  <br>
 - Se un'altra estensione si trova in uno stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.
@@ -80,7 +80,7 @@ Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macch
 **Codice di errore**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Messaggio di errore**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs (Il servizio Backup non dispone delle autorizzazioni sufficienti per accedere all'insieme di credenziali delle chiavi per il backup di macchine virtuali crittografate). <br>
 
-Per eseguire un'operazione di backup nelle VM crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Le autorizzazioni possono essere impostate tramite il [portale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o tramite [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Per eseguire un'operazione di backup nelle VM crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Le autorizzazioni possono essere impostate tramite il [portale di Azure](./backup-azure-vms-encryption.md) o tramite [PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
 
@@ -130,9 +130,9 @@ Il processo di backup recente non è riuscito perché è in corso un processo di
 2. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
 3. Scegliere **Processi di backup** dal menu del dashboard dell'insieme di credenziali per visualizzare tutti i processi di backup.
    - Se è in corso un processo di backup, attenderne il completamento o annullarlo.
-     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Se il backup è stato riconfigurato in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se esiste, annullare il processo di backup.
-     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0) .
+     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** oppure usare [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) .
 4. Ripetere l'operazione di backup.
 
 Se l'operazione di backup pianificato richiede più tempo, in conflitto con la configurazione del backup successiva, esaminare le [procedure](backup-azure-vms-introduction.md#best-practices)consigliate, le [prestazioni di backup](backup-azure-vms-introduction.md#backup-performance)e la considerazione del [ripristino](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -167,7 +167,7 @@ L'agente di macchine virtuali può essere danneggiato o il servizio può essere 
 6. Eseguire un backup su richiesta:
    - Nel portale selezionare **Esegui backup ora**.
 
-Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. .NET 4.5 è necessario per la comunicazione dell'agente di macchine virtuali con il servizio.
+Verificare anche che [Microsoft .NET 4.5 sia installato](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. .NET 4.5 è necessario per la comunicazione dell'agente di macchine virtuali con il servizio.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L'agente installato nella VM Linux non è aggiornato (per VM Linux)
 
@@ -175,7 +175,7 @@ Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.
 
 La maggior parte degli errori relativi ad agenti o estensioni nelle macchine virtuali Linux è dovuta a problemi correlati ad agenti di macchine virtuali non aggiornati. Per risolvere il problema, seguire queste indicazioni generali:
 
-1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/linux/update-agent.md).
+1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > È *fortemente consigliato* aggiornare l'agente solo tramite un repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente per la distribuzione non è disponibile, contattare il supporto per la distribuzione per istruzioni su come installarlo. Per cercare l'agente più recente, passare alla pagina dell'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
@@ -207,7 +207,7 @@ Per un elenco completo delle opzioni del file di configurazione dell'agente VM, 
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La soluzione di controllo delle applicazioni sta bloccando IaaSBcdrExtension.exe
 
-Se si esegue [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (o un'altra soluzione di controllo delle applicazioni) e le regole sono basate su server di pubblicazione o percorso, possono impedire l'esecuzione del **IaaSBcdrExtension.exe** eseguibile.
+Se si esegue [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (o un'altra soluzione di controllo delle applicazioni) e le regole sono basate su server di pubblicazione o percorso, possono impedire l'esecuzione del **IaaSBcdrExtension.exe** eseguibile.
 
 #### <a name="solution"></a>Soluzione
 

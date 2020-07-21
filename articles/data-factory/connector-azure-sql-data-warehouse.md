@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 5810f9b08d914522f1304e238567c06e87872715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513918"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537732"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data Factory
 
@@ -376,7 +376,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No.<br/>Applicare quando si usa l'inserimento bulk.     |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si usa l'inserimento bulk.        |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
-| tableOption | Specifica se creare automaticamente la tabella di sink, se non esiste, in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia di staging è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
+| tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia di staging è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory raccoglie metriche come le DWU di SQL Data Warehouse per l'ottimizzazione delle prestazioni di copia e per fornire consigli. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Esempio di sink di SQL Data Warehouse
@@ -400,7 +400,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) consente di caricare in modo efficiente grandi quantità di dati in Azure Synapse Analytics con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito. Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
 
 - Se l'origine dati è in **Archiviazione BLOB di Azure, Azure Data Lake Storage Gen1 o Azure Data Lake Storage Gen2** e il **formato è compatibile con PolyBase**, è possibile usare l'attività di copia per richiamare direttamente PolyBase e consentire ad Azure SQL Data Warehouse di estrarre i dati dall'origine. Per maggiori dettagli, vedere **[Copia diretta tramite PolyBase](#direct-copy-by-using-polybase)** .
-- Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, usare la funzionalità **[copia di staging tramite PolyBase](#staged-copy-by-using-polybase)** . La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, convertendo automaticamente i dati in un formato compatibile con PolyBase, archiviando i dati nell'archiviazione BLOB di Azure e infine chiamando PolyBase per caricare i dati in SQL Data Warehouse.
+- Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, usare la funzionalità **[copia di staging tramite PolyBase](#staged-copy-by-using-polybase)** . La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, Converte automaticamente i dati in un formato compatibile con polibase, archivia i dati nell'archivio BLOB di Azure e quindi chiama la polibase per caricare i dati in SQL Data Warehouse.
 
 > [!TIP]
 > Per altre informazioni, vedere [Procedure consigliate per l'uso di PolyBase](#best-practices-for-using-polybase).
@@ -690,13 +690,15 @@ Durante la trasformazione dei dati in un flusso di dati per mapping è possibile
 
 Le impostazioni specifiche di Azure Synapse Analytics sono disponibili nella scheda **Source Options** (Opzioni origine) della trasformazione origine.
 
-**Input:** specificare se l'origine deve puntare a una tabella (equivalente di ```Select * from <table-name>```) oppure immettere una query SQL personalizzata.
+**Input** di Consente di specificare se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>``` ) o immettere una query SQL personalizzata.
+
+**Abilita gestione temporanea** Si consiglia di usare questa opzione nei carichi di lavoro di produzione con origini sinapsi DW. Quando si esegue un'attività del flusso di dati con origini Synapase da una pipeline, ADF richiede un account di archiviazione del percorso di gestione temporanea che verrà usato per il caricamento di dati di staging. Si tratta del meccanismo più veloce per caricare i dati da sinapsi DW.
 
 **Query**: se si seleziona Query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order By** non sono supportate, ma è possibile impostare un'istruzione SELECT FROM completa. È possibile usare anche funzioni di tabella definite dall'utente. **select * from udfGetData()** è un UDF in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che può essere usata nel flusso di dati. L'uso di query è anche un ottimo modo per ridurre le righe per i test o le ricerche.
 
 Esempio SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Dimensioni batch**: Immettere una dimensione batch per suddividere dati di grandi dimensioni in letture. Nei flussi di dati, Azure Data Factory userà questa impostazione per impostare la memorizzazione nella cache a colonne Spark. Se viene lasciato vuoto, questo campo di opzione userà le impostazioni predefinite di Spark.
+**Dimensioni batch**: Immettere una dimensione batch per suddividere dati di grandi dimensioni in letture. Nei flussi di dati, Azure Data Factory userà questa impostazione per impostare la memorizzazione nella cache a colonne Spark. Si tratta di un campo di opzione, che utilizzerà le impostazioni predefinite di Spark se viene lasciato vuoto.
 
 **Livello di isolamento**: Il valore predefinito per le origini SQL nel flusso di dati per mapping è Read Uncommitted. È possibile cambiare il livello di isolamento in uno dei valori seguenti:
 

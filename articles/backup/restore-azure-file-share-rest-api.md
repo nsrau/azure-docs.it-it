@@ -3,16 +3,16 @@ title: Ripristinare le condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per ripristinare condivisioni file di Azure o file specifici da un punto di ripristino creato da backup di Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538157"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Ripristinare le condivisioni file di Azure usando l'API REST
 
-Questo articolo illustra come ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview) usando l'API REST.
+Questo articolo illustra come ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da [backup di Azure](./backup-overview.md) usando l'API REST.
 
 Alla fine di questo articolo si apprenderà come eseguire le operazioni seguenti usando l'API REST:
 
@@ -33,7 +33,7 @@ Per questo articolo, verranno usate le risorse seguenti:
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Fetch ContainerName e ProtectedItemName
 
-Per la maggior parte delle chiamate API di ripristino correlate, è necessario passare i valori per i parametri URI {ContainerName} e {protectedItemName}. Usare l'attributo ID nel corpo della risposta dell'operazione [Get backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) per recuperare i valori per questi parametri. In questo esempio, l'ID della condivisione file che si vuole proteggere è:
+Per la maggior parte delle chiamate API di ripristino correlate, è necessario passare i valori per i parametri URI {ContainerName} e {protectedItemName}. Usare l'attributo ID nel corpo della risposta dell'operazione [Get backupprotectableitems](/rest/api/backup/protecteditems/get) per recuperare i valori per questi parametri. In questo esempio, l'ID della condivisione file che si vuole proteggere è:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -44,7 +44,7 @@ Quindi, i valori vengono convertiti come segue:
 
 ## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Recuperare i punti di ripristino per la condivisione file di backup di Azure
 
-Per ripristinare eventuali file o condivisioni file di cui è stato eseguito il backup, selezionare prima di tutto un punto di ripristino per eseguire l'operazione di ripristino. I punti di ripristino disponibili di un elemento di cui è stato eseguito il backup possono essere elencati usando la chiamata all'API REST per l'elenco dei punti di [ripristino](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) . Si tratta di un'operazione GET con tutti i valori pertinenti.
+Per ripristinare eventuali file o condivisioni file di cui è stato eseguito il backup, selezionare prima di tutto un punto di ripristino per eseguire l'operazione di ripristino. I punti di ripristino disponibili di un elemento di cui è stato eseguito il backup possono essere elencati usando la chiamata all'API REST per l'elenco dei punti di [ripristino](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) . Si tratta di un'operazione GET con tutti i valori pertinenti.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -144,7 +144,7 @@ Il punto di ripristino viene identificato con il campo {Name} nella risposta pre
 ## <a name="full-share-recovery-using-rest-api"></a>Ripristino della condivisione completa con l'API REST
 
 Usare questa opzione di ripristino per ripristinare la condivisione file completa nel percorso originale o in un percorso alternativo.
-L'attivazione del ripristino è una richiesta POST ed è possibile eseguire questa operazione usando l'API REST per il [ripristino del trigger](https://docs.microsoft.com/rest/api/backup/restores/trigger) .
+L'attivazione del ripristino è una richiesta POST ed è possibile eseguire questa operazione usando l'API REST per il [ripristino del trigger](/rest/api/backup/restores/trigger) .
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -164,7 +164,7 @@ Nome |  Type   |   Descrizione
 --- | ---- | ----
 Proprietà | AzureFileShareRestoreRequest | Proprietà di RestoreRequestResource
 
-Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, fare riferimento al [documento sull'API REST di ripristino del trigger](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, fare riferimento al [documento sull'API REST di ripristino del trigger](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Il ripristino viene eseguito nel percorso originale
 
@@ -219,7 +219,7 @@ Il corpo della richiesta seguente ripristina la condivisione file *risorsa* nell
 
 ### <a name="response"></a>Risposta
 
-L'attivazione di un'operazione di ripristino è un' [operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Questa operazione crea un'altra operazione che deve essere rilevata separatamente.
+L'attivazione di un'operazione di ripristino è un' [operazione asincrona](../azure-resource-manager/management/async-operations.md). Questa operazione crea un'altra operazione che deve essere rilevata separatamente.
 Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
 #### <a name="response-example"></a>Esempio di risposta
@@ -350,7 +350,7 @@ Per il ripristino del percorso alternativo, il corpo della risposta sarà simile
 }
 ```
 
-Poiché il processo di backup è un'operazione con esecuzione prolungata, ne deve essere tenuta traccia come illustrato nel [documento per monitorare i processi usando l'API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Poiché il processo di backup è un'operazione con esecuzione prolungata, ne deve essere tenuta traccia come illustrato nel [documento per monitorare i processi usando l'API REST](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="item-level-recovery-using-rest-api"></a>Ripristino a livello di elemento tramite l'API REST
 
@@ -374,7 +374,7 @@ Nome |  Type   |   Descrizione
 --- | ---- | ----
 Proprietà | AzureFileShareRestoreRequest | Proprietà di RestoreRequestResource
 
-Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, fare riferimento al [documento sull'API REST di ripristino del trigger](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, fare riferimento al [documento sull'API REST di ripristino del trigger](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Il ripristino viene eseguito nel percorso originale
 

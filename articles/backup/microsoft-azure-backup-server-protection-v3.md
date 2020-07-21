@@ -3,11 +3,12 @@ title: Che server di Backup di Azure V3 RTM può eseguire il backup
 description: Questo articolo fornisce una matrice di protezione che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che Azure Backup serve V3 RTM protegge.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84631677"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538567"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matrice di protezione server di Backup di Azure V3 RTM
 
@@ -97,7 +98,7 @@ Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della c
 * Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 * Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
-Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.

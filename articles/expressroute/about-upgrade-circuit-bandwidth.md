@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209548"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537038"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Informazioni sull'aggiornamento della larghezza di banda del circuito ExpressRoute
 
@@ -34,7 +34,7 @@ Se la capacità è disponibile, è possibile aggiornare il circuito usando i met
 
 Se il partner ExpressRoute non dispone di capacità sufficiente, è necessario creare un nuovo circuito, configurato per la larghezza di banda desiderata. Per mantenere la connettività, non eliminare il circuito precedente finché non viene eseguito il provisioning del circuito appena creato, il peering è stato configurato e, per quanto riguarda il peering privato, è stato effettuato il provisioning dell'oggetto connessione al gateway di rete virtuale ExpressRoute.
 
-Se il partner ExpressRoute non dispone di sufficiente capacità disponibile, è necessario richiedere capacità aggiuntiva nella località di peering desiderata. Una volta effettuato il provisioning della nuova capacità, è possibile usare i passaggi contenuti negli articoli della sezione relativa alla [larghezza di banda del circuito di aggiornamento](#upgrade) per creare un nuovo circuito, configurare la connettività ed eliminare il circuito precedente:
+Se il partner ExpressRoute non dispone di sufficiente capacità disponibile, è necessario richiedere capacità aggiuntiva nella località di peering desiderata. Una volta eseguito il provisioning della nuova capacità, è possibile usare i passaggi contenuti negli articoli della sezione relativa alla [larghezza di banda del circuito di aggiornamento](#upgrade) per creare un nuovo circuito, configurare la connettività ed eliminare il circuito precedente.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Larghezza di banda ExpressRoute diretta insufficiente

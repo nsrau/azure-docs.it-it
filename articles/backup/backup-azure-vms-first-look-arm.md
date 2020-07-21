@@ -3,11 +3,12 @@ title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni d
 description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538888"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -25,7 +26,7 @@ Questo articolo spiega come eseguire il backup di macchine virtuali di Azure con
 
 Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa un'estensione nell'agente di macchine virtuali in esecuzione nel computer. L'agente sarà in esecuzione se la macchina virtuale è stata creata da un'immagine di Azure marketplace. In alcuni casi, ad esempio se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina da locale. potrebbe essere necessario installare l'agente manualmente.
 
-- Per installare manualmente l'agente di macchine virtuali, seguire le istruzioni per macchine virtuali [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+- Per installare manualmente l'agente di macchine virtuali, seguire le istruzioni per macchine virtuali [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md).
 - Quando si abilita il backup, dopo aver installato l'agente, Backup di Azure installa l'estensione di backup all'agente. Questi esegue aggiornamenti e patch all'estensione senza intervento dell'utente.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Eseguire il backup dalle impostazioni della macchina virtuale di Azure

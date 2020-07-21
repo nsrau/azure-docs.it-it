@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232084"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536970"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -22,15 +22,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quali funzionalità sono supportate nel Firewall di Azure?
 
-* Firewall con stato come servizio
-* Disponibilità elevata e scalabilità cloud senza limiti
-* Filtro dei nomi di dominio completi
-* Tag FQDN
-* Regole di filtro per il traffico di rete
-* Supporto SNAT in uscita
-* Supporto DNAT in ingresso
-* Possibilità di creare, applicare e registrare criteri di connettività di applicazioni e rete in modo centralizzato tra le reti virtuali e le sottoscrizioni di Azure
-* Integrazione completa con Monitoraggio di Azure per la registrazione e l'analisi
+Per informazioni sulle funzionalità di Firewall di Azure, vedere [Funzionalità di Firewall di Azure](features.md).
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qual è il modello di distribuzione tipico per Firewall di Azure?
 

@@ -2,12 +2,13 @@
 title: Spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 036def01ef8ae5732d372dd995ad8f425c36cad9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/15/2020
+ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057841"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539279"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione
 
@@ -16,6 +17,8 @@ Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscri
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco significa che non è possibile aggiungere, aggiornare o eliminare le risorse nei gruppi di risorse. Non significa che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database. Il blocco può durare per un massimo di quattro ore, ma la maggior parte degli spostamenti viene completata in tempi molto inferiori.
 
 Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica il percorso della risorsa.
+
+Se si usa Azure Stack Hub, non è possibile spostare le risorse tra i gruppi.
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 

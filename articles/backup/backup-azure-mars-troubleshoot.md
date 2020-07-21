@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi di installazione
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056607"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539058"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -20,12 +20,12 @@ Questo articolo descrive come risolvere gli errori che potrebbero essere visuali
 Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di ripristino di Azure (MARS), è consigliabile verificare quanto segue:
 
 - [Verificare che l'agente Mars sia](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)aggiornato.
-- [Assicurarsi di disporre della connettività di rete tra l'agente Mars e Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
+- [Assicurarsi di disporre della connettività di rete tra l'agente Mars e Azure](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
 - Verificare che MARS sia in esecuzione nella console del servizio. Se necessario, riavviare e ripetere l'operazione.
-- [Verificare che nel percorso della cartella dei file temporanei sia disponibile il 5% fino al 10% di spazio libero](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
-- [Controllare se un altro processo o software antivirus interferisce con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- [Verificare che nel percorso della cartella dei file temporanei sia disponibile il 5% fino al 10% di spazio libero](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder).
+- [Controllare se un altro processo o software antivirus interferisce con backup di Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
 - Se il processo di backup è stato completato con avvisi, vedere [processi di backup completati con avviso](#backup-jobs-completed-with-warning)
-- Se il backup pianificato non riesce ma il backup manuale funziona, vedere [backup non eseguiti in base alla pianificazione](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).
+- Se il backup pianificato non riesce ma il backup manuale funziona, vedere [backup non eseguiti in base alla pianificazione](#backups-dont-run-according-to-schedule).
 - Verificare che il sistema operativo disponga degli aggiornamenti più recenti.
 - [Verificare che le unità e i file non supportati con attributi non supportati siano esclusi dal backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
 - Verificare che l'orologio del sistema protetto sia configurato sul fuso orario corretto.
@@ -34,7 +34,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
   - Verificare che l'agente sia stato disinstallato sul server e che sia stato eliminato dal portale.
   - Utilizzare la stessa passphrase inizialmente utilizzata per registrare il server.
 - Per i backup non in linea, verificare Azure PowerShell 3.7.0 sia installato sia nel computer di origine che in quello di copia prima di avviare il backup.
-- Se l'agente di backup è in esecuzione in una macchina virtuale di Azure, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine).
+- Se l'agente di backup è in esecuzione in una macchina virtuale di Azure, vedere [questo articolo](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine).
 
 ## <a name="invalid-vault-credentials-provided"></a>Sono state specificate credenziali dell'insieme di credenziali non valide
 
@@ -42,8 +42,8 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 | Causa | Azioni consigliate |
 | ---     | ---    |
-| **Le credenziali dell'insieme di credenziali non sono valide** <br/> <br/> È possibile che i file dell'insieme di credenziali siano danneggiati o che siano scaduti. (Ad esempio, potrebbero essere state scaricate più di 48 ore prima dell'ora di registrazione).| Scaricare le nuove credenziali dall'insieme di credenziali di servizi di ripristino nel portale di Azure. Vedere il passaggio 6 nella sezione [scaricare l'agente Mars](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) . Eseguire quindi la procedura seguente, in base alle esigenze: <ul><li> Se è già stato installato e registrato MARS, aprire la console MMC di Backup di Microsoft Azure Agent, quindi selezionare **Registra server** nel riquadro **azioni** per completare la registrazione con le nuove credenziali. <br/> <li> Se la nuova installazione non riesce, provare a reinstallare con le nuove credenziali.</ul> **Nota**: se sono stati scaricati più file di credenziali dell'insieme di credenziali, solo il file più recente è valido per le ore 48 successive. Si consiglia di scaricare un nuovo file dell'insieme di credenziali.
-| **Il server proxy/firewall sta bloccando la registrazione** <br/>o <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Seguire questa procedura:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.<br></br> Se la connessione avviene tramite Azure ExpressRoute, verificare che le impostazioni siano configurate come descritto nel [supporto di Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **Le credenziali dell'insieme di credenziali non sono valide** <br/> <br/> È possibile che i file dell'insieme di credenziali siano danneggiati o che siano scaduti. (Ad esempio, potrebbero essere state scaricate più di 48 ore prima dell'ora di registrazione).| Scaricare le nuove credenziali dall'insieme di credenziali di servizi di ripristino nel portale di Azure. Vedere il passaggio 6 nella sezione [scaricare l'agente Mars](./install-mars-agent.md#download-the-mars-agent) . Eseguire quindi la procedura seguente, in base alle esigenze: <ul><li> Se è già stato installato e registrato MARS, aprire la console MMC di Backup di Microsoft Azure Agent, quindi selezionare **Registra server** nel riquadro **azioni** per completare la registrazione con le nuove credenziali. <br/> <li> Se la nuova installazione non riesce, provare a reinstallare con le nuove credenziali.</ul> **Nota**: se sono stati scaricati più file di credenziali dell'insieme di credenziali, solo il file più recente è valido per le ore 48 successive. Si consiglia di scaricare un nuovo file dell'insieme di credenziali.
+| **Il server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Seguire questa procedura:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.<br></br> Se la connessione avviene tramite Azure ExpressRoute, verificare che le impostazioni siano configurate come descritto nel [supporto di Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Il software antivirus sta bloccando la registrazione** | Se nel server è installato un software antivirus, aggiungere le regole di esclusione necessarie all'analisi antivirus per i file e le cartelle seguenti: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Cartella Scratch. Il percorso predefinito è c:\Programmi\Microsoft Azure Recovery Services Agent\Scratch. <li> La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Suggerimenti aggiuntivi
@@ -54,7 +54,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 ### <a name="verifying-proxy-settings-for-windows"></a>Verifica delle impostazioni proxy per Windows
 
-1. Scaricare PsExec dalla pagina [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) .
+1. Scaricare PsExec dalla pagina [Sysinternals](/sysinternals/downloads/psexec) .
 1. Eseguire `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` da un prompt dei comandi con privilegi elevati.
 
    Tramite questo comando verrà aperto Internet Explorer.
@@ -83,7 +83,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
   ![Processo di backup completato con avvisi](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 
 - Di seguito sono riportate le condizioni che possono causare l'omissione dei file di backup:
-  - Attributi di file non supportati (ad esempio, in una cartella OneDrive, flusso compresso, reparse point). Per l'elenco completo, fare riferimento alla [matrice di supporto](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - Attributi di file non supportati (ad esempio, in una cartella OneDrive, flusso compresso, reparse point). Per l'elenco completo, fare riferimento alla [matrice di supporto](./backup-support-matrix-mars-agent.md#supported-file-types-for-backup).
   - Un problema file system
   - Un altro processo interferisce (ad esempio, il software antivirus che gestisce i file può impedire all'agente MARS di accedere ai file)
   - File bloccati da un'applicazione  
@@ -94,11 +94,11 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
   | Codice di errore             | Motivi                                             | Consigli                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | Il file o la directory è danneggiato e illeggibile. | Eseguire **chkdsk** nel volume di origine.                             |
-  | 0x80070002, 0 x 80070003 | Il sistema non è in grado di trovare il file specificato.         | [Verificare che la cartella Scratch non sia piena](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Controllare se esiste un volume in cui è configurato lo spazio scratch (non eliminato)  <br><br>   [Assicurarsi che l'agente MARS sia escluso dall'antivirus installato nel computer](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
-  | 0x80070005             | Accesso negato                                    | [Verificare se l'accesso è bloccato da un software antivirus o da un altro software di terze parti](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x80070002, 0 x 80070003 | Il sistema non è in grado di trovare il file specificato.         | [Verificare che la cartella Scratch non sia piena](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)  <br><br>  Controllare se esiste un volume in cui è configurato lo spazio scratch (non eliminato)  <br><br>   [Assicurarsi che l'agente MARS sia escluso dall'antivirus installato nel computer](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | Accesso negato                                    | [Verificare se l'accesso è bloccato da un software antivirus o da un altro software di terze parti](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
   | 0x8007018b             | L'accesso al file Cloud è stato negato.                | File OneDrive, file git o qualsiasi altro file che può trovarsi nello stato offline del computer |
 
-- È possibile usare [Aggiungi regole di esclusione per i criteri esistenti](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) per escludere i file non supportati, mancanti o eliminati dal criterio di backup per garantire la riuscita dei backup.
+- È possibile usare [Aggiungi regole di esclusione per i criteri esistenti](./backup-azure-manage-mars.md#add-exclusion-rules-to-existing-policy) per escludere i file non supportati, mancanti o eliminati dal criterio di backup per garantire la riuscita dei backup.
 
 - Evitare di eliminare e ricreare cartelle protette con gli stessi nomi nella cartella di primo livello. Questa operazione potrebbe comportare il completamento del backup con avvisi con l'errore *: è stata rilevata un'incoerenza critica, pertanto non è possibile replicare le modifiche.*  Se è necessario eliminare e ricreare le cartelle, provare a eseguire questa operazione nelle sottocartelle della cartella di primo livello protetta.
 
@@ -112,13 +112,13 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 | Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-|<br />L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft.     | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'agente Mars.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft.     | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'agente Mars.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La passphrase di crittografia non è configurata correttamente
 
 | Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-| <br />Errore 34506. La passphrase di crittografia archiviata su questo computer non è configurata correttamente.    | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.        | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Errore 34506. La passphrase di crittografia archiviata su questo computer non è configurata correttamente.    | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.        | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>I backup non vengono eseguiti in base alla pianificazione
 

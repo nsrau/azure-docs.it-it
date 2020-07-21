@@ -3,17 +3,18 @@ title: Riduzione delle prestazioni nel rapporto gravità della traccia-applicazi
 description: Monitora le tracce dell'applicazione con applicazione Azure Insights per modelli insoliti nella telemetria delle tracce con rilevamento intelligente.
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b27860adfc1652b58fe9c51d4d0b0a6c271fc0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539874"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradazione del rapporto tra i livelli di gravità delle tracce (anteprima)
 
 Le tracce vengono usate di frequente nelle applicazioni, perché permettono di comprendere cosa succede dietro le quinte. In caso di problemi, le tracce offrono una visibilità essenziale della sequenza degli eventi che generano lo stato indesiderato. Sebbene siano in genere non strutturate, le tracce indicano un'informazione concreta, cioè il loro livello di gravità. Nello stato stazionario di un'applicazione, il rapporto tra le tracce "positive" (*Informazioni* e *Dettagli*) e le tracce "negative" (*Avviso*, *Errore* e *Critico*) rimane stabile. L'ipotesi è che le tracce "negative" possano verificarsi a intervalli regolari per diverse ragioni (ad esempio problemi di rete temporanei). Tuttavia, quando un problema reale inizia a diventare sempre più importante, si verifica in genere un aumento della percentuale di tracce "negative" rispetto alle tracce "positive". Il Rilevamento intelligente in Application Insights analizza automaticamente le tracce registrate dall'applicazione e avvisa l'utente se nel livello di gravità dei dati di telemetria relativi alle tracce vi sono modelli anomali.
 
-Questa funzionalità non richiede una configurazione speciale, oltre a quella della registrazione delle tracce per la propria app (vedere come configurare un listener di log di traccia per [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) o [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). È attiva quando l'app genera un numero sufficiente di dati di telemetria per le eccezioni.
+Questa funzionalità non richiede una configurazione speciale, oltre a quella della registrazione delle tracce per la propria app (vedere come configurare un listener di log di traccia per [.NET](./asp-net-trace-logs.md) o [Java](./java-trace-logs.md)). È attiva quando l'app genera un numero sufficiente di dati di telemetria per le eccezioni.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
 Questo tipo di notifica può essere visualizzato se il rapporto tra le tracce "valide" (tracce registrate con un livello di *informazioni* o *dettagliato*) e le tracce "negative" (tracce registrate con un livello di *avviso*, *errore*o *irreversibile*) viene degradato in un giorno specifico, rispetto a una baseline calcolata nei sette giorni precedenti.
@@ -26,5 +27,3 @@ Le notifiche includono informazioni di diagnostica a supporto del processo di di
 1. **Valutazione.** La notifica mostra il numero di operazioni interessate. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Il problema interessa solo alcune operazioni o tutto il traffico? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosticare.** È possibile usare gli elementi e i report correlati che rimandano a informazioni di supporto, per diagnosticare meglio il problema.
-
-

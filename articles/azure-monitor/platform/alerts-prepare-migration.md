@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114419"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539550"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
@@ -27,12 +28,12 @@ Le API che creano e gestiscono le regole di avviso classiche ( `microsoft.insigh
 
 La tabella seguente è un riferimento alle interfacce programmatiche per gli avvisi classici e nuovi:
 
-|         |Avvisi classici  |Nuovi avvisi delle metriche |
-|---------|---------|---------|
-|API REST     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Interfaccia della riga di comando di Azure     | [avviso AZ monitor](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor Metrics-avviso](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Modello di Azure Resource Manager | [Per gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Per i nuovi avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Tipo di script di distribuzione | Avvisi classici | Nuovi avvisi delle metriche |
+| ---------------------- | -------------- | ----------------- |
+|API REST     | [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](/rest/api/monitor/metricalerts)       |
+|Interfaccia della riga di comando di Azure     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor Metrics-avviso](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [Riferimento](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Modello di Azure Resource Manager | [Per gli avvisi classici](./alerts-enable-template.md)|[Per i nuovi avvisi delle metriche](./alerts-metric-create-templates.md)|
 
 ## <a name="notification-payload-changes"></a>Modifiche payload notifica
 
@@ -40,8 +41,8 @@ Il formato del payload di notifica è leggermente diverso tra [le regole di avvi
 
 Usare la tabella seguente per eseguire il mapping dei campi di payload del webhook dal formato classico al nuovo formato:
 
-|  |Avvisi classici  |Nuovi avvisi delle metriche |
-|---------|---------|---------|
+| Tipo di endpoint di notifica | Avvisi classici | Nuovi avvisi delle metriche |
+| -------------------------- | -------------- | ----------------- |
 |L'avviso è stato attivato o risolto?    | **Stato**       | **Data. stato** |
 |Informazioni contestuali sull'avviso     | **context**        | **Data. Context**        |
 |Timestamp in cui l'avviso è stato attivato o risolto     | **context. timestamp**       | **Data. Context. timestamp**        |
@@ -70,7 +71,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Attenersi ai passaggi descritti di seguito.
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 
@@ -149,11 +150,11 @@ else {
 
 ```
 
-Per un esempio completo di Runbook che interrompe una macchina virtuale quando viene attivato un avviso, vedere la documentazione di [automazione di Azure](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Per un esempio completo di Runbook che interrompe una macchina virtuale quando viene attivato un avviso, vedere la documentazione di [automazione di Azure](../../automation/automation-create-alert-triggered-runbook.md).
 
 ## <a name="partner-integration-via-webhooks"></a>Integrazione di partner tramite webhook
 
-La maggior parte dei [partner che si integrano con gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/partners) supporta già avvisi di metrica più recenti tramite le loro integrazioni. Le integrazioni note che già funzionano con nuovi avvisi delle metriche sono:
+La maggior parte dei [partner che si integrano con gli avvisi classici](./partners.md) supporta già avvisi di metrica più recenti tramite le loro integrazioni. Le integrazioni note che già funzionano con nuovi avvisi delle metriche sono:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

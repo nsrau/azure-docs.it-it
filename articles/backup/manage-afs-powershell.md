@@ -3,11 +3,12 @@ title: Gestire i backup di condivisioni file di Azure con PowerShell
 description: Informazioni su come usare PowerShell per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201952"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538594"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gestire i backup di condivisioni file di Azure con PowerShell
 
@@ -18,7 +19,7 @@ Questo articolo descrive come usare Azure PowerShell per gestire e monitorare le
 
 ## <a name="modify-the-protection-policy"></a>Modificare i criteri di protezione
 
-Per modificare i criteri usati per il backup della condivisione file di Azure, usare [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Specificare l'elemento di backup pertinente e i nuovi criteri di backup.
+Per modificare i criteri usati per il backup della condivisione file di Azure, usare [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Specificare l'elemento di backup pertinente e i nuovi criteri di backup.
 
 L'esempio seguente modifica il criterio di protezione **testAzureFS** da **dailyafs** a **monthlyafs**.
 
@@ -31,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>Tenere traccia dei processi di backup e ripristino
 
-Le operazioni di backup e ripristino su richiesta restituiscono un processo insieme a un ID, come illustrato quando si [esegue un backup su richiesta](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) per tenere traccia dello stato e dei dettagli del processo.
+Le operazioni di backup e ripristino su richiesta restituiscono un processo insieme a un ID, come illustrato quando si [esegue un backup su richiesta](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) per tenere traccia dello stato e dei dettagli del processo.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -70,7 +71,7 @@ Per interrompere la protezione di condivisioni file di Azure è possibile proced
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Arrestare la protezione e mantenere i punti di ripristino
 
-Per arrestare la protezione durante la conservazione dei dati, usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) .
+Per arrestare la protezione durante la conservazione dei dati, usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) .
 
 Nell'esempio seguente viene arrestata la protezione per la condivisione file *afsfileshare* , ma vengono conservati tutti i punti di ripristino:
 
@@ -86,11 +87,11 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-L'attributo ID processo nell'output corrisponde all'ID processo del processo creato dal servizio di backup per l'operazione di arresto della protezione dati. Per tenere traccia dello stato del processo, usare il cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) .
+L'attributo ID processo nell'output corrisponde all'ID processo del processo creato dal servizio di backup per l'operazione di arresto della protezione dati. Per tenere traccia dello stato del processo, usare il cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) .
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Arrestare la protezione senza mantenere i punti di ripristino
 
-Per arrestare la protezione senza mantenere i punti di ripristino, usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) e aggiungere il parametro **-RemoveRecoveryPoints** .
+Per arrestare la protezione senza mantenere i punti di ripristino, usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) e aggiungere il parametro **-RemoveRecoveryPoints** .
 
 Nell'esempio seguente viene arrestata la protezione per la condivisione file *afsfileshare* senza mantenere i punti di ripristino:
 

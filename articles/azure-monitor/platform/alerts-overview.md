@@ -4,11 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81769777"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539568"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -57,7 +58,7 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 
 È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources.md). Sono incluse, ad esempio:
 
-- Valori della metrica
+- Valori delle metriche
 - Query di ricerca log
 - Eventi dei log attività
 - Integrità della piattaforma Azure sottostante
@@ -67,7 +68,7 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** |
 |-------------|----------------|-------------|
-| Service Health | Log attività  | Non supportato. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Service Health | Log attività  | Non supportato. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
 | Application Insights | Test di disponibilità Web | Non supportato. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 ## <a name="manage-alerts"></a>Gestire gli avvisi
@@ -177,7 +178,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo degli accessi in base al ruolo (RBAC) per le istanze di avviso
 
-Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina virtuale `ContosoVM1` , tale utente potrà utilizzare e gestire solo gli avvisi generati in `ContosoVM1` .
+Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina virtuale `ContosoVM1` , tale utente potrà utilizzare e gestire solo gli avvisi generati in `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 
@@ -209,11 +210,5 @@ Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per 
 - [Altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups)
 - [Informazioni sui gruppi di azioni](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
-- [Managing Smart Groups](https://aka.ms/managing-smart-groups) (Gestione dei gruppi intelligenti)
+- [Gestione di gruppi intelligenti](https://aka.ms/managing-smart-groups)
 - [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

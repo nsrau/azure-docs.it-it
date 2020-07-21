@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537512"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -46,7 +46,7 @@ In alternativa, il messaggio di evento contiene anche l'ID del dispositivo gemel
 
 Anche la risorsa di calcolo deve stabilire le autorizzazioni di sicurezza e accesso in modo indipendente.
 
-Per esaminare il processo di configurazione di una funzione di Azure per elaborare eventi gemelli digitali, vedere [procedura: configurare una funzione di Azure per l'elaborazione dei dati](how-to-create-azure-function.md).
+Per esaminare il processo di configurazione di una funzione di Azure per elaborare eventi gemelli digitali, vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Creare un endpoint
 
@@ -90,7 +90,7 @@ Tipi diversi di eventi nell'hub Internet e i gemelli digitali di Azure producono
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come configurare e gestire una route di eventi:
-* [Procedura: gestire endpoint e Route](how-to-manage-routes.md)
+* [*Procedura: gestire endpoint e Route*](how-to-manage-routes.md)
 
 In alternativa, vedere come usare funzioni di Azure per indirizzare gli eventi nei dispositivi gemelli digitali di Azure:
-* [Procedura: configurare una funzione di Azure per l'elaborazione dei dati](how-to-create-azure-function.md)
+* [*Procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md)

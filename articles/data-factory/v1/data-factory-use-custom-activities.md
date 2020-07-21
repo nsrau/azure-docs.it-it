@@ -12,13 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020133"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537616"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
+# <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usare attività personalizzate in una pipeline Azure Data Factory versione 1
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-use-custom-activities.md)
 > * [Versione 2 (corrente)](../transform-data-using-dotnet-custom-activity.md)
@@ -48,7 +49,7 @@ La procedura dettagliata seguente riporta le istruzioni complete per creare un'a
 ### <a name="azure-batch-prerequisites"></a>Prerequisiti di Azure Batch
 In questa procedura dettagliata vengono eseguite attività .NET personalizzate usando Azure Batch come risorsa di calcolo. **Azure Batch** è un servizio di piattaforma per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Azure Batch pianifica l'esecuzione del lavoro a elevato utilizzo di calcolo su una **raccolta di macchine virtuali** gestita e può ridimensionare automaticamente le risorse di calcolo in base alle esigenze dei processi. Vedere l'articolo [Nozioni di base di Azure Batch][batch-technical-overview] per una panoramica dettagliata del servizio Azure Batch.
 
-Per l'esercitazione creare un account Batch di Azure con un pool di VM. Ecco i passaggi necessari:
+Per l'esercitazione creare un account Batch di Azure con un pool di VM. I passaggi necessari sono i seguenti:
 
 1. Creare un **account Azure batch** usando il [portale di Azure](https://portal.azure.com). Per istruzioni, vedere l'articolo su come [creare e gestire un account Azure Batch][batch-create-account].
 2. Annotare il nome dell'account Azure Batch, la chiave account, l'URI e il nome del pool. È necessario creare un servizio collegato Azure Batch.
@@ -1024,7 +1025,7 @@ L'esempio relativo all'[ambiente locale di Azure Data Factory](https://github.co
 | --- | --- |
 | [HttpDataDownloaderSample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample)(Esempio relativo al downloader dati HTTP). |Scarica i dati da un endpoint HTTP per l'archivio BLOB di Azure usando l'attività personalizzata C# in Data Factory. |
 | [Esempio di analisi del sentimento su Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Chiama un modello di Azure Machine Learning Studio ed esegue l'analisi del sentimento, l'assegnazione dei punteggi, la stima e così via. |
-| [RunRScriptUsingADFSample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)(Esempio relativo all'esecuzione di script R con ADF). |Chiama lo script R eseguendo RScript.exe sul cluster HDInsight in cui è già installato R. |
+| [Eseguire lo script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Chiama lo script R eseguendo RScript.exe sul cluster HDInsight in cui è già installato R. |
 | [Attività .NET per dominio app](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Usa versioni di assembly diverse da quelle usate dal servizio di avvio di Data Factory |
 | [Rielaborare un modello in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Rielabora un modello in Azure Analysis Services. |
 

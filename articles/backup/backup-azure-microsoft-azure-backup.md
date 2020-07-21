@@ -3,11 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74706e772371c39b96b0cb02bd09ec70ad4d43f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539126"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -27,7 +28,7 @@ Questo articolo illustra come preparare l'ambiente per eseguire il backup dei ca
 >
 >
 
-Il server di Backup di Microsoft Azure distribuito in una macchina virtuale di Azure può eseguire il backup delle macchine virtuali in Azure, tuttavia per l'abilitazione dell'operazione di backup è necessario che si trovino nello stesso dominio. Il processo per eseguire il backup di una VM di Azure rimane identico al backup di macchine virtuali locali, tuttavia la distribuzione del server di Backup di Microsoft Azure in Azure presenta alcune limitazioni. Per altre informazioni sulle limitazioni, vedere [Data Protection Manager come macchina virtuale di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Il server di Backup di Microsoft Azure distribuito in una macchina virtuale di Azure può eseguire il backup delle macchine virtuali in Azure, tuttavia per l'abilitazione dell'operazione di backup è necessario che si trovino nello stesso dominio. Il processo per eseguire il backup di una VM di Azure rimane identico al backup di macchine virtuali locali, tuttavia la distribuzione del server di Backup di Microsoft Azure in Azure presenta alcune limitazioni. Per altre informazioni sulle limitazioni, vedere [Data Protection Manager come macchina virtuale di Azure](/system-center/dpm/install-dpm#setup-prerequisites)
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/management/deployment-models.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
@@ -45,9 +46,9 @@ Per rendere operativo il server di Backup di Azure, è prima di tutto necessario
 
 ### <a name="using-a-server-in-azure"></a>Uso di un server in Azure
 
-Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale di server sono: Standard_A4_v2 con quattro core e 8 GB di RAM.
+Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json)offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale di server sono: Standard_A4_v2 con quattro core e 8 GB di RAM.
 
-La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. La [matrice di protezione per il server di Backup di Microsoft Azure ](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) aiuta a comprendere questa complessità. Prima di distribuire la macchina leggere interamente questo articolo.
+La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. La [matrice di protezione per il server di Backup di Microsoft Azure ](./backup-mabs-protection-matrix.md) aiuta a comprendere questa complessità. Prima di distribuire la macchina leggere interamente questo articolo.
 
 ### <a name="using-an-on-premises-server"></a>Uso di un server locale
 
@@ -58,7 +59,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials  |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) in caso di distribuzione in macchine virtuali Hyper-V.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
@@ -79,7 +80,7 @@ Se si inviano dati di backup in Azure o se si vuole mantenerli in locale, è nec
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e con [ridondanza locale](../storage/common/storage-redundancy-lrs.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md) e con [ridondanza locale](../storage/common/storage-redundancy.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -128,7 +129,7 @@ Per modificare le impostazioni di replica di archiviazione:
     La procedura guidata **Introduzione al backup** imposta l'opzione **Preparare l'infrastruttura** per eseguire il backup dei carichi di lavoro in Azure.
 
    > [!NOTE]
-   > Se si vuole solo eseguire il backup di file e cartelle, è consigliabile usare l'agente di Backup di Azure e seguire le istruzioni disponibili nell'articolo [Primi passi: eseguire il backup di file e cartelle](backup-try-azure-backup-in-10-mins.md). Se si prevede di proteggere altri carichi di lavoro oltre a file e cartelle oppure se si vuole in futuro espandere i requisiti di protezione, selezionare quei carichi di lavoro.
+   > Se si vuole solo eseguire il backup di file e cartelle, è consigliabile usare l'agente di Backup di Azure e seguire le istruzioni disponibili nell'articolo [Primi passi: eseguire il backup di file e cartelle](./backup-windows-with-mars-agent.md). Se si prevede di proteggere altri carichi di lavoro oltre a file e cartelle oppure se si vuole in futuro espandere i requisiti di protezione, selezionare quei carichi di lavoro.
    >
    >
 
@@ -189,7 +190,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
     * Database: DatabaseName deve essere ReportServer $\<SQLInstanceName>
     * URL del portale Web:' directory virtuale ' deve essere Reports_\<SQLInstanceName>
 
-    [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
+    [Altre informazioni](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) sulla configurazione di SSRS.
 
     > [!NOTE]
     > Le licenze per SQL Server usato come database per il server di Backup di Microsoft Azure sono regolate dalle [Condizioni per l'Utilizzo dei Servizi Online Microsoft](https://www.microsoft.com/licensing/product-licensing/products). In base alle Condizioni per l'Utilizzo dei Servizi Online Microsoft, è possibile usare SQL Server insieme al server di Backup di Microsoft Azure solo come database per il server di Backup di Microsoft Azure.
@@ -198,7 +199,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    La disponibilità di uno spazio di lavoro è un requisito per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Preparare l'archiviazione dei dati](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    La disponibilità di uno spazio di lavoro è un requisito per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Preparare l'archiviazione dei dati](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Fornire una password complessa per gli account utente locali con restrizioni e fare clic su **Avanti**.
 
     ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -226,7 +227,7 @@ Al termine della fase di installazione, verranno create anche le icone sul deskt
 
 ### <a name="add-backup-storage"></a>Aggiungere risorse di archiviazione di backup
 
-La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
+La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](./backup-mabs-add-storage.md).
 
 > [!NOTE]
 > È necessario aggiungere una risorsa di archiviazione di backup anche se si prevede di inviare i dati ad Azure. Nell'architettura attuale del server di Backup di Azure, l'insieme di credenziali di Backup di Azure contiene la *seconda* copia dei dati, mentre la risorsa di archiviazione locale contiene la prima (obbligatoria) copia di backup.
@@ -235,7 +236,7 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 ### <a name="install-and-update-the-data-protection-manager-protection-agent"></a>Installare e aggiornare l'agente protezione Data Protection Manager
 
-MABS usa l'agente protezione System Center Data Protection Manager. [Ecco i passaggi](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807) per installare l'agente protezione nei server di protezione.
+MABS usa l'agente protezione System Center Data Protection Manager. [Ecco i passaggi](/system-center/dpm/deploy-dpm-protection-agent) per installare l'agente protezione nei server di protezione.
 
 Le sezioni seguenti descrivono come aggiornare gli agenti protezione per i computer client.
 
@@ -313,7 +314,7 @@ Se si usa il peering Microsoft ExpressRoute, selezionare i servizi/le aree segue
 * Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 * Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
-Per informazioni dettagliate, vedere [Requisiti per il routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Per informazioni dettagliate, vedere [Requisiti per il routing di ExpressRoute](../expressroute/expressroute-routing.md).
 
 Dopo il ripristino della connettività ad Azure nel computer del server di Backup di Azure, le operazioni che possono essere eseguite sono determinate dallo stato della sottoscrizione di Azure. La tabella precedente include dettagli sulle operazioni consentite quando il computer è "Connesso".
 
@@ -361,7 +362,7 @@ In caso di errori del server di Backup di Microsoft Azure durante la fase di ins
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate, vedere [Preparazione dell'ambiente per Data Protection Manager](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) per l'esecuzione di varie operazioni.
+Per informazioni dettagliate, vedere [Preparazione dell'ambiente per Data Protection Manager](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](/powershell/module/dataprotectionmanager/) per eseguire diverse operazioni.
 
 È possibile usare questi articoli per acquisire una comprensione più profonda della protezione dei carichi di lavoro tramite il server di Backup di Microsoft Azure.
 

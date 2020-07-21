@@ -3,12 +3,12 @@ title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540095"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] nel database SQL di Azure usando l' [esportazione continua][export] e l' [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -82,7 +82,7 @@ Verificare che il server consenta l'accesso ai servizi di Azure:
 ![Sfoglia, Server, il proprio server, Impostazioni, Firewall, Consenti l'accesso a Servizi di Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Creare una tabella nel database SQL di Azure
-Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
 
 ![Connettersi al database SQL di Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -255,4 +255,3 @@ FROM [dbo].[PageViewsTable]
 [metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
-
