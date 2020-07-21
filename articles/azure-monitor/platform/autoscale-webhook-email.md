@@ -4,11 +4,12 @@ description: Informazioni su come usare le azioni di scalabilità automatica per
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505520"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Monitoraggio di Azure
 Questo articolo illustra come configurare i trigger per poter chiamare URL Web specifici o inviare messaggi di posta elettronica in base alle azioni di scalabilità automatica in Azure.  
@@ -28,7 +29,7 @@ I webhook consentono di instradare le notifiche di avviso di Azure ad altri sist
 
 ## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 Per le macchine virtuali più recenti create con Resource Manager (set di scalabilità di macchine virtuali), è possibile configurare questa opzione tramite l'API REST, i modelli di Resource Manager, PowerShell e l'interfaccia della riga di comando. Un'interfaccia del portale non è ancora disponibile.
-Quando si usa l'API REST o il modello di Gestione risorse, includere l'elemento Notifications in [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) con le opzioni seguenti.
+Quando si usa l'API REST o il modello di Gestione risorse, includere l'elemento Notifications in [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) con le opzioni seguenti.
 
 ```
 "notifications": [
@@ -116,4 +117,3 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | oldCapacity |Sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
 | newCapacity |Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
 | properties |No |Facoltativa. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
-

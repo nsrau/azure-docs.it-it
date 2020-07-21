@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 705f9f3055d40d23c9ec5e24cfccfc0c96e114a5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e0773515809ffdc50167a3cba1f767ac8635bcee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502572"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>Abilitare la crittografia end-to-end usando la crittografia in host-interfaccia della riga di comando di Azure
 
@@ -35,7 +35,7 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft . com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Creare una Azure Key Vault e DiskEncryptionSet
 
@@ -77,7 +77,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 Le dimensioni delle macchine virtuali legacy non sono supportate. È possibile trovare l'elenco delle dimensioni delle VM supportate in uno dei seguenti casi:
 
-Chiamare l' [API SKU di risorse](https://docs.microsoft.com/rest/api/compute/resourceskus/list) e verificare che la `EncryptionAtHostSupported` funzionalità sia impostata su **true**.
+Chiamare l' [API SKU di risorse](/rest/api/compute/resourceskus/list) e verificare che la `EncryptionAtHostSupported` funzionalità sia impostata su **true**.
 
 ```json
     {
@@ -98,7 +98,7 @@ Chiamare l' [API SKU di risorse](https://docs.microsoft.com/rest/api/compute/res
     }
 ```
 
-Oppure, chiamando il cmdlet [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) di PowerShell.
+Oppure, chiamando il cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) di PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500923"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo di riavvio di Windows in una macchina virtuale di Azure
 Questo articolo descrive una situazione di ciclo di riavvio che può verificarsi in una macchina virtuale Windows in Microsoft Azure.
@@ -49,7 +50,7 @@ Potrebbe essersi danneggiato il file system. È tuttavia difficile diagnosticare
 
 ## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, [eseguire il backup del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md), [collegare il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md) e quindi adottare le soluzioni disponibili in base al tipo di problema o una soluzione per volta.
+Per risolvere questo problema, [eseguire il backup del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md), [collegare il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md) e quindi adottare le soluzioni disponibili in base al tipo di problema o una soluzione per volta.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
@@ -93,7 +94,7 @@ Per risolvere questo problema, [eseguire il backup del disco del sistema operati
 
 16. [Creare una nuova macchina virtuale dal disco del sistema operativo](../windows/create-vm-specialized.md).
 
-17. Se il problema viene risolto, è possibile che sia necessario reinstallare [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
+17. Se il problema viene risolto, è possibile che sia necessario reinstallare [RDAgent](/archive/blogs/mast/install-the-vm-agent-on-an-existing-azure-vm) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
@@ -112,5 +113,3 @@ Ripristinare la macchina virtuale all'ultima configurazione valida e seguire i p
 4. Rimuovere il disco dalla macchina virtuale per la risoluzione dei problemi e attendere circa due minuti per consentire ad Azure di rilasciare il disco.
 
 5. [Creare una nuova macchina virtuale dal disco del sistema operativo](../windows/create-vm-specialized.md).
-
-

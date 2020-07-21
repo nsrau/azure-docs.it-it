@@ -11,81 +11,81 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: 04321e19787c6cfee2315be77a47025636a016dc
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: aa1492a021caa69303834ce4a144d33ca05b15e0
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77918122"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86502844"
 highlightedContent:
   items:
   - title: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
+    url: ./linux/quick-create-cli.md
   - title: Creare una macchina virtuale Windows con PowerShell
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    url: ./windows/quick-create-powershell.md
   - title: Creare un set di scalabilità di macchine virtuali nel portale
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
+    url: ../virtual-machine-scale-sets/quick-create-portal.md
   - title: 'Macchine virtuali Spot: per sfruttare la capacità inutilizzata con un notevole risparmio sui costi.'
     itemType: concept
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
+    url: ./linux/spot-vms.md
   - title: 'Host dedicati: server fisici per ospitare una o più macchine virtuali.'
     itemType: concept
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/dedicated-hosts
+    url: ./linux/dedicated-hosts.md
   - title: 'Gruppo di selezione host di prossimità: per ottenere le macchine virtuali più vicine e ridurre la latenza.'
     itemType: how-to-guide
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
+    url: ./linux/proximity-placement-groups.md
 conceptualContent:
   items:
   - title: Macchine virtuali Linux
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros
+    - url: ./linux/endorsed-distros.md
       itemType: concept
       text: Distribuzioni approvate
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks
+    - url: ./linux/tutorial-manage-disks.md
       itemType: tutorial
       text: Creare e gestire dischi
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
+    - url: ./linux/image-builder.md
       itemType: how-to-guide
       text: Azure Image Builder
-    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
+    - url: /azure/virtual-machines/troubleshooting/linux-index
       itemType: how-to-guide
       text: Risolvere i problemi delle macchine virtuali Linux
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/
+      url: ./linux/index.yml
       text: Altre informazioni
   - title: Macchine virtuali Windows
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    - url: ./windows/quick-create-powershell.md
       itemType: how-to-guide
       text: Creare una macchina virtuale con PowerShell
-    - url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-data-disk
+    - url: ./windows/tutorial-manage-data-disk.md
       itemType: tutorial
       text: Creare e gestire dischi
-    - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: Configurare le identità gestite
-    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+    - url: /azure/virtual-machines/troubleshooting/index
       itemType: how-to-guide
       text: Risolvere i problemi delle macchine virtuali Windows
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/
+      url: ./windows/index.yml
       text: Altre informazioni
   - title: set di scalabilità di macchine virtuali
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
+    - url: ../virtual-machine-scale-sets/quick-create-powershell.md
       itemType: how-to-guide
       text: Creare un set di scalabilità con PowerShell
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes
+    - url: ../virtual-machine-scale-sets/orchestration-modes.md
       itemType: concept
       text: Modalità di orchestrazione
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot
+    - url: ../virtual-machine-scale-sets/use-spot.md
       itemType: how-to-guide
       text: Usare istanze Spot
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+      url: ../virtual-machine-scale-sets/index.yml
       text: Altre informazioni
 tools:
   title: Strumenti
@@ -93,13 +93,13 @@ tools:
   items:
   - title: Interfaccia della riga di comando di Azure
     imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-    url: https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest
+    url: /cli/azure/vm?view=azure-cli-latest
   - title: Azure PowerShell
     imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-    url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines
+    url: /powershell/module/az.compute#virtual_machines
   - title: API REST
     imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
-    url: https://docs.microsoft.com/rest/api/compute/virtualmachines
+    url: /rest/api/compute/virtualmachines
 additionalContent:
   sections:
   - title: Altre risorse
@@ -108,7 +108,7 @@ additionalContent:
     - title: Informazioni
       links:
       - text: Sfogliare i moduli di apprendimento
-        url: https://docs.microsoft.com/learn/browse/?products=azure-virtual-machines
+        url: /learn/browse/?products=azure-virtual-machines
     - title: Raccolta modelli
       links:
       - text: Sfogliare la raccolta di modelli di avvio rapido
@@ -116,4 +116,4 @@ additionalContent:
     - title: Risolvere problemi
       links:
       - text: Informazioni per la risoluzione dei problemi
-        url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/
+        url: ./troubleshooting/index.yml

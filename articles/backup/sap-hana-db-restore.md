@@ -3,18 +3,18 @@ title: Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851450"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503592"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
 Questo articolo descrive come ripristinare SAP HANA database in esecuzione in una macchina virtuale (VM) di Azure, in cui è stato eseguito il backup del servizio backup di Azure in un insieme di credenziali di servizi di ripristino. I ripristini possono essere usati per creare copie dei dati per scenari di sviluppo/test o per tornare a uno stato precedente.
 
-Per altre informazioni su come eseguire il backup dei database di SAP HANA, vedere [eseguire il backup di database SAP Hana in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Per altre informazioni su come eseguire il backup dei database di SAP HANA, vedere [eseguire il backup di database SAP Hana in macchine virtuali di Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Ripristinare fino a un punto nel tempo o a un punto di ripristino
 
@@ -126,9 +126,9 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
 1. In **Seleziona punto di ripristino**selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per [ripristinare un punto di ripristino specifico](#restore-to-a-specific-recovery-point).
 
-### <a name="restore-as-files"></a>Ripristina come file
+### <a name="restore-as-files"></a>Ripristinare come file
 
-Per ripristinare i dati di backup come file anziché come database, scegliere **Ripristina come file**. Una volta scaricati i file in un percorso specificato, è possibile usare questi file in qualsiasi computer SAP HANA in cui si desidera ripristinarli come database. Poiché è possibile spostare questi file in qualsiasi computer, è ora possibile ripristinare i dati tra sottoscrizioni e aree geografiche.
+Per ripristinare i dati di backup come file anziché come database, scegliere **Ripristina come file**. Dopo aver eseguito il dump dei file in un percorso specificato, è possibile spostare questi file in qualsiasi computer SAP HANA in cui si intende ripristinarli come database. Dal momento che è possibile spostare questi file in qualsiasi computer, è ora possibile ripristinare i dati tra sottoscrizioni e aree diverse.
 
 1. Nel menu **configurazione ripristino** , in **where and How to Restore**, selezionare **Restore As files**.
 1. Selezionare il nome del server **host** /Hana in cui si desidera ripristinare i file di backup.
@@ -138,12 +138,12 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
 
     * File di backup del database
     * File di catalogo
-    * File di metadati JSON (per ogni file di backup richiesto)
+    * File di metadati JSON (per ogni file di backup interessato)
 
-    In genere, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata quando viene specificato come percorso di destinazione consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata su di essi.
+    In genere, quando viene specificato come percorso di destinazione, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata in essi.
 
     >[!NOTE]
-    >Per ripristinare i file di backup del database in una condivisione file di Azure montata nella macchina virtuale di destinazione registrata, verificare che l'account radice disponga di autorizzazioni di lettura/scrittura per la condivisione file di Azure.
+    >Per ripristinare i file di backup del database in una condivisione file di Azure montata nella macchina virtuale di destinazione registrata, assicurarsi che l'account radice abbia le autorizzazioni di lettura/scrittura per la condivisione file di Azure.
 
     ![Scegliere il percorso di destinazione](media/sap-hana-db-restore/restore-as-files.png)
 
@@ -152,22 +152,22 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
     ![Seleziona punto di ripristino](media/sap-hana-db-restore/select-restore-point.png)
 
 1. Tutti i file di backup associati al punto di ripristino selezionato vengono scaricati nel percorso di destinazione.
-1. In base al tipo di punto di ripristino scelto (**temporizzato** o **completo & differenziale**), verranno visualizzate una o più cartelle create nel percorso di destinazione. Una delle cartelle denominate `Data_<date and time of restore>` contiene i backup completi e differenziali e l'altra cartella denominata `Log` contiene i backup del log.
-1. Spostare i file ripristinati nel server SAP HANA in cui si desidera ripristinarli come database.
-1. Seguire quindi questa procedura:
-    1. Impostare le autorizzazioni per la cartella o la directory in cui vengono archiviati i file di backup usando il comando seguente:
+1. In base al tipo di punto di ripristino scelto (**temporizzato** o **differenziale e completo**), verranno visualizzate una o più cartelle create nel percorso di destinazione. Una delle cartelle, denominata `Data_<date and time of restore>`, contiene i backup completi e differenziali, mentre l'altra, denominata `Log`, contiene i backup del log.
+1. Spostare questi file ripristinati nel server SAP HANA in cui si vuole ripristinarli come database.
+1. Seguire questa procedura:
+    1. Per impostare le autorizzazioni per la cartella o la directory in cui vengono archiviati i file di backup, usare il comando seguente:
 
         ```bash
         chown -R <SID>adm:sapsys <directory>
         ```
 
-    1. Eseguire il set di comandi successivo come`<SID>adm`
+    1. Eseguire il set di comandi successivo come `<SID>adm`
 
         ```bash
         su - <sid>adm
         ```
 
-    1. Genera il file di catalogo per il ripristino. Estrarre il **BackupId** dal file di metadati JSON per il backup completo, che verrà usato in un secondo momento nell'operazione di ripristino. Assicurarsi che i backup completi e del log si trovino in cartelle diverse ed eliminare i file di catalogo e i file di metadati JSON in queste cartelle.
+    1. Generare il file di catalogo per il ripristino. Estrarre dal file di metadati JSON il valore di **BackupId** per il backup completo, che verrà usato in un secondo momento nell'operazione di ripristino. Assicurarsi che i backup completi e del log si trovino in cartelle diverse ed eliminare i file di catalogo e i file di metadati JSON in queste cartelle.
 
         ```bash
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
@@ -175,15 +175,15 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
 
         Nel comando precedente:
 
-        * `<DataFileDir>`-la cartella che contiene i backup completi
-        * `<LogFilesDir>`-la cartella che contiene i backup del log
-        * `<PathToPlaceCatalogFile>`-la cartella in cui deve essere inserito il file di catalogo generato
+        * `<DataFileDir>`: cartella che contiene i backup completi
+        * `<LogFilesDir>`: cartella che contiene i backup del log
+        * `<PathToPlaceCatalogFile>`: cartella in cui deve essere inserito il file di catalogo generato
 
     1. Eseguire il ripristino usando il file di catalogo appena generato tramite HANA Studio o eseguire la query di ripristino HDBSQL con il catalogo appena generato. Le query HDBSQL sono elencate di seguito:
 
-    * Per eseguire il ripristino a un punto nel tempo:
+    * Per eseguire il ripristino temporizzato:
 
-        Se si sta creando un nuovo database ripristinato, eseguire il comando HDBSQL per creare un nuovo database `<DatabaseName>` e quindi arrestare il database per il ripristino. Tuttavia, se si sta ripristinando solo un database esistente, eseguire il comando HDBSQL per arrestare il database.
+        Se si intende creare un nuovo database ripristinato, eseguire il comando HDBSQL per creare un nuovo database `<DatabaseName>` e quindi arrestare il database per il ripristino. Se invece si intende solo ripristinare un database esistente, eseguire il comando HDBSQL per arrestare il database.
 
         Eseguire quindi il comando seguente per ripristinare il database:
 
@@ -191,28 +191,28 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>`: Nome del nuovo database o del database esistente che si desidera ripristinare
-        * `<Timestamp>`-Timestamp esatto del ripristino temporizzato
-        * `<DatabaseName@HostName>`: Nome del database il cui backup viene utilizzato per il ripristino e il nome del server **host** /SAP Hana in cui risiede il database. L' `USING SOURCE <DatabaseName@HostName>` opzione specifica che il backup dei dati (usato per il ripristino) è di un database con un SID o un nome diverso rispetto al computer SAP Hana di destinazione. Non è quindi necessario specificare per i ripristini eseguiti nello stesso server HANA da cui viene eseguito il backup.
+        * `<DatabaseName>`: nome del nuovo database o del database esistente che si vuole ripristinare
+        * `<Timestamp>`: timestamp esatto del ripristino temporizzato
+        * `<DatabaseName@HostName>`: nome del database il cui backup viene usato per il ripristino e nome del server **host**/SAP HANA host in cui risiede il database. L'opzione `USING SOURCE <DatabaseName@HostName>` specifica che il backup dei dati (usato per il ripristino) è di un database con un SID o un nome diverso rispetto al computer SAP HANA di destinazione. Non è quindi necessario specificare per i ripristini eseguiti nello stesso server HANA da cui viene eseguito il backup.
         * `<PathToGeneratedCatalogInStep3>`-Percorso del file di catalogo generato nel **passaggio C**
-        * `<DataFileDir>`-la cartella che contiene i backup completi
-        * `<LogFilesDir>`-la cartella che contiene i backup del log
+        * `<DataFileDir>`: cartella che contiene i backup completi
+        * `<LogFilesDir>`: cartella che contiene i backup del log
         * `<BackupIdFromJsonFile>`- **BackupId** estratti nel **passaggio C**
 
     * Per eseguire il ripristino in un backup completo o differenziale specifico:
 
-        Se si sta creando un nuovo database ripristinato, eseguire il comando HDBSQL per creare un nuovo database `<DatabaseName>` e quindi arrestare il database per il ripristino. Tuttavia, se si sta ripristinando solo un database esistente, eseguire il comando HDBSQL per arrestare il database:
+        Se si intende creare un nuovo database ripristinato, eseguire il comando HDBSQL per creare un nuovo database `<DatabaseName>` e quindi arrestare il database per il ripristino. Se invece si intende solo ripristinare un database esistente, eseguire il comando HDBSQL per arrestare il database:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>`: nome del nuovo database o del database esistente che si desidera ripristinare
+        * `<DatabaseName>`: nome del nuovo database o del database esistente che si vuole ripristinare
         * `<Timestamp>`: timestamp esatto del ripristino temporizzato
-        * `<DatabaseName@HostName>`: il nome del database il cui backup viene utilizzato per il ripristino e il nome del server **host** /SAP Hana in cui risiede il database. L' `USING SOURCE <DatabaseName@HostName>` opzione specifica che il backup dei dati (usato per il ripristino) è di un database con un SID o un nome diverso rispetto al computer SAP Hana di destinazione. Non è quindi necessario specificare per i ripristini eseguiti nello stesso server HANA da cui viene eseguito il backup.
+        * `<DatabaseName@HostName>`: nome del database il cui backup viene usato per il ripristino e nome del server **host**/SAP HANA host in cui risiede il database. L'opzione `USING SOURCE <DatabaseName@HostName>` specifica che il backup dei dati (usato per il ripristino) è di un database con un SID o un nome diverso rispetto al computer SAP HANA di destinazione. Non è quindi necessario specificarlo per i ripristini eseguiti nello stesso server HANA da cui viene eseguito il backup.
         * `<PathToGeneratedCatalogInStep3>`: percorso del file di catalogo generato nel **passaggio C** .
-        * `<DataFileDir>`-la cartella che contiene i backup completi
-        * `<LogFilesDir>`-la cartella che contiene i backup del log
+        * `<DataFileDir>`: cartella che contiene i backup completi
+        * `<LogFilesDir>`: cartella che contiene i backup del log
         * `<BackupIdFromJsonFile>`- **BackupId** estratti nel **passaggio C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Ripristinare un punto temporizzato specifico

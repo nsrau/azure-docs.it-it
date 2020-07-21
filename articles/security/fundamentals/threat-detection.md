@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503286"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -339,14 +340,13 @@ L'API rappresenta una soluzione efficace ed efficiente per un'ampia gamma di sce
 
 Grazie a strumenti che permettono di scoprire shadow IT, valutare i rischi, applicare i criteri, analizzare le attività e arrestare le minacce, l'organizzazione può passare al cloud in piena sicurezza mantenendo il controllo dei dati critici.
 
-| | |
-|---|---|
+| Category | Descrizione |
+| -------- | ----------- |
 | Scoprire | Scoprire shadow IT con Cloud App Security. Ottenere visibilità tramite l'identificazione di app, attività, utenti, dati e file nell'ambiente cloud. Trovare app di terze parti connesse al cloud.|
 |Analisi dei problemi | Analizzare i problemi delle app cloud tramite strumenti forensi di approfondimento in app rischiose, utenti specifici e file nella rete. Trovare i modelli nei dati raccolti dal cloud. Generare report per monitorare il cloud. |
 | Controllo | Mitigare il rischio tramite l'impostazione di criteri e avvisi per ottenere il massimo controllo sul traffico di rete nel cloud. Usare Cloud App Security per eseguire la migrazione degli utenti verso app cloud alternative sicure e approvate. |
 | Proteggere | Usare Cloud App Security per approvare o vietare applicazioni, applicare misure di prevenzione contro la perdita di dati, controllare autorizzazioni e condivisioni e generare avvisi e report personalizzati. |
 | Controllo | Mitigare il rischio tramite l'impostazione di criteri e avvisi per ottenere il massimo controllo sul traffico di rete nel cloud. Usare Cloud App Security per eseguire la migrazione degli utenti verso app cloud alternative sicure e approvate. |
-| | |
 
 
 ![Schema di Cloud App Security](./media/threat-detection/azure-threat-detection-fig14.png)

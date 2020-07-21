@@ -4,11 +4,12 @@ description: Distribuire le funzionalità di monitoraggio di Azure su larga scal
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505211"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuire monitoraggio di Azure su larga scala usando criteri di Azure
 Mentre alcune funzionalità di monitoraggio di Azure sono configurate una volta o un numero limitato di volte, altre devono essere ripetute per ogni risorsa che si vuole monitorare. Questo articolo descrive i metodi per l'uso di criteri di Azure per implementare monitoraggio di Azure su larga scala per garantire che il monitoraggio sia configurato in modo coerente e accurato per tutte le risorse di Azure.
@@ -30,7 +31,7 @@ Criteri di Azure è costituito dagli oggetti nella tabella seguente. Per una spi
 | Assegnazione | Una definizione o un'iniziativa di criteri non diventa effettiva fino a quando non viene assegnata a un ambito. Ad esempio, assegnare un criterio a un gruppo di risorse per applicarlo a tutte le risorse create in tale risorsa o applicarlo a una sottoscrizione per applicarlo a tutte le risorse nella sottoscrizione.  Per altri dettagli, vedere [struttura di assegnazione dei criteri di Azure](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definizioni di criteri predefiniti per Monitoraggio di Azure
-Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](../policy-samples.md).
+Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](../samples/policy-samples.md).
 
 Per visualizzare le definizioni dei criteri predefinite correlate al monitoraggio, eseguire le operazioni seguenti:
 
@@ -59,7 +60,7 @@ Per i tipi di risorsa che non dispongono di un criterio predefinito, è necessar
 Lo script [create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) crea i file di criteri per un tipo di risorsa specifico che è possibile installare usando PowerShell o l'interfaccia della riga di comando. Utilizzare la procedura seguente per creare una definizione dei criteri personalizzata per le impostazioni di diagnostica.
 
 
-1. Assicurarsi che [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) sia installato.
+1. Assicurarsi che [Azure PowerShell](/powershell/azure/install-az-ps) sia installato.
 2. Installare lo script con il comando seguente:
   
     ```azurepowershell
@@ -112,7 +113,7 @@ Utilizzando i parametri Initiative, è possibile specificare l'area di lavoro o 
 
 ![Parametri delle iniziative](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Soluzione
+### <a name="remediation"></a>Correzione
 L'iniziativa verrà applicata a ogni macchina virtuale creata. Un' [attività di correzione](../../governance/policy/how-to/remediate-resources.md) distribuisce le definizioni dei criteri nell'iniziativa alle risorse esistenti, in modo che sia possibile creare le impostazioni di diagnostica per tutte le risorse già create. Quando si crea l'assegnazione usando il portale di Azure, è possibile creare un'attività di correzione nello stesso momento. Per informazioni dettagliate sulla correzione, vedere [correggere le risorse non conformi con i criteri di Azure](../../governance/policy/how-to/remediate-resources.md) .
 
 ![Monitoraggio e aggiornamento delle iniziative](media/deploy-scale/initiative-remediation.png)

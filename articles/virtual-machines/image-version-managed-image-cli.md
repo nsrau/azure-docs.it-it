@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223568"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502895"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Eseguire la migrazione da un'immagine gestita a una versione di immagine usando l'interfaccia della riga di comando di Azure
 Se si vuole eseguire la migrazione di un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando [PowerShell](image-version-managed-image-powershell.md).
@@ -40,7 +40,7 @@ Poiché le immagini gestite sono sempre immagini generalizzate, sarà necessario
 
 I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./linux/shared-image-galleries.md#image-definitions).
 
 Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -92,7 +92,7 @@ az sig image-version create \
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
+> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

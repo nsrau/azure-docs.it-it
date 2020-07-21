@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027902"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504332"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ Questa esercitazione illustra due modelli di ripristino dei dati:
 > * Ripristino di un database in un database parallelo (side-by-side).
 > * Ripristino di un database con la sostituzione del database esistente.
 
-|||
+| Modello | Descrizione |
 |:--|:--|
 | Ripristino in un database parallelo | Questo modello può essere usato per attività quali la revisione, il controllo e la conformità, per consentire a un tenant di controllare i dati da un punto precedente. Il database corente del tenant rimane online e invariato. |
 | Ripristino con sostituzione | Questo modello viene in genere usato per ripristinare lo stato di un tenant relativo a un momento precedente, dopo che il tenant ha accidentalmente eliminato o danneggiato i dati. Il database originale viene portato offline e sostituito con il database ripristinato. |

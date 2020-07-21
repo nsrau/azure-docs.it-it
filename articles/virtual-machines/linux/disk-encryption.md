@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2d4fc47247c9fe2ed1af0eee59500db7e894fdd0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260137"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502725"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
 La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, SSE crittografa automaticamente i dati archiviati in dischi gestiti di Azure (dischi del sistema operativo e dischi dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. 
 
-I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](/windows/desktop/seccng/cng-portal)
 
 La crittografia lato server non influisce sulle prestazioni dei dischi gestiti e non sono previsti costi aggiuntivi. 
 
@@ -84,4 +84,4 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 - [Abilitare la crittografia a doppio inattivo per Managed disks-CLI](disks-enable-double-encryption-at-rest-cli.md)
 - [Abilitare le chiavi gestite dal cliente per Managed disks-CLI](disks-enable-customer-managed-keys-cli.md)
 - [Abilitare le chiavi gestite dal cliente per Managed disks-portale](disks-enable-customer-managed-keys-portal.md)
-- [Che cos'è Azure Key Vault?](../../key-vault/general/overview.md)
+- [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)

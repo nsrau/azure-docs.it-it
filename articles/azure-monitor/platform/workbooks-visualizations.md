@@ -9,17 +9,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658031"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504938"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizzazioni delle cartelle di lavoro di monitoraggio di Azure
 
 Le cartelle di lavoro di monitoraggio di Azure supportano una serie di stili diversi di visualizzazioni per soddisfare le esigenze di creazione di report. Questo articolo fornisce esempi di ogni tipo di visualizzazione.
 
-## <a name="text"></a>Text
+## <a name="text"></a>Testo
 
 Le cartelle di lavoro consentono agli autori di includere blocchi di testo nelle cartelle di lavoro di. Il testo può essere un'analisi umana dei dati di telemetria, informazioni che consentono agli utenti di interpretare i dati, le intestazioni di sezione e così via.
 
@@ -50,7 +51,7 @@ Le cartelle di lavoro supportano i grafici per i log e le origini dati delle met
 1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce **Modifica** sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro.
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
-4. Utilizzare l'editor di query per immettere il [KQL](https://docs.microsoft.com/azure/kusto/query/) per l'analisi (ad esempio, la tendenza delle richieste).
+4. Utilizzare l'editor di query per immettere il [KQL](/azure/kusto/query/) per l'analisi (ad esempio, la tendenza delle richieste).
 5. Impostare la visualizzazione su uno dei seguenti elementi: **area**, a **barre**, a **barre (categorico)**, a **linee**, a **torta**, a **dispersione**o **ora**.
 6. Se necessario, impostare altri parametri, ad esempio intervallo di tempo, visualizzazione, dimensioni, tavolozza dei colori e legenda.
 

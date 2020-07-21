@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758494"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501892"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Console seriale per le chiamate SysRq e NMI
 
@@ -22,11 +23,11 @@ Dopo che la sequenza SysRq viene recapitata, la configurazione del kernel potrà
 
 La console seriale di Azure può essere usata per inviare una SysRq a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Screenshot della console seriale di Azure. L'icona della tastiera è evidenziata e il relativo menu è visibile. Questo menu contiene un elemento di comando Send SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Scegliendo "Invia comando SysRq" verrà aperta una finestra di dialogo, che offre opzioni di SysRq comune oppure accetta una sequenza di comandi di SysRq immessi nella finestra di dialogo.  Questo permette alle serie di SysRq di eseguire un'operazione di alto livello, ad esempio un riavvio sicuro usando: `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Screenshot della finestra di dialogo Invia comando SysRq al Guest. L'opzione per l'immissione di comandi è selezionata e la casella comando contiene REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Il comando SysRq non può essere usato nelle macchine virtuali che vengono arrestate o il cui kernel è in uno stato di non risposta. (ad esempio un kernel panic).
 
@@ -95,7 +96,7 @@ Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il s
 
 La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema.  I sistemi operativi Linux possono essere configurati per l'arresto anomalo del sistema e per creare un dump della memoria quando il sistema operativo riceve un NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Screenshot della console seriale. L'icona della tastiera è evidenziata e il relativo menu è visibile. Questo menu contiene un elemento interrupt non mascherabile.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 Per i sistemi Linux che supportano sysctl per la configurazione dei parametri del kernel, è possibile abilitare un panic quando si riceve questo NMI usando il comando seguente:
 1. Aggiungere questa riga in */etc/sysctl.conf* <br>
@@ -120,7 +121,7 @@ Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown
 - [Raccolta dei log di arresto anomalo del sistema](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* La pagina principale della documentazione di Linux relativa alla console seriale è disponibile [qui](serial-console.md).
+* La pagina principale della documentazione di Linux relativa alla console seriale è disponibile [qui](../troubleshooting/serial-console-linux.md).
 * Usare la console seriale per accedere a [GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md)
-* La console seriale è disponibile anche per macchine virtuali [Windows](../windows/serial-console.md)
-* Altre informazioni sulla [diagnostica di avvio](boot-diagnostics.md)
+* La console seriale è disponibile anche per macchine virtuali [Windows](../troubleshooting/serial-console-windows.md)
+* Altre informazioni sulla [diagnostica di avvio](../troubleshooting/boot-diagnostics.md)

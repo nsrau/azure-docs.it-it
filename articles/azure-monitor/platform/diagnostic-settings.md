@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: a037eddb13645036fcbe501ecba33923733b6d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944373"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505177"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -27,6 +27,9 @@ Ogni risorsa di Azure richiede una propria impostazione di diagnostica, che defi
 
 Una singola impostazione di diagnostica può definire non più di una delle destinazioni. Se si vogliono inviare dati a più tipi specifici di destinazione (ad esempio, due diverse aree di lavoro di Log Analytics), creare più impostazioni. Ogni risorsa può avere al massimo 5 impostazioni di diagnostica.
 
+Il video seguente illustra i log della piattaforma di routing con le impostazioni di diagnostica.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
+
 > [!NOTE]
 > Le [metriche della piattaforma](metrics-supported.md) vengono inviate automaticamente alle metriche di monitoraggio di [Azure](data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per inviare le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../log-query/log-query-overview.md) con alcune limitazioni. 
 >  
@@ -34,10 +37,10 @@ Una singola impostazione di diagnostica può definire non più di una delle dest
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio*: la metrica ' IOReadBytes ' in un blockchain può essere esplorata e mappata in base a un livello per nodo. Tuttavia, quando viene esportato tramite le impostazioni di diagnostica, la metrica esportata rappresenta come tutti i byte letti per tutti i nodi. Inoltre, a causa delle limitazioni interne non tutte le metriche sono esportabili nei log/Log Analytics di monitoraggio di Azure. Per altre informazioni, vedere l' [elenco delle metriche esportabili](metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
-> Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](data-collector-api.md).  
+> Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](data-collector-api.md).  
 
 
-## <a name="destinations"></a>Destinations
+## <a name="destinations"></a>Destinazioni
 
 Le metriche e i log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. Per informazioni dettagliate sull'invio di dati a tale destinazione, seguire ogni collegamento nella tabella seguente.
 
@@ -86,7 +89,7 @@ Per inviare i dati a una risorsa di archiviazione non modificabile, impostare i 
 
       ![Impostazioni di diagnostica](media/diagnostic-settings/menu-monitor.png)
 
-   - Per il log attività, fare clic su **log attività** nel menu **monitoraggio di Azure** e quindi su **impostazioni di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni dettagliate, vedere [disabilitare le impostazioni esistenti](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) .
+   - Per il log attività, fare clic su **log attività** nel menu **monitoraggio di Azure** e quindi su **impostazioni di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni dettagliate, vedere [disabilitare le impostazioni esistenti](./activity-log.md#legacy-collection-methods) .
 
         ![Impostazioni di diagnostica](media/diagnostic-settings/menu-activity-log.png)
 
@@ -141,7 +144,7 @@ Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle
 
 ## <a name="create-using-powershell"></a>Creare usando PowerShell
 
-Usare il cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](powershell-quickstart-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
+Usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](../samples/powershell-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
 
 > [!IMPORTANT]
 > Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](diagnostic-settings-template.md) per creare un modello di gestione risorse e distribuirlo con PowerShell.
@@ -154,7 +157,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Creare usando l'interfaccia della riga di comando
 
-Usare il comando [AZ monitor Diagnostic-Settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) per creare un'impostazione di diagnostica con l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). Per una descrizione dei parametri, vedere la documentazione relativa a questo comando.
+Usare il comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) per creare un'impostazione di diagnostica con l'interfaccia della riga di comando di [Azure](/cli/azure/monitor?view=azure-cli-latest). Per una descrizione dei parametri, vedere la documentazione relativa a questo comando.
 
 > [!IMPORTANT]
 > Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](diagnostic-settings-template.md) per creare un modello di gestione risorse e distribuirlo con l'interfaccia della riga di comando.
@@ -176,7 +179,7 @@ az monitor diagnostic-settings create  \
 Per la creazione o l'aggiornamento delle impostazioni di diagnostica con un modello di Gestione risorse, vedere [esempi di gestione risorse modello per le impostazioni di diagnostica in monitoraggio di Azure](../samples/resource-manager-diagnostic-settings.md) .
 
 ## <a name="create-using-rest-api"></a>Creare usando l'API REST
-Vedere [impostazioni di diagnostica](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) per creare o aggiornare le impostazioni di diagnostica usando l' [API REST di monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/).
+Vedere [impostazioni di diagnostica](/rest/api/monitor/diagnosticsettings) per creare o aggiornare le impostazioni di diagnostica usando l' [API REST di monitoraggio di Azure](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Creare usando criteri di Azure
 Poiché è necessario creare un'impostazione di diagnostica per ogni risorsa di Azure, è possibile usare criteri di Azure per creare automaticamente un'impostazione di diagnostica durante la creazione di ogni risorsa. Per informazioni dettagliate, vedere [distribuire monitoraggio di Azure su larga scala usando criteri di Azure](deploy-scale.md) .

@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a7d12a2be7f2e3d3556d6c8c3303b2ddb8b8738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744039"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503490"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
 La linea di base di sicurezza di Azure per il backup contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
@@ -54,7 +54,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Linee guida**: gli endpoint usati da backup di Azure (incluso l'agente di servizi di ripristino di Microsoft Azure) sono tutti gestiti da Microsoft. L'utente è responsabile di eventuali controlli aggiuntivi che si desidera distribuire nei sistemi locali.
 
-- [Informazioni sul supporto di rete e accesso per l'agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [Informazioni sul supporto di rete e accesso per l'agente MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -72,7 +72,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Linee guida**: gli endpoint usati da backup di Azure (incluso l'agente di servizi di ripristino di Microsoft Azure) sono tutti gestiti da Microsoft. L'utente è responsabile di eventuali controlli aggiuntivi che si desidera distribuire nei sistemi locali.
 
-- [Informazioni sul supporto di rete e accesso per l'agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [Informazioni sul supporto di rete e accesso per l'agente MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -90,7 +90,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Linee guida**: se si usa l'agente Mars in una macchina virtuale di Azure, usare il tag del servizio AZUREBACKUP in NSG o nel firewall di Azure per consentire l'accesso in uscita a backup di Azure.
 
-- [Eseguire il backup di database SQL Server in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms)
+- [Eseguire il backup di database SQL Server in macchine virtuali di Azure](./backup-sql-server-database-azure-vms.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -116,9 +116,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Linee guida**: se si usa l'agente Mars in una macchina virtuale di Azure protetta da un NSG o un firewall di Azure, usare il log attività di Azure per monitorare la configurazione del NSG o del firewall. È possibile creare avvisi in monitoraggio di Azure che verranno attivati quando vengono apportate modifiche a tali risorse.
 
-- [Visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -126,7 +126,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: registrazione e monitoraggio](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
@@ -142,11 +142,11 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 È anche possibile inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da backup di Azure. Nel monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
+- [Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino](./backup-azure-diagnostic-events.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -158,9 +158,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 Inoltre, backup di Azure invia eventi di diagnostica che possono essere raccolti e usati a scopo di analisi, avvisi e report. È possibile configurare le impostazioni di diagnostica per un insieme di credenziali di servizi di ripristino tramite il portale di Azure. È possibile inviare uno o più eventi di diagnostica a un account di archiviazione, a un hub eventi o a un'area di lavoro Log Analytics.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
+- [Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino](./backup-azure-diagnostic-events.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -178,7 +178,7 @@ Inoltre, backup di Azure invia eventi di diagnostica che possono essere raccolti
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro log Analytics associate agli insiemi di credenziali dei servizi di ripristino di Azure in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -190,11 +190,11 @@ Inoltre, backup di Azure invia eventi di diagnostica che possono essere raccolti
 
 Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro Log Analytics. Eseguire query in Log Analytics per cercare termini, identificare tendenze, analizzare modelli e fornire molte altre informazioni basate sui dati del log attività che potrebbero essere stati raccolti per gli insiemi di credenziali dei servizi di ripristino.
 
-- [Monitoraggio dei carichi di lavoro di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)
+- [Monitoraggio dei carichi di lavoro di backup di Azure](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Come raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+- [Come raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -208,11 +208,11 @@ Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in mo
 
 È anche possibile eseguire l'onboarding di un'area di lavoro di Log Analytics in Sentinel di Azure, perché fornisce una soluzione di risposta automatica per l'orchestrazione della sicurezza. In questo modo è possibile creare playbook (soluzioni automatizzate) e usarli per risolvere i problemi di sicurezza. Inoltre, è possibile creare avvisi di log personalizzati nell'area di lavoro di Log Analytics usando monitoraggio di Azure.
 
-- [Monitoraggio dei carichi di lavoro di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)
+- [Monitoraggio dei carichi di lavoro di backup di Azure](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+- [Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure](../azure-monitor/platform/alerts-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -244,7 +244,7 @@ Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in mo
 
 ## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: mantenere un inventario degli account amministrativi
 
@@ -252,9 +252,9 @@ Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in mo
 
 Documentazione di supporto:
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -274,9 +274,9 @@ Documentazione di supporto:
 
 Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile usare le raccomandazioni del Centro sicurezza di Azure o dei criteri predefiniti di Azure, ad esempio: è necessario che siano stati assegnati più proprietari agli account deprecati della sottoscrizione con le autorizzazioni proprietarie da rimuovere dalla sottoscrizione gli account esterni con autorizzazioni proprietario.
 
-- [Come usare il Centro sicurezza di Azure per monitorare l'identità e l'accesso (Anteprima)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Come usare il Centro sicurezza di Azure per monitorare l'identità e l'accesso (Anteprima)](../security-center/security-center-identity-access.md)
 
-- [Come usare Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come usare Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -286,11 +286,11 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare una registrazione di app di Azure (entità servizio) per recuperare un token che può essere usato per interagire con gli insiemi di credenziali dei servizi di ripristino tramite chiamate API.
 
-- [Come chiamare le API REST di Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+- [Come chiamare le API REST di Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-- [Come registrare l'applicazione client (entità servizio) con Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [Come registrare l'applicazione client (entità servizio) con Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informazioni sull'API dei servizi di ripristino di Azure](https://docs.microsoft.com/rest/api/recoveryservices/)
+- [Informazioni sull'API dei servizi di ripristino di Azure](/rest/api/recoveryservices/)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -300,9 +300,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Linee guida**: quando si eseguono operazioni critiche in backup di Azure, è necessario immettere un pin di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
 
-- [Multi-Factor Authentication in backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)
+- [Multi-Factor Authentication in backup di Azure](./backup-azure-security-feature.md)
 
-- [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -312,9 +312,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare una workstation con accesso con privilegi (Paw) con Azure multi-factor authentication (multi-factor authentication) configurato per accedere e configurare le risorse abilitate per il backup di Azure.
 
-- [Workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -326,9 +326,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e i report sul comportamento utente rischioso.
 
-- [Come distribuire Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -338,7 +338,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Indicazioni**: usare le località denominate di accesso condizionale per consentire l'accesso al portale di Azure solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche.
 
-- [Come configurare località denominate in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -348,9 +348,9 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Linee guida**: usare Azure Active Directory (ad) come sistema di autenticazione e autorizzazione centrale per le istanze di backup di Azure. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
 
-- [Come configurare backup di Azure per usare Azure AD account di accesso](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Come configurare backup di Azure per usare Azure AD account di accesso](../app-service/configure-authentication-provider-aad.md)
 
-- [Come creare e configurare un'istanza di AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -360,9 +360,9 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Linee guida**: Azure Active Directory (ad) fornisce log che consentono di individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare le verifiche di accesso alle identità di Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -376,9 +376,9 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi del log desiderati all'interno Log Analytics.
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Come caricare dati in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come caricare dati in Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -388,13 +388,13 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Linee guida**: usare Azure Active Directory (ad) come sistema di autenticazione e autorizzazione centrale per gli insiemi di credenziali dei servizi di ripristino. Per la deviazione del comportamento di accesso dell'account nel piano di controllo (il portale di Azure), usare Azure AD Identity Protection e funzionalità di rilevamento dei rischi per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
 
-- [Come configurare backup di Azure per usare Azure AD account di accesso](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Come configurare backup di Azure per usare Azure AD account di accesso](../app-service/configure-authentication-provider-aad.md)
 
-- [Come visualizzare Azure AD l'accesso rischioso](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare Azure AD l'accesso rischioso](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -404,7 +404,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Linee guida**: attualmente non disponibile; Customer Lockbox non è ancora supportato per backup di Azure.
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -412,13 +412,13 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
 **Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -432,13 +432,13 @@ Implementare sottoscrizioni e/o gruppi di gestione distinti per gli insiemi di c
 
 Documentazione di supporto:
 
-- [Panoramica di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview)
+- [Panoramica di Backup di Azure](./backup-overview.md)
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create.md)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -450,7 +450,7 @@ Documentazione di supporto:
 
 Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -460,7 +460,7 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 **Linee guida**: il traffico di backup dai server all'insieme di credenziali dei servizi di ripristino viene trasferito tramite un collegamento HTTPS sicuro e crittografato con Advanced Encryption Standard (AES) 256 se archiviato nell'insieme di credenziali.
 
-- [Informazioni sulla crittografia dei inattivi in backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
+- [Informazioni sulla crittografia dei inattivi in backup di Azure](./backup-encryption.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -472,7 +472,7 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -484,9 +484,9 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup: collaboratore backup, operatore di backup e lettore di backup. È possibile eseguire il mapping dei ruoli predefiniti di backup a diverse azioni di gestione di backup.
 
-- [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)
+- [Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure](./backup-rbac-rs-vault.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -496,7 +496,7 @@ Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di ges
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo. Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-- [Protezione dei dati dei clienti di Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Protezione dei dati dei clienti di Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -508,7 +508,7 @@ Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di ges
 
 Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali di servizi di ripristino crittografato con una chiave gestita dal cliente, solo l'utente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
 
-- [Informazioni sulla crittografia dei inattivi per backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
+- [Informazioni sulla crittografia dei inattivi per backup di Azure](./backup-encryption.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -518,7 +518,7 @@ Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando vengono apportate modifiche agli insiemi di credenziali di servizi di ripristino di Azure di produzione e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -526,7 +526,7 @@ Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali 
 
 ## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle vulnerabilità](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
@@ -534,7 +534,7 @@ Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali 
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esaminare i controlli di sicurezza disponibili per backup di Azure per ridurre le vulnerabilità correlate alla configurazione dei servizi.
 
-- [Informazioni sui controlli di sicurezza disponibili per backup di Azure](https://docs.microsoft.com/azure/backup/backup-security-controls)
+- [Informazioni sui controlli di sicurezza disponibili per backup di Azure](./backup-security-controls.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -568,7 +568,7 @@ Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esa
 
 **Linee guida**: attualmente non disponibile; le configurazioni di sicurezza per backup di Azure non sono ancora supportate nel centro sicurezza di Azure.
 
-- [Elenco dei servizi PaaS supportati dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Elenco dei servizi PaaS supportati dal centro sicurezza di Azure](../security-center/features-paas.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -576,7 +576,7 @@ Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esa
 
 ## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usare l'individuazione di asset in Azure
 
@@ -584,11 +584,11 @@ Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esa
 
 Sebbene le risorse di Azure (versione classica) possano essere individuate tramite Resource Graph, in futuro è consigliabile creare e usare le risorse di Azure Resource Manager.
 
-- [Come creare query con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -598,7 +598,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -610,11 +610,11 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti: i tipi di risorse non consentiti sono consentiti.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create.md)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -634,9 +634,9 @@ Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse ch
 
 Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -670,9 +670,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti: non sono consentiti tipi di risorse consentiti
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -690,7 +690,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure.
 
-- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -714,15 +714,15 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: definire configurazioni sicure per tutte le risorse di Azure
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per l'insieme di credenziali di servizi di ripristino con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. RecoveryServices" per creare criteri personalizzati per controllare o applicare la configurazione degli insiemi di credenziali dei servizi di ripristino.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -740,9 +740,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -760,9 +760,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -780,7 +780,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare le definizioni di criteri di Azure predefinite e gli alias di criteri di Azure nello spazio dei nomi "Microsoft. RecoveryServices" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -798,7 +798,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare le definizioni di criteri di Azure predefinite e gli alias di criteri di Azure nello spazio dei nomi "Microsoft. RecoveryServices" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Usare i criteri di Azure [audit], [deny] e [Deploy if not exist] per applicare automaticamente le configurazioni per le risorse di Azure.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -816,9 +816,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: quando si configura l'agente Mars, archiviare la passphrase di crittografia all'interno Azure Key Vault.
 
-- [Come creare una Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/managed-identity.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -828,7 +828,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: non applicabile; Le identità gestite non sono supportate per backup di Azure.
 
-- [Servizi che supportano le identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+- [Servizi che supportano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -846,7 +846,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usare software antimalware gestito in modo centralizzato
 
@@ -864,9 +864,9 @@ Pre-analizza tutti i file caricati in risorse di Azure non di calcolo, ad esempi
 
 Usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati per rilevare il malware caricato negli account di archiviazione.
 
-- [Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/fundamentals/antimalware.md)
 
-- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](../security-center/threat-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -882,7 +882,7 @@ Usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi d
 
 ## <a name="data-recovery"></a>Ripristino dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
@@ -898,11 +898,11 @@ Usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi d
 
 Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
-- [Panoramica di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview)
+- [Panoramica di Backup di Azure](./backup-overview.md)
 
-- [Come eseguire il backup di chiavi di Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informazioni sulla crittografia in backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
+- [Informazioni sulla crittografia in backup di Azure](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -912,7 +912,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 **Indicazioni**: ripristino di test delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Come ripristinare le chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -922,7 +922,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 **Linee guida**: per il backup in locale, la crittografia dei componenti inattivi viene fornita usando la passphrase fornita durante il backup in Azure. Per le macchine virtuali di Azure, i dati inattivi sono crittografati usando la crittografia del servizio di archiviazione. È possibile abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -930,13 +930,13 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare una guida per rispondere agli eventi imprevisti
 
 **Indicazioni**: creare una guida per rispondere agli eventi imprevisti per la propria organizzazione. Assicurasi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi di gestione degli eventi imprevisti, dal rilevamento alla verifica post-evento imprevisto.
 
-- [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Indicazioni per la creazione di un processo di risposta agli eventi imprevisti di sicurezza](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -972,7 +972,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente.  Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
-- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -982,9 +982,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi in Sentinel.
 
-- [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
-- [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -994,7 +994,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite App per la logica negli avvisi di sicurezza e nelle raccomandazioni.
 
-- [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1002,7 +1002,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: eseguire con regolarità test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici in termini di sicurezza entro 60 giorni
 
@@ -1016,5 +1016,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Vedere altre informazioni sulle [baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Benchmark di sicurezza di Azure](../security/benchmarks/overview.md)
+- Vedere altre informazioni sulle [baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

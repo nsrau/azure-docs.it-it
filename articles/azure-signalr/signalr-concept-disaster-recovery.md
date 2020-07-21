@@ -6,13 +6,14 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf8191b0a76ad442ac5d2b286c214f6ee9da822
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73747640"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504853"
 ---
-# <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
+# <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Resilienza e ripristino di emergenza nel servizio Azure SignalR
 
 La resilienza e il ripristino di emergenza sono un'esigenza comune per i sistemi online. Il servizio Azure SignalR garantisce già una disponibilità del 99,9%, ma è comunque un servizio a livello di area.
 L'istanza del servizio è sempre in esecuzione in un'area e non esegue il failover in un'altra area quando si verifica un'interruzione a livello di area.

@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99685b4d1476ee527b9eb7f1332f6a6beece669
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68834593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499973"
 ---
 # <a name="ibm-workloads-on-azure"></a>Carichi di lavoro IBM in Azure
 
@@ -36,7 +37,7 @@ Inoltre, il software IBM, incluso WebSphere e MQ, è ora disponibile in Azure Ma
 
 **Passaggi successivi**
 
-- [Migrazione del mainframe: miti e fact](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Migrazione del mainframe: miti e fact](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Installare l'ambiente di sviluppo/test IBM zD&T in Azure](./install-ibm-z-environment.md)
 - [Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1](./demo.md)
-- [IBM DB2 pureScale in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [IBM DB2 pureScale in Azure](../../../linux/ibm-db2-purescale-azure.md)

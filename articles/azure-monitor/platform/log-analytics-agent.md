@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505143"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
-L'agente di Azure Log Analytics è stato sviluppato per la gestione completa di macchine virtuali in qualsiasi cloud, di computer locali e di computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in Monitoraggio di Azure, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](/azure/security-center/) e [Automazione di Azure](../../automation/automation-intro.md).
+L'agente di Azure Log Analytics è stato sviluppato per la gestione completa di macchine virtuali in qualsiasi cloud, di computer locali e di computer monitorati da [System Center Operations Manager](/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in Monitoraggio di Azure, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](../../security-center/index.yml) e [Automazione di Azure](../../automation/automation-intro.md).
 
 Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
 
@@ -30,7 +31,7 @@ Le differenze principali da considerare sono le seguenti:
 
 - L'estensione Diagnostica di Azure può essere usata solo con le macchine virtuali di Azure. L'agente di Log Analytics può essere usato con le macchine virtuali di Azure, in altri cloud e in locale.
 - L'estensione Diagnostica di Azure invia i dati ad Archiviazione di Azure, alle [metriche di Monitoraggio di Azure](data-platform-metrics.md) (solo Windows) e a Hub eventi. L'agente di Log Analytics raccoglie i dati da inviare ai [log di Monitoraggio di Azure](data-platform-logs.md).
-- L'agente di Log Analytics è necessario per [soluzioni](../monitor-reference.md#insights-and-core-solutions), [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) e altri servizi, ad esempio [Centro sicurezza di Azure](/azure/security-center/).
+- L'agente di Log Analytics è necessario per [soluzioni](../monitor-reference.md#insights-and-core-solutions), [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) e altri servizi, ad esempio [Centro sicurezza di Azure](../../security-center/index.yml).
 
 ## <a name="costs"></a>Costi
 Non sono previsti costi per l'agente di Log Analytics, ma è possibile che vengano addebitati costi per i dati inseriti. Per informazioni dettagliate sui prezzi per i dati raccolti in un'area di lavoro Log Analytics, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](manage-cost-storage.md).
@@ -58,7 +59,7 @@ Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario 
 
 * Per raccogliere i dati dagli agenti Windows, è possibile [configurare che ogni agente invii i report a una o più aree di lavoro](agent-windows.md), anche durante l'invio di report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può inviare i report a un massimo di quattro aree di lavoro.
 * L'agente Linux non supporta il multihoming e può inviare i report solo a un'unica area di lavoro.
-* L'agente Windows supporta lo [standard FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), mentre l'agente Linux non lo supporta.  
+* L'agente Windows supporta lo [standard FIPS 140](/windows/security/threat-protection/fips-140-validation), mentre l'agente Linux non lo supporta.  
 
 Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 
@@ -124,7 +125,7 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 L'eseguibile di python2 deve essere associato a "Python" usando il comando seguente:
 
 ```
-alternatives --set python /usr/sbin/python2
+alternatives --set python `which python2`
 ```
 
 ### <a name="supported-distros"></a>Distribuzioni supportate
@@ -192,7 +193,7 @@ La tabella seguente elenca le informazioni di configurazione del proxy e del fir
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |
 |*.azure-automation.net |Porta 443 |In uscita|Sì |
 
-Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
 Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook o le soluzioni di gestione nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

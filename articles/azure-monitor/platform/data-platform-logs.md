@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505278"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -41,10 +41,10 @@ La tabella seguente elenca le diverse modalità per l'uso dei log in Monitoraggi
 
 |  | Descrizione |
 |:---|:---|
-| **Analisi** | Usare [Log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando il potente motore di analisi Esplora dati.<br>Usare la [console di analisi Application Insights](../app/analytics.md) nel portale di Azure per scrivere query di log e analizzare in modo interattivo i dati di log da Application Insights. |
+| **Analisi** | Usare [Log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando il potente motore di analisi Esplora dati.<br>Usare la [console di analisi Application Insights](../log-query/log-query-overview.md) nel portale di Azure per scrivere query di log e analizzare in modo interattivo i dati di log da Application Insights. |
 | **Visualizzazione** | Aggiungere i risultati delle query visualizzati come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](../platform/workbooks-overview.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati.|
 | **Avviso** | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico.<br>Configurare una [regola di avviso della metrica](alerts-metric-logs.md) in determinati log di dati estratti come metriche. |
-| **Recupero** | Accedere ai risultati delle query di log da una riga di comando usando l'[interfaccia della riga di comando di Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accedere ai risultati delle query di log da una riga di comando usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accedere ai risultati delle query di log da un'applicazione personalizzata usando l'[API REST](https://dev.loganalytics.io/). |
+| **Recupero** | Accedere ai risultati delle query di log da una riga di comando usando l'[interfaccia della riga di comando di Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accedere ai risultati delle query di log da una riga di comando usando i [cmdlet di PowerShell](/powershell/module/az.operationalinsights).<br>Accedere ai risultati delle query di log da un'applicazione personalizzata usando l'[API REST](https://dev.loganalytics.io/). |
 | **Export** | Compilare un flusso di lavoro per recuperare i dati di log e copiarli in una posizione esterna usando [App per la logica](~/articles/logic-apps/index.yml). |
 
 
@@ -58,11 +58,11 @@ Le query di log usano i dati di un'area di lavoro Log Analytics o di un'applicaz
 ![Aree di lavoro](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>Query di log
-I dati dei log di Monitoraggio di Azure vengono recuperati tramite una [query di log](../log-query/log-query-overview.md) scritta con il [linguaggio di query Kusto](../log-query/get-started-queries.md), che consente di recuperare, consolidare e analizzare velocemente i dati raccolti. Usare [Log Analytics](../log-query/portals.md) per scrivere e testare le query di log nel portale di Azure. Questo strumento consente di elaborare i risultati in modo interattivo o di aggiungerli a un dashboard per visualizzarli insieme ad altri dati.
+I dati dei log di Monitoraggio di Azure vengono recuperati tramite una [query di log](../log-query/log-query-overview.md) scritta con il [linguaggio di query Kusto](../log-query/get-started-queries.md), che consente di recuperare, consolidare e analizzare velocemente i dati raccolti. Usare [Log Analytics](../log-query/log-query-overview.md) per scrivere e testare le query di log nel portale di Azure. Questo strumento consente di elaborare i risultati in modo interattivo o di aggiungerli a un dashboard per visualizzarli insieme ad altri dati.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
-Aprire [Log Analytics da Application Insights](../app/analytics.md) per analizzare i dati di Application Insights.
+Aprire [Log Analytics da Application Insights](../log-query/log-query-overview.md) per analizzare i dati di Application Insights.
 
 ![Analytics in Application Insights](media/data-platform-logs/app-insights-analytics.png)
 
@@ -74,32 +74,32 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 ### <a name="azure-tenant-and-subscription"></a>Tenant e sottoscrizione di Azure
 
-| Dati | Descrizione |
+| Data | Descrizione |
 |:---|:---|
 | Log di controllo di Azure Active Directory | Configurati tramite impostazioni di diagnostica per ogni directory. Vedere [Integrare i log di Azure AD con i log di Monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Log attività | Archiviati separatamente per impostazione predefinita; possono essere usati per gli avvisi near real-time. Installare la soluzione Analisi log attività per scrivere nell'area di lavoro Log Analytics. Vedere [Raccogliere e analizzare i log attività di Azure in Log Analytics](activity-log-collect.md). |
+| Log attività | Archiviati separatamente per impostazione predefinita; possono essere usati per gli avvisi near real-time. Installare la soluzione Analisi log attività per scrivere nell'area di lavoro Log Analytics. Vedere [Raccogliere e analizzare i log attività di Azure in Log Analytics](./activity-log.md). |
 
 ### <a name="azure-resources"></a>Risorse di Azure
 
-| Dati | Descrizione |
+| Data | Descrizione |
 |:---|:---|
-| Diagnostica delle risorse | Configurare le impostazioni di diagnostica da scrivere nei dati di diagnostica, incluse le metriche in un'area di lavoro Log Analytics. Vedere [Trasmettere i log delle risorse di Azure a Log Analytics](resource-logs-collect-workspace.md). |
-| Soluzioni di monitoraggio | Le soluzioni di monitoraggio scrivono i dati raccolti nella loro area di lavoro Log Analytics. Per un elenco di soluzioni, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../insights/solutions-inventory.md). Per informazioni dettagliate sull'installazione e l'uso di soluzioni, vedere [Soluzioni di monitoraggio in Monitoraggio di Azure](../insights/solutions.md). |
-| Metriche | Inviare metriche della piattaforma per le risorse di Monitoraggio di Azure a un'area di lavoro di Log Analytics per mantenere i dati di log per periodi più lunghi e per eseguire analisi complesse con altri tipi di dati usando il [linguaggio di query Kusto](/azure/kusto/query/). Vedere [Trasmettere i log delle risorse di Azure a Log Analytics](resource-logs-collect-storage.md). |
+| Diagnostica delle risorse | Configurare le impostazioni di diagnostica da scrivere nei dati di diagnostica, incluse le metriche in un'area di lavoro Log Analytics. Vedere [Trasmettere i log delle risorse di Azure a Log Analytics](./resource-logs.md#send-to-log-analytics-workspace). |
+| Soluzioni di monitoraggio | Le soluzioni di monitoraggio scrivono i dati raccolti nella loro area di lavoro Log Analytics. Per un elenco di soluzioni, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitor-reference.md). Per informazioni dettagliate sull'installazione e l'uso di soluzioni, vedere [Soluzioni di monitoraggio in Monitoraggio di Azure](../insights/solutions.md). |
+| Metriche | Inviare metriche della piattaforma per le risorse di Monitoraggio di Azure a un'area di lavoro di Log Analytics per mantenere i dati di log per periodi più lunghi e per eseguire analisi complesse con altri tipi di dati usando il [linguaggio di query Kusto](/azure/kusto/query/). Vedere [Trasmettere i log delle risorse di Azure a Log Analytics](./resource-logs.md#send-to-azure-storage). |
 | Archiviazione tabelle di Azure | Raccogliere i dati dalle risorse di archiviazione di Azure in cui alcune risorse di Azure scrivono i dati di monitoraggio. Vedere [Usare l'archiviazione BLOB di Azure per IIS e l'archiviazione tabelle di Azure per gli eventi con Log Analytics](diagnostics-extension-logs.md). |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
-| Dati | Descrizione |
+| Data | Descrizione |
 |:---|:---|
 |  Origini dati degli agenti | Le origini dati raccolte dagli agenti [Windows](agent-windows.md) e [Linux](../learn/quick-collect-linux-computer.md) includono eventi, dati sulle prestazioni e log personalizzati. Per l'elenco delle origini dati e informazioni dettagliate sulla configurazione, vedere [Origini dati degli agenti in Monitoraggio di Azure](data-sources.md). |
-| Soluzioni di monitoraggio | Le soluzioni di monitoraggio scrivono i dati raccolti dagli agenti nella loro area di lavoro Log Analytics. Per un elenco di soluzioni, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../insights/solutions-inventory.md). Per informazioni dettagliate sull'installazione e l'uso di soluzioni, vedere [Soluzioni di monitoraggio in Monitoraggio di Azure](../insights/solutions.md). |
+| Soluzioni di monitoraggio | Le soluzioni di monitoraggio scrivono i dati raccolti dagli agenti nella loro area di lavoro Log Analytics. Per un elenco di soluzioni, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitor-reference.md). Per informazioni dettagliate sull'installazione e l'uso di soluzioni, vedere [Soluzioni di monitoraggio in Monitoraggio di Azure](../insights/solutions.md). |
 | System Center Operations Manager | Connettere il gruppo di gestione di Operations Manager a Monitoraggio di Azure per raccogliere dati di eventi e prestazioni dagli agenti locali nei log. Per informazioni dettagliate su questa configurazione, vedere [Connettere Operations Manager a Log Analytics](om-agents.md). |
 
 
 ### <a name="applications"></a>APPLICAZIONI
 
-| Dati | Descrizione |
+| Data | Descrizione |
 |:---|:---|
 | Richieste ed eccezioni | Dati dettagliati relativi alle richieste e alle eccezioni delle applicazioni sono disponibili nelle tabelle _requests_, _pageViews_ ed _exceptions_. Le chiamate a [componenti esterni](../app/asp-net-dependencies.md) sono disponibili nella tabella _dependencies_. |
 | Utilizzo e prestazioni | Le prestazioni dell'applicazione sono disponibili nelle tabelle _requests_, _browserTimings_ e _performanceCounters_. I dati per [metriche personalizzate](../app/api-custom-events-metrics.md#trackevent) sono disponibili nella tabella _customMetrics_.|
@@ -115,7 +115,7 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 ### <a name="custom"></a>Personalizzato 
 
-| Dati | Descrizione |
+| Data | Descrizione |
 |:---|:---|
 | API REST | Scrivere dati in un'area di lavoro Log Analytics da qualsiasi client REST. Per informazioni dettagliate, vedere [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP](data-collector-api.md).
 | App per la logica | Scrivere qualsiasi dato in un'area di lavoro Log Analytics da un flusso di lavoro di un'app per la logica con l'azione **Agente di raccolta dati di Azure Log Analytics**. |
@@ -124,8 +124,8 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 | Data | Descrizione |
 |:---|:---|
-| Centro sicurezza di Azure | Il [Centro sicurezza di Azure](/azure/security-center/) archivia i dati raccolti in un'area di lavoro Log Analytics in cui possono essere analizzati con altri dati di log. Per informazioni dettagliate sulla configurazione dell'area di lavoro, vedere [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md). |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) archivia i dati dalle origini dati in un'area di lavoro Log Analytics. Vedere [Connettere le origini dati](/azure/sentinel/connect-data-sources).  |
+| Centro sicurezza di Azure | Il [Centro sicurezza di Azure](../../security-center/index.yml) archivia i dati raccolti in un'area di lavoro Log Analytics in cui possono essere analizzati con altri dati di log. Per informazioni dettagliate sulla configurazione dell'area di lavoro, vedere [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md). |
+| Azure Sentinel | [Azure Sentinel](../../sentinel/index.yml) archivia i dati dalle origini dati in un'area di lavoro Log Analytics. Vedere [Connettere le origini dati](../../sentinel/connect-data-sources.md).  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

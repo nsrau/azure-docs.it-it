@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783540"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503031"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale 
 Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni delle macchine virtuali di Azure che non dispongono di un disco temporaneo locale (ovvero senza una scrivania temporanea locale). Per altre informazioni su queste dimensioni delle macchine virtuali, vedere [specifiche per DV4 e serie Dsv4 (carichi di lavoro per utilizzo generico)](dv4-dsv4-series.md) o [specifiche per Ev4 e serie Esv4 (carichi di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md).
@@ -22,7 +23,7 @@ Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni del
 ## <a name="what-does-no-local-temp-disk-mean"></a>Che cosa significa nessun disco temporaneo locale? 
 Tradizionalmente, le dimensioni delle macchine virtuali, ad esempio Standard_D2s_v3, Standard_E48_v3, includono un piccolo disco locale, ad esempio un'unità D:. Ora, con le nuove dimensioni delle macchine virtuali, il disco locale di dimensioni ridotte non esiste più; Tuttavia, è comunque possibile aggiungere HDD Standard, SSD Premium o Ultra SSD.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>Che cosa succede se si vuole ancora il disco temporaneo locale?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>Cosa accade se si vuole ancora un disco temporaneo locale?
 Se il carico di lavoro richiede un disco temporaneo locale, sono disponibili anche nuove dimensioni di VM [Ddv4 e Ddsv4](ddv4-ddsv4-series.md) o [Edv4 e Edsv4](edv4-edsv4-series.md) . Queste dimensioni offrono un disco temporaneo 50% superiore rispetto alle dimensioni V3 precedenti.
 
 > [!NOTE]

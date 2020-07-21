@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2d37e20ada2d1128f04d2df822da996338e0e6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500872"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare e usare immagini di VM in Azure Marketplace con Azure PowerShell
 
@@ -44,13 +44,13 @@ Questa tabella illustra un subset degli SKU disponibili per le offerte e i serve
 
 ## <a name="navigate-the-images"></a>Esplorare le immagini
 
-Un altro modo per trovare un'immagine in una posizione consiste nell'eseguire in sequenza i cmdlet [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) e [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku):
+Un altro modo per trovare un'immagine in una posizione consiste nell'eseguire in sequenza i cmdlet [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) e [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku):
 
 1. Elencando gli editori di immagini.
 2. Elencando le offerte di un determinato editore.
 3. Elencando le SKU di una determinata offerta.
 
-Quindi, per uno SKU selezionato, eseguire [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage) per ottenere un elenco delle versioni da distribuire.
+Quindi, per uno SKU selezionato, eseguire [Get-AzVMImage](/powershell/module/az.compute/get-azvmimage) per ottenere un elenco delle versioni da distribuire.
 
 1. Elencare gli editori:
 
@@ -168,7 +168,7 @@ $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Ora è possibile combinare l'editore, l'offerta, lo SKU e la versione selezionati in un URN (valori separati da :). Passare questo URN con il parametro `--image` quando si crea una macchina virtuale con il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). È possibile sostituire il numero di versione nell'URN con "latest" per ottenere la versione più recente dell'immagine.
+Ora è possibile combinare l'editore, l'offerta, lo SKU e la versione selezionati in un URN (valori separati da :). Passare questo URN con il parametro `--image` quando si crea una macchina virtuale con il cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). È possibile sostituire il numero di versione nell'URN con "latest" per ottenere la versione più recente dell'immagine.
 
 Se si distribuisce una macchina virtuale con un modello di Resource Manager, impostare i parametri dell'immagine singolarmente nelle proprietà `imageReference`. Vedere le [informazioni di riferimento sul modello](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -235,7 +235,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Accettare le condizioni
 
-Per visualizzare le condizioni di licenza, usare il cmdlet [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) e passare i parametri del piano di acquisto. L'output include un collegamento alle condizioni di licenza per l'immagine del Marketplace e mostra se le condizioni sono già state accettate in precedenza. Assicurarsi di usare tutte lettere minuscole nei valori dei parametri.
+Per visualizzare le condizioni di licenza, usare il cmdlet [Get-AzMarketplaceterms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) e passare i parametri del piano di acquisto. L'output include un collegamento alle condizioni di licenza per l'immagine del Marketplace e mostra se le condizioni sono già state accettate in precedenza. Assicurarsi di usare tutte lettere minuscole nei valori dei parametri.
 
 ```powershell
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -254,7 +254,7 @@ Accepted          : False
 Signdate          : 1/25/2019 7:43:00 PM
 ```
 
-Usare il cmdlet [Set-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) per accettare o rifiutare le condizioni. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Assicurarsi di usare tutte lettere minuscole nei valori dei parametri. 
+Usare il cmdlet [Set-AzMarketplaceterms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) per accettare o rifiutare le condizioni. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Assicurarsi di usare tutte lettere minuscole nei valori dei parametri. 
 
 ```powershell
 $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -278,7 +278,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Distribuire usando i parametri di piano di acquisto
 
-Dopo avere accettato le condizioni per l'immagine, è possibile distribuire una macchina virtuale nella sottoscrizione. Per impostare le informazioni sul piano del Marketplace per l'oggetto macchina virtuale, usare il cmdlet [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan), come illustrato nel frammento di codice seguente. Per uno script completo per creare le impostazioni di rete per la macchina virtuale e completare la distribuzione, vedere gli [esempi di script di PowerShell](powershell-samples.md).
+Dopo avere accettato le condizioni per l'immagine, è possibile distribuire una macchina virtuale nella sottoscrizione. Per impostare le informazioni sul piano del Marketplace per l'oggetto macchina virtuale, usare il cmdlet [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan), come illustrato nel frammento di codice seguente. Per uno script completo per creare le impostazioni di rete per la macchina virtuale e completare la distribuzione, vedere gli [esempi di script di PowerShell](powershell-samples.md).
 
 ```powershell
 ...
@@ -317,5 +317,3 @@ Passare quindi la configurazione della macchina virtuale e gli oggetti di config
 Per creare rapidamente una macchina virtuale con il cmdlet `New-AzVM` usando le informazioni di base sull'immagine, vedere [Creare una macchina virtuale Windows con PowerShell](quick-create-powershell.md).
 
 Per altre informazioni sull'uso delle immagini di Azure Marketplace per creare immagini personalizzate in una raccolta di immagini condivise, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../marketplace-images.md).
-
-

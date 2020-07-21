@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610847"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504221"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -78,7 +78,7 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 
 ## <a name="compare-with-transactional-replication"></a>Confronto con la replica transazionale
 
-| | Sincronizzazione dei dati | Replica transazionale |
+| Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione <br/>-Supporto per Istanza gestita SQL di Azure |
 | Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>-    Alti costi di manutenzione |

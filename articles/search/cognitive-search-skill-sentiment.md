@@ -8,11 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 15118c9c3d2d1a528c62b539ab7bdd8f174c19de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080109"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503218"
 ---
 # <a name="sentiment-cognitive-skill"></a>Competenza valutazione cognitiva
 
@@ -35,7 +36,7 @@ La dimensione massima di un record deve essere di 5000 caratteri misurata da [`S
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro |                      |
+| Nome parametro | Descrizione |
 |----------------|----------------------|
 | `defaultLanguageCode` | (facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 

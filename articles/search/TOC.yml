@@ -114,10 +114,8 @@
   items:
     - name: Creare indici e costrutti
       items:
-        - name: Creare un indice di base
+        - name: Creare un indice
           href: search-what-is-an-index.md
-        - name: Creare un indice (portale)
-          href: search-create-index-portal.md
         - name: Creare un indice multilingue
           href: search-language-support.md
         - name: Analizzatori
@@ -382,12 +380,6 @@
       href: /powershell/module/az.search
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.search/searchservices
-    - name: .NET
-      items:
-        - name: microsoft.azure.search
-          href: /dotnet/api/overview/azure/search?view=azure-dotnet
-        - name: microsoft.azure.management.search
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: REST
       items:
         - name: Ricerca 2020-06-30
@@ -398,10 +390,28 @@
           href: /rest/api/searchmanagement
         - name: Gestione 2019-10-01-Preview
           href: /rest/api/searchmanagement/index-2019-10-01-preview
-    - name: Python
+    - name: .NET
+      items:
+        - name: API di ricerca
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet'
+        - name: API di gestione
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet'
+    - name: Java
       items:
         - name: API di gestione
-          href: /python/api/overview/azure/search?view=azure-python
+          href: 'https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable'
+    - name: JavaScript
+      items:
+        - name: API di ricerca
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest'
+        - name: API di gestione
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest'
+    - name: Python
+      items:
+        - name: API di ricerca
+          href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python'
+        - name: API di gestione
+          href: 'https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python'
     - name: Informazioni di riferimento sul linguaggio OData
       items:
         - name: Panoramica

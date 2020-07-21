@@ -9,14 +9,15 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198115"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503048"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
-I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e come modificare questo modello per adattarsi a diversi scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
+I [modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e come modificare questo modello per adattarsi a diversi scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
 
 Questo modello è progettato per essere semplice. Per esempi più completi di modelli di set di scalabilità, vedere [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) (Archivio GitHub Modelli di avvio rapido di Azure) e cercare le cartelle contenenti la stringa `vmss`.
 
@@ -114,7 +115,7 @@ In questo caso c'è solo un elemento nell'elenco, ovvero la rete virtuale dell'e
 ## <a name="specify-scale-set-properties"></a>Specificare le proprietà del set di scalabilità
 I set di scalabilità hanno molte proprietà per personalizzare le macchine virtuali nel set di scalabilità. Per un elenco completo di queste proprietà, vedere le [informazioni di riferimento sui modelli](/azure/templates/microsoft.compute/virtualmachinescalesets). Per questa esercitazione, vengono impostate solo alcune proprietà usate di frequente.
 ### <a name="supply-vm-size-and-capacity"></a>Specificare capacità e dimensioni della macchina virtuale
-Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da creare ("nome SKU") e quante macchine virtuali di questo tipo deve creare ("capacità SKU"). Per visualizzare le dimensioni disponibili di macchine virtuali, vedere [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes) (Documentazione delle dimensioni di macchine virtuali).
+Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da creare ("nome SKU") e quante macchine virtuali di questo tipo deve creare ("capacità SKU"). Per visualizzare le dimensioni disponibili di macchine virtuali, vedere [VM Sizes documentation](../virtual-machines/windows/sizes.md) (Documentazione delle dimensioni di macchine virtuali).
 
 ```json
        "sku": {

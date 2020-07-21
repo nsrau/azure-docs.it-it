@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124460"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505364"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](./data-platform.md?toc=/azure/azure-monitor/toc.json).
 
 Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest per i Servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
@@ -30,9 +30,9 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 - È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
-- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 
-Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
+Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md). Tenere presente quanto segue durante questo processo: 
 
 - È possibile inserire qualsiasi URL come URL di accesso.  
 - Creare un nuovo segreto client per l'app.  
@@ -192,4 +192,3 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
-

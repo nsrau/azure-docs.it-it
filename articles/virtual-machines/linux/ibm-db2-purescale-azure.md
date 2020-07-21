@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502334"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 
@@ -39,7 +40,7 @@ Per decidere più facilmente l'architettura DB2 pureScale più adatta al proprio
 > [!NOTE]
 > Questo articolo descrive un solo approccio alla migrazione di DB2, ma ne esistono anche altri. È ad esempio possibile eseguire DB2 pureScale anche in ambienti locali virtualizzati. IBM supporta DB2 su Microsoft Hyper-V in varie configurazioni. Per ulteriori informazioni, vedere l'articolo relativo all' [architettura di virtualizzazione DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/r0061462.html) in IBM Knowledge Center.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Per supportare livelli elevati di disponibilità e scalabilità in Azure, è possibile usare un'architettura di dati condivisi ampliabile per DB2 pureScale. La migrazione eseguita dall'utente ha usato l'architettura di esempio seguente.
 
@@ -66,7 +67,7 @@ Questa architettura esegue i livelli applicazione, archiviazione e dati sulle ma
 
 -   Un cluster DB2 pureScale. Il tipo di risorse di calcolo necessario in Azure dipende dalla configurazione. È in genere possibile usare due approcci:
 
-    -   Usare una rete HPC (High Performance Computing) a più nodi, dove alcune istanze di piccole e medie dimensioni accedono allo spazio di archiviazione condiviso. Per questa configurazione HPC, le [macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) di Azure della serie E ottimizzata per la memoria o della serie L ottimizzata per l'archiviazione offrono la potenza di calcolo necessaria.
+    -   Usare una rete HPC (High Performance Computing) a più nodi, dove alcune istanze di piccole e medie dimensioni accedono allo spazio di archiviazione condiviso. Per questa configurazione HPC, le [macchine virtuali](../windows/sizes.md) di Azure della serie E ottimizzata per la memoria o della serie L ottimizzata per l'archiviazione offrono la potenza di calcolo necessaria.
 
     -   Usare meno istanze di macchine virtuali di grandi dimensioni per i motori di dati. Per le istanze di grandi dimensioni, le macchine virtuali [serie M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ottimizzate per la memoria sono ideali per carichi di lavoro con uso intensivo della memoria. Può essere necessaria un'istanza dedicata, a seconda delle dimensioni della partizione logica (LPAR) usata per eseguire DB2.
 
@@ -95,11 +96,11 @@ Un cluster DB2 pureScale di grandi dimensioni può richiedere uno spazio di arch
 
 In un cluster DB2 pureScale IBM consiglia una rete InfiniBand per tutti i membri. Per le funzionalità CF, DB2 pureScale usa anche l'Accesso diretto a memoria remota (RDMA), ove disponibile.
 
-Durante la configurazione si crea un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) di Azure che contenga tutte le macchine virtuali. In genere si raggruppano le risorse in base alla loro durata e alle persone che le gestiranno. Le macchine virtuali in questa architettura richiedono la [rete accelerata](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Si tratta di una funzionalità di Azure che garantisce alle macchine virtuali una latenza di rete coerente ed estremamente bassa tramite Single Root I/O Virtualization (SR-IOV).
+Durante la configurazione si crea un [gruppo di risorse](../../azure-resource-manager/management/overview.md) di Azure che contenga tutte le macchine virtuali. In genere si raggruppano le risorse in base alla loro durata e alle persone che le gestiranno. Le macchine virtuali in questa architettura richiedono la [rete accelerata](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Si tratta di una funzionalità di Azure che garantisce alle macchine virtuali una latenza di rete coerente ed estremamente bassa tramite Single Root I/O Virtualization (SR-IOV).
 
-Ogni macchina virtuale di Azure viene distribuita in una rete virtuale con le subnet seguenti: principale, GlusterFS front-end (gfsfe), GlusterFS back-end (bfsbe), DB2 pureScale (db2be) e DB2 purescale front-end (db2fe). Lo script di installazione crea anche le [schede di interfaccia di rete](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) principali nelle macchine virtuali della subnet principale.
+Ogni macchina virtuale di Azure viene distribuita in una rete virtuale con le subnet seguenti: principale, GlusterFS front-end (gfsfe), GlusterFS back-end (bfsbe), DB2 pureScale (db2be) e DB2 purescale front-end (db2fe). Lo script di installazione crea anche le [schede di interfaccia di rete](./multiple-nics.md) principali nelle macchine virtuali della subnet principale.
 
-Usare [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) per limitare il traffico di rete nella rete virtuale e per isolare le subnet.
+Usare [gruppi di sicurezza di rete](../../virtual-network/virtual-network-vnet-plan-design-arm.md) per limitare il traffico di rete nella rete virtuale e per isolare le subnet.
 
 In Azure, DB2 pureScale deve usare TCP/IP come connessione di rete per l'archiviazione.
 

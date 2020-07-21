@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 585d3729a886f3a01dff6dcd9afdab63669c05b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225177"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502878"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creare un'immagine da un VHD o da uno snapshot in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure
 
@@ -69,7 +69,7 @@ Le definizioni di immagini creano un raggruppamento logico per le immagini. Veng
 
 Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. In questo esempio si presuppone che lo snapshot o il disco rigido virtuale provenga da una macchina virtuale in uso e che non sia stato generalizzato. Se il disco rigido virtuale o lo snapshot è stato ricavato da un sistema operativo generalizzato (dopo l'esecuzione di Sysprep per Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` per Linux), modificare `-OsState` in `generalized` . 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./linux/shared-image-galleries.md#image-definitions).
 
 Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -120,7 +120,7 @@ Se si desidera includere dischi dati nell'immagine, è necessario includere sia 
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
+> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

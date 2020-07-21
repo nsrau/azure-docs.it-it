@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086399"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504068"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replica transazionale con Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ I componenti principali della replica transazionale sono **server di pubblicazio
 | Ruolo | database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | **Autore** | No | Sì |
-| **Distribuzione** | No | Sì|
+| **Database di distribuzione** | No | Sì|
 | **Sottoscrittore pull** | No | Sì|
 | **Sottoscrittore push**| Sì | Sì|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -84,7 +84,7 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
   La matrice di supporto per la replica transazionale per Istanza gestita SQL di Azure è uguale a quella di SQL Server.
   
-| **Autore**   | **Distribuzione** | **Subscriber** |
+| **Autore**   | **Database di distribuzione** | **Sottoscrittore** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
 | SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
@@ -104,11 +104,10 @@ La replica transazionale è utile negli scenari seguenti:
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| | Sincronizzazione dei dati | Replica transazionale |
+| Category | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
 | Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>- Alti costi di manutenzione |
-| | | |
 
 ## <a name="common-configurations"></a>Configurazioni comuni
 

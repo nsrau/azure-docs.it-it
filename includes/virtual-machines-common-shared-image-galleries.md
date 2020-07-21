@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221638"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501960"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini. Raccolte di immagini condivise fornisce:
 
@@ -83,7 +83,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia inserita nell'elenco elementi consentiti. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e in Australia centrale 2 è necessario aggiungere la sottoscrizione all'elenco Consenti. Per richiedere l'aggiunta di sottoscrizioni all'elenco Consenti, vedere:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limiti 
 

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982140"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504921"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gestire le cartelle di lavoro a livello di codice
 
@@ -77,7 +78,7 @@ Ci sono due tipi di risorse di cartelle di lavoro che è possibile gestire a liv
     }
     ```
 1. Nell'oggetto `galleries` inserire i propri valori per le chiavi `name` e `category`. Per altre informazioni sui [parametri](#parameters) vedere la sezione successiva.
-2. Distribuire il modello di Azure Resource Manager usando il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), l'[interfaccia della riga di comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell) e così via.
+2. Distribuire il modello di Azure Resource Manager usando il [portale di Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), l'[interfaccia della riga di comando](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) e così via.
 3. Aprire il portale di Azure e passare alla raccolta di cartelle di lavoro scelta nel modello di Azure Resource Manager. Nel modello di esempio passare alla raccolta di cartelle di lavoro di Monitoraggio di Azure:
     1. Aprire il portale di Azure e passare a Monitoraggio di Azure
     2. Aprire `Workbooks` dal sommario

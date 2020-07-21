@@ -5,29 +5,33 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277916"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502513"
 ---
-I dischi condivisi di Azure (anteprima) sono una nuova funzionalità di Azure Managed Disks che consente di collegare un disco gestito a più macchine virtuali contemporaneamente. Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
+Azure Shared disks è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Le macchine virtuali nel cluster possono leggere o scrivere sul disco collegato in base alla prenotazione scelta dall'applicazione in cluster usando le [prenotazioni permanenti SCSI](https://www.t10.org/members/w_spc3.htm). Una prenotazione permanente SCSI è uno standard del settore usato dalle applicazioni in esecuzione in una rete di archiviazione (SAN) locale. L'abilitazione delle prenotazioni permanenti SCSI in un disco gestito consente di eseguire la migrazione di queste applicazioni in Azure così come sono.
+Le macchine virtuali nel cluster possono leggere o scrivere sul disco collegato in base alla prenotazione scelta dall'applicazione in cluster usando le [prenotazioni permanenti SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). Una prenotazione permanente SCSI è uno standard del settore usato dalle applicazioni in esecuzione in una rete di archiviazione (SAN) locale. L'abilitazione delle prenotazioni permanenti SCSI in un disco gestito consente di eseguire la migrazione di queste applicazioni in Azure così come sono.
 
-La condivisione di dischi gestiti offre un'archiviazione a blocchi condivisa a cui è possibile accedere da più macchine virtuali, che vengono esposte come numeri di unità logica (LUN). I LUN vengono quindi presentati a un iniziatore (macchina virtuale) da una destinazione (disco). Questi LUN hanno un aspetto simile all'archiviazione collegata direttamente (DAS) o a un'unità locale per la macchina virtuale.
+I dischi gestiti condivisi offrono l'archiviazione a blocchi condivisa a cui è possibile accedere da più macchine virtuali, che vengono esposte come numeri di unità logica (lun). I LUN vengono quindi presentati a un iniziatore (macchina virtuale) da una destinazione (disco). Questi LUN hanno un aspetto simile all'archiviazione collegata direttamente (DAS) o a un'unità locale per la macchina virtuale.
 
-I dischi gestiti condivisi non offrono in modo nativo un file system completamente gestito accessibile tramite SMB/NFS. È necessario usare uno strumento di gestione cluster, come Windows Server Failover Cluster (WSFC) o Pacemaker, che gestisce la comunicazione del nodo del cluster oltre al blocco della scrittura.
+I dischi gestiti condivisi non offrono in modo nativo un file system completamente gestito accessibile tramite SMB/NFS. È necessario usare un gestore di cluster, ad esempio Windows Server failover cluster (WSFC) o pacemaker, che gestisce la comunicazione del nodo del cluster e il blocco di scrittura.
 
 ## <a name="limitations"></a>Limitazioni
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
+
+I dischi condivisi supportano diversi sistemi operativi. Vedere le sezioni [Windows](#windows) o [Linux](#linux) per i sistemi operativi supportati.
 
 ## <a name="disk-sizes"></a>Dimensione disco
 
@@ -37,23 +41,25 @@ I dischi gestiti condivisi non offrono in modo nativo un file system completamen
 
 ### <a name="windows"></a>Windows
 
-La maggior parte del clustering basato su Windows è compilato su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC abilita le opzioni basate e non su CSV a seconda della versione di Windows Server in uso. Per i dettagli, fare riferimento a [Creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+I dischi condivisi di Azure sono supportati in Windows Server 2008 e versioni successive. La maggior parte del clustering basato su Windows si basa su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC abilita le opzioni basate e non su CSV a seconda della versione di Windows Server in uso. Per i dettagli, fare riferimento a [Creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Tra le applicazioni più comuni in esecuzione su WSFC ci sono:
 
 - [Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- File server di scalabilità orizzontale (SoFS)
+- File server di scalabilità orizzontale (SoFS) [modello] (https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASC/SCS [modello] (https://aka.ms/azure-shared-disk-sapacs-template)
 - File server per uso generale (carico di lavoro IW)
 - Disco del profilo utente di server desktop remoto (RDS UPD)
-- SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-I cluster Linux possono sfruttare gli strumenti di gestione cluster, ad esempio [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni file system in cluster comuni includono [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). È possibile modificare prenotazioni e registrazioni tramite utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
+I dischi condivisi di Azure sono supportati in:
+- [SUSE SLE per SAP e SUSE SLE HA 15 SP1 e versioni successive](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18,04 e versioni successive](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [RHEL Developer Preview in qualsiasi versione RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
-#### <a name="ubuntu"></a>Ubuntu
-
-Per informazioni su come configurare la disponibilità elevata di Ubuntu con Corosync e Pacemaker nei dischi condivisi di Azure, vedere [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+I cluster Linux possono sfruttare gli strumenti di gestione cluster, ad esempio [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni file system in cluster comuni includono [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Per l'accesso arbitrali al disco è possibile usare modelli di clustering basati su SCSI Persistent Reservation (SCSI PR) e/o STONITH Block Device (SBD). Quando si usa la richiesta pull SCSI, è possibile modificare prenotazioni e registrazioni usando utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
 
 ## <a name="persistent-reservation-flow"></a>Flusso di prenotazione permanente
 
@@ -85,12 +91,13 @@ Il flusso è il seguente:
 
 I dischi Ultra offrono un'ulteriore limitazione, per un totale di due limitazioni. Per questo motivo, il flusso di prenotazione di dischi Ultra può operare come descritto nella sezione precedente oppure può imporre una limitazione e distribuire le prestazioni in modo più granulare.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che illustra l'accesso di sola lettura o di lettura/scrittura per il titolare della prenotazione, l'utente registrato e altri.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che rappresenta l'accesso "ReadOnly" o "lettura/scrittura" per il titolare della prenotazione, registrato e altro.":::
 
 ## <a name="performance-throttles"></a>Limitazioni delle prestazioni
 
-### <a name="premium-ssd-performance-throttles"></a>Limitazioni delle prestazioni SSD Premium
-Con l'unità SSD Premium, le operazioni di i/o al secondo e la velocità effettiva sono fisse, ad esempio IOPS di un P30 è 5000. Questo valore rimane se il disco è condiviso tra due macchine virtuali o 5 macchine virtuali. I limiti del disco possono essere raggiunti da una singola macchina virtuale o divisi in due o più macchine virtuali. 
+### <a name="premium-ssd-performance-throttles"></a>Limitazione delle prestazioni SSD Premium
+
+Con l'unità SSD Premium, i IOPS del disco e la velocità effettiva sono corretti, ad esempio, IOPS di un P30 è 5000. Questo valore rimane se il disco è condiviso tra due macchine virtuali o 5 macchine virtuali. I limiti del disco possono essere raggiunti da una singola macchina virtuale o divisi in due o più macchine virtuali. 
 
 ### <a name="ultra-disk-performance-throttles"></a>Limitazioni delle prestazioni dei dischi Ultra
 
@@ -101,8 +108,8 @@ I dischi Ultra offrono la funzionalità esclusiva di consentire l'impostazione d
 |---------|---------|
 |DiskIOPSReadWrite     |Numero totale di operazioni di I/O al secondo consentite in tutte le macchine virtuali che hanno montato il disco condiviso con accesso in scrittura.         |
 |DiskMBpsReadWrite     |Velocità effettiva totale (MB/s) consentita in tutte le macchine virtuali che hanno montato il disco condiviso con accesso in scrittura.         |
-|DiskIOPSReadOnly*     |Numero totale di operazioni di I/O al secondo consentite in tutte le macchine virtuali che hanno montato il disco condiviso come di sola lettura.         |
-|DiskMBpsReadOnly*     |Velocità effettiva totale (MB/s) consentita in tutte le macchine virtuali che hanno montato il disco condiviso come di sola lettura.         |
+|DiskIOPSReadOnly*     |Numero totale di operazioni di i/o `ReadOnly` al secondo consentite in tutte le VM che montano il disco condiviso         |
+|DiskMBpsReadOnly*     |Velocità effettiva totale (MB/s) consentita in tutte le VM che montano il disco condiviso come `ReadOnly` .         |
 
 \* Si applica solo a dischi Ultra condivisi
 
@@ -122,18 +129,22 @@ Gli esempi seguenti illustrano alcuni scenari che mostrano come funziona la limi
 
 ##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster a due nodi che usa volumi condivisi del cluster
 
-Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che usa volumi condivisi del cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la divisione della limitazione ReadWrite tra le due macchine virtuali e il mancato utilizzo della limitazione ReadOnly.
+Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che usa volumi condivisi del cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la `ReadWrite` suddivisione della limitazione tra le due macchine virtuali e la `ReadOnly` limitazione non in uso.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Esempio di disco Ultra a due nodi che usa volumi condivisi del cluster":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster a due nodi senza volumi condivisi del cluster
 
-Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che non usa volumi condivisi del cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Di conseguenza, la limitazione ReadWrite viene usata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly viene usata solo dalla macchina virtuale secondaria.
+Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che non usa volumi condivisi del cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'utilizzo esclusivo della macchina virtuale primaria e della `ReadOnly` limitazione utilizzata solo dal database secondario.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Esempio di disco Ultra a due nodi che non usa volumi condivisi del cluster":::
 
 ##### <a name="four-node-linux-cluster"></a>Cluster Linux a quattro nodi
 
-Di seguito è riportato un esempio di cluster Linux a 4 nodi con una sola macchina virtuale con accesso in scrittura e tre macchine virtuali con accesso in lettura con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Di conseguenza, la limitazione ReadWrite viene usata esclusivamente per la macchina virtuale primaria e la limitazione ReadOnly è divisa tra le macchine virtuali secondarie.
+Di seguito è riportato un esempio di cluster Linux a 4 nodi con una sola macchina virtuale con accesso in scrittura e tre macchine virtuali con accesso in lettura con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'uso esclusivo della macchina virtuale primaria e della limitazione delle `ReadOnly` richieste da parte delle VM secondarie.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Esempio di limitazione di disco Ultra a quattro nodi":::
+
+#### <a name="ultra-pricing"></a>Prezzi ultra
+
+I prezzi per i dischi condivisi sono basati sulla capacità con provisioning, sulle IOPS con provisioning totale (diskIOPSReadWrite + diskIOPSReadOnly) e sulla velocità effettiva totale con provisioning (diskMBpsReadWrite + diskMBpsReadOnly). Non sono previsti costi aggiuntivi per ogni montaggio di VM aggiuntivo. Ad esempio, un disco con una condivisione ultra condivisa con la seguente configurazione (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) viene addebitato con 1024 GiB, 10100 IOPS e 601 MBps, indipendentemente dal fatto che sia montato su due macchine virtuali o cinque macchine virtuali.

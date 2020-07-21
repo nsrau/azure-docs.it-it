@@ -4,11 +4,12 @@ description: Ritiro delle API classiche di metrica e scalabilità automatica, ch
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114221"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505432"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 
@@ -28,9 +29,9 @@ Questo articolo riguarda gli utenti che utilizzano i seguenti componenti:
 
 - **SDK di Azure Insights classico**: se si usa il [SDK di Azure Insights classico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), iniziare a usare il nuovo SDK di Monitoraggio di Azure per [.NET](https://github.com/azure/azure-libraries-for-net#download) o [Java](https://github.com/azure/azure-libraries-for-java#download). Scaricare il [pacchetto NuGet di SDK di Monitoraggio di Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Scalabilità automatica classica**: se si chiamano le [API di impostazione della scalabilità automatica classiche](https://msdn.microsoft.com/library/azure/mt348562.aspx) dagli strumenti personalizzati o usando il [SDK classico di Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), iniziare a usare l’[API REST di Monitoraggio di Azure per Gestione risorse](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Scalabilità automatica classica**: se si chiamano le [API di impostazione della scalabilità automatica classiche](/previous-versions/azure/reference/mt348562(v=azure.100)) dagli strumenti personalizzati o usando il [SDK classico di Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), iniziare a usare l’[API REST di Monitoraggio di Azure per Gestione risorse](/rest/api/monitor/autoscalesettings).
 
-- **Metriche classiche**: se si utilizzano le metriche con le [API REST classiche](https://msdn.microsoft.com/library/azure/dn510374.aspx) o il [SDK classico di Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) dagli strumenti personalizzati, iniziare a usare l’[API REST di Monitoraggio di Azure per Gestione risorse](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
+- **Metriche classiche**: se si utilizzano le metriche con le [API REST classiche](/previous-versions/azure/reference/dn510374(v=azure.100)) o il [SDK classico di Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) dagli strumenti personalizzati, iniziare a usare l’[API REST di Monitoraggio di Azure per Gestione risorse](/rest/api/monitor/autoscalesettings). 
 
 Se non si è certi che il codice o gli strumenti personalizzati chiamino le API classiche, esaminare quanto segue:
 
@@ -42,11 +43,11 @@ Se non si è certi che il codice o gli strumenti personalizzati chiamino le API 
 
 - Se si usano le chiamate a cui fa riferimento la documentazione in uno dei collegamenti riportati di seguito, si stanno utilizzando le API classiche precedenti.
 
-  - [Libreria di classi Windows.Azure.Management.Monitoring](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Libreria di classi Windows.Azure.Management.Monitoring](/previous-versions/azure/dn510414(v=azure.100))
 
-  - [.NET di monitoraggio (classico)](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
+  - [.NET di monitoraggio (classico)](/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
-  - [Interfaccia IMetricOperations](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
+  - [Interfaccia IMetricOperations](/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
 ## <a name="why-you-should-switch"></a>Perché è necessario
 
@@ -84,7 +85,7 @@ Per le metriche: *questa API è stata deprecata. Usare la portale di Azure, Azur
 
 Per eventuali domande, contattarci a MonitorClassicAPIhelp@microsoft.com.  
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 
-- [Nuove API REST per Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) 
+- [Nuove API REST per Monitoraggio di Azure](/rest/api/monitor/) 
 - [Nuovo SDK per Monitoraggio di Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

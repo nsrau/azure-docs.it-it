@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505160"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -38,7 +39,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - L'applicazione Web (app Web) Service Manager è stata distribuita e configurata. Per informazioni sull'app Web, vedere[qui](#create-and-deploy-service-manager-web-app-service).
 - Connessione ibrida è stata creata e configurata. Altre informazioni: [Configurazione della connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager:  2012 R2 o 2016.
-- Ruolo utente:  [Operatore avanzato](https://technet.microsoft.com/library/ff461054.aspx).
+- Ruolo utente:  [Operatore avanzato](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
@@ -200,7 +201,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > Alla fine fare clic su Update (Aggiorna).
 > 2) **È consigliabile stabilire una procedura interna per assicurarsi che la connessione rimanga attiva:** in base alla durata del token di aggiornamento per l'aggiornamento del token. Assicurarsi di eseguire le operazioni seguenti prima della scadenza prevista del token di aggiornamento. È consigliabile un paio di giorni prima della scadenza del token di aggiornamento:
 >
-> 1. [Completare un processo di sincronizzazione manuale per la configurazione del Connettore di Gestione dei servizi IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Completare un processo di sincronizzazione manuale per la configurazione del Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)
 > 2. Revocare il token di aggiornamento precedente, poiché per motivi di sicurezza, non è consigliabile conservare chiavi obsolete. Nel pannello ServiceNow cercare System OAuth (OAuth di sistema), quindi selezionare Manage Tokens (Gestisci token). Selezionare il token obsoleto dall'elenco in base al nome OAuth e alla data di scadenza.
 > ![Definizione di OAuth del sistema SNOW](media/itsmc-connections/snow-system-oauth.png)
 > 3. Fare clic su Revoke Access (Revoca accesso ), quindi su Revoke (Revoca).
@@ -247,6 +248,10 @@ Seguire questa procedura per creare una connessione ServiceNow:
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
 
 Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> In ServiceNow è previsto un limite di velocità per le richieste all'ora. Per configurare il limite, usare questa impostazione definendo "limitazione della frequenza delle API REST in ingresso" nell'istanza di ServiceNow.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Creare un ruolo utente di integrazione nell'app ServiceNow
 

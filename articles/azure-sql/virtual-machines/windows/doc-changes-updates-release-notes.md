@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231506"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503788"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,10 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | Modifiche | Dettagli |
 | --- | --- |
 | **Migrare il log su disco Ultra** | Informazioni su come è possibile [eseguire la migrazione del file di log a un disco Ultra](storage-migrate-to-ultradisk.md) per sfruttare le prestazioni elevate e la bassa latenza. | 
-
-
+| **Creare un'AG usando PowerShell** | È ora possibile semplificare la creazione di un gruppo di disponibilità usando [PowerShell](availability-group-az-commandline-configure.md) e l'interfaccia della riga di comando di Azure. | 
 
 
 ## <a name="june-2020"></a>Giugno 2020
-
 
 | Modifiche | Dettagli |
 | --- | --- |

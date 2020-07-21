@@ -3,16 +3,16 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124256"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503762"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
-Backup di Azure consente di eseguire il backup e il ripristino in modo sicuro dei dati dagli insiemi di credenziali dei servizi di ripristino usando [endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Gli endpoint privati usano uno o più indirizzi IP privati dalla VNet, portando il servizio in VNet.
+Backup di Azure consente di eseguire il backup e il ripristino in modo sicuro dei dati dagli insiemi di credenziali dei servizi di ripristino usando [endpoint privati](../private-link/private-endpoint-overview.md). Gli endpoint privati usano uno o più indirizzi IP privati dalla VNet, portando il servizio in VNet.
 
 Questo articolo aiuta a comprendere il processo di creazione di endpoint privati per backup di Azure e gli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 
@@ -45,7 +45,7 @@ Questa sezione illustra i passaggi necessari per la creazione e l'uso di endpoin
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Vedere [questa sezione](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) per informazioni su come creare un insieme di credenziali usando il client Azure Resource Manager. Viene creato un insieme di credenziali con la relativa identità gestita già abilitata. Per altre informazioni sugli insiemi di credenziali dei servizi di ripristino, vedere [qui](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+Vedere [questa sezione](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) per informazioni su come creare un insieme di credenziali usando il client Azure Resource Manager. Viene creato un insieme di credenziali con la relativa identità gestita già abilitata. Per altre informazioni sugli insiemi di credenziali dei servizi di ripristino, vedere [qui](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Abilitare l'identità gestita per l'insieme di credenziali
 
@@ -111,9 +111,9 @@ Per i codici di area, fare riferimento a [questo elenco](https://download.micros
 
 Per le convenzioni di denominazione degli URL nelle aree nazionali:
 
-- [Cina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [Cina](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germania](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Collegamento di zone DNS private alla rete virtuale
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505194"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -41,7 +41,7 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere la risors
 > [!NOTE] 
 > Le soluzioni installate e i servizi collegati, ad esempio l'account di Automazione di Azure, vengono rimossi definitivamente dall'area di lavoro al momento dell'eliminazione e non possono essere recuperati. Queste devono essere riconfigurate dopo l'operazione di ripristino per portare l'area di lavoro allo stato configurato in precedenza.
 
-È possibile eliminare un'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), l'[API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) o nel [portale di Azure](https://portal.azure.com).
+È possibile eliminare un'area di lavoro usando [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), l'[API REST](/rest/api/loganalytics/workspaces/delete) o nel [portale di Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -64,10 +64,10 @@ Il metodo di eliminazione temporanea potrebbe non rientrare in alcuni scenari, a
 > [!IMPORTANT]
 > Usare l'operazione di eliminazione permanente dell'area di lavoro con cautela poiché è irreversibile e non sarà possibile ripristinare l'area di lavoro e i relativi dati.
 
-Aggiungere il tag '-Force ' per eliminare definitivamente l'area di lavoro:
+Aggiungere il tag '-forceDelete ' per eliminare definitivamente l'area di lavoro:
 
 ```powershell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
 ```
 
 ## <a name="recover-workspace"></a>Recuperare l'area di lavoro
@@ -112,6 +112,6 @@ Per eliminare un'area di lavoro è necessario disporre di autorizzazioni come *C
 * Se si riceve un messaggio di errore "*Questo nome di dominio è già in uso*" o *"Conflitto"* durante la creazione di un'area di lavoro, la causa potrebbe essere:
   * Il nome dell'area di lavoro non è disponibile e viene usato da un utente dell'organizzazione o da un altro cliente.
   * L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è mantenuto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro per creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
-     1. [Recuperare](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) l'area di lavoro.
-     2. [Eliminare definitivamente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) l'area di lavoro.
+     1. [Recuperare](#recover-workspace) l'area di lavoro.
+     2. [Eliminare definitivamente](#permanent-workspace-delete) l'area di lavoro.
      3. Creare una nuova area di lavoro usando il nome della stessa area di lavoro.

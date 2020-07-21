@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658103"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504992"
 ---
 # <a name="workbook-resource-parameters"></a>Parametri delle risorse della cartella di lavoro
 
@@ -60,7 +61,7 @@ I valori dei selezionatori di risorse possono provenire dal contesto della carte
 > [!NOTE]
 > Il grafico risorse di Azure non è ancora disponibile in tutti i cloud. Se si sceglie questo approccio, assicurarsi che sia supportato nel cloud di destinazione.
 
-[Documentazione di Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Documentazione di Azure Resource Graph](../../governance/resource-graph/overview.md)
 
 ## <a name="creating-a-resource-parameter--json-list"></a>Creazione di un parametro di risorsa (elenco JSON)
 1. Iniziare con una cartella di lavoro vuota in modalità di modifica.

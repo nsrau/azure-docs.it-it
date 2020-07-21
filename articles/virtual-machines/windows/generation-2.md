@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 1ebba13de14935d931d5d21ab786889d9a3755da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144860"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500311"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -21,30 +21,30 @@ Il supporto per le macchine virtuali di seconda generazione è ora disponibile i
 
 Le macchine virtuali di seconda generazione (Gen 2) supportano funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione. Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM). Le macchine virtuali di seconda generazione eseguite in locale hanno alcune funzionalità che non sono ancora supportate in Azure. Per altre informazioni, vedere la sezione [Funzionalità e caratteristiche](#features-and-capabilities).
 
-Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione. Rispetto alle macchine virtuali di prima generazione, le macchine virtuali di seconda generazione possono far registrare riduzioni dei tempi di avvio e installazione. Per una panoramica delle macchine virtuali di seconda generazione e informazioni su alcune differenze tra la prima e la seconda generazione, vedere [È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione. Rispetto alle macchine virtuali di prima generazione, le macchine virtuali di seconda generazione possono far registrare riduzioni dei tempi di avvio e installazione. Per una panoramica delle macchine virtuali di seconda generazione e informazioni su alcune differenze tra la prima e la seconda generazione, vedere [È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Dimensioni delle macchine virtuali di seconda generazione
 
 Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni di macchine virtuali in Azure (salvo le macchine virtuali serie Mv2). Azure ora offre ora il supporto della seconda generazione per le seguenti serie di macchine virtuali selezionate:
 
-* [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
+* [Serie B](../sizes-b-series-burstable.md)
 * [Serie DCsv2](../dcv2-series.md)
 * [Serie DSv2](../dv2-dsv2-series.md) e [Serie Dsv3](../dv3-dsv3-series.md)
-* [Serie Dasv4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
+* [Serie Dasv4](../dav4-dasv4-series.md)
 * [Serie Esv3](../ev3-esv3-series.md)
-* [Serie Easv4](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series)
+* [Serie Easv4](../eav4-easv4-series.md)
 * [Serie Fsv2](../fsv2-series.md)
-* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [Serie GS](../sizes-previous-gen.md#gs-series)
 * [Serie HB](../hb-series.md)
 * [Serie HC](../hc-series.md)
-* [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [Serie Lsv2](../lsv2-series.md)
+* [Serie Ls](../sizes-previous-gen.md#ls-series) e [Serie Lsv2](../lsv2-series.md)
 * [Serie M](../m-series.md)
 * [Serie Mv2](../mv2-series.md)<sup>1</sup>
 * [Serie NCv2](../ncv2-series.md) e [Serie NCv3](../ncv3-series.md)
 * [Serie ND](../nd-series.md)
 * [Serie NVv3](../nvv3-series.md)
 
-<sup>1</sup> La serie Mv2 non supporta le immagini di macchina virtuale di prima generazione e supporta solo un subset di immagini di seconda generazione. Per informazioni dettagliate, vedere la [documentazione della serie Mv2](https://docs.microsoft.com/azure/virtual-machines/mv2-series).
+<sup>1</sup> La serie Mv2 non supporta le immagini di macchina virtuale di prima generazione e supporta solo un subset di immagini di seconda generazione. Per informazioni dettagliate, vedere la [documentazione della serie Mv2](../mv2-series.md).
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Immagini di macchine virtuali di seconda generazione in Azure Marketplace
 
@@ -213,6 +213,6 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [macchine virtuali di seconda generazione in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Informazioni sulle [macchine virtuali di seconda generazione in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 * Informazioni su come [preparare un file con estensione vhd](prepare-for-upload-vhd-image.md) per il caricamento da sistemi locali ad Azure.

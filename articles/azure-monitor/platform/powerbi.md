@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505313"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
 
@@ -20,12 +21,12 @@ ms.locfileid: "77659284"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Panoramica
-Per importare dati da un' [area di lavoro log Analytics](manage-access.md) in monitoraggio di azure in Power bi, è possibile creare un set di dati in Power bi in base a una [query di log](../log-query/log-query-overview.md) in monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
+Per importare dati da un' [area di lavoro log Analytics](manage-access.md) in monitoraggio di azure in Power bi, è possibile creare un set di dati in Power bi in base a una [query di log](../log-query/log-query-overview.md) in monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](/powerquery-m/power-query-m-language-specification)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
 
 ![Log Analytics in Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Esportare la query
-Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che restituisca i dati per i quali si desidera popolare il set di dati Power bi.  Esportare quindi la query nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
+Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che restituisca i dati per i quali si desidera popolare il set di dati Power bi.  Esportare quindi la query nella [lingua di Power Query (M)](/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
 
 1. [Creare la query di log in log Analytics](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
 2. Selezionare **Esporta**  >  **Power bi query (M)**.  Questa operazione consente di esportare la query in un file di testo denominato **PowerBIQuery.txt**. 
@@ -52,7 +53,7 @@ Power BI Desktop è un'applicazione desktop che consente di creare set di dati e
 ## <a name="publish-to-power-bi"></a>Pubblica in Power BI
 Quando si pubblica in Power BI, vengono creati un set di dati e un report.  Se si crea un report in Power BI Desktop, verrà pubblicato completo dei dati.  In caso contrario, verrà creato un report vuoto.  È possibile modificare il report in Power BI o crearne uno nuovo in base al set di dati ottenuto.
 
-1. Creare un report basato sui dati disponibili.  Se necessario, fare riferimento alla [documentazione di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view).  
+1. Creare un report basato sui dati disponibili.  Se necessario, fare riferimento alla [documentazione di Power BI Desktop](/power-bi/desktop-report-view).  
 1. Quando si è pronti per inviare il report a Power BI, fare clic su **Pubblica**.  
 1. Quando richiesto, selezionare una destinazione nell'account di Power BI.  A meno che non si abbia in mente una destinazione specifica, usare **Area di lavoro personale**.
 

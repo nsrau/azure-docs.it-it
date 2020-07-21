@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1cb853bd4a62fcb5e7e413d0e7527196c1d26210
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a67e4237a49a32c177d4c23b7655a42c4039bb96
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023889"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504538"
 ---
-<Token>**SI APPLICA A:** ![sì](../media/applies-to/yes.png)Database SQL di Azure ![sì](../media/applies-to/yes.png)Istanza gestita di SQL di Azure </Token>
+<Token>**SI APPLICA A:** ![sì](../media/applies-to/yes.png)Database SQL di Azure ![sì](../media/applies-to/yes.png)Istanza gestita di SQL di Azure </Token> 
 
