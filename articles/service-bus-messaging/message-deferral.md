@@ -3,12 +3,13 @@ title: Bus di servizio di Azure-rinvio messaggio
 description: Questo articolo illustra come rinviare il recapito dei messaggi del bus di servizio di Azure. Il messaggio rimane nella coda o nella sottoscrizione, ma viene messo da parte.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341225"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511280"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
 
@@ -19,6 +20,9 @@ Il differimento è una funzionalità creata appositamente per gli scenari di ela
 Un semplice esempio illustrativo è dato da una sequenza di elaborazione degli ordini in cui la notifica di pagamento del fornitore esterno dei servizi di pagamento viene visualizzata in un sistema prima che l'ordine di acquisto corrispondente sia stato propagato dal negozio al sistema di evasione degli ordini. In questo caso, il sistema di evasione degli ordini può rinviare l'elaborazione della notifica di pagamento finché non è disponibile un ordine a cui associarla. Negli scenari rendezvous in cui i messaggi di origini diverse fanno andare avanti un flusso di lavoro, l'ordine di esecuzione in tempo reale potrebbe essere corretto, ma i messaggi che mostrano i risultati potrebbero arrivare non in ordine.
 
 Il differimento consente di riordinare i messaggi, sostituendo l'ordine di arrivo con un ordine in cui possono essere elaborati, lasciando nell'archivio i messaggi per cui l'elaborazione deve essere posticipata.
+
+> [!NOTE]
+> I messaggi posticipati non verranno spostati automaticamente nella coda dei messaggi non recapitabili [dopo la scadenza](./service-bus-dead-letter-queues.md#exceeding-timetolive). Questo comportamento è da progettazione.
 
 ## <a name="message-deferral-apis"></a>API di differimento di messaggi
 

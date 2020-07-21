@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515530"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati Monitoraggio di Azure
 
@@ -49,7 +49,7 @@ I log in Monitoraggio di Azure sono archiviati in un'area di lavoro Log Analytic
 > È importante distinguere tra i log di Monitoraggio di Azure e le origini dei dati di log in Azure. Ad esempio, gli eventi a livello di sottoscrizione in Azure vengono scritti in un [log attività](platform-logs-overview.md) che è possibile visualizzare dal menu Monitoraggio di Azure. La maggior parte delle risorse scrive informazioni operative in un [log delle risorse](platform-logs-overview.md) che è possibile inviare a destinazioni diverse. I log di Monitoraggio di Azure sono piattaforma di dati di log che raccoglie log attività e log delle risorse insieme ad altri dati di monitoraggio, per offrire analisi approfondite nell'intero set di risorse.
 
 
- È possibile usare [query di log](../log-query/log-query-overview.md) in modo interattivo con [Log Analytics](../log-query/portals.md) nel portale di Azure o aggiungere i risultati a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per visualizzarli in combinazione con altri dati. È anche possibile creare [avvisi relativi ai log](alerts-log.md) che verranno attivati in base ai risultati delle query di pianificazione.
+ È possibile usare [query di log](../log-query/log-query-overview.md) in modo interattivo con [Log Analytics](../log-query/log-query-overview.md) nel portale di Azure o aggiungere i risultati a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per visualizzarli in combinazione con altri dati. È anche possibile creare [avvisi relativi ai log](alerts-log.md) che verranno attivati in base ai risultati delle query di pianificazione.
 
 Per altre informazioni sui log di Monitoraggio di Azure, incluse le relative origini dei dati, vedere [Log in Monitoraggio di Azure](data-platform-logs.md).
 
@@ -81,7 +81,7 @@ Per un elenco delle diverse origini dati che compilano ogni tipo, vedere [Metric
 
 
 ## <a name="stream-data-to-external-systems"></a>Trasmettere dati a sistemi esterni
-Oltre a usare gli strumenti in Azure per analizzare i dati di monitoraggio, potrebbe essere necessario inoltrarli a uno strumento esterno, ad esempio un prodotto di informazioni di sicurezza e gestione degli eventi. Questo inoltro viene in genere eseguito direttamente dalle risorse monitorate tramite [Hub eventi di Azure](/azure/event-hubs/). È possibile configurare alcune origini sull'invio dei dati direttamente a un hub eventi, mentre è possibile usare un altro processo, ad esempio un'app per la logica, per recuperare i dati necessari. Per informazioni dettagliate, vedere [Trasmettere i dati di Monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](stream-monitoring-data-event-hubs.md).
+Oltre a usare gli strumenti in Azure per analizzare i dati di monitoraggio, potrebbe essere necessario inoltrarli a uno strumento esterno, ad esempio un prodotto di informazioni di sicurezza e gestione degli eventi. Questo inoltro viene in genere eseguito direttamente dalle risorse monitorate tramite [Hub eventi di Azure](../../event-hubs/index.yml). È possibile configurare alcune origini sull'invio dei dati direttamente a un hub eventi, mentre è possibile usare un altro processo, ad esempio un'app per la logica, per recuperare i dati necessari. Per informazioni dettagliate, vedere [Trasmettere i dati di Monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](stream-monitoring-data-event-hubs.md).
 
 
 

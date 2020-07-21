@@ -3,11 +3,12 @@ title: Sessioni di messaggi del bus di servizio di Azure | Microsoft Docs
 description: In questo articolo viene illustrato come usare le sessioni per abilitare la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341187"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511297"
 ---
 # <a name="message-sessions"></a>Sessioni di messaggistica
 Le sessioni del bus di servizio di Microsoft Azure consentono la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati. Le sessioni possono essere usate in criteri **First in, First out (FIFO)** e di **richiesta-risposta**. Questo articolo illustra come usare le sessioni per implementare questi criteri quando si usa il bus di servizio. 
@@ -30,7 +31,7 @@ La funzionalità di sessione nel bus di servizio consente un'operazione di ricez
 
 Nel portale impostare il flag con la casella di controllo seguente:
 
-![][2]
+![Screenshot della finestra di dialogo Crea coda con l'opzione Abilita sessioni selezionata e delineata in rosso.][2]
 
 > [!NOTE]
 > Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client ***non possono più*** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
@@ -41,7 +42,7 @@ Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizio
 
 Le sessioni forniscono il demultiplexing simultaneo dei flussi di messaggi con interfoliazione, conservando e garantendo il recapito ordinato.
 
-![][1]
+![Diagramma che mostra il modo in cui la funzionalità sessioni conserva il recapito ordinato.][1]
 
 Viene creato un ricevitore [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) dal client che accetta una sessione. Il client chiama [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. Nel modello di callback reattivo viene registrato un gestore di sessione.
 

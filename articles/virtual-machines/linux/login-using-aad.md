@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510430"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -92,7 +92,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
+La creazione della VM e delle risorse di supporto richiede alcuni minuti.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installare l'estensione della macchina virtuale per l'accesso ad Azure AD
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale. Per installare l'estensione, la macchina virtuale deve disporre di un agente di macchine virtuali in esecuzione. Per altre informazioni, vedere [Panoramica dell'agente di macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale. Per installare l'estensione, la macchina virtuale deve disporre di un agente di macchine virtuali in esecuzione. Per altre informazioni, vedere [Panoramica dell'agente di macchine virtuali](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere come usare l'[interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md), il [portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Accedere alla macchina virtuale Linux
 

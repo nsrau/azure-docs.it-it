@@ -3,11 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667319"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513866"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -15,7 +16,7 @@ I database SAP HANA sono carichi di lavoro critici che richiedono un obiettivo d
 
 Questo articolo illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 
-In questo articolo verrà spiegato come:
+In questo articolo si apprenderà come:
 > [!div class="checklist"]
 >
 > * Creare e configurare un insieme di credenziali
@@ -24,7 +25,7 @@ In questo articolo verrà spiegato come:
 > * Eseguire un processo di backup su richiesta
 
 >[!NOTE]
->[Iniziare](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) con l'anteprima del backup di SAP HANA per RHEL (7.4, 7.6, 7.7 o 8.1). Per ulteriori domande, scrivere all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>[Iniziare](./tutorial-backup-sap-hana-db.md) con l'anteprima del backup di SAP HANA per RHEL (7.4, 7.6, 7.7 o 8.1). Per ulteriori domande, scrivere all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 >[!NOTE]
 >L'**eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
@@ -52,17 +53,17 @@ Altre informazioni sull'uso di queste opzioni sono condivise di seguito:
 
 #### <a name="private-endpoints"></a>Endpoint privati
 
-Gli endpoint privati consentono di connettersi in modo sicuro dai server all'interno di una rete virtuale nell'insieme di credenziali di Servizi di ripristino. L'endpoint privato usa un indirizzo IP dallo spazio indirizzi della rete virtuale per l'insieme di credenziali. Il traffico di rete tra le risorse all'interno della rete virtuale e l'insieme di credenziali si sposta attraverso la rete virtuale e un collegamento privato nella rete backbone Microsoft. In questo modo si elimina l'esposizione dalla rete Internet pubblica. Altre informazioni sugli endpoint privati per Backup di Azure sono disponibili [qui](https://docs.microsoft.com/azure/backup/private-endpoints).
+Gli endpoint privati consentono di connettersi in modo sicuro dai server all'interno di una rete virtuale nell'insieme di credenziali di Servizi di ripristino. L'endpoint privato usa un indirizzo IP dallo spazio indirizzi della rete virtuale per l'insieme di credenziali. Il traffico di rete tra le risorse all'interno della rete virtuale e l'insieme di credenziali si sposta attraverso la rete virtuale e un collegamento privato nella rete backbone Microsoft. In questo modo si elimina l'esposizione dalla rete Internet pubblica. Altre informazioni sugli endpoint privati per Backup di Azure sono disponibili [qui](./private-endpoints.md).
 
 #### <a name="nsg-tags"></a>Tag NSG
 
-Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) simili per *Azure AD* e *Archiviazione di Azure*.  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/security-overview.md#service-tags) simili per *Azure AD* e *Archiviazione di Azure*.  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
 1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 
 1. In **Impostazioni** selezionare **Regole di sicurezza in uscita**.
 
-1. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
+1. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](../virtual-network/manage-network-security-group.md#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
 
 1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
@@ -70,7 +71,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 #### <a name="azure-firewall-tags"></a>Tag del Firewall di Azure
 
-Se si usa Firewall di Azure, creare una regola dell'applicazione usando il tag [FQDN di Firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) *AzureBackup*. In questo modo si consente l'accesso in uscita a Backup di Azure.
+Se si usa Firewall di Azure, creare una regola dell'applicazione usando il tag [FQDN di Firewall di Azure](../firewall/fqdn-tags.md) *AzureBackup*. In questo modo si consente l'accesso in uscita a Backup di Azure.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Consentire l'accesso agli intervalli IP del servizio
 
@@ -84,7 +85,7 @@ Se si decide di consentire l'accesso agli IP del servizio, fare riferimento agli
 | -------------- | ------------------------------------------------------------ |
 | Backup di Azure  | `*.backup.windowsazure.com`                             |
 | Archiviazione di Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Consentire l'accesso ai nomi di dominio completo (FQDN) nelle sezioni 56 e 59 come indicato in [questo articolo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Consentire l'accesso ai nomi di dominio completo (FQDN) nelle sezioni 56 e 59 come indicato in [questo articolo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usare un server proxy HTTP per instradare il traffico
 
@@ -172,7 +173,7 @@ Specificare le impostazioni del criterio come segue:
 
 7. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
 8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
-    * In **Backup del log** selezionare **Abilita**.  Questa opzione non può essere disabilitata perché SAP HANA gestisce tutti i backup del log.
+    * In **Backup del log** selezionare **Abilita**.  Questa operazione non può essere disabilitata, dal momento che SAP HANA gestisce tutti i backup del log.
     * Impostare la frequenza e i controlli di conservazione.
 
     > [!NOTE]
@@ -190,7 +191,7 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 
 1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
 2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
-3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Quindi fare clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Eseguire il backup di SAP HANA Studio in un database con Backup di Azure abilitato
@@ -198,17 +199,19 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 Per eseguire il backup locale (tramite HANA Studio) di un database di cui è stato eseguito il backup con Backup di Azure, procedere come indicato di seguito:
 
 1. Attendere il completamento di tutti i backup del log o completi per il database. Verificare lo stato in SAP HANA Studio/Cockpit.
-2. Disabilitare i backup del log e impostare il catalogo di backup sul file system per il database pertinente.
-3. A tal fine, fare doppio clic su **systemdb** > **Configurazione** > **Seleziona database** > **Filtro (log)** .
-4. Impostare **enable_auto_log_backup** su **No**.
-5. Impostare **log_backup_using_backint** su **False**.
-6. Eseguire un backup completo su richiesta del database.
-7. Attendere il completamento del backup completo e del catalogo.
-8. Ripristinare le impostazioni precedenti a quelle per Azure:
+1. Disabilitare i backup del log e impostare il catalogo di backup sul file system per il database pertinente.
+1. A tal fine, fare doppio clic su **systemdb** > **Configurazione** > **Seleziona database** > **Filtro (log)** .
+1. Impostare **enable_auto_log_backup** su **No**.
+1. Impostare **log_backup_using_backint** su **False**.
+1. Impostare **catalog_backup_using_backint** su **false**.
+1. Eseguire un backup completo su richiesta del database.
+1. Attendere il completamento del backup completo e del catalogo.
+1. Ripristinare le impostazioni precedenti a quelle per Azure:
     * Impostare **enable_auto_log_backup** su **Yes**.
-    * Impostare **log_backup_using_backint** su **true**.
+    * Impostare **log_backup_using_backint** su **True**.
+    * Impostare **catalog_backup_using_backint** su **true**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [ripristinare i database SAP HANA in esecuzione nelle VM di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Informazioni su come [gestire i database SAP HANA di cui è stato eseguito il backup con Backup di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Informazioni su come [ripristinare i database SAP HANA in esecuzione nelle VM di Azure](./sap-hana-db-restore.md)
+* Informazioni su come [gestire i database SAP HANA di cui è stato eseguito il backup con Backup di Azure](./sap-hana-db-manage.md)

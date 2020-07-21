@@ -3,11 +3,13 @@ title: Matrice di supporto di backup di Azure per SQL Server backup in macchine 
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto durante l'esecuzione del backup SQL Server in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234256"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513184"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -26,7 +28,7 @@ ms.locfileid: "84234256"
 ## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
 
 * Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. L'interfaccia della riga di comando non è supportata.
-* La soluzione è supportata in entrambe le tipologie di [distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
+* La soluzione è supportata in entrambe le tipologie di [distribuzione](../azure-resource-manager/management/deployment-models.md): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
 * La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
 * SQL Server **istanza del cluster di failover (FCI)** non è supportata.
 * Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
@@ -55,7 +57,7 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Completo | Principale
+Full | Principale
 Differenziale | Principale
 File di log |  Principale
 Completo solo copia |  Principale
@@ -64,7 +66,7 @@ Completo solo copia |  Principale
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Completo | Principale
+Full | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
@@ -73,7 +75,7 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Completo | Principale
+Full | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
@@ -82,7 +84,7 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Completo | Principale
+Full | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari

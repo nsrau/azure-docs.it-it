@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515445"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure usando PowerShell
 Questo articolo fornisce due esempi di codice che illustrano come creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Il formato per il parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Proprietà** è la configurazione necessaria per il parametro **CustomLogRawJson**.
+> Il formato per il parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Proprietà** è la configurazione necessaria per il parametro **CustomLogRawJson**.
 
 Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log può anche essere un timestamp.  Questi sono i formati supportati:
 
@@ -212,14 +212,13 @@ Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova
 | `yyyy-MM-ddTHH:mm:ss` <br> T è una valore letterale per la lettera T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Quando si crea un'area di lavoro eliminata negli ultimi 14 giorni e in [stato di eliminazione temporanea](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), l'operazione potrebbe avere risultati diversi a seconda della configurazione dell'area di lavoro:
+Quando si crea un'area di lavoro eliminata negli ultimi 14 giorni e in [stato di eliminazione temporanea](./delete-workspace.md#soft-delete-behavior), l'operazione potrebbe avere risultati diversi a seconda della configurazione dell'area di lavoro:
 1. Se si specificano lo stesso nome dell'area di lavoro, gruppo di risorse, sottoscrizione e area dell'area di lavoro eliminata, l'area di lavoro verrà ripristinata, inclusi i dati, la configurazione e gli agenti connessi.
 2. Se si usa lo stesso nome dell'area di lavoro, ma un gruppo di risorse, una sottoscrizione o un'area diversa, si otterrà un errore *Il nome dell'area di lavoro 'workspace-name' non è univoco*, o dei *conflitti*. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro e creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:
-   * [Recuperare](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) l'area di lavoro
-   * [Eliminare definitivamente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) l'area di lavoro
+   * [Recuperare](./delete-workspace.md#recover-workspace) l'area di lavoro
+   * [Eliminare definitivamente](./delete-workspace.md#permanent-workspace-delete) l'area di lavoro
    * Creare una nuova area di lavoro usando il nome della stessa area di lavoro
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [cmdlet di PowerShell per Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) .
-
+* [cmdlet di PowerShell per Log Analytics](/powershell/module/az.operationalinsights/) .

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80247385"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511178"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Backup di Azure per SQL Server in esecuzione nella macchina virtuale di Azure
 
@@ -26,7 +26,7 @@ Per l'elenco degli scenari supportati, vedere la [matrice di supporto](../../bac
 
 ## <a name="network-connectivity"></a>Connettività di rete
 
-Backup di Azure supporta i tag NSG, distribuendo un server proxy o intervalli di indirizzi IP elencati; per informazioni dettagliate su ognuno dei metodi, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
+Backup di Azure supporta i tag NSG, distribuendo un server proxy o intervalli di indirizzi IP elencati; per informazioni dettagliate su ognuno dei metodi, vedere questo [articolo](../../backup/backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -102,7 +102,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-È necessario registrare la macchina virtuale di Azure che contiene l'applicazione SQL con un insieme di credenziali di servizi di ripristino. Durante la registrazione, l'estensione AzureBackupWindowsWorkload viene installata nella macchina virtuale. Usare il cmdlet [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) per registrare la macchina virtuale.
+È necessario registrare la macchina virtuale di Azure che contiene l'applicazione SQL con un insieme di credenziali di servizi di ripristino. Durante la registrazione, l'estensione AzureBackupWindowsWorkload viene installata nella macchina virtuale. Usare il cmdlet [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) per registrare la macchina virtuale.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -113,5 +113,5 @@ Il comando restituirà un **contenitore di backup** di questa risorsa e lo stato
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) informazioni sulle linee guida per la risoluzione dei problemi di backup delle VM di Azure SQL Server
-- [Domande frequenti](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) sul backup di database SQL Server eseguiti in macchine virtuali (VM) di Azure e che usano il servizio backup di Azure.
+- [Altre](../../backup/backup-sql-server-azure-troubleshoot.md) informazioni sulle linee guida per la risoluzione dei problemi di backup delle VM di Azure SQL Server
+- [Domande frequenti](../../backup/faq-backup-sql-server.md) sul backup di database SQL Server eseguiti in macchine virtuali (VM) di Azure e che usano il servizio backup di Azure.

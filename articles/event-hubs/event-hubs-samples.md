@@ -3,15 +3,15 @@ title: Esempi - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce un elenco di esempi per Hub eventi di Azure disponibili su GitHub.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d7a40e399482af0ad3a501918a7e3307d724c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512300"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repository GIT con esempi per Hub eventi di Azure 
-È possibile trovare gli esempi di Hub eventi in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Questi esempi illustrano le funzionalità principali di [Hub eventi di Azure](/azure/event-hubs/). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
+È possibile trovare gli esempi di Hub eventi in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Questi esempi illustrano le funzionalità principali di [Hub eventi di Azure](./index.yml). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
 ## <a name="net-samples"></a>Esempi .NET
 
@@ -57,6 +57,6 @@ ms.locfileid: "85315521"
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Hub eventi consultare i seguenti articoli:
 
-- [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+- [Panoramica di Hub eventi](./event-hubs-about.md)
 - [Funzionalità di Hub eventi](event-hubs-features.md)
 - [Domande frequenti su Hub eventi](event-hubs-faq.md)

@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968902"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510733"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -25,7 +26,7 @@ Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh t
 Il repository contiene anche script da usare per configurare un dashboard Grafana che può essere usato per eseguire query su Prometheus, il sistema open-source di monitoraggio e invio di avvisi incluso in DB2.
 
 > [!NOTE]
-> Lo script deploy.sh nel client crea chiavi SSH private e le passa al modello di distribuzione tramite HTTPS. Per una maggiore sicurezza, è consigliabile usare [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) per archiviare segreti, chiavi e password.
+> Lo script deploy.sh nel client crea chiavi SSH private e le passa al modello di distribuzione tramite HTTPS. Per una maggiore sicurezza, è consigliabile usare [Azure Key Vault](../../key-vault/general/overview.md) per archiviare segreti, chiavi e password.
 
 ## <a name="how-the-deployment-script-works"></a>Funzionamento dello script di distribuzione
 
@@ -76,7 +77,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |
-|                           | I agree to the IBM terms (Accetto le condizioni IBM)                     | Selezionato                                                                                               |
+|                           | I agree to the IBM terms (Accetto le condizioni IBM)                     | Opzione selezionata                                                                                               |
 | Instance Owner (Proprietario istanza)            | Existing User For Instance, User name (Utente esistente per istanza, Nome utente)        | DB2sdin1                                                                                              |
 | Fenced User (Utente confinato)               | Existing User, User name (Utente esistente, Nome utente)                     | DB2sdfe1                                                                                              |
 | Cluster File System (File system cluster)       | Shared disk partition device path (Percorso dispositivo partizione disco condiviso)            | /dev/dm-2                                                                                             |

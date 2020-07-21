@@ -3,11 +3,12 @@ title: Come sostituire l'infrastruttura basata su nastro
 description: Informazioni su come backup di Azure offre una semantica di tipo nastro che consente di eseguire il backup e il ripristino dei dati in Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425103"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514187"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 
@@ -69,5 +70,5 @@ Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di
 
 Per ulteriori informazioni sul Backup di Azure vedere:
 
-* [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
-* [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
+* [Introduzione a Backup di Azure](./backup-overview.md)
+* [Valutazione di Backup di Azure](./backup-windows-with-mars-agent.md)

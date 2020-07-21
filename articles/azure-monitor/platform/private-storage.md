@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184498"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515428"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Account di archiviazione di proprietà del cliente per l'inserimento dei log in Monitoraggio di Azure
 
-Monitoraggio di Azure usa gli account di archiviazione nel processo di inserimento di alcuni tipi di dati, ad esempio [log personalizzati](data-sources-custom-logs.md) e alcuni [log di Azure](azure-storage-iis-table.md). Durante il processo di inserimento, i log vengono prima inviati a un account di archiviazione e successivamente inseriti in Log Analytics o in Application Insights. Se si vuole controllare i dati durante l'inserimento, è possibile usare i propri account di archiviazione anziché l'archiviazione gestita dal servizio. L'uso del proprio account di archiviazione consente di controllare l'accesso, il contenuto, la crittografia e la conservazione dei log durante l'inserimento. Questa operazione viene indicata come Bring Your Own Storage, o BYOS. 
+Monitoraggio di Azure usa gli account di archiviazione nel processo di inserimento di alcuni tipi di dati, ad esempio [log personalizzati](data-sources-custom-logs.md) e alcuni [log di Azure](./diagnostics-extension-logs.md). Durante il processo di inserimento, i log vengono prima inviati a un account di archiviazione e successivamente inseriti in Log Analytics o in Application Insights. Se si vuole controllare i dati durante l'inserimento, è possibile usare i propri account di archiviazione anziché l'archiviazione gestita dal servizio. L'uso del proprio account di archiviazione consente di controllare l'accesso, il contenuto, la crittografia e la conservazione dei log durante l'inserimento. Questa operazione viene indicata come Bring Your Own Storage, o BYOS. 
 
 Uno scenario che richiede BYOS è l'isolamento di rete tramite collegamenti privati. Quando si usa una rete virtuale, l'isolamento rete è spesso un requisito e l'accesso alla rete Internet pubblica è limitato. In questi casi, l'accesso all'archiviazione del servizio di Monitoraggio di Azure per l'inserimento dei log è completamente bloccato o considerato una procedura non valida. Al contrario, i log devono essere inseriti tramite un account di archiviazione di proprietà del cliente all'interno della VNet o facilmente accessibili da tale account.
 
@@ -23,7 +23,7 @@ Un altro scenario è la crittografia dei log con chiavi gestite dal cliente (CMK
 
 ## <a name="data-types-supported"></a>Tipi di dati supportati
 
-Di seguito sono riportati i tipi di dati inseriti da un account di archiviazione. Per altre informazioni sull'inserimento di questi tipi di dati, vedere [Raccogliere i dati dall'estensione diagnostica di Azure ai log di monitoraggio di Azure](azure-storage-iis-table.md).
+Di seguito sono riportati i tipi di dati inseriti da un account di archiviazione. Per altre informazioni sull'inserimento di questi tipi di dati, vedere [Raccogliere i dati dall'estensione diagnostica di Azure ai log di monitoraggio di Azure](./diagnostics-extension-logs.md).
 
 | Type | Informazioni tabella |
 |:-----|:------------------|
@@ -54,7 +54,7 @@ L'unico metodo disponibile per la creazione e la rimozione dei collegamenti è t
 ## <a name="command-line-and-rest-api"></a>Riga di comando e API REST
 
 ### <a name="command-line"></a>Riga di comando
-Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
+Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
 
 ### <a name="request-and-cli-values"></a>Valori di richiesta e CLI
 

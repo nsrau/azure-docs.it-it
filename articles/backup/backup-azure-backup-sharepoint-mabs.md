@@ -3,11 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con il server di Ba
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234797"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514238"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con il server di Backup di Microsoft Azure
 
@@ -17,7 +18,7 @@ Il backup di SharePoint in Azure con il server di Backup di Microsoft Azure è u
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versioni supportate di SharePoint e relativi scenari di protezione
 
-Per un elenco delle versioni supportate di SharePoint e delle versioni del server di Backup di Microsoft Azure necessarie per eseguire il backup, vedere [la matrice di protezione del server di Backup di Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+Per un elenco delle versioni supportate di SharePoint e delle versioni del server di Backup di Microsoft Azure necessarie per eseguire il backup, vedere [la matrice di protezione del server di Backup di Microsoft Azure](./backup-mabs-protection-matrix.md)
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -99,7 +100,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. In **Specificare i criteri di conservazione online** è possibile specificare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
-1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
 
 1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver fatto clic su **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
 

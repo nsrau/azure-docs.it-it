@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7b22a8010d7dfbdeeaeae623a55c1aff9c006c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610354"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510498"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
+# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Script di esempio di crittografia dischi di Azure per macchine virtuali Linux
 
 Questo articolo fornisce script di esempio per la preparazione dei dischi rigidi virtuali pre-crittografati e di altre attività.
 
@@ -186,7 +186,7 @@ Configurare la crittografia durante l'installazione della distribuzione seguendo
 
    ![Configurazione di Ubuntu 16.04 - Specificare la passphrase all'avvio](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Preparare la macchina virtuale per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+6. Preparare la macchina virtuale per il caricamento in Azure seguendo [queste istruzioni](./create-upload-ubuntu.md?toc=/azure/virtual-machines/linux/toc.json). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 Configurare la crittografia per l'uso in Azure eseguendo i passaggi seguenti:
 
@@ -262,7 +262,7 @@ Per configurare la crittografia durante l'installazione della distribuzione, ese
 
    ![Configurazione di openSUSE 13.2 - Specificare la passphrase all'avvio](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Preparare la macchina virtuale per il caricamento in Azure seguendo le istruzioni disponibili in [Preparare una macchina virtuale SLES oppure openSUSE per Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+3. Preparare la macchina virtuale per il caricamento in Azure seguendo le istruzioni disponibili in [Preparare una macchina virtuale SLES oppure openSUSE per Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti:
 1. Modificare il file /etc/dracut.conf e aggiungere la riga seguente:
@@ -339,7 +339,7 @@ Per configurare la crittografia durante l'installazione della distribuzione, ese
 
    ![Configurazione di CentOS 7 - Immettere la passphrase all'avvio](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Preparare la macchina virtuale per il caricamento in Azure usando le istruzioni relative a "CentOS 7.0+" disponibili in [Preparare una macchina virtuale basata su CentOS per Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+5. Preparare la macchina virtuale per il caricamento in Azure usando le istruzioni relative a "CentOS 7.0+" disponibili in [Preparare una macchina virtuale basata su CentOS per Azure](./create-upload-centos.md?toc=/azure/virtual-machines/linux/toc.json#centos-70). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 6. È ora possibile effettuare il deprovisioning della macchina virtuale e caricare il disco rigido virtuale in Azure.
 
@@ -439,7 +439,7 @@ Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [set-
 Usare `$secretUrl` nel passaggio successivo per [collegare il disco del sistema operativo senza usare una chiave di crittografia della chiave](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave
-Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione Wrap è una stringa codificata con URL Base64, che può quindi essere caricata come segreto usando il [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](/rest/api/keyvault/wrapkey) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione Wrap è una stringa codificata con URL Base64, che può quindi essere caricata come segreto usando il [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

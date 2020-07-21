@@ -3,15 +3,16 @@ title: Ripristinare le condivisioni file di Azure con l'interfaccia della riga d
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per ripristinare le condivisioni file di Azure di backup nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24939d020ba61c633eb382654a9260aa3729a271
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80757098"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513660"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Ripristinare le condivisioni file di Azure con l'interfaccia della riga di comando
 
-L'interfaccia della riga di comando di Azure offre un'esperienza da riga di comando per gestire le risorse di Azure. Si tratta di uno strumento straordinario per creare un'automazione personalizzata per l'uso delle risorse di Azure. Questo articolo illustra come ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview) usando l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) o nel [portale di Azure](backup-afs.md).
+L'interfaccia della riga di comando di Azure offre un'esperienza da riga di comando per gestire le risorse di Azure. Si tratta di uno strumento straordinario per creare un'automazione personalizzata per l'uso delle risorse di Azure. Questo articolo illustra come ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da [backup di Azure](./backup-overview.md) usando l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](./backup-azure-afs-automation.md) o nel [portale di Azure](backup-afs.md).
 
 Alla fine di questo articolo si apprenderà come eseguire le operazioni seguenti con l'interfaccia della riga di comando di Azure:
 
@@ -24,7 +25,7 @@ Alla fine di questo articolo si apprenderà come eseguire le operazioni seguenti
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +40,7 @@ Questo articolo presuppone che sia già presente una condivisione file di Azure 
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Recuperare i punti di ripristino per la condivisione file di Azure
 
-Usare il cmdlet [AZ backup RecoveryPoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) per elencare tutti i punti di ripristino per la condivisione file di cui è stato eseguito il backup.
+Usare il cmdlet [AZ backup RecoveryPoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) per elencare tutti i punti di ripristino per la condivisione file di cui è stato eseguito il backup.
 
 Nell'esempio seguente viene recuperato l'elenco dei punti di ripristino per la condivisione file *risorsa* nell'account di archiviazione *afsaccount* .
 
@@ -74,14 +75,14 @@ L'attributo **Name** nell'output corrisponde al nome del punto di ripristino che
 
 Definire i parametri seguenti per eseguire le operazioni di ripristino:
 
-* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 
 ### <a name="restore-a-full-share-to-the-original-location"></a>Ripristinare una condivisione completa nel percorso originale
 
 Quando si esegue il ripristino in un percorso originale, non è necessario specificare i parametri relativi alla destinazione. È necessario fornire solo **conflitti di risoluzione** .
 
-Nell'esempio seguente viene usato il cmdlet [AZ backup restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) con la modalità di ripristino impostata su *originallocation* per ripristinare la condivisione file *risorsa* nel percorso originale. Usare il punto di ripristino 932883129628959823, ottenuto in [recuperare i punti di ripristino per la condivisione file di Azure](#fetch-recovery-points-for-the-azure-file-share):
+Nell'esempio seguente viene usato il cmdlet [AZ backup restore-azurefileshare](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) con la modalità di ripristino impostata su *originallocation* per ripristinare la condivisione file *risorsa* nel percorso originale. Usare il punto di ripristino 932883129628959823, ottenuto in [recuperare i punti di ripristino per la condivisione file di Azure](#fetch-recovery-points-for-the-azure-file-share):
 
 ```azurecli-interactive
 az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation --resolve-conflict overwrite --out table
@@ -93,7 +94,7 @@ Name                                  ResourceGroup
 6a27cc23-9283-4310-9c27-dcfb81b7b4bb  azurefiles
 ```
 
-L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ### <a name="restore-a-full-share-to-an-alternate-location"></a>Ripristinare una condivisione completa in un percorso alternativo
 
@@ -104,7 +105,7 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 * **--target-folder**: cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto sottoposto a backup deve essere ripristinato in una cartella radice, fornire i valori della cartella di destinazione come stringa vuota.
 * **--Resolve-conflict**: istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
 
-Nell'esempio seguente viene usato il comando [AZ backup restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) con la modalità di ripristino come *AlternateLocation* per ripristinare la condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
+Nell'esempio seguente viene usato il comando [AZ backup restore-azurefileshare](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) con la modalità di ripristino come *AlternateLocation* per ripristinare la condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
@@ -116,7 +117,7 @@ Name                                  ResourceGroup
 babeb61c-d73d-4b91-9830-b8bfa83c349a  azurefiles
 ```
 
-L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ## <a name="item-level-recovery"></a>Ripristino a livello di elemento
 
@@ -124,18 +125,18 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 
 Definire i parametri seguenti per eseguire le operazioni di ripristino:
 
-* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 
 Specificare i seguenti parametri per gli elementi che si desidera ripristinare:
 
-* **Percorsofileorigine**: percorso assoluto del file, da ripristinare all'interno della condivisione file, sotto forma di stringa. Questo percorso è lo stesso percorso usato nei comandi [AZ Storage file download](https://docs.microsoft.com/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) o [AZ Storage file Show](https://docs.microsoft.com/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-show) cli.
+* **Percorsofileorigine**: percorso assoluto del file, da ripristinare all'interno della condivisione file, sotto forma di stringa. Questo percorso è lo stesso percorso usato nei comandi [AZ Storage file download](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) o [AZ Storage file Show](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-show) cli.
 * **SourceFileType**: scegliere se selezionare una directory o un file. Accetta la **directory** o il **file**.
 * **ResolveConflict**: istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
 
 ### <a name="restore-individual-files-or-folders-to-the-original-location"></a>Ripristinare singoli file o cartelle nel percorso originale
 
-Usare il cmdlet [AZ backup restore-risorsa](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *originallocation* per ripristinare i file o le cartelle specifici nel percorso originale.
+Usare il cmdlet [AZ backup restore-risorsa](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *originallocation* per ripristinare i file o le cartelle specifici nel percorso originale.
 
 Nell'esempio seguente viene ripristinato il file di *RestoreTest.txt* nel percorso originale: la condivisione file *risorsa* .
 
@@ -149,11 +150,11 @@ Name                                  ResourceGroup
 df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
-L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ### <a name="restore-individual-files-or-folders-to-an-alternate-location"></a>Ripristinare singoli file o cartelle in un percorso alternativo
 
-Per ripristinare file o cartelle specifiche in un percorso alternativo, usare il cmdlet [AZ backup restore-risorsa](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *AlternateLocation* e specificare i parametri relativi alla destinazione seguenti:
+Per ripristinare file o cartelle specifiche in un percorso alternativo, usare il cmdlet [AZ backup restore-risorsa](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *AlternateLocation* e specificare i parametri relativi alla destinazione seguenti:
 
 * **--target-storage-account**: l'account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
 * **--target-file-share**: la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
@@ -171,7 +172,7 @@ Name                                  ResourceGroup
 df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
-L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Ripristinare più file o cartelle nel percorso originale o in un percorso alternativo
 
@@ -191,7 +192,7 @@ Name                                          ResourceGroup
 649b0c14-4a94-4945-995a-19e2aace0305          azurefiles
 ```
 
-L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+L'attributo **Name** nell'output corrisponde al nome del processo creato dal servizio di backup per l'operazione di ripristino. Per tenere traccia dello stato del processo, usare il cmdlet [AZ backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 Se si desidera ripristinare più elementi in un percorso alternativo, utilizzare il comando precedente specificando parametri correlati alla destinazione, come illustrato nella sezione [ripristinare singoli file o cartelle in un percorso alternativo](#restore-individual-files-or-folders-to-an-alternate-location) .
 

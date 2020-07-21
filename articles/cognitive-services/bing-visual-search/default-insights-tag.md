@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60510123"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512640"
 ---
 # <a name="default-insights-tag"></a>Tag informazioni dettagliate predefinite
 
@@ -100,7 +100,7 @@ Il tag delle informazioni dettagliate predefinite è quello con il campo `displa
 
 ## <a name="pagesincluding-insight"></a>Informazioni dettagliate PagesIncluding
 
-Le informazioni dettagliate di tipo PagesIncluding forniscono un elenco delle pagine Web che includono questa immagine. Si tratta in realtà di un `Image` elenco di oggetti e `hostPageUrl` il campo contiene l'URL della pagina Web che include l'immagine. Per un esempio di utilizzo, vedere l' [esempio PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
+Le informazioni dettagliate di tipo PagesIncluding forniscono un elenco delle pagine Web che includono questa immagine. Si tratta in realtà di un elenco di `Image` oggetti e il `hostPageUrl` campo contiene l'URL della pagina Web che include l'immagine. Per un esempio di utilizzo, vedere l' [esempio PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -425,4 +425,12 @@ DocumentLevelSuggestions Insight fornisce un elenco di termini di ricerca sugger
 
 Esaminare gli [esempi di utilizzo di Bing Insights](bing-insights-usage.md) per vedere come Bing potrebbe visualizzare le informazioni visive.
 
-Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive:[Python](quickstarts/python.md)per[node. js](quickstarts/nodejs.md) | [Java](quickstarts/java.md) | per [C#](quickstarts/csharp.md) | .
+Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).

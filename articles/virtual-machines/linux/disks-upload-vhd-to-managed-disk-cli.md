@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510447"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area-interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "84945631"
 - Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Se si preferisce caricare dischi tramite un'interfaccia utente grafica, è possibile usare Azure Storage Explorer. Per informazioni dettagliate, vedere: [usare Azure Storage Explorer per gestire i dischi gestiti di Azure](disks-use-storage-explorer-managed-disks.md)
 
@@ -34,7 +34,7 @@ Per caricare il disco rigido virtuale in Azure, è necessario creare un disco ge
 
 Questo tipo di disco gestito ha due stati univoci:
 
-- ReadToUpload, il che significa che il disco è pronto per ricevere un caricamento, ma non è stata generata alcuna [firma di accesso sicuro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
+- ReadToUpload, il che significa che il disco è pronto per ricevere un caricamento, ma non è stata generata alcuna [firma di accesso sicuro](../../storage/common/storage-sas-overview.md) (SAS).
 - ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e che la firma di accesso condiviso è stata generata.
 
 > [!NOTE]
@@ -132,4 +132,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile aggiungere il disco come [disco dati a una macchina virtuale esistente](add-disk.md) o [connetterlo a una macchina virtuale come disco del sistema operativo](upload-vhd.md#create-the-vm), per creare una nuova macchina virtuale. 
-

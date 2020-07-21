@@ -3,17 +3,17 @@ title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azu
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312831"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512257"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrare Hub eventi di Azure con Collegamento privato di Azure
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
 
-Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
@@ -58,10 +58,13 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 2. Nella barra di ricerca digitare **Hub eventi**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
 4. Selezionare la scheda **Rete** in **Impostazioni**.
-5. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
-6. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 
-    ![Immagine](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **standard** o **dedicati** . 
+1. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
+1. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Pagina rete-scheda connessioni endpoint privato-Aggiungi collegamento endpoint privato":::
 7. Nella pagina **Informazioni di base** seguire questa procedura: 
     1. Selezionare la **sottoscrizione di Azure** in cui creare l'endpoint privato. 
     2. Selezionare il **gruppo di risorse** per la risorsa endpoint privato.
@@ -214,7 +217,7 @@ Sono disponibili quattro stati di provisioning:
 2. Selezionare l'**endpoint privato** che si vuole approvare
 3. Selezionare il pulsante **Approva**.
 
-    ![Image](./media/private-link-service/approve-private-endpoint.png)
+    ![Immagine](./media/private-link-service/approve-private-endpoint.png)
 4. Nella pagina **Approva la connessione** aggiungere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 5. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Approvata**. 
 

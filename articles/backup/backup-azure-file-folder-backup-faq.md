@@ -1,18 +1,18 @@
 ---
-title: Backup di file e cartelle-domande comuni
+title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande frequenti
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514068"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
-Questo articolo risponde a domande comuni che abbondano i file e le cartelle con l'agente di Servizi di ripristino di Microsoft Azure (MARS) nel servizio [backup di Azure](backup-overview.md) .
+Questo articolo risponde a domande comuni sul backup dei dati con l'agente di Servizi di ripristino di Microsoft Azure (MARS) nel servizio [backup di Azure](backup-overview.md) .
 
 ## <a name="configure-backups"></a>Configurare i backup
 
@@ -74,11 +74,11 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso file per il backup?
 
-L'agente MARS si basa su NTFS e utilizza la specifica della lunghezza del FilePath limitata dall' [API Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se i file che si desidera proteggere sono più lunghi del valore consentito, eseguire il backup della cartella padre o dell'unità disco.  
+L'agente MARS si basa su NTFS e utilizza la specifica della lunghezza del FilePath limitata dall' [API Windows](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se i file che si desidera proteggere sono più lunghi del valore consentito, eseguire il backup della cartella padre o dell'unità disco.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Quali caratteri sono consentiti nei percorsi di file?
 
-L'agente MARS si basa su NTFS e supporta i [caratteri supportati](/windows/desktop/FileIO/naming-a-file#naming-conventions) nei nomi file e nei percorsi.
+L'agente MARS si basa su NTFS e supporta i [caratteri supportati](/windows/win32/FileIO/naming-a-file#naming-conventions) nei nomi file e nei percorsi.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Viene visualizzato l'avviso "backup di Azure non configurati per questo server"
 
@@ -91,7 +91,7 @@ Questo avviso può essere visualizzato anche se sono stati configurati criteri d
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Qual è il requisito di dimensioni minime per la cartella della cache?
 
-La dimensione della cartella della cache determina la quantità di dati sottoposti a backup.
+La dimensione della cartella della cache determina la quantità di dati di cui si sta eseguendo il backup.
 
 * Lo spazio disponibile nei volumi della cartella della cache è uguale almeno al 5-10% delle dimensioni totali dei dati di backup.
 * Se lo spazio disponibile nel volume è inferiore al 5%, aumentare la dimensione del volume oppure spostare la cartella della cache in un volume con spazio sufficiente attenendosi alla seguente [procedura](#how-do-i-change-the-cache-location-for-the-mars-agent).
@@ -141,7 +141,7 @@ Non è consigliabile usare i percorsi seguenti per la cartella della cache:
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Sono presenti attributi della cartella della cache che non sono supportati?
 
-Per la cartella della cache non sono supportati gli attributi seguenti o le relative combinazioni:
+Gli attributi o le combinazioni seguenti non sono supportati per la cartella della cache:
 
 * Crittografato
 * De-duplicated
@@ -165,17 +165,17 @@ L'agente di backup di Azure richiede una passphrase (fornita durante la registra
 
 | Computer originale <br> *(computer di origine in cui sono stati eseguiti i backup)* | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Disponibile |Lost |Se il computer originale (in cui sono stati eseguiti i backup) è disponibile e ancora registrato con lo stesso insieme di credenziali di servizi di ripristino, è possibile rigenerare la passphrase attenendosi alla [procedura](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)seguente.  |
+| Disponibile |Lost |Se il computer originale (in cui sono stati eseguiti i backup) è disponibile e ancora registrato con lo stesso insieme di credenziali di servizi di ripristino, è possibile rigenerare la passphrase attenendosi alla [procedura](./backup-azure-manage-mars.md#re-generate-passphrase)seguente.  |
 | Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
 
 Prendere in considerazione le condizioni seguenti:
 
-* Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con
-  * *Stessa passphrase*, sarà possibile ripristinare i dati di cui è stato eseguito il backup.
-  * *Passphrase diversa*, quindi non sarà possibile ripristinare i dati di cui è stato eseguito il backup.
-* Se si installa l'agente in un *computer diverso* con
-  * *Stessa passphrase* (usata nel computer originale), sarà possibile ripristinare i dati di cui è stato eseguito il backup.
-  * *Passphrase diversa*. non sarà possibile ripristinare i dati di cui è stato eseguito il backup.
+* Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con te
+  * *Stessa passphrase*, è possibile ripristinare i dati di cui è stato eseguito il backup.
+  * *Passphrase diversa*, quindi non è possibile ripristinare i dati di cui è stato eseguito il backup.
+* Se si installa l'agente in un *computer diverso* con il
+  * *Stessa passphrase* (usata nel computer originale), è possibile ripristinare i dati di cui è stato eseguito il backup.
+  * *Passphrase diversa*, non è possibile ripristinare i dati di cui è stato eseguito il backup.
 * Se il computer originale è danneggiato (evitando di rigenerare la passphrase tramite la console MARS), ma è possibile ripristinare o accedere alla cartella Scratch originale usata dall'agente MARS, potrebbe essere possibile ripristinare (se la password è stata dimenticata). Per ulteriore assistenza, contattare il supporto tecnico.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Ricerca per categorie ripristinare se è stato perso il computer originale (in cui sono stati eseguiti I backup)?
@@ -184,7 +184,7 @@ Se si ha la stessa passphrase (fornita durante la registrazione) del computer or
 
 | Computer originale | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino**  >  in**un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino**  >  in**un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>I processi di backup sono in errore o non sono in esecuzione da molto tempo. Ho superato il periodo di conservazione. Posso ancora ripristinare?

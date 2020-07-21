@@ -3,16 +3,16 @@ title: Backup non in linea tramite Azure Data Box
 description: Informazioni su come usare Azure Data Box per inizializzare i dati di backup iniziali di grandi dimensioni offline dall'agente MARS a un insieme di credenziali di servizi di ripristino.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513694"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
 
-È possibile usare [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) per eseguire il seeding dei backup iniziali di servizi di ripristino di Microsoft Azure (Mars) in modalità offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero utilizzati per lo trasferimento di grandi quantità di dati di backup online su una rete ad alta latenza. Questa funzionalità avanzata è attualmente in fase di anteprima. Il backup offline basato su Azure Data Box offre due vantaggi distinti rispetto [al backup offline basato sul servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+È possibile usare [Azure Data Box](../databox/data-box-overview.md) per eseguire il seeding dei backup iniziali di servizi di ripristino di Microsoft Azure (Mars) in modalità offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero utilizzati per lo trasferimento di grandi quantità di dati di backup online su una rete ad alta latenza. Questa funzionalità avanzata è attualmente in fase di anteprima. Il backup offline basato su Azure Data Box offre due vantaggi distinti rispetto [al backup offline basato sul servizio importazione/esportazione di Azure](./backup-azure-backup-import-export.md):
 
 - Non è necessario acquistare dischi e connettori compatibili con Azure. Azure Data Box fornisce i dischi associati allo [SKU data box](https://azure.microsoft.com/services/databox/data/)selezionato.
 - Backup di Azure (agente MARS) può scrivere direttamente i dati di backup sugli SKU supportati di Azure Data Box. Questa funzionalità Elimina la necessità di effettuare il provisioning di un percorso di gestione temporanea per i dati di backup iniziali. Non sono inoltre necessarie utilità per formattare e copiare i dati sui dischi.
@@ -47,8 +47,8 @@ Il processo per eseguire il seeding dei dati dall'agente MARS usando Azure Data 
 
 | Dimensioni dei dati di backup (post-compressione da Marte) * per server | SKU Azure Data Box supportati                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <= 7,2 TB                                                    | [Disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <= 7,2 TB                                                    | [Disco Azure Data Box](../databox/data-box-disk-overview.md) |
+| >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 * I normali tassi di compressione variano tra il 10% e il 20%. <br>
 * * Se si prevede di avere più di 80 TB di dati di backup iniziali per un singolo server MARS, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
@@ -113,7 +113,7 @@ Azure PowerShell potrebbe essere stato installato anche usando un file MSI. Per 
 
 ### <a name="order-and-receive-the-data-box-device"></a>Ordinare e ricevere il dispositivo Data Box
 
-Il processo di backup offline che usa MARS e Azure Data Box richiede che i dispositivi Data Box siano in uno stato recapitato prima di attivare il backup offline usando l'agente MARS. Per ordinare lo SKU più adatto ai propri requisiti, vedere [dimensioni dei dati di backup e sku data box supportati](#backup-data-size-and-supported-data-box-skus). Seguire i passaggi in [esercitazione: ordinare un disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) per ordinare e ricevere i dispositivi data box.
+Il processo di backup offline che usa MARS e Azure Data Box richiede che i dispositivi Data Box siano in uno stato recapitato prima di attivare il backup offline usando l'agente MARS. Per ordinare lo SKU più adatto ai propri requisiti, vedere [dimensioni dei dati di backup e sku data box supportati](#backup-data-size-and-supported-data-box-skus). Seguire i passaggi in [esercitazione: ordinare un disco Azure Data Box](../databox/data-box-disk-deploy-ordered.md) per ordinare e ricevere i dispositivi data box.
 
 > [!IMPORTANT]
 > Non selezionare *BlobStorage* per il **tipo di account**. Per l'agente MARS è necessario un account che supporti i BLOB di pagine, che non è supportato quando si seleziona *BlobStorage* . Selezionare **storage V2 (utilizzo generico v2)** come **tipo di account** quando si crea l'account di archiviazione di destinazione per il processo di Azure Data Box.
@@ -124,7 +124,7 @@ Il processo di backup offline che usa MARS e Azure Data Box richiede che i dispo
 
 1. Assicurarsi di disinstallare le installazioni precedenti dell'agente MARS.
 1. Scaricare la versione più recente dell'agente MARS dal [sito Web](https://aka.ms/azurebackup_agent).
-1. Eseguire *MARSAgentInstaller.exe*ed eseguire *solo* i passaggi per [installare e registrare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
+1. Eseguire *MARSAgentInstaller.exe*ed eseguire *solo* i passaggi per [installare e registrare l'agente](./install-mars-agent.md#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
 
    > [!NOTE]
    > L'insieme di credenziali di servizi di ripristino deve trovarsi nella stessa sottoscrizione del processo di Azure Data Box.
@@ -137,14 +137,14 @@ A seconda del Azure Data Box SKU ordinato, eseguire i passaggi descritti nelle s
 
 ### <a name="set-up-azure-data-box-disks"></a>Configurare Azure Data Box dischi
 
-Se è stato ordinato uno o più dischi Azure Data Box (fino a 8 TB ciascuno), seguire i passaggi indicati qui per [decomprimere, connettere e sbloccare il disco data box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Se è stato ordinato uno o più dischi Azure Data Box (fino a 8 TB ciascuno), seguire i passaggi indicati qui per [decomprimere, connettere e sbloccare il disco data box](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >È possibile che il server con l'agente MARS non disponga di una porta USB. In tal caso, è possibile connettere il disco Azure Data Box a un altro server o client ed esporre la radice del dispositivo come una condivisione di rete.
 
 ### <a name="set-up-azure-data-box"></a>Configurare Azure Data Box
 
-Se è stata ordinata un'istanza di Azure Data Box (fino a 100 TB), seguire la procedura descritta qui [per configurare l'istanza di data box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Se è stata ordinata un'istanza di Azure Data Box (fino a 100 TB), seguire la procedura descritta qui [per configurare l'istanza di data box](../databox/data-box-deploy-set-up.md).
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Montare l'istanza di Azure Data Box come sistema locale
 
@@ -160,8 +160,8 @@ Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema l
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   La finestra di comando visualizzata come risultato del comando precedente è nel contesto del sistema locale. Usare questa finestra di comando per eseguire i passaggi per montare la condivisione BLOB di pagine di Azure come unità di rete in Windows Server.
-1. Seguire i passaggi in [connettersi a data box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) per connettere il server con l'agente Mars al dispositivo data box tramite NFS. Eseguire il comando seguente nel prompt dei comandi di sistema locale per montare la condivisione BLOB di pagine di Azure.
+   La finestra di comando visualizzata a causa del comando precedente è nel contesto del sistema locale. Usare questa finestra di comando per eseguire i passaggi per montare la condivisione BLOB di pagine di Azure come unità di rete in Windows Server.
+1. Seguire i passaggi in [connettersi a data box](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) per connettere il server con l'agente Mars al dispositivo data box tramite NFS. Eseguire il comando seguente nel prompt dei comandi di sistema locale per montare la condivisione BLOB di pagine di Azure.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -238,9 +238,9 @@ Al termine del backup dei dati, verrà visualizzata una pagina sull'agente MARS 
 
 In questa sezione vengono illustrati i passaggi da eseguire dopo il completamento del backup dei dati nel Azure Data Box Disk.
 
-- Seguire la procedura descritta in questo articolo per [distribuire il disco Azure Data Box ad Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Se è stato usato un dispositivo Azure Data Box 100 TB, seguire questa procedura per [inviare il dispositivo Azure Data Box ad Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Seguire la procedura descritta in questo articolo per [distribuire il disco Azure Data Box ad Azure](../databox/data-box-disk-deploy-picked-up.md). Se è stato usato un dispositivo Azure Data Box 100 TB, seguire questa procedura per [inviare il dispositivo Azure Data Box ad Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitorare il processo di data box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) nel portale di Azure. Al termine del processo di Azure Data Box, l'agente MARS sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Il processo di backup viene quindi contrassegnato come *processo completato* se un punto di ripristino viene creato correttamente.
+- [Monitorare il processo di data box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al termine del processo di Azure Data Box, l'agente MARS sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Il processo di backup viene quindi contrassegnato come *processo completato* se un punto di ripristino viene creato correttamente.
 
     >[!NOTE]
     >L'agente MARS attiva i backup negli orari pianificati durante la creazione dei criteri. Questi processi contrassegnano "in attesa del completamento Azure Data Box processo" fino al termine del processo.
@@ -249,7 +249,7 @@ In questa sezione vengono illustrati i passaggi da eseguire dopo il completament
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-L'agente di Backup di Microsoft Azure (MAB) crea automaticamente un'applicazione Azure Active Directory (Azure AD) nel tenant. Questa applicazione richiede un certificato per l'autenticazione creato e caricato quando si configura un criterio di seeding offline. Si usa Azure PowerShell per creare e caricare il certificato nell'applicazione Azure AD.
+L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea automaticamente un'applicazione Azure Active Directory (Azure AD) nel tenant. Questa applicazione richiede un certificato per l'autenticazione creato e caricato quando si configura un criterio di seeding offline. Si usa Azure PowerShell per creare e caricare il certificato nell'applicazione Azure AD.
 
 ### <a name="problem"></a>Problema
 
@@ -259,7 +259,7 @@ Quando si configura il backup offline, potrebbe verificarsi un problema a causa 
 
 Per verificare se il problema è identico a quello descritto in precedenza, eseguire una delle operazioni seguenti.
 
-#### <a name="step-1"></a>Passaggio 1
+#### <a name="step-1"></a>Step 1
 
 Verificare se il messaggio di errore seguente viene visualizzato nella console MAB quando è stato configurato il backup offline.
 
@@ -275,7 +275,7 @@ Verificare se il messaggio di errore seguente viene visualizzato nella console M
 
 Per risolvere il problema, eseguire la procedura seguente e riprovare la configurazione dei criteri.
 
-#### <a name="step-1"></a>Passaggio 1
+#### <a name="step-1"></a>Step 1
 
 Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo di importazione o esportazione.
 

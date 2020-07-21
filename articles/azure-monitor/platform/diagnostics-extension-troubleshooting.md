@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696967"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515496"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -49,7 +50,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mancata visualizzazione dei dati relativi alle metriche nel portale di Azure
-Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi durante la visualizzazione dei dati nel portale, controllare la \* tabella WADMetrics nell'account di archiviazione diagnostica di Azure per verificare se sono presenti i record delle metriche corrispondenti e assicurarsi che il [provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. Insights sia registrato.
+Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi durante la visualizzazione dei dati nel portale, controllare la \* tabella WADMetrics nell'account di archiviazione diagnostica di Azure per verificare se sono presenti i record delle metriche corrispondenti e assicurarsi che il [provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. Insights sia registrato.
 
 Il valore **PartitionKey** della tabella è l'ID risorsa, la macchina virtuale o il set di scalabilità di macchine virtuali. **RowKey** è il nome della metrica (detto anche nome del contatore delle prestazioni).
 
@@ -164,7 +165,7 @@ Le tabelle in Archiviazione di Azure contenenti gli eventi ETW vengono denominat
             tableName = "WAD" + eventDestination;
 ```
 
-Esempio:
+Ecco un esempio:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -204,14 +205,14 @@ Esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| Event | Nome tabella |
+| Evento | Nome tabella |
 | --- | --- |
 | provider = "ProV1" &lt; Event ID = "1"/&gt; |WADEvent + MD5 ("ProV1") + "1" |
 | provider = "ProV1" &lt; Event ID = "2" eventDestination = "DesT1"/&gt; |WADdest1 |
 | provider = "ProV1" &lt; DefaultEvents/&gt; |WADDefault + MD5 ("ProV1") |
 | provider = "prov2" &lt; DefaultEvents eventDestination = "Dest2"/&gt; |WADdest2 |
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Come controllare la configurazione dell'estensione Diagnostica
 Il modo più semplice per controllare la configurazione dell'estensione consiste nel passare ad [Azure Resource Explorer](https://resources.azure.com) e quindi alla macchina virtuale o al servizio cloud in cui si trova l'estensione Diagnostica di Azure (IaaSDiagnostics/PaasDiagnostics).
@@ -229,7 +230,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 
 | Codice di uscita | Descrizione |
 | --- | --- |
-| 0 |Operazione completata. |
+| 0 |Esito positivo. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: questo errore si verifica quando un file di configurazione non ha superato la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
@@ -296,4 +297,3 @@ Nell'esperienza del portale per le macchine virtuali vengono visualizzati per im
 - Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo**  >  **area**  >  **Administrative**  >  **Impostazioni copia**amministrativa. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
 
 - Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Attenuazione**: per assicurarsi che sia possibile usare i caratteri jolly e che il portale espande ( \* ), indirizzare i contatori delle prestazioni al sink di monitoraggio di Azure.
-

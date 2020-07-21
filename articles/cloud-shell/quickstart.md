@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79458070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513021"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -25,7 +26,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 
 ## <a name="start-cloud-shell"></a>Avviare Cloud Shell
 1. Avviare **cloud Shell** dall'esplorazione superiore del portale di Azure. <br>
-![](media/quickstart/shell-icon.png)
+![Screenshot che illustra come avviare Azure Cloud Shell nel portale di Azure.](media/quickstart/shell-icon.png)
 
 2. Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione File di Microsoft Azure.
 3. Fare clic su "Create storage" (Crea risorsa di archiviazione)
@@ -35,7 +36,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 
 ### <a name="select-the-bash-environment"></a>Selezionare l'ambiente Bash
 Controllare che l'elenco a discesa degli ambienti dal lato sinistro della finestra della shell sia impostato su `Bash`. <br>
-![](media/quickstart/env-selector.png)
+![Screenshot che illustra come selezionare l'ambiente bash per la Azure Cloud Shell.](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Impostare la sottoscrizione
 1. Elencare le sottoscrizioni a cui si ha accesso.
@@ -43,10 +44,11 @@ Controllare che l'elenco a discesa degli ambienti dal lato sinistro della finest
    az account list
    ```
 
-2. Impostare la sottoscrizione preferita: <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+2. Impostare la sottoscrizione preferita:
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
 
 > [!TIP]
 > La sottoscrizione verrà memorizzata per le sessioni future con `/home/<user>/.azure/azureProfile.json`.
@@ -72,7 +74,7 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 ### <a name="ssh-into-your-linux-vm"></a>Usare SSH per connettersi alla VM Linux
 1. Cercare il nome della macchina virtuale nella barra di ricerca del portale di Azure.
 2. Fare clic su "Connetti" per ottenere il nome e l'indirizzo IP pubblico della macchina virtuale. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+   ![Screenshot che illustra come connettersi a un Linux V M usando le s H.](media/quickstart/sshcmd-copy.png)
 
 3. SSH nella macchina virtuale con il cmd `ssh`.
    ```
@@ -80,7 +82,7 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
    ```
 
 Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu. <br>
-![](media/quickstart/ubuntu-welcome.png)
+![Screenshot che illustra l'inizializzazione di Ubuntu e la richiesta di benvenuto dopo aver stabilito una connessione di S H.](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Cleaning up 
 1. Chiudere la sessione SSH.

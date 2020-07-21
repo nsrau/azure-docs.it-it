@@ -7,13 +7,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79284915"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511943"
 ---
-# <a name="use-ip-filters"></a>Usare i filtri IP
+# <a name="use-azure-iot-dps-ip-connection-filters"></a>Usare i filtri di connessione IP del DPS di Azure
 
 La sicurezza è un aspetto importante di qualsiasi soluzione. Talvolta è necessario specificare in modo esplicito gli indirizzi IP da cui possono connettersi i dispositivi come parte della configurazione di sicurezza. La funzionalità *filtro IP* per un servizio Device provisioning in hub Azure Azure consente di configurare regole per rifiutare o accettare il traffico da indirizzi IPv4 specifici.
 

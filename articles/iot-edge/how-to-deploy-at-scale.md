@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512011"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuisci moduli IoT Edge su larga scala usando il portale di Azure
 
@@ -61,7 +61,7 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 ### <a name="step-2-modules"></a>Passaggio 2: moduli
 
-È possibile aggiungere fino a 20 moduli a una distribuzione. Se si crea una distribuzione senza moduli, verranno rimossi tutti i moduli correnti dai dispositivi di destinazione.
+È possibile aggiungere fino a 30 moduli a una distribuzione. Se si crea una distribuzione senza moduli, verranno rimossi tutti i moduli correnti dai dispositivi di destinazione.
 
 Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT Edge e hub IoT Edge. Selezionare **le impostazioni di runtime** per configurare i due moduli di Runtime. In una distribuzione a più livelli i moduli di runtime non sono inclusi e pertanto non possono essere configurati.
 
@@ -209,7 +209,7 @@ Quando si elimina una distribuzione, tutti i dispositivi distribuiti accettano l
 
 1. Usare la casella di controllo per selezionare la distribuzione che si vuole eliminare.
 1. Selezionare **Elimina**.
-1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.Viene applicata una distribuzione con una priorità più bassa.Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi.Selezionare **Yes** (Sì) per continuare.
+1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.Viene applicata una distribuzione con una priorità più bassa.Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi.Selezionare **Sì** per continuare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

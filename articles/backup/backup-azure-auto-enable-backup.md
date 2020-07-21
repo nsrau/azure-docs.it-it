@@ -3,11 +3,12 @@ title: Abilitare automaticamente il backup durante la creazione di macchine virt
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77584269"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514221"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
@@ -17,7 +18,7 @@ Attualmente, backup di Azure fornisce un criterio predefinito (usando criteri di
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
 
-* I criteri predefiniti sono attualmente supportati solo per le macchine virtuali di Azure. Gli utenti devono prestare attenzione per assicurarsi che i criteri di conservazione specificati durante l'assegnazione siano criteri di conservazione delle macchine virtuali. Fare riferimento a [questo](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) documento per visualizzare tutti gli SKU di VM supportati da questo criterio.
+* I criteri predefiniti sono attualmente supportati solo per le macchine virtuali di Azure. Gli utenti devono prestare attenzione per assicurarsi che i criteri di conservazione specificati durante l'assegnazione siano criteri di conservazione delle macchine virtuali. Fare riferimento a [questo](./backup-azure-policy-supported-skus.md) documento per visualizzare tutti gli SKU di VM supportati da questo criterio.
 
 * Il criterio può essere assegnato a una singola posizione e a una sottoscrizione alla volta. Per abilitare il backup per le macchine virtuali tra percorsi e sottoscrizioni, è necessario creare più istanze dell'assegnazione dei criteri, una per ogni combinazione di percorso e sottoscrizione.
 
@@ -47,7 +48,7 @@ Per assegnare i criteri all'ambito richiesto, attenersi alla procedura seguente:
 
 > [!NOTE]
 >
-> Criteri di Azure può essere usato anche nelle macchine virtuali esistenti, usando la [correzione](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> Criteri di Azure può essere usato anche nelle macchine virtuali esistenti, usando la [correzione](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -55,4 +56,4 @@ Per assegnare i criteri all'ambito richiesto, attenersi alla procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni su criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview)
+[Altre informazioni su criteri di Azure](../governance/policy/overview.md)

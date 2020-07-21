@@ -3,12 +3,12 @@ title: Usare le impostazioni di diagnostica per gli insiemi di credenziali dei s
 description: Questo articolo descrive come usare i vecchi e i nuovi eventi di diagnostica per backup di Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854809"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514144"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usare le impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino
 
@@ -29,15 +29,15 @@ Backup di Azure fornisce gli eventi di diagnostica seguenti. Ogni evento fornisc
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Se si usa l' [evento legacy](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, si consiglia di passare all'uso degli eventi precedenti al più presto.
+Se si usa l' [evento legacy](#legacy-event) AzureBackupReport, si consiglia di passare all'uso degli eventi precedenti al più presto.
 
-Per altre informazioni, vedere [modello di dati per gli eventi di diagnostica di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
+Per altre informazioni, vedere [modello di dati per gli eventi di diagnostica di backup di Azure](./backup-azure-reports-data-model.md).
 
 I dati relativi a questi eventi possono essere inviati a un account di archiviazione, a un'area di lavoro Log Analytics o a un hub eventi. Se si inviano i dati a un'area di lavoro Log Analytics, selezionare l'interruttore specifico per la **risorsa** nella schermata **impostazioni di diagnostica** . Per altre informazioni, vedere le sezioni seguenti.
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Usare le impostazioni di diagnostica con Log Analytics
 
-È ora possibile usare backup di Azure per inviare i dati di diagnostica dell'insieme di credenziali a tabelle Log Analytics dedicate per il backup. Queste tabelle sono denominate [tabelle specifiche delle risorse](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
+È ora possibile usare backup di Azure per inviare i dati di diagnostica dell'insieme di credenziali a tabelle Log Analytics dedicate per il backup. Queste tabelle sono denominate [tabelle specifiche delle risorse](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 Per inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics:
 
@@ -52,23 +52,23 @@ Per inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics:
 Al termine del flusso di dati nell'area di lavoro Log Analytics, le tabelle dedicate per ognuno di questi eventi vengono create nell'area di lavoro. È possibile eseguire una query direttamente su una di queste tabelle. Se necessario, è anche possibile eseguire join o unioni tra queste tabelle.
 
 > [!IMPORTANT]
-> I sei eventi, ovvero CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage e AddonAzureBackupProtectedInstance, sono supportati *solo* nella modalità specifica della risorsa nei [report di backup](https://docs.microsoft.com/azure/backup/configure-reports). *Se si tenta di inviare i dati per questi sei eventi in modalità diagnostica di Azure, nessun dato sarà visibile nei report di backup.*
+> I sei eventi, ovvero CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage e AddonAzureBackupProtectedInstance, sono supportati *solo* nella modalità specifica della risorsa nei [report di backup](./configure-reports.md). *Se si tenta di inviare i dati per questi sei eventi in modalità diagnostica di Azure, nessun dato sarà visibile nei report di backup.*
 
 ## <a name="legacy-event"></a>Evento legacy
 
 Tradizionalmente, tutti i dati di diagnostica correlati al backup per un insieme di credenziali sono contenuti in un singolo evento denominato AzureBackupReport. I sei eventi descritti di seguito sono essenzialmente una scomposizione di tutti i dati contenuti in AzureBackupReport.
 
-Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatibilità con le versioni precedenti nei casi in cui gli utenti hanno query personalizzate esistenti su questo evento. Gli esempi sono gli avvisi del log personalizzati e le visualizzazioni personalizzate. Si *consiglia di passare ai [nuovi eventi](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) il prima possibile*. Nuovi eventi:
+Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatibilità con le versioni precedenti nei casi in cui gli utenti hanno query personalizzate esistenti su questo evento. Gli esempi sono gli avvisi del log personalizzati e le visualizzazioni personalizzate. Si *consiglia di passare ai [nuovi eventi](#diagnostics-events-available-for-azure-backup-users) il prima possibile*. Nuovi eventi:
 
 * Rendere i dati più semplici da usare nelle query di log.
 * Fornire una migliore individuabilità degli schemi e della relativa struttura.
 * Migliorare le prestazioni tra la latenza di inserimento e i tempi di esecuzione delle query.
 
-*La fine dell'evento legacy in modalità diagnostica di Azure verrà deprecata. La scelta dei nuovi eventi può essere utile per evitare migrazioni complesse in un secondo*momento. La [soluzione](https://docs.microsoft.com/azure/backup/configure-reports) per la creazione di report che usa log Analytics interrompe anche il supporto dei dati dell'evento legacy.
+*La fine dell'evento legacy in modalità diagnostica di Azure verrà deprecata. La scelta dei nuovi eventi può essere utile per evitare migrazioni complesse in un secondo*momento. La [soluzione](./configure-reports.md) per la creazione di report che usa log Analytics interrompe anche il supporto dei dati dell'evento legacy.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Passaggi per passare alle nuove impostazioni di diagnostica per un'area di lavoro Log Analytics
 
-1. Identificare gli insiemi di credenziali che inviano dati alle aree di lavoro Log Analytics usando l'evento legacy e le sottoscrizioni a cui appartengono. Eseguire le aree di lavoro seguenti per identificare gli insiemi di credenziali e le sottoscrizioni.
+1. Identificare gli insiemi di credenziali che inviano dati alle aree di lavoro Log Analytics usando l'evento legacy e le sottoscrizioni a cui appartengono. Eseguire la query seguente in ogni area di lavoro per identificare gli insiemi di credenziali e le sottoscrizioni.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -84,7 +84,7 @@ Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatib
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -96,7 +96,11 @@ Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatib
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Usare le [definizioni di criteri di Azure predefinite](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) in backup di Azure per aggiungere una nuova impostazione di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Questo criterio aggiunge una nuova impostazione di diagnostica agli insiemi di credenziali che non hanno un'impostazione di diagnostica o hanno solo un'impostazione di diagnostica legacy. Questo criterio può essere assegnato a un'intera sottoscrizione o a un gruppo di risorse alla volta. È necessario disporre dell'accesso proprietario a ogni sottoscrizione per cui sono assegnati i criteri.
+    Di seguito è riportata una schermata della query eseguita in una delle aree di lavoro:
+
+    ![Query area di lavoro](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Usare le [definizioni di criteri di Azure predefinite](./azure-policy-configure-diagnostics.md) in backup di Azure per aggiungere una nuova impostazione di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Questo criterio aggiunge una nuova impostazione di diagnostica agli insiemi di credenziali che non hanno un'impostazione di diagnostica o hanno solo un'impostazione di diagnostica legacy. Questo criterio può essere assegnato a un'intera sottoscrizione o a un gruppo di risorse alla volta. È necessario disporre dell'accesso proprietario a ogni sottoscrizione per cui sono assegnati i criteri.
 
 È possibile scegliere di disporre di impostazioni di diagnostica separate per AzureBackupReport e dei sei nuovi eventi fino a quando non è stata eseguita la migrazione di tutte le query personalizzate per utilizzare i dati delle nuove tabelle. La figura seguente mostra un esempio di insieme di credenziali con due impostazioni di diagnostica. La prima impostazione, denominata **Setting1**, invia i dati di un evento AzureBackupReport a un'area di lavoro log Analytics in modalità diagnostica di Azure. La seconda impostazione, denominata **Setting2**, invia i dati dei sei nuovi eventi di backup di Azure a un'area di lavoro log Analytics nella modalità specifica della risorsa.
 
@@ -126,4 +130,4 @@ La figura seguente mostra un esempio di un utente che dispone di tre impostazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sul modello di dati Log Analytics per gli eventi di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[Informazioni sul modello di dati Log Analytics per gli eventi di diagnostica](./backup-azure-reports-data-model.md)

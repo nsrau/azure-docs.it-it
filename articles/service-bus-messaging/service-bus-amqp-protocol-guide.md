@@ -3,12 +3,12 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186912"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511314"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -48,7 +48,7 @@ La fonte più autorevole per informazioni sul funzionamento di AMQP è costituit
 
 AMQP definisce *contenitori* i programmi di comunicazione. I contenitori includono *nodi*, ovvero entità che comunicano all'interno di tali contenitori. Una coda può essere un nodo di questo tipo. AMQP consente il multiplexing, quindi una singola connessione può essere usata per molti percorsi di comunicazione tra i nodi. Un client applicazione, ad esempio, può ricevere contemporaneamente da una coda e inviare a un'altra coda sulla stessa connessione di rete.
 
-![][1]
+![Diagramma che mostra le sessioni e le connessioni tra i contenitori.][1]
 
 La connessione di rete viene quindi ancorata al contenitore. Viene avviata dal contenitore nel ruolo client che effettua una connessione in uscita tramite socket TCP a un contenitore nel ruolo del ricevitore che è in ascolto e accetta connessioni TCP in ingresso. L'handshake di connessione include la negoziazione della versione del protocollo, la dichiarazione o la negoziazione dell'uso di TLS/SSL (Transport Level Security) e un handshake di autenticazione/autorizzazione nell'ambito di connessione basato su SASL.
 
@@ -84,7 +84,7 @@ Un client .NET avrà esito negativo con SocketException ("è stato effettuato un
 
 AMQP trasferisce i messaggi sui collegamenti. Un collegamento è un percorso di comunicazione creato su una sessione che consente il trasferimento di messaggi in una direzione. La negoziazione dello stato del trasferimento viene effettuata sul collegamento ed è bidirezionale tra le parti connesse.
 
-![][2]
+![Screenshot che mostra una sessione carryign una connessione di collegamento tra due contenitori.][2]
 
 I collegamenti possono essere creati da uno dei contenitori in qualsiasi momento e su una sessione esistente. Ciò rende il protocollo AMQP diverso da molti altri protocolli, inclusi HTTP e MQTT, dove l'inizializzazione dei trasferimenti e il percorso di trasferimento sono un privilegio esclusivo della parte che crea la connessione socket.
 
@@ -100,7 +100,7 @@ Il client che si connette deve anche usare un nome di nodo locale per la creazio
 
 Dopo la creazione di un collegamento, è possibile trasferire i messaggi su tale collegamento. In AMQP un trasferimento viene eseguito con un gesto esplicito del protocollo, ovvero la performativa *transfer*, che sposta un messaggio dal mittente al ricevitore tramite un collegamento. Un trasferimento è completo quando è "finalizzato", ovvero quando entrambe le parti hanno raggiunto un accordo condiviso dell'esito del trasferimento.
 
-![][3]
+![Diagramma che mostra il trasferimento di un messaggio tra il mittente e il destinatario e la disposizione risultante.][3]
 
 Nel caso più semplice il mittente può scegliere di inviare messaggi "pre-finalizzati", ovvero il client non è interessato all'esito e il ricevitore non fornisce alcun commento sull'esito dell'operazione. Questa modalità è supportata dal bus di servizio a livello del protocollo AMQP, ma non viene esposta in nessuna API client.
 
@@ -120,7 +120,7 @@ Per compensare possibili invii duplicati, il bus di servizio supporta il rilevam
 
 Oltre al modello di controllo di flusso a livello di sessione illustrato in precedenza, ogni collegamento ha il proprio modello di controllo di flusso. Il controllo di flusso a livello di sessione protegge il contenitore dalla necessità di gestire un numero eccessivo di frame alla volta. Il controllo di flusso a livello di collegamento assegna all'applicazione la responsabilità di specificare il numero di messaggi da gestire da un collegamento e del momento in cui gestirli.
 
-![][4]
+![Screenshot di un log che mostra l'origine, la destinazione, la porta di origine, la porta di destinazione e il nome del protocollo. Nella riga di cui si trova la porta di destinazione 10401 (0x28 A 1) viene indicato in nero.][4]
 
 In un collegamento, i trasferimenti possono verificarsi solo quando il mittente dispone di un *credito di collegamento*sufficiente. Il credito di collegamento è un contatore impostato dal ricevitore usando la performativa *flow*, che ha come ambito un collegamento. Quando riceve credito di collegamento, il mittente prova a usare completamente tale credito recapitando messaggi. Ogni recapito di messaggi riduce di 1 il credito di collegamento rimanente. Quando il credito di collegamento viene usato completamente, i recapiti si interrompono.
 
@@ -208,7 +208,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 #### <a name="header"></a>header
 
-| Nome campo | Utilizzo | Nome API |
+| Nome campo | Uso | Nome API |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
@@ -218,7 +218,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 #### <a name="properties"></a>properties
 
-| Nome campo | Utilizzo | Nome API |
+| Nome campo | Uso | Nome API |
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
@@ -238,7 +238,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte delle proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
 
-| Mappatura della chiave di annotazione | Utilizzo | Nome API |
+| Mappatura della chiave di annotazione | Uso | Nome API |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -360,7 +360,7 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | operazione |No |string |**put-token** |
-| tipo |No |string |Tipo di token inserito. |
+| type |No |string |Tipo di token inserito. |
 | name |No |string |"Destinatari" a cui è applicabile il token. |
 | expiration |Sì |timestamp |Ora di scadenza del token. |
 

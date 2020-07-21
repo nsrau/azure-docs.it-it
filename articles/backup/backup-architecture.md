@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055257"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514306"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -42,10 +42,10 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 - Gli insiemi di credenziali semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione.
 - In ogni sottoscrizione di Azure è possibile creare fino a 500 insiemi di credenziali.
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
-- È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) di Azure.
+- È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure.
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
+  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md)
+  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 ## <a name="backup-agents"></a>Agenti di backup
@@ -65,7 +65,7 @@ Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede una maggiore larghezza di banda di rete rispetto al backup differenziale o incrementale. | Usato per il backup iniziale.
 **Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità minore di spazio di archiviazione e di rete e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente poiché i blocchi di dati che non sono stati modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
-**Incremental** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
+**Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
 
 ## <a name="sql-server-backup-types"></a>Tipi di backup di SQL Server
 
@@ -120,6 +120,17 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 - Quando viene creato un insieme di credenziali, viene creato anche un "DefaultPolicy" e può essere usato per eseguire il backup delle risorse.
 - Tutte le modifiche apportate al periodo di conservazione di un criterio di backup verranno applicate in modo retroattivo a tutti i punti di ripristino precedenti, oltre a quelli nuovi.
 
+### <a name="additional-reference"></a>Ulteriore riferimento 
+
+-   Macchina virtuale di Azure: come [creare](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificare](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) i criteri 
+-   SQL Server database nel computer della macchina virtuale di Azure: come [creare](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificare](./manage-monitor-sql-database-backup.md#modify-policy) i criteri 
+-   Condivisione file di Azure: come [creare](./backup-afs.md#discover-file-shares-and-configure-backup) e [modificare](./manage-afs-backup.md#modify-policy) i criteri 
+-   SAP HANA: come [creare](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificare](./sap-hana-db-manage.md#change-policy) i criteri? 
+-   MARS: come [creare](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificare](./backup-azure-manage-mars.md#modify-a-backup-policy) i criteri? 
+-   [Sono previste limitazioni per la pianificazione del backup in base al tipo di carico di lavoro?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [Cosa accade ai punti di ripristino esistenti se si modificano i criteri di conservazione?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: backup di macchine virtuali di Azure predefinito
 
 1. Quando si Abilita il backup per una macchina virtuale di Azure, viene eseguito un backup in base alla pianificazione specificata.
@@ -134,7 +145,7 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
     - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
     - I dati non vengono crittografati. Backup di Azure può eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
-1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](./backup-instant-restore-capability.md).
 
 Non è necessario consentire esplicitamente la connettività Internet per eseguire il backup delle macchine virtuali di Azure.
 

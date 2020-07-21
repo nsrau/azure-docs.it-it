@@ -4,11 +4,12 @@ description: Informazioni di riferimento su monitoraggio di Azure comprendono i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515394"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorie supportate per i log delle risorse di Azure
 
@@ -39,7 +40,7 @@ Se ancora non è presente, è possibile aprire un commento di GitHub nella parte
 |Category|Nome visualizzato della categoria|
 |---|---|
 |Motore|Motore|
-|Servizio|Servizio|
+|Service|Service|
 
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
@@ -104,7 +105,7 @@ Se ancora non è presente, è possibile aprire un commento di GitHub nella parte
 |WebApplicationFirewallLogs|Log del Web Application Firewall|
 
 
-## <a name="microsoftcdnprofiles"></a>Microsoft. CDN/profili
+## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
 |Category|Nome visualizzato della categoria|
 |---|---|
@@ -252,7 +253,7 @@ Se ancora non è presente, è possibile aprire un commento di GitHub nella parte
 |Category|Nome visualizzato della categoria|
 |---|---|
 |Checkpoint|Checkpoint|
-|Connessione|Connessione|
+|Connessioni|Connessioni|
 |Errore|Errore|
 |HostRegistration|HostRegistration|
 |Gestione|Gestione|
@@ -374,15 +375,15 @@ Se ancora non è presente, è possibile aprire un commento di GitHub nella parte
 |---|---|
 |AppAvailabilityResults|Risultati della disponibilità|
 |AppBrowserTimings|Intervalli del browser|
-|AppDependencies|Dependencies|
-|AppEvents|Eventi|
+|AppDependencies|Dipendenze|
+|AppEvents|Events|
 |AppExceptions|Eccezioni|
 |AppMetrics|Metriche|
 |AppPageViews|Visualizzazioni pagina|
 |AppPerformanceCounters|Contatori delle prestazioni|
 |AppRequests|Requests|
 |AppSystemEvents|Eventi di sistema|
-|AppTraces|Traces|
+|AppTraces|Tracce|
 
 
 ## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
@@ -711,6 +712,6 @@ Se ancora non è presente, è possibile aprire un commento di GitHub nella parte
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni sui log delle risorse](../../azure-monitor/platform/platform-logs-overview.md)
-* [Trasmettere i log delle risorse delle risorse a **Hub eventi**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Modificare le impostazioni di diagnostica del log delle risorse usando l'API REST di monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analizzare i log di Archiviazione di Azure con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Trasmettere i log delle risorse delle risorse a **Hub eventi**](./resource-logs.md#send-to-azure-event-hubs)
+* [Modificare le impostazioni di diagnostica del log delle risorse usando l'API REST di monitoraggio di Azure](/rest/api/monitor/diagnosticsettings)
+* [Analizzare i log di Archiviazione di Azure con Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

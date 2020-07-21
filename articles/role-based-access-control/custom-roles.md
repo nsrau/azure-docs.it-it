@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995843"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511603"
 ---
 # <a name="azure-custom-roles"></a>Ruoli personalizzati di Azure
 
@@ -114,17 +115,41 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
 La tabella seguente descrive le proprietà del ruolo personalizzato.
 
-| Proprietà | Obbligatoria | Type | Description |
+| Proprietà | Obbligatoria | Type | Descrizione |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Sì | string | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è un gruppo di gestione o una risorsa a livello di sottoscrizione, è possibile utilizzare una definizione di ruolo in più sottoscrizioni che condividono la stessa directory Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
-| `Id`</br>`name` | Sì | string | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
-| `IsCustom`</br>`roleType` | Sì | string | Indica se questo è un ruolo personalizzato. Impostare su `true` o `CustomRole` per i ruoli personalizzati. Impostare su `false` o `BuiltInRole` per i ruoli predefiniti. |
-| `Description`</br>`description` | Sì | string | Descrizione del ruolo personalizzato. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 1024. |
+| `Name`</br>`roleName` | Sì | Stringa | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è un gruppo di gestione o una risorsa a livello di sottoscrizione, è possibile utilizzare una definizione di ruolo in più sottoscrizioni che condividono la stessa directory Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
+| `Id`</br>`name` | Sì | Stringa | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
+| `IsCustom`</br>`roleType` | Sì | Stringa | Indica se questo è un ruolo personalizzato. Impostare su `true` o `CustomRole` per i ruoli personalizzati. Impostare su `false` o `BuiltInRole` per i ruoli predefiniti. |
+| `Description`</br>`description` | Sì | Stringa | Descrizione del ruolo personalizzato. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 1024. |
 | `Actions`</br>`actions` | Sì | String[] | Matrice di stringhe che specifica le operazioni di gestione che il ruolo consente di eseguire. Per altre informazioni, vedere [Azioni](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | Matrice di stringhe che specifica le operazioni di gestione che sono escluse dalle `Actions` consentite. Per altre informazioni, vedere [notActions](role-definitions.md#notactions). |
 | `DataActions`</br>`dataActions` | No | String[] | Matrice di stringhe che specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Se si crea un ruolo personalizzato con `DataActions` , tale ruolo non può essere assegnato all'ambito del gruppo di gestione. Per ulteriori informazioni, vedere [Dataactions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | Matrice di stringhe che specifica le operazioni sui dati che sono escluse dalle `DataActions` consentite. Per ulteriori informazioni, vedere [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Sì | String[] | Matrice di stringhe che specifica gli ambiti in cui il ruolo personalizzato può essere assegnato. È possibile definire un solo gruppo di gestione in `AssignableScopes` di un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima. Per altre informazioni, vedere [assignableScopes](role-definitions.md#assignablescopes). |
+
+## <a name="wildcard-permissions"></a>Autorizzazioni con caratteri jolly
+
+`Actions`, `NotActions` , `DataActions` e `NotDataActions` supportano i caratteri jolly ( `*` ) per definire le autorizzazioni. Un carattere jolly ( `*` ) estende un'autorizzazione a tutti gli elementi che corrispondono alla stringa di azione fornita. Si supponga, ad esempio, di voler aggiungere tutte le autorizzazioni relative a gestione costi di Azure ed esportazioni. È possibile aggiungere tutte queste stringhe di azione:
+
+```
+Microsoft.CostManagement/exports/action
+Microsoft.CostManagement/exports/read
+Microsoft.CostManagement/exports/write
+Microsoft.CostManagement/exports/delete
+Microsoft.CostManagement/exports/run/action
+```
+
+Anziché aggiungere tutte queste stringhe, è sufficiente aggiungere una stringa con caratteri jolly. Ad esempio, la stringa con caratteri jolly seguente equivale alle cinque stringhe precedenti. Sono incluse anche eventuali autorizzazioni di esportazione future che potrebbero essere aggiunte.
+
+```
+Microsoft.CostManagement/exports/*
+```
+
+È anche possibile avere più caratteri jolly in una stringa. Ad esempio, la stringa seguente rappresenta tutte le autorizzazioni di query per gestione costi.
+
+```
+Microsoft.CostManagement/*/query/*
+```
 
 ## <a name="steps-to-create-a-custom-role"></a>Passaggi per la creazione di un ruolo personalizzato
 
@@ -154,7 +179,7 @@ Come per i ruoli predefiniti, la proprietà `AssignableScopes` specifica gli amb
 | --- | --- | --- |
 | Creare o eliminare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinitions/write` | Gli utenti a cui viene concessa questa operazione su tutti gli ambiti `AssignableScopes` del ruolo personalizzato possono creare (o eliminare) ruoli personalizzati da usare in tali ambiti. Ad esempio, [proprietari](built-in-roles.md#owner) e [amministratori accesso utenti](built-in-roles.md#user-access-administrator) di gruppi di gestione, sottoscrizioni e gruppi di risorse. |
 | Aggiornare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinitions/write` | Gli utenti a cui viene concessa questa autorizzazione su tutti gli ambiti `AssignableScopes` del ruolo personalizzato possono aggiornare i ruoli personalizzati in tali ambiti. Ad esempio, [proprietari](built-in-roles.md#owner) e [amministratori accesso utenti](built-in-roles.md#user-access-administrator) di gruppi di gestione, sottoscrizioni e gruppi di risorse. |
-| Visualizzare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinitions/read` | Gli utenti a cui viene concessa questa operazione a livello di ambito possono visualizzare i ruoli personalizzati disponibili per l'assegnazione in tale ambito. Tutti i ruoli predefiniti consentono la disponibilità dei ruoli personalizzati per l'assegnazione. |
+| Visualizzare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinitions/read` | Gli utenti a cui viene concessa questa operazione a livello di ambito possono visualizzare i ruoli personalizzati disponibili per l'assegnazione in tale ambito. Tutti i ruoli predefiniti consentono di rendere disponibili i ruoli personalizzati per l'assegnazione. |
 
 ## <a name="custom-role-limits"></a>Limiti dei ruoli personalizzati
 

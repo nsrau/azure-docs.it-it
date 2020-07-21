@@ -4,11 +4,12 @@ description: Questo articolo illustra come aggiornare la configurazione dell'ins
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513116"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -24,7 +25,7 @@ Quindi, è necessario scegliere con attenzione se disabilitare l'eliminazione te
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Recuperare lo stato di eliminazione temporanea con l'API REST
 
-Per impostazione predefinita, lo stato di eliminazione temporanea verrà abilitato per qualsiasi nuovo insieme di credenziali di servizi di ripristino creato. Per recuperare/aggiornare lo stato dell'eliminazione temporanea per un insieme di credenziali, usare il [documento dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) correlato alla configurazione dell'insieme di credenziali di backup
+Per impostazione predefinita, lo stato di eliminazione temporanea verrà abilitato per qualsiasi nuovo insieme di credenziali di servizi di ripristino creato. Per recuperare/aggiornare lo stato dell'eliminazione temporanea per un insieme di credenziali, usare il [documento dell'API REST](/rest/api/backup/backupresourcevaultconfigs) correlato alla configurazione dell'insieme di credenziali di backup
 
 Per recuperare lo stato corrente dell'eliminazione temporanea per un insieme di credenziali, usare l'operazione *Get* seguente.
 
@@ -44,7 +45,7 @@ La risposta corretta per l'operazione ' GET ' è illustrata di seguito:
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 - OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Risposta di esempio
 
@@ -80,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
-Per altri dettagli, vedere [la documentazione dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
+Per altri dettagli, vedere [la documentazione dell'API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Nome  |Obbligatoria  |Tipo  |Descrizione  |
+|Nome  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag facoltativo       |
-|posizione     |  true       |string         |   Posizione risorsa      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
+|eTag     |         |   Stringa      |  eTag facoltativo       |
+|posizione     |  true       |Stringa         |   Posizione risorsa      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 
 #### <a name="example-request-body"></a>Esempio di corpo della richiesta
@@ -108,7 +109,7 @@ La risposta corretta per l'operazione ' PATCH ' è illustrata di seguito:
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 - OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Risposta di esempio
 

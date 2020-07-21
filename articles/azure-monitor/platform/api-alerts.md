@@ -4,19 +4,19 @@ description: L'API REST per gli avvisi di Log Analytics consente di creare e ges
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: 4ab2a1369fc4902afec7d62e44ef8e947864167f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38f2f671ecf426f6544f6faf934aec7071451b0d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112052"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515751"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST 
 
 L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 
 > [!IMPORTANT]
-> Come [annunciato in precedenza](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le aree di lavoro di log Analytics create dopo *il 1 ° giugno 2019* . saranno in grado di gestire le regole di avviso usando **solo** l' [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)di Azure scheduledQueryRules, il [modello Manager di risorse di Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e il cmdlet di [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono [passare facilmente alla gestione delle regole di avviso](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) per le aree di lavoro precedenti per sfruttare le ScheduledQueryRules di monitoraggio di Azure come predefinite e ottenere molti [nuovi vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , ad esempio la possibilità di usare i cmdlet nativi di PowerShell, il periodo di tempo lookback maggiore nelle regole, la creazione di regole in un gruppo di risorse separato o una sottoscrizione e molto altro ancora.
+> Come [annunciato in precedenza](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le aree di lavoro di log Analytics create dopo *il 1 ° giugno 2019* . saranno in grado di gestire le regole di avviso usando **solo** l' [API REST](/rest/api/monitor/scheduledqueryrules/)di Azure scheduledQueryRules, il [modello Manager di risorse di Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e il cmdlet di [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono [passare facilmente alla gestione delle regole di avviso](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) per le aree di lavoro precedenti per sfruttare le ScheduledQueryRules di monitoraggio di Azure come predefinite e ottenere molti [nuovi vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , ad esempio la possibilità di usare i cmdlet nativi di PowerShell, il periodo di tempo lookback maggiore nelle regole, la creazione di regole in un gruppo di risorse separato o una sottoscrizione e molto altro ancora.
 
 L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento vengono forniti alcuni esempi in cui si accede all'API dalla riga di comando di PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful di Azure Resource Manager per effettuare chiamate alle aree di lavoro di Log Analytics ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
@@ -27,9 +27,9 @@ Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Lo
 Una ricerca salvata può avere una o più pianificazioni. La pianificazione definisce la frequenza con cui viene eseguita la ricerca e l'intervallo di tempo in cui vengono identificati i criteri.
 Le pianificazioni includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| Interval |La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
+| Intervallo |La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
 | QueryTimeSpan |L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
 | Versione |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
@@ -95,7 +95,7 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 
 Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari tipi di avvisi hanno proprietà aggiuntive diverse, che vengono descritte di seguito.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | `Type` |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
 | `Name` |Nome visualizzato per l'avviso. |
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Azioni di avviso
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
-| Sezione | Descrizione | Utilizzo |
+| Sezione | Descrizione | Uso |
 |:--- |:--- |:--- |
 | Soglia |Criteri di esecuzione dell'azione.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
 | Gravità |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
@@ -265,7 +265,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName
 #### <a name="action-groups"></a>Gruppi di azioni
 Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito per la gestione delle azioni. Con un gruppo di azioni, è possibile specificare le azioni una volta e quindi associare il gruppo di azioni a più avvisi in Azure. Tutto questo senza la necessità di dichiarare ripetutamente le stesse azioni più volte. I gruppi di azioni supportano più azioni, tra cui posta elettronica, SMS, chiamate vocali, connessioni di Gestione dei servizi IT, runbook di Automazione, URI di webhook e altro ancora. 
 
-Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare l'[API dei gruppi di azioni](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare l'[API dei gruppi di azioni](/rest/api/monitor/actiongroups).
 
 Per aggiungere un'associazione di un gruppo di azioni a un avviso, specificare l'ID Azure Resource Manager univoco del gruppo di azioni nella definizione dell'avviso. Di seguito viene fornito un esempio:
 
@@ -390,4 +390,3 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 * Utilizzare l’ [API REST per eseguire ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
 * Informazioni sugli [avvisi del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Come [creare, modificare o gestire le regole di avviso del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-log.md)
-

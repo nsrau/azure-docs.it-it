@@ -3,11 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718326"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514170"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -23,7 +24,7 @@ Questo articolo include:
 
 ## <a name="why-back-up-dpm-to-azure"></a>Perché eseguire il backup di DPM in Azure
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. DPM interagisce con Backup di Azure nei modi seguenti:
+[System Center DPM](/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. DPM interagisce con Backup di Azure nei modi seguenti:
 
 - **Se DPM viene eseguito in un server fisico o in una macchina virtuale locale**, è possibile eseguire il backup dei dati in un insieme di credenziali di backup in Azure, oltre al backup su disco e nastro.
 - **Se DPM viene eseguito in una macchina virtuale di Azure**, da System Center 2012 R2 con aggiornamento 3 o successivo, è possibile distribuire DPM in una macchina virtuale di Azure. È possibile eseguire il backup dei dati nei dischi di Azure collegati alla macchina virtuale oppure usare Backup di Azure per eseguire il backup dei dati in un insieme di credenziali di backup.
@@ -42,12 +43,12 @@ DPM in un server fisico | System Center 2012 SP1 o versione successiva, System C
 DPM su una macchina virtuale Hyper-V | System Center 2012 SP1 o versione successiva, System Center 2012 R2.
 DPM in una macchina virtuale VMware | System Center 2012 R2 con aggiornamento cumulativo 5 o successivo.
 Componenti | Nel server DPM devono essere installati Windows PowerShell e .NET Framework 4,5.
-App supportate | [Informazioni](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) relative agli elementi di cui DPM può eseguire il backup.
+App supportate | [Informazioni](/system-center/dpm/dpm-protection-matrix) relative agli elementi di cui DPM può eseguire il backup.
 Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup con Backup di Azure: crittografati, solo backup completi; compressi, backup incrementali supportati; sparse, backup incrementali supportati; compressi e sparse considerati come sparse.
 Tipi di file non supportati | Server nei file system che distinguono tra maiuscole e minuscole; collegamenti reali, ignorati; reparse point, ignorati; crittografati e compressi, ignorati; crittografati e sparse, ignorati; flusso compresso; analisi di flusso.
 Archiviazione locale | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale disponibile almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esiste alcun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di backup di Azure, ma le dimensioni di un'origine dati (ad esempio una macchina virtuale o un database) non devono superare 54.400 GB.
-Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con il peering Microsoft**selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
+Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con il peering Microsoft**selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
 Agente di Backup di Azure | Se DPM è in esecuzione in System Center 2012 SP1, installare il rollup 2 o successivo per DPM SP1. È necessario per l'installazione dell'agente.<br/><br/> Questo articolo descrive come distribuire la versione più recente dell'agente di Backup di Azure, noto anche come agente del servizio di ripristino di Microsoft Azure. Se è stata distribuita una versione precedente, eseguire l'aggiornamento alla versione più recente per garantire che il backup funzioni come previsto.
 
 Prima di iniziare è necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -60,7 +61,7 @@ Prima di iniziare è necessario disporre di un account di Azure su cui è abilit
 
 - Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica.
 - Se l'insieme di credenziali è il backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, usare la procedura seguente per configurare l'archiviazione con ridondanza locale.
-- Informazioni sulle opzioni di archiviazione [di Azure](../storage/common/storage-redundancy.md), [con ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [con ridondanza locale](../storage/common/storage-redundancy-lrs.md).
+- Informazioni sulle opzioni di archiviazione [di Azure](../storage/common/storage-redundancy.md), [con ridondanza geografica](../storage/common/storage-redundancy.md) e [con ridondanza locale](../storage/common/storage-redundancy.md).
 - Modificare le impostazioni di archiviazione prima del backup iniziale. Se già stato eseguito il backup di un elemento, arrestare l'esecuzione del backup nell'insieme di credenziali prima di modificare le impostazioni di archiviazione.
 
 Per modificare le impostazioni di replica di archiviazione:
@@ -164,7 +165,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
 
 7. Fare clic su **Registra** per registrare il server DPM nell'insieme di credenziali.
 
-Dopo aver registrato correttamente il server nell'insieme di credenziali sarà possibile avviare il backup in Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) distribuire i gruppi protezione dati.
+Dopo aver registrato correttamente il server nell'insieme di credenziali sarà possibile avviare il backup in Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) distribuire i gruppi protezione dati.
 
 ## <a name="troubleshoot-vault-credentials"></a>Risolvere i problemi dell'insieme di credenziali
 

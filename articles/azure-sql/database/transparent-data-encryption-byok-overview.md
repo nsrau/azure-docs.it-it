@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514723"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Per consentire al server di usare la protezione Transparent Data Encryption arch
 
 - **unwrapKey**: per rimuovere la protezione (decrittografare) la chiave DEK
 
-L'amministratore del Key Vault può anche [abilitare la registrazione degli eventi di controllo del Key Vault](../../azure-monitor/insights/azure-key-vault.md), in modo che possano essere controllati in un secondo momento.
+L'amministratore del Key Vault può anche [abilitare la registrazione degli eventi di controllo del Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
 
 Quando il server è configurato per l'utilizzo della protezione TDE da AKV, il server invia la chiave DEK di ogni database abilitato per TDE al Key Vault per la crittografia. Il Key Vault restituisce la chiave DEK crittografata che viene quindi archiviata nel database utente.
 

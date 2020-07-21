@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: e8bae2062051156d6de378e54bc354b3f785e403
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515462"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "86145156"
 
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. 
 
-Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. L'ultimo aggiornamento dell'elenco è stato eseguito il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Altre metriche non presenti in questo elenco possono essere disponibili nel portale o usando le API legacy.
+Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. L'ultimo aggiornamento dell'elenco è stato eseguito il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](/rest/api/monitor/metricdefinitions). Altre metriche non presenti in questo elenco possono essere disponibili nel portale o usando le API legacy.
 
 Le metriche sono organizzate in base ai provider di risorse e al tipo di risorsa. Per un elenco dei servizi e dei provider di risorse appartenenti, vedere [provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
@@ -105,15 +105,15 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |OtherRequests|Other Gateway Requests (Altre richieste del gateway) (deprecato)|Conteggio|Totale|Numero di altre richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Località, nome host|
 |Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Località, nome host|
 |BackendDuration|Duration of Backend Requests (Durata delle richieste back-end)|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Località, nome host|
-|Capacità|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
-|EventHubTotalEvents|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Località|
-|EventHubSuccessfulEvents|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Località|
-|EventHubTotalFailedEvents|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Località|
-|EventHubRejectedEvents|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Località|
-|EventHubThrottledEvents|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Località|
-|EventHubTimedoutEvents|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Località|
-|EventHubDroppedEvents|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Località|
-|EventHubTotalBytesSent|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Località|
+|Capacità|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
+|EventHubTotalEvents|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Location|
+|EventHubSuccessfulEvents|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
+|EventHubTotalFailedEvents|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Location|
+|EventHubRejectedEvents|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
+|EventHubThrottledEvents|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Location|
+|EventHubTimedoutEvents|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Location|
+|EventHubDroppedEvents|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
+|EventHubTotalBytesSent|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Location|
 |Requests|Requests|Conteggio|Totale|Metriche delle richieste del gateway con più dimensioni|Location, hostname, LastErrorReason, BackendResponseCode, GatewayResponseCode, BackendResponseCodeCategory, GatewayResponseCodeCategory|
 |Problemidi|Stato connettività di rete delle risorse (anteprima)|Conteggio|Totale|Stato della connettività di rete dei tipi di risorsa dipendenti dal servizio gestione API|Località, ResourceType|
 
@@ -227,7 +227,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
 |CpuUsagePercentageInDouble|CPU Usage Percentage (Percentuale di utilizzo CPU)|Percentuale|Massimo|CPU Usage Percentage (Percentuale di utilizzo CPU)|Nodo|
-|MemoryUsage|Utilizzo della memoria|Byte|Media|Utilizzo memoria|Nodo|
+|MemoryUsage|Utilizzo della memoria|Byte|Media|Utilizzo della memoria|Nodo|
 |MemoryLimit|Limite memoria|Byte|Media|Limite memoria|Nodo|
 |MemoryUsagePercentageInDouble|Memory Usage Percentage (Percentuale di utilizzo memoria)|Percentuale|Media|Memory Usage Percentage (Percentuale di utilizzo memoria)|Nodo|
 |StorageUsage|Utilizzo dello spazio di archiviazione|Byte|Media|Utilizzo dello spazio di archiviazione|Nodo|
@@ -516,7 +516,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |FileShareCount|Numero di condivisione file|Conteggio|Media|Il numero di condivisioni file nel servizio file dell'account di archiviazione.|Nessuno|
 |FileShareSnapshotCount|Numero di snapshot in condivisione file|Conteggio|Media|Il numero di snapshot presenti nella condivisione nel servizio file dell'account di archiviazione.|FileShare|
 |FileShareSnapshotSize|Dimensioni snapshot in condivisione file|Byte|Media|Quantità di spazio di archiviazione usata dagli snapshot nel servizio file dell'account di archiviazione in byte.|FileShare|
-|FileShareQuota|Dimensioni quota di condivisione file|Byte|Media|Limite massimo per la quantità di spazio di archiviazione che può essere utilizzato dal servizio File di Azure in byte.|FileShare|
+|FileShareCapacityQuota|Dimensioni quota di condivisione file|Byte|Media|Limite massimo per la quantità di spazio di archiviazione che può essere utilizzato dal servizio File di Azure in byte.|FileShare|
 |Transazioni|Transazioni|Conteggio|Totale|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Usare la dimensione ResponseType per il numero di tipi di risposta diversi.|ResponseType, Geotype, ApiName, autenticazione, FileShare|
 |Dati in ingresso|Dati in ingresso|Byte|Totale|Quantità di dati in ingresso, in byte. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure.|Geotype, ApiName, autenticazione, FileShare|
 |Egress|Egress|Byte|Totale|Quantità di dati in uscita, in byte. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili.|Geotype, ApiName, autenticazione, FileShare|
@@ -738,9 +738,9 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |---|---|---|---|---|---|
 |NICReadThroughput|Velocità effettiva lettura (rete)|Byte al secondo|Media|Velocità effettiva di lettura dell'interfaccia di rete nel dispositivo nel periodo di Reporting per tutti i volumi del gateway.|InstanceName|
 |NICWriteThroughput|Velocità effettiva scrittura (rete)|Byte al secondo|Media|Velocità effettiva di scrittura dell'interfaccia di rete nel dispositivo nel periodo di Reporting per tutti i volumi del gateway.|InstanceName|
-|CloudReadThroughputPerShare|Velocità effettiva download cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condividi|
-|CloudUploadThroughputPerShare|Velocità effettiva caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condividi|
-|BytesUploadedToCloudPerShare|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condividi|
+|CloudReadThroughputPerShare|Velocità effettiva download cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
+|CloudUploadThroughputPerShare|Velocità effettiva caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
+|BytesUploadedToCloudPerShare|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
 |TotalCapacity|Capacità totale|Byte|Media|Capacità totale|Nessuno|
 |AvailableCapacity|Capacità disponibile|Byte|Media|Capacità disponibile in byte durante il periodo di Reporting.|Nessuno|
 |CloudUploadThroughput|Velocità effettiva caricamento cloud|Byte al secondo|Media|La velocità effettiva di caricamento nel cloud in Azure durante il periodo di Reporting.|Nessuno|
@@ -748,21 +748,6 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |BytesUploadedToCloud|Byte cloud caricati (dispositivo)|Byte|Media|Il numero totale di byte caricati in Azure da un dispositivo durante il periodo di Reporting.|Nessuno|
 |HyperVVirtualProcessorUtilization|Calcolo Edge - Percentuale CPU|Percentuale|Media|Percentuale utilizzo CPU|InstanceName|
 |HyperVMemoryUtilization|Calcolo Edge - Utilizzo memoria|Percentuale|Media|Quantità di RAM in uso|InstanceName|
-
-
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. datacatalog/datacatalogs
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Distribuzione di asset per classificazione|Conteggio|Totale|Indica il numero di asset a cui è assegnata una determinata classificazione, ovvero sono classificati con tale etichetta.|Classificazione, origine|
-|AssetDistributionByStorageType|Distribuzione di asset per tipo di archiviazione|Conteggio|Totale|Indica il numero di asset con un determinato tipo di archiviazione.|StorageType|
-|NumberOfAssetsWithClassifications|Numero di asset con almeno una classificazione|Conteggio|Media|Indica il numero di asset con almeno una classificazione dei tag.|Nessuno|
-|ScanCancelled|Analisi annullata|Conteggio|Totale|Indica il numero di analisi annullate.|Nessuno|
-|ScanCompleted|Analisi completata|Conteggio|Totale|Indica il numero di analisi completate correttamente.|Nessuno|
-|ScanFailed|Analisi non riuscita|Conteggio|Totale|Indica il numero di analisi non riuscite.|Nessuno|
-|ScanTimeTaken|Tempo di analisi impiegato|Secondi|Totale|Indica il tempo di analisi totale in secondi.|Nessuno|
-|CatalogActiveUsers|Utenti attivi giornalieri|Conteggio|Totale|Numero di utenti attivi giornaliero|Nessuno|
-|CatalogUsage|Distribuzione utilizzo per operazione|Conteggio|Totale|Indica il numero di operazioni apportate dall'utente al catalogo, ad esempio l'accesso, la ricerca e il glossario.|Operazione|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
@@ -1018,7 +1003,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
-|AddRegion|Area aggiunta|Conteggio|Conteggio|Area aggiunta|Area|
+|AddRegion|Area aggiunta|Conteggio|Conteggio|Area aggiunta|Region|
 |AvailableStorage|Spazio di archiviazione disponibile|Byte|Totale|Totale spazio di archiviazione disponibile segnalato a granularità di 5 minuti|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|Chiusure di connessione Cassandra|Conteggio|Totale|Numero di connessioni Cassandra chiuse, segnalate a una granularità di 1 minuto|APIType, Region, ClosureReason|
 |CassandraKeyspaceDelete|Spazio di portadi Cassandra eliminato|Conteggio|Conteggio|Spazio di portadi Cassandra eliminato|ResourceName, tipologia API, ApiKindResourceType, OperationType|
@@ -1058,7 +1043,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |NormalizedRUConsumption|Consumo ur normalizzato|Percentuale|Massimo|Percentuale di utilizzo massimo delle UR al minuto|CollectionName, DatabaseName, Region|
 |ProvisionedThroughput|Velocità effettiva sottoposta a provisioning|Conteggio|Massimo|Velocità effettiva sottoposta a provisioning|DatabaseName, CollectionName|
 |RegionFailover|Area sottoposta a failover|Conteggio|Conteggio|Area sottoposta a failover|Nessuno|
-|RemoveRegion|Area rimossa|Conteggio|Conteggio|Area rimossa|Area|
+|RemoveRegion|Area rimossa|Conteggio|Conteggio|Area rimossa|Region|
 |ReplicationLatency|P99 Replication Latency (Latenza di replica P99)|Millisecondi|Media|Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica|SourceRegion,TargetRegion|
 |ServerSideLatency|Latenza lato server|Millisecondi|Media|Latenza lato server|DatabaseName, CollectionName, Region, ConnectionMode, OperationType, PublicAPIType|
 |ServiceAvailability|Disponibilità del servizio|Percentuale|Media|L'account richiede disponibilità a una granularità di un'ora, giorno o mese|Nessuno|
@@ -1320,7 +1305,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |StreamingIngestDuration|Streaming Ingest Duration (Durata inserimento streaming)|Millisecondi|Media|Durata di inserimento del flusso in millisecondi|Nessuno|
 |StreamingIngestDataRate|Streaming Ingest Data Rate (Velocità dati inserimento streaming)|Conteggio|Media|Velocità dati di inserimento dei flussi (MB al secondo)|Nessuno|
 |SteamingIngestRequestRate|Streaming Ingest Request Rate (Frequenza richieste inserimento streaming)|Conteggio|RateRequestsPerSecond|Frequenza delle richieste di inserimento in streaming (richieste al secondo)|Nessuno|
-|StreamingIngestResults|Streaming Ingest Result (Risultato inserimento streaming)|Conteggio|Media|Risultato inserimento flusso|Result|
+|StreamingIngestResults|Streaming Ingest Result (Risultato inserimento streaming)|Conteggio|Media|Risultato inserimento flusso|Risultato|
 |TotalNumberOfConcurrentQueries|Numero totale di query simultanee|Conteggio|Totale|Numero totale di query simultanee|Nessuno|
 |TotalNumberOfThrottledQueries|Numero totale di query limitate|Conteggio|Totale|Numero totale di query limitate|Nessuno|
 |TotalNumberOfThrottledCommands|Numero totale di comandi limitati|Conteggio|Totale|Numero totale di comandi limitati|CommandType|
@@ -1448,7 +1433,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
-|Utilizzo|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Uso|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
 |Disponibilità|Disponibilità|Percentuale|Media|Disponibilità delle API|ApiCategory, ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
@@ -1856,7 +1841,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |Average_Bytes Total/sec|Totale byte/sec|Conteggio|Media|Average_Bytes Total/sec|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Processor Queue Length|Lunghezza coda processore|Conteggio|Media|Average_Processor Queue Length|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Heartbeat|Heartbeat|Conteggio|Totale|Heartbeat|Computer, OSType, Version, SourceComputerId|
-|Aggiornamento|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, prodotto, classificazione, UpdateState, facoltativo, approvato|
+|Aggiorna|Aggiornamento|Conteggio|Media|Aggiorna|Computer, prodotto, classificazione, UpdateState, facoltativo, approvato|
 |Evento|Event|Conteggio|Media|Evento|Source, EventLog, computer, EventCategory, EventLevel, EventLevelName, EventId|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. peering/peeringServices
@@ -2145,7 +2130,7 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |FileShareCount|Numero di condivisione file|Conteggio|Media|Il numero di condivisioni file nel servizio file dell'account di archiviazione.|Nessuno|
 |FileShareSnapshotCount|Numero di snapshot in condivisione file|Conteggio|Media|Il numero di snapshot presenti nella condivisione nel servizio file dell'account di archiviazione.|FileShare|
 |FileShareSnapshotSize|Dimensioni snapshot in condivisione file|Byte|Media|Quantità di spazio di archiviazione usata dagli snapshot nel servizio file dell'account di archiviazione in byte.|FileShare|
-|FileShareQuota|Dimensioni quota di condivisione file|Byte|Media|Limite massimo per la quantità di spazio di archiviazione che può essere utilizzato dal servizio File di Azure in byte.|FileShare|
+|FileShareCapacityQuota|Dimensioni quota di condivisione file|Byte|Media|Limite massimo per la quantità di spazio di archiviazione che può essere utilizzato dal servizio File di Azure in byte.|FileShare|
 |Transazioni|Transazioni|Conteggio|Totale|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Usare la dimensione ResponseType per il numero di tipi di risposta diversi.|ResponseType, Geotype, ApiName, autenticazione, FileShare|
 |Dati in ingresso|Dati in ingresso|Byte|Totale|Quantità di dati in ingresso, in byte. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure.|Geotype, ApiName, autenticazione, FileShare|
 |Egress|Egress|Byte|Totale|Quantità di dati in uscita, in byte. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili.|Geotype, ApiName, autenticazione, FileShare|
@@ -2266,8 +2251,8 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |OrchestrationPipelineRunsEnded|Esecuzioni di pipeline terminate|Conteggio|Totale|Numero di esecuzioni di pipeline di orchestrazione con esito positivo, negativo o annullato|Risultato, FailureType, pipeline|
 |OrchestrationActivityRunsEnded|Esecuzioni attività terminate|Conteggio|Totale|Numero di attività di orchestrazione con esito positivo, negativo o annullato|Risultato, FailureType, attività, ActivityType, pipeline|
 |OrchestrationTriggersEnded|Trigger terminati|Conteggio|Totale|Numero di trigger di orchestrazione riusciti, non riusciti o annullati|Risultato, FailureType, trigger|
-|SQLOnDemandLoginAttempts|Tentativi di accesso|Conteggio|Totale|Numero di tentativi di accesso riuscito o non riusciti|Result|
-|SQLOnDemandQueriesEnded|Query terminate|Conteggio|Totale|Numero di query che hanno avuto esito positivo, negativo o sono state annullate|Result|
+|SQLOnDemandLoginAttempts|Tentativi di accesso|Conteggio|Totale|Numero di tentativi di accesso riuscito o non riusciti|Risultato|
+|SQLOnDemandQueriesEnded|Query terminate|Conteggio|Totale|Numero di query che hanno avuto esito positivo, negativo o sono state annullate|Risultato|
 |SQLOnDemandQueryProcessedBytes|Dati elaborati|Byte|Totale|Quantità di dati elaborati dalle query|Nessuno|
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. sinapsi/Workspaces/bigDataPools
@@ -2290,13 +2275,13 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 |AdaptiveCacheUsedPercent|Percentuale utilizzata della cache adattiva|Percentuale|Massimo|Misura il modo in cui i carichi di lavoro utilizzano la cache adattiva. Usare questa metrica con la metrica percentuale utilizzata della cache per determinare se ridimensionare la capacità aggiuntiva o rieseguire i carichi di lavoro per idratare la cache.|Nessuno|
 |LocalTempDBUsedPercent|Percentuale di utilizzo del tempdb locale|Percentuale|Massimo|Utilizzo tempdb locale in tutti i nodi di calcolo: i valori vengono emessi ogni cinque minuti|Nessuno|
 |MemoryUsedPercent|Percentuale di memoria utilizzata|Percentuale|Massimo|Utilizzo della memoria in tutti i nodi del pool SQL|Nessuno|
-|Connessioni|Connessioni|Conteggio|Totale|Numero totale di accessi al pool SQL|Result|
+|Connessioni|Connessioni|Conteggio|Totale|Numero totale di accessi al pool SQL|Risultato|
 |WLGActiveQueries|Query attive del gruppo di carico di lavoro|Conteggio|Totale|Query attive all'interno del gruppo di carico di lavoro. Utilizzando questa metrica non filtrata e unsplit, vengono visualizzate tutte le query attive in esecuzione nel sistema|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|Timeout query del gruppo di carico di lavoro|Conteggio|Totale|Query per il gruppo del carico di lavoro di cui si è verificato il timeout. I timeout delle query segnalati da questa metrica sono solo dopo l'avvio dell'esecuzione della query (non è incluso il tempo di attesa a causa del blocco o delle attese delle risorse)|IsUserDefined, WorkloadGroup|
 |WLGAllocationBySystemPercent|Allocazione del gruppo di carico di lavoro per percentuale di sistema|Percentuale|Massimo|Percentuale di allocazione delle risorse rispetto all'intero sistema|IsUserDefined, WorkloadGroup|
 |WLGAllocationByMaxResourcePercent|Allocazione del gruppo di carico di lavoro per percentuale risorse massima|Percentuale|Massimo|Visualizza la percentuale di allocazione delle risorse rispetto alla percentuale effettiva delle risorse CAP per gruppo di carico di lavoro. Questa metrica fornisce l'utilizzo effettivo del gruppo di carico di lavoro|IsUserDefined, WorkloadGroup|
 |WLGEffectiveCapResourcePercent|Percentuale limite di risorse effettiva|Percentuale|Massimo|Percentuale effettiva della risorsa Cap per il gruppo del carico di lavoro. Se sono presenti altri gruppi di carico di lavoro con min_percentage_resource > 0, il effective_cap_percentage_resource viene ridotto proporzionalmente|IsUserDefined, WorkloadGroup|
-|wlg_effective_min_resource_percent|Percentuale risorse minima effettiva|Percentuale|Minimo|L'impostazione percentuale effettiva minima delle risorse può prendere in considerazione il livello di servizio e le impostazioni del gruppo di carico di lavoro. Il min_percentage_resource effettivo può essere modificato in un livello superiore rispetto ai livelli di servizio più bassi|IsUserDefined, WorkloadGroup|
+|wlg_effective_min_resource_percent|Percentuale risorse minima effettiva|Percentuale|Minima|L'impostazione percentuale effettiva minima delle risorse può prendere in considerazione il livello di servizio e le impostazioni del gruppo di carico di lavoro. Il min_percentage_resource effettivo può essere modificato in un livello superiore rispetto ai livelli di servizio più bassi|IsUserDefined, WorkloadGroup|
 |WLGQueuedQueries|Query accodate del gruppo di carico di lavoro|Conteggio|Totale|Conteggio cumulativo delle richieste accodate dopo il raggiungimento del limite massimo di concorrenza|IsUserDefined, WorkloadGroup|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
@@ -2534,4 +2519,3 @@ Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il
 * [Metriche in Monitoraggio di Azure](data-platform.md)
 * [Creare avvisi relativi alle metriche](alerts-overview.md)
 * [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](platform-logs-overview.md)
-

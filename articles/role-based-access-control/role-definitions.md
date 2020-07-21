@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511637"
 ---
 # <a name="understand-azure-role-definitions"></a>Informazioni sulle definizioni dei ruoli di Azure
 
@@ -27,7 +28,7 @@ Se si sta provando a comprendere il funzionamento di un ruolo di Azure o se si c
 
 ## <a name="role-definition"></a>Definizione di ruolo
 
-Una *definizione di ruolo* è una raccolta di autorizzazioni, talvolta semplicemente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, È inoltre possibile elencare le operazioni escluse dalle operazioni consentite o dalle operazioni correlate ai dati sottostanti.
+Una *definizione di ruolo* è una raccolta di autorizzazioni, A volte viene semplicemente chiamato un *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, È inoltre possibile elencare le operazioni escluse dalle operazioni consentite o dalle operazioni correlate ai dati sottostanti.
 
 Di seguito viene illustrato un esempio delle proprietà in una definizione di ruolo quando viene visualizzato utilizzando Azure PowerShell:
 
@@ -89,7 +90,7 @@ La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di
 
 ### <a name="role-definition-example"></a>Esempio di definizione di ruolo
 
-Di seguito è illustrata la definizione del ruolo [collaboratore](built-in-roles.md#contributor) visualizzata nell'interfaccia della riga di comando Azure PowerShell e Azure. L'operazione identificata dal carattere jolly (`*`) in `Actions` indica che l'entità di sicurezza assegnata a questo ruolo può eseguire qualsiasi azione, anche quelle definite in futuro in seguito all'aggiunta di nuovi tipi di risorse da parte di Azure. Le operazioni sotto `NotActions` vengono sottratte a `Actions`. Nel caso del ruolo [Collaboratore](built-in-roles.md#contributor), `NotActions` rimuove la capacità di gestire e assegnare l'accesso alle risorse.
+Di seguito è illustrata la definizione del ruolo [collaboratore](built-in-roles.md#contributor) visualizzata nell'interfaccia della riga di comando Azure PowerShell e Azure. L'operazione identificata dal carattere jolly (`*`) in `Actions` indica che l'entità di sicurezza assegnata a questo ruolo può eseguire qualsiasi azione, anche quelle definite in futuro in seguito all'aggiunta di nuovi tipi di risorse da parte di Azure. Le operazioni in `NotActions` vengono sottratte da `Actions`. Nel caso del ruolo [collaboratore](built-in-roles.md#contributor) , `NotActions` rimuove la capacità di questo ruolo di gestire l'accesso alle risorse e gestire anche le assegnazioni di Azure Blueprint.
 
 Ruolo Collaboratore visualizzato in Azure PowerShell:
 
@@ -163,9 +164,9 @@ In precedenza, il controllo degli accessi in base al ruolo non veniva usato per 
 
 Per supportare le operazioni sui dati, sono state aggiunte nuove proprietà dei dati alla definizione del ruolo. Le operazioni sui dati vengono specificate nelle proprietà `DataActions` e `NotDataActions`. Con l'aggiunta di queste proprietà di dati viene mantenuta la separazione tra gestione e dati. In tal modo, si impedisce alle assegnazioni di ruolo correnti con caratteri jolly (`*`) di accedere immediatamente ai dati. Ecco alcune operazioni sui dati che possono essere specificate in `DataActions` e `NotDataActions`:
 
-- Leggere un elenco di BLOB in un contenitore
-- Scrivere su un BLOB di archiviazione in un contenitore
-- Leggere un messaggio in una coda
+- Leggere un elenco dei BLOB in un contenitore
+- Scrivere un BLOB di archiviazione in un contenitore
+- Eliminare un messaggio in una coda
 
 Di seguito è illustrata la definizione del ruolo [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) , che include le operazioni in entrambe le `Actions` `DataActions` proprietà e. Questo ruolo consente di leggere il contenitore BLOB e anche i dati di BLOB sottostanti.
 
@@ -338,4 +339,4 @@ Per informazioni sui `AssignableScopes` ruoli personalizzati, vedere [ruoli pers
 
 * [Ruoli predefiniti di Azure](built-in-roles.md)
 * [Ruoli personalizzati di Azure](custom-roles.md)
-* [Operazioni del provider di risorse Azure Resource Manager](resource-provider-operations.md)
+* [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md)

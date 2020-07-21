@@ -4,11 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027166"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514085"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -328,6 +329,6 @@ Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valid
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per eventuali problemi durante il ripristino di file, vedere la sezione [Risoluzione dei problemi](#troubleshooting)
-- Informazioni su come [ripristinare i file tramite PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Informazioni su come [ripristinare i file tramite l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- Informazioni su come [gestire i backup](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms) dopo il ripristino di una macchina virtuale
+- Informazioni su come [ripristinare i file tramite PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Informazioni su come [ripristinare i file tramite l'interfaccia della riga di comando di Azure](./tutorial-restore-files.md)
+- Informazioni su come [gestire i backup](./backup-azure-manage-vms.md) dopo il ripristino di una macchina virtuale

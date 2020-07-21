@@ -3,11 +3,13 @@ title: Code dei messaggi non recapitabili del bus di servizio | Documentazione M
 description: Descrive le code dei messaggi non recapitabili nel bus di servizio di Azure. Le code del bus di servizio e le sottoscrizioni dell'argomento includono una coda secondaria chiamata coda di messaggi non recapitabili.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511212"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
@@ -56,7 +58,7 @@ Non è possibile disattivare questo comportamento, ma è possibile impostare [Ma
 
 Quando la proprietà [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) viene impostata su **true** (il valore predefinito è **false**), tutti i messaggi in scadenza vengono spostati nella coda DLQ con il codice motivo `TTLExpiredException`.
 
-I messaggi scaduti vengono ripuliti e spostati nella coda di messaggi non recapitabili solo quando esiste almeno un ricevitore attivo che effettua il pull dalla sottoscrizione o dalla coda principale. Tale comportamento è predefinito.
+I messaggi scaduti vengono eliminati e spostati in coda DLQ solo quando esiste almeno un ricevitore attivo che effettua il pull dalla coda o dalla sottoscrizione principale. Inoltre, [i messaggi posticipati](./message-deferral.md) non verranno eliminati e spostati nella coda dei messaggi non recapitabili dopo la scadenza. Questi comportamenti sono da progettazione.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errori durante l'elaborazione di regole di sottoscrizione
 

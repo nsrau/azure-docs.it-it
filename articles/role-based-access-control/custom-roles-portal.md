@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791198"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511722"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare ruoli personalizzati di Azure con il portale di Azure
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure
 
 Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati di Azure. Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio negli ambiti di sottoscrizione e gruppo di risorse. I ruoli personalizzati vengono archiviati in una directory di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. Ogni directory può avere un massimo di 5000 ruoli personalizzati. I ruoli personalizzati possono essere creati usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questo articolo descrive come creare ruoli personalizzati usando il portale di Azure.
 
@@ -203,17 +204,7 @@ Attenersi alla procedura seguente per aggiungere o rimuovere le autorizzazioni p
 
 ### <a name="add-wildcard-permissions"></a>Aggiungi autorizzazioni con caratteri jolly
 
-A seconda della modalità con cui si è scelto di avviare, è possibile che nell'elenco di autorizzazioni siano disponibili le autorizzazioni con caratteri jolly ( \* ). Un carattere jolly ( \* ) estende un'autorizzazione a tutti gli elementi che corrispondono alla stringa fornita. Si supponga, ad esempio, di voler aggiungere tutte le autorizzazioni relative a gestione costi di Azure ed esportazioni. È possibile aggiungere tutte le autorizzazioni seguenti:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Anziché aggiungere tutte queste autorizzazioni, è possibile aggiungere solo un'autorizzazione con caratteri jolly. Ad esempio, l'autorizzazione con caratteri jolly seguente equivale alle cinque autorizzazioni precedenti. Sono incluse anche eventuali autorizzazioni di esportazione future che potrebbero essere aggiunte.
+A seconda della modalità con cui si è scelto di avviare, è possibile che nell'elenco di autorizzazioni siano disponibili le autorizzazioni con caratteri jolly ( `*` ). Un carattere jolly ( `*` ) estende un'autorizzazione a tutti gli elementi che corrispondono alla stringa di azione fornita. Ad esempio, la stringa con caratteri jolly seguente aggiunge tutte le autorizzazioni relative a gestione costi di Azure ed esportazioni. Sono incluse anche eventuali autorizzazioni di esportazione future che potrebbero essere aggiunte.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Se si desidera aggiungere una nuova autorizzazione con caratteri jolly, non è p
 
 ### <a name="exclude-permissions"></a>Escludi autorizzazioni
 
-Se il ruolo dispone di un'autorizzazione con carattere jolly ( \* ) e si desidera escludere o sottrarre autorizzazioni specifiche da tale autorizzazione con caratteri jolly, è possibile escluderle. Si immagini, ad esempio, di disporre dell'autorizzazione con caratteri jolly seguente:
+Se il ruolo dispone di un'autorizzazione con carattere jolly ( `*` ) e si desidera escludere o sottrarre autorizzazioni specifiche da tale autorizzazione con caratteri jolly, è possibile escluderle. Si immagini, ad esempio, di disporre dell'autorizzazione con caratteri jolly seguente:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ Nella scheda **ambiti assegnabili** specificare la posizione in cui il ruolo per
 
 ## <a name="step-6-json"></a>Passaggio 6: JSON
 
-Nella scheda **JSON** viene visualizzato il ruolo personalizzato formattato in JSON. Se lo si desidera, è possibile modificare direttamente il codice JSON. Se si desidera aggiungere un'autorizzazione con carattere jolly ( \* ), è necessario utilizzare questa scheda.
+Nella scheda **JSON** viene visualizzato il ruolo personalizzato formattato in JSON. Se lo si desidera, è possibile modificare direttamente il codice JSON. Se si desidera aggiungere un'autorizzazione con carattere jolly ( `*` ), è necessario utilizzare questa scheda.
 
 1. Per modificare il codice JSON, fare clic su **modifica**.
 
@@ -348,4 +339,4 @@ Per visualizzare i ruoli personalizzati, seguire questa procedura.
 
 - [Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
-- [Operazioni del provider di risorse Azure Resource Manager](resource-provider-operations.md)
+- [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md)

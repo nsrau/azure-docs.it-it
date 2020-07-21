@@ -3,12 +3,12 @@ title: Bilanciare il carico delle partizioni tra più istanze-Hub eventi di Azur
 description: Viene descritto come bilanciare il carico delle partizioni tra più istanze dell'applicazione usando un processore di eventi e l'SDK di hub eventi di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512317"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Bilanciare il carico delle partizioni tra più istanze dell'applicazione
 Per ridimensionare l'applicazione di elaborazione degli eventi, è possibile eseguire più istanze dell'applicazione e bilanciare il carico tra loro. Nelle versioni precedenti, [EventProcessorHost](event-hubs-event-processor-host.md) consentiva di bilanciare il carico tra più istanze del programma e gli eventi di checkpoint durante la ricezione. Nelle versioni più recenti (5,0 in poi), **EventProcessorClient** (.NET e Java) o **EventHubConsumerClient** (Python e JavaScript) consente di eseguire la stessa operazione. Il modello di sviluppo viene reso più semplice usando gli eventi. Per sottoscrivere gli eventi a cui si è interessati, è necessario registrare un gestore eventi.
@@ -16,7 +16,7 @@ Per ridimensionare l'applicazione di elaborazione degli eventi, è possibile ese
 Questo articolo descrive uno scenario di esempio per l'uso di più istanze per leggere gli eventi da un hub eventi e quindi fornire informazioni dettagliate sulle funzionalità del client processore di eventi, che consente di ricevere eventi da più partizioni contemporaneamente e di bilanciare il carico con altri consumer che usano lo stesso hub eventi e il gruppo di consumer.
 
 > [!NOTE]
-> La chiave per ridurre il numero di istanze di Hub eventi è l'idea di consumer partizionato. A differenza dei criteri relativi ai [consumer concorrenti](https://msdn.microsoft.com/library/dn568101.aspx), il modello consumer partizionato consente un'elevata scalabilità rimuovendo il collo di bottiglia dovuto alla contesa e agevolare il parallelismo end to end.
+> La chiave per ridurre il numero di istanze di Hub eventi è l'idea di consumer partizionato. A differenza dei criteri relativi ai [consumer concorrenti](/previous-versions/msp-n-p/dn568101(v=pandp.10)), il modello consumer partizionato consente un'elevata scalabilità rimuovendo il collo di bottiglia dovuto alla contesa e agevolare il parallelismo end to end.
 
 ## <a name="example-scenario"></a>Scenario di esempio
 
@@ -75,7 +75,7 @@ Se un processore di eventi si disconnette da una partizione, un'altra istanza pu
 Quando si esegue il checkpoint per contrassegnare un evento come elaborato, viene aggiunta o aggiornata una voce nell'archivio checkpoint con l'offset e il numero di sequenza dell'evento. Gli utenti devono decidere la frequenza di aggiornamento del checkpoint. L'aggiornamento dopo ogni evento elaborato correttamente può avere implicazioni in termini di prestazioni e costi, poiché attiva un'operazione di scrittura nell'archivio dei checkpoint sottostante. Inoltre, il checkpoint ogni singolo evento è indicativo di un modello di messaggistica in coda per cui una coda del bus di servizio può essere un'opzione migliore rispetto a un hub eventi. L'idea alla base di Hub eventi è di ottenere "almeno un" recapito su larga scala. Per rendere idempotenti i sistemi a valle, è facile eseguire il ripristino a seguito di errori o il riavvio del risultato negli stessi eventi ricevuti più volte.
 
 > [!NOTE]
-> Se si usa l'archivio BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelli generalmente disponibili in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
+> Se si usa l'archivio BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelli generalmente disponibili in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

@@ -3,11 +3,12 @@ title: Usare Modern Backup Storage con il server di Backup di Azure
 description: Informazioni sulle nuove funzionalità del server di Backup di Azure. In questo articolo viene descritto come aggiornare l'installazione del server di backup.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513711"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -17,7 +18,7 @@ Il server di Backup di Azure V2 e versioni successive supporta Modern Backup Sto
 > Per usare Modern Backup Storage, è necessario eseguire il server di Backup V2 o V3 Windows Server 2016 oppure V3 in Windows Server 2019.
 > Se si esegue il server di Backup V2 in una versione precedente di Windows Server, il server di Backup di Azure non può avvalersi di Modern Backup Storage. Invece, i carichi di lavoro vengono protetti come avviene nel server di Backup V1. Per ulteriori informazioni, vedere la [matrice di protezione](backup-mabs-protection-matrix.md) della versione del server di backup.
 >
-> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MAB V3 con archiviazione a livelli in Windows Server 2019. Per i passaggi necessari per configurare l'archiviazione a livelli, vedere l'articolo relativo alla configurazione di[MBS con archiviazione a livelli](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage).
+> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MAB V3 con archiviazione a livelli in Windows Server 2019. Per i passaggi necessari per configurare l'archiviazione a livelli, vedere l'articolo relativo alla configurazione di[MBS con archiviazione a livelli](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage).
 
 ## <a name="volumes-in-backup-server"></a>Volumi nel server di Backup
 
@@ -102,13 +103,13 @@ L'aggiornamento dei gruppi protezione dati per l'uso di Modern Backup Storage è
 
 1. Nella Console di amministrazione selezionare la funzione **Protezione**. Nell'elenco **Membro del gruppo protezione dati** fare clic con il pulsante destro del mouse sul membro e quindi scegliere **Arresta protezione dati del membro**.
 
-   ![Arresto della protezione del membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Arresto della protezione del membro](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Nella finestra di dialogo **Rimuovi da gruppo** esaminare lo spazio su disco utilizzato e lo spazio disponibile per il pool di archiviazione. L'impostazione predefinita è lasciare i punti di recupero sul disco e consentire che scadano in base ai criteri di conservazione associati. Fare clic su **OK**.
 
    Se si desidera restituire immediatamente lo spazio su disco utilizzato al pool di archiviazione disponibile, selezionare la casella di controllo **Elimina replica su disco** per eliminare i dati di backup (e i punti di recupero) associati a tale membro.
 
-   ![Rimozione dalla finestra di dialogo del gruppo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Rimozione dalla finestra di dialogo del gruppo](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Creare un gruppo protezione dati che usa Modern Backup Storage. Includere le origini dati non protette.
 
@@ -120,7 +121,7 @@ Per aggiungere spazio di archiviazione su disco:
 
 1. Nella console di amministrazione selezionare **gestione**  >  **archiviazione su disco**  >  **Aggiungi**.
 
-    ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983105"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515121"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -55,7 +55,7 @@ Per eseguire un ripristino, vedere [Restore database from backups](recovery-usin
 | **Modificare la conservazione dei backup** | [Database singolo](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Istanza gestita](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Database singolo](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Modificare la conservazione dei backup a lungo termine** | [Database singolo](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](long-term-backup-retention-configure.md)<br/>Istanza gestita-N/A  |
 | **Ripristinare un database da un punto nel tempo** | [Database singolo](recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Ripristinare un database eliminato** | [Database singolo](recovery-using-backups.md) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Ripristino di un database eliminato** | [Database singolo](recovery-using-backups.md) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | **Ripristinare un database da un archivio BLOB di Azure** | Database singolo-N/A <br/>Istanza gestita-N/A  | Database singolo-N/A <br/>[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Pianificazione dei backup
@@ -101,7 +101,7 @@ L'utilizzo dell'archiviazione di backup fino alle dimensioni massime dei dati pe
 
 ## <a name="backup-retention"></a>Conservazione backup
 
-Per tutti i nuovi database, ripristinati e copiati, il database SQL di Azure e Azure SQL Istanza gestita conservano backup sufficienti per consentire ripristino temporizzato negli ultimi 7 giorni per impostazione predefinita. Fatta eccezione per i database con iperscalabilità, è possibile [modificare il periodo di conservazione dei backup](#change-the-pitr-backup-retention-period) per ogni database nell'intervallo di 1-35 giorni. Come descritto in [utilizzo dell'archiviazione di backup](#backup-storage-consumption), i backup archiviati per abilitare ripristino temporizzato potrebbero essere precedenti al periodo di conservazione.
+Per tutti i nuovi database, ripristinati e copiati, il database SQL di Azure e Azure SQL Istanza gestita conservano backup sufficienti per consentire ripristino temporizzato negli ultimi 7 giorni per impostazione predefinita. Fatta eccezione per i database con iperscalabilità, è possibile [modificare il periodo di conservazione dei backup](#change-the-pitr-backup-retention-period) per ogni database attivo nell'intervallo di 1-35 giorni. Come descritto in [utilizzo dell'archiviazione di backup](#backup-storage-consumption), i backup archiviati per abilitare ripristino temporizzato potrebbero essere precedenti al periodo di conservazione. Solo per Istanza gestita SQL di Azure, è possibile impostare il tasso di conservazione dei backup di ripristino temporizzato dopo l'eliminazione di un database nell'intervallo di 0-35 giorni. 
 
 Se si elimina un database, il sistema mantiene i backup allo stesso modo di un database online con il periodo di memorizzazione specifico. Non è possibile modificare il periodo di conservazione dei backup per un database eliminato.
 
@@ -192,7 +192,7 @@ Quando si esegue la migrazione del database da un livello di servizio basato su 
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup ripristino temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup ripristino temporizzato utilizzando il portale di Azure, passare al server o all'istanza gestita con i database di cui si desidera modificare il periodo di memorizzazione. 
+Per modificare il periodo di conservazione dei backup ripristino temporizzato per i database attivi utilizzando il portale di Azure, passare al server o all'istanza gestita con i database di cui si desidera modificare il periodo di memorizzazione. 
 
 #### <a name="sql-database"></a>[Database SQL](#tab/single-database)
 
@@ -214,9 +214,54 @@ Le modifiche apportate alla conservazione dei backup ripristino temporizzato per
 > [!IMPORTANT]
 > Il modulo AzureRM di PowerShell è ancora supportato dal database SQL e da SQL Istanza gestita, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per ulteriori informazioni, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ sono sostanzialmente identici a quelli nei moduli AzureRm.
 
+#### <a name="sql-database"></a>[Database SQL](#tab/single-database)
+
+Per modificare la conservazione dei backup ripristino temporizzato per i database SQL di Azure attivi, usare l'esempio di PowerShell seguente.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[Istanza gestita di SQL](#tab/managed-instance)
+
+Per modificare la conservazione dei backup ripristino temporizzato per un singolo database SQL Istanza gestita **attivo** , usare l'esempio di PowerShell seguente.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Per modificare la conservazione dei backup ripristino temporizzato per tutti i database SQL Istanza gestita **attivi** , usare l'esempio di PowerShell seguente.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Per modificare la conservazione dei backup ripristino temporizzato per un singolo database SQL Istanza gestita **eliminato** , usare l'esempio di PowerShell seguente.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Per modificare la conservazione dei backup ripristino temporizzato per tutti i database SQL Istanza gestita **eliminati** , usare l'esempio di PowerShell seguente.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+La conservazione dei giorni zero (0) indica che il backup viene eliminato immediatamente e non viene più mantenuto per un database eliminato.
+Una volta ridotta la conservazione dei backup di ripristino temporizzato per un database eliminato, non è più possibile aumentarlo.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Modificare il periodo di conservazione dei backup ripristino temporizzato usando l'API REST
 
@@ -260,3 +305,4 @@ Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsof
 - Ulteriori informazioni su come [ripristinare un database a un momento specifico tramite PowerShell](scripts/restore-database-powershell.md).
 - Per informazioni su come configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici nell'archivio BLOB di Azure usando il portale di Azure, vedere [gestire la conservazione dei backup a lungo termine usando il portale di Azure](long-term-backup-retention-configure.md).
 - Per informazioni su come configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici nell'archivio BLOB di Azure tramite PowerShell, vedere [gestire la conservazione dei backup a lungo termine usando PowerShell](long-term-backup-retention-configure.md).
+- Per informazioni su come ottimizzare la conservazione e i costi di archiviazione dei backup per Istanza gestita SQL di Azure, vedere [ottimizzazione dei costi di archiviazione di backup in istanza gestita](https://aka.ms/mi-backup-tuning).

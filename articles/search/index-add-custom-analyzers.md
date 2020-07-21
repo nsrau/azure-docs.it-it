@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555243"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511399"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Aggiungere analizzatori personalizzati a campi stringa in un indice di ricerca cognitiva di Azure
 
@@ -199,16 +200,16 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 
 #### <a name="predefined-analyzers"></a>Analizzatori predefiniti
 
-|||  
-|-|-|  
+| Type | Descrizione |
+| ---- | ----------- |  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Tipo di analizzatore dall'elenco di analizzatori supportati. Vedere più avanti la colonna **analyzer_type** nella tabella [Analizzatori](#AnalyzerTable).|  
 |Opzioni|Devono essere opzioni valide di un analizzatore predefinito elencato più avanti nella tabella [Analizzatori](#AnalyzerTable).|  
 
 #### <a name="custom-analyzers"></a>Analizzatori personalizzati
 
-|||  
-|-|-|  
+| Type | Descrizione |
+| ---- | ----------- |  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Deve essere "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Impostarlo su uno dei filtri di caratteri predefiniti elencati nella tabella [Filtri di caratteri](#char-filters-reference) o su un filtro di caratteri specificato nella definizione dell'indice.|  
@@ -224,8 +225,8 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 
  Un filtro di carattere viene usato per preparare il testo di input prima che venga elaborato dal tokenizer, ad esempio per sostituire determinati caratteri o simboli. In un analizzatore personalizzato possono essere presenti più filtri di caratteri. I filtri di caratteri vengono eseguiti nello stesso ordine in cui sono elencati.  
 
-|||  
-|-|-|  
+| Type | Descrizione |
+| ---- | ----------- | 
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#char-filters-reference).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di [Filtri di caratteri](#char-filters-reference).|  
@@ -237,8 +238,8 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
  È possibile specificare esattamente un tokenizer per ogni analizzatore personalizzato. Se è necessario più di un tokenizer, è possibile creare più analizzatori personalizzati e assegnarli a ogni singolo campo nello schema dell'indice.  
 Un analizzatore personalizzato può usare un tokenizer predefinito con opzioni predefinite o personalizzate.  
 
-|||  
-|-|-|  
+| Type | Descrizione |
+| ---- | ----------- | 
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Nome del tokenizer incluso nell'elenco di tokenizer supportati. Vedere più avanti la colonna **tokenizer_type** nella tabella [Tokenizer](#Tokenizers).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di tokenizer elencato più avanti nella tabella [Tokenizer](#Tokenizers).|  
@@ -248,8 +249,8 @@ Un analizzatore personalizzato può usare un tokenizer predefinito con opzioni p
  Un filtro di token viene usato per filtrare o modificare i token generati da un tokenizer. È possibile, ad esempio, specificare un filtro lowercase che converte tutti i caratteri in lettere minuscole.   
 In un analizzatore personalizzato possono essere presenti più filtri di token. I filtri di token vengono eseguiti nello stesso ordine in cui sono elencati.  
 
-|||  
-|-|-|  
+| Type | Descrizione |
+| ---- | ----------- |  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Nome del filtro di token incluso nell'elenco di filtri di token supportati. Vedere più avanti la colonna **token_filter_type** nella tabella [Filtri di token](#TokenFilters).|  
 |Opzioni|Devono essere [filtri di token](#TokenFilters) di un determinato tipo di filtro di token.|  

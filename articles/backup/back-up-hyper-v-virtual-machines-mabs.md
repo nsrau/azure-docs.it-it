@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420411"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514553"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -54,7 +54,7 @@ MAB esegue il backup con VSS come segue. I passaggi descritti in questa descrizi
 
 >[!NOTE]
 >
->A partire da Windows Server 2016, i dischi rigidi virtuali Hyper-V hanno un rilevamento delle modifiche incorporato noto come rilevamento delle modifiche resilienti (RCT). MAB USA RCT (il rilevamento delle modifiche nativo in Hyper-V), che riduce la necessità di verifiche di coerenza che richiedono molto tempo in scenari come gli arresti anomali delle macchine virtuali. RCT offre una migliore resilienza rispetto al rilevamento delle modifiche offerto dai backup basati su snapshot di VSS. MABS V3 ottimizza ulteriormente il consumo di archiviazione e rete trasferendo solo i dati modificati durante le verifiche della coerenza.
+>A partire da Windows Server 2016, i dischi rigidi virtuali Hyper-V hanno un rilevamento delle modifiche incorporato noto come rilevamento delle modifiche resilienti (RCT). MAB USA RCT (il rilevamento delle modifiche nativo in Hyper-V), che riduce la necessità di verifiche di coerenza che richiedono molto tempo in scenari come gli arresti anomali delle macchine virtuali. RCT offre una migliore resilienza del rilevamento delle modifiche incluso nei backup basati su snapshot di VSS. MABS V3 ottimizza ulteriormente il consumo di archiviazione e rete trasferendo solo i dati modificati durante le verifiche della coerenza.
 
 ## <a name="backup-prerequisites"></a>Prerequisiti per il backup
 
@@ -96,7 +96,7 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
 
 8. Nella pagina **Scelta del metodo per la creazione della replica** specificare come verrà eseguita la replica iniziale dei dati nel gruppo protezione dati. Se si sceglie di eseguire **la replica automatica in rete**, è consigliabile scegliere un orario di minore traffico. Per grandi quantità di dati o condizioni di rete non ottimali, è consigliabile selezionare **manualmente**, che richiede la replica dei dati offline mediante supporti rimovibili.
 
-9. Nella pagina **Opzioni di verifica coerenza** scegliere come automatizzare le verifiche della coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire una verifica manuale in qualsiasi momento facendo clic con il pulsante destro del mouse sul gruppo protezione dati e scegliendo **Esegui verifica coerenza**.
+9. Nella pagina **Opzioni di verifica coerenza** scegliere come automatizzare le verifiche della coerenza. È possibile impostare l'esecuzione di una verifica solo quando i dati di replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire una verifica manuale in qualsiasi momento facendo clic con il pulsante destro del mouse sul gruppo protezione dati e scegliendo **Esegui verifica coerenza**.
 
     Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale dei dati in base al metodo selezionato. Dopo la replica iniziale, ogni backup viene eseguito in base alle impostazioni del gruppo protezione dati. Se è necessario ripristinare i dati di cui è stato eseguito il backup, tenere presente quanto segue:
 
@@ -155,4 +155,4 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ripristinare i dati da un server di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Ripristinare i dati da un server di Backup di Azure](./backup-azure-alternate-dpm-server.md)

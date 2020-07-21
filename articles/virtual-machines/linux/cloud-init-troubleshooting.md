@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510974"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Risoluzione dei problemi relativi al provisioning di macchine virtuali con cloud-init
 
@@ -21,17 +21,17 @@ Se è stata creata un'immagine personalizzata generalizzata, usando cloud-init p
 
 Alcuni esempi di problemi con il provisioning:
 - La macchina virtuale si blocca in fase di creazione per 40 minuti e la creazione della macchina virtuale è contrassegnata come non riuscita
-- CustomData non viene elaborato
+- `CustomData`non viene elaborato
 - Il montaggio del disco temporaneo non riesce
 - Gli utenti non vengono creati o sono presenti problemi di accesso degli utenti
 - La rete non è configurata correttamente
 - Scambiare errori di file o partizioni
 
-Questo articolo illustra come risolvere i problemi di cloud-init. Per informazioni più dettagliate, vedere [Deep Dive di cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
+Questo articolo illustra come risolvere i problemi di cloud-init. Per informazioni più dettagliate, vedere [Deep Dive di cloud-init](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Passaggio 1: testare la distribuzione senza customData
+## <a name="step-1-test-the-deployment-without-customdata"></a>Passaggio 1: testare la distribuzione senza`customData`
 
-Cloud-init può accettare customData, che viene passato al momento della creazione della macchina virtuale. Per prima cosa è necessario assicurarsi che non si verifichino problemi con le distribuzioni. Provare a eseguire il provisioning della macchina virtuale senza passare alcuna configurazione. Se la macchina virtuale non viene sottoposta a provisioning, continuare con i passaggi seguenti, se si rileva che la configurazione che si sta passando non è stata applicata, andare al [passaggio 4](). 
+Cloud-init può accettare `customData` , che viene passato al momento della creazione della macchina virtuale. Per prima cosa è necessario assicurarsi che non si verifichino problemi con le distribuzioni. Provare a eseguire il provisioning della macchina virtuale senza passare alcuna configurazione. Se la macchina virtuale non viene sottoposta a provisioning, continuare con i passaggi seguenti, se si rileva che la configurazione che si sta passando non è stata applicata, andare al [passaggio 4](). 
 
 ## <a name="step-2-review-image-requirements"></a>Passaggio 2: esaminare i requisiti dell'immagine
 La principale cause dell'errore di provisioning della macchina virtuale è che l'immagine del sistema operativo non soddisfa i prerequisiti per l'esecuzione in Azure. Assicurarsi che le immagini siano preparate correttamente prima di provare a effettuare il provisioning in Azure. 
@@ -39,15 +39,16 @@ La principale cause dell'errore di provisioning della macchina virtuale è che l
 
 Gli articoli seguenti illustrano i passaggi per preparare varie distribuzioni di Linux supportate in Azure:
 
-- [Distribuzioni basate su CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Altro: Distribuzioni non approvate](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Distribuzioni basate su CentOS](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES e openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
+- [Altro: Distribuzioni non approvate](create-upload-generic.md)
 
-Per le [Immagini cloud-init di Azure supportate](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init), per le distribuzioni Linux sono già disponibili tutti i pacchetti e le configurazioni necessari per eseguire correttamente il provisioning dell'immagine in Azure. Se la macchina virtuale non riesce a creare dalla propria immagine curata, provare un'immagine di Azure Marketplace supportata già configurata per cloud-init con il customData facoltativo. Se il customData funziona correttamente con un'immagine di Azure Marketplace, probabilmente si verifica un problema con l'immagine curata.
+Per le [Immagini cloud-init di Azure supportate](./using-cloud-init.md), per le distribuzioni Linux sono già disponibili tutti i pacchetti e le configurazioni necessari per eseguire correttamente il provisioning dell'immagine in Azure. Se la macchina virtuale non è in grado di creare dalla propria immagine curata, provare un'immagine di Azure Marketplace supportata già configurata per cloud-init con l'opzione facoltativa `customData` . Se `customData` funziona correttamente con un'immagine di Azure Marketplace, probabilmente si verifica un problema con l'immagine curata.
 
 ## <a name="step-3-collect--review-vm-logs"></a>Passaggio 3: raccogliere & esaminare i log delle VM
 
@@ -55,11 +56,11 @@ Quando non è possibile eseguire il provisioning della macchina virtuale, in Azu
 
 Mentre la macchina virtuale è in esecuzione, sono necessari i log della macchina virtuale per comprendere il motivo per cui il provisioning non è riuscito.  Per comprendere il motivo per cui il provisioning della macchina virtuale non è riuscito, non arrestare la macchina virtuale. Lasciare in esecuzione la macchina virtuale. Per raccogliere i log, è necessario evitare che la macchina virtuale sia in esecuzione in stato di esecuzione. Per raccogliere i log, usare uno dei metodi seguenti:
 
-- [Console seriale](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Console seriale](./serial-console-grub-single-user-mode.md)
 
-- [Abilitare la diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) prima di creare la macchina virtuale e quindi [visualizzarla](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante l'avvio.
+- [Abilitare la diagnostica di avvio](./tutorial-monitor.md#enable-boot-diagnostics) prima di creare la macchina virtuale e quindi [visualizzarla](./tutorial-monitor.md#view-boot-diagnostics) durante l'avvio.
 
-- [Eseguire AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) per connettere e montare il disco del sistema operativo, che consente di raccogliere i log seguenti:
+- [Eseguire AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) per connettere e montare il disco del sistema operativo, che consente di raccogliere i log seguenti:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -107,7 +108,7 @@ Dopo aver individuato un errore o un avviso, leggere indietro nel log di cloud-i
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se si ha accesso alla [console seriale](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
+Se si ha accesso alla [console seriale](./serial-console-grub-single-user-mode.md), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
 
 La registrazione per `/var/log/cloud-init.log` può essere riconfigurata anche in/etc/cloud/cloud.cfg.d/05_logging. cfg. Per altri dettagli sulla registrazione di cloud-init, vedere la [documentazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -132,4 +133,4 @@ Non tutti gli errori in cloud-init generano un errore di provisioning irreversib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si riesce ancora a isolare il motivo per cui cloud-init non ha eseguito la configurazione, è necessario esaminare in modo più accurato ciò che accade in ogni fase di cloud-init e quando vengono eseguiti i moduli. Per altre informazioni, vedere [approfondimento sulla configurazione di cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) . 
+Se non si riesce ancora a isolare il motivo per cui cloud-init non ha eseguito la configurazione, è necessario esaminare in modo più accurato ciò che accade in ogni fase di cloud-init e quando vengono eseguiti i moduli. Per altre informazioni, vedere [approfondimento sulla configurazione di cloud-init](./cloud-init-deep-dive.md) . 

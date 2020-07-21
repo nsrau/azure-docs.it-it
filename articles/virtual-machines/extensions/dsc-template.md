@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511161"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager
 
-Questo articolo descrive il modello di Azure Resource Manager per il [gestore dell'estensione Desired State Configuration (DSC)](dsc-overview.md). Molti esempi usano i valori **RegistrationURL** (fornito sotto forma di stringa) e **RegistrationKey** (fornito come [PSCredential](/dotnet/api/system.management.automation.pscredential)) per eseguire l'onboarding con Automazione di Azure. Per informazioni dettagliate su come ottenere questi valori, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure - Registrazione sicura](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+Questo articolo descrive il modello di Azure Resource Manager per il [gestore dell'estensione Desired State Configuration (DSC)](dsc-overview.md). Molti esempi usano **RegistrationURL** (fornito come stringa) e **RegistrationKey** (fornito come [PSCredential](/dotnet/api/system.management.automation.pscredential) per l'onboarding con automazione di Azure. Per informazioni dettagliate su come ottenere questi valori, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure - Registrazione sicura](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > Si potrebbero notare esempi di schema leggermente diversi. La modifica dello schema è avvenuta nella versione di ottobre 2016. Per maggiori dettagli, vedere [Aggiornamento da un formato precedente](#update-from-a-previous-format).

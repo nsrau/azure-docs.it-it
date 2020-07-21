@@ -3,12 +3,12 @@ title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo è possibile trovare le risposte ad alcune domande comuni sul backup di database SAP HANA tramite il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170327"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513507"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
 
@@ -22,11 +22,11 @@ Questo articolo presenta le risposte ad alcune domande comuni sul backup di data
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>I processi di backup con esito positivo determinano la creazione di avvisi?
 
-No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Il comportamento dettagliato degli avvisi del portale è documentato [qui](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). Tuttavia, se si è interessati ad avere avvisi anche per i processi riusciti, è possibile usare [monitoraggio di Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Il comportamento dettagliato degli avvisi del portale è documentato [qui](./backup-azure-monitoring-built-in-monitor.md). Tuttavia, se si è interessati ad avere avvisi anche per i processi riusciti, è possibile usare [monitoraggio di Azure](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile vedere i processi di backup pianificati nel menu Processi di backup?
 
-Il menu Processi di backup visualizza solo processi di backup ad hoc. Per i processi pianificati, usare [Monitoraggio di Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Il menu Processi di backup visualizza solo processi di backup ad hoc. Per i processi pianificati, usare [Monitoraggio di Azure](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>I database futuri vengono aggiunti automaticamente per il backup?
 
@@ -51,7 +51,7 @@ L'esecuzione dello script di pre-registrazione consente di impostare le autorizz
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>I backup funzionano dopo la migrazione di SAP HANA da SDC a MDC?
 
-Vedere [questa sezione](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) della Guida alla risoluzione dei problemi.
+Vedere [questa sezione](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) della Guida alla risoluzione dei problemi.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>È possibile configurare il backup di HANA in Azure per un IP virtuale (bilanciamento del carico) e non per una macchina virtuale?
 
@@ -111,7 +111,7 @@ Il backup completo verrà nuovamente attivato sul nodo 1 e, al termine dell'oper
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Per quale motivo il sistema HANA in cui si vuole ripristinare il database non è visualizzato?
 
-Verificare che siano soddisfatti tutti i prerequisiti per il ripristino nell'istanza SAP HANA di destinazione. Per altre informazioni, vedere [Prerequisiti - Ripristinare database SAP HANA in VM di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Verificare che siano soddisfatti tutti i prerequisiti per il ripristino nell'istanza SAP HANA di destinazione. Per altre informazioni, vedere [Prerequisiti - Ripristinare database SAP HANA in VM di Azure](./sap-hana-db-restore.md#prerequisites).
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Perché il ripristino del database con sovrascrittura non riesce?
 
@@ -127,4 +127,4 @@ Sì, è possibile usare i backup in streaming attivati in un database HANA in es
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [eseguire il backup di database SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) in esecuzione in VM di Azure.
+Informazioni su come [eseguire il backup di database SAP HANA](./backup-azure-sap-hana-database.md) in esecuzione in VM di Azure.

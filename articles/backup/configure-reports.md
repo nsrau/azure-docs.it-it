@@ -3,11 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513626"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -17,7 +18,7 @@ Un'esigenza comune degli amministratori del backup è quella di ottenere informa
 - Controllo delle attività dii backup e ripristino.
 - Identificazione delle tendenze principali a diversi livelli di granularità.
 
-Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e le [cartelle di lavoro di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
+Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) e le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
@@ -25,7 +26,7 @@ Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [l
 - Per i carichi di lavoro DPM, i report di Backup sono supportati per DPM versione 5.1.363.0 e successive e per l'agente MARS versione 2.0.9127.0 e successive.
 - Per i carichi di lavoro del server di Backup di Microsoft Azure, i report di Backup sono supportati per il server di Backup di Microsoft Azure versione 13.0.415.0 e successive e per l'agente MARS versione 2.0.9170.0 e successive.
 - I report di Backup possono essere visualizzati per tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree, purché i relativi dati vengano inviati a un'area di lavoro Log Analytics a cui l'utente può accedere. Per visualizzare i report relativi a un set di insiemi di credenziali, è sufficiente avere accesso in lettura all'area di lavoro Log Analytics a cui gli insiemi di credenziali inviano i dati. Non è necessario avere accesso ai singoli insiemi di credenziali.
-- Gli utenti di [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con accesso delegato alle sottoscrizioni dei clienti possono usare questi report con Azure Lighthouse per visualizzare i report in tutti i tenant.
+- Gli utenti di [Azure Lighthouse](../lighthouse/index.yml) con accesso delegato alle sottoscrizioni dei clienti possono usare questi report con Azure Lighthouse per visualizzare i report in tutti i tenant.
 - Attualmente i dati possono essere visualizzati nei report di Backup in un massimo di 100 aree di lavoro Log Analytics (in diversi tenant).
 - I dati dei processi di backup dei log non sono attualmente visualizzati nei report.
 
@@ -37,22 +38,22 @@ Seguire questi passaggi per iniziare a usare i report.
 
 Configurare una o più aree di lavoro Log Analytics in cui archiviare i dati dei report di Backup. La località e la sottoscrizione in cui è possibile creare l'area di lavoro Log Analytics sono indipendenti dalla località e dalla sottoscrizione in cui si trovano gli insiemi di credenziali.
 
-Per informazioni su come configurare un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Per informazioni su come configurare un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
 
-Per impostazione predefinita, i dati contenuti in un'area di lavoro Log Analytics vengono conservati per 30 giorni. Per visualizzare i dati relativi a un periodo di tempo più lungo, modificare il periodo di conservazione dell'area di lavoro Log Analytics. Per informazioni su come cambiare il periodo di conservazione, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Per impostazione predefinita, i dati contenuti in un'area di lavoro Log Analytics vengono conservati per 30 giorni. Per visualizzare i dati relativi a un periodo di tempo più lungo, modificare il periodo di conservazione dell'area di lavoro Log Analytics. Per informazioni su come cambiare il periodo di conservazione, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurare le impostazioni di diagnostica per gli insiemi di credenziali
 
 Le risorse di Azure Resource Manager, come gli insiemi di credenziali di Servizi di ripristino, registrano le informazioni sulle operazioni pianificate e sulle operazioni attivate dall'utente come dati di diagnostica.
 
-Nella sezione di monitoraggio dell'insieme di credenziali di Servizi di ripristino selezionare **Impostazioni di diagnostica** e specificare la destinazione dei dati di diagnostica dell'insieme di credenziali di Servizi di ripristino. Per altre informazioni sull'uso degli eventi di diagnostica, vedere [Usare le impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+Nella sezione di monitoraggio dell'insieme di credenziali di Servizi di ripristino selezionare **Impostazioni di diagnostica** e specificare la destinazione dei dati di diagnostica dell'insieme di credenziali di Servizi di ripristino. Per altre informazioni sull'uso degli eventi di diagnostica, vedere [Usare le impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino](./backup-azure-diagnostic-events.md).
 
 ![Riquadro Impostazioni di diagnostica](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Backup di Azure offre anche una definizione di Criteri di Azure predefinita che consente di automatizzare la configurazione delle impostazioni di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Per informazioni su come usare questi criteri, vedere [Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Backup di Azure offre anche una definizione di Criteri di Azure predefinita che consente di automatizzare la configurazione delle impostazioni di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Per informazioni su come usare questi criteri, vedere [Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> Dopo la configurazione delle impostazioni di diagnostica, il completamento del push di dati iniziale può richiedere fino a 24 ore. Dopo l'avvio del flusso dei dati nell'area di lavoro Log Analytics, è possibile che i dati dei report non vengano visualizzati immediatamente in quanto i dati relativi al giorno parziale corrente non vengono inclusi nei report. Per altre informazioni, vedere [Convenzioni usate nei report di Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). È consigliabile iniziare a visualizzare i report due giorni dopo aver configurato gli insiemi di credenziali per l'invio di dati a Log Analytics.
+> Dopo la configurazione delle impostazioni di diagnostica, il completamento del push di dati iniziale può richiedere fino a 24 ore. Dopo l'avvio del flusso dei dati nell'area di lavoro Log Analytics, è possibile che i dati dei report non vengano visualizzati immediatamente in quanto i dati relativi al giorno parziale corrente non vengono inclusi nei report. Per altre informazioni, vedere [Convenzioni usate nei report di Backup](#conventions-used-in-backup-reports). È consigliabile iniziare a visualizzare i report due giorni dopo aver configurato gli insiemi di credenziali per l'invio di dati a Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Visualizzare i report nel portale di Azure
 
@@ -102,7 +103,7 @@ Selezionare l'icona a forma di puntina nella parte superiore di ogni widget per 
 
 ## <a name="cross-tenant-reports"></a>Report tra tenant
 
-Se si usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con accesso delegato alle sottoscrizioni in più ambienti tenant, è possibile usare il filtro della sottoscrizione predefinito. Selezionare il pulsante di filtro nell'angolo superiore destro del portale di Azure per scegliere tutte le sottoscrizioni di cui si vogliono visualizzare i dati. In questo modo è possibile selezionare le aree di lavoro Log Analytics nei vari tenant per visualizzare i report multitenant.
+Se si usa [Azure Lighthouse](../lighthouse/index.yml) con accesso delegato alle sottoscrizioni in più ambienti tenant, è possibile usare il filtro della sottoscrizione predefinito. Selezionare il pulsante di filtro nell'angolo superiore destro del portale di Azure per scegliere tutte le sottoscrizioni di cui si vogliono visualizzare i dati. In questo modo è possibile selezionare le aree di lavoro Log Analytics nei vari tenant per visualizzare i report multitenant.
 
 ## <a name="conventions-used-in-backup-reports"></a>Convenzioni usate nei report di Backup
 
@@ -130,8 +131,8 @@ I widget del report di Backup sono basati sulle query kusto, che vengono eseguit
 
 - La precedente app modello di Power BI per la creazione di report, in cui i dati erano originati da un account di archiviazione di Azure, è in fase di deprecazione. È consigliabile iniziare a inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics per visualizzare i report.
 
-- Anche lo [schema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) di invio dei dati di diagnostica a un account di archiviazione o a un'area di lavoro Log Analytics è in fase di deprecazione. Questo significa che se sono state scritte query o automazioni personalizzate basate sullo schema V1, è consigliabile aggiornarle in modo che usino lo schema V2 attualmente supportato.
+- Anche lo [schema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) di invio dei dati di diagnostica a un account di archiviazione o a un'area di lavoro Log Analytics è in fase di deprecazione. Questo significa che se sono state scritte query o automazioni personalizzate basate sullo schema V1, è consigliabile aggiornarle in modo che usino lo schema V2 attualmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni sul monitoraggio e la creazione di report con Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Altre informazioni sul monitoraggio e la creazione di report con Backup di Azure](./backup-azure-monitor-alert-faq.md)

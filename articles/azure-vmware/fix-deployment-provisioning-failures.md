@@ -3,11 +3,12 @@ title: Ottenere assistenza per la distribuzione di soluzioni VMware di Azure o g
 description: Come ottenere le informazioni necessarie dal cloud privato della soluzione VMware di Azure (AVS) per archiviare una richiesta di servizio per la distribuzione AVS o gli errori di provisioning.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986840"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514578"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Ottenere assistenza per la distribuzione di soluzioni VMware di Azure o gli errori di provisioning
 
@@ -71,7 +72,7 @@ Incollare l'ID ExpressRoute nel campo appropriato nella nuova richiesta di suppo
 
 ## <a name="create-your-support-request"></a>Creare la richiesta di supporto
 
-Per indicazioni generali sulla creazione della richiesta di supporto, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Per indicazioni generali sulla creazione della richiesta di supporto, vedere [come creare una richiesta di supporto tecnico di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Di seguito sono riportate altre linee guida specifiche per la creazione di un SR per la distribuzione AVS o per errori di provisioning
 

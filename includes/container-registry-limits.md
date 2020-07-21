@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242075"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512615"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
@@ -28,6 +28,7 @@ ms.locfileid: "85242075"
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità del contenuto | N/D | N/D | [Supportato][content-trust] |
 | Collegamento privato con endpoint privati | N/D | N/D | [Supportato][plink] |
+| &bull;Endpoint privati | N/D | N/D | 10 |
 | Accesso alla rete virtuale dell'endpoint servizio | N/D | N/D | [Anteprima][vnet] |
 | Chiavi gestite dal cliente | N/D | N/D | [Supportato][cmk] |
 | Autorizzazioni con ambito repository | N/D | N/D | [Anteprima][token]|
