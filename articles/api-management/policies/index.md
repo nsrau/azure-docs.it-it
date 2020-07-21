@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506690"
 ---
 # <a name="api-management-policy-samples"></a>Esempi di criteri di Gestione API
 
 I [criteri](../api-management-howto-policies.md) sono una potente funzionalità del sistema che consente all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. La tabella seguente include i collegamenti agli esempi e una breve descrizione di ogni esempio.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Criteri in ingresso**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Criteri in ingresso | Descrizione |
+| ---------------- | ----------- |
 | [Add a Forwarded header to allow the backend API to construct proper URLs](./set-header-to-enable-backend-to-construct-urls.md) (Aggiungere un'intestazione Forwarded per consentire all'API back-end di costruire URL corretti) | Illustra come aggiungere un'intestazione Forwarded nella richiesta in ingresso per consentire all'API back-end di costruire URL corretti.                                                                                                        |
 | [Aggiungere un'intestazione con un ID di correlazione](./add-correlation-id.md)                                                             | Illustra come aggiungere un'intestazione con un ID di correlazione alla richiesta in ingresso.                                                                                                                                        |
 | [Aggiungere funzionalità a un servizio back-end e memorizzare la risposta nella cache](./cache-response.md)                                             | Illustra come aggiungere funzionalità a un servizio back-end, ad esempio per accettare il nome di un luogo anziché latitudine e longitudine in un'API di previsioni meteo.                                                                    |
@@ -40,7 +39,7 @@ I [criteri](../api-management-howto-policies.md) sono una potente funzionalità 
 | [Instradare la richiesta in base alle dimensioni del corpo](./route-requests-based-on-size.md)                                            | Illustra come instradare le richieste in base alle dimensioni del relativo corpo.                                                                                                                                                       |
 | [Send request context information to the backend service](./send-request-context-info-to-backend-service.md) (Inviare informazioni di contesto per la richiesta al servizio back-end)                    | Illustra come inviare informazioni di contesto al servizio back-end per la registrazione o l'elaborazione.                                                                                                                                |
 | [Set response cache duration](./set-cache-duration.md) (Impostare la durata della cache della risposta)                                                                          | Illustra come impostare la durata della cache della risposta usando il valore maxAge nell'intestazione Cache-Control inviata dal back-end.                                                                                                             |
-| **Criteri in uscita**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Criteri in uscita** | **Descrizione** |
 | [Filtrare il contenuto della risposta](./filter-response-content.md)                                                                         | Illustra come filtrare elementi dati dal payload della risposta in base al prodotto associato alla richiesta.                                                                                                        |
-| **Criteri in caso di errore**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Criteri in caso di errore** | **Descrizione** |
 | [Registrare gli errori in Stackify](./log-errors-to-stackify.md)                                                                           | Illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione.                                                                                                                                            |

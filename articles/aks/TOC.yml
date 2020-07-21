@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
@@ -179,6 +179,8 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
+        - name: Usare Dischi Ultra di Azure (anteprima)
+          href: use-ultra-disks.md
     - name: Configurare le impostazioni di rete
       items:
         - name: Creare o usare una rete virtuale esistente
@@ -191,8 +193,6 @@
           href: internal-lb.md
         - name: Usare un'istanza di Load Balancer Standard
           href: load-balancer-standard.md
-        - name: Usare una route definita dall'utente per i dati in uscita
-          href: egress-outboundtype.md
         - name: Usare un indirizzo IP statico
           href: static-ip.md
         - name: Dati in ingresso
@@ -214,8 +214,14 @@
                   href: ingress-tls.md
                 - name: Usare un indirizzo IP pubblico statico
                   href: ingress-static-ip.md
-        - name: Traffico in uscita
-          href: egress.md
+        - name: Egress
+          items:
+            - name: Limitare e controllare il traffico in uscita del cluster
+              href: limit-egress-traffic.md
+            - name: Usare una route definita dall'utente per i dati in uscita
+              href: egress-outboundtype.md
+            - name: Usare un bilanciamento del carico di base e un indirizzo IP statico
+              href: egress.md
         - name: Personalizzare CoreDNS
           href: coredns-custom.md
     - name: Sicurezza e autenticazione
@@ -238,13 +244,11 @@
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Aggiornare le credenziali del cluster
           href: update-credentials.md
-        - name: Limitare e controllare il traffico in uscita del cluster
-          href: limit-egress-traffic.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:
-            - name: Azure Active Directory gestito dal servizio Azure Kubernetes (anteprima)
+            - name: AAD gestito dal servizio Azure Kubernetes
               href: managed-aad.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Integrazione di AAD (legacy)
               href: azure-ad-integration-cli.md
         - name: Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
           href: manage-azure-rbac.md
@@ -291,8 +295,6 @@
       items:
         - name: Usare Processo locale con Kubernetes con Visual Studio Code (anteprima)
           href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-        - name: Usare Processo locale con Kubernetes con Visual Studio (anteprima)
-          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Installare le applicazioni esistenti con Helm
           href: kubernetes-helm.md
         - name: Usare OpenFaaS
@@ -383,10 +385,10 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Criteri di supporto
       href: support-policies.md
-    - name: Roadmap
+    - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Inviare commenti e suggerimenti per il prodotto
-      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: Roadmap del servizio Azure Kubernetes
+      href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Video

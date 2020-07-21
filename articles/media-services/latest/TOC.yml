@@ -7,7 +7,7 @@
     - name: Novità di Servizi multimediali
       displayName: release notes
       href: release-notes.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Evento live con portale e Wirecast
@@ -194,7 +194,7 @@
               href: job-error-codes.md
     - name: Disponibilità elevata
       items:
-        - name: Codifica
+        - name: Video on demand
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Streaming

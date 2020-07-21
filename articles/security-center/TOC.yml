@@ -1,6 +1,7 @@
 - name: Documentazione del Centro sicurezza
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni sul Centro sicurezza
       href: security-center-intro.md
@@ -18,8 +19,11 @@
       href: recommendations-reference.md
     - name: Avvisi di sicurezza e catena di attacco delle finalità
       href: alerts-reference.md
+    - name: Autorizzazioni
+      href: security-center-permissions.md
+    - name: Prezzi
+      href: security-center-pricing.md
 - name: Avvi rapidi
-  expanded: true
   items:
     - name: Sottoscrizioni Azure
       href: security-center-get-started.md
@@ -29,6 +33,12 @@
       href: quick-onboard-linux-computer.md
     - name: Macchine virtuali di Azure Stack
       href: quick-onboard-azure-stack.md
+    - name: Automatizzare l'onboarding con PowerShell
+      href: security-center-powershell-onboarding.md
+    - name: Configurare la raccolta dei dati
+      href: security-center-enable-data-collection.md
+    - name: Configurare le notifiche tramite posta elettronica
+      href: security-center-provide-security-contact-details.md
 - name: Esercitazioni
   items:
     - name: Guida alla pianificazione e alle operazioni
@@ -39,21 +49,36 @@
       href: tutorial-security-incident.md
     - name: Migliorare la conformità alle normative
       href: security-center-compliance-dashboard.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
-    - name: Punteggio di sicurezza
-      href: secure-score-security-controls.md
-    - name: Autorizzazioni
-      href: security-center-permissions.md
+    - name: 'Punteggio di sicurezza, raccomandazioni e criteri'
+      items:
+        - name: Punteggio di sicurezza
+          href: secure-score-security-controls.md
+        - name: Panoramica delle raccomandazioni sulla sicurezza
+          href: security-center-recommendations.md
+        - name: Panoramica dei criteri di sicurezza
+          href: tutorial-security-policy.md
+        - name: Criteri di sicurezza predefiniti
+          href: security-center-policy-definitions.md
+        - name: Usare le raccomandazioni per migliorare la sicurezza
+          href: security-center-using-recommendations.md
+    - name: Protezione dalle minacce e avvisi di sicurezza
+      items:
+        - name: Panoramica della protezione dalle minacce nel Centro sicurezza
+          href: threat-protection.md
+        - name: Panoramica sugli avvisi di sicurezza
+          href: security-center-alerts-overview.md
+        - name: Elenco di riferimento degli avvisi
+          href: alerts-reference.md
+        - name: Schemi di avvisi
+          href: alerts-schemas.md
+        - name: Panoramica degli eventi imprevisti relativi alla sicurezza
+          href: security-center-alerts-cloud-smart.md
     - name: Sicurezza dei dati
       href: security-center-data-security.md
-    - name: Usare le raccomandazioni per migliorare la sicurezza
-      href: security-center-using-recommendations.md
+    - name: Accesso JIT alle macchine virtuali
+      href: just-in-time-explained.md
     - name: Gestione tra tenant
       href: security-center-cross-tenant-management.md
     - name: Sicurezza del contenitore
@@ -64,32 +89,18 @@
           href: azure-container-registry-integration.md
         - name: Integrazione con il servizio Azure Kubernetes
           href: azure-kubernetes-service-integration.md
-    - name: Protezione dalle minacce e avvisi di sicurezza
-      items:
-        - name: Protezione dalle minacce nel Centro sicurezza di Azure
-          href: threat-protection.md
-        - name: Panoramica sugli avvisi di sicurezza
-          href: security-center-alerts-overview.md
-        - name: Elenco di riferimento degli avvisi
-          href: alerts-reference.md
-        - name: Schemi di avvisi
-          href: alerts-schemas.md
-        - name: Gestire gli avvisi di sicurezza
-          href: security-center-managing-and-responding-alerts.md
-        - name: Regole di eliminazione per gli avvisi di sicurezza
-          href: alerts-suppression-rules.md
-        - name: Gestire gli eventi imprevisti della sicurezza
-          href: security-center-incident.md
-        - name: Correlazione tra avvisi intelligenti cloud (incidenti)
-          href: security-center-alerts-cloud-smart.md
-        - name: Report sulle minacce
-          href: security-center-threat-report.md
-        - name: Convalida degli avvisi (file di test EICAR)
-          href: security-center-alert-validation.md
 - name: Guide pratiche
   items:
     - name: Eseguire l'aggiornamento alla sicurezza avanzata
       href: security-center-onboarding.md
+    - name: Configurare criteri di sicurezza e standard di conformità
+      items:
+        - name: Creare criteri di sicurezza personalizzati
+          href: custom-security-policies.md
+        - name: Gestire i criteri con l'API REST Criteri di Azure
+          href: configure-security-policy-azure-policy.md
+        - name: Scegliere gli standard per il dashboard di conformità
+          href: update-regulatory-compliance-packages.md
     - name: Analizzare le macchine virtuali per individuare le vulnerabilità
       items:
         - name: Panoramica dell'analisi delle vulnerabilità
@@ -98,54 +109,28 @@
           href: built-in-vulnerability-assessment.md
         - name: Uso di rilevatori esterni
           href: partner-vulnerability-assessment.md
-    - name: Monitorare i contenitori
-      href: monitor-container-security.md
-    - name: Proteggere i server con Microsoft Defender ATP
-      href: security-center-wdatp.md
-    - name: Usare la sicurezza dei dati avanzata per computer SQL
-      href: security-center-iaas-advanced-data.md
-    - name: Usare il servizio app per proteggere le applicazioni
-      href: security-center-app-services.md
-    - name: Usare i criteri di sicurezza
+    - name: Configurare la protezione dalle minacce e gestire gli avvisi
       items:
-        - name: Panoramica dei criteri di sicurezza
-          href: tutorial-security-policy.md
-        - name: Usare criteri di sicurezza predefiniti
-          href: security-center-policy-definitions.md
-        - name: Creare criteri di sicurezza personalizzati
-          href: custom-security-policies.md
-        - name: Gestire i criteri con l'API REST Criteri di Azure
-          href: configure-security-policy-azure-policy.md
-    - name: Scegliere gli standard per il dashboard di conformità
-      href: update-regulatory-compliance-packages.md
-    - name: Personalizzare i criteri di protezione delle informazioni
-      href: security-center-info-protection-policy.md
-    - name: Gestire le soluzioni di sicurezza
-      href: security-center-partner-integration.md
-    - name: Automatizzare l'onboarding con PowerShell
-      href: security-center-powershell-onboarding.md
-    - name: Integrazione con Windows Admin Center
-      href: windows-admin-center-integration.md
-    - name: Confrontare le baseline con Monitoraggio dell'integrità dei file
-      href: security-center-file-integrity-monitoring-baselines.md
-    - name: Automatizzare le risposte ad avvisi e raccomandazioni
-      href: workflow-automation.md
-    - name: Esportare avvisi e raccomandazioni
-      href: continuous-export.md
-    - name: Configurare la raccolta dei dati
-      href: security-center-enable-data-collection.md
-    - name: Configurare Advanced Threat Protection per Azure Key Vault
-      href: advanced-threat-protection-key-vault.md
-    - name: Configurare le notifiche tramite posta elettronica
-      href: security-center-provide-security-contact-details.md
-    - name: Prezzi
-      href: security-center-pricing.md
-    - name: Acquisire visibilità a livello di tenant
-      href: security-center-management-groups.md
-    - name: Implementare le raccomandazioni sulla sicurezza
+        - name: Gestire gli avvisi di sicurezza
+          href: security-center-managing-and-responding-alerts.md
+        - name: Creare e gestire le regole di eliminazione degli avvisi
+          href: alerts-suppression-rules.md
+        - name: Configurare Advanced Threat Protection per Azure Key Vault
+          href: advanced-threat-protection-key-vault.md
+        - name: Gestire gli eventi imprevisti della sicurezza
+          href: security-center-incident.md
+        - name: Generare report di intelligence sulle minacce
+          href: security-center-threat-report.md
+        - name: Convalidare la configurazione degli avvisi (file di test EICAR)
+          href: security-center-alert-validation.md
+        - name: Usare la sicurezza dei dati avanzata per SQL in VM di Azure
+          href: security-center-iaas-advanced-data.md
+        - name: Automatizzare le risposte agli avvisi
+          href: workflow-automation.md
+        - name: Esportare gli avvisi
+          href: continuous-export.md
+    - name: Usare le raccomandazioni per migliorare la sicurezza
       items:
-        - name: Informazioni sulle raccomandazioni di sicurezza
-          href: security-center-recommendations.md
         - name: Raccomandazioni per la correzione
           href: security-center-remediate-recommendations.md
         - name: Migliorare il comportamento di sicurezza
@@ -160,8 +145,20 @@
           href: security-center-sql-service-recommendations.md
         - name: Proteggere le identità e gli accessi
           href: security-center-identity-access.md
-        - name: Gestire i dati utente per l'indagine
-          href: security-center-investigation-user-data.md
+        - name: Automatizzare le risposte alle raccomandazioni
+          href: workflow-automation.md
+        - name: Esportare le raccomandazioni
+          href: continuous-export.md
+    - name: Integrazione con altri strumenti e servizi
+      items:
+        - name: Integrazione con Windows Admin Center
+          href: windows-admin-center-integration.md
+        - name: Proteggere le app Web e le API del servizio app di Azure
+          href: security-center-app-services.md
+        - name: Integrazione con Microsoft Defender ATP
+          href: security-center-wdatp.md
+        - name: Integrare soluzioni di sicurezza e origini dati
+          href: security-center-partner-integration.md
     - name: Applicare difese cloud
       items:
         - name: Gestire l'accesso JIT
@@ -170,8 +167,18 @@
           href: security-center-adaptive-application.md
         - name: Monitoraggio dell'integrità dei file
           href: security-center-file-integrity-monitoring.md
+        - name: Confrontare le baseline con Monitoraggio dell'integrità dei file
+          href: security-center-file-integrity-monitoring-baselines.md
         - name: Protezione adattiva della rete
           href: security-center-adaptive-network-hardening.md
+    - name: Monitorare i contenitori
+      href: monitor-container-security.md
+    - name: Personalizzare i criteri di protezione delle informazioni
+      href: security-center-info-protection-policy.md
+    - name: Gestire i dati utente per l'indagine
+      href: security-center-investigation-user-data.md
+    - name: Acquisire visibilità a livello di tenant
+      href: security-center-management-groups.md
 - name: Informazioni di riferimento
   items:
     - name: API REST

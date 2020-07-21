@@ -16,6 +16,8 @@
     - name: Distribuire un'istanza di contenitore - Modello di Resource Manager
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando Docker
+      href: container-instances-quickstart-docker-cli.md
 - name: Esercitazioni
   items:
     - name: Creare e distribuire un'immagine del contenitore
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Abilitare l'endpoint SSL in sidecar
           href: container-instances-container-group-ssl.md
-        - name: Esporre l'indirizzo IP statico
+        - name: Esporre un indirizzo IP statico con il gateway applicazione
           href: container-instances-application-gateway.md
+        - name: Usare Firewall di Azure per il traffico in ingresso e in uscita
+          href: container-instances-egress-ip-address.md
     - name: Montare i volumi di dati
       items:
         - name: Condivisione file di Azure

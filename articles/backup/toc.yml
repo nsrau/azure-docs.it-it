@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -323,11 +323,11 @@
               href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
-            - name: Macchine virtuali di Azure nel portale di Azure
+            - name: Macchine virtuali di Azure
               href: backup-azure-vms-automation.md
-            - name: DPM nel portale di Azure
+            - name: Data Protection Manager (DPM)
               href: backup-dpm-automation.md
-            - name: Windows Server nel portale di Azure
+            - name: Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
               href: backup-client-automation.md
             - name: SQL nei backup di macchine virtuali di Azure
               href: backup-azure-sql-automation.md
@@ -422,7 +422,7 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
+      href: /answers/topics/azure-backup.html
     - name: Calcolatore prezzi
       href: azure-backup-pricing.md
     - name: Aggiornamenti del servizio
