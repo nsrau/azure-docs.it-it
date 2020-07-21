@@ -8,14 +8,14 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9822044de53f5f74df302e05e0e6c5cd06f3eb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522347"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
+# <a name="azure-digital-twins-customer-data-request-features"></a>Funzionalità di richiesta di dati dei clienti di Azure Digital Twins
 
 I dispositivi gemelli digitali di Azure sono una piattaforma per sviluppatori per la creazione di rappresentazioni digitali sicure di un ambiente aziendale. Le rappresentazioni sono basate sui dati dello stato attivo dalle origini dati selezionate dagli utenti.
 

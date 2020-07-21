@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738244"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521667"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
 ## <a name="overview"></a>Panoramica
@@ -146,7 +146,7 @@ Per quel che riguarda la WAN, la condivisione dei risultati del test con il prov
 
 Con Azure, una volta isolato il problema nel modo più preciso possibile, è necessario esaminare la [Documentazione di Microsoft Azure][Network Docs] e quindi, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
 
-## <a name="references"></a>Riferimenti
+## <a name="references"></a>Bibliografia
 ### <a name="latencybandwidth-expectations"></a>Aspettative in termini di latenza e larghezza di banda
 >[!TIP]
 > La latenza geografica (miglia o chilometri) tra gli endpoint che si stanno testando è di gran lunga il più importante componente della latenza. Sebbene esista la latenza delle apparecchiature (componenti fisici e virtuali, numero di hop, ecc.), la geografia si è dimostrata il più grande componente della latenza complessiva quando si tratta di connessioni WAN. È anche importante notare che la distanza è la distanza in fibra ottica, non in linea d'aria o su mappa stradale. Ottenere una distanza precisa è estremamente difficile. Di conseguenza, generalmente uso un calcolatore di distanza tra le città su Internet. Questo metodo è certamente approssimativo, ma è sufficiente per definire un'aspettativa generale.
@@ -177,9 +177,8 @@ Configurazione di test:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Distanza<br/>stimata (km)|Latenza|1 Sessione<br/>Larghezza di banda|Massimo<br/>Larghezza di banda|
+| ExpressRoute<br/>Location|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
 | Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
 | Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |

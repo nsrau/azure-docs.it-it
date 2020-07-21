@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708043"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520733"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure
 
-Per ottenere informazioni di debug più complete sulle app per la logica in fase di esecuzione, è possibile configurare e usare i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) per registrare e archiviare le informazioni relative a eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione in un'area di [lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. Usando i log di monitoraggio di Azure, è possibile creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di raccogliere ed esaminare queste informazioni. È anche possibile [usare questi dati di diagnostica con altri servizi di Azure](#extend-data), ad esempio archiviazione di Azure e hub eventi di Azure.
+Per ottenere informazioni di debug più complete sulle app per la logica in fase di esecuzione, è possibile configurare e usare i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) per registrare e archiviare le informazioni relative a eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione in un'area di [lavoro log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. Usando i log di monitoraggio di Azure, è possibile creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di raccogliere ed esaminare queste informazioni. È anche possibile [usare questi dati di diagnostica con altri servizi di Azure](#extend-data), ad esempio archiviazione di Azure e hub eventi di Azure.
 
 Per configurare la registrazione per l'app per la logica, è possibile [abilitare log Analytics quando si crea l'app](#logging-for-new-logic-apps)per la logica oppure è possibile [installare la soluzione di gestione delle app](#install-management-solution) per la logica nell'area di lavoro log Analytics per le app per la logica esistenti. Questa soluzione fornisce informazioni aggregate per le esecuzioni dell'app per la logica e include dettagli specifici, ad esempio stato, tempo di esecuzione, stato di reinvio e ID correlazione. Quindi, per abilitare la registrazione e la creazione di query per queste informazioni, [configurare i log di monitoraggio di Azure](#set-up-resource-logs).
 
@@ -23,7 +23,7 @@ Questo articolo illustra come abilitare Log Analytics quando si creano app per l
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario disporre di un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se non si dispone di un'area di lavoro, vedere la pagina relativa [alla creazione di un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Prima di iniziare, è necessario disporre di un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Se non si dispone di un'area di lavoro, vedere la pagina relativa [alla creazione di un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -176,15 +176,15 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare i dati relat
 
 Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui si usano i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio:
 
-* [Archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md)
-* [Trasmettere i log della piattaforma Azure a hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [Trasmettere i log della piattaforma Azure a hub eventi di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio:
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-In base alle posizioni in cui si vogliono inviare i dati di diagnostica, assicurarsi di [creare prima un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) o [creare un hub eventi di Azure](../event-hubs/event-hubs-create.md). È quindi possibile selezionare le destinazioni in cui si desidera inviare i dati. I periodi di conservazione si applicano solo quando si usa un account di archiviazione.
+In base alle posizioni in cui si vogliono inviare i dati di diagnostica, assicurarsi di [creare prima un account di archiviazione di Azure](../storage/common/storage-account-create.md) o [creare un hub eventi di Azure](../event-hubs/event-hubs-create.md). È quindi possibile selezionare le destinazioni in cui si desidera inviare i dati. I periodi di conservazione si applicano solo quando si usa un account di archiviazione.
 
 ![Inviare i dati all'hub di eventi o all'account di archiviazione di Azure](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
@@ -192,7 +192,7 @@ In base alle posizioni in cui si vogliono inviare i dati di diagnostica, assicur
 
 ## <a name="azure-monitor-diagnostics-events"></a>Eventi di diagnostica di monitoraggio di Azure
 
-Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare il monitoraggio, il rilevamento e la registrazione a livello di codice, è possibile usare queste informazioni con l' [API REST per app per la logica di Azure](https://docs.microsoft.com/rest/api/logic) e l' [API REST per monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). È anche possibile usare le `clientTrackingId` `trackedProperties` proprietà e, che vengono visualizzate in 
+Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare il monitoraggio, il rilevamento e la registrazione a livello di codice, è possibile usare queste informazioni con l' [API REST per app per la logica di Azure](/rest/api/logic) e l' [API REST per monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). È anche possibile usare le `clientTrackingId` `trackedProperties` proprietà e, che vengono visualizzate in 
 
 * `clientTrackingId`: se non specificata, Azure genera automaticamente questo ID e correla gli eventi in un'esecuzione dell'app per la logica, inclusi eventuali flussi di lavoro annidati chiamati dall'app per la logica. È possibile specificare manualmente questo ID in un trigger passando un' `x-ms-client-tracking-id` intestazione con il valore ID personalizzato nella richiesta del trigger. È possibile usare un trigger di richiesta, un trigger HTTP o un trigger webhook.
 

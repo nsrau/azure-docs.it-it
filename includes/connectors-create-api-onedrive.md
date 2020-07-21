@@ -4,12 +4,12 @@ ms.topic: include
 author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
-ms.openlocfilehash: 951ab2300aa4ffed2c5f1039ff993cd7f6af543f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b5f72f18ee5bf9c1e4dbaaa87d6705f55b09bc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789678"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524209"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -21,15 +21,15 @@ Prima di poter usare l'account OneDrive in un'app per la logica, autorizzare l'a
 Attenersi alla seguente procedura per autorizzare l'app per la logica a connettersi all'account OneDrive:
 
 1. Creare un'app per la logica. Nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere "onedrive" nella casella di ricerca. Selezionare un trigger o un'azione:  
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Una finestra di dialogo intitolata "Mostra API gestite da Microsoft" include una casella di ricerca che contiene "OneDrive". Di seguito è riportato un elenco di quattro trigger. Il primo nell'elenco è "OneDrive-quando viene creato un file", che è selezionato.](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. Se non sono mai state create connessioni a OneDrive prima d'ora, verrà chiesto di effettuare l'accesso usando le credenziali di OneDrive:  
-   ![](./media/connectors-create-api-onedrive/onedrive-2.png)
+   ![Una finestra di dialogo intitolata "OneDrive-quando viene creato un file" ha un pulsante con etichetta "Accedi".](./media/connectors-create-api-onedrive/onedrive-2.png)
 3. Fare clic su **Accedi**, quindi immettere il nome utente e la password. Selezionare **Accedi**:  
-   ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
+   ![Una finestra di dialogo intitolata "Accedi" indica di usare la account Microsoft. Dispone di due caselle di testo denominate "posta elettronica o telefono" e "password". contiene anche una casella di controllo denominata "Mantieni l'accesso" e un pulsante con etichetta "Accedi".](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
     Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati presenti nell'account OneDrive. 
 4. Scegliere **Sì** per autorizzare l'app per la logica a usare l'account OneDrive:  
-   ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
+   ![Una finestra di dialogo intitolata "consentire all'app di accedere alle informazioni?" richiede l'autorizzazione a eseguire le quattro operazioni seguenti: 1) "Accedi automaticamente", 2) "Accedi agli indirizzi di posta elettronica", 3) "accedi alle tue informazioni in qualsiasi momento" e 4) "accedi ai file OneDrive". È disponibile un pulsante "Sì" per concedere l'autorizzazione e un pulsante "No" per negarlo. È disponibile un collegamento per modificare queste autorizzazioni dell'applicazione.](./media/connectors-create-api-onedrive/onedrive-4.png)   
 5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica:  
-   ![](./media/connectors-create-api-onedrive/onedrive-5.png)
+   ![Una finestra di dialogo intitolata "quando viene creato un file" ha una casella di testo denominata "FOLDER" con un pulsante Sfoglia associato.](./media/connectors-create-api-onedrive/onedrive-5.png)
 

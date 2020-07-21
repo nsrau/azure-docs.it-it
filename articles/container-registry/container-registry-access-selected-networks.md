@@ -3,11 +3,12 @@ title: Configurare l'accesso pubblico al registro
 description: Configurare le regole IP per consentire l'accesso a un registro contenitori di Azure da indirizzi o intervalli di indirizzi IP pubblici selezionati.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523826"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurare le regole di rete per IP pubblico
 
@@ -100,6 +101,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 1. Nella scheda **Accesso pubblico** in **Consenti l'accesso alla rete pubblica** selezionare **Tutte le reti**. Selezionare quindi **Salva**.
 
 ![Accesso pubblico da tutte le reti][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se viene impostata una regola di rete pubblica o l'accesso pubblico al registro di sistema viene negato, i tentativi di accesso al registro di sistema da una rete pubblica non consentita avranno esito negativo. L'accesso client da dietro un proxy HTTPS avrà esito negativo anche se non è impostata una regola di accesso per il proxy. Verrà visualizzato un messaggio di errore simile a `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Looks like you don't have access to registry` .
+
+Questi errori possono verificarsi anche se si usa un proxy HTTPS consentito da una regola di accesso alla rete, ma il proxy non è configurato correttamente nell'ambiente client. Verificare che il client Docker e il daemon Docker siano configurati per il comportamento del proxy. Per informazioni dettagliate, vedere [proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) nella documentazione di Docker.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

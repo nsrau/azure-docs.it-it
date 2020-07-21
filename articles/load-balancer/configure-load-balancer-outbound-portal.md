@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0484bc393ac97dc88fed5858f736f01fc41b507a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367394"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521063"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurare il bilanciamento del carico e le regole in uscita in Load Balancer Standard usando il portale di Azure
 
@@ -81,7 +81,7 @@ Viene usato un probe di integrità per monitorare lo stato dell'app. Il probe di
     
     | Impostazione | valore |
     | ------- | ----- |
-    | Nome | Immettere **myHealthProbe**. |
+    | Name (Nome) | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
     | Porta | Immettere **80**.|
     | Interval | Immettere **15** in **Intervallo** come numero di secondi tra i tentativi del probe. |
@@ -132,8 +132,8 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
     | ------- | ----- |
     | Nome | Immettere **LoadBalancerFrontEndOutbound**. |
     | Versione IP | Selezionare **IPv4**. |
-    | Tipo IP | Selezionare **indirizzo IP**.|
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Nell' **aggiungere un indirizzo IP pubblico**immettere **myPublicIPOutbound**.  Selezionare **OK**. |
+    | Tipo IP | Selezionare **indirizzo IP** o **prefisso IP**.|
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Nell' **aggiungere un indirizzo IP pubblico**immettere **myPublicIPOutbound**. </br> Se si usa il prefisso IP, in **Aggiungi un prefisso IP pubblico**immettere **myPublicIPPrefixOutbound**. Scegliere una **dimensione del prefisso** per il prefisso IP pubblico </br> Selezionare **OK**.  |
 
 4. Selezionare **Aggiungi**.
 
@@ -157,7 +157,7 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
     | ------- | ----- |
     | Nome | Immettere **myOutboundRule**. |
     | Indirizzo IP front-end | Selezionare **LoadBalancerFrontEndOutbound**. |
-    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su * * 15 minuti.|
+    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15 minuti**.|
     | Ripristino TCP | Selezionare **Abilitato**.|
     | Pool back-end | Seleziona **myBackendPoolOutbound** |
     | Allocazione porte-allocazione porta > | Selezionare **Scegli manualmente il numero di porte in uscita** |

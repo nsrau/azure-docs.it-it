@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996211"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523979"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migrazione da convertitore V2 a V3
 
@@ -116,8 +116,8 @@ Microsoft Translator V3 usa la traduzione neurale automatica per impostazione pr
 
 La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, tecnologia, generalnn).
 
-| |Endpoint|    Conformità al processore GDPR|    Usare l'Hub di Translator|    Usare il traduttore personalizzato (anteprima)|
-|:-----|:-----|:-----|:-----|:-----|
+| Versione | Endpoint | Conformità al processore GDPR | Usare l'Hub di Translator | Usare il traduttore personalizzato (anteprima) |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Traduttore versione 2|    api.microsofttranslator.com|    No    |Sì    |No|
 |Translator versione 3|    api.cognitive.microsofttranslator.com|    Sì|    No|    Sì|
 

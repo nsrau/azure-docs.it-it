@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641821"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520970"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -38,7 +39,7 @@ Per i modelli di app per la logica di esempio, vedere questi esempi:
 * [Modello completo](#full-example-template) usato per gli esempi di questo argomento
 * [Esempio di modello di app per la logica introduttiva](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -318,7 +319,7 @@ La definizione di risorsa dell'app per la logica inizia con l' `properties` ogge
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatoria | Type | Description |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
 | `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione `Enabled` , dove indica che l'app per la logica è Live e `Disabled` indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l' `Disabled` opzione. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l' `id` attributo, che specifica l'ID dell'account di integrazione. |
@@ -327,7 +328,7 @@ Ecco gli attributi specifici della definizione di risorsa dell'app per la logica
 | `accessControl` | No | Oggetto | Per specificare gli attributi di sicurezza per l'app per la logica, ad esempio per limitare l'accesso IP ai trigger di richiesta o gli input e gli output della cronologia di esecuzione. Per altre informazioni, vedere [proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -909,7 +910,7 @@ Di seguito è riportato un esempio che fornisce il nome dell'account e la chiave
 
 ### <a name="authenticate-connections"></a>Autenticare le connessioni
 
-Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi. Tuttavia, è comunque necessario autorizzare le connessioni OAuth per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-scenarios.md). Per altre informazioni, vedere [autorizzare le connessioni OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi. Tuttavia, è comunque necessario autorizzare le connessioni OAuth per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-vs-authorization.md). Per altre informazioni, vedere [autorizzare le connessioni OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Alcune connessioni supportano l'uso di un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure ad) per autorizzare le connessioni per un'app per la logica [registrata in Azure ad](../active-directory/develop/quickstart-register-app.md). Ad esempio, questo Azure Data Lake definizione della risorsa di connessione Mostra come fare riferimento ai parametri del modello che gestiscono le informazioni dell'entità servizio e in che modo il modello dichiara questi parametri:
 
@@ -1005,7 +1006,7 @@ L'oggetto di primo livello del modello `parameters` dichiara questi parametri pe
 Per ulteriori informazioni sull'utilizzo delle entità servizio, vedere gli argomenti seguenti:
 
 * [Create a service principal by using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) (Creare un'entità servizio usando il portale di Azure)
-* [Creare un'entità servizio di Azure usando Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Creare un'entità servizio di Azure usando Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Creare un'entità servizio con un certificato usando Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>

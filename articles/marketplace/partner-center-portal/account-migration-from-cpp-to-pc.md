@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520154"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Come eseguire la migrazione dell'account dal portale Cloud Partner al Centro per i partner
 
@@ -27,7 +27,7 @@ Se si è un utente con il ruolo di proprietario nel portale Cloud Partner per un
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>È stata eseguita la migrazione dell'account nel Centro per i partner
 
-Per tutti gli account che hanno completato la migrazione dal portale Cloud Partner al Centro per i partner, la gestione degli account viene eseguita nel Centro per i partner. Le modifiche, ad esempio l'aggiunta o l'eliminazione di utenti, verranno sincronizzate di nuovo nel portale Cloud Partner.
+È ora possibile gestire l'account nel centro per i partner. Le modifiche, ad esempio l'aggiunta o l'eliminazione di utenti, verranno sincronizzate di nuovo nel portale Cloud Partner.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Non è ancora stata eseguita la migrazione dell'account nel Centro per i partner
 
@@ -45,7 +45,7 @@ Fare clic sul banner per avviare il processo di migrazione dell'account. Sarà n
 
 ## <a name="publishers-moving-from-cpp"></a>Editori provenienti dal portale Cloud Partner
 
-Se è stata eseguita la migrazione dell'account dal [portale Cloud Partner (CPP)](https://cloudpartner.azure.com), non è necessario creare un nuovo account del Centro per i partner. Si riceverà un collegamento personalizzato al nuovo account del Centro per i partner tramite posta elettronica e in una notifica in un banner dopo avere eseguito l'accesso all'account del portale Cloud Partner esistente.
+Se è stata eseguita la migrazione dell'account da CPP, non è necessario creare un nuovo account del centro per i partner. È necessario avere ricevuto un collegamento personalizzato al nuovo account del centro per i partner nella posta elettronica e in una notifica di banner dopo aver eseguito l'accesso all'account CPP esistente.
 
 Dopo avere abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il [dashboard del marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
 

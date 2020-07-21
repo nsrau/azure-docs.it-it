@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522721"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Spostare i file con Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questo articolo descrive un modello di soluzione che è possibile usare per spostare i file da una cartella a un'altra tra archivi basati su file. Uno degli scenari comuni di utilizzo di questo modello: i file vengono continuamente rilasciati in una cartella di destinazione dell'archivio di origine. Tramite la creazione di un trigger di pianificazione, la pipeline ADF può spostare periodicamente tali file dall'origine all'archivio di destinazione.  Il modo in cui la pipeline di ADF ottiene "spostando i file" sta ricevendo i file dalla cartella di destinazione, copiando ognuno di essi in un'altra cartella nell'archivio di destinazione e quindi eliminando gli stessi file dalla cartella di destinazione nell'archivio di origine.
+L'attività di copia ADF include supporto incorporato nello scenario di "spostamento" durante la copia di file binari tra archivi di archiviazione.  Per abilitarla, impostare "deleteFilesAfterCompletion" su true nell'attività di copia. In questo modo, l'attività di copia eliminerà i file dall'archivio dell'origine dati dopo il completamento del processo. 
+
+Questo articolo descrive un modello di soluzione come un altro approccio che sfrutta il flusso di controllo flessibile di ADF e l'attività di copia e l'attività di eliminazione per ottenere lo stesso scenario. Uno degli scenari comuni di utilizzo di questo modello: i file vengono continuamente rilasciati in una cartella di destinazione dell'archivio di origine. Tramite la creazione di un trigger di pianificazione, la pipeline ADF può spostare periodicamente tali file dall'origine all'archivio di destinazione.  Il modo in cui la pipeline di ADF ottiene "spostando i file" sta ricevendo i file dalla cartella di destinazione, copiando ognuno di essi in un'altra cartella nell'archivio di destinazione e quindi eliminando gli stessi file dalla cartella di destinazione nell'archivio di origine.
 
 > [!NOTE]
 > Tenere presente che questo modello è progettato per spostare i file anziché spostare le cartelle.  Se si vuole spostare la cartella cambiando il set di dati in modo che contenga solo un percorso di cartella e quindi usando l'attività di copia e l'attività di eliminazione per fare riferimento allo stesso set di dati che rappresenta una cartella, è necessario prestare molta attenzione. Il motivo è che è necessario assicurarsi che NON arrivino nuovi file nella cartella tra l'operazione di copia e quella di eliminazione. Se nuovi file arrivano nella cartella proprio quando l'attività Copy ha completato il processo di copia, ma l'attività Delete non è ancora stata avviata, è possibile che l'attività Delete elimini il file appena arrivato che NON è stato ancora copiato nella destinazione eliminando l'intera cartella.

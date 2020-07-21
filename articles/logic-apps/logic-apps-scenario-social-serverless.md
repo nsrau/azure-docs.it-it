@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980434"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520750"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -21,7 +22,7 @@ Azure offre strumenti [serverless](https://azure.microsoft.com/solutions/serverl
 Per questa soluzione, si usano i due componenti chiave di Azure per le app senza server: [Funzioni di Azure](https://azure.microsoft.com/services/functions/) e [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/).
 App per la logica di Azure fornisce un motore del flusso di lavoro senza server nel cloud, in modo da poter creare orchestrazioni tra componenti senza server e connettersi a oltre 200 servizi e API. Funzioni di Azure consente l'elaborazione senza server nel cloud. Questa soluzione usa Funzioni di Azure per contrassegnare i tweet dei clienti in base a parole chiave predefinite.
 
-In questo scenario viene creata un'app per la logica attivabile con i suggerimenti dei clienti. Tra i connettori che consentono di rispondere ai suggerimenti dei clienti sono inclusi Outlook.com, Office 365, Survey Monkey, Twitter e una [richiesta HTTP da un Web Form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Il flusso di lavoro creato monitora un hashtag su Twitter.
+In questo scenario viene creata un'app per la logica attivabile con i suggerimenti dei clienti. Tra i connettori che consentono di rispondere ai suggerimenti dei clienti sono inclusi Outlook.com, Office 365, Survey Monkey, Twitter e una [richiesta HTTP da un Web Form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). Il flusso di lavoro creato monitora un hashtag su Twitter.
 
 È possibile [compilare l'intera soluzione in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [distribuire la soluzione con un modello di Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Per una procedura dettagliata video per la creazione di questa soluzione, [guardare questo video su Channel 9](https://aka.ms/logicappsdemo). 
 
@@ -66,7 +67,7 @@ Dopo avere ottenuto i dati del tweet e informazioni dettagliate sul tweet, è or
 
 ## <a name="process-data-with-azure-functions"></a>Elaborare i dati con Funzioni di Azure
 
-Prima di creare una funzione, creare un'app per le funzioni nella sottoscrizione di Azure. Inoltre, perché l'app per la logica possa chiamare direttamente una funzione, quest'ultima deve avere un'associazione a un trigger HTTP, ad esempio usare il modello **HttpTrigger**. Altre informazioni su come [creare la prima app per le funzioni e la funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Prima di creare una funzione, creare un'app per le funzioni nella sottoscrizione di Azure. Inoltre, perché l'app per la logica possa chiamare direttamente una funzione, quest'ultima deve avere un'associazione a un trigger HTTP, ad esempio usare il modello **HttpTrigger**. Altre informazioni su come [creare la prima app per le funzioni e la funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
 
 Per questo scenario, usare il testo del tweet come corpo della richiesta per la funzione di Azure. Nel codice della funzione definire la logica che determina se il testo del tweet contiene una parola chiave o una frase. La semplicità o la complessità della funzione dipende dallo scenario in uso.
 Alla fine della funzione, restituire una risposta all'app per la logica con alcuni dati, ad esempio un semplice valore booleano come `containsKeyword` o un oggetto complesso.

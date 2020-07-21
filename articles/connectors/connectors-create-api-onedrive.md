@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75378433"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524208"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file in OneDrive Connector usando app per la logica di Azure
 
@@ -39,11 +40,11 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 1. Nella finestra di progettazione dell'app per la logica digitare `onedrive` per ottenere un elenco dei trigger:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Una finestra di dialogo intitolata "Mostra API gestite da Microsoft" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di quattro trigger. Il primo di questi è "OneDrive-quando viene creato un file". Il secondo, "OneDrive-when a file is modified", è stato selezionato.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Selezionare **Quando viene modificato un file**. Se esiste già una connessione, selezionare il pulsante Mostra selezione per selezionare una cartella.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![Una finestra di dialogo intitolata "quando un file viene modificato" contiene una casella denominata "cartella" con un pulsante Sfoglia associato.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo articolo elenca i passaggi necessari.
 
@@ -51,7 +52,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 3. Selezionare il pulsante **Modifica** e impostare i valori **Frequenza** e **Intervallo**. Ad esempio, se si vuole che il trigger esegua il poll ogni 15 minuti, impostare **Frequenza** su **Minuto** e **Intervallo** su **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![Una finestra di dialogo intitolata "quando un file viene modificato" Mostra cinque caselle con etichetta: "cartella", "frequenza", "intervallo", "fuso orario" e "ora di inizio". Sono disponibili elenchi a discesa per i campi "FREQUENCY" e "TIME ZONE".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 
@@ -61,23 +62,23 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![Una schermata mostra quattro pulsanti: "+ nuovo passaggio", "Aggiungi un'azione", "Aggiungi una condizione" e "... Altro ".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca digitare `onedrive` per ottenere un elenco di tutte le azioni disponibili.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Una finestra di dialogo intitolata "Mostra API gestite da Microsoft" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di otto azioni. Il primo è "OneDrive-create file" ed è selezionato.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. Nell'esempio scegliere **OneDrive - Crea file**. Se esiste già una connessione, selezionare il **percorso della cartella** in cui inserire il file, immettere il **nome del file** e scegliere il **contenuto del file** desiderato:  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![Una finestra di dialogo intitolata "Crea file" Mostra tre caselle con etichetta "percorso cartella", "Nome FILE" e "contenuto cartella". Accanto alla casella "percorso cartella" è presente un pulsante Sfoglia directory.](./media/connectors-create-api-onedrive/sample-action.png)
 
    Se vengono richieste le informazioni di connessione, immettere i dettagli per [creare la connessione, come descritto](#create-the-connection) in questo argomento.
 
    In questo esempio viene creato un nuovo file in una cartella OneDrive. Per creare il file di OneDrive è possibile usare l'output di un altro trigger. Ad esempio aggiungere il trigger di Office 365 Outlook *All'arrivo di un nuovo messaggio di posta elettronica*. Quindi aggiungere l'azione di OneDrive *Crea file* che usa i campi Allegati e Content-Type in un ciclo ForEach per creare il nuovo file in OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![Una finestra di dialogo intitolata "per ogni" ha una casella con etichetta "selezionare un OUTPUT dai passaggi precedenti" che contiene "allegati". È presente una finestra di dialogo "Crea file" che copre il resto della casella "per ogni", con caselle con etichetta "percorso cartella", "Nome FILE" e "contenuto FILE". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 

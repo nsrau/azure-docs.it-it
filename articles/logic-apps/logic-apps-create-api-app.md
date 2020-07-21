@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520801"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -53,8 +54,8 @@ Le API personalizzate consentono di chiamare API che non sono connettori e forni
 Per altre informazioni sui connettori personalizzati, vedere 
 
 * [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md)
-* [Creare connettori personalizzati dalle API Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Registrare i connettori personalizzati in App per la logica di Azure](../logic-apps/logic-apps-custom-connector-register.md)
+* [Creare connettori personalizzati dalle API Web](/connectors/custom-connectors/create-web-api-connector)
+* [Registrare i connettori personalizzati in App per la logica di Azure](/connectors/custom-connectors/)
 
 ## <a name="helpful-tools"></a>Strumenti utili
 
@@ -227,7 +228,7 @@ Per rendere le API personalizzate disponibili a tutti gli utenti in App per la l
 
 * Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-* Per domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Per domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 
 * Per contribuire al miglioramento di App per la logica, è possibile votare o inviare idee nel [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish). 
 

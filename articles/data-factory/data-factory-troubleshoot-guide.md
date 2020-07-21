@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522857"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risoluzione dei problemi di Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ Per problemi relativi al connettore, ad esempio un errore durante l'attività di
 - **Causa**: i messaggi di errore indicano diversi problemi, ad esempio uno stato imprevisto del cluster o un'attività specifica. Spesso non vengono visualizzati messaggi di errore.
 
 - **Raccomandazione**: N/D
+
+### <a name="error-code-3208"></a>Codice di errore: 3208
+
+- **Messaggio**: `An error occurred while sending the request.`
+
+- **Motivo**: la connessione di rete al servizio databricks è stata interrotta.
+
+- **Suggerimento**: se si usa un runtime di integrazione self-hosted, assicurarsi che la connessione di rete sia affidabile dai nodi di Integration Runtime. Se si usa il runtime di integrazione di Azure, il nuovo tentativo funziona in genere.
  
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
 

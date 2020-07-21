@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: b48a2ef65aeb6e8de784c7443cf4be527197464a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081809"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521378"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per la migrazione dei dati
 
@@ -36,9 +36,8 @@ Esistono due opzioni principali per eseguire la migrazione dei dati da un sistem
 
 La tabella seguente indica una durata di trasferimento dei dati approssimativa, basata sul volume dei dati e sulla larghezza di banda della rete. Usare un'appliance Data Box se si prevede che la migrazione dei dati richieda più di tre settimane.
 
-|Qtà di dati|Larghezza di banda della rete||||
-|---|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
+|Qtà di dati | Larghezza di banda della rete<br>di<br>**45 Mbps (T3)**|Larghezza di banda della rete<br>di<br>**100 Mbps**|Larghezza di banda della rete<br>di<br>**1 Gbps**|Larghezza di banda della rete<br>di<br>**10 Gbps**|
+|---|:---:|:---:|:---:|:---:|
 |1 TB|2 giorni|1 giorno| 2 ore|14 minuti|
 |10 TB|22 giorni|10 giorni|1 giorno|2 ore|
 |35 TB|76 giorni|34 giorni|3 giorni|8 ore|

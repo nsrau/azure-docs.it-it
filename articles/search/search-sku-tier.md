@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119214"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519734"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -22,14 +23,17 @@ La maggior parte dei clienti inizia con il livello gratuito, in modo da poter va
 
 ## <a name="feature-availability-by-tier"></a>Disponibilità delle funzionalità per livello
 
-Quasi tutte le funzionalità sono disponibili in ogni livello, incluso gratuito, ma una funzionalità o un flusso di lavoro con utilizzo intensivo delle risorse potrebbe non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
-
 Nella tabella seguente vengono descritti i vincoli di funzionalità correlati al livello.
 
 | Funzionalità | Limitazioni |
 |---------|-------------|
 | [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD. |
+| [Arricchimento con intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
 | [Chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) | Non disponibile per il livello gratuito. |
+| [Accesso al firewall IP](service-configure-firewall.md) | Non disponibile per il livello gratuito. |
+| [Integrazione con collegamento privato di Azure](service-create-private-endpoint.md) | Non disponibile per il livello gratuito. |
+
+La maggior parte delle funzionalità è disponibile in ogni livello, incluso gratuito, ma le funzionalità che richiedono un utilizzo intensivo delle risorse potrebbero non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
 
 ## <a name="tiers-skus"></a>Livelli (SKU)
 
@@ -56,10 +60,10 @@ Per ulteriori informazioni sui vari [livelli, vedere l'articolo](https://azure.m
 
 Una soluzione basata su ricerca cognitiva di Azure può comportare costi nei modi seguenti:
 
-+ Costo fisso del servizio stesso, in esecuzione 24x7, alla configurazione minima (una partizione e una replica)
-+ Costo incrementale durante la scalabilità verticale (aggiunta di repliche o partizioni)
++ Costo del servizio stesso, in esecuzione 24x7, alla configurazione minima (una partizione e una replica)
++ Aggiunta di capacità (repliche o partizioni)
 + Addebiti per la larghezza di banda (trasferimento dati in uscita) 
-+ Ricerca cognitiva (associazione di servizi cognitivi per l'arricchimento di intelligenza artificiale o uso di archiviazione di Azure per l'archivio informazioni)
++ Servizi aggiuntivi come l'arricchimento di intelligenza artificiale (associazione di servizi cognitivi in skillsets che definiscono l'elaborazione di intelligenza artificiale o l'uso di archiviazione di Azure per l'archivio delle informazioni) o la distribuzione di un servizio di ricerca in una rete virtuale privata
 
 ### <a name="service-costs"></a>Costi del servizio
 
@@ -71,7 +75,7 @@ Quando si stima il costo di una soluzione di ricerca, tenere presente che i prez
 
 ### <a name="bandwidth-charges"></a>Tariffe per la larghezza di banda
 
-L'uso di [indicizzatori di Azure ricerca cognitiva](search-indexer-overview.md) potrebbe influire sulla fatturazione, a seconda della posizione dei servizi. È possibile eliminare completamente i dati in uscita se si crea il servizio ricerca cognitiva di Azure nella stessa area dei dati. Di seguito sono riportate alcune informazioni della [pagina dei prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/):
+L'uso degli [indicizzatori](search-indexer-overview.md) può influire sulla fatturazione, a seconda della posizione dei servizi. È possibile eliminare completamente i dati in uscita se si crea il servizio ricerca cognitiva di Azure nella stessa area dei dati. Di seguito sono riportate alcune informazioni della [pagina dei prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft non prevede alcun addebito per i dati in ingresso per alcun servizio in Azure o per tutti i dati in uscita da Azure ricerca cognitiva.
 + Nelle soluzioni multiservizio non viene addebitato alcun costo per i dati che attraversano la rete quando tutti i servizi si trovano nella stessa area.
@@ -107,7 +111,7 @@ La maggior parte dei clienti porta online solo una parte della capacità totale,
 
 ## <a name="how-to-manage-costs"></a>Come gestire i costi
 
-I suggerimenti seguenti consentono di ridurre al minimo i costi:
+I suggerimenti seguenti possono aiutare a ridurre i costi o a gestire i costi in modo più efficace:
 
 + Creare tutte le risorse nella stessa area o in un minor numero di aree possibile per ridurre al minimo o eliminare gli addebiti per la larghezza di banda.
 
@@ -140,7 +144,7 @@ La capacità e i costi per l'esecuzione del servizio sono disponibili. I livelli
 
 I requisiti aziendali in genere impongono il numero di indici necessari. Potrebbe essere necessario, ad esempio, un indice globale per un repository di documenti di grandi dimensioni. In alternativa, potrebbero essere necessari più indici basati su area, applicazione o nicchia aziendale.
 
-Per determinare le dimensioni di un indice, è necessario [crearne uno](search-create-index-portal.md). La relativa dimensione sarà basata sui dati importati e sulla configurazione degli indici, ad esempio se si abilitano i suggerimenti, i filtri e l'ordinamento. Per ulteriori informazioni sull'effetto della configurazione sulle dimensioni, vedere [creare un indice di base ](search-what-is-an-index.md).
+Per determinare le dimensioni di un indice, è necessario [crearne uno](search-what-is-an-index.md). La relativa dimensione sarà basata sui dati importati e sulla configurazione degli indici, ad esempio se si abilitano i suggerimenti, i filtri e l'ordinamento.
 
 Per la ricerca full-text, la struttura dei dati primaria è una struttura di [Indice invertita](https://en.wikipedia.org/wiki/Inverted_index) , che presenta caratteristiche diverse rispetto ai dati di origine. Per un indice invertito, le dimensioni e la complessità sono determinate dal contenuto, non necessariamente dalla quantità di dati da inserire. Un'origine dati di grandi dimensioni con ridondanza elevata può comportare un indice più piccolo rispetto a un set di dati più piccolo che contiene contenuto altamente variabile. Pertanto, è raramente possibile dedurre le dimensioni dell'indice in base alle dimensioni del set di dati originale.
 
@@ -154,7 +158,7 @@ Un approccio per la stima della capacità consiste nell'iniziare con il livello 
 
 + [Creare un servizio gratuito](search-create-service-portal.md).
 + Preparare un set di dati di piccole dimensioni rappresentativo.
-+ [Compilare un indice iniziale nel portale](search-create-index-portal.md) e annotarne le dimensioni. Le funzionalità e gli attributi hanno un effetto sull'archiviazione. Se, ad esempio, si aggiungono i suggerimenti (query di ricerca di tipo), i requisiti di archiviazione aumentano. Utilizzando lo stesso set di dati, è possibile provare a creare più versioni di un indice, con attributi diversi in ogni campo, per verificare la variazione dei requisiti di archiviazione. Per ulteriori informazioni, vedere ["implicazioni dell'archiviazione" in creare un indice di base](search-what-is-an-index.md#index-size).
++ [Compilare un indice iniziale nel portale](search-get-started-portal.md) e annotarne le dimensioni. Le funzionalità e gli attributi hanno un effetto sull'archiviazione. Se, ad esempio, si aggiungono i suggerimenti (query di ricerca di tipo), i requisiti di archiviazione aumentano. Utilizzando lo stesso set di dati, è possibile provare a creare più versioni di un indice, con attributi diversi in ogni campo, per verificare la variazione dei requisiti di archiviazione. Per ulteriori informazioni, vedere ["implicazioni dell'archiviazione" in creare un indice di base](search-what-is-an-index.md#index-size).
 
 Con una stima approssimativa a disposizione, è possibile raddoppiare la quantità di budget per due indici (sviluppo e produzione), quindi scegliere il livello di conseguenza.
 
@@ -170,7 +174,7 @@ Le risorse dedicate possono adattarsi a tempi di elaborazione e campionamento ma
     + Partire da alto, a S2 o addirittura S3, se si è certi che si prevede di eseguire indicizzazione su larga scala e carichi di query.
     + Iniziare con l'archiviazione ottimizzata, in L1 o L2, se si esegue l'indicizzazione di una grande quantità di dati e il carico di query è relativamente basso, come per un'applicazione aziendale interna.
 
-1. [Generare un indice iniziale](search-create-index-portal.md) per determinare il modo in cui i dati di origine vengono convertiti in un indice. Questo è l'unico modo per stimare le dimensioni di un indice.
+1. [Generare un indice iniziale](search-what-is-an-index.md) per determinare il modo in cui i dati di origine vengono convertiti in un indice. Questo è l'unico modo per stimare le dimensioni di un indice.
 
 1. [Monitorare l'archiviazione, i limiti del servizio, il volume di query e la latenza](search-monitor-usage.md) nel portale. Il portale Mostra le query al secondo, le query limitate e la latenza di ricerca. Tutti questi valori possono essere utili per decidere se è stato selezionato il livello corretto. 
 

@@ -11,43 +11,31 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610220"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522908"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verifica della coerenza dei dati nell'attività di copia (anteprima)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Quando si spostano i dati dall'archivio di origine a quello di destinazione, l'attività di copia di Azure Data Factory offre un'opzione che consente di eseguire ulteriori verifiche di coerenza dei dati per garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche che siano coerenti tra l'archivio di origine e quello di destinazione. Se vengono trovati dati incoerenti durante lo spostamento dei dati, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i dati incoerenti. È possibile ottenere i nomi degli oggetti ignorati abilitando l'impostazione del log della sessione nell'attività di copia. 
+Quando si spostano i dati dall'archivio di origine a quello di destinazione, l'attività di copia di Azure Data Factory offre un'opzione che consente di eseguire ulteriori verifiche di coerenza dei dati per garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche che siano coerenti tra l'archivio di origine e quello di destinazione. Una volta che durante lo spostamento dei dati sono stati rilevati file incoerenti, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i file non coerenti. È possibile ottenere i nomi di file ignorati abilitando l'impostazione del log sessione nell'attività di copia. 
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima con le limitazioni seguenti a cui stiamo lavorando attivamente:
->- La verifica della coerenza dei dati è disponibile solo per i file binari che esegue la copia tra archivi basati su file con comportamento "PreserveHierarchy" nell'attività di copia. Per la copia dei dati tabulari, la verifica della coerenza dei dati non è ancora disponibile nell'attività di copia.
 >- Quando si abilita l'impostazione del log di sessione nell'attività di copia per registrare i file incoerenti ignorati, la completezza del file di log non può essere garantita al 100% se l'attività di copia non è riuscita.
 >- Il log di sessione contiene solo file incoerenti, in cui i file copiati correttamente non vengono registrati fino a questo momento.
 
-## <a name="supported-data-stores"></a>Archivi dati supportati
+## <a name="supported-data-stores-and-scenarios"></a>Archivi dati e scenari supportati
 
-### <a name="source-data-stores"></a>Archivi dati di origine
-
--   [Archivio BLOB di Azure](connector-azure-blob-storage.md)
--   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Archiviazione file di Azure](connector-azure-file-storage.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [File system](connector-file-system.md)
--   [HDFS](connector-hdfs.md)
-
-### <a name="destination-data-stores"></a>Archivio dati di destinazione
-
--   [Archivio BLOB di Azure](connector-azure-blob-storage.md)
--   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Archiviazione file di Azure](connector-azure-file-storage.md)
--   [File system](connector-file-system.md)
+-   La verifica della coerenza dei dati è supportata da tutti i connettori eccetto FTP, sFTP e HTTP. 
+-   La verifica della coerenza dei dati non è supportata nello scenario di copia di staging.
+-   Quando si copiano i file binari, la verifica di coerenza dei dati è disponibile solo quando il comportamento di ' PreserveHierarchy ' è impostato nell'attività di copia.
+-   Quando si copiano più file binari in un'attività di copia singola con verifica della coerenza dei dati abilitata, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i file non coerenti. 
+-   Quando si copia una tabella in un'unica attività di copia con verifica coerenza dati abilitata, l'attività di copia ha esito negativo se il numero di righe lette dall'origine è diverso dal numero di righe copiate nella destinazione più il numero di righe incompatibili ignorate.
 
 
 ## <a name="configuration"></a>Configurazione
@@ -84,16 +72,15 @@ Nell'esempio seguente viene fornita una definizione JSON per abilitare la verifi
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | Se si imposta true per questa proprietà, l'attività di copia verificherà le dimensioni del file, lastModifiedDate, e il checksum MD5 per ogni oggetto copiato dall'archivio di origine nell'archivio di destinazione per assicurare la coerenza dei dati tra l'archivio di origine e quello di destinazione. Si ricorda che le prestazioni di copia saranno influenzate dall'abilitazione di questa opzione.  | True<br/>False (impostazione predefinita) | No
-dataInconsistency | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se ignorare i dati incoerenti.<br/> \- True: permette di copiare il resto ignorando i dati incoerenti.<br/> - False: permette di interrompere l'attività di copia una volta trovati dati incoerenti.<br/>Tenere presente che questa proprietà è valida solo quando si imposta validateDataConsistency su True.  | True<br/>False (impostazione predefinita) | No
-logStorageSettings | Un gruppo di proprietà che può essere specificato per abilitare il log di sessione per registrare gli oggetti ignorati. | | No
+validateDataConsistency | Se si imposta true per questa proprietà, durante la copia dei file binari, l'attività di copia verificherà le dimensioni del file, lastModifiedDate e il checksum MD5 per ogni file binario copiato dall'archivio di origine nell'archivio di destinazione per assicurare la coerenza dei dati tra l'archivio di origine e quello di destinazione. Quando si copiano dati tabulari, l'attività di copia controllerà il conteggio totale delle righe dopo il completamento del processo per garantire che il numero totale di righe lette dall'origine corrisponda al numero di righe copiate nella destinazione e al numero di righe non compatibili ignorate. Si ricorda che le prestazioni di copia saranno influenzate dall'abilitazione di questa opzione.  | True<br/>False (impostazione predefinita) | No
+dataInconsistency | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se si desidera ignorare i file incoerenti. <br/> -True: si vuole copiare il resto ignorando i file incoerenti.<br/> -False: si desidera interrompere l'attività di copia dopo che è stato trovato un file incoerente.<br/>Tenere presente che questa proprietà è valida solo quando si copiano file binari e si imposta validateDataConsistency su true.  | True<br/>False (impostazione predefinita) | No
+logStorageSettings | Gruppo di proprietà che è possibile specificare per consentire al log sessione di registrare i file ignorati. | | No
 linkedServiceName | Servizio collegato di [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare i file di log della sessione. | Nomi di un servizio collegato di tipo `AzureBlobStorage` o `AzureBlobFS` che fa riferimento all'istanza da usare per archiviare i file di log. | No
 path | Percorso dei file di log. | Specificare il percorso desiderato per archiviare i file di log. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No
 
 >[!NOTE]
->- La coerenza dei dati non è supportata nello scenario di copia di staging. 
->- Quando si copiano i file da o in BLOB di Azure o in Azure Data Lake Storage Gen2, ADF esegue la verifica del checksum MD5 a livello di blocco sfruttando l' [API blob di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e l' [API Azure Data Lake storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se sono presenti ContentMD5 nei file nel BLOB di Azure o Azure Data Lake Storage Gen2 come origini dati, ADF esegue la verifica del checksum MD5 a livello di file anche dopo aver letto i file. Dopo aver copiato i file nel BLOB di Azure o Azure Data Lake Storage Gen2 come destinazione dati, ADF scrive ContentMD5 nel BLOB di Azure o in Azure Data Lake Storage Gen2, che può essere ulteriormente utilizzato dalle applicazioni downstream per la verifica della coerenza dei dati.
->- ADF esegue la verifica delle dimensioni dei file durante la copia di file tra gli archivi di archiviazione.
+>- Quando si copiano file binari da o in BLOB di Azure o in Azure Data Lake Storage Gen2, ADF esegue la verifica del checksum MD5 a livello di blocco sfruttando l' [API blob di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e l' [API Azure Data Lake storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se sono presenti ContentMD5 nei file nel BLOB di Azure o Azure Data Lake Storage Gen2 come origini dati, ADF esegue la verifica del checksum MD5 a livello di file anche dopo aver letto i file. Dopo aver copiato i file nel BLOB di Azure o Azure Data Lake Storage Gen2 come destinazione dati, ADF scrive ContentMD5 nel BLOB di Azure o in Azure Data Lake Storage Gen2, che può essere ulteriormente utilizzato dalle applicazioni downstream per la verifica della coerenza dei dati.
+>- ADF esegue la verifica delle dimensioni dei file durante la copia di file binari tra gli archivi di archiviazione.
 
 ## <a name="monitoring"></a>Monitoraggio
 

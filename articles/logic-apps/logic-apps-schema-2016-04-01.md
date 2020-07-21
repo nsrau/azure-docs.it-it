@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520716"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
 
@@ -28,7 +29,7 @@ Per aggiornare le app per la logica dallo schema di anteprima del 1° agosto 201
 
 ## <a name="scopes"></a>Ambiti
 
-Questo schema include gli ambiti, che consentono di raggruppare le azioni o annidarle all'interno di altre. Una condizione, ad esempio, può contenere un'altra condizione. Vedere altre informazioni sulla [sintassi degli ambiti](../logic-apps/logic-apps-loops-and-scopes.md) oppure esaminare questo esempio di ambito di base:
+Questo schema include gli ambiti, che consentono di raggruppare le azioni o annidarle all'interno di altre. Una condizione, ad esempio, può contenere un'altra condizione. Vedere altre informazioni sulla [sintassi degli ambiti](./logic-apps-control-flow-loops.md) oppure esaminare questo esempio di ambito di base:
 
 ```json
 {
@@ -54,7 +55,7 @@ Questo schema include gli ambiti, che consentono di raggruppare le azioni o anni
 
 ## <a name="conditions-and-loops-changes"></a>Modifiche di condizioni e cicli
 
-Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri associati a una singola azione. In questo schema è stata rimossa questa limitazione e le condizioni e i cicli sono ora disponibili come tipi di azione. Vedere altre informazioni su [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md), [condizioni](../logic-apps/logic-apps-control-flow-conditional-statement.md) oppure esaminare questo esempio di base di un'azione condizione:
+Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri associati a una singola azione. In questo schema è stata rimossa questa limitazione e le condizioni e i cicli sono ora disponibili come tipi di azione. Vedere altre informazioni su [cicli e ambiti](./logic-apps-control-flow-loops.md), [condizioni](../logic-apps/logic-apps-control-flow-conditional-statement.md) oppure esaminare questo esempio di base di un'azione condizione:
 
 ```json
 {
@@ -130,7 +131,7 @@ Nella definizione aggiornata lo strumento tenta di raggruppare le azioni dei ram
 
 #### <a name="foreach-loop-with-condition"></a>Ciclo "foreach" con condizione
 
-Nel nuovo schema è possibile usare l'azione di filtro per replicare il modello che usa un ciclo **For each** con un'unica condizione per elemento. Tuttavia, la modifica avviene automaticamente quando esegue l'aggiornamento. La condizione diventa un'azione di filtro che appare prima del ciclo **For each** per restituire solo una matrice di elementi che soddisfano la condizione e passare tale matrice all'azione **For each**. Per un esempio, vedere l'articolo relativo a [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md).
+Nel nuovo schema è possibile usare l'azione di filtro per replicare il modello che usa un ciclo **For each** con un'unica condizione per elemento. Tuttavia, la modifica avviene automaticamente quando esegue l'aggiornamento. La condizione diventa un'azione di filtro che appare prima del ciclo **For each** per restituire solo una matrice di elementi che soddisfano la condizione e passare tale matrice all'azione **For each**. Per un esempio, vedere l'articolo relativo a [cicli e ambiti](./logic-apps-control-flow-loops.md).
 
 ### <a name="resource-tags"></a>Tag delle risorse
 

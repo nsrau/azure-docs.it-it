@@ -7,16 +7,20 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076688"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521905"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Progettazione per la disponibilità elevata con ExpressRoute
 
 ExpressRoute è progettato per garantire un'elevata disponibilità per la connettività di rete privata di livello vettore alle risorse Microsoft. In altre parole, non esiste un singolo punto di errore nel percorso ExpressRoute all'interno della rete Microsoft. Per ottimizzare la disponibilità, è necessario progettare anche il segmento Customer e provider di servizi del circuito ExpressRoute per la disponibilità elevata. In questo articolo vengono esaminate prima di tutto le considerazioni sull'architettura di rete per la creazione di una connettività di rete affidabile usando un ExpressRoute, quindi si osserveranno le funzionalità di ottimizzazione che consentono di migliorare la disponibilità elevata del circuito ExpressRoute.
 
+>[!NOTE]
+>I concetti descritti in questo articolo si applicano ugualmente quando viene creato un circuito ExpressRoute in WAN virtuale o al di fuori di esso.
+>
 
 ## <a name="architecture-considerations"></a>Considerazioni sull'architettura
 

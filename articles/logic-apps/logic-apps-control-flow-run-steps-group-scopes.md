@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520902"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando ambiti nelle App per la logica di Azure
 
@@ -70,13 +71,13 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       ![Configurare l'azione "Bing Maps - Get route" (Bing Maps - Ottieni itinerario)](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      Per altre informazioni su questi parametri, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario).
+      Per altre informazioni su questi parametri, vedere [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcolare un itinerario).
 
       | Impostazione | valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
       | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
-      | **Avoid** (Evita) | nessuno | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
+      | **Avoid** (Evita) | nessuno | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcolare un itinerario). | 
       | **Optimize** (Ottimizza) | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
       | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio usa il seguente valore: "Miglia" | 
       | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
@@ -387,7 +388,7 @@ Se si usa la visualizzazione Codice, è invece possibile definire una struttura 
 
 ## <a name="get-support"></a>Supporto
 
-* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

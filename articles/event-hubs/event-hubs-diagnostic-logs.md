@@ -3,11 +3,12 @@ title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322467"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521939"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -232,7 +233,7 @@ Le stringhe JSON dei log utente della chiave gestita dal cliente includono gli e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
+- [Introduzione a Hub eventi](./event-hubs-about.md)
 - [Esempi di Hub eventi](sdks.md)
 - Introduzione all'Hub eventi
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

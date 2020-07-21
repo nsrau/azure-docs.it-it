@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299945"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519698"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -28,7 +29,6 @@ Con questi strumenti è possibile:
 
 
 
-
 ## <a name="availability"></a>Disponibilità
 
 - Stato della versione: **Disponibile a livello generale**
@@ -36,10 +36,7 @@ Con questi strumenti è possibile:
     - **Reader** nella sottoscrizione che contiene la configurazione di esportazione
     - **Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)
     - Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione
-- Cloud: 
-    - ✔ Cloud commerciali
-    - ✔ US Gov
-    - ✘ Cina, altro gov
+- Cloud: ✔ cloud commerciali ✔ US Gov ✘ Cina gov, altri gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Impostazione di un'esportazione continua
@@ -142,5 +139,5 @@ Per materiale correlato, vedere la documentazione seguente:
 
 - [Documentazione di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/)
 - [Documentazione di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Documentazione di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)
+- [Documentazione di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)
 - [Schemi di automazione del flusso di lavoro e tipi di dati di esportazione continua](https://aka.ms/ASCAutomationSchemas)

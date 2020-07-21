@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833165"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522262"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteggere i dispositivi gemelli digitali di Azure con controllo degli accessi in base al ruolo
 
@@ -58,7 +58,7 @@ Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, ved
 * tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [aggiungere o rimuovere assegnazioni di ruolo con il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md))
 * tramite i comandi dell'interfaccia della riga di comando per aggiungere o rimuovere un ruolo
 
-Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi [gemelli di Azure per la connessione di una soluzione end-to-end](tutorial-end-to-end.md).
+Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi [gemelli di Azure per la *connessione di una soluzione end-to-end*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Ambiti delle autorizzazioni
 
@@ -73,6 +73,6 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere come eseguire la procedura dettagliata con un'applicazione client di esempio in [procedura: autenticare un'applicazione client](how-to-authenticate-client.md).
+* Vedere come eseguire la procedura dettagliata con un'applicazione client di esempio in [*procedura: autenticare un'applicazione client*](how-to-authenticate-client.md).
 
 * Scopri di più su [RBAC per Azure](../role-based-access-control/overview.md).

@@ -7,11 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836278"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524166"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -57,30 +58,30 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 2. All'avvio dell'app per la logica, selezionare il trigger **Richiesta/Risposta - Risposta**: 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![Una finestra di dialogo contiene una casella per la ricerca di tutti i trigger. Viene anche visualizzato un singolo trigger, "request/response-request", con un pulsante di selezione.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. Selezionare **Salva**. Quando si salva, viene generato automaticamente un URL di richiesta. 
 
 4. Selezionare **Nuovo passaggio** e quindi **Aggiungi un'azione**. Digitare `oracle` per visualizzare le azioni disponibili: 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![Una casella di ricerca contiene "Oracle". La ricerca genera un hit con etichetta "Oracle Database". È presente una pagina a schede, una scheda che mostra "trigger (0)", un'altra che mostra "azioni (6)". Sono elencate sei azioni. Il primo è "Get Row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Questo è anche il modo più rapido per visualizzare i trigger e le azioni disponibili per i connettori. Digitare parte del nome del connettore, ad esempio `oracle`. La finestra di progettazione elenca i trigger e le azioni. 
 
 5. Selezionare una delle azioni, ad esempio **Oracle Database - Ottieni riga**. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale). Immettere il nome del server Oracle, il metodo di autenticazione, il nome utente e la password e selezionare il gateway:
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![Il titolo della finestra di dialogo è "Oracle Database-Ottieni riga". È presente una casella, selezionata, denominata "Connetti tramite il gateway dati locale". Di seguito sono riportate le altre cinque caselle di testo.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Una volta stabilita la connessione, selezionare una tabella nell'elenco e immettere l'ID di riga per la tabella. È necessario conoscere l'identificatore della tabella. Se non lo si conosce, contattare l'amministratore di Oracle DB e ottenere l'output di `select * from yourTableName`. In questo modo si otterranno le informazioni di identificazione necessarie per procedere.
 
     Nell'esempio seguente i dati del processo vengono restituiti da un database delle risorse umane: 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![La finestra di dialogo intitolata "Get Row (Preview)" include due caselle di testo: "Table Name", che contiene "HRJOBS" e un elenco a discesa e "Row ID", che contiene "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole provare a recuperare i dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati di Oracle usando uno dei connettori di invio di posta elettronica, ad esempio Office 365 o Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
+7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole testare il recupero dei dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati Oracle usando uno dei connettori di invio di posta elettronica, ad esempio Office 365 Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![Sono disponibili due finestre di dialogo. Nella casella "Invia un messaggio di posta elettronica" sono presenti caselle per specificare gli indirizzi "Body", "Subject" e "to" del messaggio di posta elettronica. La finestra di dialogo "Aggiungi contenuto dinamico" fornisce una ricerca di contenuto dinamico dalle app e dai servizi del flusso.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. **Salvare** l'app per la logica e quindi selezionare **Esegui**. Chiudere la finestra di progettazione ed esaminare lo stato nella cronologia delle esecuzioni. In caso di esito negativo, selezionare la riga relativa al messaggio non inviato. La finestra di progettazione viene aperta e mostra il passaggio non riuscito, con le informazioni sull'errore. In caso di esito positivo, si dovrebbe ricevere un messaggio di posta elettronica con le informazioni aggiunte.
 
@@ -89,11 +90,11 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 * Si vuole monitorare l'hashtag #oracle e inserire i Tweet in un database in modo che sia possibile eseguire query su di essi e usarli in altre applicazioni. In un'app per la logica aggiungere il trigger `Twitter - When a new tweet is posted` e immettere l'hashtag **#oracle**. Aggiungere quindi l'azione `Oracle Database - Insert row` e selezionare la tabella:
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    ![La finestra di dialogo "quando viene pubblicato un nuovo Tweet" Mostra "hashtag Oracle" come testo di ricerca e consente di specificare la frequenza di controllo. In questa finestra di dialogo viene visualizzata la finestra di dialogo "Oracle Database" in cui è possibile selezionare l'azione.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * Messaggi inviati a una coda del bus di servizio. Si vuole ottenere questi messaggi e inserirli in un database. In un'app per la logica aggiungere il trigger `Service Bus - when a message is received in a queue` e selezionare la coda. Aggiungere quindi l'azione `Oracle Database - Insert row` e selezionare la tabella:
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    !["Quando un messaggio viene ricevuto..." la finestra di dialogo Mostra "Orders" come "nome della coda" e consente di specificare la frequenza di controllo. In questa casella viene visualizzata la finestra di dialogo "Inserisci riga (anteprima)" che consente di selezionare "nome tabella".](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Errori comuni
 

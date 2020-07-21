@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523316"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -104,11 +104,15 @@ Se non si dispone di molti pacchetti da eseguire e si desidera che vengano esegu
 
 Questi dati rappresentano l'esecuzione di un singolo pacchetto in un singolo nodo del ruolo di lavoro. Il pacchetto carica 3 milioni record con le colonne nome e cognome dall'archiviazione BLOB di Azure, genera una colonna con nome completo e scrive i record il cui nome completo è composto da più di 20 caratteri nell'archivio BLOB di Azure.
 
+L'asse y è il numero di pacchetti che hanno completato l'esecuzione in un'ora. Si noti che questo è solo un risultato del test di un pacchetto che utilizza la memoria. Se si desidera conoscere la velocità effettiva del pacchetto, è consigliabile eseguire il test autonomamente.
+
 ![Velocità di esecuzione del pacchetto del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configurare la velocità effettiva complessiva
 
 Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un requisito prioritario, usare le informazioni presentate nel grafico seguente per scegliere il tipo di macchina virtuale adatto allo scenario in uso.
+
+L'asse y è il numero di pacchetti che hanno completato l'esecuzione in un'ora. Si noti che questo è solo un risultato del test di un pacchetto che utilizza la memoria. Se si desidera conoscere la velocità effettiva del pacchetto, è consigliabile eseguire il test autonomamente.
 
 ![Velocità effettiva complessiva massima del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

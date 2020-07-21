@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519899"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -24,7 +24,7 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Giappone orientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
-    * Si consiglia di usare gli account di archiviazione per utilizzo generico V2 (GPv2).
+    * Si consiglia di usare gli account di archiviazione GPv2 (General-Purpose v2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurazione delle risorse di Azure per l'uso di analisi video in tempo reale
 
@@ -34,7 +34,7 @@ Vedere [creare un ruolo di Azure Resource Manager personalizzato](create-custom-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configurare un endpoint di streaming Premium
 
-Se si intende usare analisi video in tempo reale per registrare video nel cloud e successivamente riprodurli, è necessario aggiornare il servizio multimediale per usare un [endpoint di streaming Premium](../latest/streaming-endpoint-concept.md#types).  
+Se si intende usare analisi video in tempo reale per registrare i video in modo continuo nel cloud e successivamente usare le [API di query](playback-recordings-how-to.md#query-api) prima di riprodurli, è consigliabile aggiornare il servizio multimediale per usare un [endpoint di streaming Premium](../latest/streaming-endpoint-concept.md#types).  
 
 Si tratta di un passaggio facoltativo. A tale scopo, è possibile usare questo comando dell'interfaccia della riga di comando di Azure:
 

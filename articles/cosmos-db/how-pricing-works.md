@@ -5,26 +5,26 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/14/2020
+ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955813"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523537"
 ---
-# <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB
 
 Il modello di determinazione dei prezzi di Azure Cosmos DB semplifica la gestione e la pianificazione dei costi. Con Azure Cosmos DB viene addebitato un costo per la velocità effettiva sottoposta a provisioning e per le risorse di archiviazione usate.
 
-* **Velocità effettiva con provisioning**: la velocità effettiva con provisioning (detta anche velocità effettiva riservata) garantisce prestazioni elevate su qualsiasi scala. Specificando la velocità effettiva (UR/s) necessaria, Azure Cosmos DB dedica le risorse necessarie per garantire la velocità effettiva configurata. Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica.
+* **Velocità effettiva con provisioning**: la [velocità effettiva con provisioning](how-to-choose-offer.md) (detta anche velocità effettiva riservata) garantisce prestazioni elevate su qualsiasi scala. Specificando la velocità effettiva (UR/s) necessaria, Azure Cosmos DB dedica le risorse necessarie per garantire la velocità effettiva configurata. Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica. Puoi eseguire manualmente il provisioning della velocità effettiva o usare la [scalabilità](provision-throughput-autoscale.md)automatica.
 
    > [!NOTE]
-   > Poiché il modello di velocità effettiva sottoposta a provisioning dedica risorse per il contenitore o database, la velocità effettiva sottoposta a provisioning viene addebitata anche se non vengono eseguiti carichi di lavoro.
+   > Poiché il modello di velocità effettiva con provisioning dedica risorse al contenitore o al database, verrà addebitata la velocità effettiva con provisioning anche se non vengono eseguiti carichi di lavoro.
 
 * **Archiviazione utilizzata**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (GB) utilizzata per i dati e gli indici per una determinata ora.
 
-La velocità effettiva sottoposta a provisioning, specificata come [unità richiesta](request-units.md) al secondo o UR/s, consente di leggere o scrivere dati nei contenitori o database. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridurre o aumentare la velocità effettiva in qualsiasi momento. I prezzi di Azure Cosmos DB sono elastici e proporzionali alla velocità effettiva configurata in un database o contenitore. I valori minimi di velocità effettiva e archiviazione e gli incrementi di scalabilità offrono una gamma completa di prezzi rispetto a uno spettro di elasticità per tutti i segmenti di clienti, da contenitori su scala ridotta a contenitori su larga scala. Ogni database o contenitore viene fatturato su base oraria per la velocità effettiva sottoposta a provisioning nelle unità di 100 UR/s, con un minimo di 400 UR/s e spazio di archiviazione usato in GB. A differenza della velocità effettiva sottoposta a provisioning, l'archiviazione è fatturata in base al consumo, per cui non è necessario riservare in anticipo alcuna risorsa di archiviazione. Verranno addebitate le sole risorse di archiviazione usate.
+La velocità effettiva sottoposta a provisioning, specificata come [unità richiesta](request-units.md) al secondo o UR/s, consente di leggere o scrivere dati nei contenitori o database. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridurre o aumentare la velocità effettiva in qualsiasi momento. I prezzi di Azure Cosmos DB sono elastici e proporzionali alla velocità effettiva configurata in un database o contenitore. I valori minimi di velocità effettiva e archiviazione e gli incrementi di scalabilità offrono una gamma completa di prezzi rispetto a uno spettro di elasticità per tutti i segmenti di clienti, da contenitori su scala ridotta a contenitori su larga scala. Ogni database o contenitore viene fatturato su base oraria per la velocità effettiva sottoposta a provisioning nelle unità di 100 UR/s, con un minimo di 400 UR/s e spazio di archiviazione usato in GB. A differenza della velocità effettiva sottoposta a provisioning, l'archiviazione è fatturata in base al consumo, Ovvero, non è necessario riservare alcuna archiviazione in anticipo. Verranno addebitate le sole risorse di archiviazione usate.
 
 Per altre informazioni, vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Informazioni sulla fattura di Azure Cosmos DB](understand-your-bill.md).
 
@@ -41,9 +41,11 @@ Come illustrato nella tabella precedente, la velocità effettiva minima in Azure
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Prova gratuitamente Azure Cosmos DB
 
-Azure Cosmos DB offre diverse opzioni gratuite per gli sviluppatori. Tali opzioni includono:
+Azure Cosmos DB offre molte opzioni gratuite per gli sviluppatori. Tali opzioni includono:
 
-* **Account Azure gratuito**: Azure offre un [livello gratuito](https://azure.microsoft.com/free/) che ti offre $200 di crediti di Azure per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi. Per altre informazioni, vedere [Account gratuito di Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB è incluso nell'account Azure gratuito. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva sottoposta a provisioning per l'intero anno. 
+* **Azure Cosmos dB livello gratuito**: Azure Cosmos dB livello gratuito semplifica l'avvio, lo sviluppo e il test delle applicazioni o anche l'esecuzione gratuita di carichi di lavoro di produzione di piccole dimensioni. Quando il livello gratuito è abilitato per un account, si otterranno le prime 400 ur/sec e 5 GB di spazio di archiviazione nell'account gratuito, per la durata dell'account. È possibile avere fino a un account di livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente al momento della creazione dell'account. Per iniziare, [creare un nuovo account in portale di Azure con il livello gratuito abilitato](create-cosmosdb-resources-portal.md) o usare un [modello ARM](manage-sql-with-resource-manager.md#free-tier).
+
+* **Account Azure gratuito**: Azure offre un [livello gratuito](https://azure.microsoft.com/free/) che ti offre $200 di crediti di Azure per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi. Per altre informazioni, vedere [Account gratuito di Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB è incluso nell'account Azure gratuito. In particolare per Azure Cosmos DB, questo account gratuito offre archiviazione da 5 GB e 400 ur/sec di velocità effettiva con provisioning per l'intero anno.
 
 * **Prova gratuitamente Azure Cosmos DB**: Azure Cosmos DB offre un'esperienza limitata al tempo usando try Azure Cosmos DB per gli account gratuiti. È possibile creare un account Azure Cosmos DB, creare database e raccolte ed eseguire un'applicazione di esempio usando le opzioni di avvio rapido e le esercitazioni offerte. È possibile eseguire l'applicazione di esempio senza sottoscrivere alcun account di Azure né usare la carta di credito. L'opzione [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) consente di usare Azure Cosmos DB per un mese, con la possibilità di rinnovare l'account un numero illimitato di volte.
 

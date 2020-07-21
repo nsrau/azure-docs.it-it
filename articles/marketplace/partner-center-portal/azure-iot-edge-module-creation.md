@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anbene
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520273"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creare, configurare e pubblicare un'offerta del modulo IoT Edge in Azure Marketplace
 
@@ -231,7 +231,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome
 7. Summary
-8. Description
+8. Descrizione
 9. Collegamenti utili
 10. Screenshot/video
 
@@ -252,7 +252,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Nome
-2. Description
+2. Descrizione
 3. Collegamenti utili
 4. Screenshots (Schermate)
 
@@ -286,13 +286,13 @@ Prima di passare alla sezione successiva, Panoramica del piano, selezionare **Sa
 
 ### <a name="plan-overview"></a>Panoramica del piano
 
-Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta nel Centro per i partner. Questi piani sono stati indicati in precedenza come SKU o codice di riferimento del prodotto. I piani possono variare in base ai cloud disponibili, ad esempio cloud globali, cloud per enti pubblici e all'immagine a cui si fa riferimento nel piano. Per presentare l'offerta nel marketplace, è necessario configurare almeno un piano.
+Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta nel Centro per i partner. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace, è necessario configurare almeno un piano.
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
 - Nomi dei piani
 - Modello di prezzi
-- Disponibilità cloud (globale o per enti pubblici)
+- Aree di Azure (globale o per enti pubblici)
 - Stato attuale di pubblicazione
 - Eventuali azioni disponibili
 
@@ -329,7 +329,7 @@ Selezionare l'opzione [Azure Government](../../azure-government/documentation-go
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in **disponibilità cloud**.
+Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per rendere consapevoli delle certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti che descrivono tali certificazioni. Questi possono essere collegamenti diretti alle presentazioni del programma o al proprio sito Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 

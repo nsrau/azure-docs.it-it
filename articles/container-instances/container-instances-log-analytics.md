@@ -2,14 +2,14 @@
 title: Raccogli & analizzare i log delle risorse
 description: Informazioni su come inviare i log delle risorse e i dati degli eventi da gruppi di contenitori in istanze di contenitore di Azure ai log di monitoraggio di Azure
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259613"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524013"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
 
@@ -38,11 +38,10 @@ Il servizio Istanze di Azure Container deve avere l'autorizzazione per l'invio d
 Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **Impostazioni**selezionare **Impostazioni avanzate**
-1. Selezionare **origini connesse**  >  **server Windows** (o **server Linux**--l'ID e le chiavi sono uguali per entrambi)
+1. In **Impostazioni**selezionare **agenti gestione**
 1. Prendere nota di:
-   * **ID AREA DI LAVORO**
-   * **CHIAVE PRIMARIA**
+   * **ID area di lavoro**
+   * **Chiave primaria**
 
 ## <a name="create-container-group"></a>Creare un gruppo di contenitori
 
@@ -102,7 +101,9 @@ Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco d
 
 ## <a name="view-logs"></a>Visualizzare i log
 
-Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori nella tabella `ContainerInstanceLog_CL`:
+Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. 
+
+Per visualizzare i log del gruppo di contenitori nella tabella `ContainerInstanceLog_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
 1. In **generale**selezionare **log** .  
