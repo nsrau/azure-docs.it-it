@@ -4,18 +4,20 @@ description: API per recuperare lo stato corrente dell'offerta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114075"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535876"
 ---
 # <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti già integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 Recupera lo stato corrente dell'offerta.
 
@@ -25,13 +27,12 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     string     |
-|  offerId        | GUID che identifica in modo univoco l'offerta      |     string     |
+|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     Stringa     |
+|  offerId        | GUID che identifica in modo univoco l'offerta      |     Stringa     |
 |  api-version    | Ultima versione dell'API                        |     Data       |
 |  |  |
 
-
-## <a name="header"></a>Header
+## <a name="header"></a>Intestazione
 
 
 |  Nome           |  valore               |
@@ -41,7 +42,6 @@ Recupera lo stato corrente dell'offerta.
 |  |  |
 
 ## <a name="body-example"></a>Esempio di corpo
-
 
 ### <a name="response"></a>Risposta
 
@@ -116,7 +116,6 @@ Recupera lo stato corrente dell'offerta.
   }
 ```
 
-
 ### <a name="response-body-properties"></a>Proprietà del corpo della risposta
 
 |  **Nome**             |    **Descrizione**                                                                             |
@@ -153,7 +152,7 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Operazione riuscita                   | Invio dell'offerta completato.               |
+|  Operazione completata                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
 |  |  |

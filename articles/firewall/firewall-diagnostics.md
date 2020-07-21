@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: e55f92c624ec338005cd23ba5e6063a9ca7f82c4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262052"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537004"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorare i log e le metriche di Firewall di Azure
 
@@ -97,5 +97,4 @@ Passare a un firewall di Azure, in **monitoraggio** selezionare **metriche**. Pe
 
 Dopo aver configurato il firewall per raccogliere i log, è possibile esplorare i log di Monitoraggio di Azure per visualizzare i dati.
 
-> [!div class="nextstepaction"]
-> [Soluzioni di monitoraggio di rete nei log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md)
+[Soluzioni di monitoraggio di rete nei log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md)

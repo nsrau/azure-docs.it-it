@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134362"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528945"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
@@ -70,7 +70,7 @@ Lo strumento indica i dettagli seguenti:
 
 ## <a name="support-matrix"></a>Matrice di supporto
 
-| | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
+|**Categories** (Categorie) | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
 Scenari supportati |Sì|Sì|No|Sì*|No
 Versione supportata | vCenter 6,7, 6,5, 6,0 o 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
@@ -82,7 +82,7 @@ Numero di server che è possibile profilare per ogni istanza in esecuzione di Az
 ## <a name="prerequisites"></a>Prerequisiti
 Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profilatura e generazione di report. È anche disponibile una quarta opzione per calcolare solo la velocità effettiva. I requisiti per il server in cui devono essere eseguite le diverse fasi sono elencati nella tabella seguente:
 
-| Requisito server | Description |
+| Requisito server | Descrizione |
 |---|---|
 |Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure (*. blob.core.windows.net) da questo server, porta 443<br>[Questa operazione è facoltativa. È possibile scegliere di fornire la larghezza di banda disponibile durante la generazione del report manualmente.]</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Tutti i server Hyper-V da profilare devono essere aggiunti all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
@@ -90,19 +90,24 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
  |
 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Procedura per aggiungere i server nell'elenco TrustedHosts
-1.  La VM da cui lo strumento deve essere distribuito deve avere tutti gli host da profilare nell'elenco TrustedHosts. Per aggiungere il client nell'elenco Trustedhosts, eseguire il comando seguente da un'istanza di PowerShell con privilegi elevati sulla VM. La VM può essere Windows Server 2012 R2 o Windows Server 2016. 
+1. La VM da cui lo strumento deve essere distribuito deve avere tutti gli host da profilare nell'elenco TrustedHosts. Per aggiungere il client nell'elenco Trustedhosts, eseguire il comando seguente da un'istanza di PowerShell con privilegi elevati sulla VM. La VM può essere Windows Server 2012 R2 o Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
-
-1.  Ogni host Hyper-V da profilare deve avere:
+   ```powershell
+   set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+   ```
+1. Ogni host Hyper-V da profilare deve avere:
 
     a. La VM su cui lo strumento verrà eseguito nell'elenco TrustedHosts. Eseguire il comando seguente da una sessione di PowerShell con privilegi elevati sull'host Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```powershell
+      set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```
 
     b. Comunicazione remota di PowerShell abilitata.
 
-            Enable-PSRemoting -Force
+      ```powershell
+      Enable-PSRemoting -Force
+      ```
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Scaricare ed estrarre lo strumento Deployment Planner
 

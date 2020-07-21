@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74228150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529710"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Aggiornamenti di hub di notifica di Azure per iOS 13
 
@@ -57,7 +58,7 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-Per semplificare la transizione, quando hub di notifica di Azure rileva una notifica che non dispone del `apns-push-type` set, il servizio deduce il tipo di push dalla richiesta di notifica e imposta automaticamente il valore. Tenere presente che è necessario configurare Hub di notifica di Azure per l'uso dell'autenticazione basata su token per impostare l'intestazione richiesta. per altre informazioni, vedere [autenticazione basata su token (http/2) per APNs](notification-hubs-push-notification-http2-token-authentification.md).
+Per semplificare la transizione, quando hub di notifica di Azure rileva una notifica che non dispone del `apns-push-type` set, il servizio deduce il tipo di push dalla richiesta di notifica e imposta automaticamente il valore. Tenere presente che è necessario configurare Hub di notifica di Azure per l'uso dell'autenticazione basata su token per impostare l'intestazione richiesta. per altre informazioni, vedere [autenticazione basata su token (http/2) per APNs](./notification-hubs-push-notification-http2-token-authentication.md).
 
 ## <a name="apns-priority"></a>Priorità APNS
 

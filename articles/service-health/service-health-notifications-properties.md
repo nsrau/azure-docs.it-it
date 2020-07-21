@@ -3,13 +3,14 @@ title: Informazioni sulle notifiche per l'integrità del servizio.
 description: Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati da Microsoft Azure.
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77653969"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529013"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
+# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Usare il portale di Azure per visualizzare le notifiche sull'integrità del servizio
 
 Le notifiche di integrità del servizio sono pubblicate da Azure e contengono informazioni sulle risorse nella sottoscrizione. Queste notifiche sono una sottoclasse di eventi del log attività e sono disponibili anche nel log attività. Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
 

@@ -3,11 +3,12 @@ title: Creare avvisi di Integrità risorse usando il portale di Azure
 description: Creare un avviso usando portale di Azure che inviano una notifica quando le risorse di Azure diventano non disponibili.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85217941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529217"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurare avvisi di integrità risorse tramite il portale di Azure
 
@@ -18,7 +19,7 @@ Integrità risorse di Azure comunica lo stato di integrità attuale e cronologic
 > [!NOTE]
 > Gli avvisi Integrità risorse attualmente sono in anteprima.
 
-Le notifiche di integrità delle risorse vengono archiviate nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) , dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche di integrità delle risorse.
+Le notifiche di integrità delle risorse vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) , dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche di integrità delle risorse.
 È possibile ricevere un avviso quando la risorsa di Azure invia notifiche sull'integrità delle risorse alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:
 
 * La sottoscrizione interessata.
@@ -34,9 +35,9 @@ Le notifiche di integrità delle risorse vengono archiviate nel [log attività d
 * Selezionare un gruppo di azione esistente.
 * Creare un nuovo gruppo di azione che può essere usato per avvisi futuri.
 
-Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
-Per informazioni su come configurare gli avvisi di notifica di integrità delle risorse usando Azure Resource Manager modelli, vedere [modelli di gestione risorse](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide).
+Per informazioni su come configurare gli avvisi di notifica di integrità delle risorse usando Azure Resource Manager modelli, vedere [modelli di gestione risorse](./resource-health-alert-arm-template-guide.md).
 Integrità risorse avviso utilizzando portale di Azure
 
 ## <a name="resource-health-alert-using-azure-portal"></a>Avviso Integrità risorse tramite il portale di Azure
@@ -58,12 +59,12 @@ Integrità risorse avviso utilizzando portale di Azure
     1. **Nome regola di avviso**: nome della nuova regola di avviso.
     2. **Descrizione**: descrizione della nuova regola di avviso.
     3. **Salva avviso nel gruppo di risorse**: selezionare il gruppo di risorse in cui salvare la nuova regola.
-7. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare + **nuovo gruppo**.
+7. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](../azure-monitor/platform/action-groups.md) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare + **nuovo gruppo**.
 8. Per abilitare le regole dopo averle create, selezionare **Sì** per l'opzione **Abilita regola alla creazione**.
 9. Selezionare **Crea regola di avviso**.
 
 Viene creata la nuova regola di avviso per il log attività e nell'angolo superiore destro viene visualizzato un messaggio di conferma.
-È possibile abilitare, disabilitare, modificare o eliminare una regola. Altre informazioni su [come gestire le regole del log attività](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#view-and-manage-in-the-azure-portal).
+È possibile abilitare, disabilitare, modificare o eliminare una regola. Altre informazioni su [come gestire le regole del log attività](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -74,6 +75,6 @@ Altre informazioni su Integrità risorse:
 
 Creare avviso di integrità dei servizi di Azure:
 
-* [Configurare gli avvisi per Integrità dei servizi di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+* [Configurare gli avvisi per Integrità dei servizi di Azure](./alerts-activity-log-service-notifications-portal.md) 
 * [Schema degli eventi del log attività di Azure](../azure-monitor/platform/activity-log-schema.md)
-* [Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse](./resource-health-alert-arm-template-guide.md)

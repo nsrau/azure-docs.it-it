@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454680"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529285"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -258,9 +258,8 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 
 #### <a name="encryption-model-and-key-management-table"></a>Modello di crittografia e tabella di gestione delle chiavi
 
-|                                  |                    | **Modello di crittografia e gestione delle chiavi** |                    |
+| Prodotto, funzionalità o servizio | Lato server con chiave gestita dal servizio   | Lato server con chiave gestita dal cliente | Lato client con chiave gestita dal client  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente**             | **Lato client con chiave gestita dal client**      |
 | **Intelligenza artificiale e Machine Learning**      |                    |                    |                    |
 | Ricerca cognitiva di Azure           | Sì                | Sì                | -                  |
 | Servizi cognitivi di Azure         | Sì                | Sì                | -                  |
@@ -280,7 +279,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Funzioni                        | Sì                | Sì, tutte le lunghezze di RSA. | -                  |
 | Azure Analysis Services          | Sì                | -                  | -                  |
 | Azure Data Catalog               | Sì                | -                  | -                  |
-| HDInsight di Azure                  | Sì                | Tutti                | -                  |
+| Azure HDInsight                  | Sì                | Tutti                | -                  |
 | Application Insights di monitoraggio di Azure | Sì                | Sì                | -                  |
 | Log Analytics di monitoraggio di Azure      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |
@@ -319,7 +318,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Azure Repos                      | Sì                | -                  | Sì                |
 | **Identità**                     |                    |                    |                    |
 | Azure Active Directory           | Sì                | -                  | -                  |
-| Servizi di dominio Azure Active Directory | Sì          | Sì, RSA a 2048 bit  | -                  |
+| Azure Active Directory Domain Services | Sì          | Sì, RSA a 2048 bit  | -                  |
 | **Integrazione**                  |                    |                    |                    |
 | Bus di servizio                      | Sì                | Sì                | Sì                |
 | Griglia di eventi                       | Sì                | -                  | -                  |
@@ -358,6 +357,6 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 
 \*\*Questo servizio supporta l'archiviazione dei dati nel proprio Key Vault, nell'account di archiviazione o in un altro servizio di mantenimento dei dati che supporta già la crittografia lato server con chiave gestita dal cliente.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 La protezione dei dati dei clienti archiviati nei servizi di Azure è di importanza fondamentale per Microsoft. Per tutti i servizi di Azure ospitati è prevista la disponibilità di opzioni di crittografia dei dati inattivi. I servizi di Azure supportano chiavi gestite dal servizio, chiavi gestite dal cliente o la crittografia lato client. I servizi di Azure migliorano in generale la crittografia a livello di disponibilità e le nuove opzioni sono pianificate per l'anteprima e la disponibilità generale nei prossimi mesi.

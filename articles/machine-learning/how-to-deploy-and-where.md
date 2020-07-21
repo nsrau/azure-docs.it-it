@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536386"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In questo esempio, la configurazione specifica le impostazioni seguenti:
 
-* Che il modello richieda Python.
-* [Script di immissione](#script)utilizzato per gestire le richieste Web inviate al servizio distribuito.
-* Il file conda che descrive i pacchetti Python necessari per l'inferenza.
+* Che il modello richieda Python
+* [Script di immissione](#script), usato per gestire le richieste Web inviate al servizio distribuito
+* File conda che descrive i pacchetti Python necessari per l'inferenza
 
 Per informazioni sull'uso di un'immagine Docker personalizzata con una configurazione di inferenza, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Distribuisci nella destinazione
 
-La distribuzione usa la configurazione di distribuzione per la configurazione dell'inferenza per distribuire i modelli. Il processo di distribuzione è simile indipendentemente dalla destinazione di calcolo. La distribuzione in AKS è leggermente diversa perché è necessario fornire un riferimento al cluster AKS.
+La distribuzione usa la configurazione di distribuzione per la configurazione dell'inferenza per distribuire i modelli. Il processo di distribuzione è simile indipendentemente dalla destinazione di calcolo. La distribuzione in Azure Kubernetes Service (AKS) è leggermente diversa perché è necessario fornire un riferimento al cluster AKS.
 
 ### <a name="choose-a-compute-target"></a>Scegliere una destinazione di calcolo
 
@@ -559,7 +559,7 @@ La tabella seguente fornisce un esempio di creazione di una configurazione di di
 
 | Destinazione del calcolo | Esempio di configurazione della distribuzione |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanze di Azure Container | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -613,7 +613,7 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Transizione | Il servizio è in fase di distribuzione. | No |
 | Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
 | Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
-| Non riuscito | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
+| Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)
@@ -914,6 +914,12 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+Per assegnare un punteggio a un modello, vedere [utilizzare un modello di Azure machine learning distribuito come servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Molti progetti ONNX utilizzano i file protobuf per archiviare in modo compatto i dati di training e di convalida, il che può rendere difficile conoscere il formato dei dati previsto dal servizio. In qualità di sviluppatore di modelli, è consigliabile documentare gli sviluppatori:
+
+* Formato di input (JSON o Binary)
+* Forma e tipo di dati di input (ad esempio, una matrice di float di forma [100,100, 3])
+* Informazioni di dominio (ad esempio, per un'immagine, lo spazio di colore, l'ordine dei componenti e se i valori vengono normalizzati)
+
 Se si usa Pytorch, l' [esportazione di modelli da Pytorch a ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) include i dettagli sulla conversione e sulle limitazioni. 
 
 ### <a name="scikit-learn-models"></a>Scikit-informazioni sui modelli
@@ -939,7 +945,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Nota: i modelli che supportano predict_proba utilizzeranno il metodo per impostazione predefinita. Per eseguire l'override di questo per usare Predict, è possibile modificare il corpo del POST come indicato di seguito:
+Nota: per impostazione predefinita, i modelli che supportano predict_proba utilizzeranno il metodo. Per eseguire l'override di questo per usare Predict, è possibile modificare il corpo del POST come indicato di seguito:
 ```python
 import json
 

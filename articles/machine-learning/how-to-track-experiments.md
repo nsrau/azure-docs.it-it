@@ -3,20 +3,21 @@ title: Registrare gli esperimenti e le metriche di ML
 titleSuffix: Azure Machine Learning
 description: Monitorare gli esperimenti di Azure ML e le metriche di esecuzione per migliorare il processo di creazione del modello. Aggiungere la registrazione allo script di training e visualizzare i risultati registrati di un'esecuzione.  Usare run.log, Run.start_logging o ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675203"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536351"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche degli esperimenti di Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,7 +108,7 @@ Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esemp
 
 Usare il modulo __Execute Python script__ per aggiungere la logica di registrazione agli esperimenti della finestra di progettazione. È possibile registrare qualsiasi valore usando questo flusso di lavoro, ma è particolarmente utile per registrare le metriche del modulo __Evaluate Model__ per tenere traccia delle prestazioni del modello in diverse esecuzioni.
 
-1. Connettere un modulo __Execute Python Script__ all'output del modulo __Evaluate Model__.
+1. Connettere un modulo __Execute Python Script__ all'output del modulo __Evaluate Model__. Il __modello Evaluate__ può restituire i risultati della valutazione di 2 modelli. Nell'esempio seguente viene illustrato come registrare le metriche di 2 porte di output nel livello di esecuzione padre. 
 
     ![Connettere un modulo Execute Python Script al modulo Evaluate Model](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -115,23 +116,29 @@ Usare il modulo __Execute Python script__ per aggiungere la logica di registrazi
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. Al termine dell'esecuzione della pipeline, è possibile visualizzare il *Mean_Absolute_Error* nella pagina dell'esperimento.
+
+    ![Connettere un modulo Execute Python Script al modulo Evaluate Model](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## <a name="manage-a-run"></a>Gestire un'esecuzione
 

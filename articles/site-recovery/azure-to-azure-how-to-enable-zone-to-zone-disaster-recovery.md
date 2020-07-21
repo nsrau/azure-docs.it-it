@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135731"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528979"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
 
@@ -22,6 +22,7 @@ Questo articolo descrive come eseguire la replica, il failover e il failback di 
 >
 >- Site Recovery attualmente non supporta i piani di ripristino per il ripristino di emergenza da zona a zona tramite il portale. Usare PowerShell o l'API REST per sfruttare i piani di ripristino per il ripristino di emergenza da zona a zona. 
 >- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a due aree: Asia sudorientale e Regno Unito meridionale.  
+>- Site Recovery non sposta o archivia i dati dei clienti all'interno dell'area in cui viene distribuito quando il cliente usa il ripristino di emergenza da zona a zona. I clienti possono selezionare un insieme di credenziali dei servizi di ripristino da un'area diversa se lo scelgono. L'insieme di credenziali di servizi di ripristino contiene metadati ma non dati effettivi del cliente.
 
 Site Recovery servizio contribuisce alla strategia di continuità aziendale e ripristino di emergenza, mantenendo le app aziendali in esecuzione, durante le interruzioni pianificate e non pianificate. Si tratta dell'opzione di ripristino di emergenza consigliata per rendere operativo le applicazioni in caso di interruzioni a livello di area.
 

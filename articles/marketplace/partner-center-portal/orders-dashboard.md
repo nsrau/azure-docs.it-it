@@ -3,14 +3,14 @@ title: Dashboard degli ordini del Centro per i partner nell'analisi per il marke
 description: Informazioni su come accedere ai report analitici relativi agli ordini di offerte del marketplace in un formato grafico e scaricabile.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118359"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536131"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi per il marketplace commerciale
 
@@ -29,12 +29,9 @@ Per accedere a **Dashboard ordini** negli strumenti di analisi del Centro per i 
 - [Ordini per area geografica](#orders-by-geography)
 - [Ordini per offerte](#orders-by-offers)
 - [Tendenza ordini per sito e per postazione](#orders-trend-per-site-versus-per-seat)
-- [Ordini per SKU](#orders-by-skus)
+- [Ordini per piani](#orders-by-plans)
 - [Tendenza ordini e postazioni](#orders-and-seats-trend)
 - [Tabella Dettagli ordine](#order-details-table)
-
-> [!NOTE]
-> Esistono differenze tra il modo in cui i report di analisi vengono visualizzati nel portale Cloud Partner e il nuovo programma del marketplace commerciale nel Centro per i partner. Una, in particolare, consiste nel fatto che in **Informazioni dettagliate per il venditore** nel portale Cloud Partner è disponibile una scheda **Orders & Usage** (Ordini e utilizzo), che visualizza i dati relativi alle offerte basate sull'utilizzo e alle offerte non basate sull'utilizzo. Nel Centro per i partner la pagina **Ordini** dispone di una scheda separata per le offerte SaaS.
 
 ## <a name="order-dashboard-details"></a>Dettagli dashboard ordine
 
@@ -76,16 +73,16 @@ Il grafico ad anello **Ordini per offerte** organizza gli ordini (compresi gli o
 
 Il grafico ad anello**per sito e per postazione** rappresenta il dettaglio degli ordini SaaS per sito e SaaS per postazione acquistati dai clienti (questo grafico include gli ordini annullati). L'istogramma rappresenta la tendenza degli ordini SaaS per sito e SaaS per postazione acquistati dai clienti (questo grafico include gli ordini annullati).
 
-### <a name="orders-by-skus"></a>Ordini per SKU
+### <a name="orders-by-plans"></a>Ordini per piani
 
-Il grafico **Ordini per SKU** rappresenta la tendenza degli ordini a livello di codice di riferimento del prodotto (SKU, Stock Keeping Unit) per tutte le offerte (inclusi gli ordini annullati). Il grafico ad anello rappresenta il dettaglio dei primi cinque ordini dello SKU e l'istogramma rappresenta la tendenza degli ordini per i primi cinque SKU.
+Il grafico **Orders by plans** rappresenta la tendenza degli ordini a livello di piano per tutte le offerte (incluse le ordinazioni annullate). Il grafico ad anello rappresenta la suddivisione dei primi cinque ordini del piano e l'istogramma rappresenta la tendenza degli ordini per i primi cinque piani.
 
 ### <a name="orders-and-seats-trend"></a>Tendenza ordini e postazioni
 
 Il grafico **Tendenza ordini e postazioni** presenta le prime 50 offerte con il maggior numero di ordini. Questi vengono visualizzati in una classifica e sono ordinati in base al numero massimo di ordini e alla percentuale di ordine.
 
-- **Ordini per SKU**: selezionare un'offerta per visualizzare il dettaglio del numero di ordini per i primi cinque SKU nel grafico.
-- **Postazioni per SKU**: la tendenza mensile delle postazioni per i primi cinque SKU. Se l'offerta selezionata non è un'offerta per postazione, in quest'area del grafico non vengono visualizzati dati.
+- **Orders by plans** : selezionare un'offerta per visualizzare la suddivisione dei conteggi degli ordini per i primi cinque piani nel grafico.
+- **Sedili per piani** : la tendenza mensile delle postazioni per i primi cinque piani. Se l'offerta selezionata non è un'offerta per postazione, in quest'area del grafico non vengono visualizzati dati.
 
 ### <a name="canceled-orders-by-offers"></a>Ordini annullati per offerte
 

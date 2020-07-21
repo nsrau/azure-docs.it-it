@@ -1,23 +1,20 @@
 ---
-title: Riferimenti
-description: ''
+title: API FarmBeats di Azure
+description: Informazioni sulle API FarmBeats di Azure, che offrono alle aziende agricole un'interfaccia RESTful standardizzata con risposte basate su JSON.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488036"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536573"
 ---
-# <a name="references"></a>Riferimenti
+# <a name="azure-farmbeats-apis"></a>API FarmBeats di Azure
 
-Questo articolo descrive le API FarmBeats di Azure.
-
-## <a name="rest-api"></a>API REST
-
-Le API di Azure FarmBeats offrono alle aziende agricole un'interfaccia RESTful standardizzata con risposte basate su JSON che consentono di sfruttare le funzionalità di Azure FarmBeats, ad esempio:
+Questo articolo descrive le API FarmBeats di Azure. Le API di Azure FarmBeats offrono alle aziende agricole un'interfaccia RESTful standardizzata con risposte basate su JSON che consentono di sfruttare le funzionalità di Azure FarmBeats, ad esempio:
 
 - API per ottenere sensori, fotocamera, drone, meteo, satellite e dati di base curati.
 - Normalizzazione e contestualizzazione dei dati tra i provider di dati comuni.
@@ -62,7 +59,7 @@ Per effettuare una richiesta autenticata alle API REST, il codice client richied
 
 Il token di accesso deve essere inviato nelle successive richieste API, nella sezione header, come segue:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -181,6 +178,6 @@ Dopo aver completato i passaggi precedenti, la registrazione dell'app (client) p
 
 Usare il token di accesso per inviarlo nelle richieste API successive nella sezione dell'intestazione come:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

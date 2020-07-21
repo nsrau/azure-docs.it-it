@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529030"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -48,7 +49,7 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.
 4. Selezionare **diagnostica di Azure** nell'interruttore.
-5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Fare quindi clic su **OK**.
+5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Quindi fare clic su **OK**.
 
     ![Selezionare l'area di lavoro](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -67,8 +68,8 @@ I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostic
 7. Al termine dell'installazione, passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**. Passare alla pagina **dati** e fare clic sui **contatori delle prestazioni di Windows**. 
 8. Fare clic su **' +'** per aggiungere i due contatori seguenti con intervallo di campionamento di 300 secondi:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 I dati relativi alla varianza e alla velocità di caricamento inizieranno ad accedere all'area di lavoro.
 

@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891193"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529982"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire Hub di notifica tramite PowerShell
 
@@ -31,7 +32,7 @@ In questo articolo viene illustrato come utilizzare Creazione e gestione di hub 
 - Creare un hub di notifica
 - Impostare le credenziali
 
-Se si desidera anche creare un nuovo spazio dei nomi per l'hub di notifica, vedere [Gestire il bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+Se si desidera anche creare un nuovo spazio dei nomi per l'hub di notifica, vedere [Gestire il bus di servizio con PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 La gestione degli hub di notifica non è supportata direttamente tramite i cmdlet inclusi con Azure PowerShell. L'approccio migliore da PowerShell consiste nel fare riferimento all'assembly Microsoft.Azure.NotificationHubs.dll. L'assembly viene distribuito con il [pacchetto NuGet degli hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -147,9 +148,9 @@ else
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Gestire Bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Gestire Bus di servizio con PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Sono disponibili per il download anche alcuni script predefiniti:
 
@@ -159,7 +160,7 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Offerte per i membri]: https://azure.microsoft.com/pricing/member-offers/
 [Versione di prova gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[API .NET per Hub di notifica]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[API .NET per Hub di notifica]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

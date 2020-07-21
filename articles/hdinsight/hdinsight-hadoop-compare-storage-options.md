@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536749"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -63,6 +63,12 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 > [!NOTE]
 > Data Lake Storage Gen2 archiviazione primaria non è supportata per i cluster Spark 2,1 o 2,2.
 
+## <a name="data-replication"></a>Replica dei dati
+
+Azure HDInsight non archivia i dati dei clienti. Il mezzo principale di archiviazione per un cluster sono gli account di archiviazione associati. È possibile aggiungere il cluster a un account di archiviazione esistente o creare un nuovo account di archiviazione durante il processo di creazione del cluster. Se viene creato un nuovo account, verrà creato come account di archiviazione con ridondanza locale (con ridondanza locale) e soddisferà i requisiti di residenza dei dati nell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net).
+
+È possibile verificare che HDInsight sia configurato correttamente per archiviare i dati in una singola area verificando che l'account di archiviazione associato al HDInsight sia con ridondanza locale o un'altra opzione di archiviazione indicata nel [Centro protezione](https://azuredatacentermap.azurewebsites.net).
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Archiviazione di Azure](./overview-azure-storage.md)

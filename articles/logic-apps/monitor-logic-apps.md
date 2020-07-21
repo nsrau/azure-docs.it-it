@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732003"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536251"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure
 
@@ -48,11 +48,11 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
 
    | Stato | Descrizione |
    |--------|-------------|
-   | **Operazione annullata** | Il flusso di lavoro era in esecuzione ma è stata ricevuta una richiesta di annullamento |
+   | **Annullato** | Il flusso di lavoro era in esecuzione ma è stata ricevuta una richiesta di annullamento |
    | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per gestire l'errore |
    | **Running** | Il flusso di lavoro è attualmente in esecuzione, <p>Questo stato può essere visualizzato anche per i flussi di lavoro limitati o a causa del piano tariffario corrente. Per altre informazioni vedere i [limiti delle azioni sulla pagina dei prezzi](https://azure.microsoft.com/pricing/details/logic-apps/). Se si configura la [registrazione diagnostica](../logic-apps/monitor-logic-apps.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>**Nota**: se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
-   | **Waiting** | Il flusso di lavoro non è stato avviato o è sospeso, ad esempio, a causa di un flusso di lavoro precedente ancora in esecuzione. |
+   | **In attesa** | Il flusso di lavoro non è stato avviato o è sospeso, ad esempio, a causa di un flusso di lavoro precedente ancora in esecuzione. |
    |||
 
 1. Per esaminare i passaggi e altre informazioni per un'esecuzione specifica, in **Cronologia esecuzioni**selezionare Esegui.
@@ -71,7 +71,7 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
 
    ![Esaminare i dettagli di ogni passaggio nell'esecuzione](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Ad esempio, è possibile ottenere la proprietà dell' **ID di correlazione** dell'esecuzione, che potrebbe essere necessario quando si usa l' [API REST per le app per la logica](https://docs.microsoft.com/rest/api/logic).
+   Ad esempio, è possibile ottenere la proprietà dell' **ID di correlazione** dell'esecuzione, che potrebbe essere necessario quando si usa l' [API REST per le app per la logica](/rest/api/logic).
 
 1. Per ottenere ulteriori informazioni su un passaggio specifico, selezionare una delle opzioni seguenti:
 
@@ -138,7 +138,7 @@ Ogni esecuzione di app per la logica inizia con un trigger. La cronologia dei tr
 
 ## <a name="set-up-monitoring-alerts"></a>Configurare gli avvisi di monitoraggio
 
-Per ottenere gli avvisi in base a metriche specifiche o al superamento delle soglie per l'app per la logica, configurare gli [avvisi in monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Per configurare gli avvisi senza usare [monitoraggio di Azure](../log-analytics/log-analytics-overview.md), seguire questa procedura.
+Per ottenere gli avvisi in base a metriche specifiche o al superamento delle soglie per l'app per la logica, configurare gli [avvisi in monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../azure-monitor/platform/data-platform.md). Per configurare gli avvisi senza usare [monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md), seguire questa procedura.
 
 1. Nel menu dell'app per la logica, in **monitoraggio**selezionare **avvisi**  >  **nuova regola di avviso**.
 

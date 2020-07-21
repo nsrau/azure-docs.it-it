@@ -3,11 +3,12 @@ title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530118"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -60,7 +61,7 @@ Il dispositivo deve accedere agli URL di Azure. [Esaminare](migrate-appliance.md
 
 Vedere gli articoli seguenti per informazioni sui dati raccolti dal Azure Migrate Appliance sulle macchine virtuali:
 
-- **VM VMware**: [esaminare](migrate-appliance.md#collected-data---vmware) i dati raccolti. [
+- **VM VMware**: [esaminare](migrate-appliance.md#collected-data---vmware) i dati raccolti.
 - **VM Hyper-V**: [esaminare](migrate-appliance.md#collected-data---hyper-v) i dati raccolti.
 
 ## <a name="how-is-data-stored"></a>Come vengono archiviati i dati?

@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253338"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529302"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 
@@ -470,8 +470,8 @@ Gheppio è il server Web consigliato per i servizi front-end che espongono endpo
  
 Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e stabile raggiungibile tramite un servizio di bilanciamento del carico. Questo URL verrà fornito agli utenti dell'applicazione. È consigliabile la configurazione seguente:
 
-|  |  | **Note** |
-| --- | --- | --- |
+| Type | Recommendation | Note |
+| ---- | -------------- | ----- |
 | Server Web | Kestrel | Gheppio è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | static | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
 | ServiceFabricIntegrationOptions | Nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
@@ -495,8 +495,8 @@ Se più servizi esposti esternamente condividono lo stesso set di nodi, è possi
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Servizio ASP.NET Core senza stato solo interno
 I servizi senza stato che vengono chiamati solo dall'interno del cluster devono usare URL univoci e porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-|  |  | **Note** |
-| --- | --- | --- |
+| Type | Recommendation | Note |
+| ---- | -------------- | ----- |
 | Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP.sys per i servizi interni senza stato, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con l'assegnazione dinamica delle porte, questa impostazione evita il problema di errata identificazione descritto in precedenza. |
@@ -505,8 +505,8 @@ I servizi senza stato che vengono chiamati solo dall'interno del cluster devono 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Servizio ASP.NET Core con stato solo interno
 I servizi con stato che vengono chiamati solo dall'interno del cluster devono usare porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-|  |  | **Note** |
-| --- | --- | --- |
+| Type | Recommendation | Note |
+| ---- | -------------- | ----- |
 | Server Web | Kestrel | `HttpSysCommunicationListener`Non è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con l'assegnazione dinamica delle porte, questa impostazione evita il problema di errata identificazione descritto in precedenza. |

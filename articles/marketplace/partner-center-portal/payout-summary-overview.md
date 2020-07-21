@@ -1,18 +1,18 @@
 ---
 title: Panoramica del riepilogo proventi - Azure Marketplace
 description: Il riepilogo proventi presenta informazioni dettagliate sulle entrate realizzate con l'offerta. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118478"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535961"
 ---
 # <a name="payout-summary-overview"></a>Panoramica del riepilogo proventi
 
@@ -42,19 +42,6 @@ Di seguito sono indicati i ruoli e le autorizzazioni per accedere al report sui 
 | Profilo fiscale | Può aggiornare | Nessun accesso | Nessun accesso | Nessun accesso | Può aggiornare | Nessun accesso |
 | Riepilogo proventi | Può visualizzare | Nessun accesso | Nessun accesso | Nessun accesso | Può visualizzare | Nessun accesso  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>Differenze del report sui proventi
-
-Sono presenti alcune differenze tra il report sui proventi nel portale Cloud Partner (vecchio) e nel Centro per i partner (nuovo), come indicato di seguito:
-
-| Portale per Cloud Partner | Centro per i partner |
-| --- | --- |
-| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory e https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**: i report sui proventi sono disponibili in Insights Proventi | **Navigation**: i report sui proventi sono disponibili nel Centro per i partner - icona Proventi |
-| **Ambito**:<ul><li>È visibile la transazione per ogni voce per le riscossioni in corso, incassate e pagate.</li><li>Report: tutte le voci vengono visualizzate dopo la creazione dell'ordine d'acquisto, incluse le riscossioni e le fatturazioni in corso, lo stato della riscossione e le voci non ancora idonee per il pagamento.</li></ul> | **Ambito**:<ul><li>Visualizza le voci dopo che sono state dichiarate redditi idonei.</li><li>I clienti eseguono prima il pagamento a favore di Microsoft e quindi i fornitori di software indipendenti possono iniziare a vedere il report sui proventi.</li><li>Nel report sui proventi non vengono visualizzate le riscossioni e le fatturazioni in corso.</li></ul> |
-| **La transazione non è pronta per ricevere i proventi**: fatturazione in corso | **La transazione non è pronta per ricevere i proventi**: pagamento successivo stimato: i proventi sono nello stato non elaborato. |
-| **Stato dei proventi**: n/d | **Stato dei proventi**:<ul><li>Non elaborato: il reddito è idoneo al pagamento.</li><li>Imminente: il reddito verrà inviato all'editore nei proventi mensili successivi.</li><li>Inviato: il pagamento è stato inviato alla banca.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>Pianificazioni dei pagamenti
 

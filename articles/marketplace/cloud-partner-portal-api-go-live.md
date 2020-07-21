@@ -4,18 +4,20 @@ description: L'API Go Live avvia il processo di presentazione in tempo reale del
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535944"
 ---
 # <a name="go-live"></a>Go Live
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti già integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 Questa API avvia il processo che consente di inviare un'app alla produzione. Questa operazione è in genere a esecuzione prolungata. Questa chiamata usa l'elenco di indirizzi di posta elettronica per le notifiche dell'operazione API [Pubblica](./cloud-partner-portal-api-publish-offer.md).
 
@@ -26,12 +28,12 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 
 |  **Nome**      |   **Descrizione**                                                           | **Tipo di dati** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  string       |
-| offerId        | Identificatore dell'offerta da recuperare                                   |  string       |
+| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  Stringa       |
+| offerId        | Identificatore dell'offerta da recuperare                                   |  Stringa       |
 | api-version    | Versione più recente dell'API                                                   |  Data         |
 |  |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Intestazione
 ------
 
 |  **Nome**       |     **Valore**       |

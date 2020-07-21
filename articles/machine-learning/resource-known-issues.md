@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223459"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536114"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -96,6 +96,22 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
     ```bash
     automl_setup
     ```
+    
+* **Errore:' brand ' durante l'esecuzione di AutoML in un cluster di calcolo o Azure Databricks locale**
+
+    Se è stato creato un nuovo ambiente dopo il 10 giugno 2020, usando SDK 1.7.0 o versione precedente, il training potrebbe non riuscire a causa di un aggiornamento nel pacchetto py-cpuinfo. Gli ambienti creati in o prima del 10 giugno 2020 non sono interessati, così come gli esperimenti eseguiti sul calcolo remoto perché vengono usate le immagini di training memorizzate nella cache. Per risolvere questo problema, eseguire uno dei due passaggi seguenti:
+    
+    * Aggiornare la versione dell'SDK a 1.8.0 o versioni successive (esegue anche il downgrade di PY-cpuinfo a 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Eseguire il downgrade della versione installata di PY-cpuinfo a 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Messaggio di errore: Impossibile installare "PyYAML"**
 
@@ -146,6 +162,12 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 > Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
 * **Portale di Azure**: se si passa direttamente a visualizzare l'area di lavoro da un collegamento di condivisione dall'SDK o dal portale, non sarà possibile visualizzare la pagina **Panoramica** normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
+
+* **Browser supportati nel portale Web di Azure Machine Learning Studio**: è consigliabile usare il browser più aggiornato compatibile con il sistema operativo. Sono supportati i browser seguenti:
+  * Microsoft Edge (il nuovo Microsoft Edge, la versione più recente. Non legacy Microsoft Edge)
+  * Safari (versione più recente, solo Mac)
+  * Chrome (versione più recente)
+  * Firefox (versione più recente)
 
 ## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
@@ -217,9 +239,16 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
 
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
-Problemi noti:
+* **Tempo di preparazione calcolo lungo:**
 
-* **Tempo di preparazione per il calcolo lungo**: possono essere pochi minuti o anche più a lungo quando si esegue la prima connessione o si crea una destinazione di calcolo. 
+La prima volta che si esegue la connessione a o si crea una destinazione di calcolo, potrebbe essere necessario pochi minuti o ancora più a lungo. 
+
+Dall'agente di raccolta dati del modello possono essere necessari fino a 10 minuti per l'arrivo dei dati nell'account di archiviazione BLOB. Attendere 10 minuti per verificare che le celle sottostanti vengano eseguite.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Eseguire il training dei modelli
 

@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905134"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536471"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 
@@ -59,7 +60,7 @@ La continuità aziendale nell'account di integrazione delle app per la logica of
 
 Durante un evento di emergenza, quando l'area primaria non è disponibile per la continuità aziendale, dirigere il traffico verso l'area secondaria. Un'area secondaria consente a un'azienda di ripristinare rapidamente le funzioni per soddisfare gli RPO/RTO concordati con i partner. Riduce al minimo gli sforzi per il failover da un'area a un'altra. 
 
-Esiste una latenza prevista durante la copia dei numeri di controllo dall'area primaria a quella secondaria. Per evitare l'invio ai partner di doppioni di numeri di controllo generati durante un evento di emergenza, è consigliabile incrementare i numeri di controllo negli accordi dell'area secondaria usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Esiste una latenza prevista durante la copia dei numeri di controllo dall'area primaria a quella secondaria. Per evitare l'invio ai partner di doppioni di numeri di controllo generati durante un evento di emergenza, è consigliabile incrementare i numeri di controllo negli accordi dell'area secondaria usando i [cmdlet di PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Eseguire il fallback all'area primaria dopo un evento di emergenza
 
@@ -67,7 +68,7 @@ Per eseguire il fallback a un'area primaria quando è disponibile, seguire quest
 
 1. Interrompere l'accettazione dei messaggi dai partner nell'area secondaria.  
 
-2. Incrementare i numeri di controllo generati per tutti i contratti dell'area primaria usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Incrementare i numeri di controllo generati per tutti i contratti dell'area primaria usando i [cmdlet di PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Indirizzare il traffico dall'area secondaria all'area primaria.
 
@@ -240,4 +241,3 @@ In base all'intervallo di tempo, lo stato di runtime incrementale viene replicat
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Monitorare i messaggi B2B con i log di Monitoraggio di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
-

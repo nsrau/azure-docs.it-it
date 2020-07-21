@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248803"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530174"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a utenti specifici usando hub di notifica di Azure
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che sia stato creato e configurato l'hub di notifica come descritto in [inviare notifiche push alle app iOS usando hub di notifica di Azure](ios-sdk-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
-Se si desidera usare le app per dispositivi mobili come servizio back-end, vedere [Introduzione alle app per dispositivi mobili con notifiche push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+Se si desidera usare le app per dispositivi mobili come servizio back-end, vedere [Introduzione alle app per dispositivi mobili con notifiche push](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -497,7 +497,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 In questa esercitazione è stato descritto come inviare notifiche push a utenti specifici che hanno tag associati alle loro registrazioni. Per informazioni sulle procedure per effettuare il push di notifiche in base alla posizione, passare all'esercitazione seguente: 
 
 > [!div class="nextstepaction"]
->[Inviare notifiche push basate sulla posizione](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Eseguire il push di notifiche basate sulla posizione](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

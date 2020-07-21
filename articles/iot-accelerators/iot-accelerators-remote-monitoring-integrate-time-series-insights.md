@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232067"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536607"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
 
@@ -57,16 +57,16 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
 
 1. Per creare l'ambiente Azure Time Series Insights, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome ambiente | Nella schermata seguente viene usato il nome **contorosrmtsi**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
-    | Località | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
+    | Location | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
     | Sku |**S1** |
     | Capacità | **1** |
 
-    ![Creare Azure Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
+    ![Creare l'ambiente Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
 1. Fare clic su **Crea**. La creazione dell'ambiente può richiedere qualche minuto.
 
@@ -80,13 +80,13 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
     ![Visualizzare le origini evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
     ![Aggiungere un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
 1. Per configurare l'hub IoT come nuova origine evento, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome origine evento | Nella schermata seguente viene usato il nome **contosorm-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
     | Source (Sorgente) | **Hub IoT** |
@@ -244,7 +244,7 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 
 Configurare l'ambiente della distribuzione `standard` per i precedenti microservizi aggiornati
 
-1. Nella riga di comando, eseguire `kubectl proxy`. Per altre informazioni, vedere [Use an HTTP Proxy to Access the Kubernetes API](https://kubernetes.io/docs/reference/access-authn-authz/) (Usare un proxy HTTP per accedere all'API Kubernetes).
+1. Nella riga di comando, eseguire `kubectl proxy`. Per altre informazioni, vedere [Use an HTTP Proxy to Access the Kubernetes API](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server) (Usare un proxy HTTP per accedere all'API Kubernetes).
 
 1. Aprire la console di gestione di Kubernetes.
 

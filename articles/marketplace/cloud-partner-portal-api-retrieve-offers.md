@@ -4,36 +4,34 @@ description: API per recuperare un elenco riepilogato di offerte in uno spazio d
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113480"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535893"
 ---
-<a name="retrieve-offers"></a>Recuperare le offerte
-===============
+# <a name="retrieve-offers"></a>Recuperare le offerte
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti già integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parametri URI
---------------
+## <a name="uri-parameters"></a>Parametri URI
 
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
+|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   Stringa    |
 |  api-version     | Ultima versione dell'API                    |    Data        |
 |  |  |
 
-
-<a name="header"></a>Header
-------
+## <a name="header"></a>Intestazione
 
 |  **Nome**        |         **Valore**       |
 |  --------------- |       ----------------  |
@@ -41,9 +39,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  Autorizzazione   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
-
-<a name="body-example"></a>Esempio di corpo
-------------
+## <a name="body-example"></a>Esempio di corpo
 
 ### <a name="response"></a>Risposta
 
@@ -77,7 +73,6 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Codici di stato della risposta
 
 | **Codice**  |  **Descrizione**                                                                                                   |
@@ -88,7 +83,6 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  404      | `Not found` - L'entità specificata è inesistente.                                                                 |
 |  |  |
 
-
 ### <a name="offer-status"></a>Stato dell'offerta
 
 |  **Nome**                    | **Descrizione**                                  |
@@ -97,7 +91,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  NotStarted                  | L'offerta è nuova, ma non è stata attivata.                 |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
-|  Operazione riuscita                   | Invio dell'offerta completato.       |
+|  Operazione completata                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
 |  |  |

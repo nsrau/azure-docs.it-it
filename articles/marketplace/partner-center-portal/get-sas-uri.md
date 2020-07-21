@@ -3,22 +3,22 @@ title: URI di firma di accesso condiviso per le immagini di macchina virtuale - 
 description: Generare un URI di firma di accesso condiviso (SAS) per i dischi rigidi virtuali (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 569d9ce04422230c1d6b9ebb0957f01c320c5ba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121725"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536148"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
 Questo articolo descrive come generare un URI (Uniform Resource Identifier) di firma di accesso condiviso per ogni disco rigido virtuale (VHD).
 
-Durante il processo di pubblicazione, è necessario specificare un URI per ogni disco rigido virtuale associato ai piani. Questi piani sono stati indicati in precedenza come SKU o codice di riferimento del prodotto. Microsoft deve accedere a tali VHD durante il processo di certificazione. Questo URI verrà immesso nella scheda **Piani** del centro per i partner.
+Durante il processo di pubblicazione, è necessario specificare un URI per ogni disco rigido virtuale associato ai piani (in precedenza denominati SKU). Microsoft deve accedere a tali VHD durante il processo di certificazione. Questo URI verrà immesso nella scheda **Piani** del centro per i partner.
 
 Quando si generano gli URI di firma di accesso condiviso per i dischi rigidi virtuali in uso, rispettare i requisiti seguenti:
 
@@ -110,7 +110,7 @@ Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Ripetere questi passaggi per ogni disco rigido virtuale negli SKU che si prevede di pubblicare.
+Ripetere questi passaggi per ogni disco rigido virtuale nei piani che si pubblicheranno.
 
 ## <a name="verify-the-sas-uri"></a>Verificare l'URI di firma di accesso condiviso
 

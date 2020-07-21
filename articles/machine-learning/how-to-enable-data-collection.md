@@ -1,31 +1,34 @@
 ---
 title: Raccogliere i dati per i modelli di produzione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come raccogliere Azure Machine Learning i dati del modello di input nell'archivio BLOB di Azure.
+description: Informazioni su come raccogliere dati da un modello di Azure Machine Learning distribuito
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432988"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536320"
 ---
-# <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
+# <a name="collect-data-from-models-in-production"></a>Raccogliere dati dai modelli nell'ambiente di produzione
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come raccogliere i dati del modello di input da Azure Machine Learning. Viene anche illustrato come distribuire i dati di input in un cluster di Azure Kubernetes Service (AKS) e archiviare i dati di output nell'archivio BLOB di Azure.
+Questo articolo illustra come raccogliere dati da un modello di Azure Machine Learning distribuito in un cluster Azure Kubernetes Service (AKS). I dati raccolti vengono quindi archiviati nell'archivio BLOB di Azure.
 
 Una volta abilitata la raccolta, i dati raccolti consentono di:
 
-* [Monitorare le deviazioni dei dati](how-to-monitor-data-drift.md) quando i dati di produzione entrano nel modello.
+* [Monitorare le deviazioni dei dati](how-to-monitor-datasets.md) nei dati di produzione raccolti.
+
+* Analizzare i dati raccolti usando [Power bi](#powerbi) o [Azure Databricks](#databricks)
 
 * Prendere decisioni migliori su quando ripetere il training del modello o ottimizzarlo.
 
@@ -58,13 +61,13 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree) prima di iniziare.
 
-- È necessario installare un'area di lavoro di AzureMachine Learning, una directory locale che contiene gli script e il Azure Machine Learning SDK per Python. Per informazioni su come installarli, vedere [come configurare un ambiente di sviluppo](how-to-configure-environment.md).
+- È necessario installare un'area di lavoro Azure Machine Learning, una directory locale che contiene gli script e il Azure Machine Learning SDK per Python. Per informazioni su come installarli, vedere [come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
 - È necessario un modello di apprendimento automatico con training da distribuire in AKS. Se non si dispone di un modello, vedere l'esercitazione [Train image classification Model](tutorial-train-models-with-aml.md) .
 
 - È necessario un cluster AKS. Per informazioni su come crearne uno e distribuirlo, vedere [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Configurare l'ambiente](how-to-configure-environment.md) e installare l' [SDK di monitoraggio Azure Machine Learning](https://aka.ms/aml-monitoring-sdk).
+- [Configurare l'ambiente](how-to-configure-environment.md) e installare l' [SDK di monitoraggio Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
 
@@ -74,7 +77,7 @@ Per abilitare la raccolta dei dati, è necessario:
 
 1. Aprire il file di assegnazione dei punteggi.
 
-1. Aggiungere il [codice seguente](https://aka.ms/aml-monitoring-sdk) all'inizio del file:
+1. Aggiungere il codice seguente all'inizio del file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -115,41 +118,10 @@ Per abilitare la raccolta dei dati, è necessario:
 
 1. Per creare una nuova immagine e distribuire il modello di apprendimento automatico, vedere [How to deploy and where](how-to-deploy-and-where.md).
 
-Se si dispone già di un servizio con le dipendenze installate nel file dell'ambiente e nel file di assegnazione dei punteggi, abilitare la raccolta dei dati attenendosi alla procedura seguente:
-
-1. Passare ad [Azure Machine Learning](https://ml.azure.com).
-
-1. Aprire l'area di lavoro.
-
-1. Selezionare **distribuzioni**  >  **selezionare**  >  **modifica**servizio.
-
-   ![Modificare il servizio](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. In **Impostazioni avanzate**selezionare **Abilita Application Insights diagnostica e raccolta dati**.
-
-1. Selezionare **Aggiorna** per applicare le modifiche.
 
 ## <a name="disable-data-collection"></a>Disabilitare la raccolta dei dati
 
-È possibile interrompere la raccolta dati in qualsiasi momento. Usare il codice Python o Azure Machine Learning per disabilitare la raccolta dei dati.
-
-### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Opzione 1: disabilitare la raccolta dati in Azure Machine Learning
-
-1. Accedere ad [Azure Machine Learning](https://ml.azure.com).
-
-1. Aprire l'area di lavoro.
-
-1. Selezionare **distribuzioni**  >  **selezionare**  >  **modifica**servizio.
-
-   [![Selezionare l'opzione modifica](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. In **Impostazioni avanzate**deselezionare **Abilita Application Insights diagnostica e raccolta dati**.
-
-1. Selezionare **Aggiorna** per applicare la modifica.
-
-È anche possibile accedere a queste impostazioni nell'area di lavoro in [Azure Machine Learning](https://ml.azure.com).
-
-### <a name="option-2---use-python-to-disable-data-collection"></a>Opzione 2: usare Python per disabilitare la raccolta dei dati
+È possibile interrompere la raccolta dati in qualsiasi momento. Usare il codice Python per disabilitare la raccolta dei dati.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -162,7 +134,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
 ### <a name="quickly-access-your-blob-data"></a>Accedi rapidamente ai dati BLOB
 
-1. Accedere ad [Azure Machine Learning](https://ml.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Aprire l'area di lavoro.
 
@@ -177,7 +149,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>Analizzare i dati del modello utilizzando Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analizzare i dati del modello utilizzando Power BI
 
 1. Scaricare e aprire [Power bi desktop](https://www.powerbi.com).
 
@@ -213,7 +185,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
 1. Iniziare a creare report personalizzati per i dati del modello.
 
-### <a name="analyze-model-data-using-azure-databricks"></a>Analizzare i dati del modello utilizzando Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analizzare i dati del modello utilizzando Azure Databricks
 
 1. Creare un' [area di lavoro Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
@@ -227,7 +199,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
     [![Creazione della tabella databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Aggiornare il percorso dei dati. Esempio:
+1. Aggiornare il percorso dei dati. Ecco un esempio:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
@@ -237,3 +209,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
     [![Installazione di databricks](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Seguire i passaggi del modello per visualizzare e analizzare i dati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Rilevare la tendenza dei dati](how-to-monitor-datasets.md) nei dati raccolti.

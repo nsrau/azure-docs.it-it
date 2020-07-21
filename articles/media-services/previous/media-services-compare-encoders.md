@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69016645"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530389"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Confronto tra i codificatori multimediali su richiesta di Azure  
 
@@ -34,7 +34,7 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 |---|---|---|
 |Applicazione della logica condizionale durante la codifica<br/>(ad esempio, se l'input è HD viene usata la codifica audio 5.1)|No|Sì|
 |Sottotitoli|No|[Sì](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|No|Sì|
+|[&reg;Correzione della sonorità Dolby Professional](https://professional.dolby.com/product/broadcast/vm600/)<br/> con Dialog Intelligence&trade;|No|Sì|
 |Deinterlacciamento, telecine inverso|Basic|Qualità broadcast|
 |Rilevamento e rimozione dei bordi neri <br/>(formati 4:3, formati 16:9)|No|Sì|
 |Generazione di anteprime|[Sì](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sì](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -52,7 +52,7 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Contenitore di input/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Sì |Sì |
+| &reg;F4V Adobe Flash &reg; |Sì |Sì |
 | MXF/SMPTE 377M |Sì |Sì |
 | GXF |Sì |Sì |
 | MPEG-2 Transport Stream |Sì |Sì |
@@ -73,7 +73,7 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 | Avid DNxHD (in MXF) |Sì |Sì |
 | DVCPro/DVCProHD (in MXF) |Sì |Sì |
 | JPEG2000 |Sì |Sì |
-| MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Fino a 422 Profile |Sì |
+| MPEG-2 (fino a 422 profilo e livello elevato, incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; e D10) |Fino a 422 Profile |Sì |
 | MPEG-1 |Sì |Sì |
 | Windows Media Video/VC-1 |Sì |Sì |
 | Canopus HQ/HQX |No |No |
@@ -91,9 +91,9 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 | Codec audio di input | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |
-| Dolby® E |No |Sì |
-| Dolby® Digital (AC3) |No |Sì |
-| Dolby® Digital Plus (E-AC3) |No |Sì |
+| Dolby &reg; E |No |Sì |
+| Dolby &reg; Digital (AC3) |No |Sì |
+| Dolby &reg; Digital Plus (E-AC3) |No |Sì |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |Sì |
 | MPEG Layer 2 |Sì |Sì |
 | MP3 (MPEG-1 Audio Layer 3) |Sì |Sì |
@@ -106,7 +106,7 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 ## <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
 | Contenitore di output/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
-| Adobe® Flash® F4V |No |Sì |
+| &reg;F4V Adobe Flash &reg; |No |Sì |
 | MXF (OP1a, XDCAM e AS02) |No |Sì |
 | DPP (incluso AS11) |No |Sì |
 | GXF |No |Sì |
@@ -122,7 +122,7 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 | AVC (H.264; 8 bit; fino a High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Solo 4:2:0 a 8 bit |Sì |
 | HEVC (H.265; 8 bit e 10 bit;)  |No |Sì |
 | Avid DNxHD (in MXF) |No |Sì |
-| MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |No |Sì |
+| MPEG-2 (fino a 422 profilo e livello elevato, incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; e D10) |No |Sì |
 | MPEG-1 |No |Sì |
 | Windows Media Video/VC-1 |No |Sì |
 | Creazione anteprime JPEG |Sì |Sì |
@@ -133,15 +133,15 @@ La tabella seguente mette a confronto le funzionalità di Media Encoder Standard
 | Codec audio di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |
-| Dolby® Digital (AC3) |No |Sì |
-| Dolby® Digital Plus (E-AC3) fino a 7.1 |No |Sì |
+| Dolby &reg; Digital (AC3) |No |Sì |
+| Dolby &reg; Digital Plus (E-AC3) fino a 7,1 |No |Sì |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |Sì |
 | MPEG Layer 2 |No |Sì |
 | MP3 (MPEG-1 Audio Layer 3) |No |Sì |
 | Windows Media Audio |No |Sì |
 
 >[!NOTE]
->Se si codifica per Dolby® Digital (AC3), l'output può essere scritto solo in un file ISO MP4.
+>Se si esegue la codifica in Dolby &reg; Digital (AC3), l'output può essere scritto solo in un file MP4 ISO.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

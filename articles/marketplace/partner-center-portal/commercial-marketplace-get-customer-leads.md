@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133440"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535978"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Lead di clienti tramite l'offerta del marketplace commerciale
 
@@ -106,7 +106,7 @@ La risposta dipende dal tipo di offerta che si sta pubblicando. Software as a se
 
 ### <a name="how-can-i-find-the-test-lead"></a>Come si trova il lead di test?
 
-Cercare `"MSFT_TEST"` nella destinazione del lead. Di seguito è riportato un esempio di lead di test di Microsoft:
+Cercare `"MSFT_TEST"` nella destinazione del lead. Di seguito è riportato un esempio di lead di test di Microsoft. Si noti che il formato del lead di test varia a seconda della destinazione principale.
 
 ```
 {
