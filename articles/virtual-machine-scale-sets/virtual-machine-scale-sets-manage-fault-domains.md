@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: f1d8bad3d0d3e73a387bdc76131461e5061bafce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf55c1f7de751f03fb804eb263cf0810a48378e1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263178"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494888"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Scelta del numero corretto dei domini di errore per set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione di zona dei set di scalabilità di macchine virtuali e questa opzione è selezionata, il valore predefinito del numero di domini di errore è 1 per ogni zona. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.
@@ -22,10 +22,10 @@ I set di scalabilità di macchine virtuali vengono creati con cinque domini di e
 È inoltre possibile considerare di allineare il numero di domini di errore del set di scalabilità con il numero di domini di errore di Managed Disks. Questo allineamento consente di evitare la perdita di quorum se un intero dominio di errore di Managed Disks si arresta. Il numero di domini di errore può essere minore o uguale al numero di domini di errore di Managed Disks disponibili in ognuna delle aree. Consultare questo [documento](../virtual-machines/windows/manage-availability.md) per conoscere il numero di domini di errore di Managed Disks per area.
 
 ## <a name="rest-api"></a>API REST
-È possibile impostare la proprietà `properties.platformFaultDomainCount` su 1, 2 o 3 (il valore predefinito è 3 Se non è specificato). La documentazione per questa API REST è disponibile [qui](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+È possibile impostare la proprietà `properties.platformFaultDomainCount` su 1, 2 o 3 (il valore predefinito è 3 Se non è specificato). La documentazione per questa API REST è disponibile [qui](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-È possibile impostare il parametro `--platform-fault-domain-count` su 1, 2 o 3 (se non è specificato, il valore predefinito è 3). La documentazione per l'interfaccia della riga di comando di Azure è disponibile [qui](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
+È possibile impostare il parametro `--platform-fault-domain-count` su 1, 2 o 3 (se non è specificato, il valore predefinito è 3). La documentazione per l'interfaccia della riga di comando di Azure è disponibile [qui](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \

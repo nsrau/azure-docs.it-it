@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887018"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497617"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,7 +81,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 |:--- |:--- |:--- |
 | type | La proprietà Type deve essere impostata su "Dynamics", "DynamicsCrm" o "CommonDataServiceForApps". | Sì |
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Il valore deve essere "online" per Dynamics online. | Sì |
-| serviceUri | URL del servizio dell'istanza di Dynamics. Un esempio è https://adfdynamics.crm.dynamics.com. | Sì |
+| serviceUri | URL del servizio dell'istanza di Dynamics. Un esempio è https://www.crmdynamics.com. | Sì |
 | authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. I valori validi sono "AADServicePrincipal" e "Office365". | Sì |
 | servicePrincipalId | ID client dell'applicazione Azure AD. | Sì quando l'autenticazione è "AADServicePrincipal" |
 | servicePrincipalCredentialType | Tipo di credenziale da usare per l'autenticazione dell'entità servizio. I valori validi sono "ServicePrincipalKey" e "ServicePrincipalCert". | Sì quando l'autenticazione è "AADServicePrincipal" |
@@ -102,7 +102,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -378,21 +378,21 @@ Configurare il tipo di dati Data Factory corrispondente in una struttura di Data
 | Tipo di dati di Dynamics | Tipo di dati provvisorio di Data Factory | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Booleano | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ (Vedere le [linee guida](#writing-data-to-a-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | string | ✓ | ✓ |
+| AttributeType.EntityName | Stringa | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (Vedere le [linee guida](#writing-data-to-a-lookup-field)) |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | string | ✓ | ✓ |
+| AttributeType.ManagedProperty | Booleano | ✓ | |
+| AttributeType.Memo | Stringa | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ (Vedere le [linee guida](#writing-data-to-a-lookup-field)) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | string | ✓ | ✓ |
+| AttributeType.String | Stringa | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

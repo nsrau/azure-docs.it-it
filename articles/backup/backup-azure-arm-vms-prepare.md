@@ -3,11 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727013"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497931"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -66,10 +67,10 @@ Dopo la creazione, l'insieme di credenziali viene visualizzato nell'elenco degli
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
-Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md).
 
 * Se l'insieme di credenziali rappresenta il meccanismo principale di backup, è consigliabile usare l'archiviazione con ridondanza geografica.
-* Per un'opzione più economica, è possibile usare l'[archiviazione con ridondanza locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* Per un'opzione più economica, è possibile usare l'[archiviazione con ridondanza locale](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json).
 
 Modificare il tipo di replica di archiviazione nel modo seguente:
 
@@ -188,7 +189,7 @@ Backup di Azure esegue il backup di macchine virtuali di Azure tramite l'install
 **VM** | **Dettagli**
 --- | ---
 **Windows** | 1. [Scaricare e installare](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) il file MSI per l'agente.<br/><br/> 2. Eseguire l'installazione sul computer con autorizzazioni di amministratore.<br/><br/> 3. Verificare l'installazione. In *C:\WindowsAzure\Packages* nella macchina virtuale fare clic con il pulsante destro del mouse su **WaAppAgent.exe** > **Proprietà**. Nella scheda **Dettagli** **Versione prodotto** deve corrispondere alla versione 2.6.1198.718 o successiva.<br/><br/> Se si sta aggiornando l'agente, assicurarsi che non sia in esecuzione alcuna operazione di backup e [reinstallare l'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Installare usando un pacchetto RPM o DEB dal repository dei pacchetti della distribuzione. Questo è il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure. Tutti i [provider di distribuzione supportati](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository. L'agente è disponibile in [GitHub](https://github.com/Azure/WALinuxAgent), ma non è consigliabile installarlo direttamente da questa posizione.<br/><br/> Se si sta aggiornando l'agente, assicurarsi che non sia in esecuzione alcuna operazione di backup e aggiornare i file binari.
+**Linux** | Installare usando un pacchetto RPM o DEB dal repository dei pacchetti della distribuzione. Questo è il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure. Tutti i [provider di distribuzione supportati](../virtual-machines/linux/endorsed-distros.md) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository. L'agente è disponibile in [GitHub](https://github.com/Azure/WALinuxAgent), ma non è consigliabile installarlo direttamente da questa posizione.<br/><br/> Se si sta aggiornando l'agente, assicurarsi che non sia in esecuzione alcuna operazione di backup e aggiornare i file binari.
 
 >[!NOTE]
 > **Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.**

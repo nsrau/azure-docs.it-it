@@ -2,12 +2,13 @@
 title: Come aggiornare monitoraggio di Azure per i contenitori per le metriche | Microsoft Docs
 description: Questo articolo descrive come aggiornare monitoraggio di Azure per i contenitori per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi sulle metriche aggregate.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498985"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare Monitoraggio di Azure per contenitori per abilitare le metriche
 
@@ -21,21 +22,23 @@ Come parte di questa funzionalità sono abilitate le metriche seguenti:
 
 | Spazio dei nomi delle metriche | Metrica | Descrizione |
 |------------------|--------|-------------|
-| Insights. contenitore/nodi | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
-| Insights. container/Pod | podCount | Si tratta di metriche *Pod* e includono le seguenti dimensioni: controllerName, spazio dei nomi Kubernetes, nome, fase. |
+| Insights. contenitore/nodi | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Come metrica del *nodo* , includono *host* come dimensione. Includono anche il<br> nome del nodo come valore per la dimensione *host* . |
+| Insights. container/Pod | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Come metrica *Pod* , includono quanto segue come Dimensions: controllerName, spazio dei nomi Kubernetes, nome, fase. |
+| Insights. contenitore/contenitori | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-L'aggiornamento del cluster per supportare queste nuove funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando, è possibile abilitare questo per cluster o per tutti i cluster nella sottoscrizione. Nuove distribuzioni di AKS includeranno automaticamente questa modifica e funzionalità di configurazione.
+Per supportare queste nuove funzionalità, un nuovo agente in contenitori, versione **Microsoft/OMS: ciprod02212019**, è incluso nella versione. Le nuove distribuzioni di AKS includono automaticamente questa modifica di configurazione e le funzionalità. L'aggiornamento del cluster per supportare questa funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando. È possibile abilitare questa operazione per cluster o per tutti i cluster nella sottoscrizione.
 
-Entrambi i processi assegnano il ruolo **server di pubblicazione metriche di monitoraggio** all'entità servizio del cluster o all'identità del servizio gestito assegnata dall'utente per il componente aggiuntivo di monitoraggio, in modo che i dati raccolti dall'agente possano essere pubblicati nella risorsa cluster. Il monitoraggio del server di pubblicazione ha l'autorizzazione solo per le metriche push alla risorsa, non può modificare alcuno stato, aggiornare la risorsa o leggere i dati. Per ulteriori informazioni sul ruolo, vedere [monitoraggio delle metriche del ruolo di pubblicazione](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Entrambi i processi assegnano il ruolo **server di pubblicazione metriche di monitoraggio** all'entità servizio del cluster o all'identità del servizio gestito assegnata dall'utente per il componente aggiuntivo di monitoraggio, in modo che i dati raccolti dall'agente possano essere pubblicati nella risorsa cluster. Il monitoraggio del server di pubblicazione ha l'autorizzazione solo per le metriche push alla risorsa, non può modificare alcuno stato, aggiornare la risorsa o leggere i dati. Per altre informazioni sul ruolo, vedere [monitoraggio delle metriche del ruolo di pubblicazione](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare quanto segue:
+Prima di aggiornare il cluster, verificare quanto segue:
 
 * Le metriche personalizzate sono disponibili solo in un subset di aree di Azure. Un elenco di aree supportate è documentato [qui](../platform/metrics-custom-overview.md#supported-regions).
-* Si è un membro del ruolo **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** sulla risorsa del cluster AKS per abilitare la raccolta delle metriche delle prestazioni personalizzate del nodo e del Pod. 
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Si è un membro del ruolo **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** sulla risorsa del cluster AKS per abilitare la raccolta delle metriche delle prestazioni personalizzate del nodo e del Pod.
+
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Aggiornare un cluster dalla portale di Azure
 
@@ -121,4 +124,4 @@ Eseguire la procedura seguente per aggiornare un cluster specifico usando Azure 
 
 ## <a name="verify-update"></a>Verifica aggiornamento
 
-Dopo aver avviato l'aggiornamento usando uno dei metodi descritti in precedenza, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile procedere e iniziare a impostare gli avvisi delle [metriche](../platform/alerts-metric.md) o aggiungere i grafici ai [Dashboard](../../azure-portal/azure-portal-dashboards.md).  
+Dopo aver avviato l'aggiornamento usando uno dei metodi descritti in precedenza, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile iniziare a configurare gli avvisi delle [metriche](../platform/alerts-metric.md) o aggiungere i grafici ai [Dashboard](../../azure-portal/azure-portal-dashboards.md).  

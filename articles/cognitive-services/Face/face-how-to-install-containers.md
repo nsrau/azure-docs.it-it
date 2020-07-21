@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497880"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire i contenitori viso (anteprima)
+
+> [!IMPORTANT]
+> È stato raggiunto il limite per gli utenti del contenitore delle facce. Attualmente non vengono accettate nuove applicazioni per il contenitore di visi.
 
 Il volto dei servizi cognitivi di Azure fornisce un contenitore Linux standardizzato per Docker che rileva i visi umani nelle immagini. Consente inoltre di identificare gli attributi, che includono i punti di interesse del viso, ad esempio nasi e occhi, sesso, età e altre funzionalità facciali stimate dal computer. Oltre al rilevamento, il volto può verificare se due facce nella stessa immagine o immagini diverse sono uguali usando un punteggio di confidenza. La faccia può inoltre confrontare i visi con un database per verificare se esiste già una faccia simile o identica. Consente anche di organizzare visi simili in gruppi usando tratti visivi condivisi.
 
@@ -28,19 +31,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori del servizio Face.
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, repository, contenitori e immagini del contenitore. È anche necessario conoscere i comandi di base `docker` .| 
 |Risorsa Face |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **Face** di Azure e la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine **Panoramica** e **chiavi** per la risorsa. È necessario avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
-
-Compilare e inviare il [modulo di richiesta](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore. 
-
-[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>Computer host
 
@@ -63,7 +60,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Sono disponibili le immagini del contenitore per il servizio Face. 
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -111,11 +108,11 @@ Sono disponibili altri [esempi](./face-resource-container-config.md#example-dock
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
+## <a name="query-the-containers-prediction-endpoint"></a>Eseguire una query sull'endpoint di stima del contenitore
 
-Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
+Il contenitore fornisce le API dell'endpoint di stima della query basata su REST. 
 
-Usare l'host, `http://localhost:5000`, per le API del contenitore.
+Usare l'host `http://localhost:5000` per le API del contenitore.
 
 
 <!--  ## Validate container is running -->
@@ -144,7 +141,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./f
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di servizi viso. In sintesi:
 

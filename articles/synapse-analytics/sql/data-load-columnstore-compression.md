@@ -1,5 +1,5 @@
 ---
-title: Migliorare le prestazioni degli indici columnstore
+title: Migliorare le prestazioni dell'indice columnstore (anteprima aree di lavoro)
 description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431033"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495483"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Ottimizzazione della qualità rowgroup per le prestazioni degli indici columnstore
 
 La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Aumentando la memoria disponibile è possibile massimizzare il numero di righe che un indice columnstore comprime in ogni rowgroup.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
 

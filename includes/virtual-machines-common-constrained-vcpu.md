@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed1341a323d947441fa2cb3c239fcdf99c447a97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494488"
 ---
 Alcuni carichi di lavoro di database, ad esempio SQL Server o Oracle, richiedono un utilizzo elevato di memoria, spazio di archiviazione e larghezza di banda di I/O, ma non un numero elevato di core. Molti carichi di lavoro di database non sono a elevato utilizzo di CPU. Azure offre alcune dimensioni di macchina virtuale in cui è possibile limitare il numero di vCPU per ridurre i costi relativi alle licenze software, mantenendo la stessa memoria, archiviazione e larghezza di banda di I/O.
 
@@ -74,3 +74,5 @@ I costi di licenza addebitati per SQL Server o Oracle sono vincolati al nuovo nu
 | Standard_DS13-2_v2  | 2    | Come DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Come DS14_v2 |
 | Standard_DS14-4_v2  | 4    | Come DS14_v2 |
+| Standard_M416 208s_v2 | 208    | Uguale a M416s_v2|
+| Standard_M416 208ms_v2 | 208    | Uguale a M416ms_v2 |

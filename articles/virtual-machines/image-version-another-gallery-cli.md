@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f1e3598f2a805dfc2ebf92395db6b7bf6b0b147a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224333"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494684"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiare un'immagine da un'altra raccolta usando l'interfaccia della riga di comando di Azure
 
@@ -154,7 +154,7 @@ az sig image-version create \
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `--storage-account-type  premium_lrs`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `--storage-account-type  standard_zrs`.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `--storage-account-type  premium_lrs`, oppure nell'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md), aggiungendo `--storage-account-type  standard_zrs`.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494514"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Disabilitare o rimuovere l'agente Linux da macchine virtuali e immagini
 
 Prima di rimuovere l'agente Linux, è necessario comprendere quale macchina virtuale non sarà in grado di eseguire dopo la rimozione dell'agente Linux.
 
-Le [estensioni](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) delle macchine virtuali (VM) di Azure sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure, le estensioni vengono installate e gestite dal piano di controllo di Azure. È compito dell' [agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) elaborare i comandi dell'estensione della piattaforma e garantire lo stato corretto dell'estensione all'interno della macchina virtuale.
+Le [estensioni](../extensions/overview.md) delle macchine virtuali (VM) di Azure sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure, le estensioni vengono installate e gestite dal piano di controllo di Azure. È compito dell' [agente Linux di Azure](../extensions/agent-linux.md) elaborare i comandi dell'estensione della piattaforma e garantire lo stato corretto dell'estensione all'interno della macchina virtuale.
 
 La piattaforma Azure ospita diverse estensioni, tra cui applicazioni di utilità, sicurezza, monitoraggio e configurazione delle VM. È disponibile un'ampia scelta di estensioni per prima e di terze parti, esempi di scenari principali per cui vengono usate le estensioni:
 * Supporto dei servizi di Azure di terze parti, ad esempio backup di Azure, monitoraggio, crittografia del disco, sicurezza, replica del sito e altro.
@@ -31,7 +31,7 @@ La piattaforma Azure ospita diverse estensioni, tra cui applicazioni di utilità
 
 ## <a name="disabling-extension-processing"></a>Disabilitazione dell'elaborazione delle estensioni
 
-Esistono diversi modi per disabilitare l'elaborazione dell'estensione, a seconda delle esigenze, ma prima di continuare è **necessario** rimuovere tutte le estensioni distribuite nella macchina virtuale, ad esempio usando AZ CLI, è possibile [elencare](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) ed [eliminare](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+Esistono diversi modi per disabilitare l'elaborazione dell'estensione, a seconda delle esigenze, ma prima di continuare è **necessario** rimuovere tutte le estensioni distribuite nella macchina virtuale, ad esempio usando AZ CLI, è possibile [elencare](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) ed [eliminare](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ Quando si crea la VM dall'immagine senza agente Linux, è necessario assicurarsi
 > 
 > Se non si esegue questa operazione, la piattaforma tenterà di inviare la configurazione dell'estensione e il timeout dopo 40min.
 
-Per distribuire la VM con le estensioni disabilitate, è possibile usare l'interfaccia della riga di comando di Azure con [--enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Per distribuire la VM con le estensioni disabilitate, è possibile usare l'interfaccia della riga di comando di Azure con [--enable-agent](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481783"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494667"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
@@ -98,7 +98,7 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Ana
 \* Nell'API di Log Analytics, workspaceId è denominato consumerId.
 
 > [!NOTE]
-> Per altre proprietà, vedere [connettere i computer Windows a monitoraggio di](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)Azure.
+> Per altre proprietà, vedere [connettere i computer Windows a monitoraggio di](../../azure-monitor/platform/agent-windows.md)Azure.
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 

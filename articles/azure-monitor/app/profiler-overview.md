@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671648"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499393"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Abilitare Application Insights Profiler per l'applicazione
@@ -29,7 +30,7 @@ Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Gu
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati di Profiler
 
-Perché Profiler possa caricare analisi, l'applicazione deve gestire attivamente le richieste. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, selezionare il pulsante **Profila ora** nel riquadro [**Impostazioni di Profiler**](profiler-settings.md). Mentre è in esecuzione, Profiler esegue la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, Profiler carica analisi ogni ora.
+Perché Profiler possa caricare analisi, l'applicazione deve gestire attivamente le richieste. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, selezionare il pulsante **Profila ora** nel riquadro [**Impostazioni di Profiler**](profiler-settings.md). Mentre è in esecuzione, Profiler esegue la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, Profiler carica analisi ogni ora.
 
 Se l'applicazione riceve traffico e Profiler ha avuto tempo sufficiente per caricare le analisi, queste ultime vengono visualizzate. Il processo potrebbe richiedere da 5 a 10 minuti. Per visualizzare le analisi, nel riquadro **Prestazioni** selezionare **Take Actions** (Esegui azioni) per visualizzare le analisi del profiler e quindi selezionare il pulsante **Profiler Traces** (Analisi di Profiler).
 

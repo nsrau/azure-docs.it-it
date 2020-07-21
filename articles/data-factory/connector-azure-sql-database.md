@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: d3fe5257b3db2057e805d2f2cd0c6e2a2973e211
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/15/2020
+ms.openlocfilehash: 424f858fff0ad050286122fcbbd03fdef78c11f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223058"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497710"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -81,7 +81,7 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 
 ### <a name="sql-authentication"></a>Autenticazione SQL
 
-#### <a name="linked-service-example-that-uses-sql-authentication"></a>Esempio di servizio collegato tramite l'autenticazione SQL
+**Esempio: uso dell'autenticazione SQL**
 
 ```json
 {
@@ -99,7 +99,7 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 }
 ```
 
-**Password in Azure Key Vault**
+**Esempio: password in Azure Key Vault**
 
 ```json
 {
@@ -368,7 +368,7 @@ Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attivi
 |:--- |:--- |:--- |
 | type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **AzureSqlSink**. Il tipo "sqlsink" è ancora supportato per la compatibilità con le versioni precedenti. | Sì |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database SQL di Azure. Viene richiamata solo una volta per ogni esecuzione della copia. Usare questa proprietà per pulire i dati precaricati. | No |
-| tableOption | Specifica se creare automaticamente la tabella di sink, se non esiste, in base allo schema di origine. <br>La creazione automatica della tabella non è supportata quando il sink specifica stored procedure o la copia temporanea è configurata nell'attività di copia. <br>I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. | No |
+| tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. <br>La creazione automatica della tabella non è supportata quando il sink specifica stored procedure o la copia temporanea è configurata nell'attività di copia. <br>I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. | No |
 | sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. <br/>Questa stored procedure viene *richiamata per batch*. Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con i dati di origine, ad esempio DELETE o TRUNCATE, usare la `preCopyScript` Proprietà.<br>Vedere l'esempio da [richiamare un stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |Nome del parametro del tipo di tabella specificato nell'stored procedure.  |No |
 | sqlWriterTableType |Nome del tipo di tabella da utilizzare nel stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. |No |
@@ -634,7 +634,7 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| testo |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Byte |

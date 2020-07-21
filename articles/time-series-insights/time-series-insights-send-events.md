@@ -5,19 +5,20 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037291"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495075"
 ---
-# <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
+# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Azure Time Series Insights Gen1 usando un hub eventi
 
 Questo articolo illustra come creare e configurare un hub eventi in hub eventi di Azure. Viene inoltre descritto come eseguire un'applicazione di esempio per effettuare il push degli eventi Azure Time Series Insights da Hub eventi. Se è presente un hub eventi con eventi in formato JSON, ignorare questa esercitazione e visualizzare l'ambiente in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -37,10 +38,10 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
     [![Creare un gruppo di consumer](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-1. Assicurarsi di creare un gruppo di consumer usato esclusivamente dall'origine evento Time Series Insights.
+1. Assicurarsi di creare un gruppo di consumer usato esclusivamente dall'origine evento Azure Time Series Insights.
 
     > [!IMPORTANT]
-    > Assicurarsi che questo gruppo di consumer non venga usato da altri servizi, ad esempio un processo di analisi di flusso di Azure o un altro ambiente Time Series Insights. Se il gruppo di consumer viene usato da altri servizi, le operazioni di lettura sono compromesse negativamente per questo ambiente e per altri servizi. Se si usa **$Default** come gruppo di consumer, altri lettori potrebbero potenzialmente usare nuovamente il gruppo di consumer.
+    > Assicurarsi che questo gruppo di consumer non venga usato da altri servizi, ad esempio un processo di analisi di flusso di Azure o un altro ambiente Azure Time Series Insights. Se il gruppo di consumer viene usato da altri servizi, le operazioni di lettura sono compromesse negativamente per questo ambiente e per altri servizi. Se si usa **$Default** come gruppo di consumer, altri lettori potrebbero potenzialmente usare nuovamente il gruppo di consumer.
 
 1. Nel menu, in **Impostazioni**, selezionare **criteri di accesso condiviso**, quindi selezionare **Aggiungi**.
 
@@ -52,11 +53,11 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
 1. In **Claim (attestazione**) selezionare la casella di controllo **Send (Invia** ).
 
-## <a name="add-a-time-series-insights-instance"></a>Aggiungere un'istanza di Time Series Insights
+## <a name="add-an-azure-time-series-insights-instance"></a>Aggiungere un'istanza di Azure Time Series Insights
 
-L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati contestuali ai dati di telemetria in ingresso. I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo articolo è `id` . Per ulteriori informazioni sulle istanze di Time Series Insight e sull' **ID della serie**temporale, vedere [modelli Time Series](./concepts-model-overview.md).
+In Azure Time Series Insights generazione 2 è possibile aggiungere dati contestuali ai dati di telemetria in ingresso usando il modello Time Series (TSM). In TSM i tag o i segnali vengono indicati come *istanze* ed è possibile archiviare i dati contestuali nei campi di *istanza.* I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo articolo è `id` . Per ulteriori informazioni sull'archiviazione dei dati nei campi di istanza, vedere Cenni preliminari sul [modello Time Series](./concepts-model-overview.md) .
 
-### <a name="create-a-time-series-insights-event-source"></a>Creare un'origine evento di Time Series Insights
+### <a name="create-a-azure-time-series-insights-event-source"></a>Creare un'origine evento Azure Time Series Insights
 
 1. Completare i passaggi per [creare un'origine evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) se non ne è stata ancora creata una.
 
@@ -80,7 +81,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 1. Selezionare **Click to start** (Fare clic per avviare). 
 
     > [!TIP]
-    > Il simulatore Windmill crea anche JSON che è possibile usare come payload con le [API di query di Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > Il simulatore Windmill crea anche JSON che è possibile usare come payload con le [API di query di Azure Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
 
     > [!NOTE]
     > Il simulatore continuerà a inviare i dati finché la scheda del browser non verrà chiusa.
@@ -197,11 +198,11 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
     |posizione|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressione|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare l'ambiente](https://insights.timeseries.azure.com) in Esplora Time Series Insights.
+- [Visualizzare l'ambiente](https://insights.timeseries.azure.com) in Esplora Azure Time Series Insights.
 
 - Scopri di più sui [messaggi dei dispositivi dell'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) Internet

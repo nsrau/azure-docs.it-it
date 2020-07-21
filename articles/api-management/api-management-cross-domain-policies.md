@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499614"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -57,7 +57,7 @@ Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Fl
 |----------|-----------------|--------------|
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
@@ -67,6 +67,8 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 
 CORS permette a un browser e a un server di interagire e di determinare se permettere o meno richieste specifiche con origini diverse, ad esempio chiamate XMLHttpRequests effettuate da JavaScript in una pagina Web in altri domini. Ciò offre una maggiore flessibilità rispetto a permettere solo richieste con la stessa origine e una maggiore sicurezza rispetto a permettere tutte le richieste con origini diverse.
+
+È necessario applicare il criterio CORS per abilitare la console interattiva nel portale per sviluppatori. Per informazioni dettagliate, vedere la [documentazione del portale per sviluppatori](./api-management-howto-developer-portal.md#cors) .
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -128,10 +130,10 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
 |origin|Il valore può essere `*` per consentire tutte le origini oppure un URI che specifichi una singola origine. L'URI deve includere uno schema, un host e una porta.|Sì|Se la porta viene omessa in un URI, vengono utilizzate la porta 80 per HTTP e la porta 443 per HTTPS.|
 |allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati. Il valore `*` indica tutti i metodi.|No|Se questa sezione non è presente, sono supportati i metodi GET e POST.|
-|method|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/A|
-|allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No|N/A|
+|method|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|
+|allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No|N/D|
 |expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No|N/D|
-|header|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/A|
+|header|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|
 
 ### <a name="attributes"></a>Attributi
 
@@ -140,7 +142,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |allow-credentials|L' `Access-Control-Allow-Credentials` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
 |preflight-result-max-age|L' `Access-Control-Max-Age` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
@@ -177,7 +179,7 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** in uscita

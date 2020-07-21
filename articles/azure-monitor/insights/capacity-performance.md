@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499546"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacità e prestazioni (deprecata)
 
@@ -43,7 +44,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
 | [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
-| [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Archiviazione di Azure non include dati di capacità e prestazioni.|
+| [Account di archiviazione di Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -108,7 +109,7 @@ Fare clic sul riquadro Capacity and Performance per aprire il dashboard Capacity
 
 Gli ambienti di elaborazione di produzione sono molto diversi da un'organizzazione all'altra. Anche i carichi di lavoro di capacità e prestazioni possono dipendere da come vengono eseguite le VM e da che cosa si considera normale. È probabile che specifiche procedure per misurare le prestazioni non si applichino a tutti gli ambienti. Per questo è meglio presentare indicazioni prescrittive più generiche. Microsoft pubblica svariati articoli con indicazioni prescrittive che consentono di misurare le prestazioni.
 
-In sintesi, la soluzione raccogli i dati su capacità e prestazioni da svariate origini, inclusi i contatori delle prestazioni. Usare tali dati su capacità e prestazioni che vengono presentati in diverse superfici della soluzione e confrontare i risultati con quelli dell'articolo [Measuring Performance on Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) (Misurazione delle prestazioni in Hyper-V). Anche se la pubblicazione dell'articolo non è recente, le metriche, le considerazioni e le linee guida sono ancora valide. L'articolo contiene collegamenti ad altre risorse utili.
+In sintesi, la soluzione raccogli i dati su capacità e prestazioni da svariate origini, inclusi i contatori delle prestazioni. Usare tali dati su capacità e prestazioni che vengono presentati in diverse superfici della soluzione e confrontare i risultati con quelli dell'articolo [Measuring Performance on Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=56495) (Misurazione delle prestazioni in Hyper-V). Anche se la pubblicazione dell'articolo non è recente, le metriche, le considerazioni e le linee guida sono ancora valide. L'articolo contiene collegamenti ad altre risorse utili.
 
 
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio

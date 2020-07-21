@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498594"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -39,6 +40,8 @@ Le [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md) sono do
 I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecnologia principale per la gestione di dashboard per Azure. Sono particolarmente utili poiché forniscono un unico riquadro di monitoraggio dell'infrastruttura e dei servizi di Azure per identificare rapidamente i problemi importanti.
 
 ![Dashboard](media/visualizations/dashboard.png)
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantaggi
 - Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762905"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499866"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
@@ -28,7 +28,7 @@ Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard) (
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo documento presuppongono che sia stato creato un cluster AKS e che sia stata stabilita una `kubectl` connessione con il cluster. Se è necessario creare un cluster del servizio Azure Kubernetes, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
+I passaggi descritti in questo documento presuppongono che sia stato creato un cluster AKS e che sia stata stabilita una `kubectl` connessione con il cluster. Se è necessario creare un cluster AKS, vedere [Guida introduttiva: distribuire un cluster del servizio Azure Kubernetes usando l'interfaccia della][aks-quickstart]riga di comando di Azure.
 
 È necessaria anche l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 

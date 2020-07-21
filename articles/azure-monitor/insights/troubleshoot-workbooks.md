@@ -6,12 +6,12 @@ ms.author: mbullwin
 author: mrbullwinkle
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: c903855dd7a550cfeef845d9c176e7ce7806a0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946938"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498713"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Risoluzione dei problemi relativi alle informazioni dettagliate basate sulla cartella di lavoro
 
@@ -72,4 +72,4 @@ Per modificare il nome di un passaggio nella cartella di lavoro salvata, selezio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle cartelle di lavoro degli scenari, vedere [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview), come creare nuovi report esistenti e personalizzarli.
+Per altre informazioni sulle cartelle di lavoro degli scenari, vedere [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](../platform/workbooks-overview.md), come creare nuovi report esistenti e personalizzarli.

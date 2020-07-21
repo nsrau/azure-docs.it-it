@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80398225"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497081"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -66,7 +66,13 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
     cd  
     ```
 
-6. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
+6. Eseguire il comando seguente. In questo modo si connette un account autenticato da usare per le richieste di Azure AD
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
     ```
 
-7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
+8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
     ```
 
-8. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
+9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrare i dati del dispositivo usando le credenziali generate
 

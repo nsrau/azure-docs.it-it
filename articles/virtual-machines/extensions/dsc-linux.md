@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698513"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494786"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 DSC (Desired state Configuration) è una piattaforma di gestione che è possibile usare per gestire l'infrastruttura IT e di sviluppo con la configurazione come codice.
 
 > [!NOTE]
-> L'estensione DSC per Linux e l' [estensione della macchina virtuale di monitoraggio di Azure per Linux](/azure/virtual-machines/extensions/oms-linux) attualmente presentano un conflitto e non sono supportati in una configurazione side-by-side. Non usare le due soluzioni insieme nella stessa VM.
+> L'estensione DSC per Linux e l' [estensione della macchina virtuale di monitoraggio di Azure per Linux](./oms-linux.md) attualmente presentano un conflitto e non sono supportati in una configurazione side-by-side. Non usare le due soluzioni insieme nella stessa VM.
 
 L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMI e DSC nelle macchine virtuali di Azure. L'estensione DSC può anche eseguire le azioni seguenti:
 
@@ -41,7 +42,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](/azure/virtual-machines/linux/endorsed-distros) tranne:
+L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](../linux/endorsed-distros.md) tranne:
 
 | Distribuzione | Versione |
 |---|---|

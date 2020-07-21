@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536439"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496180"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -73,15 +74,15 @@ Per Sincronizzazione file di Azure, le prestazioni sono critiche in due fasi:
 
 Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di seguito vengono presentati i risultati osservati durante i test interni su un sistema con una configurazione specifica
 
-| Configurazione del sistema |  |
+| Configurazione del sistema | Dettagli |
 |-|-|
 | CPU | 64 core virtuali con cache L3 da 64 MiB |
-| Memory | 128 GiB |
+| Memoria | 128 GiB |
 | Disco | Dischi SAS con RAID 10 con cache supportata da batteria |
 | Rete | Rete a 1 Gbps |
 | Carico di lavoro | File server per utilizzo generico|
 
-| Provisioning monouso iniziale  |  |
+| Provisioning monouso iniziale  | Dettagli |
 |-|-|
 | Numero di oggetti | 25 milioni di oggetti |
 | Dimensioni del set di dati| ~ 4,7 TiB |
@@ -91,7 +92,7 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 
 * Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
 
-| Sincronizzazione continua  |   |
+| Sincronizzazione continua  | Dettagli  |
 |-|--|
 | Numero di oggetti sincronizzati| 125.000 oggetti (circa 1% di varianza) |
 | Dimensioni del set di dati| 50 GiB |

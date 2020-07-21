@@ -1,5 +1,5 @@
 ---
-title: Creazione e aggiornamento delle statistiche
+title: Creare e aggiornare le statistiche nelle tabelle con SQL sinapsi di Azure
 description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495636"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Statistiche delle tabelle nel pool SQL sinapsi
 

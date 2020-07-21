@@ -1,21 +1,23 @@
 ---
 title: Gestire e aggiornare la cache HPC di Azure
-description: Come gestire e aggiornare la cache HPC di Azure con la portale di Azure
+description: Come gestire e aggiornare la cache HPC di Azure con il portale di Azure o l'interfaccia della riga di comando di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497225"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Gestire la cache dalla portale di Azure
+# <a name="manage-your-cache"></a>Gestire la cache
 
 La pagina Panoramica della cache nel portale di Azure Mostra i dettagli del progetto, lo stato della cache e le statistiche di base per la cache. Dispone inoltre di controlli per arrestare o avviare la cache, eliminare la cache, svuotare i dati nell'archiviazione a lungo termine e aggiornare il software.
+
+Questo articolo illustra anche come eseguire queste attività di base con l'interfaccia della riga di comando di Azure.
 
 Per aprire la pagina Panoramica, selezionare la risorsa della cache nell'portale di Azure. Ad esempio, caricare la pagina **tutte le risorse** e fare clic sul nome della cache.
 
@@ -23,7 +25,7 @@ Per aprire la pagina Panoramica, selezionare la risorsa della cache nell'portale
 
 I pulsanti nella parte superiore della pagina possono essere utili per gestire la cache:
 
-* **Avvio** e [**arresto**](#stop-the-cache) -sospende l'operazione cache
+* **Avvia** e [**Arresta**](#stop-the-cache) -riprende o sospende l'operazione di cache
 * [**Flush**](#flush-cached-data) -scrive i dati modificati nelle destinazioni di archiviazione
 * [**Aggiornamento**](#upgrade-cache-software) : aggiorna il software della cache
 * **Aggiorna** -ricarica la pagina Panoramica
@@ -41,6 +43,8 @@ Fare clic sull'immagine seguente per guardare un [video](https://azure.microsoft
 
 Una cache arrestata non risponde alle richieste del client. Prima di arrestare la cache, è necessario smontare i client.
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 Il pulsante **Arresta** sospende una cache attiva. Il pulsante **Interrompi** è disponibile quando lo stato di una cache è **integro** o **danneggiato**.
 
 ![screenshot dei pulsanti principali con l'arresto evidenziato e un messaggio popup che descrive l'azione di arresto e la richiesta di continuare? con Sì (impostazione predefinita) e nessun pulsante](media/stop-cache.png)
@@ -51,6 +55,42 @@ Per riattivare una cache arrestata, fare clic sul pulsante **Avvia** . Non è ne
 
 ![screenshot dei pulsanti principali con inizio evidenziato](media/start-cache.png)
 
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Sospendere temporaneamente una cache con il comando [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Questa azione è valida solo quando lo stato di una cache è **integro** o **danneggiato**.
+
+La cache Scarica automaticamente il contenuto nelle destinazioni di archiviazione prima di arrestarsi. Questo processo potrebbe richiedere del tempo, ma garantisce la coerenza dei dati.
+
+Al termine dell'azione, lo stato della cache diventa **arrestato**.
+
+Riattivare una cache arrestata con [AZ HPC-cache Start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+Quando si esegue il comando avvia o Interrompi, la riga di comando Mostra un messaggio di stato "in esecuzione" fino al completamento dell'operazione.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+Al termine, il messaggio viene aggiornato a "completato" e Mostra i codici restituiti e altre informazioni.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
+
 ## <a name="flush-cached-data"></a>Scarica dati memorizzati nella cache
 
 Il pulsante **Scarica** nella pagina Panoramica indica alla cache di scrivere immediatamente tutti i dati modificati archiviati nella cache nelle destinazioni di archiviazione back-end. La cache Salva regolarmente i dati nelle destinazioni di archiviazione, pertanto non è necessario eseguire questa operazione manualmente, a meno che non si voglia assicurarsi che il sistema di archiviazione back-end sia aggiornato. Ad esempio, è possibile usare **Flush** prima di acquisire uno snapshot di archiviazione o di controllare le dimensioni del set di dati.
@@ -58,13 +98,47 @@ Il pulsante **Scarica** nella pagina Panoramica indica alla cache di scrivere im
 > [!NOTE]
 > Durante il processo di scaricamento, la cache non può gestire le richieste dei client. L'accesso alla cache viene sospeso e riprende al termine dell'operazione.
 
-![screenshot dei pulsanti principali con lo scaricamento evidenziato e un messaggio popup che descrive l'azione di scaricamento e la richiesta di "continuare?" con Sì (impostazione predefinita) e nessun pulsante](media/hpc-cache-flush.png)
-
 Quando si avvia l'operazione di scaricamento della cache, la cache interrompe l'accettazione delle richieste client e lo stato della cache nella pagina panoramica viene modificato in **svuotamento**.
 
 I dati nella cache vengono salvati nelle destinazioni di archiviazione appropriate. A seconda della quantità di dati che devono essere scaricati, il processo può richiedere alcuni minuti o più di un'ora.
 
 Dopo che tutti i dati sono stati salvati in destinazioni di archiviazione, la cache avvia automaticamente le richieste dei client. Lo stato della cache torna a **integro**.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Per svuotare la cache, fare clic sul pulsante **Scarica** e quindi fare clic su **Sì** per confermare l'azione.
+
+![screenshot dei pulsanti principali con lo scaricamento evidenziato e un messaggio popup che descrive l'azione di scaricamento e la richiesta di "continuare?" con Sì (impostazione predefinita) e nessun pulsante](media/hpc-cache-flush.png)
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Usare [AZ HPC-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) per forzare la scrittura di tutti i dati modificati nelle destinazioni di archiviazione da parte della cache.
+
+Esempio:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+Al termine dello svuotamento, viene restituito un messaggio di operazione completata.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="upgrade-cache-software"></a>Aggiornamento del software della cache
 
@@ -80,7 +154,48 @@ Quando è disponibile un aggiornamento software, è necessario disporre di una s
 
 Se la cache viene arrestata al termine della data di fine, la cache aggiornerà automaticamente il software al successivo avvio. L'aggiornamento potrebbe non essere avviato immediatamente, ma verrà avviato nella prima ora.
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 Fare clic sul pulsante **Aggiorna** per avviare l'aggiornamento software. Lo stato della cache diventa **aggiornamento** fino a quando l'operazione non viene completata.
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Nell'interfaccia della riga di comando di Azure le nuove informazioni software sono incluse alla fine del rapporto stato cache. Usare [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) per verificare. Cercare la stringa "upgradeStatus" nel messaggio.
+
+Usare [AZ HPC-cache Upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) per applicare l'aggiornamento, se disponibile.
+
+Se non è disponibile alcun aggiornamento, questa operazione non ha alcun effetto.
+
+Questo esempio mostra lo stato della cache (nessun aggiornamento disponibile) e i risultati del comando upgrade-firmware.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+$
+```
+
+---
 
 ## <a name="delete-the-cache"></a>Eliminare la cache
 
@@ -91,7 +206,35 @@ I volumi di archiviazione back-end usati come destinazioni di archiviazione non 
 > [!NOTE]
 > La cache HPC di Azure non scrive automaticamente i dati modificati dalla cache nei sistemi di archiviazione back-end prima di eliminare la cache.
 >
-> Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archiviazione a lungo termine, [arrestare la cache](#stop-the-cache) prima di eliminarla. Assicurarsi che venga visualizzato lo stato **interrotto** prima di fare clic sul pulsante Elimina.
+> Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archiviazione a lungo termine, [arrestare la cache](#stop-the-cache) prima di eliminarla. Assicurarsi che venga visualizzato lo stato **interrotto** prima dell'eliminazione.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Dopo aver arrestato la cache, fare clic sul pulsante **Elimina** per rimuovere definitivamente la cache.
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Usare il comando dell'interfaccia della riga di comando di Azure [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) per rimuovere definitivamente la cache.
+
+Esempio:
+```azurecli
+$ az hpc-cache delete --name doc-cache0629
+ - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="cache-metrics-and-monitoring"></a>Metriche e monitoraggio della cache
 

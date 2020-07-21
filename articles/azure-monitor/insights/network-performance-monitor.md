@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498966"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -31,7 +32,7 @@ Monitoraggio prestazioni rete offre tre ampie funzionalità:
 
 * [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md): consente di monitorare la connettività end-to-end e le prestazioni tra succursali e Azure, tramite Azure ExpressRoute.  
 
-Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) sono disponibili online.
+Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) sono disponibili online.
  
 ## <a name="supported-regions"></a>Aree supportate
 NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle seguenti aree:
@@ -60,7 +61,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Cina orientale 2
 
 
-L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Installare e configurare
@@ -255,9 +256,9 @@ Tutti i dati esposti graficamente attraverso il dashboard Monitoraggio prestazio
 
 ## <a name="alerts"></a>Avvisi
 
-Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](../platform/alerts-overview.md).
 
-Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](../platform/action-groups.md).  
 
 Per gli utenti di NPM che creano un avviso tramite Log Analytics: 
 1. Viene visualizzato un collegamento che consente di reindirizzare a portale di Azure. Fare clic per accedere al portale.
@@ -268,7 +269,7 @@ Per gli utenti di NPM che creano un avviso tramite Log Analytics:
 Se si è un utente NPM che crea un avviso tramite portale di Azure:  
 1. È possibile scegliere di immettere direttamente l'indirizzo di posta elettronica o creare avvisi tramite gruppi di azioni.
 2. Se si sceglie di immettere direttamente l'indirizzo di posta elettronica, viene creato un gruppo di azioni denominato **NPM Email ActionGroup** e l'ID di posta elettronica viene aggiunto a tale gruppo di azioni.
-3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Una volta creato correttamente l'avviso è possibile usare il collegamento Gestisci avvisi per gestire gli avvisi. 
 
 Ogni volta che si crea un avviso, NPM crea una regola di avviso log basata su query in Monitoraggio di Azure. Questa query viene attivata ogni 5 minuti per impostazione predefinita. Monitoraggio di Azure non prevede addebiti per le prime 250 regole di avviso log create. Superato questo limite, ogni regola di avviso viene addebitata in base ai [prezzi per gli avvisi riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
@@ -279,7 +280,7 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

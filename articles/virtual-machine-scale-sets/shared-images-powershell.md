@@ -1,5 +1,5 @@
 ---
-title: Usare le immagini di VM condivise per creare un set di scalabilità in Azure
+title: Usare le immagini di VM condivise per creare un set di scalabilità in Azure PowerShell
 description: Informazioni su come usare Azure PowerShell per creare immagini di macchina virtuale condivise da usare per la distribuzione di set di scalabilità di macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d0912958aaa897e4f8bc18aa88e0c41078d375a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55ca80296bfdfde162ca5a4df348fd80328dd184
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494922"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creare e usare un'immagine condivisa per i set di scalabilità di macchine virtuali con Azure PowerShell
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025947"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499920"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installare l'ambiente di sviluppo/test IBM zD&T in Azure
 
@@ -56,13 +56,13 @@ Questo articolo illustra come configurare l'ambiente di sviluppo e test Z (zD&T)
 
 ## <a name="create-the-base-image-and-connect"></a>Creare l'immagine di base e connettersi
 
-1. In portale di Azure [creare una macchina virtuale](/azure/virtual-machines/linux/quick-create-portal) con la configurazione del sistema operativo desiderata. Questo articolo presuppone una macchina virtuale B4ms (con 4 vCPU e 16 GB di memoria) che esegue Ubuntu 16,04.
+1. In portale di Azure [creare una macchina virtuale](../../../linux/quick-create-portal.md) con la configurazione del sistema operativo desiderata. Questo articolo presuppone una macchina virtuale B4ms (con 4 vCPU e 16 GB di memoria) che esegue Ubuntu 16,04.
 
 2. Dopo aver creato la macchina virtuale, aprire le porte in ingresso 22 per SSH, 21 per FTP e 9443 per il server Web.
 
 3. Ottenere le credenziali SSH visualizzate nel pannello **Panoramica** della macchina virtuale tramite il pulsante **Connetti** . Selezionare la scheda **SSH** e copiare il comando di accesso SSH negli Appunti.
 
-4. Accedere a una [shell bash](/azure/cloud-shell/quickstart) dal computer locale e incollare il comando. Il formato sarà **ssh \<user id\> \@ \<IP Address\> **. Quando vengono richieste le credenziali, immetterle per stabilire una connessione alla Home Directory.
+4. Accedere a una [shell bash](../../../../cloud-shell/quickstart.md) dal computer locale e incollare il comando. Il formato sarà **ssh \<user id\> \@ \<IP Address\> **. Quando vengono richieste le credenziali, immetterle per stabilire una connessione alla Home Directory.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiare il file di installazione nel server
 

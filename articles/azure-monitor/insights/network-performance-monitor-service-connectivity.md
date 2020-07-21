@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498866"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -56,7 +57,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
     * Selezionare **Web** per monitorare la connettività a un servizio che risponde a richieste HTTP/S, ad esempio outlook.office365.com o bing.com.<br>
     * Selezionare **Rete** per monitorare la connettività a un servizio che risponde a una richiesta TCP, ma non risponde a richieste HTTP/S, ad esempio un server SQL, un server FTP o una porta SSH. 
-    * Ad esempio: per creare un test Web in un account di archiviazione BLOB, selezionare **Web** e immettere target come *yourstorageaccount*. blob.Core.Windows.NET. Analogamente, è possibile creare test per altre archiviazioni di tabelle, archiviazione code e File di Azure usando [questo collegamento.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Ad esempio: per creare un test Web in un account di archiviazione BLOB, selezionare **Web** e immettere target come *yourstorageaccount*. blob.Core.Windows.NET. Analogamente, è possibile creare test per altre archiviazioni di tabelle, archiviazione code e File di Azure usando [questo collegamento.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Se non si vuole eseguire misure di rete, ad esempio latenza di rete, perdita di pacchetti e individuazione della topologia, deselezionare la casella di controllo **Esegui misure di rete**. Per sfruttare al meglio la funzionalità, lasciare questa opzione selezionata. 
 5. In **Destinazione** immettere l'indirizzo URL/FQDN/IP per cui si vuole monitorare la connettività di rete.
 6. In **Numero di porta** immettere il numero di porta del servizio di destinazione. 

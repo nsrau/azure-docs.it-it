@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60878452"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497183"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
 
@@ -52,8 +52,8 @@ In entrambe le modalità la chiave di crittografia master viene protetta archivi
 
 Ecco un breve confronto delle funzionalità offerte dalle due modalità di gestione delle chiavi di crittografia master.
 
-|  | Chiavi gestite dal servizio | Chiavi gestite dal cliente |
-| --- | --- | --- |
+| Domanda | Chiavi gestite dal servizio | Chiavi gestite dal cliente |
+| -------- | -------------------- | --------------------- |
 |Come vengono archiviati i dati?|Vengono sempre crittografati prima dell'archiviazione.|Vengono sempre crittografati prima dell'archiviazione.|
 |Dove viene archiviata la chiave di crittografia master?|Key Vault|Key Vault|
 |Vengono archiviate chiavi di crittografia in chiaro al di fuori di Key Vault? |No|No|
@@ -74,11 +74,11 @@ Fatta eccezione per questa differenza, ovvero chi gestisce la chiave di crittogr
 
 Nella progettazione della crittografia dei dati vengono usati tre tipi di chiavi. La tabella seguente contiene un riepilogo:
 
-| Codice                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | Type       | Note                                                                                                   |
+| Chiave                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | Type       | Note                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chiave di crittografia master | MEK          | Un account Data Lake Storage Gen1 | Key Vault                              | Asimmetrica | Può essere gestita da Data Lake Storage Gen1 o dall'utente.                                                              |
 | Chiave di crittografia dei dati   | DEK          | Un account Data Lake Storage Gen1 | Risorsa di archiviazione persistente, gestita dal servizio Data Lake Storage Gen1 | Simmetrica  | La chiave di crittografia dei dati viene crittografata dalla chiave di crittografia master. È la chiave di crittografia dei dati crittografata a essere archiviata nei supporti persistenti. |
-| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
+| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | Nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
 
 Il diagramma seguente illustra questi concetti:
 

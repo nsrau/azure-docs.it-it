@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945461"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498953"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoraggio del servizio Key Vault con Monitoraggio di Azure per Key Vault (anteprima)
 Monitoraggio di Azure per Key Vault (anteprima) offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault.
@@ -24,7 +24,7 @@ Prima di approfondire l'esperienza è necessario comprendere il modo in cui le i
 -   **Analisi drill-down** di un determinato insieme di credenziali delle chiavi per eseguire analisi dettagliate.
 -    **Personalizzabile** perché è possibile cambiare le metriche da visualizzare, modificare o su cui impostare soglie in linea con i limiti previsti e salvare la propria cartella di lavoro. I grafici della cartella di lavoro possono essere aggiunti ai dashboard di Azure.
 
-Monitoraggio di Azure per Key Vault combina log e metriche per offrire una soluzione di monitoraggio globale. Tutti gli utenti possono accedere ai dati di monitoraggio basati su metriche, tuttavia l'inclusione di visualizzazioni basate su log potrebbe richiedere di [abilitare la registrazione dell'istanza di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Monitoraggio di Azure per Key Vault combina log e metriche per offrire una soluzione di monitoraggio globale. Tutti gli utenti possono accedere ai dati di monitoraggio basati su metriche, tuttavia l'inclusione di visualizzazioni basate su log potrebbe richiedere di [abilitare la registrazione dell'istanza di Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Configurazione degli insiemi di credenziali delle chiavi per il monitoraggio
 
@@ -39,7 +39,7 @@ Monitoraggio di Azure per Key Vault combina log e metriche per offrire una soluz
 
 3. Dopo aver salvato le impostazioni di diagnostica, sarà possibile visualizzare tutti i grafici e le visualizzazioni basati su log sotto le informazioni dettagliate di Key Vault. Si noti che potrebbero essere necessari diversi minuti prima che i log inizino a essere popolati.
 
-4. Per ulteriore assistenza su come abilitare i log di diagnostica per il servizio Key Vault, vedere la [guida completa](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Per ulteriore assistenza su come abilitare i log di diagnostica per il servizio Key Vault, vedere la [guida completa](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Visualizzazione in Monitoraggio di Azure
 
@@ -75,7 +75,7 @@ Per le colonne della cartella di lavoro vengono usate una codifica a colori o ma
 
 La cartella di lavoro visualizza le operazioni riuscite (codici di stato 2xx), gli errori di autenticazione (codici di stato 401/403), la limitazione delle richieste (codici di stato 429) e altri errori (codici di stato 4xx).
 
-Per capire meglio cosa rappresenta ogni codice di stato, è consigliabile leggere la documentazione su [codici di risposta e di stato di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Per capire meglio cosa rappresenta ogni codice di stato, è consigliabile leggere la documentazione su [codici di risposta e di stato di Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Cartella di lavoro Operazioni e latenza
 
@@ -120,7 +120,7 @@ La cartella di lavoro Operazioni consente di approfondire i dettagli completi di
 Gli utenti possono anche definire l'ambito delle visualizzazioni in base a specifici tipi di transazioni nella tabella superiore, che aggiorna in modo dinamico la tabella inferiore, in cui è possibile visualizzare i dettagli completi delle operazioni nel riquadro contestuale popup.
 
 >[!NOTE]
-> Si noti che per visualizzare questa cartella di lavoro, è necessario aver abilitato le impostazioni di diagnostica. Per altre informazioni sull'abilitazione dell'impostazione di diagnostica, vedere [Registrazione di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Si noti che per visualizzare questa cartella di lavoro, è necessario aver abilitato le impostazioni di diagnostica. Per altre informazioni sull'abilitazione dell'impostazione di diagnostica, vedere [Registrazione di Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Aggiunta ed esportazione
 
@@ -164,7 +164,7 @@ Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni d
 
 ### <a name="resolving-performance-issues-or-failures"></a>Risoluzione dei problemi di prestazioni o degli errori
 
-Per risolvere i problemi relativi agli insiemi di credenziali delle chiavi identificati con Monitoraggio di Azure per Key Vault (anteprima), vedere la [documentazione di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Per risolvere i problemi relativi agli insiemi di credenziali delle chiavi identificati con Monitoraggio di Azure per Key Vault (anteprima), vedere la [documentazione di Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Perché è possibile visualizzare solo gli insiemi di credenziali delle chiavi 200
 
@@ -208,4 +208,4 @@ Inoltre, se è stato selezionato un numero elevato di insiemi di credenziali del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).

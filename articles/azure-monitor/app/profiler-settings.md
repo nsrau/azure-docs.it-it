@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499410"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
@@ -41,7 +41,7 @@ Sessioni di profilatura recenti | visualizza informazioni sulle ultime sessioni 
 ## <a name="profile-now"></a>Profilo ora
 Questa opzione consente di avviare una sessione di profilatura su richiesta. Quando si fa clic su questo collegamento, tutti gli agenti del profiler che inviano dati a questa istanza di Application Insights avvierà l'acquisizione di un profilo. Da 5 a 10 minuti, la sessione del profilo viene visualizzata nell'elenco seguente.
 
-Per attivare manualmente una sessione del profiler, un utente richiede almeno l'accesso "Write" per il proprio ruolo per il componente Application Insights. Nella maggior parte dei casi, questo accesso viene eseguito automaticamente e non è necessario alcun lavoro aggiuntivo. In caso di problemi, il ruolo ambito della sottoscrizione da aggiungere sarà il ruolo "Application Insights collaboratore componente". [Vedere altre informazioni sul controllo di accesso ai ruoli con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Per attivare manualmente una sessione del profiler, un utente richiede almeno l'accesso "Write" per il proprio ruolo per il componente Application Insights. Nella maggior parte dei casi, questo accesso viene eseguito automaticamente e non è necessario alcun lavoro aggiuntivo. In caso di problemi, il ruolo ambito della sottoscrizione da aggiungere sarà il ruolo "Application Insights collaboratore componente". [Vedere altre informazioni sul controllo di accesso ai ruoli con monitoraggio di Azure](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Impostazioni del trigger
 ![Riquadro a comparsa Impostazioni trigger][trigger-settings-flyout]

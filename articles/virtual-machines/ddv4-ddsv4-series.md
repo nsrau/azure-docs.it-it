@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 28963f7b8d6b7fd7361d114935a401a00b6683a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d23442af5afb90071dbf9e3c50d42b91d195d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753661"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494837"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 e Ddsv4
 
-Le macchine virtuali serie Ddv4 e Ddsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) in una configurazione con tecnologia Hyper-Threading, costituiscono una proposta di valore di livello più alto per i carichi di lavoro di uso più generale. Queste macchine virtuali sono dotate di una velocità di clock Turbo all-core sostenuta di 3,4 GHz e delle tecnologie [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Supportano anche il [ &reg; potenziamento di Intel Deep Learning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Le nuove dimensioni di queste macchine virtuali prevedono una risorsa di archiviazione locale più grande del 50%, oltre a un numero di operazioni di I/O al secondo, sia in lettura che in scrittura, più alto rispetto alle dimensioni [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) delle [macchine virtuali Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+Le macchine virtuali serie Ddv4 e Ddsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) in una configurazione con tecnologia Hyper-Threading, costituiscono una proposta di valore di livello più alto per i carichi di lavoro di uso più generale. Queste macchine virtuali sono dotate di una velocità di clock Turbo all-core sostenuta di 3,4 GHz e delle tecnologie [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Supportano anche il [ &reg; potenziamento di Intel Deep Learning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Le nuove dimensioni di queste macchine virtuali prevedono una risorsa di archiviazione locale più grande del 50%, oltre a un numero di operazioni di I/O al secondo, sia in lettura che in scrittura, più alto rispetto alle dimensioni [Dv3/Dsv3](./dv3-dsv3-series.md) delle [macchine virtuali Gen2](./linux/generation-2.md).
 
 I casi d'uso per la serie D includono applicazioni di livello aziendale, database relazionali, memorizzazione nella cache in memoria e attività di analisi.
 

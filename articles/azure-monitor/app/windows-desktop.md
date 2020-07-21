@@ -3,12 +3,12 @@ title: Monitoraggio dell'utilizzo e delle prestazioni per le applicazioni deskto
 description: Analizzare l'uso e le prestazioni dell'applicazione desktop di Windows con Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499189"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
 
@@ -73,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 Per impostazione predefinita, l'SDK raccoglie e archivia il nome computer del sistema che emette i dati di telemetria.
 
-Il nome del computer viene usato da Application Insights piano [tariffario Enterprise (per nodo) legacy](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) per finalità di fatturazione interne. Per impostazione predefinita, se si usa un inizializzatore di telemetria per eseguire l'override `telemetry.Context.Cloud.RoleInstance` , viene inviata una proprietà separata che conterrà `ai.internal.nodeName` comunque il valore del nome del computer. Questo valore non verrà archiviato con i dati di telemetria Application Insights, ma viene usato internamente all'inserimento per consentire la compatibilità con le versioni precedenti con il modello di fatturazione legacy basato su nodi.
+Il nome del computer viene usato da Application Insights piano [tariffario Enterprise (per nodo) legacy](./pricing.md#legacy-enterprise-per-node-pricing-tier) per finalità di fatturazione interne. Per impostazione predefinita, se si usa un inizializzatore di telemetria per eseguire l'override `telemetry.Context.Cloud.RoleInstance` , viene inviata una proprietà separata che conterrà `ai.internal.nodeName` comunque il valore del nome del computer. Questo valore non verrà archiviato con i dati di telemetria Application Insights, ma viene usato internamente all'inserimento per consentire la compatibilità con le versioni precedenti con il modello di fatturazione legacy basato su nodi.
 
-Se si usa il piano [tariffario Enterprise (per nodo) legacy](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) e si deve semplicemente eseguire l'override dell'archiviazione del nome del computer, usare un inizializzatore di telemetria:
+Se si usa il piano [tariffario Enterprise (per nodo) legacy](./pricing.md#legacy-enterprise-per-node-pricing-tier) e si deve semplicemente eseguire l'override dell'archiviazione del nome del computer, usare un inizializzatore di telemetria:
 
 **Scrivere personalizzata telemetryinitializer personalizzati come indicato di seguito.**
 
@@ -116,7 +116,7 @@ Creare un'istanza dell'inizializzatore nel `Program.cs` `Main()` metodo seguente
 
 ## <a name="override-transmission-of-computer-name"></a>Sostituzione della trasmissione del nome del computer
 
-Se non si usa il piano [tariffario Enterprise (per nodo) legacy](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) e si vuole impedire completamente la telemetria contenente il nome del computer, è necessario usare un processore di telemetria.
+Se non si usa il piano [tariffario Enterprise (per nodo) legacy](./pricing.md#legacy-enterprise-per-node-pricing-tier) e si vuole impedire completamente la telemetria contenente il nome del computer, è necessario usare un processore di telemetria.
 
 ### <a name="telemetry-processor"></a>Processore di telemetria
 
@@ -172,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Sebbene sia tecnicamente possibile usare un processore di telemetria come descritto in precedenza anche se si usa il piano [tariffario Enterprise (per nodo) legacy](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), questa operazione comporterà il rischio di overbilling a causa dell'impossibilità di distinguere correttamente i nodi per i prezzi per nodo.
+> Sebbene sia tecnicamente possibile usare un processore di telemetria come descritto in precedenza anche se si usa il piano [tariffario Enterprise (per nodo) legacy](./pricing.md#legacy-enterprise-per-node-pricing-tier), questa operazione comporterà il rischio di overbilling a causa dell'impossibilità di distinguere correttamente i nodi per i prezzi per nodo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
 * [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
-* [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
-
+* [Scrivere query di Analisi](../log-query/log-query-overview.md)

@@ -8,13 +8,13 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/11/2020
+ms.openlocfilehash: 180bb78b66bc04e7c3d2aaf68a3dd6d30cfb671c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496554"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
 
@@ -183,7 +183,7 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 |**credentials** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Apache Cassandra, iscriversi all’[anteprima dell'indicizzatore gestito](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e le informazioni sul formato delle credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
 | **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
-|**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
+|**dataDeletionDetectionPolicy** | Facoltativa. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati
 È possibile specificare una query di SQL per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
@@ -273,7 +273,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
-| Altri oggetti JSON |N/A |
+| Altri oggetti JSON |N/D |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-configurare ed eseguire l'indicizzatore
 
@@ -386,7 +386,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Passaggi successivi
 
-La procedura è stata completata. Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
+Congratulazioni! Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per ulteriori informazioni su Azure ricerca cognitiva, vedere la [pagina del servizio di ricerca](https://azure.microsoft.com/services/search/).

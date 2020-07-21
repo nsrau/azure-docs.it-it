@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 654dba968ba4efec1c30c94082726da04059adc0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797740"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499308"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
@@ -57,12 +58,10 @@ O nel codice server di ASP.NET:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](./api-custom-events-metrics.md#trackevent) o [visualizzazioni pagina](./api-custom-events-metrics.md#page-views).
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Utenti, sessioni ed eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
     - [Flussi degli utenti](usage-flows.md)
     - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
-
-

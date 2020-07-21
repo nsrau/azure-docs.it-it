@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499022"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Soluzione di monitoraggio dei contenitori in Monitoraggio di Azure
 
@@ -45,12 +45,12 @@ Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisi
 
 La tabella seguente illustra il supporto per l'orchestrazione e il monitoraggio del sistema operativo di Docker per l'inventario, le prestazioni e i log del contenitore con monitoraggio di Azure.   
 
-| | ACS | Linux | Windows | Contenitore<br>Argomento | Image<br>Argomento | Nodo<br>Argomento | Contenitore<br>Prestazioni | Contenitore<br>Event | Event<br>File di log | Contenitore<br>File di log |
+|Orchestrazione Docker | ACS | Linux | Windows | Contenitore<br>Argomento | Immagine<br>Argomento | Nodo<br>Argomento | Contenitore<br>Prestazioni | Contenitore<br>Event | Event<br>File di log | Contenitore<br>File di log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>Controller di dominio/sistema operativo | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Servizio<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Service<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Turno | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Server Linux<br>(autonomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -105,11 +105,11 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
        - Vedere [Configurare un agente Linux di Log Analytics per Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Vedere [Configurare un agente Windows di Log Analytics per Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Vedere Usare Helm per distribuire l'agente di Log Analytics in Linux Kubernetes.
-     - Se si dispone di un cluster DC/OS del servizio contenitore di Azure, vedere [monitorare un cluster DC/OS del servizio contenitore di Azure con monitoraggio di Azure](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Se si dispone di un cluster DC/OS del servizio contenitore di Azure, vedere [monitorare un cluster DC/OS del servizio contenitore di Azure con monitoraggio di Azure](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
      - Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere Configurare un agente di Log Analytics per Docker Swarm.
      - Se si dispone di un cluster Service Fabric, vedere [monitorare i contenitori con monitoraggio di Azure](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
-Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
+Consultare l'articolo sul [motore Docker in Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
 > Docker deve essere in esecuzione **prima** di installare l'[agente di Log Analytics per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di Log Analytics per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
@@ -505,7 +505,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-Per altre informazioni sulla configurazione del daemon Docker usata con contenitori Windows, vedere [Motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+Per altre informazioni sulla configurazione del daemon Docker usata con contenitori Windows, vedere [Motore Docker in Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### <a name="install-windows-agents"></a>Installare gli agenti Windows
 
@@ -528,7 +528,7 @@ La soluzione Monitoraggio contenitori raccoglie le varie metriche delle prestazi
 I dati vengono raccolti ogni tre minuti dai tipi di agenti seguenti.
 
 - [Agente di Log Analytics per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
-- [Agente Windows](../../azure-monitor/platform/agent-windows.md)
+- [Agente di Windows](../../azure-monitor/platform/agent-windows.md)
 - [Estensione della macchina virtuale Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 ### <a name="container-records"></a>Record dei contenitori

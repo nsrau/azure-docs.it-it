@@ -7,11 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414148"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496962"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -68,10 +69,10 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Servizio Azure Kubernetes - API Kubernetes** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Ricerca di Azure** | Microsoft.Search/searchService| searchService|  
 |**Registro Azure Container** | Microsoft.ContainerRegistry/registries    | Registro di sistema |
-|**Configurazione app di Azure** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Configurazione app di Azure** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Backup di Azure** | Microsoft.RecoveryServices/vaults    | insieme di credenziali |
-|**Hub eventi di Azure** | Microsoft.EventHub/namespaces    | spazio dei nomi |
-|**Bus di servizio di Azure** | Microsoft.ServiceBus/namespaces | spazio dei nomi |
+|**Hub eventi di Azure** | Microsoft.EventHub/namespaces    | namespace |
+|**Bus di servizio di Azure** | Microsoft.ServiceBus/namespaces | namespace |
 |**Inoltro di Azure** | Microsoft.Relay/namespaces | spazio dei nomi |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/topics    | argomento |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/domains    | dominio |

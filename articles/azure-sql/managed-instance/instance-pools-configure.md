@@ -12,11 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708808"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498408"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuire Istanza gestita SQL di Azure in un pool di istanze
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,7 +100,7 @@ $instancePool = New-AzSqlInstancePool `
   -Name "mi-pool-name" `
   -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
-  -VCore 80 `
+  -VCore 8 `
   -Edition "GeneralPurpose" `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
@@ -115,13 +116,13 @@ Dopo la corretta distribuzione del pool di istanze, è possibile creare un'istan
 Eseguire il comando seguente per creare un'istanza gestita:
 
 ```powershell
-$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
+$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-one-name" -VCore 2 -StorageSizeInGB 256
 ```
 
 La distribuzione di un'istanza all'interno di un pool richiede un paio di minuti. Una volta creata la prima istanza, è possibile creare istanze aggiuntive:
 
 ```powershell
-$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
+$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-two-name" -VCore 4 -StorageSizeInGB 512
 ```
 
 ## <a name="create-a-database"></a>Creazione di un database 

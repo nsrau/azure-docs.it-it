@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253762"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497659"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
@@ -109,7 +109,7 @@ Ecco come una pipeline viene definita in formato JSON:
 Tag | Descrizione | Type | Necessario
 --- | ----------- | ---- | --------
 name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | string | Sì
-description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
+description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | Stringa | No
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
 parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
 Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Number | No 
@@ -265,10 +265,10 @@ Ad esempio, se una pipeline dispone di un'attività A-> attività B, i diversi s
     }
 }
 
-`"
+```
 
-## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
+## <a name="sample-copy-pipeline"></a>Esempio di una pipeline di copia
+In questa pipeline di esempio è presente un'attività di tipo **Copy** in the **attività** . In questo esempio, l' [attività di copia](copy-activity-overview.md) copia i dati da un archivio BLOB di Azure a un database nel database SQL di Azure.
 
 ```json
 {

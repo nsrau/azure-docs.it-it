@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d55bcf921d5bddb1612f9cfb884b339f837c7aa2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225167"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494718"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Creare un'immagine da un disco rigido virtuale o da uno snapshot in una raccolta di immagini condivise usando PowerShell
 
@@ -90,9 +90,9 @@ Le definizioni di immagini creano un raggruppamento logico per le immagini. Veng
 
 Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. In questo esempio si presuppone che lo snapshot o il disco rigido virtuale provenga da una macchina virtuale in uso e che non sia stato generalizzato. Se il disco rigido virtuale o lo snapshot è stato ricavato da un sistema operativo generalizzato (dopo l'esecuzione di Sysprep per Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` per Linux), modificare `-OsState` in `generalized` . 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./windows/shared-image-galleries.md#image-definitions).
 
-Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un sistema operativo Windows specializzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un sistema operativo Windows specializzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -107,14 +107,14 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
-### <a name="purchase-plan-information"></a>Informazioni sul piano di acquisto
+### <a name="purchase-plan-information"></a>Informazioni sui piani di acquisto
 
 In alcuni casi, è necessario passare le informazioni sul piano di acquisto in durante la creazione di una macchina virtuale da un'immagine basata su un'immagine di Azure Marketplace. In questi casi, è consigliabile includere le informazioni sul piano di acquisto nella definizione dell'immagine. In questo caso, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).
 
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
-Creare una versione dell'immagine dallo snapshot usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Creare una versione dell'immagine dallo snapshot usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -148,7 +148,7 @@ $job.State
 > [!NOTE]
 > È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare lo stesso snapshot per creare un'altra versione dell'immagine. 
 >
-> È anche possibile archiviare la versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `-StorageAccountType Standard_ZRS` quando si crea la versione dell'immagine.
+> È anche possibile archiviare la versione dell'immagine nell' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `-StorageAccountType Standard_ZRS` quando si crea la versione dell'immagine.
 >
 
 ## <a name="delete-the-source"></a>Eliminare l'origine

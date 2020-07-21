@@ -1,5 +1,5 @@
 ---
-title: Effettuare il provisioning e proteggere un servizio collegato in Azure sinapsi Analytics
+title: Proteggere un servizio collegato
 description: Informazioni su come eseguire il provisioning e proteggere un servizio collegato con VNET gestiti
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496078"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Protezione di un servizio collegato con collegamenti privati 
 
@@ -56,7 +56,7 @@ Se non è stato fatto clic sul collegamento ipertestuale quando si testa la conn
 1. Selezionare l'endpoint privato creato in precedenza. È possibile visualizzare un collegamento ipertestuale che consente di approvare l'endpoint privato a livello di account di archiviazione. *In alternativa, è possibile passare direttamente all'account di archiviazione portale di Azure e passare al pannello **connessioni endpoint privato** .*
 1. Selezionare l'endpoint privato creato in studio e selezionare **approva**.
 1. Aggiungere una descrizione e fare clic su **Sì**
-1. Tornare a sinapsi studio nella sezione **reti virtuali gestite** della scheda **Gestisci**.
+1. Tornare a sinapsi studio nella sezione **reti virtuali gestite** della scheda **Gestisci** .
 1. L'approvazione per l'endpoint privato dovrebbe richiedere circa 1 minuto.
 
 ## <a name="check-the-connection-works"></a>Verificare il funzionamento della connessione

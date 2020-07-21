@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971046"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498798"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -228,7 +228,7 @@ Verranno richieste le credenziali. Fornire le credenziali per l'area di lavoro L
 
 ## <a name="data-collection"></a>Raccolta dati
 
-L'operazione iniziale di raccolta dei dati può richiedere alcune ore. Dopo l'avvio della raccolta, Office 365 invia a Monitoraggio di Azure una [notifica webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con dati dettagliati ogni volta che viene creato un record. Il record è disponibile in Monitoraggio di Azure entro pochi minuti dalla ricezione.
+L'operazione iniziale di raccolta dei dati può richiedere alcune ore. Dopo l'avvio della raccolta, Office 365 invia a Monitoraggio di Azure una [notifica webhook](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) con dati dettagliati ogni volta che viene creato un record. Il record è disponibile in Monitoraggio di Azure entro pochi minuti dalla ricezione.
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
@@ -272,7 +272,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Regular<br>Riservato<br>ServicePrincipal<br>System |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
@@ -381,7 +381,7 @@ Questi record vengono creati quando viene creata una voce di controllo delle cas
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| Item | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
+| Elemento | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
 | SendAsUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail. |
 | SendAsUserSmtp | Indirizzo SMTP dell'utente che viene rappresentato. |
 | SendonBehalfOfUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail per conto di. |

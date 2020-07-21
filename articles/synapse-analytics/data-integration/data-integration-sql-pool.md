@@ -1,5 +1,5 @@
 ---
-title: Inserire nel pool SQL in Azure sinapsi Analytics
+title: Inserire i dati in un pool SQL
 description: Informazioni su come inserire dati in un pool SQL in Azure sinapsi Analytics
 services: synapse-analytics
 author: djpmsft
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: c093a424ecf085c59501ee3d480838cc30c2ebf4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f7973030b27de95b8b5dd52bdea99e03aebd675a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963037"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496112"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Inserimento di dati in un pool SQL
 

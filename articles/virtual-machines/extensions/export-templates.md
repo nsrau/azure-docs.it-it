@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 529024256b8b3f6da7146787d3a37c59a13b5bd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494752"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Esportazione di gruppi di risorse contenenti estensioni macchina virtuale
 
@@ -137,7 +137,7 @@ La risorsa dell'estensione finale è simile all'esempio JSON seguente:
 }
 ```
 
-Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureString`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
+Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureString`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 Nell'esempio dell'estensione `IaasDiagnostic`, i parametri seguenti devono essere creati nella sezione dei parametri del modello di Resource Manager.
 

@@ -4,12 +4,12 @@ description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, t
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244515"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499886"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -19,7 +19,7 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 
 - [Ridimensionamento manuale](#manually-scale-pods-or-nodes)
 - [Ridimensionamento automatico orizzontale dei pod](#horizontal-pod-autoscaler)
-- [Ridimensionamento automatico del cluster](#cluster-autoscaler)
+- [Utilità di scalabilità automatica dei cluster](#cluster-autoscaler)
 - [Integrazione di Istanza di Azure Container con il servizio Azure Kubernetes](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Ridimensionare manualmente i pod o i nodi
@@ -48,7 +48,7 @@ Per ridurre al minimo gli eventi Race, viene impostato un valore di ritardo. Que
 
 Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predefinito.
 
-## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
+## <a name="cluster-autoscaler"></a>Utilità di scalabilità automatica dei cluster
 
 Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
@@ -58,7 +58,7 @@ Il ridimensionamento automatico del cluster viene generalmente usato insieme al 
 
 Per informazioni introduttive sul ridimensionamento automatico del cluster nel servizio Azure Kubernetes, vedere [Ridimensionamento automatico del cluster sul servizio Azure Kubernetes][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Eventi di aumento delle risorse
+### <a name="scale-out-events"></a>Eventi di scalabilità orizzontale
 
 Se un nodo non dispone di risorse di calcolo sufficienti per eseguire un pod richiesto, il Pod non può avanzare durante il processo di pianificazione. Il Pod non può essere avviato se non sono disponibili risorse di calcolo aggiuntive nel pool di nodi.
 
@@ -66,7 +66,7 @@ Quando il servizio di scalabilità automatica del cluster rileva i pod che non p
 
 Se l'applicazione deve essere ridimensionata rapidamente, alcuni pod potrebbero rimanere in attesa di pianificazione fino a quando i nodi aggiuntivi distribuiti dal ridimensionamento automatico del cluster non possono accettare i pod pianificati. Per le applicazioni con richieste burst elevate, è possibile gestire il ridimensionamento con nodi virtuali e Istanze di Azure Container.
 
-### <a name="scale-down-events"></a>Eventi di riduzione delle risorse
+### <a name="scale-in-events"></a>Ridimensionare gli eventi
 
 Il servizio di scalabilità automatica del cluster monitora anche lo stato di pianificazione dei pod per i nodi che non hanno ricevuto di recente nuove richieste di pianificazione. Questo scenario indica che il pool di nodi ha più risorse di calcolo di quelle richieste e il numero di nodi può essere ridotto.
 

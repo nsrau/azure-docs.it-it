@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498458"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,11 +66,11 @@ No e attualmente non sono presenti piani di cui è stato eseguito il commit per 
 **Dove è possibile eseguire la migrazione se si dispone di requisiti hardware specifici, ad esempio una quantità maggiore di RAM per vCore il rapporto o più CPU?**
 È possibile considerare la migrazione a [SQL Server in macchine virtuali di Azure](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) o la memoria/CPU del [database SQL di Azure](../database/sql-database-paas-overview.md) ottimizzata.
 
-## <a name="known-issues--bugs"></a>Problemi noti & bug
+## <a name="known-issues-and-defects"></a>Problemi noti e difetti
 
-**Dove è possibile trovare I problemi noti e I bug?**
+**Dove è possibile trovare problemi noti e difetti?**
 
-Per i bug e i problemi noti, vedere [problemi noti](../database/doc-changes-updates-release-notes.md#known-issues).
+Per i difetti del prodotto e i problemi noti, vedere [problemi noti](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nuove funzionalità
 
@@ -127,7 +127,7 @@ Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.
 **Come è possibile eseguire la migrazione da un pool elastico o singolo del database SQL di Azure a SQL Istanza gestita?**
 
 Istanza gestita offre gli stessi livelli di prestazioni per calcolo e dimensioni di archiviazione delle altre opzioni di distribuzione del database SQL di Azure. Se si desidera consolidare i dati in una singola istanza oppure è sufficiente una funzionalità supportata esclusivamente in istanza gestita, è possibile eseguire la migrazione dei dati tramite la funzionalità di esportazione/importazione (BACPAC). Ecco altri modi per prendere in considerazione la migrazione del database SQL a SQL Istanza gestita: 
-- Uso dell' [origine dati esterna]()
+- Uso dell' [origine dati esterna](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Utilizzo di [SqlPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Uso di [bcp](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -349,21 +349,6 @@ Per attenuare i rischi exfiltration di dati, è consigliabile applicare un set d
 - Attivare il [controllo SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integrarlo con i meccanismi di avviso.
 - Attivare il [rilevamento delle minacce](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) dalla Suite [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
-
-## <a name="cost-saving-use-cases"></a>Casi d'uso di risparmio sui costi
-
-**Dove è possibile trovare I casi d'uso e I costi derivanti con SQL Istanza gestita?**
-
-Case Study di SQL Istanza gestita:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione di Istanza gestita SQL di Azure, è disponibile anche uno studio Forrester: [l'effetto economico totale di database SQL di Microsoft Azure istanza gestita](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
 ## <a name="dns"></a>DNS
 
 **È possibile configurare un DNS personalizzato per SQL Istanza gestita?**
@@ -468,6 +453,19 @@ Si ottiene la stessa quantità di spazio di archiviazione di backup libero come 
 
 Per ottimizzare i costi di archiviazione di backup, vedere [ottimizzazione del backup in SQL istanza gestita](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
+## <a name="cost-saving-use-cases"></a>Casi d'uso di risparmio sui costi
+
+**Dove è possibile trovare I casi d'uso e I costi derivanti con SQL Istanza gestita?**
+
+Case Study di SQL Istanza gestita:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione di Istanza gestita SQL di Azure, è disponibile anche uno studio Forrester: [l'effetto economico totale di database SQL di Microsoft Azure istanza gestita](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+
 ## <a name="password-policy"></a>Criteri password 
 
 **Quali criteri password vengono applicati per gli account di accesso SQL Istanza gestita SQL?**
@@ -486,7 +484,7 @@ Ogni account di accesso deve impostare la relativa password al momento dell'acce
 | Validità massima password | 42 giorni |
 | Validità minima password | 1 giorno |
 | Lunghezza minima password | 10 caratteri |
-| Le password devono essere conformi ai requisiti di complessità | Abilitato |
+| Le password devono essere conformi ai requisiti di complessità | Attivato |
 
 **È possibile disabilitare la complessità e la scadenza delle password in SQL Istanza gestita al livello di accesso?**
 

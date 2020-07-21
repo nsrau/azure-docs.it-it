@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723307"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494463"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine gestita di una macchina virtuale o di un disco rigido virtuale
 
@@ -24,7 +25,7 @@ Per creare un'immagine gestita, è necessario rimuovere le informazioni sull'acc
 
 Per creare una copia della macchina virtuale Linux esistente per il backup o il debug o per caricare un disco rigido virtuale Linux specializzato da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](upload-vhd.md).  
 
-È possibile usare il servizio **Image Builder per macchine virtuali di Azure (Anteprima pubblica)** per creare l'immagine personalizzata. Non è necessario imparare a usare alcuno strumento o configurare pipeline di compilazione, basta inserire una configurazione dell'immagine e Image Builder la creerà. Per altre informazioni, vedere [Introduzione ad Image Builder per macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+È possibile usare il servizio **Image Builder per macchine virtuali di Azure (Anteprima pubblica)** per creare l'immagine personalizzata. Non è necessario imparare a usare alcuno strumento o configurare pipeline di compilazione, basta inserire una configurazione dell'immagine e Image Builder la creerà. Per altre informazioni, vedere [Introduzione ad Image Builder per macchine virtuali di Azure](./image-builder-overview.md).
 
 Prima di poter creare un'immagine, è necessario:
 
@@ -136,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per creare, archiviare e condividere immagini su larga scala, vedere [Raccolte immagini condivise](shared-images.md).
+Per creare, archiviare e condividere immagini su larga scala, vedere [Raccolte immagini condivise](../shared-images-cli.md).

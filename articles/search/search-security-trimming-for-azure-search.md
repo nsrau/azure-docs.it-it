@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553144"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496418"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtri di sicurezza per tagliare i risultati in Azure ricerca cognitiva
 
@@ -34,26 +34,29 @@ Questo articolo descrive come applicare un filtro di sicurezza usando la procedu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si disponga di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), di [Azure ricerca cognitiva Service](https://docs.microsoft.com/azure/search/search-create-service-portal)e di [Azure ricerca cognitiva index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Questo articolo presuppone che si disponga di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), un[servizio ricerca cognitiva di Azure](search-create-service-portal.md)e un [Indice](search-what-is-an-index.md).  
 
 ## <a name="create-security-field"></a>Creare il campo di sicurezza
 
 I documenti devono includere un campo che specifica i gruppi che hanno accesso. Queste informazioni diventano i criteri di filtro in base ai quali i documenti vengono selezionati o rifiutati dal set di risultati restituito all'autorità emittente.
 Si supponga di avere un indice dei file protetti e che ogni file sia accessibile da un diverso set di utenti.
+
 1. Aggiungere il campo `group_ids`, è possibile scegliere un nome qualsiasi, come `Collection(Edm.String)`. Verificare che per il campo l'attributo `filterable` sia impostato su `true` in modo che i risultati della ricerca vengano filtrati in base all'accesso dell'utente. Ad esempio, se si imposta il campo `group_ids` su `["group_id1, group_id2"]` per il documento con `file_name` "secured_file_b", solo gli utenti che appartengono agli ID di gruppo "group_id1" o "group_id2" hanno l'accesso in lettura al file.
+   
    Verificare che l'attributo `retrievable` del campo sia impostato su `false` in modo che non venga restituito come parte della richiesta di ricerca.
+
 2. Aggiungere anche i campi `file_id` e `file_name` ai fini di questo esempio.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Push dei dati nell'indice tramite l'API REST
   
@@ -149,7 +152,7 @@ Specificare il filtro nel corpo della richiesta:
  ]
 }
 ```
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo modo è possibile filtrare i risultati in base all'identità dell'utente e alla funzione di ricerca cognitiva di Azure `search.in()` . È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  

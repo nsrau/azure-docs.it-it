@@ -1,17 +1,17 @@
 ---
-title: Creare un'istanza di cache HPC di Azure
-description: Come creare un'istanza di Cache HPC di Azure
+title: Usare lo spazio dei nomi aggregato della cache HPC di Azure
+description: Come pianificare lo spazio dei nomi virtuale per la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045808"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497030"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
@@ -30,7 +30,7 @@ Si consideri, ad esempio, un sistema in cui un'istanza di cache HPC di Azure vie
 I dati del modello vengono archiviati in un Data Center e le informazioni necessarie per questo processo vengono archiviate nelle sottodirectory seguenti:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 Il sistema di archiviazione dei Data Center espone le esportazioni seguenti:
 
@@ -52,10 +52,10 @@ Una destinazione di archiviazione NFS può avere più percorsi dello spazio dei 
 
 Poiché i percorsi di origine NFS sono sottodirectory della stessa esportazione, sarà necessario definire più percorsi dello spazio dei nomi dalla stessa destinazione di archiviazione.
 
-| Nome host destinazione archiviazione  | Percorso di esportazione NFS      | Percorso sottodirectory | Percorso dello spazio dei nomi    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Nome host destinazione archiviazione  | Percorso di esportazione NFS     | Percorso sottodirectory | Percorso dello spazio dei nomi    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Indirizzo IP o nome host* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *Indirizzo IP o nome host* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Un'applicazione client può montare la cache e accedere facilmente ai percorsi di file dello spazio dei nomi aggregati ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 

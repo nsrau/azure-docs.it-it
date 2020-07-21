@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali VMware con il server di Backup di
 description: Questo articolo illustra come usare server di Backup di Azure per eseguire il backup di macchine virtuali VMware in esecuzione su un server VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081061"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497914"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -24,7 +24,7 @@ Questo articolo spiega come:
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Verificare che sia in esecuzione una versione di vCenter/ESXi supportata per il backup. Vedere la matrice di supporto [qui](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+- Verificare che sia in esecuzione una versione di vCenter/ESXi supportata per il backup. Vedere la matrice di supporto [qui](./backup-mabs-protection-matrix.md).
 - Assicurarsi di aver configurato il server di Backup di Azure. In caso contrario, [farlo](backup-azure-microsoft-azure-backup.md) prima di iniziare. È consigliabile eseguire il server di Backup di Azure con gli aggiornamenti più recenti.
 - Verificare che le porte di rete seguenti siano aperte:
   - TCP 443 tra il server di backup di Microsoft Azure e vCenter
@@ -41,7 +41,7 @@ Per impostazione predefinita, il server di Backup di Azure comunica con i server
 - È importante comprendere il modo in cui il server di Backup di Azure gestisce i backup.
   - Come primo passaggio il server di Backup di Azure esegue il backup dei dati nell'archiviazione su disco locale. Il server di Backup di Azure usa un pool di archiviazione, un set di dischi e volumi in cui archivia i punti di ripristino del disco per i dati protetti. Il pool di archiviazione può essere un sistema di archiviazione diretta (DAS), una SAN Fibre Channel oppure una SAN o dispositivo di archiviazione iSCSI. È importante assicurarsi di disporre di spazio di archiviazione sufficiente per il backup locale dei dati della macchina virtuale VMware.
   - Il server di Backup di Azure esegue quindi il backup dallo spazio di archiviazione su disco locale ad Azure.
-  - [Leggere questo articolo](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) per capire quanto spazio di archiviazione è necessario. Le informazioni sono per DPM ma possono essere usate per il server di Backup di Azure.
+  - [Leggere questo articolo](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) per capire quanto spazio di archiviazione è necessario. Le informazioni sono per DPM ma possono essere usate per il server di Backup di Azure.
 
 ### <a name="set-up-the-certificate"></a>Configurare il certificato
 
@@ -281,7 +281,7 @@ Aggiungere il server vCenter al server di Backup di Azure.
 
     ![Specifica credenziale](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Fare clic su **Aggiungi** per aggiungere il server VMware all'elenco dei server. Fare quindi clic su **Avanti**.
+6. Fare clic su **Aggiungi** per aggiungere il server VMware all'elenco dei server. Quindi fare clic su **Next**.
 
     ![Aggiungere il server VMware e le credenziali](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -309,14 +309,14 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
 1. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server** e quindi fare clic su **Avanti**. Verrà visualizzata la pagina **Selezione membri del gruppo**.
 
-1. In **Seleziona membri del gruppo**selezionare le macchine virtuali (o cartelle VM) di cui si vuole eseguire il backup. Fare quindi clic su **Avanti**.
+1. In **Seleziona membri del gruppo**selezionare le macchine virtuali (o cartelle VM) di cui si vuole eseguire il backup. Quindi fare clic su **Next**.
 
     - Quando si seleziona una cartella, le macchine virtuali o le cartelle al suo interno vengono selezionate per il backup. È possibile deselezionare le cartelle o le macchine virtuali da escludere dal backup.
 1. Se una macchina virtuale o una cartella è già sottoposta a backup, non è possibile selezionarla. In questo modo si garantisce che non vengano creati punti di ripristino duplicati per una macchina virtuale.
 
     ![Seleziona membri del gruppo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Nella pagina **Seleziona metodo protezione dati** immettere un nome per il gruppo protezione dati e le impostazioni di protezione. Per eseguire il backup in Azure, impostare la protezione a breve termine su **Disco** e abilitare la protezione dati online. Fare quindi clic su **Avanti**.
+1. Nella pagina **Seleziona metodo protezione dati** immettere un nome per il gruppo protezione dati e le impostazioni di protezione. Per eseguire il backup in Azure, impostare la protezione a breve termine su **Disco** e abilitare la protezione dati online. Quindi fare clic su **Next**.
 
     ![Seleziona metodo protezione dati](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -347,17 +347,17 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
     ![Scelta del metodo per la creazione della replica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. In **Opzioni di verifica coerenza** selezionare come e quando automatizzare le verifiche della coerenza. Fare quindi clic su **Avanti**.
+1. In **Opzioni di verifica coerenza** selezionare come e quando automatizzare le verifiche della coerenza. Quindi fare clic su **Next**.
       - È possibile eseguire verifiche della coerenza quando i dati di replica diventano incoerenti o in base a una pianificazione impostata.
       - Per non configurare la verifica automatica della coerenza, è possibile eseguire una verifica manuale. A questo scopo, fare clic con il pulsante destro del mouse sul gruppo protezione dati > **Esegui verifica coerenza**.
 
-1. Nella pagina **Specifica i dati da proteggere online** selezionare le macchine virtuali o cartelle di macchine virtuali di cui eseguire il backup. È possibile selezionare i membri singolarmente o fare clic su **Seleziona tutto** per scegliere tutti i membri. Fare quindi clic su **Avanti**.
+1. Nella pagina **Specifica i dati da proteggere online** selezionare le macchine virtuali o cartelle di macchine virtuali di cui eseguire il backup. È possibile selezionare i membri singolarmente o fare clic su **Seleziona tutto** per scegliere tutti i membri. Quindi fare clic su **Next**.
 
     ![Specifica i dati da proteggere online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Nella pagina **Specificare la pianificazione dei backup online** specificare la frequenza con cui si vuole eseguire il backup dei dati dall'archiviazione locale ad Azure.
 
-    - I punti di recupero cloud per i dati verranno generati in base alla pianificazione. Fare quindi clic su **Avanti**.
+    - I punti di recupero cloud per i dati verranno generati in base alla pianificazione. Quindi fare clic su **Next**.
     - Dopo la generazione, il punto di recupero viene trasferito nell'insieme di credenziali di Servizi di ripristino di Azure.
 
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

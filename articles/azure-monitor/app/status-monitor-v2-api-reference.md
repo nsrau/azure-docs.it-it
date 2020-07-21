@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733674"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499359"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
 
@@ -118,7 +119,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 - **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
     - '. *' corrisponderà a tutti
     - ' ComputerName ' corrisponde solo ai computer con il nome esatto specificato.
-- **AppFilter** è un'espressione regolare C# obbligatoria del nome del sito IIS. È possibile ottenere un elenco dei siti nel server eseguendo il comando [Get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
+- **AppFilter** è un'espressione regolare C# obbligatoria del nome del sito IIS. È possibile ottenere un elenco dei siti nel server eseguendo il comando [Get-iissite](/powershell/module/iisadministration/get-iissite).
     - '. *' corrisponderà a tutti
     - ' SiteName ' corrisponderà solo al sito IIS con il nome esatto specificato.
 - **InstrumentationKey** è necessario per abilitare il monitoraggio delle app che corrispondono ai due filtri precedenti.
@@ -134,7 +135,7 @@ Il motore di strumentazione aggiunge un sovraccarico ed è disattivato per impos
 **Opzionale.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
-Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 Non è possibile inserire HttpModule in questa configurazione condivisa.
 Questo script avrà esito negativo con il messaggio che è necessario eseguire ulteriori passaggi di installazione.
 Usare questa opzione per ignorare questa verifica e continuare l'installazione dei prerequisiti. Per altre informazioni, vedere [conflitto noto-con-IIS-Shared-Configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
@@ -446,8 +447,8 @@ Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL neces
 
 Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
 - iisreset.exe/status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
+- [handle64.exe](/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -551,7 +552,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
-Raccoglie [gli eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) dal runtime di associazione non codificabile. Questo cmdlet rappresenta un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
+Raccoglie [gli eventi ETW](/windows/desktop/etw/event-tracing-portal) dal runtime di associazione non codificabile. Questo cmdlet rappresenta un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
 
 Gli eventi raccolti verranno stampati nella console in tempo reale e salvati in un file ETL. Il file ETL di output può essere aperto da [PerfView](https://github.com/microsoft/perfview) per un'analisi più approfondita.
 
@@ -636,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Passaggi successivi
 
   Visualizzare i dati di telemetria:
- - [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
+ - [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
 - Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-- Usare [Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
+- Usare [Analytics](../log-query/log-query-overview.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
@@ -648,9 +649,3 @@ Timeout Reached. Stopping...
  
  Eseguire altre operazioni con Application Insights Agent:
  - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
-
-
-
-
-
-

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81255754"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494769"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
 ## <a name="overview"></a>Panoramica
 
-[Azure Network Watcher](/azure/network-watcher/) è un servizio di monitoraggio delle prestazioni di rete, diagnostica e analisi che consente di monitorare le reti di Azure. L'estensione della macchina virtuale dell'agente Network Watcher è un requisito per alcune funzioni di Network Watcher nelle macchine virtuali di Azure, come l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate.
+[Azure Network Watcher](../../network-watcher/index.yml) è un servizio di monitoraggio delle prestazioni di rete, diagnostica e analisi che consente di monitorare le reti di Azure. L'estensione della macchina virtuale dell'agente Network Watcher è un requisito per alcune funzioni di Network Watcher nelle macchine virtuali di Azure, come l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate.
 
 Questo articolo descrive in dettaglio le piattaforme e le opzioni di distribuzione supportate per l'estensione macchina virtuale dell'agente Network Watcher per Linux. L'installazione dell'agente non causa l'interruzione, né richiede il riavvio della macchina virtuale. È possibile distribuire l'estensione in macchine virtuali da distribuire. Se la macchina virtuale viene distribuita da un servizio di Azure, vedere la documentazione relativa al servizio per determinare se consente l'installazione di estensioni nella macchina virtuale.
 
@@ -48,7 +49,7 @@ L'estensione agente Network Watcher può essere configurata nelle distribuzioni 
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Alcune delle funzionalità dell'agente Network Watcher richiedono che la macchina virtuale sia connessa a Internet. Se non è possibile stabilire connessioni in uscita, alcune funzionalità dell'agente Network Watcher potrebbero non funzionare correttamente o non essere disponibili. Per altre informazioni sulle funzionalità di Network Watcher che richiedono l'installazione dell'agente, vedere la [documentazione su Network Watcher](/azure/network-watcher/).
+Alcune delle funzionalità dell'agente Network Watcher richiedono che la macchina virtuale sia connessa a Internet. Se non è possibile stabilire connessioni in uscita, alcune funzionalità dell'agente Network Watcher potrebbero non funzionare correttamente o non essere disponibili. Per altre informazioni sulle funzionalità di Network Watcher che richiedono l'installazione dell'agente, vedere la [documentazione su Network Watcher](../../network-watcher/index.yml).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -78,7 +79,7 @@ Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| tipo | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -118,4 +119,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile fare riferimento alla documentazione di [Network Watcher](/azure/network-watcher/)oppure contattare gli esperti di Azure nei [Forum MSDN su Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile fare riferimento alla documentazione di [Network Watcher](../../network-watcher/index.yml)oppure contattare gli esperti di Azure nei [Forum MSDN su Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).

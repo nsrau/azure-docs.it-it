@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663233"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498679"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
 Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
@@ -58,7 +59,7 @@ Applicare una configurazione ambito con la seguente procedura.
 Di seguito sono riportati i criteri che determinano gli agenti e le soluzioni non utilizzabili con il targeting della soluzione.
 
 - Il targeting della soluzione si applica alle soluzioni distribuite agli agenti.
-- Il targeting della soluzione si applica alle soluzioni fornite da Microsoft.  Non è applicabile alle soluzioni [create dall'utente o da partner](solutions-creating.md).
+- Il targeting della soluzione si applica alle soluzioni fornite da Microsoft.  Non è applicabile alle soluzioni [create dall'utente o da partner](./solutions.md).
 - È possibile filtrare solo gli agenti che si connettono direttamente a Monitoraggio di Azure.  Le soluzioni saranno distribuite automaticamente a tutti gli agenti che fanno parte di un gruppo di gestione Operations Manager connesso, che siano o meno inclusi in una configurazione di ambito.
 
 ### <a name="exceptions"></a>Eccezioni

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498917"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Esplorare Monitoraggio di Azure per Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Selezionare **Errori** nella parte superiore della pagina; si apre la sezione **
 | `201 Created` | Un'operazione POST per creare una risorsa ha esito positivo. |
 | `404 Not Found` | L'operazione tenta di agire su una risorsa che non esiste più. Ad esempio, è possibile che la risorsa sia stata già eliminata. |
 
-Per un elenco completo dei codici di stato, consulta l'articolo [Codice di stato HTTP in Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Per un elenco completo dei codici di stato, consulta l'articolo [Codice di stato HTTP in Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacità
 
@@ -98,7 +98,7 @@ Nell'esempio seguente è possibile notare che `eastus-billingint` riceve princip
 
 ## <a name="pin-export-and-expand"></a>Aggiungere, esportare ed espandere
 
-È possibile aggiungere una qualsiasi delle sezioni della metrica a un [dashboard di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selezionando l'icona a forma di puntina da disegno in alto a destra nella sezione.
+È possibile aggiungere una qualsiasi delle sezioni della metrica a un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md) selezionando l'icona a forma di puntina da disegno in alto a destra nella sezione.
 
 ![Esempio di aggiunta della sezione metrica al dashboard](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
 * Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).

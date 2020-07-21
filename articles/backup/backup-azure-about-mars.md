@@ -4,12 +4,12 @@ description: Informazioni su come l'agente MARS supporta gli scenari di backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497948"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -40,10 +40,10 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 ## <a name="backup-process"></a>Processo di backup
 
 1. Dalla portale di Azure creare un insieme di credenziali [dei servizi di ripristino](install-mars-agent.md#create-a-recovery-services-vault)e scegliere file, cartelle e lo stato del sistema dagli **obiettivi di backup**.
-2. [Scaricare le credenziali dell'insieme di credenziali dei servizi di ripristino e il programma di installazione dell'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) in un computer locale.
+2. [Scaricare le credenziali dell'insieme di credenziali dei servizi di ripristino e il programma di installazione dell'agente](./install-mars-agent.md#download-the-mars-agent) in un computer locale.
 
-3. [Installare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
-4. Dalla console agente sul client, [configurare il backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) per specificare gli elementi di cui eseguire il backup, quando eseguire il backup (pianificazione), per quanto tempo i backup devono essere conservati in Azure (criteri di conservazione) e avviare la protezione.
+3. [Installare l'agente](./install-mars-agent.md#install-and-register-the-agent) e usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
+4. Dalla console agente sul client, [configurare il backup](./backup-windows-with-mars-agent.md#create-a-backup-policy) per specificare gli elementi di cui eseguire il backup, quando eseguire il backup (pianificazione), per quanto tempo i backup devono essere conservati in Azure (criteri di conservazione) e avviare la protezione.
 
 ![Diagramma dell'agente di backup di Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 
 ### <a name="additional-scenarios"></a>Scenari aggiuntivi
 
-- Eseguire il backup di **file e cartelle specifici all'interno di macchine virtuali di Azure**: il metodo principale per il backup di macchine virtuali di Azure consiste nell'usare un'estensione di backup di Azure nella macchina virtuale. L'estensione esegue il backup dell'intera macchina virtuale. Se si vuole eseguire il backup di file e cartelle specifici all'interno di una macchina virtuale, è possibile installare l'agente MARS nelle VM di Azure. Per altre informazioni, vedere [architettura: backup di macchine virtuali di Azure predefinito](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- Eseguire il backup di **file e cartelle specifici all'interno di macchine virtuali di Azure**: il metodo principale per il backup di macchine virtuali di Azure consiste nell'usare un'estensione di backup di Azure nella macchina virtuale. L'estensione esegue il backup dell'intera macchina virtuale. Se si vuole eseguire il backup di file e cartelle specifici all'interno di una macchina virtuale, è possibile installare l'agente MARS nelle VM di Azure. Per altre informazioni, vedere [architettura: backup di macchine virtuali di Azure predefinito](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Seeding offline**: i backup completi iniziali dei dati in Azure in genere trasferiscono grandi quantità di dati e richiedono una maggiore larghezza di banda di rete. I backup successivi trasferiscono solo la quantità di dati Delta o incrementale. Backup di Azure comprime i backup iniziali. Tramite il processo di *seeding offline*, backup di Azure può usare i dischi per caricare i dati di backup iniziali compressi offline in Azure. Per altre informazioni, vedere backup di [Azure offline-backup con Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Matrice di supporto per l'agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Matrice di supporto per l'agente MARS](./backup-support-matrix-mars-agent.md)
 
-[Domande frequenti sull'agente MARS](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Domande frequenti sull'agente MARS](./backup-azure-file-folder-backup-faq.md)

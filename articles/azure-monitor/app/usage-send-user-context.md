@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797690"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499240"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
@@ -18,10 +19,10 @@ ms.locfileid: "83797690"
 
 Application Insights consente di monitorare e tenere traccia degli utenti tramite un set di strumenti relativi all'uso del prodotto:
 
-- [Utenti, sessioni ed eventi](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Grafici a imbuto](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- Coorte [Conservazione](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-- [Cartelle di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Utenti, sessioni ed eventi](./usage-segmentation.md)
+- [Grafici a imbuto](./usage-funnels.md)
+- Coorte [Conservazione](./usage-retention.md)
+- [Cartelle di lavoro](../platform/workbooks-overview.md)
 
 Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, Application Insights deve usare un ID per ogni utente o sessione. Includere gli ID seguenti in ogni evento o visualizzazione pagina personalizzati.
 
@@ -41,11 +42,11 @@ Gli ID utente devono essere resi persistenti tra le sessioni utente per tenere t
 
 L'ID deve essere un GUID o un'altra stringa abbastanza complessa da identificare in modo univoco ogni utente. Potrebbe essere, ad esempio, un numero lungo casuale.
 
-Se l'ID contiene informazioni personali sull'utente, non è un valore appropriato da inviare ad Application Insights come ID utente. È possibile inviare un ID di questo tipo come [ID utente autenticato](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ma non soddisfa il requisito dell'ID utente per gli scenari di utilizzo.
+Se l'ID contiene informazioni personali sull'utente, non è un valore appropriato da inviare ad Application Insights come ID utente. È possibile inviare un ID di questo tipo come [ID utente autenticato](./api-custom-events-metrics.md#authenticated-users), ma non soddisfa il requisito dell'ID utente per gli scenari di utilizzo.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>App ASP.NET: Impostare il contesto utente in un oggetto ITelemetryInitializer
 
-Creare un inizializzatore della telemetria come descritto in dettaglio [qui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Passare l'ID sessione tramite la telemetria delle richieste e impostare Context.User.Id e Context.Session.Id.
+Creare un inizializzatore della telemetria come descritto in dettaglio [qui](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer). Passare l'ID sessione tramite la telemetria delle richieste e impostare Context.User.Id e Context.Session.Id.
 
 Questo esempio imposta l'ID utente su un identificatore che scade al termine della sessione. Se possibile, usare un ID utente che persiste tra le sessioni.
 
@@ -127,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](./api-custom-events-metrics.md#trackevent) o [visualizzazioni pagina](./api-custom-events-metrics.md#page-views).
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Panoramica sull'uso](usage-overview.md)
     - [Utenti, Sessioni ed Eventi](usage-segmentation.md)

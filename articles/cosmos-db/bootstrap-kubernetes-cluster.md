@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262634"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497761"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Come usare Azure Kubernetes con Azure Cosmos DB (anteprima)
 
@@ -33,7 +33,7 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
    Azure Kubernetes Engine (**aks-engine**) genera i modelli di Azure Resource Manager per i cluster Kubernetes in Azure. L'input in aks-engine è un file di definizione del cluster che descrive il cluster desiderato, inclusi agente di orchestrazione, funzionalità e agenti. La struttura dei file di input è simile all'API pubblica per Azure Kubernetes Service.
 
-1. L'API etcd in Azure Cosmos DB attualmente è in anteprima. Registrarsi per usare la versione di anteprima all'indirizzo: https://aka.ms/cosmosetcdapi-signup. Dopo aver inviato il modulo, la sottoscrizione verrà inclusa nella whitelist per usare l'API etcd di Cosmos Azure. 
+1. L'API etcd in Azure Cosmos DB attualmente è in anteprima. Registrarsi per usare la versione di anteprima all'indirizzo: https://aka.ms/cosmosetcdapi-signup. Dopo aver inviato il modulo, la sottoscrizione sarà autorizzata a usare l'API di Azure Cosmos ETCD. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Distribuire il cluster con Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
    az login 
    ```
 
-1. Se si dispone di più di una sottoscrizione, passare alla sottoscrizione inserita nella whitelist per l'API etcd di Azure Cosmos DB. È possibile passare alla sottoscrizione necessaria usando il comando seguente:
+1. Se si dispone di più di una sottoscrizione, passare alla sottoscrizione che è stata consentita per Azure Cosmos DB API ETCD. È possibile passare alla sottoscrizione necessaria usando il comando seguente:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

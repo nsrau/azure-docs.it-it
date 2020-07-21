@@ -1,14 +1,14 @@
 ---
 title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497778"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -146,6 +146,10 @@ Le giunzioni di directory, talvolta denominate collegamenti reali di directory, 
 ### <a name="collect-the-batch-agent-logs"></a>Raccogliere i log dell'agente di Batch
 
 Se si nota un problema che interessa il comportamento di un nodo o di attività in esecuzione al suo interno, raccogliere i log dell'agente di Batch prima di deallocare i nodi in questione. I log dell'agente di Batch possono essere raccolti usando l'API Carica log del servizio Batch. Questi log possono essere forniti come parte di un ticket di supporto a Microsoft e facilitano l'individuazione e la risoluzione dei problemi.
+
+### <a name="manage-os-upgrades"></a>Gestire gli aggiornamenti del sistema operativo
+
+Per gli account batch in modalità sottoscrizione utente, gli aggiornamenti automatici del sistema operativo possono interrompere lo stato dell'attività, soprattutto se le attività hanno un'esecuzione prolungata. La [creazione di attività idempotente](#build-durable-tasks) può aiutare a ridurre gli errori causati da tali interruzioni. Si consiglia inoltre [di pianificare gli aggiornamenti delle immagini del sistema operativo per i periodi in cui non è prevista l'esecuzione delle attività](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Sicurezza dell'isolamento
 

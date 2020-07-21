@@ -3,20 +3,20 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498050"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
-La soluzione per la creazione di report fornita da backup di Azure sfrutta Log Analytics (LA). Per i dati di un determinato insieme di credenziali da inviare a LA, è necessario creare un' [impostazione di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) per l'insieme di credenziali.
+La soluzione per la creazione di report fornita da backup di Azure sfrutta Log Analytics (LA). Per i dati di un determinato insieme di credenziali da inviare a LA, è necessario creare un' [impostazione di diagnostica](./backup-azure-diagnostic-events.md) per l'insieme di credenziali.
 
 Spesso, l'aggiunta manuale di un'impostazione di diagnostica per ogni insieme di credenziali può essere un'attività complessa. Inoltre, per poter visualizzare i report per questo insieme di credenziali, è necessario che per tutti i nuovi insiemi di credenziali creati siano abilitate anche le impostazioni di diagnostica.
 
-Per semplificare la creazione di impostazioni di diagnostica su larga scala (con LA come destinazione), backup di Azure fornisce criteri predefiniti di [Azure](https://docs.microsoft.com/azure/governance/policy/). Questo criterio aggiunge un'impostazione di diagnostica a tutti gli insiemi di credenziali in una sottoscrizione o in un gruppo di risorse specifico. Nelle sezioni seguenti vengono fornite istruzioni su come utilizzare questo criterio.
+Per semplificare la creazione di impostazioni di diagnostica su larga scala (con LA come destinazione), backup di Azure fornisce criteri predefiniti di [Azure](../governance/policy/index.yml). Questo criterio aggiunge un'impostazione di diagnostica a tutti gli insiemi di credenziali in una sottoscrizione o in un gruppo di risorse specifico. Nelle sezioni seguenti vengono fornite istruzioni su come utilizzare questo criterio.
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
 
@@ -70,7 +70,7 @@ L'attività di monitoraggio e aggiornamento viene applicata agli insiemi di cred
 * Non è presente alcuna impostazione di diagnostica per l'insieme di credenziali.
 * Sono presenti impostazioni di diagnostica per l'insieme di credenziali, ma nessuna delle impostazioni include **tutti** gli eventi specifici della risorsa abilitati con la come destinazione e la **risorsa specifica** selezionata nell'interruttore.
 
-Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
+Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](./backup-azure-diagnostic-events.md#legacy-event).
 
 Inoltre, se un utente dispone di un insieme di credenziali con solo un subset dei sei eventi specifici della risorsa abilitata, l'attività di monitoraggio e aggiornamento verrà applicata a questo insieme di credenziali, poiché i report di backup funzioneranno come previsto solo se tutti e sei gli eventi specifici delle risorse sono abilitati.
 
@@ -84,6 +84,6 @@ Inoltre, se un utente dispone di un insieme di credenziali con solo un subset de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come usare i report di backup](https://docs.microsoft.com/azure/backup/configure-reports)
-* [Altre informazioni su criteri di Azure](https://docs.microsoft.com/azure/governance/policy/)
-* [Usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali in un ambito](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [Informazioni su come usare i report di backup](./configure-reports.md)
+* [Altre informazioni su criteri di Azure](../governance/policy/index.yml)
+* [Usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali in un ambito](./backup-azure-auto-enable-backup.md)

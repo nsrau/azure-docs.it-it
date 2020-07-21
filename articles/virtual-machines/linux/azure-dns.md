@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135320"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494735"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
 Per impostazione predefinita, Azure fornisce la risoluzione dei nomi DNS per tutte le macchine virtuali contenute in una singola rete virtuale. È possibile implementare la soluzione di risoluzione dei nomi DNS configurando i servizi DNS nelle macchine virtuali ospitate da Azure. Gli scenari seguenti consentono di scegliere quello più adatto alla situazione specifica.
@@ -43,7 +43,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 * Viene fornita la risoluzione dei nomi tra macchine virtuali in reti virtuali, senza necessità del nome FQDN.
 * È possibile usare nomi host personalizzati in grado di descrivere in modo più adeguato le distribuzioni, anziché usare nomi generati automaticamente.
 
-**Considerazioni**
+**Considerazioni:**
 
 * Il suffisso DNS creato da Azure non può essere modificato.
 * Non è possibile registrare manualmente i propri record.
@@ -121,7 +121,7 @@ L'inoltro del DNS abilita anche la risoluzione DNS tra reti virtuali e consente 
 
 Quando si usa la risoluzione dei nomi fornita da Azure, il suffisso DNS interno viene fornito a ogni macchina virtuale tramite DHCP. Quando si usa la soluzione di risoluzione dei nomi personalizzata, questo suffisso non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS. Per fare riferimento alle macchine virtuali usando il nome di dominio completo o per configurare il suffisso nelle macchine virtuali, è possibile usare PowerShell o l'API per determinare il suffisso:
 
-* Per le reti virtuali gestite da Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx). È possibile eseguire anche il comando `azure network public-ip show <resource group> <pip name>` per visualizzare i dettagli dell'indirizzo IP pubblico, che include il nome FQDN della scheda di rete.
+* Per le reti virtuali gestite da Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda interfaccia di rete](/rest/api/virtualnetwork/networkinterfaces). È possibile eseguire anche il comando `azure network public-ip show <resource group> <pip name>` per visualizzare i dettagli dell'indirizzo IP pubblico, che include il nome FQDN della scheda di rete.
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà necessario offrire una soluzione DNS personalizzata.  La soluzione DNS deve:
 
@@ -131,6 +131,6 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà neces
 * Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
 > [!NOTE]
-> Per prestazioni ottimali, quando si usano macchine virtuali nei server DNS di Azure, disabilitare il protocollo IPv6 e assegnare un [indirizzo IP pubblico a livello di istanza](../../virtual-network/virtual-networks-instance-level-public-ip.md) a ogni macchina virtuale di server DNS.  
+> Per prestazioni ottimali, quando si usano macchine virtuali nei server DNS di Azure, disabilitare il protocollo IPv6 e assegnare un [indirizzo IP pubblico a livello di istanza](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) a ogni macchina virtuale di server DNS.  
 >
 >

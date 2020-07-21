@@ -3,11 +3,12 @@ title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i con
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c7a92476fca2bc61d51ab518c22ff0c436fb78f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801462"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498900"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
@@ -21,7 +22,7 @@ Le configurazioni seguenti sono ufficialmente supportate con monitoraggio di Azu
 
     - Kubernetes locale
     
-    - Motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    - Motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
     
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versione 4 e successive, in locale o in altri ambienti cloud.
 
@@ -84,7 +85,7 @@ Se non si ha familiarità con il concetto di distribuzione delle risorse tramite
 
 - [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 Questo metodo include due modelli JSON. Un modello JSON specifica la configurazione per abilitare il monitoraggio e l'altro contiene i valori dei parametri da configurare per specificare quanto segue:
 
@@ -201,7 +202,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di Log
     }
     ```
 
-7. Modificare i valori per **workspaceResourceId** usando il valore copiato nel passaggio 3 e per **workspaceRegion** copiare il valore **Region** dopo l'esecuzione del comando dell'interfaccia della riga di comando di Azure [AZ monitor log-Analytics Workspace Show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Modificare i valori per **workspaceResourceId** usando il valore copiato nel passaggio 3 e per **workspaceRegion** copiare il valore **Region** dopo l'esecuzione del comando dell'interfaccia della riga di comando di Azure [AZ monitor log-Analytics Workspace Show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Salvare il file come containerSolutionParams.jsin una cartella locale.
 
