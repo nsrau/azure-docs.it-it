@@ -4,12 +4,12 @@ description: Imparare a codificare e configurare Funzioni durevoli per l'esecuzi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733414"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540299"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come eseguire Durable Functions come processi Web
 
@@ -31,7 +31,7 @@ Questo articolo presuppone che si abbia familiarità con le nozioni di base rela
 
 Per seguire la procedura descritta in questo articolo:
 
-* [Installare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con l carico di lavoro **Sviluppo di Azure**.
+* [Installare Visual Studio 2019](/visualstudio/install/) con l carico di lavoro **Sviluppo di Azure**.
 
   Se si dispone già di Visual Studio, ma non si dispone di tale carico di lavoro, aggiungere il carico di lavoro selezionando **strumenti**  >  **Ottieni strumenti e funzionalità**.
 
@@ -224,7 +224,7 @@ La modifica principale introdotta è l'uso di .NET Core anziché .NET Framework.
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Impostare la stringa di connessione di archiviazione e la chiave di strumentazione Application Insights in un *appsettings.jssu* file usando il Framework di configurazione di .NET Core. Ad esempio:
+1. Impostare la stringa di connessione di archiviazione e la chiave di strumentazione Application Insights in un *appsettings.jssu* file usando il Framework di configurazione di .NET Core. Ecco un esempio:
 
     ```json
         {

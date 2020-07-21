@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92e111a6e76dbe285dd8cc7a93ce75f556142565
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540146"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
 
@@ -21,9 +21,9 @@ I dati di flusso e gli eventi imprevisti sono i due tipi di dati di traffico che
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
+Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
 
-## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti 
+## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti
 
 Per chiamare e è necessario importare le librerie seguenti `setTraffic` `incidents` :
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice della sezione precedente, il valore restituito del metodo viene passato `flow` al `setTraffic` metodo. Sono disponibili quattro valori che è possibile passare a `flow` e ogni valore attiverà `flow` per restituire il rispettivo valore. Il valore restituito di `flow` verrà quindi passato come argomento a `setTraffic` . Vedere la tabella seguente per questi quattro valori:
 
-| | |
+|Valore del flusso | Descrizione|
 | :-- | :-- |
 | TrafficFlow. NONE | Non Visualizza i dati sul traffico sulla mappa |
 | TrafficFlow. relativa | Mostra i dati sul traffico relativi alla velocità del flusso libero della strada |

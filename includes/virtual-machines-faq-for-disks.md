@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544536"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -94,7 +95,7 @@ I clienti possono eseguire uno snapshot dei relativi dischi gestiti e usarlo per
 
 Sì, sono supportati sia i dischi non gestiti che quelli gestiti. È consigliabile usare i dischi gestiti per i nuovi carichi di lavoro ed eseguire la migrazione dei carichi di lavoro correnti a dischi gestiti.
 
-**È possibile condividere il percorso dei dischi gestiti e non gestiti nella stessa macchina virtuale?**
+**È possibile colocare dischi gestiti e non gestiti nella stessa VM?**
 
 No.
 
@@ -157,15 +158,19 @@ La prenotazione dischi di Azure viene acquistata per un'area e uno SKU specifici
 **Che cosa accade alla scadenza della prenotazione dischi di Azure?**     
 Si riceveranno notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Alla scadenza della prenotazione, i dischi distribuiti continueranno a funzionare e verranno fatturati con le [tariffe con pagamento in base al consumo](https://azure.microsoft.com/pricing/details/managed-disks/) più recenti.
 
+**I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
+
+Sì, tutti i tipi di dischi supportano il contratto di servizio per VM a istanza singola.
+
 ### <a name="azure-shared-disks"></a>Dischi condivisi di Azure
 
 **La funzionalità dischi condivisi è supportata per i dischi non gestiti o i BLOB di pagine?**
 
-No, è supportata solo per i dischi gestiti SSD Premium.
+No, è supportato solo per dischi rigidi e dischi rigidi SSD Premium.
 
 **Quali aree supportano i dischi condivisi?**
 
-Attualmente solo l'area Stati Uniti centro-occidentali.
+Per informazioni internazionali, vedere l' [articolo concettuale](../articles/virtual-machines/linux/disks-shared.md).
 
 **I dischi condivisi possono essere usati come disco del sistema operativo?**
 
@@ -173,11 +178,11 @@ No, i dischi condivisi sono supportati solo per i dischi dati.
 
 **Quali dimensioni dei dischi supportano i dischi condivisi?**
 
-Solo le unità SSD Premium P15 o superiori supportano i dischi condivisi.
+Per informazioni sulle dimensioni supportate, vedere l' [articolo concettuale](../articles/virtual-machines/linux/disks-shared.md).
 
-**Se si ha un'unità SSD Premium esistente, è possibile abilitarvi la funzionalità dischi condivisi?**
+**Se si dispone di un disco esistente, è possibile abilitare I dischi condivisi?**
 
-Tutti i dischi gestiti creati con API versione 2019-07-01 o successiva possono abilitare i dischi condivisi. A tale scopo, è necessario smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi la proprietà `maxShares` del disco.
+Tutti i dischi gestiti creati con API versione 2019-07-01 o successiva possono abilitare i dischi condivisi. A tale scopo, è necessario smontare il disco da tutte le macchine virtuali a cui è collegato. Successivamente, modificare la proprietà **maxShares** sul disco.
 
 **Se non si vuole più usare un disco in modalità condivisa, come si disabilita?**
 
@@ -193,7 +198,7 @@ No.
 
 **È possibile abilitare la memorizzazione nella cache dell'host per un disco in cui è abilitato il disco condiviso?**
 
-L'unica opzione supportata per la memorizzazione nella cache dell'host è 'Nessuno'.
+L'unica opzione supportata per la memorizzazione nella cache dell'host è **None**.
 
 ## <a name="ultra-disks"></a>Dischi Ultra
 
@@ -201,10 +206,10 @@ L'unica opzione supportata per la memorizzazione nella cache dell'host è 'Nessu
 Se non si è sicuri del valore da impostare per la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di I/O di 16 KiB e regolare le prestazioni partendo da tale valore mentre si monitora l'applicazione. La formula è: Velocità effettiva in MBps = N. di operazioni di I/O al secondo * 16 / 1.000.
 
 **Il disco è stato configurato per 40.000 operazioni di I/O al secondo, ma vengono visualizzate solo 12.800 operazioni di I/O al secondo. Perché non vengono visualizzate le prestazioni del disco?**
-Oltre alla limitazione del disco, viene applicata una limitazione delle operazione di I/O a livello di macchina virtuale. Assicurarsi che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati per i dischi. Per informazioni dettagliate sui limiti di I/O imposti dalla macchina virtuale, vedere [Dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md).
+Oltre alla limitazione del disco, viene applicata una limitazione delle operazione di I/O a livello di macchina virtuale. Verificare che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati sui dischi. Per informazioni dettagliate sui limiti di I/O imposti dalla macchina virtuale, vedere [Dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md).
 
 **È possibile usare i livelli di memorizzazione nella cache con un disco Ultra?**
-No, i dischi Ultra non supportano i diversi metodi di memorizzazione nella cache supportati in altri tipi di dischi. Impostare la memorizzazione nella cache del disco su Nessuno.
+No, i dischi Ultra non supportano i diversi metodi di memorizzazione nella cache supportati in altri tipi di dischi. Impostare la memorizzazione nella cache del disco su **nessuno**.
 
 **È possibile collegare un disco Ultra alla macchina virtuale esistente?**
 Solo se la macchina virtuale si trova in un'area e una zona di disponibilità che supportano i dischi Ultra. Per informazioni dettagliate, vedere [Introduzione ai dischi Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md).
@@ -261,9 +266,6 @@ I dischi SSD Standard offrono latenza, coerenza, disponibilità e affidabilità 
 
 **Si possono usare dischi SSD Standard come dischi non gestiti?**
 No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
-
-**I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
-No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
 ## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
@@ -412,7 +414,7 @@ Non è necessario aggiornare gli strumenti di Azure esistenti per creare, colleg
 |Strumenti di Azure      | Versioni supportate                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numero di versione 4.1.0: versione di giugno 2017 o successiva|
-|Interfaccia della riga di comando di Azure v1     | Numero di versione 0.10.13: versione di maggio 2017 o successiva|
+|Interfaccia della riga di comando di Azure v1     | Numero di versione 0.10.13: versione di maggio 2017 o successiva|
 |Interfaccia della riga di comando di Azure versione 2     | Numero di versione 2.0.12: versione di luglio 2017 o successiva|
 |AzCopy              | Numero di versione 6.1.0: versione di giugno 2017 o successiva|
 
@@ -450,7 +452,41 @@ Gli SKU dei dischi da 8 TiB, 16 TiB e 32 TiB sono supportati in tutte le aree in
 
 **L'abilitazione della memorizzazione nella cache dell'host è supportata in tutte le dimensioni del disco?**
 
-La memorizzazione nella cache dell'host (ReadOnly e lettura/scrittura) è supportata su dimensioni del disco inferiori a 4 TiB. Ciò significa che tutti i dischi di cui è stato eseguito il provisioning fino a 4095 GiB possono sfruttare i vantaggi della memorizzazione nella cache dell'host. La memorizzazione nella cache dell'host non è supportata per le dimensioni dei dischi maggiori o uguali a 4096 GiB. Ad esempio, un disco P50 Premium fornito a 4095 GiB può sfruttare i vantaggi della memorizzazione nella cache dell'host e un disco P50 di cui è stato effettuato il provisioning a 4096 GiB non può sfruttare la memorizzazione nella cache dell'host. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
+La memorizzazione nella cache dell'host (**ReadOnly** e **lettura/scrittura**) è supportata su dimensioni del disco inferiori a 4 tib. Ciò significa che tutti i dischi di cui è stato eseguito il provisioning fino a 4095 GiB possono sfruttare i vantaggi della memorizzazione nella cache dell'host. La memorizzazione nella cache dell'host non è supportata per le dimensioni dei dischi maggiori o uguali a 4096 GiB. Ad esempio, un disco P50 Premium fornito a 4095 GiB può sfruttare i vantaggi della memorizzazione nella cache dell'host e un disco P50 di cui è stato effettuato il provisioning a 4096 GiB non può sfruttare la memorizzazione nella cache dell'host. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
+
+## <a name="private-links-for-securely-exporting-and-importing-managed-disks"></a>Collegamenti privati per l'esportazione e l'importazione sicure Managed Disks
+
+**Quali sono i vantaggi dell'utilizzo di collegamenti privati per l'esportazione e l'importazione di Managed Disks?**
+
+È possibile sfruttare i collegamenti privati per limitare l'esportazione e l'importazione in Managed Disks solo dalla rete virtuale di Azure. 
+
+**Cosa è possibile verificare che un disco possa essere esportato o importato solo tramite collegamenti privati?**
+
+È necessario impostare la `DiskAccessId` proprietà su un'istanza di un oggetto di accesso al disco e impostare anche la proprietà NetworkAccessPolicy su `AllowPrivate` .
+
+**È possibile collegare più reti virtuali allo stesso oggetto di accesso al disco?**
+
+No. Attualmente, è possibile collegare un oggetto di accesso al disco a una sola rete virtuale.
+
+**È possibile collegare una rete virtuale a un oggetto di accesso al disco in un'altra sottoscrizione?**
+
+No. Attualmente, è possibile collegare un oggetto di accesso al disco a una rete virtuale nella stessa sottoscrizione.
+
+**È possibile collegare una rete virtuale a un oggetto di accesso al disco in un'altra sottoscrizione?**
+
+No. Attualmente, è possibile collegare un oggetto di accesso al disco a una rete virtuale nella stessa sottoscrizione.
+
+**Quante esportazioni o importazioni che utilizzano lo stesso oggetto di accesso al disco possono verificarsi nello stesso momento?**
+
+5
+
+**È possibile usare un URI di firma di accesso condiviso di un disco/snapshot per scaricare il VHD sottostante di una macchina virtuale nella stessa subnet della subnet dell'endpoint privato associato al disco?**
+
+Sì.
+
+**È possibile usare un URI di firma di accesso condiviso di un disco/snapshot per scaricare il VHD sottostante di una macchina virtuale che non si trovi nella stessa subnet della subnet dell'endpoint privato non associato al disco?**
+
+No.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 

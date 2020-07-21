@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545094"
 ---
 **Requisiti del server di configurazione e di elaborazione**
 
@@ -34,7 +34,7 @@ Spazio libero su disco (disco di conservazione) | 600 GB
 
 **Componente** | **Requisito** 
 --- | ---
-Sistema operativo | R2 per Windows Server 2012 <br> Windows Server 2016
+Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Impostazioni locali del sistema operativo | Inglese (en-*)
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
@@ -60,6 +60,9 @@ time.windows.com | Usato per controllare la sincronizzazione dell'ora tra sistem
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.Live.com </li><li> https: \/ /Graph.Windows.NET </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (facoltativo) </li><li> https: \/ /www.Live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | L'installazione di OVF richiede l'accesso a questi URL aggiuntivi. Vengono usati per il controllo di accesso e la gestione delle identità Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Per completare il download di MySQL. </br> In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che anche l'URL della rete CDN sia incluso nell'elenco elementi consentiti, se necessario.
 |
+
+> [!NOTE]
+> Se si dispone di [collegamenti privati](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) per la connettività a Site Recovery insieme di credenziali, non è necessario alcun accesso a Internet aggiuntivo per il server di configurazione. Un'eccezione a questo problema si verifica durante la configurazione del computer CS con il modello OVA, sarà necessario accedere agli URL seguenti sopra e sopra accesso privato a collegamento https://management.azure.com , https://www.live.com e https://www.microsoft.com . Se non si vuole consentire l'accesso a questi URL, configurare il CS usando Unified Installer.
 
 ## <a name="required-software"></a>Requisiti software
 

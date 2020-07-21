@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226731"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540384"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installare l'anteprima del runtime di Funzioni di Azure 2
 
@@ -70,7 +71,7 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
     ![Anteprima del runtime di Funzioni di Azure - Strumento di configurazione][7]
 
-1. Fare clic sulla scheda **Database**, immettere i dettagli della connessione per l'istanza di SQL Server, inclusa la specifica di una [chiave master del database](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) e fare clic su **Applica**.  La connettività a un'istanza di SQL Server è necessaria affinché il runtime di Funzioni di Azure possa creare un database per supportare il runtime.
+1. Fare clic sulla scheda **Database**, immettere i dettagli della connessione per l'istanza di SQL Server, inclusa la specifica di una [chiave master del database](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) e fare clic su **Applica**.  La connettività a un'istanza di SQL Server è necessaria affinché il runtime di Funzioni di Azure possa creare un database per supportare il runtime.
 
     ![Anteprima del runtime di Funzioni di Azure - Configurazione del database][8]
 

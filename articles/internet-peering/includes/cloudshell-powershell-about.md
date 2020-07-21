@@ -8,17 +8,17 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee071f2cf6e31d46ccd483935f137f16bcacf337
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81678504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544714"
 ---
 Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Selezionare **copia** per copiare il codice e incollarlo in cloud Shell. Quindi premere **invio** per eseguirlo. Esistono diversi modi per avviare Cloud Shell:
 
 
-|  |   |
+| Metodo Launch | Schermata  |
 |-----------------------------------------------|---|
 | Aprire Cloud Shell nel browser. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
 | Selezionare il pulsante **cloud Shell** sulla barra degli strumenti in alto a destra del portale di Azure. | [![Cloud Shell nel portale](../media/cloud-shell-menu.png)](https://portal.azure.com) |

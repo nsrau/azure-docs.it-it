@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8f7723ecaf6587eb61474304b0b5784413ac6f86
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414360"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545095"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo di app per la piattaforma UWP (Universal Windows Platform), è necessario configurare le opzioni di sviluppo di Visual Studio, creare il progetto, selezionare l'architettura di destinazione, configurare l'acquisizione audio e installare Speech SDK.
 
@@ -66,7 +66,7 @@ Creare quindi il progetto:
 A questo punto selezionare l'architettura della piattaforma di destinazione. Nella barra degli strumenti di Visual Studio individuare la casella di riepilogo a discesa **Piattaforme soluzione**. Se non è visibile, scegliere **Visualizza** > **Barre degli strumenti** > **Standard** per visualizzare la barra degli strumenti contenente **Piattaforme soluzione**. Se è in esecuzione Windows a 64 bit, selezionare **x64** dalla casella di riepilogo a discesa. Windows a 64 bit può eseguire anche applicazioni a 32 bit, pertanto è possibile selezionare **x86** se si preferisce.
 
 > [!NOTE]
-> Al momento, Speech SDK supporta solo i processori compatibili Intel. I processori ARM attualmente non sono supportati.
+> Speech SDK supporta tutti i processori compatibili con Intel, ma **solo** le versioni x64 dei processori ARM.
 
 ### <a name="set-up-audio-capture"></a>Configurare l'acquisizione audio
 
@@ -80,13 +80,13 @@ Consentire al progetto di acquisire l'input audio:
 
 1. Selezionare la casella relativa alla funzionalità **Microfono**.
 
-1. Dalla barra dei menu scegliere **File** > **Salva Package.appxmanifest** per salvare le modifiche.
+1. Dalla barra dei menu scegliere **file**  >  **Salva pacchetto. appxmanifest** per salvare le modifiche.
 
 ### <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
 Installare infine il [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e fare riferimento a tale SDK nel progetto:
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Gestire pacchetti NuGet per la soluzione** per passare alla finestra **NuGet - Soluzione**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Gestisci pacchetti NuGet per la soluzione** per passare alla finestra **NuGet-soluzione** .
 
 1. Selezionare **Sfoglia**.
 

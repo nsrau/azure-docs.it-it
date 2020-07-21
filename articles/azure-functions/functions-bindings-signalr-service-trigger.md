@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540231"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Binding del trigger del servizio SignalR per funzioni di Azure
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Con il modello tradizionale
 
-Il modello tradizionale rispetta la convenzione della funzione di Azure sviluppata da C#. Se non si ha familiarità con esso, è possibile imparare da [documenti](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Il modello tradizionale rispetta la convenzione della funzione di Azure sviluppata da C#. Se non si ha familiarità con esso, è possibile imparare da [documenti](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -189,16 +189,16 @@ InvocationContext contiene tutto il contenuto del messaggio inviato dal servizio
 
 |Proprietà in InvocationContext | Descrizione|
 |------------------------------|------------|
-|Arguments| Disponibile per la categoria *messaggi* . Contiene *argomenti* nel [messaggio di chiamata](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
+|Argomenti| Disponibile per la categoria *messaggi* . Contiene *argomenti* nel [messaggio di chiamata](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
 |Errore| Disponibile per l'evento *disconnesso* . Può essere vuoto se la connessione è chiusa senza errori o contiene i messaggi di errore.|
 |Hub| Nome dell'hub a cui appartiene il messaggio.|
 |Category| Categoria del messaggio.|
-|Event| Evento del messaggio.|
+|Evento| Evento del messaggio.|
 |ConnectionId| ID connessione del client che invia il messaggio.|
 |UserId| Identità utente del client che invia il messaggio.|
-|Headers| Intestazioni della richiesta.|
+|Intestazioni| Intestazioni della richiesta.|
 |Query| Query della richiesta quando i client si connettono al servizio.|
-|Claims| Attestazioni del client.|
+|Attestazioni| Attestazioni del client.|
 
 ## <a name="using-parameternames"></a>Uso di `ParameterNames`
 
