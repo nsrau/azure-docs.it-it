@@ -7,18 +7,18 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1af5fb7d0a1f8844016fcb6096e3a7ad9946f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384890"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499903"
 ---
-# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Esercitazione: registrare un'applicazione Web in Azure Active Directory B2C
+# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione Web in Azure Active Directory B2C
 
 Prima che le [applicazioni](application-types.md) possano interagire con Azure Active Directory B2C (Azure AD B2C), devono essere registrate in un tenant gestito. Questa esercitazione mostra come registrare un'applicazione Web usando il portale di Azure.
 
@@ -28,7 +28,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Registrare un'applicazione Web
 > * Creare un segreto client
 
-Se invece si usa un'app nativa (ad esempio iOS, Android, mobile & desktop), informazioni [su come registrare un'applicazione client nativa](add-native-application.md).
+Se invece si usa un'app nativa (ad esempio iOS, Android, per dispositivi mobili e desktop), vedere [come registrare un'applicazione client nativa](add-native-application.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -47,7 +47,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *webapp1*.
-1. In **tipi di account supportati**selezionare **account in qualsiasi directory organizzativa o provider di identità. Per l'autenticazione degli utenti con Azure AD B2C**.
+1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa o qualsiasi provider di identità. Per l'autenticazione degli utenti con Azure AD B2C**.
 1. In **URI di reindirizzamento**, selezionare **Web**, quindi immettere `https://jwt.ms` nella casella di testo URL.
 
     L'URI di reindirizzamento è l'endpoint a cui l'utente viene inviato dal server di autorizzazione (in questo caso Azure AD B2C) dopo aver completato l'interazione con l'utente e a cui viene inviato un token di accesso o un codice di autorizzazione dopo l'autorizzazione. In un'applicazione di produzione, si tratta in genere di un endpoint accessibile pubblicamente in cui l'app è in esecuzione, ad esempio `https://contoso.com/auth-response`. A scopo di test come questa esercitazione, è possibile impostarlo su `https://jwt.ms`, un'applicazione Web di proprietà di Microsoft che visualizza il contenuto decodificato di un token (il contenuto del token non lascia mai il browser). Durante lo sviluppo di app, è possibile aggiungere l'endpoint in cui l'applicazione è in ascolto localmente, ad esempio `https://localhost:5000`. È possibile aggiungere e modificare gli URI di reindirizzamento nelle applicazioni registrate in qualsiasi momento.
@@ -94,7 +94,7 @@ Se l'applicazione scambia un codice di autorizzazione con un token di accesso, �
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
-1. Nella pagina **Azure ad B2C-registrazioni app** selezionare l'applicazione creata, ad esempio *app Web 1*.
+1. Nella pagina **Azure AD B2C - Registrazioni app** selezionare l'applicazione creata, ad esempio *webapp1*.
 1. In **Gestisci**, selezionare **Certificati e segreti**.
 1. Selezionare **Nuovo segreto client**.
 1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
