@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83f0ea094c26a1ff664ef27729731b77d987e7ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75458412"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501498"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Creare una macchina virtuale usando un disco del sistema operativo gestito esistente con l'interfaccia della riga di comando
 
@@ -52,10 +52,10 @@ Questo script usa i comandi seguenti per ottenere le proprietà di un disco gest
 
 | Comando | Note |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Ottiene le proprietà del disco gestito usando il nome del disco e il nome del gruppo di risorse. La proprietà Id viene usata per collegare un disco gestito a una nuova VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crea una VM utilizzando un disco del sistema operativo gestito |
+| [az disk show](/cli/azure/disk) | Ottiene le proprietà del disco gestito usando il nome del disco e il nome del gruppo di risorse. La proprietà Id viene usata per collegare un disco gestito a una nuova VM |
+| [az vm create](/cli/azure/vm) | Crea una VM utilizzando un disco del sistema operativo gestito |
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

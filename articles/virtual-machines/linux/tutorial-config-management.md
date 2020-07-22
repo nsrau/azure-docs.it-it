@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fe53f400c1e03f0f3bb9d5e85891769d58320d84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501943"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
@@ -77,7 +77,7 @@ Abilitare Gestione aggiornamenti per la macchina virtuale:
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitata per la macchina virtuale.
 La convalida include controlli per un'area di lavoro Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
 
-L'area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti.
+L'area di lavoro di [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 Per eseguire altre azioni nelle macchine virtuali che richiedono gli aggiornamenti, Automazione di Azure consente di eseguire runbook nelle macchine virtuali, ad esempio il download e l'applicazione degli aggiornamenti.
 
@@ -87,8 +87,8 @@ Scegliere l'area di lavoro di Log Analytics e l'account di automazione da usare 
 
 Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
-* Area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Account di Automazione](../../automation/automation-offering-get-started.md)
+* Area di lavoro di [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Account di Automazione](../../automation/index.yml)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
 
 Viene visualizzata la schermata **Gestione aggiornamenti**. Configurare la località, l'area di lavoro di Log Analytics e l'account di automazione da usare e selezionare **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.

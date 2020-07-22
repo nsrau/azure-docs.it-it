@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78269200"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505840"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure
 
@@ -86,7 +86,7 @@ I dati vengono recuperati da un'area di lavoro Log Analytics tramite una query s
    
     ![Log](media/tutorial-resource-logs/logs.png)
 
-4. Il servizio illustrato nell'esempio esegue la scrittura dei log delle risorse nella tabella **AzureDiagnostics**, ma le tabelle in cui scrivono altri servizi potrebbero essere diverse. Per informazioni sulle tabelle usate dai vari servizi di Azure, vedere [Servizi, schemi e categorie supportati per i log delle risorse di Azure](../platform/diagnostic-logs-schema.md).
+4. Il servizio illustrato nell'esempio esegue la scrittura dei log delle risorse nella tabella **AzureDiagnostics**, ma le tabelle in cui scrivono altri servizi potrebbero essere diverse. Per informazioni sulle tabelle usate dai vari servizi di Azure, vedere [Servizi, schemi e categorie supportati per i log delle risorse di Azure](../platform/resource-logs-schema.md).
 
     > [!NOTE]
     > Più servizi scrivono i log delle risorse nella tabella AzureDiagnostics. Se si avvia Log Analytics dal menu Monitoraggio di Azure, è necessario aggiungere un'istruzione `where` con la colonna `ResourceProvider` per indicare il servizio specifico. Quando si avvia Log Analytics dal menu di una risorsa, l'ambito è già limitato ai record di questa risorsa, quindi questa colonna non è necessaria. Per le query di esempio, vedere la documentazione del servizio.

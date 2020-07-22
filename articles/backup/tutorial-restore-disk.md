@@ -4,12 +4,12 @@ description: Informazioni su come ripristinare un disco e creare un ripristino d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56410b5302611d5de3d72f727e1a4c36bd49ca7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75aa06d4c99c2b9c99015acfae98c30e75209f64
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160939"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503524"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Ripristinare un disco e creare una macchina virtuale ripristinata in Azure
 
@@ -43,7 +43,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 
 Per ripristinare un disco, selezionare un punto di ripristino come origine dei dati di ripristino. Poiché i criteri predefiniti creano un punto di ripristino ogni giorno che viene conservato per 30 giorni, è possibile avere a disposizione un insieme di punti di ripristino che consente di selezionare un momento specifico per il ripristino.
 
-Per visualizzare un elenco dei punti di ripristino disponibili, usare [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Il valore **name** del punto di ripristino viene usato per il ripristino dei dischi. In questa esercitazione si vuole usare il punto di ripristino più recente disponibile. Il parametro `--query [0].name` seleziona il nome del punto di ripristino più recente come illustrato di seguito:
+Per visualizzare un elenco dei punti di ripristino disponibili, usare [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Il valore **name** del punto di ripristino viene usato per il ripristino dei dischi. In questa esercitazione si vuole usare il punto di ripristino più recente disponibile. Il parametro `--query [0].name` seleziona il nome del punto di ripristino più recente come illustrato di seguito:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -65,7 +65,7 @@ az backup recoverypoint list \
 
 Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gestiti e se lo scopo è quello di ripristinare i dischi gestiti dal punto di ripristino, è prima necessario fornire un account di archiviazione di Azure. Questo account di archiviazione viene usato per archiviare la configurazione della macchina virtuale e il modello di distribuzione che può essere usato in seguito per distribuire la macchina virtuale dai dischi ripristinati. È anche necessario specificare un gruppo di risorse di destinazione in cui verranno ripristinati i dischi gestiti.
 
-1. Per creare un account di archiviazione, usare [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
+1. Per creare un account di archiviazione, usare [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
 
     ```azurecli-interactive
     az storage account create \
@@ -74,7 +74,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
         --sku Standard_LRS
     ```
 
-2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse in cui vengono ripristinati i dischi gestiti***.
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse in cui vengono ripristinati i dischi gestiti***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -109,7 +109,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi non g
 
 Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchina virtuale.
 
-1. Per creare un account di archiviazione, usare [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
+1. Per creare un account di archiviazione, usare [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
 
     ```azurecli-interactive
     az storage account create \
@@ -118,7 +118,7 @@ Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchin
         --sku Standard_LRS
     ```
 
-2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) precedente:
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) precedente:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -145,7 +145,7 @@ Come indicato in precedenza, i dischi non gestiti verranno ripristinati nei rela
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -181,7 +181,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-L'output di questa query fornirà tutti i dettagli, ma ai fini dell'esercitazione sono rilevanti solo le informazioni relative al contenuto dell'account di archiviazione. È possibile usare la [funzionalità di query](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) dell'interfaccia della riga di comando di Azure per recuperare i dettagli pertinenti
+L'output di questa query fornirà tutti i dettagli, ma ai fini dell'esercitazione sono rilevanti solo le informazioni relative al contenuto dell'account di archiviazione. È possibile usare la [funzionalità di query](/cli/azure/query-azure-cli?view=azure-cli-latest) dell'interfaccia della riga di comando di Azure per recuperare i dettagli pertinenti
 
 ```azurecli-interactive
 az backup job show \
@@ -226,7 +226,7 @@ https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName
 
 Quindi, il nome del modello dell'esempio precedente sarà ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e il nome del contenitore è ```myVM-daa1931199fd4a22ae601f46d8812276```
 
-Ottenere ora il token di firma di accesso condiviso per il contenitore e il modello come descritto [qui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+Ottenere ora il token di firma di accesso condiviso per il contenitore e il modello come descritto [qui](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -250,7 +250,7 @@ url=$(az storage blob url \
 
 ### <a name="deploy-the-template-to-create-the-vm"></a>Distribuire il modello per creare la macchina virtuale
 
-A questo punto, distribuire il modello per creare la nuova macchina virtuale, come spiegato [qui](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+A questo punto, distribuire il modello per creare la nuova macchina virtuale, come spiegato [qui](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli-interactive
 az group deployment create \

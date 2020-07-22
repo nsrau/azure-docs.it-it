@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100414"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508318"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
@@ -37,13 +37,13 @@ In Cloud Shell selezionare **Prova** nell'angolo in alto a destra di qualsiasi b
 
 Per configurare il monitoraggio di Azure e la gestione degli aggiornamenti in questa esercitazione, è necessario disporre di una macchina virtuale Windows in Azure.
 
-Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Successivamente, creare la VM con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L'esempio seguente crea una VM denominata `myVM` nella località `East US`. Se non esistono già, vengono creati il gruppo di risorse `myResourceGroupMonitor` e le risorse di rete di supporto:
+Successivamente, creare la VM con [New-AzVM](/powershell/module/az.compute/new-azvm). L'esempio seguente crea una VM denominata `myVM` nella località `East US`. Se non esistono già, vengono creati il gruppo di risorse `myResourceGroupMonitor` e le risorse di rete di supporto:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Per abilitare Gestione aggiornamenti per la VM:
 
 Viene eseguita una convalida per determinare se la soluzione Gestione aggiornamenti è abilitata per la VM. La convalida include controlli per un'area di lavoro Log Analytics e per un account di Automazione collegato, oltre a verificare se la soluzione è presente nell'area di lavoro.
 
-L'area di lavoro [Log Analytics](../../log-analytics/log-analytics-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+L'area di lavoro [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
 Per eseguire altre azioni nelle macchine virtuali che richiedono aggiornamenti, è possibile usare Automazione di Azure per eseguire runbook sulle VM. Tali azioni includono il download o l'applicazione di aggiornamenti.
 
@@ -86,8 +86,8 @@ Nella finestra **Abilita Gestione aggiornamenti** scegliere l'area di lavoro Log
 
 Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
-* Area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automazione](../../automation/automation-offering-get-started.md)
+* Area di lavoro di [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Automazione](../../automation/index.yml)
 * Un [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md), abilitato nella macchina virtuale
 
 Una volta abilitata la soluzione, viene visualizzata la finestra **Gestione aggiornamenti**. Configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare, quindi selezionare **Abilita**. Se queste opzioni sono inattive, significa che per la VM è abilitata un'altra soluzione di automazione ed è necessario usare l'area di lavoro e l'account di automazione di tale soluzione.

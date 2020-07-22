@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496214"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -91,23 +91,26 @@ Se si vuole aggiungere un nuovo riquadro, è possibile aggiungerlo a una cartell
 
 La query di esempio seguente consente di confrontare le tendenze del traffico tra le varie settimane. È possibile cambiare facilmente il fornitore di dispositivi e l'origine dati su cui eseguire la query. Questo esempio usa SecurityEvent di Windows, è possibile modificarlo per eseguirlo su AzureActivity o CommonSecurityLog su qualsiasi altro firewall.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 Si potrebbe voler creare una query che incorpora i dati da più origini. È possibile creare una query che esamina i log di controllo di Azure Active Directory cercando i nuovi utenti che sono stati creati, quindi controlla i log di Azure per verificare se l'utente ha iniziato ad apportare modifiche alle assegnazioni di ruolo entro 24 ore dalla creazione. Questa attività sospetta verrebbe mostrata in questo dashboard:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 È possibile creare cartelle di lavoro diverse in base al ruolo della persona che sta esaminando i dati e a ciò che sta cercando. Ad esempio, si può creare per l'amministratore di rete una cartella di lavoro che includa i dati del firewall. È anche possibile creare cartelle di lavoro in base alla frequenza di consultazione, se ci sono elementi da controllare ogni giorno e altri da controllare ogni ora. Ad esempio, si possono esaminare gli accessi ad Azure AD ogni ora per cercare eventuali anomalie. 
 

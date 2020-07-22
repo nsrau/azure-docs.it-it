@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 11/30/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 14777b85fdc531b96c61882d5f244ca40ed28fa6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f6dd0792a764ef423f31131e80ab28a45f1fe4c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500294"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di macchine virtuali nel set di scalabilità, nonché definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure e viene spiegato come:
@@ -41,7 +41,7 @@ I set di scalabilità supportano fino a 1000 macchine virtuali quando si usa un'
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Creare un set di scalabilità di macchine virtuali con [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine della piattaforma *Windows Server 2016 Datacenter*. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, è possibile impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
+Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine della piattaforma *Windows Server 2016 Datacenter*. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, è possibile impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -59,7 +59,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="deploy-sample-application"></a>Distribuire l'applicazione di esempio
-Per testare il set di scalabilità, installare un'applicazione Web di base. Usare l'estensione script personalizzati di Azure per scaricare ed eseguire uno script che installa IIS nelle istanze di macchina virtuale. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](extensions-customscript.md).
+Per testare il set di scalabilità, installare un'applicazione Web di base. Usare l'estensione script personalizzati di Azure per scaricare ed eseguire uno script che installa IIS nelle istanze di macchina virtuale. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../extensions/custom-script-windows.md).
 
 Usare l'estensione script personalizzati per installare un server Web IIS di base. Applicare l'estensione di script personalizzati che installa IIS nel modo seguente:
 
@@ -92,7 +92,7 @@ Update-AzVmss `
 
 ## <a name="allow-traffic-to-application"></a>Consentire il traffico verso l'applicazione
 
-Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) e [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) e [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -141,7 +141,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>Testare il set di scalabilità
-Per verificare il funzionamento del set di scalabilità, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). L'esempio seguente mostra l'indirizzo IP per *myPublicIP* creato come parte del set di scalabilità:
+Per verificare il funzionamento del set di scalabilità, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). L'esempio seguente mostra l'indirizzo IP per *myPublicIP* creato come parte del set di scalabilità:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -160,7 +160,7 @@ Per verificare il funzionamento del set di scalabilità, è possibile imporre l'
 Nel ciclo di vita del set di scalabilità, potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Azure PowerShell offre un modo rapido per eseguire queste operazioni. Di seguito vengono illustrate alcune attività comuni.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
-Per visualizzare un elenco delle istanze di VM in un set di scalabilità, usare [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) come illustrato di seguito:
+Per visualizzare un elenco delle istanze di VM in un set di scalabilità, usare [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) come illustrato di seguito:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -177,7 +177,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `-InstanceId` a [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). L'esempio seguente consente di visualizzare informazioni sull'istanza di macchina virtuale *1*:
+Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `-InstanceId` a [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). L'esempio seguente consente di visualizzare informazioni sull'istanza di macchina virtuale *1*:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -188,7 +188,7 @@ Get-AzVmssVM `
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Aumentare o diminuire le istanze delle macchine virtuali
-Per visualizzare il numero di istanze attualmente presente in un set di scalabilità, usare [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) ed eseguire una query su *sku.capacity*:
+Per visualizzare il numero di istanze attualmente presente in un set di scalabilità, usare [Get-AzVmss](/powershell/module/az.compute/get-azvmss) ed eseguire una query su *sku.capacity*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -196,7 +196,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
   Select -ExpandProperty Sku
 ```
 
-È quindi possibile aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). L'esempio seguente imposta il numero di macchine virtuali del set di scalabilità su *3*:
+È quindi possibile aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con [Update-AzVmss](/powershell/module/az.compute/update-azvmss). L'esempio seguente imposta il numero di macchine virtuali del set di scalabilità su *3*:
 
 ```azurepowershell-interactive
 # Get current scale set

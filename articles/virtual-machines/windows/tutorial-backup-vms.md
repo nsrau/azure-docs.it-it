@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500396"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Windows in Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "82100431"
 
 ## <a name="backup-overview"></a>Panoramica del servizio Backup
 
-Quando il servizio Backup di Azure avvia un processo di backup, attiva l'estensione per il backup per acquisire uno snapshot temporizzato. Il servizio Backup di Azure usa l'estensione [VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). L'estensione viene installata durante il primo backup della macchina virtuale se la macchina virtuale è in esecuzione. Se la macchina virtuale non è in esecuzione, il servizio Backup crea uno snapshot dell'archivio sottostante (poiché non si verifica alcuna scrittura di applicazione durante l'arresto della macchina virtuale).
+Quando il servizio Backup di Azure avvia un processo di backup, attiva l'estensione per il backup per acquisire uno snapshot temporizzato. Il servizio Backup di Azure usa l'estensione [VMSnapshot](../extensions/vmsnapshot-windows.md). L'estensione viene installata durante il primo backup della macchina virtuale se la macchina virtuale è in esecuzione. Se la macchina virtuale non è in esecuzione, il servizio Backup crea uno snapshot dell'archivio sottostante (poiché non si verifica alcuna scrittura di applicazione durante l'arresto della macchina virtuale).
 
 Quando crea uno snapshot delle macchine virtuali di Windows, il servizio Backup si coordina con il servizio Copia Shadow del volume (VSS) per ottenere uno snapshot coerente dei dischi delle macchine virtuali. Dopo che il servizio Backup di Azure crea lo snapshot, i data vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
 
@@ -98,12 +98,3 @@ Passare all'esercitazione successiva per informazioni sul monitoraggio di macchi
 
 > [!div class="nextstepaction"]
 > [Configurare la governance delle macchine virtuali](tutorial-govern-resources.md)
-
-
-
-
-
-
-
-
-

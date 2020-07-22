@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d99af6965e4d2e73ed302530d76126e0e6e8a3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850063"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505925"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Guida introduttiva: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
 
@@ -168,4 +168,4 @@ Ora che è in corso la raccolta di dati operativi e sulle prestazioni dal comput
 Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../log-query/get-started-portal.md)

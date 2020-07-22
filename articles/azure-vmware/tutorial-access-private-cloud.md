@@ -3,12 +3,12 @@ title: 'Esercitazione: Informazioni su come accedere al cloud privato'
 description: Informazioni su come accedere a un cloud privato della soluzione Azure VMware (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 32dc5c173789996d2559eda1153b1509e10e5984
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873595"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497965"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Esercitazione: Informazioni su come accedere a un cloud privato della soluzione Azure VMware (AVS)
 
@@ -43,7 +43,7 @@ Immettere le informazioni obbligatorie nei campi e quindi selezionare **Verifica
 | **Nome utente** | Immettere il nome utente per l'accesso alla VM. |
 | **Password** | Immettere la password per l'accesso alla VM. |
 | **Conferma password** | Immettere la password per l'accesso alla VM. |
-| **Porte in ingresso pubbliche** | Selezionare **Nessuno**. Se si seleziona Nessuno, è possibile usare l'[accesso JIT](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) per controllare l'accesso alla macchina virtuale solo quando si vuole accedervi.  |
+| **Porte in ingresso pubbliche** | Selezionare **Nessuno**. Se si seleziona Nessuno, è possibile usare l'[accesso JIT](../security-center/security-center-just-in-time.md#jit-configure) per controllare l'accesso alla macchina virtuale solo quando si vuole accedervi.  |
 
 Dopo aver immesso le informazioni appropriate, fare clic su **Rivedi e crea**. Al termine della convalida, selezionare **Crea** per avviare il processo di creazione della macchina virtuale.
 

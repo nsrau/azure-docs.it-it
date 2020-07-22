@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f15beeee2c5843506f0bf89b4c6d66d77826e152
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e5cabdf9c69ead9a2d7f497aceec183cf0be900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459891"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509665"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Risolvere i problemi del disco del sistema operativo della VM
 
@@ -40,14 +40,14 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Recupera un elenco di macchine virtuali. In questo caso, l'opzione di query viene usata per restituire il disco del sistema operativo della macchina virtuale. Questo valore viene quindi aggiunto a un nome di variabile 'uri'. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Consente di eliminare una macchina virtuale. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Consente di creare una macchina virtuale.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Collega un disco a una macchina virtuale. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Restituisce gli indirizzi IP di una macchina virtuale. |
+| [az vm show](/cli/azure/vm) | Recupera un elenco di macchine virtuali. In questo caso, l'opzione di query viene usata per restituire il disco del sistema operativo della macchina virtuale. Questo valore viene quindi aggiunto a un nome di variabile 'uri'. |
+| [az vm delete](/cli/azure/vm) | Consente di eliminare una macchina virtuale. |
+| [az vm create](/cli/azure/vm) | Consente di creare una macchina virtuale.  |
+| [az vm disk attach](/cli/azure/vm/disk) | Collega un disco a una macchina virtuale. |
+| [az vm list-ip-addresses](/cli/azure/vm) | Restituisce gli indirizzi IP di una macchina virtuale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77656263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505874"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorare e inviare avvisi sullo stato di integrità dell'applicazione con Azure Application Insights
 
@@ -28,7 +28,7 @@ Si apprenderà come:
 
 Per completare questa esercitazione:
 
-Creazione di una[risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Creazione di una[risorsa di Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -56,7 +56,7 @@ I test di disponibilità in Application Insights consentono di testare automatic
 
     ![Modificare l'avviso](media/tutorial-alert/edit-alert-001.png)
 
-6. Impostare le località con errori su un valore superiore o uguale a 3. Creare un [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per configurare gli utenti che ricevono una notifica quando la soglia avvisi viene violata.
+6. Impostare le località con errori su un valore superiore o uguale a 3. Creare un [gruppo di azioni](../platform/action-groups.md) per configurare gli utenti che ricevono una notifica quando la soglia avvisi viene violata.
 
     ![Interfaccia utente per salvare l'avviso](media/tutorial-alert/save-alert-001.png)
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496753"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app demo nel portale di Azure (Ricerca cognitiva di Azure)
 
@@ -31,7 +31,7 @@ Per eseguire le procedure descritte è necessario:
 
 + [Microsoft Edge (ultima versione)](https://www.microsoft.com/edge) o Google Chrome.
 
-+ Un [indice di ricerca](search-create-index-portal.md) da usare come base per l'applicazione generata. 
++ Un [indice di ricerca](search-what-is-an-index.md) da usare come base per l'applicazione generata. 
 
   Questo argomento di avvio rapido usa i dati e l'indice predefiniti dell'esempio per il mercato immobiliare perché contiene immagini di anteprima (la procedura guidata supporta l'aggiunta di immagini alla pagina dei risultati). Per creare l'indice usato in questo esercizio, eseguire la procedura guidata **Importa dati**, scegliendo l'origine dati *realestate-us-sample*.
 

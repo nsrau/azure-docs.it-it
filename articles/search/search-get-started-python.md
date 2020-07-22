@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2f90746448460d168d5fa4751af1f407d217f8ed
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 304d0a689b30b0e900d07b4654c4f5cd6db7b9ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562126"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496724"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
 
@@ -24,7 +24,7 @@ ms.locfileid: "85562126"
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
-> * [Portale](search-create-index-portal.md)
+> * [Portale](search-get-started-portal.md)
 > 
 
 Creare un notebook di Jupyter che crea e carica un indice di Ricerca cognitiva di Azure ed esegue query su di esso usando Python e le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra in modo dettagliato come creare un notebook. In alternativa, è possibile [scaricare ed eseguire un notebook Python di Jupyter già completato](https://github.com/Azure-Samples/azure-search-python-samples).

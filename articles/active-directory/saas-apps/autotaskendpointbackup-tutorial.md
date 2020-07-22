@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c9bad99d0ce39fb5f179043278ca4785d726744
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d080fd3cac7a0550452908e9e0265bb2ffcb462
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Esercitazione: Integrazione di Azure Active Directory con Autotask Endpoint Backup
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backu
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Autotask Endpoint Backu
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Configurare l'accesso Single Sign-On di Autotask Endpoint Backup
 
-Per configurare l'accesso Single Sign-On sul lato **Autotask Endpoint Backup**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Autotask Endpoint Backup**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Creare un utente di test di Autotask Endpoint Backup
 
-In questa sezione viene creato un utente di nome Britta Simon in Autotask Endpoint Backup. Per aggiungere utenti nella piattaforma Autotask Endpoint Backup, rivolgersi al  [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Autotask Endpoint Backup. Per aggiungere utenti nella piattaforma Autotask Endpoint Backup, rivolgersi al  [team di supporto di Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

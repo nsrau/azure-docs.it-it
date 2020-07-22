@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: tracking-python
-ms.openlocfilehash: 399a5bf40cff673f96aea46997bc639865619571
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bbb784a1245ecc8d6f3d3aee45b729984568fc6c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560787"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506094"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Esercitazione: Distribuire un modello di classificazione delle immagini con training preliminare in Funzioni di Azure con PyTorch
 
@@ -115,7 +115,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py*, che contiene il codice della funzione, e *function.json*, che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
+    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py*, che contiene il codice della funzione, e *function.json*, che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
