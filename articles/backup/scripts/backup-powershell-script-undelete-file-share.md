@@ -3,12 +3,12 @@ title: Script di PowerShell - Annullare l'eliminazione di una condivisione file 
 description: Informazioni su come usare uno script di Azure PowerShell per annullare l'eliminazione di una condivisione file eliminata accidentalmente.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 2eb89735a8327e782d8d8a712f4f0d59911540cc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84121262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513235"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script di PowerShell per annullare l'eliminazione di una condivisione file eliminata accidentalmente
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dei moduli Az di Azure PowerShell da [questo collegamento](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) prima di eseguire lo script.
+1. Installare la versione più recente dei moduli Az di Azure PowerShell da [questo collegamento](//powershell/azure/install-az-ps) prima di eseguire lo script.
 2. Tenere i dettagli seguenti a portata di mano perché sarà necessario passarli come valori per i diversi parametri dello script:
 
     * **-SubscriptionId**: ID della sottoscrizione in cui si trova la condivisione file.
@@ -209,4 +209,3 @@ Nell'esempio seguente viene annullata l'eliminazione della versione *01D5D7F77AC
 ```powershell
    .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
 ```
-

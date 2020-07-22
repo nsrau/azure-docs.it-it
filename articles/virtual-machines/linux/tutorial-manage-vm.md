@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460002"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526980"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -32,13 +32,13 @@ Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente 
 > * Ridimensionare una VM
 > * Visualizzare e comprendere lo stato di una macchina virtuale
 
-Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
+Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](../../cloud-shell/overview.md), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *eastus*. 
 
@@ -50,7 +50,7 @@ Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Crea una macchina virtuale usando il comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
+Crea una macchina virtuale usando il comando [az vm create](/cli/azure/vm). 
 
 Quando si crea una macchina virtuale, sono disponibili alcune opzioni come immagine del sistema operativo, ridimensionamento dei dischi e credenziali amministrative. L'esempio seguente crea una macchina virtuale denominata *myVM* che esegue Ubuntu Server. Viene creato un account utente denominato *azureuser* nella macchina virtuale e vengono generate chiavi SSH se non esistono già nel percorso predefinito delle chiavi ( *~/.ssh*):
 
@@ -155,12 +155,12 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 
 | Type                     | Dimensioni comuni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Utilizzo generico](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
-| [Ottimizzate per il calcolo](sizes-compute.md)   | Fsv2          | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
-| [Ottimizzate per la memoria](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
-| [Ottimizzate per l'archiviazione](sizes-storage.md)      | Lsv2, Ls              | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
-| [Prestazioni elevate](sizes-hpc.md) | H        | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). |
+| [Utilizzo generico](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
+| [Ottimizzate per il calcolo](../sizes-compute.md)   | Fsv2          | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
+| [Ottimizzate per la memoria](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Ottimizzate per l'archiviazione](../sizes-storage.md)      | Lsv2, Ls              | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
+| [Prestazioni elevate](../sizes-hpc.md) | H        | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). |
 
 
 ### <a name="find-available-vm-sizes"></a>Trovare le dimensioni delle macchine virtuali disponibili

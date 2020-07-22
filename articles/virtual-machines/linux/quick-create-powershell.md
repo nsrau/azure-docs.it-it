@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759212"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510328"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Linux in Azure con PowerShell
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 Per informazioni più dettagliate su come creare coppie di chiavi SSH, incluso l'uso di PuTTy, vedere [Come usare le chiavi SSH con Windows in Azure](ssh-from-windows.md).
 
-Se si crea la coppia di chiavi SSH usando Cloud Shell, questa verrà archiviata in un'immagine del contenitore in un [account di archiviazione creato automaticamente da Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Non eliminare l'account di archiviazione o la condivisione file presente nell'account prima di aver recuperato le chiavi. In caso contrario si perderà l'accesso alla macchina virtuale. 
+Se si crea la coppia di chiavi SSH usando Cloud Shell, questa verrà archiviata in un'immagine del contenitore in un [account di archiviazione creato automaticamente da Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Non eliminare l'account di archiviazione o la condivisione file presente nell'account prima di aver recuperato le chiavi. In caso contrario si perderà l'accesso alla macchina virtuale. 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite:
+Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -111,7 +111,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Creare una scheda di interfaccia di rete virtuale con [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). La scheda di interfaccia di rete virtuale connette la macchina virtuale a una subnet, a un gruppo di sicurezza di rete e a un indirizzo IP pubblico.
+Creare una scheda di interfaccia di rete virtuale con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). La scheda di interfaccia di rete virtuale connette la macchina virtuale a una subnet, a un gruppo di sicurezza di rete e a un indirizzo IP pubblico.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -160,7 +160,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-A questo punto combinare le definizioni di configurazione precedenti per la creazione con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+A questo punto combinare le definizioni di configurazione precedenti per la creazione con [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -172,7 +172,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 
 ## <a name="connect-to-the-vm"></a>Connettersi alla VM
 
-Creare una connessione SSH con la macchina virtuale usando l'indirizzo IP pubblico. Per visualizzare l'indirizzo IP pubblico della VM usare il cmdlet [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress):
+Creare una connessione SSH con la macchina virtuale usando l'indirizzo IP pubblico. Per visualizzare l'indirizzo IP pubblico della VM usare il cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -207,7 +207,7 @@ Usare il Web browser che si preferisce per vedere la pagina iniziale di NGINX pr
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup):
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

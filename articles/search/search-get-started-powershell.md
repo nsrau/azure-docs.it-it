@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 96ab2b7c8e80375f97df550ed6c83e7bb3e2f3e3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519814"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in PowerShell con le API REST
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "85562083"
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [Portale](search-create-index-portal.md)
+> * [Portale](search-get-started-portal.md)
 > 
 
 Questo articolo illustra in modo dettagliato il processo per creare e caricare un indice di Ricerca cognitiva di Azure ed eseguire query su di esso usando PowerShell e le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). L'articolo descrive come eseguire i comandi di PowerShell in modo interattivo. In alternativa, è possibile [scaricare ed eseguire uno script di Powershell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) che esegue le stesse operazioni.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525169"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -51,21 +51,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Creare una rete WAN virtuale
 
-In un browser passare al portale di Azure e accedere con l'account Azure.
-
-1. Passare alla pagina WAN virtuale. Nel portale fare clic su **+Crea una risorsa**. Digitare **Rete WAN virtuale** nella casella di ricerca e premere INVIO.
-2. Selezionare **Rete WAN virtuale** nei risultati. Nella pagina della rete WAN virtuale fare clic su **Crea** per aprire la pagina Crea rete WAN.
-3. Nella pagina **Crea rete WAN**, nella scheda **Nozioni di base**, compilare i campi seguenti:
-
-   ![Rete WAN virtuale](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **Sottoscrizione** - Selezionare la sottoscrizione che si vuole usare.
-   * **Gruppo di risorse** - Creare un nuovo gruppo o usarne uno esistente.
-   * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
-   * **Nome** - Digitare il nome che si vuole usare per la rete WAN.
-   * **Tipo:** Basic o Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
-4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
-5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="create-a-hub"></a><a name="hub"></a>Creare un hub
 

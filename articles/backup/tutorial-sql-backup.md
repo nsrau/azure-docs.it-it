@@ -3,12 +3,12 @@ title: Esercitazione - Eseguire il backup di database di SQL Server in Azure
 description: In questa esercitazione viene descritto come eseguire il backup di un database di SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680738"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513326"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Eseguire il backup di un database di SQL Server in una VM di Azure
 
@@ -64,7 +64,7 @@ Evitare quanto segue per i nomi dei database:
 * Parentesi quadra chiusa ']'
 * Nomi di database iniziano con "F:\"
 
-È previsto l'uso di alias per i caratteri non supportati dalle tabelle di Azure, ma è consigliabile evitare tali caratteri. [Altre informazioni](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)
+È previsto l'uso di alias per i caratteri non supportati dalle tabelle di Azure, ma è consigliabile evitare tali caratteri. [Altre informazioni](/rest/api/storageservices/understanding-the-table-service-data-model)
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

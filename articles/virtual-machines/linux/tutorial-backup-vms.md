@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460071"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526997"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "81460071"
 
 Quando il servizio Backup di Azure avvia un processo di backup, attiva l'estensione per il backup per acquisire uno snapshot temporizzato. Il servizio Backup di Azure usa l'estensione _VMSnapshotLinux_ in Linux. L'estensione viene installata durante il primo backup della macchina virtuale se la macchina virtuale è in esecuzione. Se la macchina virtuale non è in esecuzione, il servizio Backup crea uno snapshot dell'archivio sottostante (poiché non si verifica alcuna scrittura di applicazione durante l'arresto della macchina virtuale).
 
-Per impostazione predefinita, Backup di Azure esegue un backup coerente del file system per macchine virtuali Linux ma può essere configurato per eseguire un [backup coerente dell'applicazione tramite un framework di script pre e post-backup](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Dopo che il servizio Backup di Azure crea lo snapshot, i data vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
+Per impostazione predefinita, Backup di Azure esegue un backup coerente del file system per macchine virtuali Linux ma può essere configurato per eseguire un [backup coerente dell'applicazione tramite un framework di script pre e post-backup](../../backup/backup-azure-linux-app-consistent.md). Dopo che il servizio Backup di Azure crea lo snapshot, i data vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
 
 Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
@@ -171,4 +171,3 @@ Passare all'esercitazione successiva per informazioni sul monitoraggio di macchi
 
 > [!div class="nextstepaction"]
 > [Configurare la governance delle macchine virtuali](tutorial-govern-resources.md)
-

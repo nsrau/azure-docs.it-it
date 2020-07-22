@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521650"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Panoramica dei criteri di Gestione firewall di Azure
 
@@ -47,8 +47,8 @@ Con l'ereditarietà, tutte le modifiche apportate ai criteri padre vengono autom
 Firewall di Azure supporta sia regole che criteri tradizionali. La tabella seguente contiene un confronto dei criteri e delle regole.
 
 
-|         |Policy  |Regole  |
-|---------|---------|---------|
+| Oggetto | Policy  | Regole |
+| ------- | ------- | ----- |
 |Contiene     |NAT, rete, regole dell'applicazione, impostazioni proxy DNS e DNS personalizzato, gruppi di indirizzi IP e impostazioni di Threat Intelligence (incluso l'elenco Consenti)|NAT, rete e regole dell'applicazione, impostazioni proxy DNS e DNS personalizzato, gruppi di indirizzi IP e impostazioni di Threat Intelligence (incluso l'elenco Consenti)|
 |Protegge     |Hub virtuali e reti virtuali|Solo reti virtuali|
 |Funzionalità del portale     |Gestione centrale con Gestione firewall|Esperienza autonoma a livello di firewall|

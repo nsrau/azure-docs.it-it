@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203756"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498509"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -67,21 +67,21 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 - [Inviare il log attività di Azure all'area di lavoro Log Analytics con il modello di Azure Resource Manager](learn/quick-collect-activity-log-arm.md) - Nuovo articolo.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Articoli nuovi e aggiornati dopo la ristrutturazione e il consolidamento del contenuto sui log della piattaforma
-- [Archiviare i log delle risorse di Azure nell'account di archiviazione](platform/resource-logs-collect-storage.md)
+- [Archiviare i log delle risorse di Azure nell'account di archiviazione](./platform/resource-logs.md#send-to-azure-storage)
 - [Schema degli eventi del log attività di Azure](platform/activity-log-schema.md)
 - [Log attività di Azure](platform/activity-log.md)
 - [Esempi dell'interfaccia della riga di comando per Monitoraggio di Azure](samples/cli-samples.md)
 - [Esempi di PowerShell in Monitoraggio di Azure](samples/powershell-samples.md)
 - [Procedura dettagliata sull'API REST di Monitoraggio di Azure](platform/rest-api-walkthrough.md)
-- [Servizi e schemi supportati per i log delle risorse di Azure](platform/diagnostic-logs-schema.md)
+- [Servizi e schemi supportati per i log delle risorse di Azure](./platform/resource-logs-schema.md)
 - [Log delle risorse di Azure](platform/resource-logs.md)
-- [Raccogliere e analizzare i log attività di Azure in Monitoraggio di Azure](platform/activity-log-collect.md)
-- [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Raccogliere e analizzare i log attività di Azure in Monitoraggio di Azure](./platform/activity-log.md)
+- [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](platform/diagnostic-settings.md)
-- [Esportare il log attività di Azure](platform/activity-log-export.md)
+- [Esportare il log attività di Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Panoramica dei log della piattaforma di Azure](platform/platform-logs-overview.md)
-- [Trasmettere log della piattaforma di Azure a un hub eventi](platform/resource-logs-stream-event-hubs.md)
-- [Visualizzare gli eventi dei log attività di Azure in Monitoraggio di Azure](platform/activity-log-view.md)
+- [Trasmettere log della piattaforma di Azure a un hub eventi](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Visualizzare gli eventi dei log attività di Azure in Monitoraggio di Azure](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 - [Abilitare Monitoraggio di Azure per le macchine virtuali nel portale di Azure](insights/vminsights-enable-single-vm.md) - Aggiornato per includere Azure Arc.
@@ -155,7 +155,7 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 
 ### <a name="insights"></a>Informazioni dettagliate
 - [Monitoraggio di Azure per la cache di Azure per Redis (anteprima)](insights/redis-cache-insights-overview.md) - Nuovo articolo.
-- [Monitorare Key Vault con Monitoraggio di Azure per Key Vault (anteprima)](insights/key-vaults-insights-overview.md) - Nuovo articolo.
+- [Monitorare Key Vault con Monitoraggio di Azure per Key Vault (anteprima)](./insights/key-vault-insights-overview.md) - Nuovo articolo.
 
 ### <a name="logs"></a>Log
 - [Creare e configurare Log Analytics con PowerShell](platform/powershell-workspace-configuration.md) - Aggiunta di una sezione relativa alla risoluzione dei problemi.
@@ -280,7 +280,7 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 
 ### <a name="platform-logs"></a>Log della piattaforma
 
-- [Raccogliere e analizzare il log attività di Azure in Monitoraggio di Azure](platform/activity-log-collect.md) - Articolo riscritto per illustrare meglio la raccolta del log attività con le impostazioni di diagnostica.
+- [Raccogliere e analizzare il log attività di Azure in Monitoraggio di Azure](./platform/activity-log.md) - Articolo riscritto per illustrare meglio la raccolta del log attività con le impostazioni di diagnostica.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
@@ -326,7 +326,7 @@ Diversi aggiornamenti con la riscrittura del contenuto sull'estensione di diagno
 
 #### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 
-- [Integrare Azure Active Directory con il servizio Azure Kubernetes](../aks/azure-ad-integration.md) - Aggiunta di una nota per la creazione di un'applicazione client per supportare un cluster abilitato per Controllo degli accessi in base al ruolo e Monitoraggio di Azure per i contenitori.
+- [Integrare Azure Active Directory con il servizio Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Aggiunta di una nota per la creazione di un'applicazione client per supportare un cluster abilitato per Controllo degli accessi in base al ruolo e Monitoraggio di Azure per i contenitori.
 
 #### <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
 
@@ -412,8 +412,8 @@ Diversi nuovi articoli di guida alla conversione da Progettazione visualizzazion
 
 ### <a name="platform-logs"></a>Log della piattaforma
 
-- [Raccogliere il log attività di Azure con le impostazioni di diagnostica- Monitoraggio di Azure](platform/diagnostic-settings-legacy.md) - Informazioni aggiuntive sulle proprietà modificate.
-- [Esportare il log attività di Azure](platform/activity-log-export.md) - Contenuto aggiornato con le modifiche all'interfaccia utente. 
+- [Raccogliere il log attività di Azure con le impostazioni di diagnostica- Monitoraggio di Azure](./platform/activity-log.md) - Informazioni aggiuntive sulle proprietà modificate.
+- [Esportare il log attività di Azure](./platform/activity-log.md#legacy-collection-methods) - Contenuto aggiornato con le modifiche all'interfaccia utente. 
 
 ## <a name="december-2019"></a>Dicembre 2019
 
@@ -450,7 +450,7 @@ Diversi nuovi articoli di guida alla conversione da Progettazione visualizzazion
 
 ### <a name="insights-and-solutions"></a>Informazioni dettagliate e soluzioni
 
-- [Domande frequenti su Monitoraggio di Azure per i contenitori](insights/container-insights-faq.md) - Aggiunta una domanda sui campi Immagine e Nome.
+- [Domande frequenti su Monitoraggio di Azure per i contenitori](./faq.md) - Aggiunta una domanda sui campi Immagine e Nome.
 - [Soluzione Analisi SQL di Azure in Monitoraggio di Azure](insights/azure-sql.md) - Aggiornato il supporto di Istanza gestita per le attese del database.
 - [Configurare la raccolta dei dati dell'agente di Monitoraggio di Azure per i contenitori](insights/container-insights-agent-config.md) - Aggiunta un'impostazione per enrich_container_logs.
 - [Configurare cluster Kubernetes ibridi con Monitoraggio di Azure per i contenitori](insights/container-insights-hybrid-setup.md) - Aggiunta una sezione sulla risoluzione dei problemi.
@@ -474,19 +474,19 @@ Diversi nuovi articoli di guida alla conversione da Progettazione visualizzazion
 
 Più articoli aggiornati nell'ambito della ristrutturazione del contenuto per i log della piattaforma in base a una nuova funzionalità per la configurazione del log attività con le impostazioni di diagnostica.
 
-- [Archiviare i log delle risorse di Azure nell'account di archiviazione](platform/resource-logs-collect-storage.md)
+- [Archiviare i log delle risorse di Azure nell'account di archiviazione](./platform/resource-logs.md#send-to-azure-storage)
 - [Schema degli eventi del log attività di Azure](platform/activity-log-schema.md)
 - [Limiti del servizio Monitoraggio di Azure](service-limits.md)
-- [Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics](platform/activity-log-collect.md)
-- [Raccogliere il log attività di Azure con le impostazioni di diagnostica (anteprima) - Monitoraggio di Azure](platform/diagnostic-settings-legacy.md)
+- [Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics](./platform/activity-log.md)
+- [Raccogliere il log attività di Azure con le impostazioni di diagnostica (anteprima) - Monitoraggio di Azure](./platform/activity-log.md)
 - [Raccogliere i log attività di Azure in un'area di lavoro Log Analytics tra diversi tenant di Azure](platform/activity-log-collect-tenants.md)
-- [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Creare un'impostazione di diagnostica in Azure usando un modello di Resource Manager](platform/diagnostic-settings-template.md)
 - [Creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](platform/diagnostic-settings.md)
-- [Esportare il log attività di Azure](platform/activity-log-export.md)
+- [Esportare il log attività di Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Panoramica dei log della piattaforma di Azure](platform/platform-logs-overview.md)
 - [Trasmettere i dati di monitoraggio di Azure a un hub eventi](platform/stream-monitoring-data-event-hubs.md)
-- [Trasmettere log della piattaforma di Azure a un hub eventi](platform/resource-logs-stream-event-hubs.md)
+- [Trasmettere log della piattaforma di Azure a un hub eventi](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
 

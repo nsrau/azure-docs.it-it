@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: e0fb26896b79fb23bb0f784c0f23aa3af0593c22
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871864"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510158"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Esercitazione: Configurare la strategia di distribuzione canary per le macchine virtuali Linux di Azure
 
@@ -29,7 +29,7 @@ Questo articolo illustra come configurare una pipeline CI/CD basata sulla strate
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurare CI/CD nelle macchine virtuali
 
-È possibile aggiungere macchine virtuali come destinazioni a un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e quindi configurare l'invio di aggiornamenti a più VM. Dopo la distribuzione nei computer, aprire la visualizzazione **Cronologia distribuzioni** all'interno di un gruppo di distribuzione. Questa visualizzazione consente di seguire la traccia dalla macchina virtuale alla pipeline e quindi al commit.
+È possibile aggiungere macchine virtuali come destinazioni a un [gruppo di distribuzione](/azure/devops/pipelines/release/deployment-groups) e quindi configurare l'invio di aggiornamenti a più VM. Dopo la distribuzione nei computer, aprire la visualizzazione **Cronologia distribuzioni** all'interno di un gruppo di distribuzione. Questa visualizzazione consente di seguire la traccia dalla macchina virtuale alla pipeline e quindi al commit.
 
 ### <a name="canary-deployments"></a>Distribuzioni canary
 
@@ -87,5 +87,5 @@ Con l'opzione della distribuzione continua, è possibile configurare le distribu
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Eseguire la distribuzione in macchine virtuali di Azure con Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementare la distribuzione continua dell'app in un set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Eseguire la distribuzione in macchine virtuali di Azure con Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementare la distribuzione continua dell'app in un set di scalabilità di macchine virtuali di Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

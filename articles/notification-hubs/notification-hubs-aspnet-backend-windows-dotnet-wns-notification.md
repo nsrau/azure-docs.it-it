@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530491"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 Questa esercitazione si basa sull'hub notifica e sul processo di Visual Studio creato nell'[Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Pertanto, completarla prima di avviare questa esercitazione.
 
 > [!NOTE]
-> Se si usano app per dispositivi mobili nel servizio app di Azure, vedere la [versione per App per dispositivi mobili](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) di questa esercitazione.
+> Se si usano app per dispositivi mobili nel servizio app di Azure, vedere la [versione per App per dispositivi mobili](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push) di questa esercitazione.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -224,7 +224,7 @@ In questa sezione viene aggiornato il codice nel progetto completato per l'[Eser
     ```
 13. Fare clic con il pulsante destro del mouse sul progetto **WindowsApp**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla classe il nome `RegisterClient.cs`, quindi fare clic su **OK** per generare la classe.
 
-    Questa classe conclude le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](https://msdn.microsoft.com/library/dn743807.aspx). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Esegui accesso e registrazione**.
+    Questa classe conclude le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Esegui accesso e registrazione**.
 14. Aggiungere le seguenti istruzioni `using` all'inizio del file RegisterClient.cs:
 
     ```csharp
@@ -357,4 +357,4 @@ In questa esercitazione è stato descritto come inviare notifiche push a utenti 
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

@@ -3,12 +3,12 @@ title: "Script di PowerShell: trovare l'insieme di credenziali per l'account di 
 description: Informazioni su come usare uno script di Azure PowerShell per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76775867"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513252"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script di PowerShell per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione
 
@@ -72,4 +72,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [eseguire il backup di condivisioni file di Azure dal portale di Azure](https://docs.microsoft.com/azure/backup/backup-afs)
+Informazioni su come [eseguire il backup di condivisioni file di Azure dal portale di Azure](../backup-afs.md)

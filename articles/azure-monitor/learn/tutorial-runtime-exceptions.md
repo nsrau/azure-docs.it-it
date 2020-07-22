@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670424"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516363"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -35,7 +35,7 @@ Per completare questa esercitazione:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
-- Abilitare il [debugger di snapshot di Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+- Abilitare il [debugger di snapshot di Visual Studio](../app/snapshot-debugger.md)
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - L'esercitazione tiene traccia dell'identificazione di un'eccezione nell'applicazione, quindi modificare il codice nell'ambiente di sviluppo o di test per generare un'eccezione. 
 

@@ -3,12 +3,12 @@ title: Leggere i dati acquisiti da Hub eventi di Azure in un'app Python (ultima 
 description: Questo articolo illustra come scrivere codice Python per acquisire i dati inviati a un hub eventi e leggere i dati degli eventi acquisiti da un account di archiviazione di Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: eb7e8a2c1e567e474ad7d0766d9b12e5b43de3ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315289"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521871"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Acquisire i dati di Hub eventi in archiviazione di Azure e leggerli con Python (azure-eventhub versione 5)
 
@@ -35,7 +35,7 @@ Questa guida introduttiva spiega come:
 - Uno spazio dei nomi di Hub eventi e un hub eventi attivi.
 [Creare uno spazio dei nomi di Hub eventi e un hub eventi al suo interno](event-hubs-create.md). Prendere nota del nome dello spazio dei nomi di Hub eventi, del nome dell'hub eventi e della chiave di accesso primaria per lo spazio dei nomi. Per ottenere la chiave di accesso, vedere [Ottenere una stringa di connessione di Hub eventi](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Il nome della chiave predefinita è *RootManageSharedAccessKey*. Per questo argomento di avvio rapido, è necessaria solo la chiave primaria. La stringa di connessione non è necessaria.  
 - Un account di archiviazione di Azure, un contenitore BLOB al suo interno e una stringa di connessione all'account di archiviazione. Se questi elementi non sono disponibili, procedere come segue:  
-    1. [Creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Creare un account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Creare un contenitore BLOB nell'account di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Ottenere la stringa di connessione all'account di archiviazione](../storage/common/storage-configure-connection-string.md)
 
@@ -182,4 +182,4 @@ Esaminare gli [esempi di Python in GitHub](https://github.com/Azure/azure-sdk-fo
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

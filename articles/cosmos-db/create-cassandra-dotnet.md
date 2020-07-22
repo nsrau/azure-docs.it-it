@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e274db2983c476c2428fdd0d25f3dff9bbc5e6ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118424"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523877"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
 
@@ -120,7 +120,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**.
 
-1. Usare il ![Pulsante Copia](./media/create-cassandra-dotnet/copy.png) sul lato destro della schermata per copiare il valore NOME UTENTE.
+1. Usare il pulsante :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: sul lato destro della schermata per copiare il valore NOME UTENTE.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
 
