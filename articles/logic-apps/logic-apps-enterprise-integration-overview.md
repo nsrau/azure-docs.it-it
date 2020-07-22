@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77191362"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536403"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluzioni di integrazione aziendale B2B con App per la logica di Azure ed Enterprise Integration Pack
 
@@ -42,7 +42,7 @@ Per poter iniziare a creare flussi di lavoro di app per la logica B2B con EIP, s
 
 * Per creare mappe e schemi, si possono usare [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) e Visual Studio 2015.
 
-Dopo aver creato un account di integrazione e aver aggiunto gli artefatti, è possibile iniziare a creare flussi di lavoro B2B con questi artefatti creando un'app per la logica nel portale di Azure. Se non si ha familiarità con le app per la logica, provare a [creare un'app per la logica di base](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare questi artefatti, assicurarsi di collegare prima di tutto l'account di integrazione all'app per la logica. Successivamente, l'app per la logica potrà accedere all'account di integrazione. È anche possibile creare, gestire e distribuire app per la logica usando Visual Studio o [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
+Dopo aver creato un account di integrazione e aver aggiunto gli artefatti, è possibile iniziare a creare flussi di lavoro B2B con questi artefatti creando un'app per la logica nel portale di Azure. Se non si ha familiarità con le app per la logica, provare a [creare un'app per la logica di base](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare questi artefatti, assicurarsi di collegare prima di tutto l'account di integrazione all'app per la logica. Successivamente, l'app per la logica potrà accedere all'account di integrazione. È anche possibile creare, gestire e distribuire app per la logica usando Visual Studio o [PowerShell](/powershell/module/az.logicapp).
 
 Di seguito è illustrata la procedura generale per iniziare a creare app per la logica B2B:
 

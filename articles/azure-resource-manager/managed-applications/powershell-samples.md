@@ -5,22 +5,20 @@ author: tfitzmac
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4e068f8cf64e653c6b0231cc1d1bcddfbb9e9c55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8819fae48703b0bbf1f4c9566f0b1f64aa33d540
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75649128"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539245"
 ---
 # <a name="azure-powershell-samples"></a>Esempi di Azure PowerShell
 
 La tabella seguente include collegamenti a script per applicazioni gestite di Azure che usano Azure PowerShell.
 
-| | |
-|-|-|
-|**Creare un'applicazione gestita**||
+| Creare l'applicazione gestita | Descrizione |
+| -------------------------- | ----------- |
 | [Creare la definizione di un'applicazione gestita](scripts/managed-application-powershell-sample-create-definition.md) | Crea la definizione di un'applicazione gestita nel catalogo di servizi.  |
 | [Distribuire l'applicazione gestita](scripts/managed-application-poweshell-sample-create-application.md) | Distribuisce un'applicazione gestita dal catalogo di servizi.  |
-| | |
-|**Aggiornare un gruppo di risorse gestite**||
+|**Aggiornare un gruppo di risorse gestite**| **Descrizione** |
 | [Ottenere risorse nel gruppo di risorse gestite e ridimensionare le macchine virtuali](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Ottiene risorse dal gruppo di risorse gestite e ridimensiona le macchine virtuali. |
