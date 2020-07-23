@@ -91,7 +91,7 @@ Il flusso è il seguente:
 
 I dischi Ultra offrono un'ulteriore limitazione, per un totale di due limitazioni. Per questo motivo, il flusso di prenotazione di dischi Ultra può operare come descritto nella sezione precedente oppure può imporre una limitazione e distribuire le prestazioni in modo più granulare.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che rappresenta l'accesso "ReadOnly" o "lettura/scrittura" per il titolare della prenotazione, registrato e altro.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che rappresenta l'accesso ReadOnly o lettura/scrittura per il titolare della prenotazione, registrato e altro.":::
 
 ## <a name="performance-throttles"></a>Limitazioni delle prestazioni
 
