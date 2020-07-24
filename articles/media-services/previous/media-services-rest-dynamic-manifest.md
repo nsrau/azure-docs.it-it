@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000313"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ Questo articolo illustra come usare le API REST per creare, aggiornare ed elimin
 ## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti:  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filter](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect e FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -217,7 +217,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## <a name="update-filters"></a>Aggiornare i filtri
-Usare PATCH, PUT o MERGE per aggiornare un filtro con i nuovi valori di proprietà.  Per altre informazioni su queste operazioni, vedere [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Usare PATCH, PUT o MERGE per aggiornare un filtro con i nuovi valori di proprietà.  Per altre informazioni su queste operazioni, vedere [PATCH, PUT, MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. Cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.  
 
@@ -371,4 +371,3 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
 ## <a name="see-also"></a>Vedere anche
 [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md)
-

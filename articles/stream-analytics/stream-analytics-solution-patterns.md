@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999303"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni di Analisi di flusso di Azure
 
@@ -21,7 +22,7 @@ Analogamente a molti altri servizi in Azure, l'analisi di flusso è particolarme
 
 Con analisi di flusso di Azure è possibile creare rapidamente dashboard e avvisi in tempo reale. Una soluzione semplice inserisce gli eventi dall'hub eventi o dall'hub Internet e [inserisce il dashboard di Power bi con un set di dati di streaming](/power-bi/service-real-time-streaming). Per altre informazioni, vedere l'esercitazione dettagliata [analizzare i dati delle chiamate telefoniche con l'analisi di flusso e visualizzare i risultati in Power BI Dashboard](stream-analytics-manage-job.md).
 
-![Dashboard Power BI ASA](media/stream-analytics-solution-patterns/pbidashboard.png)
+![Dashboard Power BI ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
 Questa soluzione può essere compilata in pochi minuti da portale di Azure. Non è presente alcun codice esteso e viene usato il linguaggio SQL per esprimere la logica di business.
 
@@ -31,7 +32,7 @@ Questo modello di soluzione offre la latenza più bassa dall'origine evento al d
 
 Il dashboard Power BI offre bassa latenza, ma non può essere usato per produrre report completi Power BI. Un modello di report comune è quello di inviare prima i dati al database SQL. Usare quindi il connettore SQL di Power BI per eseguire query su SQL per i dati più recenti.
 
-![Dashboard SQL di ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
+![Dashboard SQL di ASA](media/stream-analytics-solution-patterns/sql-dashboard.png)
 
 L'uso del database SQL offre una maggiore flessibilità, ma a scapito di una latenza leggermente più elevata. Questa soluzione è ottimale per i processi con requisiti di latenza maggiori di un secondo. Con questo metodo è possibile ottimizzare le funzionalità di Power BI per suddividere ulteriormente i dati per i report, nonché altre opzioni di visualizzazione. Si ottiene anche la flessibilità di usare altre soluzioni dashboard, ad esempio tableau.
 
@@ -43,7 +44,7 @@ Il secondo uso più comune di analisi di flusso è quello di generare avvisi in 
 
 Per generare avvisi nel flusso di lavoro aziendale esistente, è necessario implementare la logica del consumer di eventi downstream. Poiché è possibile implementare la logica personalizzata in funzioni di Azure, funzioni di Azure rappresenta il modo più rapido per eseguire questa integrazione. Un'esercitazione per l'uso di funzioni di Azure come output per un processo di analisi di flusso è disponibile in [eseguire funzioni di Azure da processi di analisi di flusso di Azure](stream-analytics-with-azure-functions.md). Funzioni di Azure supporta anche vari tipi di notifiche, tra cui testo e posta elettronica. L'app per la logica può essere usata anche per questa integrazione, con hub eventi tra analisi di flusso e app per la logica.
 
-![App messaggistica eventi ASA](media/stream-analytics-solution-patterns/eventmessagingapp.png)
+![App messaggistica eventi ASA](media/stream-analytics-solution-patterns/event-messaging-app.png)
 
 Hub eventi, d'altra parte, offre il punto di integrazione più flessibile. Molti altri servizi, ad esempio Esplora dati di Azure e Time Series Insights possono usare gli eventi da Hub eventi. I servizi possono essere connessi direttamente al sink di hub eventi da analisi di flusso di Azure per completare la soluzione. Hub eventi è anche il broker di messaggistica con velocità effettiva più elevata disponibile in Azure per scenari di integrazione di questo tipo.
 
@@ -51,7 +52,7 @@ Hub eventi, d'altra parte, offre il punto di integrazione più flessibile. Molti
 
 È possibile creare visualizzazioni in tempo reale personalizzate, ad esempio dashboard o visualizzazione mappa, usando analisi di flusso di Azure e il servizio Azure SignalR. Con SignalR è possibile aggiornare i client Web e visualizzare il contenuto dinamico in tempo reale.
 
-![App dinamica ASA](media/stream-analytics-solution-patterns/dynamicapp.png)
+![App dinamica ASA](media/stream-analytics-solution-patterns/dynamic-app.png)
 
 ## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>Incorporare informazioni dettagliate in tempo reale sull'applicazione tramite archivi dati
 
@@ -59,13 +60,13 @@ La maggior parte dei servizi Web e delle applicazioni Web attualmente usa un mod
 
 Un volume di dati elevato spesso crea colli di bottiglia delle prestazioni in un sistema basato su CRUD. Il [modello di soluzione Event sourcing](/azure/architecture/patterns/event-sourcing) viene usato per risolvere i colli di bottiglia delle prestazioni. I modelli temporali e le informazioni dettagliate sono anche difficili e inefficienti da estrarre da un archivio dati tradizionale. Le moderne applicazioni basate sui dati con volumi elevati spesso adottano un'architettura basata sul flusso di dati. Analisi di flusso di Azure come motore di calcolo per i dati in movimento è un fulcro di tale architettura.
 
-![App sourcing eventi ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![App sourcing eventi ASA](media/stream-analytics-solution-patterns/event-sourcing-app.png)
 
 In questo modello di soluzione, gli eventi vengono elaborati e aggregati in archivi dati da analisi di flusso di Azure. Il livello dell'applicazione interagisce con gli archivi dati usando il modello di richiesta/risposta tradizionale. Grazie alla capacità di analisi di flusso di elaborare un numero elevato di eventi in tempo reale, l'applicazione è altamente scalabile senza la necessità di eseguire il bulk del livello di archivio dati. Il livello di archivio dati è essenzialmente una vista materializzata nel sistema. L' [output di analisi di flusso di Azure in Azure Cosmos DB](stream-analytics-documentdb-output.md) descrive il modo in cui Cosmos DB viene usato come output di analisi di flusso.
 
 Nelle applicazioni reali in cui la logica di elaborazione è complessa ed è necessario aggiornare determinate parti della logica in modo indipendente, è possibile comporre più processi di analisi di flusso insieme a hub eventi come broker di eventi intermediario.
 
-![App di origine eventi complessi ASA](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![App di origine eventi complessi ASA](media/stream-analytics-solution-patterns/event-sourcing-app-complex.png)
 
 Questo modello migliora la resilienza e la gestibilità del sistema. Tuttavia, anche se l'analisi di flusso garantisce un'elaborazione esatta una volta, è possibile che gli eventi duplicati si trovino nell'hub eventi intermedio. È importante che il processo di analisi di flusso downstream deduplica gli eventi usando chiavi logiche in una finestra lookback. Per ulteriori informazioni sul recapito degli eventi, vedere riferimento per il [recapito degli eventi](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) .
 
@@ -75,7 +76,7 @@ La funzionalità dati di riferimento di analisi di flusso di Azure è stata prog
 
 Questo modello può essere usato anche per implementare un motore regole in cui le soglie delle regole sono definite dai dati di riferimento. Per altre informazioni sulle regole, vedere [elaborare regole basate su soglie configurabili in analisi di flusso di Azure](stream-analytics-threshold-based-rules.md).
 
-![App dati di riferimento ASA](media/stream-analytics-solution-patterns/refdataapp.png)
+![App dati di riferimento ASA](media/stream-analytics-solution-patterns/reference-data-app.png)
 
 ## <a name="add-machine-learning-to-your-real-time-insights"></a>Aggiungi Machine Learning alle informazioni dettagliate in tempo reale
 
@@ -83,37 +84,39 @@ Il [modello di rilevamento anomalie](stream-analytics-machine-learning-anomaly-d
 
 Per gli utenti avanzati che vogliono incorporare i corsi di formazione online e assegnare punteggi alla stessa pipeline di analisi di flusso, vedere questo esempio di come eseguire questa operazione con la [regressione lineare](stream-analytics-high-frequency-trading.md).
 
-![App Machine Learning ASA](media/stream-analytics-solution-patterns/mlapp.png)
+![App Machine Learning ASA](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
 ## <a name="near-real-time-data-warehousing"></a>Data warehousing quasi in tempo reale
 
 Un altro modello comune è il data warehouse in tempo reale, detto anche data warehouse di streaming. Oltre agli eventi che arrivano all'hub eventi e all'hub delle cose dall'applicazione, [analisi di flusso di Azure in esecuzione in IOT Edge](stream-analytics-edge.md) può essere usato per soddisfare la pulizia dei dati, la riduzione dei dati e le esigenze di archiviazione dati e in avanti. Analisi di flusso in esecuzione in IoT Edge può gestire normalmente problemi di connettività e limitazione della larghezza di banda nel sistema. È possibile utilizzare l'adattatore di output SQL per restituire SQL Data Warehouse; Tuttavia, la velocità effettiva massima è limitata a 10 MB/s.
 
-![Data warehousing ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
+![Data warehousing ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
 Un modo per migliorare la velocità effettiva con un compromesso di latenza consiste nell'archiviare gli eventi nell'archiviazione BLOB di Azure e quindi [importarli in SQL data warehouse con la](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)modalità di base. È necessario unire manualmente l'output dall'analisi di flusso all'archiviazione BLOB e l'input dall'archiviazione BLOB a SQL Data Warehouse [archiviando i dati in base al timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) e importando periodicamente.
 
 In questo modello di utilizzo, analisi di flusso di Azure viene usato come motore ETL quasi in tempo reale. Gli eventi di nuovo arrivo vengono continuamente trasformati e archiviati per l'utilizzo del servizio di analisi downstream.
 
-![Data warehousing ad alta velocità effettiva ASA](media/stream-analytics-solution-patterns/datawarehousing2.png)
+![Data warehousing ad alta velocità effettiva ASA](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Archiviazione dei dati in tempo reale per l'analisi
 
 La maggior parte delle attività di data science e analisi si verifica ancora offline. I dati possono essere archiviati da analisi di flusso di Azure tramite Azure Data Lake Store formati di output Gen2 e parquet. Questa funzionalità consente di rimuovere l'attrito per inserire i dati direttamente in Azure Data Lake Analytics, Azure Databricks e Azure HDInsight. Analisi di flusso di Azure viene usato come motore ETL quasi in tempo reale in questa soluzione. È possibile esplorare i dati archiviati in Data Lake usando vari motori di calcolo.
 
-![Analisi offline ASA](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![Analisi offline ASA](media/stream-analytics-solution-patterns/offline-analytics.png)
 
 ## <a name="use-reference-data-for-enrichment"></a>Usare i dati di riferimento per l'arricchimento
 
 L'arricchimento dei dati è spesso un requisito per i motori ETL. Analisi di flusso di Azure supporta l'arricchimento dei dati con [i dati di riferimento](stream-analytics-use-reference-data.md) sia dal database SQL che dall'archiviazione BLOB di Azure. L'arricchimento dei dati può essere eseguito per l'atterraggio dei dati sia Azure Data Lake che SQL Data Warehouse.
 
-![Analisi offline ASA con arricchimento dei dati](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![Analisi offline ASA con arricchimento dei dati](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
 
 ## <a name="operationalize-insights-from-archived-data"></a>Rendere operativo informazioni dettagliate dai dati archiviati
 
 Se si combina il modello di analisi offline con il modello di applicazione quasi in tempo reale, è possibile creare un ciclo di feedback. Il ciclo di feedback consente all'applicazione di adattarsi automaticamente per modificare i modelli nei dati. Questo ciclo di feedback può essere semplice come modificare il valore di soglia per gli avvisi o complessi come la ripetizione del training dei modelli Machine Learning. È possibile applicare la stessa architettura della soluzione a entrambi i processi ASA in esecuzione nel cloud e in IoT Edge.
 
-![Operatività di ASA Insights](media/stream-analytics-solution-patterns/insightsoperationalization.png)
+![Operatività di ASA Insights](media/stream-analytics-solution-patterns/insights-operationalization.png)
 
 ## <a name="how-to-monitor-asa-jobs"></a>Come monitorare i processi ASA
 
@@ -162,7 +165,7 @@ Nello scenario estremo di ritardo degli eventi in ingresso, è [possibile che tu
 
 Fortunatamente, il modello di archiviazione dei dati precedente può essere usato per elaborare normalmente questi eventi tardivi. L'idea è che il processo di archiviazione elabora gli eventi in ingresso nell'ora di arrivo e archivia gli eventi nell'intervallo di tempo corretto nel BLOB di Azure o Azure Data Lake Store con l'ora dell'evento. Non è importante la fine dell'arrivo di un evento, ma non verrà mai eliminato. Si troverà sempre nel bucket di tempo giusto. Durante il ripristino, è possibile rielaborare gli eventi archiviati e recuperare i risultati nell'archivio desiderato. Questa operazione è simile al modo in cui vengono implementati i modelli lambda.
 
-![Recupero dell'ASA](media/stream-analytics-solution-patterns/backfill.png)
+![Recupero dell'ASA](media/stream-analytics-solution-patterns/back-fill.png)
 
 Il processo di recupero dati deve essere eseguito con un sistema di elaborazione batch offline, che probabilmente ha un modello di programmazione diverso da quello di analisi di flusso di Azure. Ciò significa che è necessario implementare di nuovo l'intera logica di elaborazione.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 120b7e044452dc47126923449a3e1a6e55cfd6a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61094662"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000024"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logica di ripetizione dei tentativi in Media Services SDK for .NET  
 
@@ -50,7 +50,7 @@ La tabella seguente descrive le eccezioni che Media Services SDK for .NET gestis
 | IOException |No |Sì |No |No |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Codici di stato di WebException
-La tabella seguente mostra i codici di errore WebException per cui viene implementata la logica di ripetizione dei tentativi. L'enumerazione [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definisce i codici di stato.  
+La tabella seguente mostra i codici di errore WebException per cui viene implementata la logica di ripetizione dei tentativi. L'enumerazione [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) definisce i codici di stato.  
 
 | Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
@@ -88,4 +88,3 @@ Se si vuole esaminare l'implementazione effettiva della logica di ripetizione de
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

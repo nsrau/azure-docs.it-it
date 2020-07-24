@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: tracking-python
-ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001180"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API di servizi multimediali V3-Python
 
@@ -28,8 +29,8 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Pyt
 
 - Scaricare Python da [Python.org](https://www.python.org/downloads/)
 - Assicurarsi di impostare la `PATH` variabile di ambiente
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
-- Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
+- Seguire i passaggi nell'argomento [Access Apis (API di accesso](./access-api-howto.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
 
 > [!IMPORTANT]
 > Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
@@ -54,7 +55,7 @@ pip3 install azure-mgmt-media==1.1.1
 1. Aprire il file nell'editor preferito
 1. Aggiungere il codice seguente al file. Il codice importa i moduli richiesti e crea l'oggetto credenziali Active Directory necessario per connettersi a servizi multimediali.
 
-      Impostare i valori delle variabili sui valori ottenuti dalle [API di accesso](access-api-cli-how-to.md)
+      Impostare i valori delle variabili sui valori ottenuti dalle [API di accesso](./access-api-howto.md)
 
       ```
       import adal

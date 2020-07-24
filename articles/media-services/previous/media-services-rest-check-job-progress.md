@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d5f3382965d9166fabf99ac650e707e29c38a72
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a8ada16bbfff66c60a1400542742396b667160dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000517"
 ---
 # <a name="how-to-check-job-progress"></a>Procedura: Controllare lo stato dei processi
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
-Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile trovare lo stato dell'entità Job mediante la relativa proprietà State. Per altre informazioni sulla proprietà State, vedere [Proprietà dell'entità Job](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile trovare lo stato dell'entità Job mediante la relativa proprietà State. Per altre informazioni sulla proprietà State, vedere [Proprietà dell'entità Job](/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 

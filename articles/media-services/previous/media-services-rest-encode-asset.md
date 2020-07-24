@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e5523b7c39763fb53d0847b79c70d5ab8b9d3b52
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999973"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86169324"
 
 Per distribuire un video digitale in Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta nei dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
-I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali di Azure. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali (Media Encoder Standard). È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite il Marketplace di Azure. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Task Presets for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) (Set di impostazioni disponibili per Media Encoder Standard).
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali di Azure. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali (Media Encoder Standard). È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite il Marketplace di Azure. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Task Presets for Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview) (Set di impostazioni disponibili per Media Encoder Standard).
 
 Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi:
 
@@ -65,7 +65,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 >
 >
 
-Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. Quando si esegue la codifica con Media Encoder Standard, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/mt269960).
+Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. Quando si esegue la codifica con Media Encoder Standard, è possibile usare i set di impostazioni di attività specificati [qui](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Richiesta:
 
@@ -292,5 +292,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver spiegato il processo per la codifica di un asset, si può passare all'argomento [Procedura per controllare lo stato dei processi con Servizi multimediali](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663309"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999106"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Risolvere i problemi di avvio del sistema operativo: capacità per l'installazione di Windows Update
 
@@ -48,7 +49,7 @@ In questa situazione, il sistema operativo non è in grado di completare un'inst
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="free-up-space-on-the-disk"></a>Liberare spazio sul disco
@@ -59,10 +60,10 @@ Per risolvere il problema:
 - Eseguire una pulizia del disco.
 - Deframmentare l'unità.
 
-1. Controllare se il disco è pieno. Se le dimensioni del disco sono inferiori a 1 TB, espanderle fino a un massimo di 1 TB [usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Controllare se il disco è pieno. Se le dimensioni del disco sono inferiori a 1 TB, espanderle fino a un massimo di 1 TB [usando PowerShell](../windows/expand-os-disk.md).
 1. Se il disco è già 1 TB, sarà necessario eseguire una pulizia del disco.
-   1. Scollegare il disco dati [dalla macchina virtuale rotta](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Collegare il disco dati [a una macchina virtuale funzionante](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Scollegare il disco dati [dalla macchina virtuale rotta](../windows/detach-disk.md).
+   1. Collegare il disco dati [a una macchina virtuale funzionante](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Usare lo [strumento di pulitura disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) per liberare spazio.
 1. Una volta completate le operazioni di ridimensionamento e pulitura, deframmentare l'unità usando il comando seguente:
 
@@ -122,4 +123,4 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.

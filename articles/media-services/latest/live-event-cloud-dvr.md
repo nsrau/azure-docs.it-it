@@ -14,17 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000993"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
 
-In servizi multimediali di Azure un oggetto di [output attivo](https://docs.microsoft.com/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](https://docs.microsoft.com/rest/api/media/assets) (il contenitore si trova nell'account di archiviazione di Azure collegato all'account). L'output in tempo reale consente anche di controllare alcune proprietà del flusso Live in uscita, ad esempio la quantità di flusso che viene mantenuta nella registrazione dell'archivio (ad esempio, la capacità del DVR del cloud) o quando i visualizzatori possono iniziare a osservare il flusso live. L'archivio su disco è una finestra di archivio circolare che include solo la quantità di contenuto specificato nella proprietà **archiveWindowLength** dell'output Live. Il contenuto esterno a questa finestra viene eliminato automaticamente dal contenitore di archiviazione e non è ripristinabile. Il valore archiveWindowLength rappresenta una durata dell'intervallo di tempo ISO-8601 (ad esempio, PTHH: MM: SS), che specifica la capacità del DVR. Il valore può essere impostato da un minimo di un minuto a un massimo di 25 ore.
+In servizi multimediali di Azure un oggetto di [output attivo](/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](/rest/api/media/assets) (il contenitore si trova nell'account di archiviazione di Azure collegato all'account). L'output in tempo reale consente anche di controllare alcune proprietà del flusso Live in uscita, ad esempio la quantità di flusso che viene mantenuta nella registrazione dell'archivio (ad esempio, la capacità del DVR del cloud) o quando i visualizzatori possono iniziare a osservare il flusso live. L'archivio su disco è una finestra di archivio circolare che include solo la quantità di contenuto specificato nella proprietà **archiveWindowLength** dell'output Live. Il contenuto esterno a questa finestra viene eliminato automaticamente dal contenitore di archiviazione e non è ripristinabile. Il valore archiveWindowLength rappresenta una durata dell'intervallo di tempo ISO-8601 (ad esempio, PTHH: MM: SS), che specifica la capacità del DVR. Il valore può essere impostato da un minimo di un minuto a un massimo di 25 ore.
 
-La relazione tra un evento Live e i relativi output Live è simile alla trasmissione TV tradizionale, in quanto un canale (evento Live) rappresenta un flusso costante di video e una registrazione (output Live) ha come ambito un segmento di tempo specifico (ad esempio, le notizie serali dalle 6.00 alle 7:00). Una volta che il flusso è stato trasmesso nell'evento Live, è possibile iniziare l'evento di streaming creando un asset, un output Live e un localizzatore di streaming. L'output live archivierà il flusso e lo renderà disponibile agli utenti tramite l'[endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). È possibile creare più output live (tre al massimo) su un evento live con lunghezze e impostazioni di archivio diverse. Per informazioni sul flusso di lavoro di streaming live, vedere la sezione [passaggi generali](live-streaming-overview.md#general-steps) .
+La relazione tra un evento Live e i relativi output Live è simile alla trasmissione TV tradizionale, in quanto un canale (evento Live) rappresenta un flusso costante di video e una registrazione (output Live) ha come ambito un segmento di tempo specifico (ad esempio, le notizie serali dalle 6.00 alle 7:00). Una volta che il flusso è stato trasmesso nell'evento Live, è possibile iniziare l'evento di streaming creando un asset, un output Live e un localizzatore di streaming. L'output live archivierà il flusso e lo renderà disponibile agli utenti tramite l'[endpoint di streaming](/rest/api/media/streamingendpoints). È possibile creare più output live (tre al massimo) su un evento live con lunghezze e impostazioni di archivio diverse. Per informazioni sul flusso di lavoro di streaming live, vedere la sezione [passaggi generali](live-streaming-overview.md#general-steps) .
 
 ## <a name="using-a-dvr-during-an-event"></a>Uso di un DVR durante un evento
 
@@ -38,7 +39,7 @@ Un evento Live supporta fino a tre output Live in esecuzione simultanea (è poss
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Creazione di un archivio per la riproduzione su richiesta
 
-L'asset che l'output attivo sta archiviando automaticamente diventa un asset su richiesta quando viene eliminato l'output in tempo reale. È necessario eliminare tutti gli output Live prima che un evento live possa essere arrestato. È possibile usare un flag facoltativo [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) per rimuovere automaticamente gli output Live all'arresto.
+L'asset che l'output attivo sta archiviando automaticamente diventa un asset su richiesta quando viene eliminato l'output in tempo reale. È necessario eliminare tutti gli output Live prima che un evento live possa essere arrestato. È possibile usare un flag facoltativo [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) per rimuovere automaticamente gli output Live all'arresto.
 
 Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti possono trasmettere il contenuto archiviato come video su richiesta, purché non venga eliminato l'asset. Una risorsa non deve essere eliminata se usata da un evento. per prima cosa è necessario eliminare l'evento.
 

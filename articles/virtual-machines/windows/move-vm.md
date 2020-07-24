@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6e156af2d4805ba310443a2acf6cc47d06a735eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f919a4af85a15bbe80d7176c316100c3bad634a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998919"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Spostare una VM di Windows in un'altra sottoscrizione o in un altro gruppo di risorse di Azure
 Questo articolo illustra come spostare una macchina virtuale di Windows tra gruppi di risorse o sottoscrizioni. Lo spostamento tra sottoscrizioni può essere comodo se in origine è stata creata una VM in una sottoscrizione personale e ora si vuole spostarla alla sottoscrizione dell'azienda per continuare il lavoro. Non è necessario arrestare la macchina virtuale per spostarla e continuare a essere eseguita durante lo spostamento.
@@ -26,13 +26,13 @@ Questo articolo illustra come spostare una macchina virtuale di Windows tra grup
 
 ## <a name="use-powershell-to-move-a-vm"></a>Usare PowerShell per spostare una VM
 
-Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per ottenere un elenco con l'ID risorsa di ognuna di queste risorse, usare il cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource).
+Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per ottenere un elenco con l'ID risorsa di ognuna di queste risorse, usare il cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource).
 
 ```azurepowershell-interactive
  Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-È possibile usare l'output del comando precedente per creare un elenco delimitato da virgole di ID di risorsa da [spostare-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) per spostare ogni risorsa nella destinazione.
+È possibile usare l'output del comando precedente per creare un elenco delimitato da virgole di ID di risorsa da [spostare-AzResource](/powershell/module/az.resources/move-azresource) per spostare ogni risorsa nella destinazione.
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `

@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001486"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificare o decodificare file flat con App per la logica di Azure tramite l'Enterprise Integration Pack
 
@@ -24,7 +25,7 @@ Prima di inviare contenuto XML a un partner aziendale in uno scenario business-t
 
 * App per la logica in cui si vuole usare il connettore **file flat** e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore **file flat** fornisce solo azioni, non trigger. È possibile usare il trigger o un'altra azione per inserire il contenuto XML nell'app per la logica per la codifica o la decodifica. Se non si ha familiarità con le app per la logica, vedere [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e [collegato all'app per la logica](logic-apps-enterprise-integration-accounts.md#link-account) in cui si prevede di usare il connettore **file flat** . Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e [collegato all'app per la logica](./logic-apps-enterprise-integration-create-integration-account.md#link-account) in cui si prevede di usare il connettore **file flat** . Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
 
 * Uno [schema](logic-apps-enterprise-integration-schemas.md) di file flat che è stato caricato nell'account di integrazione per codificare o decodificare il contenuto XML
 

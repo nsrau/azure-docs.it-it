@@ -3,11 +3,12 @@ title: Tipi di classe di esempio in Azure Lab Services | Microsoft Docs
 description: Fornisce alcuni tipi di classe per cui è possibile configurare lab con Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001624"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Panoramica dei tipi di classi - Azure Lab Services
 
@@ -45,12 +46,7 @@ Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Con
 
 Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare il data science con Python e Jupyter Notebook](class-type-jupyter-notebook.md).
 
-## <a name="mobile-app-development-with-android-studio"></a>Sviluppo di app per dispositivi mobili con Android Studio
-È possibile configurare un lab in Azure Lab Services per impartire una lezione di sviluppo di applicazioni per dispositivi mobili introduttiva. Questa lezione è incentrata sulle applicazioni per dispositivi mobili Android che possono essere pubblicate nel [Google Play Store](https://play.google.com/store/apps).  Gli studenti imparano a usare [Android Studio](https://developer.android.com/studio) per creare applicazioni.  Per testare l'applicazione a livello locale viene usato l'[Emulatore di Visual Studio per Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/).
-
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare lo sviluppo di applicazioni per dispositivi mobili con Android Studio](class-type-mobile-dev-android-studio.md).
-
-## <a name="big-data-analytics"></a>Analisi dei Big Data
+## <a name="big-data-analytics"></a>Analisi di Big Data
 È possibile configurare un Lab GPU per insegnare una classe Big Data Analytics. Con questo tipo di classe, gli studenti imparano a gestire volumi elevati di dati e applicano algoritmi di apprendimento statistico e del computer per derivare informazioni dettagliate sui dati. Uno degli obiettivi principali per gli studenti consiste nell'imparare a usare gli strumenti di analisi dei dati, ad esempio il pacchetto software open source di Apache Hadoop, che fornisce strumenti per l'archiviazione, la gestione e l'elaborazione di Big Data. 
 
 Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per Big Data Analytics con la distribuzione di Docker di HortonWorks Data Platform](class-type-big-data-analytics.md).

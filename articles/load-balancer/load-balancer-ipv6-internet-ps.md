@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8553c54b60d1d4e60e28bcb3006bcc804dbc39ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001588"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
@@ -66,7 +67,7 @@ Per ulteriori informazioni, vedere [Azure Load Balancer Components](./components
 
 Assicurarsi di avere la versione di produzione più recente del modulo Azure Resource Manager per PowerShell.
 
-1. Accesso ad Azure
+1. Accedere ad Azure
 
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -198,7 +199,7 @@ Questo esempio crea gli elementi seguenti:
 
 ## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Creare le macchine virtuali e assegnare le schede di interfaccia di rete appena create
 
-Per altre informazioni, vedere [Creare e preconfigurare una macchina virtuale Windows con Resource Manager e Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Per altre informazioni, vedere [Creare e preconfigurare una macchina virtuale Windows con Resource Manager e Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Creare un set di disponibilità e l'account di archiviazione
 

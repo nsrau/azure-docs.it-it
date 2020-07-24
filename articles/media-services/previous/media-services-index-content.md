@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000670"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
 > [!NOTE]
-> Il processore di contenuti multimediali **Azure Media Indexer** verrà ritirato. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md). [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](migrate-indexer-v1-v2.md).
+> Il processore di contenuti multimediali **Azure Media Indexer** verrà ritirato. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md). [Servizi multimediali di Azure video Indexer](../video-indexer/index.yml) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](migrate-indexer-v1-v2.md).
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.  
 
@@ -44,7 +45,7 @@ Questo articolo illustra come creare processi di indicizzazione per **indicizzar
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ## <a name="index-an-asset"></a>Indicizzare un asset
 Il seguente metodo carica un file multimediale come asset e crea un processo per indicizzare l'asset.
@@ -157,7 +158,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 ## <a name="index-multiple-files"></a>indicizzare più file
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -260,7 +261,7 @@ In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di erro
 | 2004 |Protocollo non supportato |Il protocollo dell'URL multimediale non è supportato. |
 | 2005 |Tipo di file non supportato |Il tipo di file multimediale di input non è supportato. |
 | 2006 |Troppi file di input |Sono presenti oltre 10 file nel manifesto di input. |
-| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>o<br/> File multimediale danneggiato <br/>o<br/> Nessun flusso audio nei file multimediali di input. |
+| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>oppure<br/> File multimediale danneggiato <br/>oppure<br/> Nessun flusso audio nei file multimediali di input. |
 | 4000 |Indicizzazione batch parzialmente completata |Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="#output_files">File di output</a>. |
 | altro |Errori interni |Contattare il team di supporto. indexer@microsoft.com |
 
@@ -277,4 +278,3 @@ Attualmente, sono supportate le lingue inglese e spagnolo.
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
-

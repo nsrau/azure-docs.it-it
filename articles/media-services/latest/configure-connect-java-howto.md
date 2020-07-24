@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74888496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001214"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API di servizi multimediali V3-Java
 
@@ -33,8 +34,8 @@ In questo articolo viene usato il Visual Studio Code per sviluppare l'app di ese
    - Apache Maven
    - Pacchetto di estensione Java
 - Assicurarsi di impostare `JAVA_HOME` le `PATH` variabili di ambiente e.
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
-- Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessari in un passaggio successivo.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
+- Seguire i passaggi nell'argomento [Access Apis (API di accesso](./access-api-howto.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessari in un passaggio successivo.
 
 Vedere anche:
 
@@ -93,7 +94,7 @@ Quando si esegue il comando, `pom.xml` `App.java` vengono creati gli altri file,
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. Per creare le credenziali di Active Directory necessarie per effettuare richieste, aggiungere il codice seguente al metodo Main della classe App e impostare i valori ottenuti dalle [API di accesso](access-api-cli-how-to.md):
+1. Per creare le credenziali di Active Directory necessarie per effettuare richieste, aggiungere il codice seguente al metodo Main della classe App e impostare i valori ottenuti dalle [API di accesso](./access-api-howto.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -129,4 +130,4 @@ Quando si esegue il comando, `pom.xml` `App.java` vengono creati gli altri file,
 
 È ora possibile includere `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` e iniziare a modificare le entità.
 
-Per altri esempi di codice, vedere il repository di [esempi di Java SDK](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) .
+Per altri esempi di codice, vedere il repository di [esempi di Java SDK](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) .

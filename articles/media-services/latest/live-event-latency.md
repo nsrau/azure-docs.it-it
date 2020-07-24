@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000892"
 ---
 # <a name="live-event-low-latency-settings"></a>Impostazioni di bassa latenza eventi Live
 
-Questo articolo illustra come impostare una bassa latenza in un [evento live](https://docs.microsoft.com/rest/api/media/liveevents). Esamina anche alcuni risultati tipici visualizzati quando si usano le impostazioni di bassa latenza in diversi lettori. I risultati variano a seconda della rete CDN e della latenza di rete.
+Questo articolo illustra come impostare una bassa latenza in un [evento live](/rest/api/media/liveevents). Esamina anche alcuni risultati tipici visualizzati quando si usano le impostazioni di bassa latenza in diversi lettori. I risultati variano a seconda della rete CDN e della latenza di rete.
 
-Per usare la nuova funzionalità **LowLatency** impostare il flag **StreamOptionsFlag** su **LowLatency** nel **LiveEvent**. Quando si crea [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) per la riproduzione HLS, impostare [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) su 1. Quando il flusso è in esecuzione, è possibile usare la [Azure Media Player](https://ampdemo.azureedge.net/) (pagina demo amp) e impostare le opzioni di riproduzione per usare il "profilo euristica a bassa latenza".
+Per usare la nuova funzionalità **LowLatency** impostare il flag **StreamOptionsFlag** su **LowLatency** nel **LiveEvent**. Quando si crea [LiveOutput](/rest/api/media/liveoutputs) per la riproduzione HLS, impostare [LiveOutput.Hls.fragmentsPerTsSegment](/rest/api/media/liveoutputs/create#hls) su 1. Quando il flusso è in esecuzione, è possibile usare la [Azure Media Player](https://ampdemo.azureedge.net/) (pagina demo amp) e impostare le opzioni di riproduzione per usare il "profilo euristica a bassa latenza".
 
 > [!NOTE]
 > Attualmente, il LowLatency HeuristicProfile in Azure Media Player è progettato per la riproduzione di flussi nel protocollo MPEG-DASH, con formato CSF o CMAF (ad esempio, `format=mdp-time-csf` o `format=mdp-time-cmaf` ). 
@@ -79,4 +79,3 @@ La tabella seguente mostra i risultati tipici della latenza (quando è attivato 
 
 - [Panoramica dello streaming live](live-streaming-overview.md)
 - [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
-

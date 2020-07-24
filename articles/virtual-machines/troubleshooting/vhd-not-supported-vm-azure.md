@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: ff4822b513ed2aea6a18ba45bffc1d060ee2410e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999055"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>VHD non è supportato quando si crea una macchina virtuale in Azure
 
@@ -41,28 +41,28 @@ Questo problema si verifica per uno dei motivi seguenti:
 - Il disco rigido virtuale non è conforme all'allineamento di 1 MB (offset). Le dimensioni del disco supportate devono essere pari a 1 MB * N. Ad esempio, il disco deve essere 102.401 MB.
 - Il disco rigido virtuale è danneggiato o non è supportato. 
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
 > [!NOTE]
 > Per eseguire la correzione seguente, il cliente dovrà eseguire questi passaggi prima di caricare il disco rigido virtuale in Azure.
 
 Per risolvere il problema, ridimensionare il disco per garantire la conformità con 1 MB di allineamento:
 
-- Per risolvere il problema in Windows, usare il [cmdlet di PowerShell Resize-VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd). Si noti che **Resize-VHD** non è un cmdlet di Azure PowerShell.
+- Per risolvere il problema in Windows, usare il [cmdlet di PowerShell Resize-VHD](/powershell/module/hyper-v/resize-vhd). Si noti che **Resize-VHD** non è un cmdlet di Azure PowerShell.
 
-  1. [Installare il ruolo Hyper-V in Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
-  1. [Convertire il disco virtuale in un disco rigido virtuale a dimensione fissa](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
+  1. [Installare il ruolo Hyper-V in Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+  1. [Convertire il disco virtuale in un disco rigido virtuale a dimensione fissa](../windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd)
 
-- Per risolvere il problema in Linux, usare il [comando qemu-img](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+- Per risolvere il problema in Linux, usare il [comando qemu-img](../linux/create-upload-generic.md).
 
 Per altre informazioni su come creare e caricare un disco rigido virtuale per la creazione di una macchina virtuale di Azure, vedere gli articoli seguenti:
 
-- [Caricare e creare una VM Linux da un'immagine disco personalizzata usando l'interfaccia della riga di comando di Azure 1.0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
-- [Creare e caricare un disco rigido virtuale Windows Server in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Caricare e creare una VM Linux da un'immagine disco personalizzata usando l'interfaccia della riga di comando di Azure 1.0](../linux/upload-vhd.md)
+- [Creare e caricare un disco rigido virtuale Windows Server in Azure](../windows/upload-generalized-managed.md)
 
 Problemi continui potrebbero indicare un disco rigido virtuale danneggiato. In questa situazione, si consiglia di ricompilare il disco rigido virtuale da zero.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Informazioni sul disco rigido virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#about-vhds)
-- [Informazioni sul disco rigido virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds#about-vhds)
+- [Informazioni sul disco rigido virtuale Windows](../windows/managed-disks-overview.md)
+- [Informazioni sul disco rigido virtuale Linux](../linux/managed-disks-overview.md)

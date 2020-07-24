@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001690"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -41,7 +41,7 @@ In molti ambienti di rete aziendali e didattici, la porta MQTT (8883) è bloccat
 
 ## <a name="using-the-device-sdks"></a>Uso degli SDK per dispositivi
 
-Gli [SDK per dispositivi](https://github.com/Azure/azure-iot-sdks) che supportano il protocollo MQTT sono disponibili per Java, Node.js, C, C# e Python.ython. Gli SDK per dispositivi usano la stringa di connessione dell'hub IoT standard per stabilire una connessione a un hub IoT. Per usare il protocollo MQTT, il parametro del protocollo del client deve essere impostato su **MQTT**. È inoltre possibile specificare MQTT su Web Socket nel parametro del protocollo client. Per impostazione predefinita, gli SDK per dispositivi si connettono a un hub IoT con il flag **CleanSession** impostato su **0** e usano **QoS 1** per lo scambio di messaggi con l'hub IoT.
+Gli [SDK per dispositivi](https://github.com/Azure/azure-iot-sdks) che supportano il protocollo MQTT sono disponibili per Java, Node.js, C, C# e Python.ython. Gli SDK per dispositivi usano la stringa di connessione dell'hub IoT standard per stabilire una connessione a un hub IoT. Per usare il protocollo MQTT, il parametro del protocollo del client deve essere impostato su **MQTT**. È inoltre possibile specificare MQTT su Web Socket nel parametro del protocollo client. Per impostazione predefinita, gli SDK per dispositivi si connettono a un hub IoT con il flag **CleanSession** impostato su **0** e usano **QoS 1** per lo scambio di messaggi con l'hub IoT. Sebbene sia possibile configurare **QoS 0** per uno scambio di messaggi più veloce, si noti che il recapito non è garantito né riconosciuto. Per questo motivo, **QoS 0** viene spesso definito "Fire and Forget".
 
 Quando un dispositivo è connesso a un hub IoT, gli SDK per dispositivi forniscono i metodi che consentono al dispositivo di scambiare messaggi con un hub IoT.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 4693ad8b168ce1ddd7c07afe650a89fc1888ccd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999004"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD sulle macchine virtuali serie N eseguite in Windows
 
@@ -23,7 +23,7 @@ Se si sceglie di installare manualmente i driver GPU AMD, questo articolo descri
 
 Nelle macchine virtuali NVv4 sono supportati solo i driver GPU pubblicati da Microsoft. NON installare driver GPU di altro tipo.
 
-Per conoscere le specifiche base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per conoscere le specifiche base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali Windows GPU](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json).
 
 
 
@@ -57,5 +57,3 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 Se si esegue Windows 10 Build 1903 o versione successiva, dxdiag non visualizzerà alcuna informazione nella scheda 'Display'. Usare quindi l'opzione 'Salva tutte le informazioni' nella parte inferiore e il file di output visualizzerà le informazioni correlate alla GPU AMD MI25.
 
 ![Proprietà del driver GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

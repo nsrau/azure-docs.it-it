@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001537"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -251,7 +251,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/edifact/).
+Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/edifact/).
 
 > [!NOTE]
 > Per le app per la logica in un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa i [limiti dei messaggi B2B per ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 258d91e763bd8e1507492109f9c01010f95b94c0
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000143"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
 
@@ -56,7 +56,7 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 >[!NOTE]
 >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criteri se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel caso di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
-Per altre informazioni sulle entità di REST AMS usate in questo articolo, vedere [Informazioni generali sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
+Per altre informazioni sulle entità di REST AMS usate in questo articolo, vedere [Informazioni generali sull'API REST di Servizi multimediali](/rest/api/media/operations/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
@@ -153,7 +153,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>Creare un'entità AssetFile
-L'entità [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
+L'entità [AssetFile](/rest/api/media/operations/assetfile) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
 Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'entità AssetFile con le informazioni relative al file multimediale, come illustrato più avanti nell'argomento.
 
@@ -217,7 +217,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creazione dell'entità AccessPolicy con autorizzazioni di scrittura
-Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà il messaggio di errore interno 500 del server in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà il messaggio di errore interno 500 del server in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 Il seguente esempio mostra come creare un'entità AccessPolicy:
 
@@ -270,7 +270,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 ### <a name="get-the-upload-url"></a>Ottenere l'URL di caricamento
 
-Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso. I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso. I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](/rest/api/media/operations/locator).
 
 Un URL di firma di accesso condiviso ha il seguente formato:
 
@@ -280,7 +280,7 @@ Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. 
 * Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").    
-* Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) sia per i localizzatori di origine.
+* Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori [URL di firma di accesso condiviso](../../storage/common/storage-sas-overview.md) sia per i localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
 
@@ -348,7 +348,7 @@ Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel
 >
 >
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="update-the-assetfile"></a>Aggiornare l'entità AssetFile
 Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. Ad esempio:
@@ -429,7 +429,7 @@ HTTP/1.1 204 No Content
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 
-Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](https://docs.microsoft.com/rest/api/media/operations/job) e [attività](https://docs.microsoft.com/rest/api/media/operations/task)).
+Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](/rest/api/media/operations/job) e [attività](/rest/api/media/operations/task)).
 
 Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 con bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
@@ -487,7 +487,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Creare un processo
 Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](https://msdn.microsoft.com/library/mt269960) supportati dal processore di Media Encoder Standard.  
+Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](/azure/media-services/previous/media-services-mes-presets-overview) supportati dal processore di Media Encoder Standard.  
 
 **Richiesta HTTP**
 
@@ -768,7 +768,7 @@ Questa sezione illustra come eseguire le seguenti attività per "pubblicare" gli
 * Creazione di un URL di origine per la trasmissione di contenuti in streaming
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>Creazione dell'entità AccessPolicy con autorizzazioni di lettura
-Prima di scaricare o trasmettere contenuti multimediali in streaming, definire un'entità AccessPolicy con autorizzazioni di lettura e creare l'entità Locator appropriata che specifichi il tipo di meccanismo di distribuzione che si desidera abilitare per i client. Per altre informazioni sulle proprietà disponibili, vedere [Proprietà dell'entità AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+Prima di scaricare o trasmettere contenuti multimediali in streaming, definire un'entità AccessPolicy con autorizzazioni di lettura e creare l'entità Locator appropriata che specifichi il tipo di meccanismo di distribuzione che si desidera abilitare per i client. Per altre informazioni sulle proprietà disponibili, vedere [Proprietà dell'entità AccessPolicy](/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
 Il seguente esempio mostra come specificare l'entità AccessPolicy per le autorizzazioni di lettura per un asset specifico.
 
@@ -869,7 +869,7 @@ Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i 
 > [!NOTE]
 > È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4`? . . .
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](/rest/api/storageservices/blob-service-rest-api).
 
 Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:    
 

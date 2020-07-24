@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001707"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare Funzioni di Azure da App per la logica di Azure
 
@@ -256,7 +257,7 @@ Prima di iniziare questa attività, trovare questi valori e prenderne nota per u
 
 * L'ID directory per il tenant in Azure Active Directory (Azure AD)
 
-  Per ottenere l'ID directory del tenant, è possibile eseguire il comando PowerShell [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount). In alternativa, seguire questa procedura nel portale di Azure:
+  Per ottenere l'ID directory del tenant, è possibile eseguire il comando PowerShell [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount). In alternativa, seguire questa procedura nel portale di Azure:
 
   1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per le funzioni.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000415"
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione). 
    
     Questa è la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset devono usare la stessa chiave simmetrica durante la decrittografia. 
-2. Chiamare i metodi [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
+2. Chiamare i metodi [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
    
    L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio nella funzione [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

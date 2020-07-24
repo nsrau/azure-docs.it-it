@@ -9,17 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998953"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
 
 Per l'accesso amministrativo al cloud privato, è possibile inoltrare temporaneamente i privilegi di CloudSimple.  Usando privilegi elevati, è possibile installare soluzioni VMware, aggiungere origini di identità e gestire gli utenti.
 
-È possibile creare nuovi utenti nel dominio vCenter SSO e accedere a vCenter.  Quando si creano nuovi utenti, aggiungerli ai gruppi predefiniti di CloudSimple per l'accesso a vCenter.  Per altre informazioni, vedere il [modello di autorizzazione del cloud privato CloudSimple di VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
+È possibile creare nuovi utenti nel dominio vCenter SSO e accedere a vCenter.  Quando si creano nuovi utenti, aggiungerli ai gruppi predefiniti di CloudSimple per l'accesso a vCenter.  Per altre informazioni, vedere il [modello di autorizzazione del cloud privato CloudSimple di VMware vCenter](./learn-private-cloud-permissions.md).
 
 > [!CAUTION]
 > Non apportare modifiche alla configurazione per i componenti di gestione. Le azioni eseguite durante lo stato con privilegi escalated possono avere un impatto negativo sul sistema o causare un sistema non disponibile.
@@ -87,5 +88,5 @@ Una volta completate le attività amministrative, è necessario annullare l'esca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare le origini di identità vCenter da usare Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* Installare la soluzione di backup per eseguire il [backup di macchine virtuali](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Configurare le origini di identità vCenter da usare Active Directory](./set-vcenter-identity.md)
+* Installare la soluzione di backup per eseguire il [backup di macchine virtuali](./backup-workloads-veeam.md)

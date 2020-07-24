@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2bcd5f0e6229c4130dddb48c1a20de1c711c6fcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001146"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Come codificare con una trasformazione personalizzata-.NET
 
@@ -32,7 +32,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-[Creare un account di Servizi multimediali di Azure.](create-account-cli-how-to.md)
+[Creare un account di Servizi multimediali di Azure.](./create-account-howto.md)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -46,9 +46,9 @@ L'esempio di set di impostazioni personalizzato si trova nella cartella [EncodeC
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Creare una trasformazione con un set di impostazioni personalizzato 
 
-Quando si crea un nuovo oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è costituito da un oggetto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), come illustrato nel codice seguente. Ogni **TransformOutput** contiene un parametro **Preset**. Il **set di impostazioni** descrive le istruzioni dettagliate per le operazioni di elaborazione video e/o audio da usare per generare il **TransformOutput**desiderato. L'oggetto **TransformOutput** seguente crea impostazioni di output personalizzate per codec e livello.
+Quando si crea un nuovo oggetto [Transform](/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è costituito da un oggetto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), come illustrato nel codice seguente. Ogni **TransformOutput** contiene un parametro **Preset**. Il **set di impostazioni** descrive le istruzioni dettagliate per le operazioni di elaborazione video e/o audio da usare per generare il **TransformOutput**desiderato. L'oggetto **TransformOutput** seguente crea impostazioni di output personalizzate per codec e livello.
 
-Quando si crea un oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario verificare se ne esiste già uno tramite il metodo **Get**, come illustrato nel codice seguente. In servizi multimediali V3, i metodi **Get** sulle entità restituiscono **null** se l'entità non esiste, ovvero un controllo senza distinzione tra maiuscole e minuscole per il nome.
+Quando si crea un oggetto [Transform](/rest/api/media/transforms), è necessario verificare se ne esiste già uno tramite il metodo **Get**, come illustrato nel codice seguente. In servizi multimediali V3, i metodi **Get** sulle entità restituiscono **null** se l'entità non esiste, ovvero un controllo senza distinzione tra maiuscole e minuscole per il nome.
 
 ### <a name="example"></a>Esempio
 

@@ -4,13 +4,13 @@ description: Questo articolo illustra le considerazioni relative a prezzi, fattu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001367"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -134,7 +134,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 |Microsoft paga l'80% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft paga il 90% del costo di licenza   |   $ 80,00 al mese <br> \* $ 90,00 al mese    |
 |Microsoft trattiene il 20% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft trattiene il 10% del costo di licenza.  |  $ 20,00 al mese <br> \* 10,00 $     |
 
-Per determinati prodotti SaaS pubblicati sul Marketplace commerciale, Microsoft ridurrà la **tariffa del servizio Marketplace** dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Perché l'offerta sia idonea, almeno una delle offerte deve essere indicata da Microsoft come pronta per il co-selling della proprietà intellettuale o come soluzione di co-selling della proprietà intellettuale con priorità. Per poter usufruire di questa riduzione della tariffa per il servizio marketplace per il mese, l'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine del mese di calendario precedente. Una tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale. Tale riduzione della tariffa sarà disponibile per le offerte idonee per i costi di licenza raccolti da Microsoft tra il 1° maggio 2019 e il 30 giugno 2020. Dopo tale periodo di tempo, la tariffa tornerà al valore normale.
+Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incetivized. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica a SaaS incentivate, VM, app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
@@ -180,7 +180,7 @@ Per ulteriori informazioni sulla configurazione di questi account, vedere [gesti
 
 L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i tipi di offerte del marketplace seguenti:
 
-- **Macchina virtuale** : è possibile scegliere tra modelli gratuiti, Bring-your-own-License o con pagamento in base al consumo e presenti come SKU definiti a livello di offerta. Nella fattura di Azure del cliente Microsoft indica i costi della licenza del software dell'editore separatamente dai costi dell'infrastruttura di Azure sottostante. I costi dell'infrastruttura di Azure sono determinati dall'uso del software dell'editore.
+- **Macchina virtuale** : è possibile scegliere tra modelli gratuiti, Bring-your-own-License o con pagamento in base al consumo e presenti come piani definiti a livello di offerta. Nella fattura di Azure del cliente Microsoft indica i costi della licenza del software dell'editore separatamente dai costi dell'infrastruttura di Azure sottostante. I costi dell'infrastruttura di Azure sono determinati dall'uso del software dell'editore.
 
 - **Applicazione Azure: modello di soluzione o app gestita:** è necessario effettuare il provisioning di una o più macchine virtuali ed eseguire il pull della somma dei prezzi della macchina virtuale. Per le app gestite in un singolo piano, come modello di determinazione prezzi è possibile selezionare una sottoscrizione a tariffa fissa mensile invece dei prezzi delle macchine virtuali. In alcuni casi, le spese di utilizzo dell'infrastruttura di Azure vengono trasferite al cliente separatamente dalle spese di licenza software, ma nello stesso estratto conto. Tuttavia, se si configura un'offerta di app gestita per gli addebiti per l'infrastruttura ISV, le risorse di Azure vengono fatturate all'editore e il cliente riceve una tariffa fissa che include il costo dell'infrastruttura, le licenze software e i servizi di gestione.
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: abf9610dd67c82af0da9a629245ea792bd5a3402
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170752"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000161"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione 
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 È consigliabile crittografare i propri contenuti localmente usando la crittografia AES a 256 bit e quindi caricarli nel servizio Archiviazione di Azure, dove verranno archiviati in forma crittografata.
@@ -49,8 +49,8 @@ Quando si accede alle entità in Servizi multimediali, è necessario impostare v
 |Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da Servizi multimediali|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
-|[Crittografia del servizio di archiviazione per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Crittografia lato server offerta da Archiviazione di Azure, chiave gestita da Azure o dal cliente|Supportato|Supportato|
-|[Crittografia lato client di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportato|Non supportato|
+|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da Archiviazione di Azure, chiave gestita da Azure o dal cliente|Funzionalità supportata|Funzionalità supportata|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportato|Non supportato|
 
 <sup>1</sup> Servizi multimediali supporta la gestione di contenuto non crittografato/senza alcuna forma di crittografia, ma tale modalità non è consigliata.
 
@@ -75,7 +75,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte. 
    
     La chiave AES a 32 byte è la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset devono usare la stessa chiave simmetrica durante la decrittografia. 
-2. Chiamare i metodi [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
+2. Chiamare i metodi [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
    
    L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio .NET nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -115,7 +115,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 
     Proprietà del corpo della richiesta    | Descrizione
     ---|---
-    Id | L'ID della chiave simmetrica viene generato usando il formato seguente: "nb:kid:UUID:\<NEW GUID>".
+    ID | L'ID della chiave simmetrica viene generato usando il formato seguente: "nb:kid:UUID:\<NEW GUID>".
     ContentKeyType | Il tipo di chiave simmetrica è un numero intero che definisce la chiave. Per il formato di crittografia di archiviazione, il valore è 1.
     EncryptedContentKey | Viene creato un nuovo valore di chiave simmetrica che corrisponde a un valore a 256 bit (32 byte). La chiave viene crittografata mediante il certificato X.509 di crittografia di archiviazione recuperato da Servizi multimediali di Microsoft Azure eseguendo una richiesta HTTP GET per i metodi GetProtectionKeyId e GetProtectionKey. Come esempio, vedere il codice .NET seguente: il metodo **EncryptSymmetricKeyData** definito [qui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | ID della chiave di protezione per il certificato X.509 di crittografia di archiviazione usato per crittografare la chiave simmetrica.
@@ -331,7 +331,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="create-an-assetfile"></a>Creare un'entità AssetFile
-L'entità [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
+L'entità [AssetFile](/rest/api/media/operations/assetfile) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
 L'istanza di **AssetFile** e il file multimediale effettivo sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 

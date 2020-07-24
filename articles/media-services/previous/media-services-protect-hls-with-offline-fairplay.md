@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eee718627f35154c878c717e02febe0ea7958fe6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000551"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
 
@@ -28,7 +29,7 @@ ms.locfileid: "82995516"
 > * [Versione 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure include un set di [servizi di protezione del contenuto](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati che riguardano le tecnologie seguenti:
 
@@ -53,7 +54,7 @@ Prima di implementare la tecnologia DRM offline per FairPlay in un dispositivo i
 * Acquisire familiarità con la protezione del contenuto online per FairPlay. Per altre informazioni, vedere gli articoli e gli esempi seguenti:
 
     - [Apple FairPlay Streaming for Azure Media Services is generally available](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/) (Apple FairPlay Streaming per Servizi multimediali di Azure è disponibile a livello generale)
-    - [Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady](./media-services-protect-hls-with-fairplay.md)
     - [A sample for online FPS streaming](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/) (Esempio di streaming FPS online)
 
 * Ottenere FPS SDK da Apple Developer Network. Questo SDK è costituito da due componenti:
@@ -210,7 +211,7 @@ Questa sezione include le risposte ad alcune domande frequenti utili per la riso
 - **Qual è lo stato dell'ultimo parametro nell'API seguente per la modalità offline di FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Per informazioni su questa API, vedere [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet) (Metodo FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration). Il parametro rappresenta la durata del noleggio offline, con il secondo come unità.
+    Per informazioni su questa API, vedere [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet) (Metodo FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration). Il parametro rappresenta la durata del noleggio offline, con il secondo come unità.
 - **Qual è la struttura del file scaricato/offline nei dispositivi iOS?** La struttura del file scaricato in un dispositivo iOS è simile a quella illustrata nello screenshot seguente. La cartella `_keys` archivia le licenze FPS scaricate, con un singolo file di archivio per ogni host del servizio licenze. La cartella `.movpkg` archivia il contenuto audio e video. La prima cartella con il nome che termina con un trattino seguito da un valore numerico include contenuto video. Il valore numerico è il valore PeakBandwidth del rendering del video. La seconda cartella con il nome che termina con un trattino seguito da 0 include contenuto audio. La terza cartella denominata "Data" contiene la playlist master del contenuto FPS. Infine, boot.xml fornisce una descrizione completa del contenuto della cartella `.movpkg`. 
 
 ![Struttura del file dell'app di esempio iOS di FairPlay offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
@@ -248,7 +249,7 @@ Un file boot.xml di esempio:
 
 * Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Questo documento include le procedure e le informazioni seguenti che è possibile usare per implementare la modalità offline di FPS:
 
 * La procedura di configurazione della protezione del contenuto in Servizi multimediali tramite l'API .NET di Servizi multimediali consente di configurare la crittografia dinamica FairPlay e la distribuzione delle licenze FairPlay in Servizi multimediali.

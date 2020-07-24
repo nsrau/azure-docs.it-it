@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f7a9f87c73e4c5aa5f905def18534b04688a0a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000534"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Panoramica
@@ -40,7 +41,7 @@ Per distribuire le licenze Widevine, è anche possibile ricorrere ai partner di 
 
 Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [Simple Web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [JSON Web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
+Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [Simple Web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) e [JSON Web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). 
 
 Per altre informazioni, vedere [configurare i criteri di autorizzazione della chiave](media-services-protect-with-aes128.md#configure_key_auth_policy)simmetrica.
 
@@ -612,13 +613,12 @@ namespace DynamicEncryptionWithDRM
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche
 
 * [Usare la crittografia comune con più tecnologie DRM e il controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
 * [Configure Widevine packaging with Media Services (Configurare pacchetti Widewine con Servizi multimediali)](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Introduzione a Java Client SDK per Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Introduzione a Java Client SDK per Servizi multimediali di Azure](./media-services-java-how-to-use.md)
 * Per scaricare la versione più recente di PHP SDK per Servizi multimediali, cercare la versione 0.5.7 del pacchetto Microsoft/WindowAzure nel [repository Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
-

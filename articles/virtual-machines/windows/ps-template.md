@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998868"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creare una macchina virtuale Windows usando un modello di Resource Manager
 
@@ -56,7 +56,7 @@ Nell'esempio precedente è stato specificato un modello archiviato in GitHub. È
 
 Altre risorse:
 
-- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](/azure/azure-resource-manager/).
+- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/index.yml).
 - Per visualizzare gli schemi delle macchine virtuali di Azure, vedere informazioni di [riferimento sui modelli di Azure](/azure/templates/microsoft.compute/allversions).
 - Per visualizzare altri esempi di modelli di macchina virtuale, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -66,12 +66,12 @@ L'ultimo comando di PowerShell dello script precedente Mostra il nome della macc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Informazioni su come creare e gestire una macchina virtuale sono disponibili in [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per altre informazioni sulla creazione di modelli, vedere la sintassi e le proprietà JSON dei tipi di risorse distribuiti:
 
 - [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-- [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

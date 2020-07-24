@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71937292"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001163"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ In questo articolo si userà l'interfaccia della riga di comando di Azure per so
 
     Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
 
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
     Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 
@@ -109,4 +109,3 @@ Visualizzare nuovamente l'app Web e notare che all'app è stato inviato un event
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Caricare, codificare ed eseguire lo streaming](stream-files-tutorial-with-api.md)
-

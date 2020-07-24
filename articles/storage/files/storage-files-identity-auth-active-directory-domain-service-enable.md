@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2bbc1d6f42819354f48812a34371a49e5acbac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999633"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
-[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
+[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia vivamente di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per authentcation. Il programma di installazione è diverso a seconda del servizio del dominio scelto. Questo articolo illustra come abilitare e configurare Azure AD DS per l'autenticazione con le condivisioni file di Azure.
 
-Per una panoramica dell'autenticazione Azure AD su SMB per le condivisioni file di Azure, vedere [Panoramica dell'autenticazione Azure Active Directory su SMB per file di Azure](storage-files-active-directory-overview.md). Questo articolo è incentrato su come abilitare l'autenticazione con Azure Active Directory Domain Services (Azure AD DS) in File di Azure.
+Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 
 > [!NOTE]
 > File di Azure supporta l'autenticazione Kerberos con Azure AD DS con la crittografia RC4-HMAC. La crittografia Kerberos AES non è ancora supportata.

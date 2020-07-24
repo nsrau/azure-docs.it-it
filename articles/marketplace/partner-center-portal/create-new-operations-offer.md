@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121845"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001435"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creare un'offerta Dynamics 365 for Operations
 
@@ -295,7 +295,7 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
     - **Non avviata**: la sezione è stata lasciata inalterata e deve essere completata.
     - **Incompleta**: la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione o aggiornarla.
     - **Completa**: la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
-- Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app.
+- Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app. Per ulteriori informazioni sulle istruzioni di test e sul completamento di una prima pubblicazione, vedere la pagina relativa alla [convalida funzionale AppSource Dynamics 365 Finance and Operations](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta sul pubblico.
 
 ## <a name="next-step"></a>Passaggio successivo

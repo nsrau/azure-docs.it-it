@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e5978cff8da4697cf130e499c8d9273d75118963
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000619"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra in modo dettagliato la procedura di implementazione di un servizio di base per la distribuzione di contenuto video con Servizi multimediali di Azure Media Services tramite Java Client SDK.
 
@@ -65,7 +65,7 @@ Il codice si connette all'API di Servizi multimediali di Azure tramite l'autenti
 * `clientKey`: chiave client dell'applicazione di Azure AD
 * `restApiEndpoint`: endpoint dell'API REST dell'account di Servizi multimediali di Azure
 
-È possibile creare un'applicazione di Azure AD e ottenere i valori di configurazione precedenti dal portale di Azure. Per altre informazioni, vedere la sezione **Autenticazione di un'entità servizio** di [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+È possibile creare un'applicazione di Azure AD e ottenere i valori di configurazione precedenti dal portale di Azure. Per altre informazioni, vedere la sezione **Autenticazione di un'entità servizio** di [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](./media-services-portal-get-started-with-aad.md).
 
 Questo codice si basa inoltre su un file video archiviato in locale. È necessario modificare il codice per specificare un file locale da caricare.
 
@@ -320,6 +320,5 @@ Per la documentazione Java per Servizi multimediali, vedere la [documentazione s
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-
+[Azure for Java developers]: /java/azure/
+[Media Services Client Development]: /previous-versions/azure/dn223283(v=azure.100)

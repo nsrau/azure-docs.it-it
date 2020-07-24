@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001316"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi alle API di Servizi multimediali v3 - .NET
 
@@ -26,7 +27,7 @@ Questo articolo spiega come connettersi all'SDK .NET di Servizi multimediali di 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali
 - Installare uno strumento da usare per lo sviluppo in .NET. I passaggi descritti in questo articolo mostrano come usare [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Per usare Visual Studio Code, vedere [Working with C#](https://code.visualstudio.com/docs/languages/csharp) (Uso di C#). In alternativa, è possibile usare un altro editor di codice.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ Questo articolo spiega come connettersi all'SDK .NET di Servizi multimediali di 
 1. Scegliere **Nuovo** > **progetto** dal menu **File**. 
 1. Creare un'applicazione console di **.NET Core**.
 
-L'app di esempio in questo argomento usa la destinazione `netcoreapp2.0`. Il codice usa "principale asincrono", disponibile a partire da C# 7.1. Per altri dettagli, vedere questo [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/).
+L'app di esempio in questo argomento usa la destinazione `netcoreapp2.0`. Il codice usa "principale asincrono", disponibile a partire da C# 7.1. Per altri dettagli, vedere questo [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden).
 
 ## <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
 
@@ -63,7 +64,7 @@ L'app di esempio in questo argomento usa la destinazione `netcoreapp2.0`. Il cod
 
 ### <a name="set-values-in-appsettingsjson"></a>Impostare i valori in appsettings.json
 
-Eseguire il comando `az ams account sp create` come descritto in [Accedere alle API](access-api-cli-how-to.md). Il comando restituisce un json che è necessario copiare in "appsettings.json".
+Eseguire il comando `az ams account sp create` come descritto in [Accedere alle API](./access-api-howto.md). Il comando restituisce un json che è necessario copiare in "appsettings.json".
  
 ## <a name="add-configuration-file"></a>Aggiungere un file di configurazione
 
@@ -242,5 +243,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Riferimento .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Per altri esempi di codice, vedere l'archivio di esempi [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet).

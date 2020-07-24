@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999497"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
 
@@ -49,11 +49,11 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 
 1. Passare a **Dispositivi**e selezionare uno specifico dispositivo StorSimple. Passare a **Monitoraggio > Integrità hardware**.
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
+    ![Screenshot che mostra il pannello impostazioni del servizio Device Manager. In monitoraggio è selezionata l'opzione integrità hardware.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
 2. Individuare la sezione **Componenti hardware** e scegliere tra i componenti disponibili. Fare clic sull'etichetta del componente per espandere l'elenco e visualizzare lo stato dei vari componenti del dispositivo. Vedere l'[elenco dettagliato dei componenti per l'enclosure principale](#component-list-for-primary-enclosure-of-storsimple-device) e l'[elenco dettagliato dei componenti per l'enclosure EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
+    ![Screenshot che mostra un componente selezionato nella sezione componenti hardware. Un pannello adiacente Mostra il nome e lo stato delle parti di tale componente.](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
 3. Per interpretare lo stato del componente, usare lo schema di codifica a colori seguente:
    
@@ -64,22 +64,22 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
    
    La schermata seguente mostra un dispositivo con componenti negli stati **OK**, **Avviso** ed **Errore**.
        
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
+   ![Screenshot che mostra tre componenti nella sezione componenti hardware: uno in uno stato OK, uno in stato di errore e uno in uno stato di avviso.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
    Espandendo l'**elenco dei componenti condivisi**, è possibile vedere che NVRAM e il cluster sono danneggiati.
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Screenshot che mostra l'elemento Shared Components selezionato. Nel pannello adiacente, N V R A M e il cluster si trovano in uno stato di avviso.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    Espandendo l'elenco **Componenti Controller 1** è possibile vedere che il nodo del cluster è in errore.  
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
+   ![Screenshot che mostra l'elemento dei componenti controller 1 selezionato. Nel pannello adiacente il nodo del cluster si trova in uno stato di errore.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
 4. Se si rileva un componente che non si trova in uno stato **Integro** , contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](storsimple-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure principale del dispositivo StorSimple
 La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure principale, presente nei dispositivi 8100 e 8600, del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Type | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
+| Componente | Modulo | Tipo | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
@@ -120,7 +120,7 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure EBOD del dispositivo StorSimple
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell'enclosure EBOD (presente solo nel modello 8600) del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Type | Location | FRU? | Descrizione |
+| Componente | Modulo | Tipo | Location | FRU? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |

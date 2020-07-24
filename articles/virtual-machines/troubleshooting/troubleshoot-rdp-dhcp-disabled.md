@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999139"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
 
@@ -53,7 +53,7 @@ Il servizio Client DHCP non è in esecuzione sulla macchina virtuale.
 > [!NOTE]
 > Questo articolo si applica solo al servizio Client DHCP e non a Server DHCP.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -204,7 +204,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Questo script presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituire la lettera in modo appropriato con il valore nella macchina virtuale.
 
@@ -222,7 +222,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
+4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](./troubleshoot-recovery-disks-portal-windows.md). Controllare quindi se il problema è stato risolto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

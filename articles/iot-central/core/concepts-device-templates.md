@@ -7,11 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002353"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -220,6 +221,6 @@ I dati di telemetria, le proprietà e i comandi che è possibile aggiungere a un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In qualità di sviluppatore di dispositivi, ora che sono stati appresi i modelli di dispositivo, i passaggi successivi suggeriti sono la lettura della [connessione ad Azure IOT Central per ottenere](./concepts-get-connected.md) altre informazioni su come registrare i dispositivi con IOT Central e sul modo in cui IOT Central protegge le connessioni dei dispositivi.
+In qualità di sviluppatore di dispositivi, ora che sono stati appresi i modelli dei dispositivi, i passaggi successivi suggeriti sono la lettura di dati di [telemetria, proprietà e payload di comandi](./concepts-telemetry-properties-commands.md) per ottenere altre informazioni sui dati scambiati con IOT Central.
 
 In qualità di sviluppatore di soluzioni, un passaggio successivo suggerito consiste [nel leggere definire un nuovo tipo di dispositivo Internet all'interno dell'applicazione IoT Central di Azure](./howto-set-up-template.md) per altre informazioni su come creare un modello di dispositivo.

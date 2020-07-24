@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998477"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -43,11 +43,11 @@ Il diagramma seguente mostra la connettività logica di una rete locale a una re
 
 1. Determinare i requisiti di velocità effettiva di base dell'applicazione.
 1. Determinare i limiti di velocità effettiva del gateway VPN di Azure. Per informazioni, vedere la sezione "SKU del gateway" di [informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md#gwsku).
-1. Determinare le [informazioni aggiuntive relative alla velocità effettiva della macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-sizes.md) in base alle dimensioni della macchina virtuale.
+1. Determinare le [informazioni aggiuntive relative alla velocità effettiva della macchina virtuale di Azure](../virtual-machines/sizes.md) in base alle dimensioni della macchina virtuale.
 1. Determinare la larghezza di banda del provider di servizi Internet (ISP).
 1. Calcolare la velocità effettiva prevista selezionando la larghezza di banda minima della macchina virtuale, del gateway VPN o del provider di servizi Internet. misurato in megabit al secondo (/) diviso 8 (8).
 
-Se la velocità effettiva calcolata non soddisfa i requisiti di velocità effettiva di base dell'applicazione, è necessario aumentare la larghezza di banda della risorsa identificata come collo di bottiglia. Per ridimensionare un gateway VPN di Azure, vedere [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Modifica SKU del gateway). Per ridimensionare una macchina virtuale, vedere [Ridimensionare una VM ](../virtual-machines/virtual-machines-windows-resize-vm.md). Se non si sta riscontrando la larghezza di banda Internet prevista, è anche possibile contattare il provider di servizi Internet.
+Se la velocità effettiva calcolata non soddisfa i requisiti di velocità effettiva di base dell'applicazione, è necessario aumentare la larghezza di banda della risorsa identificata come collo di bottiglia. Per ridimensionare un gateway VPN di Azure, vedere [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Modifica SKU del gateway). Per ridimensionare una macchina virtuale, vedere [Ridimensionare una VM ](../virtual-machines/windows/resize-vm.md). Se non si sta riscontrando la larghezza di banda Internet prevista, è anche possibile contattare il provider di servizi Internet.
 
 > [!NOTE]
 > La velocità effettiva del gateway VPN è un'aggregazione di tutte le connessioni da punto a sito o Site-to-Site\VNET-to-VNET.

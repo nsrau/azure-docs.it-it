@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.openlocfilehash: 5e59872a4da0136232652008a2980601428eeab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f5813cf5ff0d52b57f7a4b55d86195051f217f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999072"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Creare una macchina virtuale da una versione di immagine generalizzata usando l'interfaccia della riga di comando
 
-Creare una macchina virtuale da una [versione di immagine generalizzata](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) archiviata in una raccolta di immagini condivise. Se si vuole creare una VM usando un'immagine specializzata, vedere [creare una VM da un'immagine specializzata](vm-specialized-image-version-powershell.md). 
+Creare una macchina virtuale da una [versione di immagine generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) archiviata in una raccolta di immagini condivise. Se si vuole creare una VM usando un'immagine specializzata, vedere [creare una VM da un'immagine specializzata](vm-specialized-image-version-powershell.md). 
 
 
 ## <a name="get-the-image-id"></a>Ottenere l'ID immagine

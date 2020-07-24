@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000041"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
-L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Servizi multimediali fornisce un'API REST che accetta sia il formato JSON che XML atom+pub. L'API REST di Servizi multimediali richiede intestazioni HTTP specifiche che ogni client deve inviare quando si connette a Servizi multimediali, oltre a un set di intestazioni facoltative. Le seguenti sezioni descrivono le intestazioni e i verbi HTTP che è possibile usare quando si creano richieste e si ricevono risposte da Servizi multimediali.
 
@@ -130,4 +130,3 @@ Per informazioni su come usare l'autenticazione di Azure AD con l'API REST di Se
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

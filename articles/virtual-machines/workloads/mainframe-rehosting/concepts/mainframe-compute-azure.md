@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998936"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Spostare il calcolo mainframe in Azure
 
@@ -56,7 +57,7 @@ Le macchine virtuali di Azure forniscono la potenza di calcolo in una gamma di d
 
 Attualmente, l'intervallo di dimensioni delle macchine virtuali di Azure offre da 1 a 128 vCPU. I tipi di macchina virtuale (VM) sono ottimizzati per carichi di lavoro specifici. Ad esempio, l'elenco seguente mostra i tipi di VM (correnti al momento della stesura di questo articolo) e i relativi usi consigliati:
 
-| Dimensione     | Tipo e descrizione                                                                 |
+| Dimensioni     | Tipo e descrizione                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | Serie D | Utilizzo generico con 64 vCPU e velocità di clock fino a 3,5 GHz                           |
 | Serie E | Con ottimizzazione per la memoria fino a 64 vCPU                                                 |
@@ -93,13 +94,13 @@ L'approccio consiste nel migrare LPAR a singole macchine virtuali. Azure consent
 
 Uno dei vantaggi di una soluzione basata su Azure è la possibilità di scalare in orizzontale. Il ridimensionamento rende disponibile una capacità di calcolo quasi illimitata per un'applicazione. Azure supporta più metodi per la scalabilità orizzontale della potenza di calcolo:
 
-- **Bilanciamento del carico in un cluster.** In questo scenario, un'applicazione può usare un servizio di [bilanciamento del carico](/azure/load-balancer/load-balancer-overview) o Resource Manager per suddividere il carico di lavoro tra più macchine virtuali in un cluster. Se è necessaria una maggiore capacità di calcolo, vengono aggiunte altre VM al cluster.
+- **Bilanciamento del carico in un cluster.** In questo scenario, un'applicazione può usare un servizio di [bilanciamento del carico](../../../../load-balancer/load-balancer-overview.md) o Resource Manager per suddividere il carico di lavoro tra più macchine virtuali in un cluster. Se è necessaria una maggiore capacità di calcolo, vengono aggiunte altre VM al cluster.
 
-- **Set di scalabilità di macchine virtuali.** In questo scenario di espansione, un'applicazione può essere ridimensionata a [risorse di calcolo](/azure/virtual-machine-scale-sets/overview) aggiuntive in base all'utilizzo della macchina virtuale. Quando la richiesta cade, il numero di macchine virtuali in un set di scalabilità può anche andare inattivo, garantendo un uso efficiente della potenza di calcolo.
+- **Set di scalabilità di macchine virtuali.** In questo scenario di espansione, un'applicazione può essere ridimensionata a [risorse di calcolo](../../../../virtual-machine-scale-sets/overview.md) aggiuntive in base all'utilizzo della macchina virtuale. Quando la richiesta cade, il numero di macchine virtuali in un set di scalabilità può anche andare inattivo, garantendo un uso efficiente della potenza di calcolo.
 
-- **Ridimensionamento PaaS.** Azure PaaS offre scalabilità delle risorse di calcolo. [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) , ad esempio, alloca le risorse di calcolo per soddisfare gli aumenti del volume delle richieste.
+- **Ridimensionamento PaaS.** Azure PaaS offre scalabilità delle risorse di calcolo. [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) , ad esempio, alloca le risorse di calcolo per soddisfare gli aumenti del volume delle richieste.
 
-- **Cluster Kubernetes.** Le applicazioni in Azure possono usare [cluster Kubernetes](/azure/aks/concepts-clusters-workloads) per i servizi di calcolo per le risorse specificate. Azure Kubernetes Service (AKS) è un servizio gestito che orchestra nodi, pool e cluster Kubernetes in Azure.
+- **Cluster Kubernetes.** Le applicazioni in Azure possono usare [cluster Kubernetes](../../../../aks/concepts-clusters-workloads.md) per i servizi di calcolo per le risorse specificate. Azure Kubernetes Service (AKS) è un servizio gestito che orchestra nodi, pool e cluster Kubernetes in Azure.
 
 Per scegliere il metodo appropriato per la scalabilità orizzontale delle risorse di calcolo, è importante comprendere il modo in cui Azure e i mainframe sono diversi. La chiave è come, o se, i dati vengono condivisi dalle risorse di calcolo. In Azure i dati (per impostazione predefinita) non sono in genere condivisi da più macchine virtuali. Se la condivisione dei dati è richiesta da più macchine virtuali in un cluster di calcolo con scalabilità orizzontale, i dati condivisi devono trovarsi in una risorsa che supporta questa funzionalità. In Azure, la condivisione dei dati riguarda l'archiviazione come illustrato nella sezione seguente.
 
@@ -114,7 +115,7 @@ Ogni livello può inoltre fornire servizi di ripristino di emergenza appropriati
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Riallocazione del mainframe in macchine virtuali di Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Riallocazione del mainframe in macchine virtuali di Azure](../overview.md)
 - [Spostare l'archiviazione mainframe in Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Risorse IBM

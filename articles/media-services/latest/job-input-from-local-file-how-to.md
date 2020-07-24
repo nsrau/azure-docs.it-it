@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80345914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001129"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creare un input del processo da un file locale
 
@@ -24,7 +24,7 @@ In Servizi multimediali v3, quando si inviano processi per elaborare i video, è
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-* [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+* [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 * Vedere [Gestire gli asset](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Esempio .NET
@@ -32,7 +32,7 @@ In Servizi multimediali v3, quando si inviano processi per elaborare i video, è
 Il codice seguente mostra come creare un asset di input da usare come input per il processo. La funzione CreateInputAsset esegue le azioni seguenti:
 
 * Crea l'asset
-* Ottiene un [URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) di firma di accesso condiviso scrivibile per il contenitore dell'asset [nell'archivio](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Ottiene un [URL](../../storage/common/storage-sas-overview.md) di firma di accesso condiviso scrivibile per il contenitore dell'asset [nell'archivio](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ Il frammento di codice seguente invia un processo di codifica:
 
 ## <a name="job-error-codes"></a>Codici di errore dei processi
 
-Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Vedere i [codici di errore](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

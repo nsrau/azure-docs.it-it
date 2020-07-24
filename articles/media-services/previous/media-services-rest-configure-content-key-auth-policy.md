@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8075de6690026a6d7ee08a581985744cf88ec6f4
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 71e336ffac557c33aa803cf0e9c123c3bae9427d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000602"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione di una chiave simmetrica  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -31,7 +31,7 @@ Per consentire a Servizi multimediali di crittografare un asset, è necessario a
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono prevedere una o più restrizioni di autorizzazione, ad esempio aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati Simple Web Token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e JSON Web Token (JWT).
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono prevedere una o più restrizioni di autorizzazione, ad esempio aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati Simple Web Token ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) e JSON Web Token (JWT).
 
 Servizi multimediali non offre un servizio token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato o usare Azure Active Directory (Azure AD) per il rilascio di token. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione Token, come descritto in questo articolo. Se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica, il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client.
 
@@ -490,4 +490,3 @@ public enum ContentKeyDeliveryType
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato i criteri di autorizzazione della chiave simmetrica, vedere [Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
-

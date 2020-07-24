@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170786"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000194"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170786"
 > * [Portale](media-services-portal-upload-files.md)
 > 
 
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
 
 Questa esercitazione illustra come caricare un file ed eseguire altre operazioni associate:
 
@@ -45,7 +45,7 @@ Questa esercitazione illustra come caricare un file ed eseguire altre operazioni
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 - Rivedere l'argomento di carattere generale [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-- Per altre informazioni, vedere anche l'articolo [usare l'autenticazione Azure ad per accedere all'API servizi multimediali con REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) .
+- Per altre informazioni, vedere anche l'articolo [usare l'autenticazione Azure ad per accedere all'API servizi multimediali con REST](./media-services-rest-connect-with-aad.md) .
 - Configurare **Postman** come descritto in [Configurare Postman per le chiamate API REST di Servizi multimediali](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considerazioni
@@ -106,7 +106,7 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
 >[!NOTE]
 >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
-Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà il messaggio di errore interno 500 del server in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà il messaggio di errore interno 500 del server in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Creare i criteri di accesso
 
@@ -121,7 +121,7 @@ Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criter
 
 ### <a name="overview"></a>Panoramica
 
-Un [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) è un contenitore di più tipi o set di oggetti in servizi multimediali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
+Un [Asset](/rest/api/media/operations/asset) è un contenitore di più tipi o set di oggetti in servizi multimediali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
 
 Una delle proprietà che è possibile aggiungere quando si crea un asset è **Options**. È possibile specificare una delle opzioni di crittografia seguenti: **None** (impostazione predefinita, non viene usata alcuna crittografia), **StorageEncrypted** (per contenuto che è stato pre-crittografato con crittografia di archiviazione lato client), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Se è presente un asset crittografato, è necessario configurare un criterio di recapito. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -144,9 +144,9 @@ In questo esempio viene creato un asset non crittografato.
 
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. È necessario caricare i file come BLOB in blocchi. I BLOB di pagine non sono supportati da Servizi multimediali di Azure.  
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](/rest/api/storageservices/blob-service-rest-api).
 
-Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso (illustrato di seguito). I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso (illustrato di seguito). I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](/rest/api/media/operations/locator).
 
 Un URL di firma di accesso condiviso ha il seguente formato:
 
@@ -175,9 +175,9 @@ Considerazioni applicabili:
 
 Dopo aver creato l'URL di caricamento, è necessario scrivere codice usando direttamente le API di BLOB di Azure per caricare il file nel contenitore della firma di accesso condiviso. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Uso dell'API REST di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Inserisci BLOB](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Caricare BLOB in Archiviazione BLOB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Uso dell'API REST di Archiviazione di Azure](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Inserisci BLOB](/rest/api/storageservices/put-blob)
+- [Caricare BLOB in Archiviazione BLOB](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Caricare un file con Postman
 
@@ -209,7 +209,7 @@ Dopo aver caricato il file è necessario creare nell'asset i metadati per il fil
 
 ## <a name="validate"></a>Convalida
 
-Per convalidare il corretto caricamento del file, è possibile eseguire una query su [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) e confrontare il valore di **ContentFileSize** (o altri dettagli) con quanto dovrebbe essere presente nel nuovo asset. 
+Per convalidare il corretto caricamento del file, è possibile eseguire una query su [AssetFile](/rest/api/media/operations/assetfile) e confrontare il valore di **ContentFileSize** (o altri dettagli) con quanto dovrebbe essere presente nel nuovo asset. 
 
 Ad esempio, l'operazione **GET** consente di ottenere i dati relativi al file di asset, in questo caso il file BigBuckBunny.mp4. Per la query vengono usate le [variabili di ambiente](postman-environment.md) impostate in precedenza.
 
@@ -229,4 +229,3 @@ La risposta conterrà dimensioni, nome e altre informazioni.
 Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [Encode assets](media-services-portal-encode.md)(Codificare gli asset).
 
 È anche possibile usare Funzioni di Azure per attivare un processo di codifica basato su un file che arriva nel contenitore configurato. Per altre informazioni, vedere [questo esempio](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-
