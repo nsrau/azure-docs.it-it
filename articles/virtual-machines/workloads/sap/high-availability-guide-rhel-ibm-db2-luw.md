@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82983041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077400"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Disponibilità elevata di IBN Db2 LUW in macchine virtuali di Azure su Red Hat Enterprise Linux Server
 
@@ -66,7 +67,7 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 
 
 ## <a name="overview"></a>Panoramica
-Per ottenere la disponibilità elevata, IBM DB2 LUW con HADR è installato in almeno due macchine virtuali di Azure, che vengono distribuite in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) o tra [zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
+Per ottenere la disponibilità elevata, IBM DB2 LUW con HADR è installato in almeno due macchine virtuali di Azure, che vengono distribuite in un [set di disponibilità di Azure](../../windows/tutorial-availability-sets.md) o tra [zone di disponibilità di Azure](./sap-ha-availability-zones.md). 
 
 La grafica seguente mostra una configurazione di due macchine virtuali di Azure del server di database. Entrambe le macchine virtuali di Azure del server di database hanno una propria archiviazione collegata e sono in esecuzione. In HADR, un'istanza di database in una delle macchine virtuali di Azure ha il ruolo di istanza primaria. Tutti i client sono connessi all'istanza primaria. Tutte le modifiche apportate alle transazioni del database vengono rese disponibili localmente nel log delle transazioni DB2. Poiché i record del log delle transazioni vengono salvati in modo permanente in locale, i record vengono trasferiti tramite TCP/IP all'istanza del database nel secondo server di database, nel server di standby o nell'istanza di standby. L'istanza standby aggiorna il database locale eseguendo il rollforward dei record del log delle transazioni trasferiti. In questo modo, il server di standby viene mantenuto sincronizzato con il server primario.
 
@@ -397,10 +398,10 @@ Stato del daemon: Corosync: attivo/disabilitato pacemaker: attivo/disabilitato P
 
 
 ### <a name="configure-azure-load-balancer"></a>Configurare Azure Load Balancer
-Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e quindi eseguire le operazioni seguenti:
+Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Load Balancer standard](../../../load-balancer/load-balancer-overview.md) e quindi eseguire le operazioni seguenti:
 
 > [!NOTE]
-> Lo SKU Load Balancer Standard presenta restrizioni per l'accesso agli indirizzi IP pubblici dai nodi sotto la Load Balancer. L'articolo [connettività dell'endpoint pubblico per le macchine virtuali che usano Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) descrive come abilitare tali nodi per accedere a indirizzi IP pubblici
+> Lo SKU Load Balancer Standard presenta restrizioni per l'accesso agli indirizzi IP pubblici dai nodi sotto la Load Balancer. L'articolo [connettività dell'endpoint pubblico per le macchine virtuali che usano Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) descrive come abilitare tali nodi per accedere a indirizzi IP pubblici
 
 
 
@@ -510,7 +511,7 @@ Si consiglia di configurare una condivisione NFS comune o GlusterFS, in cui i lo
 
 - [GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver][glusterfs] 
 - [Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP][anf-rhel]
-- [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (per creare condivisioni NFS)
+- [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) (per creare condivisioni NFS)
 
 ## <a name="test-the-cluster-setup"></a>Testare la configurazione del cluster
 
@@ -815,7 +816,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Architettura e scenari di disponibilità elevata per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [Architettura e scenari di disponibilità elevata per SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 - [Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure][rhel-pcs-azr]
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

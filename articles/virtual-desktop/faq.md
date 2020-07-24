@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075624"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti sul desktop virtuale Windows
 
@@ -118,10 +118,10 @@ Limitazioni o quote in FSLogix dipendono dall'infrastruttura di archiviazione us
 
 La tabella seguente fornisce un esempio di come le risorse di un profilo FSLogix devono supportare ogni utente. I requisiti possono variare notevolmente a seconda dell'utente, delle applicazioni e dell'attività per ogni profilo. 
 
-| Risorsa | Requisito |
+| Resource | Requisito |
 |---|---|
 | IOPS a stato stazionario | 10 |
-| IOPS di accesso/disconnessione | 5 |
+| IOPS di accesso/disconnessione | 50 |
 
 L'esempio in questa tabella è di un singolo utente, ma può essere usato per stimare i requisiti per il numero totale di utenti nell'ambiente. Ad esempio, sono necessari circa 1.000 IOPS per utenti 100 e circa 5.000 IOPS durante l'accesso e la disconnessione.
 

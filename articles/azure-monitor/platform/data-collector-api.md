@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
-ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075326"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -45,11 +45,11 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Parametro | Descrizione |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
-| Risorsa |Nome della risorsa API: /api/logs. |
+| Resource |Nome della risorsa API: /api/logs. |
 | Versione API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
-| Header | Descrizione |
+| Intestazione | Descrizione |
 |:--- |:--- |
 | Autorizzazione |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
 | Log-Type |Specificare il tipo di record dei dati inviati. Può contenere solo lettere, numeri e caratteri di sottolineatura (_) e non può superare i 100 caratteri. |
@@ -66,7 +66,7 @@ Il formato dell'intestazione dell'autorizzazione è il seguente:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* è l'identificatore univoco per l'area di lavoro Log Analytics. *Signature* è un codice [HMAC](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) (Hash-based Message Authentication Code) che viene creato dalla richiesta e quindi calcolato con l'[algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Viene quindi codificato con la codifica Base64.
+*WorkspaceID* è l'identificatore univoco per l'area di lavoro Log Analytics. *Signature* è un codice [HMAC](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) (Hash-based Message Authentication Code) che viene creato dalla richiesta e quindi calcolato con l'[algoritmo SHA256](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Viene quindi codificato con la codifica Base64.
 
 Usare questo formato per codificare la stringa di firma **SharedKey**:
 
@@ -134,11 +134,14 @@ Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiun
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
-| string |_s |
+| Stringa |_s |
 | Boolean |_b |
 | Double |_d |
 | Data/Ora |_t |
 | GUID (archiviato come stringa) |_g |
+
+> [!NOTE]
+> Ai valori stringa che sembrano essere GUID verrà assegnato il suffisso _g e formattato come GUID, anche se il valore in ingresso non include i trattini. Ad esempio, "8145d822-13a7-44ad-859c-36f31a84f6dd" e "8145d82213a744ad859c36f31a84f6dd" verranno archiviati come "8145d822-13a7-44ad-859c-36f31a84f6dd". Le uniche differenze tra questa e un'altra stringa sono rappresentate dal _g nel nome e dall'inserimento di trattini se non vengono fornite nell'input. 
 
 Il tipo di dati usato da Monitoraggio di Azure per ogni proprietà dipende dall'eventuale esistenza di un tipo di record per il nuovo record.
 
@@ -464,14 +467,99 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+
+### <a name="python-3-sample"></a>Esempio di Python 3
+```python
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
+
+# Update the customer ID to your Log Analytics workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# The log type is the name of the event that is being submitted
+log_type = 'WebMonitorTest'
+
+# An example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build the API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash, encoding="utf-8")  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest()).decode()
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build and send a request to the POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code >= 200 and response.status_code <= 299):
+        print('Accepted')
+    else:
+        print("Response code: {}".format(response.status_code))
+
+post_data(customer_id, shared_key, body, log_type)
+```
+
+
 ## <a name="alternatives-and-considerations"></a>Alternative e considerazioni
 Sebbene l'API dell'agente di raccolta dati debba coprire la maggior parte delle proprie esigenze per raccogliere dati in formato libero nei log di Azure, esistono istanze in cui potrebbe essere necessaria un'alternativa per superare alcune delle limitazioni dell'API. Tutte le opzioni sono le seguenti: considerazioni principali:
 
 | Alternativa | Descrizione | Ideale per |
 |---|---|---|
-| [Eventi personalizzati](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
-| API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinato ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati dei log, Centro sicurezza, monitoraggio di Azure per contenitori/VM e così via). </li></ul> |
-| [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Esplora dati (ADX) è la piattaforma dati che permette di Application Insights l'analisi e i log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), l'uso della piattaforma dati nella sua forma non elaborata ti offre la flessibilità completa, ma che richiede il sovraccarico di gestione, sul cluster (RBAC, tasso di conservazione, schema e così via). ADX offre molte [Opzioni](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) di inserimento, tra cui file [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dati che non verranno correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono funzionalità avanzate di inserimento o elaborazione non sono oggi disponibili nei log di monitoraggio di Azure. </li></ul> |
+| [Eventi personalizzati](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
+| API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](./create-pipeline-datacollector-api.md) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinato ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati dei log, Centro sicurezza, monitoraggio di Azure per contenitori/VM e così via). </li></ul> |
+| [Esplora dati di Azure](/azure/data-explorer/ingest-data-overview) | Azure Esplora dati (ADX) è la piattaforma dati che permette di Application Insights l'analisi e i log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), l'uso della piattaforma dati nella sua forma non elaborata ti offre la flessibilità completa, ma che richiede il sovraccarico di gestione, sul cluster (RBAC, tasso di conservazione, schema e così via). ADX offre molte [Opzioni](/azure/data-explorer/ingest-data-overview#ingestion-methods) di inserimento, tra cui file [CSV, TSV e JSON](/azure/kusto/management/mappings?branch=master) . | <ul><li> Dati che non verranno correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono funzionalità avanzate di inserimento o elaborazione non sono oggi disponibili nei log di monitoraggio di Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

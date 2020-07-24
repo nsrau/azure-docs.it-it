@@ -5,17 +5,17 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225180"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075614"
 ---
-# <a name="safe-url-list"></a>Elenco URL sicuro
+# <a name="safe-url-list"></a>Elenco degli URL sicuri
 
 È necessario sbloccare determinati URL in modo che la distribuzione del desktop virtuale di Windows funzioni correttamente. In questo articolo vengono elencati questi URL, in modo che sia possibile stabilire quali sono quelli sicuri.
 
@@ -33,6 +33,7 @@ Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Attivazione di Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Supporto del portale di Azure|AzureCloud|
+| 169.254.169.254 | 80 | [Endpoint del servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 
 >[!IMPORTANT]
 >Desktop virtuale Windows supporta ora il tag FQDN. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -43,13 +44,13 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 
 |Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|Nessuno|
-|*.events.data.microsoft.com|443|Servizio di telemetria|Nessuno|
-|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|Nessuno|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nessuno|
+|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|Nessuna|
+|*.events.data.microsoft.com|443|Servizio di telemetria|Nessuna|
+|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|Nessuna|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nessuna|
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|nessuno|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
-|*.digicert.com|443|Verifica della revoca del certificato|Nessuno|
+|*.digicert.com|443|Verifica della revoca del certificato|Nessuna|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.
@@ -59,8 +60,8 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 >È necessario usare il carattere jolly (*) per gli URL che coinvolgono il traffico del servizio. Se si preferisce non usare * per il traffico correlato ad agenti, ecco come trovare gli URL senza caratteri jolly:
 >
 >1. Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows.
->2. Aprire il **Visualizzatore eventi**, quindi passare a **Windows Logs**  >  **Application**  >  **Wvd-Agent** e cercare l'ID evento 3702.
->3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3702. Gli URL nell'evento con ID 3702 sono specifici dell'area. È necessario ripetere il processo di sblocco con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
+>2. Aprire il **Visualizzatore eventi**, quindi passare a **Windows Logs**  >  **Application**  >  **Wvd-Agent** e cercare l'ID evento 3701.
+>3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3701. Gli URL nell'evento con ID 3701 sono specifici dell'area. È necessario ripetere il processo di sblocco con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
 
 ## <a name="remote-desktop-clients"></a>Client Desktop remoto
 

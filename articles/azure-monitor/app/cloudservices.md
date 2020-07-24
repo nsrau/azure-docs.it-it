@@ -3,14 +3,15 @@ title: Application Insights per i servizi cloud di Azure | Microsoft Docs
 description: Monitorare i ruoli Web e di lavoro in modo efficace con Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075430"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
-[Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
+[Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
 ![Dashboard panoramica](./media/cloudservices/overview-graphs.png)
 
@@ -30,7 +31,7 @@ Questa opzione instrumenta l'app in fase di esecuzione, fornendo tutti i dati di
 
 Se non si hanno altre esigenze, non è necessario eseguire altre operazioni. 
 
-I passaggi successivi sono la [visualizzazione delle metriche dall'app](../../azure-monitor/platform/metrics-charts.md)e [l'esecuzione di query sui dati con l'analisi](../../azure-monitor/app/analytics.md). 
+I passaggi successivi sono la [visualizzazione delle metriche dall'app](../../azure-monitor/platform/metrics-charts.md)e [l'esecuzione di query sui dati con l'analisi](../log-query/log-query-overview.md). 
 
 Per monitorare le prestazioni nel browser, potrebbe essere necessario configurare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) e [aggiungere codice alle pagine Web](../../azure-monitor/app/javascript.md).
 
@@ -131,7 +132,7 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
 
 Questo passaggio è necessario solo se si desidera acquisire query SQL complete su .NET Framework. 
 
-1. In `\*.csdef` file Aggiungi [attività di avvio](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) per ogni ruolo simile a 
+1. In `\*.csdef` file Aggiungi [attività di avvio](../../cloud-services/cloud-services-startup-tasks.md) per ogni ruolo simile a 
 
     ```xml
     <Startup>
@@ -177,7 +178,7 @@ Se non sono presenti dati, eseguire le operazioni seguenti:
 Per altre informazioni, vedere [Risoluzione dei problemi][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Visualizzare gli eventi di Diagnostica di Azure
-Le informazioni di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sono disponibili in Application Insights nelle posizioni seguenti:
+Le informazioni di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) sono disponibili in Application Insights nelle posizioni seguenti:
 
 * I contatori delle prestazioni vengono visualizzati come metriche personalizzate. 
 * I log eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
@@ -258,7 +259,7 @@ Per una panoramica del sistema, è possibile riunire i grafici di monitoraggio p
 
 Se il sistema usa altri servizi di Azure, ad esempio Analisi di flusso, includere anche i relativi grafici di monitoraggio. 
 
-Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Creare query in [Analytics](../../azure-monitor/app/analytics.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
+Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Creare query in [Analytics](../log-query/log-query-overview.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
 
 ## <a name="example"></a>Esempio
 [L'esempio](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.
@@ -283,6 +284,6 @@ Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

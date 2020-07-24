@@ -2,19 +2,22 @@
 title: Criteri di ripetizione dei messaggi non recapitabili-griglia di eventi di Azure
 description: Descrive come personalizzare le opzioni di recapito degli eventi per Griglia di eventi. Impostare una destinazione per i messaggi non recapitabili e specificare il numero di tentativi di recapito.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074887"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Messaggi non recapitabili e criteri di ripetizione dei tentativi
 
 Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impostazioni per il recapito di tali eventi. Questo articolo illustra come configurare una posizione per gli eventi non recapitabili e personalizzare le impostazioni di ripetizione dei tentativi. Per informazioni su queste funzionalità, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Per informazioni sul recapito dei messaggi, i tentativi e i messaggi non recapitabili, vedere l'articolo concettuale: [recapito dei messaggi di griglia di eventi e riprovare]().
 
 ## <a name="set-dead-letter-location"></a>Impostare la posizione degli eventi non recapitabili
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Se si impostano entrambi `event-ttl` e `max-deliver-attempts`, la Griglia di eventi usa quello che scade per primo per stabilire quando interrompere la consegna dell'evento.
+> [!NOTE]
+> Se si impostano entrambi `event-ttl` e `max-deliver-attempts`, la Griglia di eventi usa quello che scade per primo per stabilire quando interrompere la consegna dell'evento. Ad esempio, se si impostano 30 minuti come durata (TTL) e 10 tentativi di recapito massimi. Quando un evento non viene recapitato dopo 30 minuti (o) dopo 10 tentativi, a seconda di quale evento si verifica per primo, l'evento non è presente.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Se si impostano entrambi `EventTtl` e `MaxDeliveryAttempt`, la Griglia di eventi usa quello che scade per primo per stabilire quando interrompere la consegna dell'evento.
+> [!NOTE]
+> Se si impostano entrambi `event-ttl` e `max-deliver-attempts`, la Griglia di eventi usa quello che scade per primo per stabilire quando interrompere la consegna dell'evento. Ad esempio, se si impostano 30 minuti come durata (TTL) e 10 tentativi di recapito massimi. Quando un evento non viene recapitato dopo 30 minuti (o) dopo 10 tentativi, a seconda di quale evento si verifica per primo, l'evento non è presente.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

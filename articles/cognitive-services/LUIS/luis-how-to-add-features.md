@@ -1,5 +1,5 @@
 ---
-title: Funzionalità-LUIS
+title: Usare le funzionalità di per migliorare l'elenco dei vocaboli LUIS
 titleSuffix: Azure Cognitive Services
 description: Usare LUIS (Language Understanding) per aggiungere alle app funzionalità in grado di migliorare il rilevamento o la stima di finalità ed entità con cui creare categorie e criteri
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25698fe2b05cbfb564e441e488bfa93221a9618a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075206"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usare le funzionalità per aumentare il segnale dell'elenco di parole
 
@@ -43,7 +43,7 @@ Esaminare i [concetti](luis-concept-feature.md) per comprendere quando e perché
 
 1. L'elenco di frasi può essere applicato all'intera app con l'impostazione **globale** o a un modello specifico (finalità o entità). Se si crea l'elenco di frasi, come _funzionalità_ di uno scopo o di un'entità, l'interruttore non è impostato per il livello globale. In questo caso, il significato dell'interruttore è che la funzionalità è locale solo per tale modello, pertanto _non è globale_ per l'applicazione.
 
-1. Selezionare **Operazione completata**. La nuova funzionalità viene aggiunta alla pagina delle **funzionalità di ml** .
+1. Selezionare **Fine**. La nuova funzionalità viene aggiunta alla pagina delle **funzionalità di ml** .
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

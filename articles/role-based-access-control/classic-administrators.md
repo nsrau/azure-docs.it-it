@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076438"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -29,7 +30,7 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 ## <a name="add-a-co-administrator"></a>Aggiungere un coamministratore
 
 > [!TIP]
-> È necessario aggiungere un coamministratore solo se l'utente deve gestire distribuzioni classiche di Azure tramite il [modulo PowerShell di gestione del servizio Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Se l'utente usa il portale di Azure solo per gestire le risorse classiche, non è necessario aggiungere il ruolo amministratore classico per l'utente.
+> È necessario aggiungere un coamministratore solo se l'utente deve gestire distribuzioni classiche di Azure tramite il [modulo PowerShell di gestione del servizio Azure](/powershell/module/servicemanagement/azure.service). Se l'utente usa il portale di Azure solo per gestire le risorse classiche, non è necessario aggiungere il ruolo amministratore classico per l'utente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore del servizio o coamministratore.
 
@@ -37,7 +38,7 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 
     I coamministratori possono essere assegnati solo nell'ambito della sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 
@@ -82,7 +83,7 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 

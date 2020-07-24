@@ -1,15 +1,16 @@
 ---
 title: Distribuire l'anteprima di Azure blockchain Workbench
 description: Come distribuire l'anteprima di Azure blockchain Workbench
-ms.date: 01/08/2020
+ms.date: 07/16/2020
 ms.topic: how-to
-ms.reviewer: brendal
-ms.openlocfilehash: aaef42f715c9f4fa2550f4a2468b42c5077af14c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ravastra
+ms.custom: references_regions
+ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077021"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuire l'anteprima di Azure blockchain Workbench
 
@@ -45,7 +46,7 @@ Il costo di Blockchain Workbench è un'aggregazione del costo dei servizi Azure 
 Azure Blockchain Workbench richiede le registrazioni per l'applicazione e la configurazione di Azure AD. È possibile scegliere di eseguire la [configurazione di Azure AD manualmente](#azure-ad-configuration) prima della distribuzione o eseguire uno script successivamente alla distribuzione. Se si sta ridistribuendo Blockchain Workbench, vedere [Configurazione di Azure AD](#azure-ad-configuration) per verificare la configurazione di Azure AD.
 
 > [!IMPORTANT]
-> Non è necessario distribuire Workbench nello stesso tenant di quello usato per registrare un'applicazione Azure AD. Workbench deve essere distribuito in un tenant in cui sono disponibili autorizzazioni sufficienti per distribuire le risorse. Per altre informazioni sui tenant di Azure AD, vedere [Come ottenere un tenant di Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+> Non è necessario distribuire Workbench nello stesso tenant di quello usato per registrare un'applicazione Azure AD. Workbench deve essere distribuito in un tenant in cui sono disponibili autorizzazioni sufficienti per distribuire le risorse. Per altre informazioni sui tenant di Azure AD, vedere [Come ottenere un tenant di Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="deploy-blockchain-workbench"></a>Distribuire Blockchain Workbench
 
@@ -66,8 +67,8 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
     | Password | Password usata per la connessione alle macchine virtuali. |
     | SSH | Usare una chiave pubblica RSA in formato a una riga che inizi con **ssh-rsa** oppure usare il formato PEM a più righe. È possibile generare le chiavi SSH tramite `ssh-keygen` in Linux e OS X oppure usando PuTTYGen in Windows. Per altre informazioni sulle chiavi SSH, vedere [Come usare SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Database e password blockchain | Specificare la password da usare per accedere al database creato nell'ambito della distribuzione. La password deve soddisfare tre dei quattro requisiti seguenti: la lunghezza deve essere compresa tra 12 & 72 caratteri, 1 carattere minuscolo, 1 carattere maiuscolo, 1 numero e 1 carattere speciale che non è un simbolo di cancelletto (#), percentuale (%), virgola (,), stella (*), virgolette () \` , virgolette doppie;) |
-    | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per ottimizzare la disponibilità, questa impostazione deve corrispondere alla **Località**. |
-    | Subscription | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
+    | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per la disponibilità ottimale, questo deve corrispondere all'impostazione del percorso dell' **area** . Non tutte le aree sono disponibili durante la fase di anteprima. Le funzionalità potrebbero non essere disponibili in alcune aree. Azure blockchain Data Manager è disponibile nelle aree di Azure seguenti: Stati Uniti orientali ed Europa occidentale.|
+    | Sottoscrizione | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
     | Gruppi di risorse | Creare un nuovo gruppo di risorse selezionando **Crea nuovo** e quindi specificare un nome di gruppo di risorse univoco. |
     | Location | Specificare l'area in cui si vuole distribuire il framework. |
 
@@ -106,11 +107,11 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
      | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Nota: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
      | Seleziona macchina virtuale | Selezionare le prestazioni di archiviazione preferite e le dimensioni della macchina virtuale per la rete blockchain. Scegliere dimensioni di macchina virtuali inferiori, come *DS1 Standard v2* se si usa una sottoscrizione con limiti di servizio ridotto, ad esempio il livello gratuito di Azure. |
 
-1. Selezionare **OK** per completare le impostazioni avanzate.
+1. Selezionare **Verifica + crea** per completare le impostazioni avanzate.
 
 1. Esaminare il riepilogo per verificare che i parametri siano corretti.
 
-    ![Summary](media/deploy/blockchain-workbench-summary.png)
+    ![Riepilogo](media/deploy/blockchain-workbench-summary.png)
 
 1. Selezionare **Crea** per accettare le condizioni e distribuire Azure Blockchain Workbench.
 
@@ -181,7 +182,7 @@ Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di 
 1. Selezionare l'account nell'angolo superiore destro e passare al tenant di Azure AD desiderato. Il tenant deve essere il tenant dell'amministratore della sottoscrizione in cui è distribuito Azure blockchain Workbench e si dispone delle autorizzazioni sufficienti per registrare le applicazioni.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**. Selezionare **registrazioni app**  >  **nuova registrazione**.
 
-    ![Registrazione dell'app](media/deploy/app-registration.png)
+    ![Registrazione delle app](media/deploy/app-registration.png)
 
 1. Specificare un **nome** visualizzato e scegliere **account solo in questa directory aziendale**.
 

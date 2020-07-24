@@ -3,12 +3,12 @@ title: Distribuire un'istanza del contenitore abilitata per GPU
 description: Informazioni su come distribuire istanze di contenitore di Azure per eseguire app contenitore a elevato utilizzo di calcolo con risorse GPU.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076860"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
@@ -63,7 +63,7 @@ Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appr
 
 * **Driver CUDA**: poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
 
-  In questa fase è supportato CUDA 9,0. Ad esempio, è possibile usare le immagini di base seguenti per il file docker:
+  In questa fase è supportato solo CUDA 9,0. Ad esempio, è possibile usare le seguenti immagini di base per il file docker:
   * [NVIDIA/CUDA: 9.0-base-Ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-GPU-PY3](https://hub.docker.com/r/tensorflow/tensorflow)
     
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitorare i contenitori nel portale di Azure o controllare lo stato di un gruppo di contenitori con il comando [az container show][az-container-show]. ad esempio:
+Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitorare i contenitori nel portale di Azure o controllare lo stato di un gruppo di contenitori con il comando [az container show][az-container-show]. Ad esempio:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

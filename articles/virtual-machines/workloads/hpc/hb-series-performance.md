@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4745fda5417ea937c367a116f999070bd62cf8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79534202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077411"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali serie HB
 
@@ -49,12 +49,12 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 8               | 1000            | 2,36            | 6,06            | 2,39            | 2.41            | 0.22            |
 | 16              | 1000            | 2,36            | 6,05            | 2,39            | 2.41            | 0,21            |
 | 32              | 1000            | 2,37            | 18,93           | 2.4             | 2,42            | 0,25            |
-| 64              | 1000            | 2,39            | 17,98           | 2,43            | 2.45            | 0,18            |
+| 64              | 1000            | 2,39            | 17,98           | 2,43            | 2.45            | 0.18            |
 | 128             | 1000            | 2.44            | 19,4            | 2.76            | 2.65            | 0,29            |
 | 256             | 1000            | 3,06            | 18,31           | 3.1             | 3.12            | 0,27            |
 | 512             | 1000            | 3.15            | 7,89            | 3.2             | 3.23            | 0,31            |
 | 1024            | 1000            | 3,27            | 17,62           | 3.31            | 3,33            | 0.22            |
-| 2048            | 1000            | 3.48            | 7,94            | 3.52            | 3.55            | 0,26            |
+| 2048            | 1000            | 3.48            | 7,94            | 3.52            | 3.55            | 0.26            |
 | 4096            | 1000            | 3.91            | 7.7             | 3,96            | 3,98            | 0,21            |
 
 
@@ -96,7 +96,7 @@ Test della larghezza di banda MPI di OSU v 5.4.3.
 | 2                | 4,03             | 0.03             |
 | 4                | 8.2              | 0,07             |
 | 8                | 16,15            | 0.13             |
-| 16               | 32,33            | 0,26             |
+| 16               | 32,33            | 0.26             |
 | 32               | 64,36            | 0,51             |
 | 64               | 126,29           | 1.01             |
 | 128              | 234,14           | 1,87             |
@@ -119,8 +119,4 @@ Test della larghezza di banda MPI di OSU v 5.4.3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sull' [elaborazione ad alte prestazioni](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
-
-
-
-
+Scopri di più sull' [elaborazione ad alte prestazioni](/azure/architecture/topics/high-performance-computing/) in Azure.

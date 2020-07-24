@@ -10,18 +10,23 @@ ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074556"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Questo articolo illustra come creare, esplorare e distribuire modelli di Machine Learning automatizzato senza una singola riga di codice nell'interfaccia di Azure Machine Learning Studio. Machine Learning automatizzato è un processo in cui viene selezionato il migliore algoritmo di Machine Learning da usare per i dati specifici. Questo processo consente di generare rapidamente modelli di Machine Learning. [Altre informazioni sulle funzionalità di Machine Learning automatizzato](concept-automated-ml.md).
+Questo articolo illustra come creare, esplorare e distribuire modelli di Machine Learning automatici senza una singola riga di codice in Azure Machine Learning Studio.
+
+>[!IMPORTANT]
+> L'esperienza di apprendimento automatico in Azure Machine Learning Studio è in anteprima. Alcune funzionalità potrebbero non essere supportate o avere funzionalità limitate.
+
+ Machine Learning automatizzato è un processo in cui viene selezionato il migliore algoritmo di Machine Learning da usare per i dati specifici. Questo processo consente di generare rapidamente modelli di Machine Learning. [Altre informazioni sulle funzionalità di Machine Learning automatizzato](concept-automated-ml.md).
  
 Per un esempio end-to-end, provare l’[esercitazione per la creazione di un modello di classificazione con l’interfaccia di ML automatizzato di Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -51,18 +56,22 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Selezionare **+ Nuova esecuzione di ML automatizzato** e popolare il modulo.
 
-1. Selezionare un set di dati dal contenitore di archiviazione o creare un nuovo set di dati. I set di dati possono essere creati da file locali, URL Web, archivi dati o set di dati aperti di Azure. 
+1. Selezionare un set di dati dal contenitore di archiviazione o creare un nuovo set di dati. I set di dati possono essere creati da file locali, URL Web, archivi dati o set di dati aperti di Azure. Altre informazioni sulla [creazione del set di dati](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Requisiti per i dati di training:
     >* I dati devono essere in formato tabulare.
     >* Il valore che si desidera prevedere (colonna di destinazione) deve essere presente nei dati.
 
-    1. Per creare un nuovo set di dati da un file nel computer locale, selezionare **Sfoglia**, quindi selezionare il file. 
+    1. Per creare un nuovo set di dati da un file nel computer locale, selezionare **+ Crea set di dati** e quindi selezionare **da file locale**. 
 
-    1. Assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
+    1. Nel modulo **informazioni di base** assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
 
     1. Selezionare **Avanti** per aprire il **modulo di selezione file e archivio dati**. In questo modulo è possibile selezionare la posizione in cui caricare il set di dati, il contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro o scegliere un contenitore di archiviazione da usare per l'esperimento. 
+    
+        1. Se i dati sono protetti da una rete virtuale, è necessario abilitare la funzione **Ignora la convalida** per assicurarsi che l'area di lavoro sia in grado di accedere ai dati. Scopri di più sulla [privacy e sull'isolamento della rete](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Selezionare **Browse (Sfoglia** ) per caricare il file di dati per il set di dati. 
 
     1. Esaminare il modulo **Impostazioni e anteprima** per verificarne l'accuratezza. Il modulo viene popolato in modo intelligente in base al tipo di file. 
 
@@ -96,8 +105,11 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     Campo|Descrizione
     ---|---
     Nome del calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
+    Priorità macchina virtuale| Le macchine virtuali con priorità bassa sono più economiche, ma non garantiscono i nodi di calcolo. 
+    Tipo di macchina virtuale| Selezionare CPU o GPU per tipo di macchina virtuale.
     Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
-    Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per l’ambiente di calcolo. Il valore predefinito è 6 nodi per un ambiente di calcolo di AML.
+    Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per l’ambiente di calcolo. Il valore predefinito è 6 nodi per un ambiente di calcolo di AML.
+    Impostazioni avanzate | Queste impostazioni consentono di configurare un account utente e una rete virtuale esistente per l'esperimento. 
     
     Selezionare **Create** (Crea). La creazione di un nuovo ambiente di calcolo può richiedere alcuni minuti.
 
@@ -108,20 +120,22 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per ulteriori informazioni, vedere [tipi di attività supportati](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. Per la classificazione, è anche possibile abilitare il Deep Learning usato per la definizione delle funzionalità di testo.
+    1. Per la **classificazione**, è anche possibile abilitare l'apprendimento avanzato usato per featurizations di testo.
 
-    1. Per la previsione:
-        1. Seleziona una colonna data/ora: questa colonna contiene i dati relativi a data/ora da usare.
+    1. Per la **previsione** è possibile, 
+    
+        1. Abilita Deep Learning
+    
+        1. Seleziona *colonna temporale*: questa colonna contiene i dati relativi all'ora da usare.
 
-        1. Seleziona un orizzonte di previsione: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) per cui il modello sarà in grado di effettuare previsioni nel futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
+        1. Select *Forecast Horizon*: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
 1. (Facoltativo) Visualizzare le impostazioni di configurazione aggiuntive: altre impostazioni che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
     Configurazioni aggiuntive|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization (Definizione automatica funzionalità)| Selezionare questa impostazione per abilitare o disabilitare la conteggi eseguita da Automatic Machine Learning. Conteggi automatici include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. Non supportata per il tipo di attività di previsione delle serie temporali. [Altre informazioni su conteggi](how-to-configure-auto-features.md#featurization). 
-    Modello esplicativo migliore | Selezionare per abilitare o disabilitare la visualizzazione del modello esplicativo migliore consigliato
+    Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare per mostrare la spiegazione del modello migliore consigliato.
     Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training.
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
     Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).
@@ -185,7 +199,7 @@ La scheda **Modelli** contiene un elenco dei modelli creati, ordinati in base al
 
 ### <a name="view-training-run-details"></a>Visualizzare i dettagli relativi all'esecuzione del training
 
-Eseguire il drill-down su uno dei modelli completati per visualizzare i dettagli dell’esecuzione del training, ad esempio le metriche di esecuzione nella scheda **Dettagli del modello** o i grafici delle prestazioni nella scheda **Visualizzazioni**. [Altre informazioni sui grafici](how-to-understand-automated-ml.md).
+Eseguire il drill-down su uno dei modelli completati per visualizzare i dettagli delle esecuzioni di training, ad esempio un riepilogo del modello nella scheda **modello** o i grafici delle metriche delle prestazioni nella scheda **metriche** . [altre informazioni sui grafici](how-to-understand-automated-ml.md).
 
 [![Dettagli sull'iterazione](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,13 +211,18 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Per la distribuzione sono disponibili due opzioni. 
 
-    + Opzione 1: Per distribuire il modello migliore (in base ai criteri della metrica definiti), selezionare il pulsante **Distribuisci modello migliore** nella scheda **Dettagli**.
+    + Opzione 1: distribuire il modello migliore in base ai criteri della metrica definiti. 
+        1. Al termine dell'esperimento, passare alla pagina esecuzione padre selezionando **Esegui 1** nella parte superiore della schermata. 
+        1.  Selezionare il modello elencato nella sezione **Riepilogo del modello migliore** . 
+        1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra. 
 
-    + Opzione 2: Per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la scheda **Dettagli del modello** e selezionare **Distribuisci modello**.
+    + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento.
+        1. Selezionare il modello desiderato dalla scheda **modelli**
+        1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra.
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| valore
+    Campo| Valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
@@ -218,7 +237,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
     Il menu *Avanzata* offre funzionalità di distribuzione predefinite, quali la [raccolta dati](how-to-enable-app-insights.md) e le impostazioni di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
 
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
-    Una volta avviata la distribuzione, viene visualizzata la scheda **Dettagli modello** . Vedere lo stato di avanzamento della distribuzione nella sezione **stato** di distribuzione del riquadro **Proprietà** . 
+    Una volta avviata la distribuzione, viene visualizzata la scheda **Riepilogo modello** . Vedere lo stato di avanzamento della distribuzione nella sezione **stato distribuzione** . 
 
 A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

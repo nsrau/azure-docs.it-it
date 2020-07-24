@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: d8c97064af6fecf08af4608cfcd9874ff9bb1936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff12f8857a7977226f836ec0418f74fb29e02906
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075109"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite Azure PowerShell
 
@@ -31,9 +31,9 @@ Informazioni su come usare Azure PowerShell per creare un account di Azure Data 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1,0 o versione successiva**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1,0 o versione successiva**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui viene richiesto di immettere le credenziali dell'account Azure. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci per l'autenticazione con Data Lake Storage Gen1, ovvero l'autenticazione dell'utente finale o l'autenticazione da servizio a servizio. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
 
@@ -107,7 +107,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
 
     ![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")
 
-## <a name="upload-data"></a>Caricare dati
+## <a name="upload-data"></a>Caricare i dati
 
 È possibile caricare i dati in Data Lake Storage Gen1 direttamente al livello radice o in una directory creata nell'account. I frammenti di codice in questa sezione illustrano come caricare alcuni dati di esempio nella directory (**mynewdirectory**) creata nella sezione precedente.
 

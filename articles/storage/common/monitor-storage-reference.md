@@ -9,11 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077850"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Archiviazione di Azure
 
@@ -45,6 +46,7 @@ Questa tabella mostra le [metriche di archiviazione BLOB](https://docs.microsoft
 | ------------------- | ----------------- |
 | BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([Definizione](#metrics-dimensions)) |
 | BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([Definizione](#metrics-dimensions)) |
+| BlobProvisionedSize | Quantità di spazio di archiviazione di cui è stato effettuato il provisioning nell'account di archiviazione. Questa metrica è applicabile solo agli account di archiviazione Premium. <br/><br/> Unità: byte <br/> Tipo di aggregazione: Media |
 | ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 | IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
@@ -77,6 +79,7 @@ Questa tabella mostra le [metriche di archiviazione file](https://docs.microsoft
 | FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 | FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 | FileShareCount | Numero di condivisioni file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| FileShareProvisionedIOPS | Numero di IOPS sottoposti a provisioning in una condivisione file. Questa metrica è applicabile solo all'archiviazione file Premium. <br/><br/> Unità: byte <br/> Tipo di aggregazione: Media |
 
 ### <a name="transaction-metrics"></a>Metriche di transazione
 

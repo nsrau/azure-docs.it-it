@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075969"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurare Framework e librerie front-end con l'anteprima di app Web statiche di Azure
 
@@ -28,7 +28,7 @@ Lo scopo delle colonne della tabella è illustrato dagli elementi seguenti:
 
 - **Comando di compilazione personalizzato**: quando il Framework richiede un comando diverso da `npm run build` o `npm run azure:build` , è possibile definire un [comando di compilazione personalizzato](github-actions-workflow.md#custom-build-commands).
 
-| Framework | Percorso artefatto app | Comando di compilazione personalizzato |
+| Framework | Percorso degli artefatti dell'app | Comando di compilazione personalizzato |
 |--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a <sup>2</sup> |
 | [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
@@ -55,7 +55,7 @@ Lo scopo delle colonne della tabella è illustrato dagli elementi seguenti:
 | [Svelte](https://svelte.dev/) | `public` | n/d |
 | [Three.js](https://threejs.org/) | `/` | n/d |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | n/d |
-| [Vue](http://vuejs.com/) | `dist` | n/d |
+| [Vue.js](https://vuejs.org/) | `dist` | n/d |
 
 <sup>1</sup> la tabella precedente non è destinata a essere un elenco completo di Framework e librerie che funzionano con le app Web statiche di Azure.
 

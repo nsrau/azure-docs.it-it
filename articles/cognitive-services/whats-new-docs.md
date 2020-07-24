@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 07/09/2020
-ms.openlocfilehash: da09cb8aa112cdf927c1a67401ab3f6a92e85ece
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 59d19bd2a1dca2a3bc3c6ec3aee9e63b8f12b5d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075190"
 ---
 # <a name="cognitive-services-docs-whats-new-for-june-1-2020---june-30-2020"></a>Documentazione di servizi cognitivi: novità del 1 ° giugno 2020-30 giugno 2020
 
@@ -69,16 +69,16 @@ Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° giugno 2020 a
 ### <a name="new-articles"></a>Nuovi articoli
 
 - [Concetti relativi a Comandi personalizzati](/azure/cognitive-services/speech-service/custom-commands-references)
-- [Aggiungere conferme a un comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-confirmations)
-- [Configurare il parametro come entità del catalogo esterno](/azure/cognitive-services/speech-service/how-to-custom-commands-add-external-catalog-string-entity)
+- [Aggiungere conferme a un comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-interaction-rules#add-confirmations-to-a-command)
+- [Configurare il parametro come entità del catalogo esterno](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#configure-parameter-as-external-catalog-entity)
 - [Usare i modelli di generazione della lingua per le risposte vocali](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
-- [Implementazione di correzioni in un comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-one-step-correction)
+- [Implementazione di correzioni in un comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration)
 - [Aggiungere parametri ai comandi](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [Aggiungere semplici comandi](/azure/cognitive-services/speech-service/how-to-custom-commands-add-simple-commands)
-- [Aggiungere convalide ai parametri di comando personalizzati](/azure/cognitive-services/speech-service/how-to-custom-commands-add-validations)
-- [Creare un'applicazione di comandi personalizzati](/azure/cognitive-services/speech-service/how-to-custom-commands-create-empty-project)
+- [Aggiungere semplici comandi](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands)
+- [Aggiungere convalide ai parametri di comando personalizzati](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#add-validation-to-parameters)
+- [Creare un'applicazione di comandi personalizzati](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands#create-empty-application)
 - [CI/CD per Riconoscimento vocale personalizzato](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-- [Creazione di un assistente vocale end-to-end con comandi personalizzati](/azure/cognitive-services/speech-service/quickstart-custom-commands-e2e-application)
+- [Creazione di un assistente vocale end-to-end con comandi personalizzati](/azure/cognitive-services/speech-service/quickstart-custom-commands-application)
 - [Avvio rapido: Testare un modello usando un file audio in Speech Studio](/azure/cognitive-services/speech-service/quickstarts/speech-studio-test-model)
 - [Informazioni sulle nozioni di base di Riconoscimento del parlante](/azure/cognitive-services/speech-service/speaker-recognition-basics)
 - [Che cos'è il servizio Riconoscimento del parlante di Azure?](/azure/cognitive-services/speech-service/speaker-recognition-overview)
@@ -100,7 +100,7 @@ Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° giugno 2020 a
 - [Avvio rapido: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo](/azure/cognitive-services/text-analytics/quickstarts/python)
 - [Avvio rapido: Uso di Ruby per chiamare il servizio cognitivo Analisi del testo](/azure/cognitive-services/text-analytics/quickstarts/ruby)
 
-## <a name="translator"></a>Funzione di conversione
+## <a name="translator"></a>Traduttore
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 

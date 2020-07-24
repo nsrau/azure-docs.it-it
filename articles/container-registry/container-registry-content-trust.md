@@ -3,11 +3,12 @@ title: Gestione immagini firmate
 description: Informazioni su come abilitare l'attendibilità dei contenuti per il Registro Azure Container ed eseguire il push e il pull di immagini firmate. Il trust del contenuto è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509560"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076856"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -113,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro Azure Container, vedere [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere gli articoli [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md) e [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/troubleshooting.md).
+> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere [gestire l'accesso alle risorse di Azure con RBAC e l'interfaccia della riga di comando di](../role-based-access-control/role-assignments-cli.md) Azure e [risolvere i problemi relativi a RBAC](../role-based-access-control/troubleshooting.md)
 
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 

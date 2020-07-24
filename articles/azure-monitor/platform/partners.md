@@ -4,11 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077324"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -59,7 +60,7 @@ Circonus è l'esperto di intelligence per i dati del computer, che fornisce l'un
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Altre informazioni][cloudhealth-doc]
+[Scopri di più][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -133,7 +134,7 @@ LogRhythm, leader di NextGen SIEM, consente alle organizzazioni su sei continent
 
 Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitoraggio di Azure.
 
-[Altre informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
+[Scopri di più](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
 
 Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
 
@@ -249,7 +250,7 @@ SquaredUp per Azure semplifica la visualizzazione delle applicazioni Azure. Offr
 
 [Altre informazioni.](https://squaredup.com/)
 
-## <a name="sumo-logic"></a>SumoLogic
+## <a name="sumo-logic"></a>Sumo Logic
 
 ![Logo sumo per la logica](./media/partners/SumoLogic.png)
 
@@ -269,8 +270,8 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 
 - [Scopri di più su monitoraggio di Azure](../../azure-monitor/overview.md)
 - [Accedere alle metriche mediante l'API REST](rest-api-walkthrough.md)
-- [Trasmettere come flusso il log attività a un servizio di non proprietario di Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Trasmettere i log delle risorse a un servizio non Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Trasmettere come flusso il log attività a un servizio di non proprietario di Microsoft](./activity-log.md#legacy-collection-methods)
+- [Trasmettere i log delle risorse a un servizio non Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentazione di Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentazione di SumoLogic."
 [turbonomic-doc]: https://turbonomic.com/ "Documentazione di Turbonomic."
-

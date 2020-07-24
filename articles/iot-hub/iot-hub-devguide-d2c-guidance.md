@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074679"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Indicazioni sulle comunicazioni da dispositivo a cloud
 
@@ -31,11 +32,11 @@ Durante l'invio di informazioni dall'app per dispositivo al back-end della soluz
 
 Ecco un confronto dettagliato delle diverse opzioni di comunicazione da dispositivo a cloud.
 
-|  | Messaggi da dispositivo a cloud | Proprietà segnalate del dispositivo gemello | Caricamenti di file |
+| Fattore | Messaggi da dispositivo a cloud | Proprietà segnalate del dispositivo gemello | Caricamenti di file |
 | ---- | ------- | ---------- | ---- |
 | Scenario | Serie temporale di telemetria e avvisi. Ad esempio, batch di dati di sensori di 256 KB inviati ogni 5 minuti. | Funzionalità disponibili e condizioni. Ad esempio, la modalità di connessione del dispositivo corrente, ad esempio cellulare o Wi-Fi. Sincronizzazione di flussi di lavoro a esecuzione prolungata, ad esempio aggiornamenti della configurazione e del software. | File multimediali. Batch di telemetria di grandi dimensioni, in genere compressi. |
 | Archiviazione e recupero | Archiviati temporaneamente dall'hub IoT, per un massimo di 7 giorni. Solo lettura sequenziale. | Archiviate dall'hub IoT nel dispositivo gemello. Recuperabili mediante il [linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md). | Archiviati nell'account di Archiviazione di Azure specificato dall'utente. |
-| Dimensione | Fino a messaggi di 256 KB. | Le dimensioni massime delle proprietà segnalate sono 32 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
+| Dimensioni | Fino a messaggi di 256 KB. | Le dimensioni massime delle proprietà segnalate sono 32 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Media. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). |
 | Protocollo | Disponibile in tutti i protocolli. | Disponibile tramite MQTT o AMQP. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTPS nel dispositivo. |
 

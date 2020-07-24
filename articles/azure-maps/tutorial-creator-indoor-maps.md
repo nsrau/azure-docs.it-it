@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027872"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075402"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usare Creator per creare piante di interni
 
@@ -31,7 +32,7 @@ Questa esercitazione mostra come creare piante di interni. Questa esercitazione 
 
 Per creare piante di interni è necessario:
 
-1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 3. [Creare una risorsa Creator](how-to-manage-creator.md)
 4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
@@ -51,7 +52,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
 2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare la raccolta creata nel passaggio precedente e fare clic su **Save** (Salva).
 
-3. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per caricare il pacchetto di disegno nel servizio Mappe di Azure. Per questa richiesta, e per altre indicate in questo articolo, sostituire `<Azure-Maps-Primary-Subscription-key>` con la chiave di sottoscrizione primaria.
+3. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per caricare il pacchetto di disegno nel servizio Mappe di Azure. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -66,7 +67,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **Get** in `status URL` . È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Quando la richiesta **Get** http viene completata correttamente, viene restituito `resourceLocation` . `resourceLocation`Contiene l'oggetto univoco `udid` per il contenuto caricato. Facoltativamente, è possibile usare l' `resourceLocation` URL per recuperare i metadati da questa risorsa nel passaggio successivo.
@@ -169,7 +170,7 @@ Il set di dati è una raccolta di funzionalità della pianta come edifici, livel
 4. Effettuare una richiesta **GET** allo `statusURL` per ottenere il `datasetId`. Accodare la chiave di sottoscrizione primaria di Mappe di Azure per l'autenticazione. La richiesta deve essere simile all'URL seguente:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Quando la richiesta HTTP **GET** viene completata correttamente, l'intestazione della risposta conterrà il `datasetId` per il set di dati creato. Copiare `datasetId`. Per creare un set di tessere è necessario usare `datasetId`.
@@ -198,7 +199,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 3. Effettuare una richiesta **GET** allo `statusURL` per il set di tessere. Accodare la chiave di sottoscrizione primaria di Mappe di Azure per l'autenticazione. La richiesta deve essere simile all'URL seguente:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Quando la richiesta HTTP **GET** viene completata correttamente, l'intestazione della risposta conterrà il `tilesetId` per il set di tessere creato. Copiare `tilesetId`.

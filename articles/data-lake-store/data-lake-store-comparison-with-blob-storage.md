@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075057"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
 
@@ -19,8 +19,8 @@ ms.locfileid: "82691732"
 
 Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure, insieme ad alcuni aspetti fondamentali dell'elaborazione dei Big Data. L'archivio BLOB di Azure è un archivio di oggetti generico e scalabile, progettato per un'ampia gamma di scenari di archiviazione. Azure Data Lake Storage Gen1 è un repository su vasta scala ottimizzato per carichi di lavoro di analisi dei Big Data.
 
-|  | Azure Data Lake Storage Gen1 | Archiviazione BLOB di Azure |
-| --- | --- | --- |
+| Category | Azure Data Lake Storage Gen1 | Archiviazione BLOB di Azure |
+| -------- | ---------------------------- | ------------------ |
 | Scopo |Archiviazione ottimizzata per carichi di lavoro di analisi dei Big Data |Archivio di oggetti generico per un'ampia gamma di scenari di archiviazione, tra cui analisi per Big Data. |
 | Modalità di utilizzo comuni |Dati batch, interattivi, di analisi di flusso e di apprendimento automatico come file di log, dati IoT, dati clickstream e set di dati di grandi dimensioni |Qualsiasi tipo di dati di testo o binari, come back-end di applicazioni, dati di backup, archiviazione di supporti per streaming e dati di utilizzo generico. Supporto completo aggiuntivo per carichi di lavoro di analisi. Dati batch, interattivi, di analisi di flusso e di Machine Learning come file di log, dati IoT, dati clickstream e set di dati di grandi dimensioni. |
 | Concetti chiave |Un account di Data Lake Storage Gen1 contiene cartelle, che a loro volta contengono dati archiviati come file |Un account di archiviazione include contenitori, che a loro volta contengono dati sotto forma di BLOB |

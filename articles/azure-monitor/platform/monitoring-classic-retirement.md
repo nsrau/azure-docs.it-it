@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc603a890a112cf475e6ceafb79145dec5a56ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077229"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -27,7 +28,7 @@ Con la nuova piattaforma di monitoraggio e avviso di Azure, verrà ritirato il s
 Gli utenti sono invitati a iniziare a usare la nuova piattaforma e ricreare al suo interno gli avvisi. Per i clienti che hanno un numero elevato di avvisi, stiamo [implementando fasi](alerts-understand-migration.md#rollout-phases), uno [strumento di migrazione volontario](alerts-using-migration-tool.md) per spostare gli avvisi classici esistenti nel nuovo sistema di avvisi senza compromettere o aggiungere costi.
 
 > [!IMPORTANT]
-> Le regole di avviso classiche create nel log attività non verranno deprecate o spostate. È possibile accedere a tutte le regole di avviso classiche create nel log attività e usarle nel loro stato corrente dalla nuova pagina Monitoraggio di Azure - Avvisi. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi del log attività con Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md). Analogamente, è possibile accedere agli avvisi sull'integrità dei servizi e usarli nel loro stato corrente dalla nuova sezione Integrità dei servizi. Per informazioni dettagliate, vedere gli [avvisi per le notifiche sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+> Le regole di avviso classiche create nel log attività non verranno deprecate o spostate. È possibile accedere a tutte le regole di avviso classiche create nel log attività e usarle nel loro stato corrente dalla nuova pagina Monitoraggio di Azure - Avvisi. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi del log attività con Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md). Analogamente, è possibile accedere agli avvisi sull'integrità dei servizi e usarli nel loro stato corrente dalla nuova sezione Integrità dei servizi. Per informazioni dettagliate, vedere gli [avvisi per le notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Metriche e avvisi unificati in Application Insights
 
@@ -38,7 +39,7 @@ La nuova funzionalità unificata di monitoraggio e avviso per Application Insigh
 - **Metriche della piattaforma Application Insights**, per fornire popolari metriche predefinite del prodotto Application Insights. Per altre informazioni, vedere l'articolo sull'uso di [metriche della piattaforma per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Test Web e della disponibilità di Application Insights**, che offrono la possibilità di valutare la velocità di risposta e la disponibilità del server o dell'app Web. Per altre informazioni, vedere l'articolo sull'uso di [test di disponibilità e avvisi per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Metriche personalizzate di Application Insights**, che permettono di definire e generare metriche personalizzate per il monitoraggio e gli avvisi. Per altre informazioni, vedere l'articolo sull'uso di [metriche personalizzate per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente)**, per l'invio di notifiche automatiche quasi in tempo reale se si verifica un incremento anomalo della frequenza di chiamate di dipendenze o richieste HTTP non riuscite nell'app Web. Per altre informazioni, vedere questo articolo sull'uso del [rilevamento intelligente-anomalie degli errori](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
+- **Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente)**, per l'invio di notifiche automatiche quasi in tempo reale se si verifica un incremento anomalo della frequenza di chiamate di dipendenze o richieste HTTP non riuscite nell'app Web. Per altre informazioni, vedere questo articolo sull'uso del [rilevamento intelligente-anomalie degli errori](../app/proactive-failure-diagnostics.md).
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Metriche e avvisi unificati per altre risorse di Azure
 
@@ -53,11 +54,11 @@ Le nuove metriche per le risorse di Azure sono disponibili come:
 Come indicato in precedenza, la piattaforma classica di monitoraggio e avviso attualmente disponibile nella [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure verrà ritirata nei prossimi mesi e sostituita dal nuovo sistema.
 Il monitoraggio e gli avvisi classici precedenti verranno ritirati il 31 agosto 2019; inclusa la chiusura di API correlate, portale di Azure interfaccia e i servizi al suo interno. In particolare, queste funzionalità verranno deprecate:
 
-- Metriche e avvisi precedenti (versione classica) per le risorse di Azure attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure, accessibili come risorsa [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
-- Piattaforma e metriche personalizzate precedenti (versione classica) per Azure Application Insights, oltre agli avvisi attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure e accessibili come risorsa [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
+- Metriche e avvisi precedenti (versione classica) per le risorse di Azure attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure, accessibili come risorsa [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
+- Piattaforma e metriche personalizzate precedenti (versione classica) per Azure Application Insights, oltre agli avvisi attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure e accessibili come risorsa [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
 - Avviso Anomalie errori precedente (versione classica) attualmente disponibile come funzionalità [Rilevamento intelligente in Application Insights](../../azure-monitor/app/proactive-diagnostics.md) nel portale di Azure, con avvisi configurati visualizzati nella [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure
 
-Tutti i sistemi di monitoraggio e avvisi classici, inclusi [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [interfaccia](../../azure-monitor/platform/alerts-classic-portal.md)della riga di comando, [portale di Azure pagina](../../azure-monitor/platform/alerts-classic-portal.md)e [modello di risorsa](../../azure-monitor/platform/alerts-enable-template.md) corrispondenti, rimarranno utilizzabili fino alla fine del 2019 agosto. 
+Tutti i sistemi di monitoraggio e avvisi classici, inclusi [API](/rest/api/monitor/alertrules), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [interfaccia](../../azure-monitor/platform/alerts-classic-portal.md)della riga di comando, [portale di Azure pagina](../../azure-monitor/platform/alerts-classic-portal.md)e [modello di risorsa](../../azure-monitor/platform/alerts-enable-template.md) corrispondenti, rimarranno utilizzabili fino alla fine del 2019 agosto. 
 
 Alla fine del 2019 agosto, in monitoraggio di Azure:
 

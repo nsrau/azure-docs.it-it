@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076259"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
 
@@ -94,7 +94,9 @@ Questo rilevamento richiede una configurazione specifica del connettore dati sys
 
 2. Consente di ottenere tempo sufficiente per la raccolta delle informazioni syslog. Passare quindi ad **Azure Sentinel-logs**e copiare e incollare la query seguente:
     
-        Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     Modificare l' **intervallo di tempo** , se necessario, e selezionare **Esegui**.
     

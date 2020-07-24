@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075955"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Risolvere i problemi di latenza usando i log di Analisi archiviazione
 
@@ -97,7 +97,7 @@ I passaggi seguenti illustrano come identificare e risolvere i problemi di laten
 
    La tabella seguente fornisce informazioni sui risultati di OperationType e RequestStatus a latenza elevata:
 
-   |   |RequestStatus =<br>Operazione completata|RequestStatus =<br>FIRMA NetworkError|Recommendation|
+   | Tipo BLOB |RequestStatus =<br>Operazione completata|RequestStatus =<br>FIRMA NetworkError|Raccomandazione|
    |---|---|---|---|
    |GetBlob|Sì|No|[**Operazione GetBlob:** RequestStatus = operazione riuscita](#getblob-operation-requeststatus--success)|
    |GetBlob|No|Sì|[**Operazione GetBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

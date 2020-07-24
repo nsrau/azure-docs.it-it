@@ -4,18 +4,18 @@ description: Come gestire il servizio Azure blockchain con l'interfaccia della r
 ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b41bc44c9efbf71621fcfba06e668f42caa0f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076938"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gestire il servizio Azure blockchain usando l'interfaccia della riga di comando
 
 Oltre alla portale di Azure, è possibile usare l'interfaccia della riga di comando di Azure per gestire i membri di blockchain e i nodi di transazione per il servizio blockchain di Azure.
 
-Assicurarsi di aver installato la versione più recente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e di avere effettuato l'accesso a un account Azure in con `az login` .
+Assicurarsi di aver installato la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) e di avere effettuato l'accesso a un account Azure in con `az login` .
 
 Negli esempi seguenti sostituire example `<parameter names>` con valori personalizzati.
 

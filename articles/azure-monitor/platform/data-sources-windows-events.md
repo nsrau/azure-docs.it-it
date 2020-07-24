@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075246"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
 I log eventi di Windows rappresentano una delle più comuni [origini dati](agent-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel log eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -54,14 +55,14 @@ I record degli eventi di Windows hanno un tipo di **evento** e hanno le propriet
 | Source (Sorgente) |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
-| UserName |Nome utente dell'account che ha registrato l'evento. |
+| Nome utente |Nome utente dell'account che ha registrato l'evento. |
 
 ## <a name="log-queries-with-windows-events"></a>Query di log con Eventi Windows
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record di Eventi Windows.
 
 | Query | Descrizione |
 |:---|:---|
-| Event |Tutti gli eventi di Windows. |
+| Evento |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |
 | Event &#124; summarize count() by Source |Numero di eventi di Windows per origine. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Numero di eventi di errore di Windows per origine. |

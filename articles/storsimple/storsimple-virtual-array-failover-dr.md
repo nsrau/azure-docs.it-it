@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077788"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
@@ -121,12 +122,12 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 5. Nel pannello **Disattiva** viene chiesta la conferma. La disattivazione del dispositivo è un processo *permanente* che non può essere annullato. Viene inoltre ricordato di portare offline le condivisioni o i volumi sull'host. Digitare il nome del dispositivo per confermare e fare clic su **Disattiva**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Screenshot del pannello Disattiva. La casella nome dispositivo viene compilata e il pulsante Disattiva è evidenziato.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. Verrà avviata la disattivazione. Se la disattivazione è stata completata correttamente, si riceverà una notifica.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Screenshot di un indicatore di stato che indica che il dispositivo è in fase di disattivazione.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. Nella pagina Dispositivi lo stato del dispositivo viene modificato in **Disattivato**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Screenshot della pagina dispositivi. Vengono visualizzate le proprietà del dispositivo disattivato, incluso lo stato, che viene elencato come disattivato.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. Nel pannello **Dispositivi** selezionare e fare clic sul dispositivo di origine disattivato per il failover. 
 9. Nel pannello **Dashboard dispositivo** fare clic su **Effettua il failover**. 
 10. Nel pannello **Effettua il failover del dispositivo** eseguire le operazioni seguenti:
@@ -139,22 +140,22 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
     4. Fare clic su **failover**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Screenshot del pannello del dispositivo di failover, con il dispositivo di origine e di destinazione compilato, l'opzione selezionata e il pulsante di failover evidenziato.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Viene avviato un processo di failover e si riceverà una notifica. Passare a **Dispositivi > Processi** per monitorare il failover.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Screenshot di un indicatore di stato che indica che è in corso il failover del dispositivo.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. Nel pannello **Processi** viene visualizzato un processo di failover creato per il dispositivo di origine. Questo processo esegue le verifiche preliminari per il ripristino di emergenza.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Screenshot che indica che un processo di failover è stato avviato correttamente.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      Se le verifiche preliminari per il ripristino di emergenza hanno esito positivo, il processo di failover distribuisce i processi di ripristino per ogni condivisione o volume presente nel dispositivo di origine.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Screenshot che mostra i dettagli del processo di failover, ad esempio lo stato, il dispositivo e la durata.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. Al termine del failover passare alla pagina **Dispositivi**.
     
     1. Selezionare e fare clic sul dispositivo StorSimple usato come dispositivo di destinazione per il processo di failover.
     2. Passare a **Impostazioni > Gestione > Condivisioni** o **Volumi** in caso di server iSCSI. Nel pannello **Condivisioni** è possibile visualizzare tutte le condivisioni (volumi) del dispositivo precedente.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Screenshot del pannello dispositivi. Il dispositivo di destinazione è elencato con lo stato online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Sarà necessario [creare un alias DNS](https://support.microsoft.com/kb/168322) in modo che tutte le applicazioni che stanno tentando di connettersi possano venire reindirizzate al nuovo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errori durante il ripristino di emergenza

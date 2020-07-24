@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077423"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. Per altre informazioni vedere la pagina relativa all'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -26,7 +26,7 @@ Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Deskt
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuzione dell'immagine di Windows 10 da Azure Marketplace 
 Per le distribuzioni di modelli PowerShell, dell'interfaccia della riga di comando e di Azure Resource Manager, l'immagine di Windows 10 è disponibile con gli elementi publishername, offer e sku seguenti.
 
-| OS  |      PublisherName      |  Offerta | Sku |
+| Sistema operativo  |      PublisherName      |  Offerta | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -55,7 +55,7 @@ Per altre informazioni:
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Distribuzione di Windows 10 con Multitenant Hosting Rights
-Verificare di aver prima [installato e configurato l'ultima versione di Azure PowerShell](/powershell/azure/overview). Dopo aver preparato il disco rigido virtuale, caricarlo nell'account di archiviazione di Azure usando il cmdlet `Add-AzVhd` come segue:
+Verificare di aver prima [installato e configurato l'ultima versione di Azure PowerShell](/powershell/azure/). Dopo aver preparato il disco rigido virtuale, caricarlo nell'account di archiviazione di Azure usando il cmdlet `Add-AzVhd` come segue:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -63,7 +63,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Distribuzione con Distribuzione di modelli di Azure Resource Manager** All'interno dei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla creazione di [modelli di Azure Resource Manager](../../resource-group-authoring-templates.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
+**Distribuzione con Distribuzione di modelli di Azure Resource Manager** All'interno dei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla creazione di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -106,7 +106,5 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulla [configurazione di un disco rigido virtuale per Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
+- Altre informazioni sulla [configurazione di un disco rigido virtuale per Windows 10](/windows/deployment/vda-subscription-activation)
 - Altre informazioni sull'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
-
-

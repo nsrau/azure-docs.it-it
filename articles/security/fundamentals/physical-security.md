@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 3eac3c9abda74f0414fc97512f011d235d3991f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076325"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)
 L'articolo descrive le operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure.
@@ -28,9 +28,9 @@ L'articolo descrive le operazioni eseguite da Microsoft per proteggere l'infrast
 ## <a name="datacenter-infrastructure"></a>Infrastruttura dei data center
 Azure è costituito da un'[infrastruttura del Data Center distribuita a livello globale](https://azure.microsoft.com/global-infrastructure/), che supporta migliaia di servizi online e che si estende su più di 100 strutture altamente protette in tutto il mondo.
 
-L'infrastruttura è progettata per avvicinare le applicazioni agli utenti in tutto il mondo, mantenendo la residenza dei dati e fornendo ai clienti opzioni complete per la conformità e la resilienza. Azure ha 58 aree in tutto il mondo ed è disponibile in 140 paesi/aree geografiche.
+L'infrastruttura è progettata per avvicinare le applicazioni agli utenti in tutto il mondo, mantenendo la residenza dei dati e fornendo ai clienti opzioni complete per la conformità e la resilienza. Azure ha 58 regioni in tutto il mondo ed è disponibile in 140 paesi/regioni.
 
-Un'area è un set di Data Center interconnessi tramite una rete di grandi dimensioni e resiliente. La rete comprende la distribuzione del contenuto, il bilanciamento del carico, la ridondanza e la crittografia per impostazione predefinita. Con un numero di aree globali superiore rispetto a qualsiasi altro provider di servizi cloud, Azure offre la flessibilità necessaria per distribuire le applicazioni dove necessario.
+Un'area è un set di Data Center interconnessi tramite una rete di grandi dimensioni e resiliente. La rete include la distribuzione del contenuto, il bilanciamento del carico, la ridondanza e la [crittografia del livello di collegamento dati per impostazione predefinita](encryption-overview.md#encryption-of-data-in-transit) per tutto il traffico di Azure all'interno di un'area o per spostarsi tra le aree. Con un numero di aree globali superiore rispetto a qualsiasi altro provider di servizi cloud, Azure offre la flessibilità necessaria per distribuire le applicazioni dove necessario.
 
 Le aree di Azure sono organizzate in aree geografiche. Un'area geografica di Azure assicura il rispetto dei requisiti di residenza, sovranità, conformità e resilienza entro limiti geografici.
 

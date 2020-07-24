@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077925"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
@@ -138,7 +138,7 @@ Le registrazioni dal back-end dell'app sono utili quando è necessario autentica
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Qual è il modello di sicurezza del recapito di notifiche push?
 
-Hub di notifica di Azure usa un modello di sicurezza basato sulla [firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). È possibile usare i token di firma di accesso condiviso a livello di spazio dei nomi radice o a livello di hub di notifica granulare. I token di firma di accesso condiviso possono essere impostati in modo da seguire regole di autorizzazione diverse, ad esempio per inviare le autorizzazioni di messaggi o per ascoltare le autorizzazioni di notifica. Per altre informazioni, vedere il documento sul [modello di sicurezza di Hub di notifica].
+Hub di notifica di Azure usa un modello di sicurezza basato sulla [firma di accesso condiviso](../storage/common/storage-sas-overview.md). È possibile usare i token di firma di accesso condiviso a livello di spazio dei nomi radice o a livello di hub di notifica granulare. I token di firma di accesso condiviso possono essere impostati in modo da seguire regole di autorizzazione diverse, ad esempio per inviare le autorizzazioni di messaggi o per ascoltare le autorizzazioni di notifica. Per altre informazioni, vedere il documento sul [modello di sicurezza di Hub di notifica].
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Come si gestisce un payload sensibile nelle notifiche push?
 
@@ -195,23 +195,23 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 
 - [Recuperare le metriche di monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). In questo esempio vengono utilizzati il nome utente e la password. Per usare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato, come illustrato in [questo esempio](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Recupero di metriche e log attività per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Procedura dettagliata sull'API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Procedura dettagliata sull'API REST di Monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate al PNS esterno, ad esempio APNs per iOS e macOS o FCM per i dispositivi Android. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
 
-[Azure portal]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[API REST di Hub di notifica]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Registrazione dal back-end dell'app]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Guida alla registrazione del back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Modello di sicurezza di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Esercitazione sul push sicuro di Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Risoluzione dei problemi di Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Registrazione dal back-end dell'app]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Guida alla registrazione del back-end 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Modello di sicurezza di Hub di notifica]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Esercitazione sul push sicuro di Hub di notifica]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Risoluzione dei problemi di Hub di notifica]: ./notification-hubs-push-notification-fixer.md
 [Metriche di Hub di notifica]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[esportazione/importazione di registrazioni]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[esportazione/importazione di registrazioni]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

@@ -4,16 +4,16 @@ description: Usare il connettore blockchain per Ethereum con App per la logica d
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077032"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usare il connettore blockchain per Ethereum con App per la logica di Azure
 
-Usare il [connettore blockchain per Ethereum](https://docs.microsoft.com/connectors/blockchainethereum/) con [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/) per eseguire azioni di contratto intelligente e rispondere agli eventi di contratto intelligente. Ad esempio, si vuole creare un microservizio basato su REST che restituisce informazioni da un libro mastro della blockchain. Con un'app per la logica, è possibile accettare richieste HTTP che eseguono query per recuperare le informazioni archiviate in un libro mastro della blockchain.
+Usare il [connettore blockchain per Ethereum](/connectors/blockchainethereum/) con [App per la logica di Azure](../../logic-apps/index.yml) per eseguire azioni di contratto intelligente e rispondere agli eventi di contratto intelligente. Ad esempio, si vuole creare un microservizio basato su REST che restituisce informazioni da un libro mastro della blockchain. Con un'app per la logica, è possibile accettare richieste HTTP che eseguono query per recuperare le informazioni archiviate in un libro mastro della blockchain.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076783"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce Service Cloud usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +50,7 @@ Salesforce presenta limiti per le richieste API totali e per le richieste API si
 - Se il numero di richieste simultanee supera il limite, si verifica una limitazione e vengono visualizzati errori casuali.
 - Se il numero totale di richieste supera il limite, l'account di Salesforce viene bloccato per 24 ore.
 
-In entrambi gli scenari è anche possibile che venga visualizzato il messaggio di errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per altre informazioni, vedere la sezione "API Request Limits" (Limiti delle richieste API) in [Salesforce developer limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti per sviluppatori di Salesforce).
+In entrambi gli scenari è anche possibile che venga visualizzato il messaggio di errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per altre informazioni, vedere la sezione "API Request Limits" (Limiti delle richieste API) in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) (Limiti per sviluppatori di Salesforce).
 
 ## <a name="get-started"></a>Introduzione
 
@@ -293,8 +293,8 @@ Quando si copiano dati da Salesforce Service Cloud, è possibile usare query SOQ
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
-| Ridenominazione delle colonne | Non supportata. | Supportata, ad es. `SELECT a AS b FROM …`. |
-| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportata. |
+| Ridenominazione delle colonne | Non supportato. | Supportata, ad es. `SELECT a AS b FROM …`. |
+| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportato. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
@@ -303,7 +303,7 @@ Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di 
 * **Esempio SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Esempio SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Errore di MALFORMED_QUERY: troncato
+### <a name="error-of-malformed_query-truncated"></a>Errore di MALFORMED_QUERY: troncato
 
 Se si è verificato un errore di "MALFORMED_QUERY: troncato", in genere è dovuto a una colonna di tipo JunctionIdList nei dati e a Salesforce è possibile limitare il supporto di tali dati con un numero elevato di righe. Per attenuare, provare a escludere la colonna JunctionIdList o a limitare il numero di righe da copiare (è possibile partizionare in più esecuzioni di attività di copia).
 
@@ -313,25 +313,25 @@ Quando si copiano dati da Salesforce Service Cloud, vengono usati i mapping segu
 
 | Tipo di dati cloud del servizio salesforce | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
-| Numero automatico |string |
+| Numero automatico |Stringa |
 | Casella di controllo |Boolean |
 | Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
-| Posta elettronica |string |
-| ID |string |
-| Relazione di ricerca |string |
-| Elenco a discesa seleziona multipla |string |
+| E-mail |Stringa |
+| ID |Stringa |
+| Relazione di ricerca |Stringa |
+| Elenco a discesa seleziona multipla |Stringa |
 | Number |Decimal |
 | Percentuale |Decimal |
-| Telefono |string |
-| Elenco a discesa |string |
-| Text |string |
-| Area di testo |string |
-| Area di testo (Long) |string |
-| Area di testo (Rich) |string |
-| Testo (Crittografato) |string |
-| URL |string |
+| Telefono |Stringa |
+| Elenco a discesa |Stringa |
+| Testo |Stringa |
+| Area di testo |Stringa |
+| Area di testo (Long) |Stringa |
+| Area di testo (Rich) |Stringa |
+| Testo (Crittografato) |Stringa |
+| URL |Stringa |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

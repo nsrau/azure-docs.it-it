@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077149"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -40,7 +41,7 @@ Mentre la maggior parte delle funzionalità continuerà a funzionare senza esegu
 - È necessario [eseguire la migrazione delle autorizzazioni utente](#user-access-and-role-migration) al portale di Azure.
 - Vedere [Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure](../../automation/migrate-oms-update-deployments.md) per informazioni dettagliate sulla transizione della soluzione Gestione aggiornamenti.
 
-Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. 
+Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](../overview.md) per informazioni su come effettuare la transizione al portale di Azure. 
 
 ## <a name="user-access-and-role-migration"></a>Migrazione del ruolo e dell'accesso utente
 La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [progettazione dell'area di lavoro log di monitoraggio di Azure](design-logs-deployment.md) per informazioni dettagliate sulla gestione dell'accesso in log Analytics.
@@ -58,7 +59,7 @@ In entrambi i casi, l'amministratore deve assegnare manualmente il ruolo appropr
 | Autorizzazione del portale di OMS | Ruolo di Azure |
 |:---|:---|
 | ReadOnly | Lettore di Log Analytics |
-| Collaboratore | Collaboratore di Log Analytics |
+| Autore di contributi | Collaboratore di Log Analytics |
 | Amministratore | Proprietario | 
  
 
@@ -69,7 +70,7 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 
 ### <a name="alert-extension"></a>Estensione dell'avviso  
 
-Gli avvisi sono stati [estesi nel portale di Azure gli](alerts-extend.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
+Gli avvisi sono stati [estesi nel portale di Azure gli](./alerts-unified-log.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
 Diversamente da quanto annunciato in precedenza, la [soluzione Gestione avvisi](alert-management-solution.md) continuerà a essere disponibile e completamente supportata nel portale di Azure. È possibile continuare a installare la soluzione da Azure Marketplace.
@@ -101,7 +102,7 @@ Questa soluzione consente di analizzare i Log del flusso del gruppo di sicurezza
 È possibile continuare a fare affidamento sulle impostazioni di diagnostica per inviare i log di NSG a Log Analytics Log in modo che le ricerche avanzate, gli avvisi, i dashboard esistenti continueranno a funzionare correttamente. I clienti che hanno già installato la soluzione possono continuare a usarla fino al prossimo avviso. Dal 5 settembre la soluzione Network Security Group Analytics verrà rimossa dal marketplace e resa disponibile tramite la community come un [modello di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-Se il [gruppo di gestione di Operations Manager è stato connesso a Log Analytics](om-agents.md), continuerà a funzionare senza alcuna variazione. Per le nuove connessioni, tuttavia, è necessario seguire le indicazioni fornite in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/) (Pacchetto di gestione di Microsoft System Center Operations Manager per configurare Operations Management Suite).
+Se il [gruppo di gestione di Operations Manager è stato connesso a Log Analytics](om-agents.md), continuerà a funzionare senza alcuna variazione. Per le nuove connessioni, tuttavia, è necessario seguire le indicazioni fornite in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog) (Pacchetto di gestione di Microsoft System Center Operations Manager per configurare Operations Management Suite).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per il materiale sussidiario sullo spostamento dal portale di OMS al portale di Azure.
+- Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](../overview.md) per il materiale sussidiario sullo spostamento dal portale di OMS al portale di Azure.

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77431486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076383"
 ---
 # <a name="protect-your-network-resources"></a>Proteggere le risorse di rete
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -34,7 +35,7 @@ Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da
 
 La pagina **Rete** offre una panoramica delle sezioni da studiare per ottenere altre informazioni sull'integrità delle risorse di rete:
 
-- Mappa di rete (solo per il livello standard di Centro sicurezza di Azure)
+- Mappa di rete (solo livello standard del Centro sicurezza di Azure)
 - Protezione avanzata adattiva della rete
 - Raccomandazioni per la sicurezza della rete.
 - Pannello **Rete** legacy (il precedente pannello Rete) 
@@ -115,7 +116,7 @@ Per eseguire il drill-down in una risorsa:
 
 ## <a name="legacy-networking"></a>Risorse di rete legacy <a name ="legacy-networking"></a>
 
-Se non si dispone del livello standard del Centro sicurezza, in questa sezione viene illustrato come visualizzare le raccomandazioni per la rete.
+Se non si dispone del livello standard del Centro sicurezza, in questa sezione viene illustrato come visualizzare le raccomandazioni per la rete gratuita.
 
 Per accedere a queste informazioni, fare clic su **Visualizza le risorse di rete legacy** nel pannello Rete. 
 

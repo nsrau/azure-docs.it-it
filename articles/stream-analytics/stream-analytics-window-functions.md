@@ -6,12 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80745550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075912"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduzione alle funzioni delle finestre di Analisi di flusso
 
@@ -34,7 +35,8 @@ Le funzioni finestra di salto consentono di avanzare nel tempo di un periodo fis
 ![Finestra di salto di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Finestra temporale scorrevole
-Le funzioni finestra temporale scorrevole, diversamente dalle finestre a cascata o di salto, generano un output **solo** quando si verifica un evento. Ogni finestra avrà almeno un evento e la finestra avanza continuamente da un ε (epsilon). Come le finestre di salto, gli eventi possono appartenere a più di una finestra temporale scorrevole.
+
+Le finestre scorrevoli, diversamente dalle finestre a cascata o di salto, restituiscono eventi solo per i punti nel tempo in cui il contenuto della finestra viene effettivamente modificato. In altre parole, quando un evento entra o esce dalla finestra. Ogni finestra ha almeno un evento, come nel caso delle finestre di salto, gli eventi possono appartenere a più di una finestra temporale scorrevole
 
 ![Finestra temporale di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -49,6 +51,11 @@ Se continuano a verificarsi eventi entro il timeout specificato, la finestra del
 
 Quando viene fornita una chiave di partizione, gli eventi vengono raggruppati tramite la chiave e la finestra della sessione viene applicata indipendentemente a ogni gruppo. Questo partizionamento è utile nei casi in cui sono necessarie finestre sessione diverse per utenti o dispositivi diversi.
 
+## <a name="snapshot-window"></a>Finestra snapshot
+
+Snapshot gruppi di Windows eventi con lo stesso timestamp. A differenza di altri tipi di finestra, che richiedono una funzione finestra specifica (ad esempio [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), è possibile applicare una finestra snapshot aggiungendo System. timestamp () alla clausola Group by.
+
+![Finestra snapshot di analisi di flusso](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

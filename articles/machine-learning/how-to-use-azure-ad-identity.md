@@ -3,18 +3,19 @@ title: Usare l'identità di AAD con il servizio Web
 titleSuffix: Azure Machine Learning
 description: Usare l'identità AAD con il servizio Web nel servizio Azure Kubernetes per accedere alle risorse cloud durante l'assegnazione dei punteggi.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+ms.author: larryfr
+author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa434a4e19321e88e388661ccb488f15c98d3a0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078080"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Usare Azure AD identità con il servizio Web di machine learning nel servizio Azure Kubernetes
 
@@ -149,6 +150,9 @@ secret_client = SecretClient(
     credential=credential)
 secret = secret_client.get_secret(my_secret_name)
 ```
+
+> [!IMPORTANT]
+> Questo esempio USA DefaultAzureCredential. Per concedere l'accesso alle identità usando criteri di accesso specifici, vedere [la parte 4: recuperare il segreto dall'utente Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
 
 ### <a name="access-blob-from-your-web-service"></a>Accedere al BLOB dal servizio Web
 

@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075292"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitoraggio dell'applicazione senza strumentazione per applicazioni ospitate in Kubernetes con Istio: DEPRECATO
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente deprecata e non verrà più supportata dopo il 1 agosto 2020.
-> Attualmente il monitoraggio senza codice può essere abilitato solo per [Java tramite agente autonomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Per altri linguaggi, usare gli SDK per monitorare le app in servizio Azure Kubernetes: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript) e [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+> Attualmente il monitoraggio senza codice può essere abilitato solo per [Java tramite agente autonomo](./java-in-process-agent.md). Per altri linguaggi, usare gli SDK per monitorare le app in servizio Azure Kubernetes: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md) e [Python](./opencensus-python.md).
 
 Monitoraggio di Azure usa ora la tecnologia della rete mesh di servizi nel cluster Kubernetes per fornire il monitoraggio delle applicazioni predefinito per qualsiasi applicazione ospitata in Kubernetes. Con funzionalità predefinite di Application Insight come la [mappa delle applicazioni](../../azure-monitor/app/app-map.md) per modellare le dipendenze, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) per il monitoraggio in tempo reale, le visualizzazioni avanzate con il [dashboard predefinito](../../azure-monitor/app/overview-dashboard.md), [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md) e [cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md). Questa funzionalità consente agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno dello spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti nella rete mesh di servizi esistenti con tecnologie come Istio, Monitoraggio di Azure consente di monitorare le app con strumentazione automatica senza apportare modifiche al codice dell'applicazione.
 
@@ -24,10 +25,10 @@ Monitoraggio di Azure usa ora la tecnologia della rete mesh di servizi nel clust
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un [cluster Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
+- Un [cluster Kubernetes](../../aks/concepts-clusters-workloads.md).
 - Accesso alla console per il cluster per l'esecuzione di *kubectl*.
 - Una [risorsa di Application Insights](create-new-resource.md)
-- Una rete mesh di servizi. Se nel cluster non è stato distribuito Istio, è possibile ottenere informazioni su come [installare e usare Istio nel servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/istio-install).
+- Una rete mesh di servizi. Se nel cluster non è stato distribuito Istio, è possibile ottenere informazioni su come [installare e usare Istio nel servizio Azure Kubernetes](../../aks/servicemesh-istio-install.md).
 
 ## <a name="capabilities"></a>Capabilities
 

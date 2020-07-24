@@ -1,5 +1,5 @@
 ---
-title: Connettere gli avvisi di Orca ad Azure Sentinel | Microsoft Docs
+title: Connettere gli avvisi di sicurezza di Orca ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati degli avvisi di sicurezza di Orca ad Azure Sentinel, per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076279"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Connettere gli avvisi Orca ad Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Connettere gli avvisi di sicurezza di Orca ad Azure Sentinel 
+
+> [!IMPORTANT]
+> Il connettore di avvisi di sicurezza Orca in Azure Sentinel è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il connettore di avvisi di sicurezza di Orca consente di portare facilmente gli avvisi della soluzione di sicurezza degli avvisi [Orca](https://orca.security/) in Sentinel di Azure, in modo che sia possibile visualizzarli nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi. L'integrazione tra gli avvisi di sicurezza di Orca e Azure Sentinel usa l'API REST.
 

@@ -11,11 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077687"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure Synapse Analytics
 
@@ -41,9 +42,6 @@ Nel portale di Azure sono disponibili le metriche seguenti per Synapse SQL. Tali
 | Percentuale dei riscontri nella cache    | (Riscontri nella cache/Mancato riscontro nella cache) * 100, dove "riscontri nella cache" è la somma di tutte le occorrenze di segmenti columnstore della cache SSD locale e "mancato riscontro nella cache" è il mancato riscontro di segmenti columnstore nella cache SSD locale sommato tra tutti i nodi | Avg, Min, Max    |
 | Percentuale della cache utilizzata   | (Cache usata/Capacità della cache) * 100, dove "cache usata" è la somma di tutti i byte nella cache SSD locale in tutti i nodi e "capacità della cache" è la somma della capacità di archiviazione della cache SSD locale in tutti i nodi | Avg, Min, Max    |
 | Percentuale di tempdb locale | Uso di tempdb locale in tutti i nodi di calcolo: i valori vengono generati ogni cinque minuti | Avg, Min, Max    |
-| Dimensioni dello spazio di archiviazione dei dati (GB) | Dimensioni totali del database. Sono inclusi lo spazio usato, riservato e non allocato. Lo spazio non allocato viene mantenuto per il database per ottimizzare le prestazioni delle query e di caricamento. | SUM |
-| Dimensioni per ripristino di emergenza (GB) | Dimensioni totali del backup geografico eseguito ogni 24 ore | SUM |
-| Dimensioni dello spazio di archiviazione degli snapshot (GB) | Dimensioni totali degli snapshot eseguiti per rendere disponibili punti di ripristino del database. Sono inclusi gli snapshot automatizzati e definiti dall'utente. | SUM |
 
 Aspetti da considerare quando si visualizzano le metriche e si configurano gli avvisi:
 

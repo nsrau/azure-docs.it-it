@@ -7,17 +7,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: a0dcc53d84edb4dd697213106c02626df24acfd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae6da2e299065bada3b4e8a9657f00ef07e138b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869405"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075561"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Come aprire le porte e gli endpoint in una VM in Azure usando PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole del controllo di accesso, è necessario che [sia installata la versione più recente di Azure PowerShell](/powershell/azureps-cmdlets-docs). È possibile anche [eseguire questi passaggi tramite il portale di Azure](nsg-quickstart-portal.md).
+Per creare un gruppo di sicurezza di rete e le regole del controllo di accesso, è necessario che [sia installata la versione più recente di Azure PowerShell](/powershell/azure/). È possibile anche [eseguire questi passaggi tramite il portale di Azure](nsg-quickstart-portal.md).
 
 Accedere all'account di Azure:
 
@@ -27,7 +28,7 @@ Connect-AzAccount
 
 Negli esempi seguenti sostituire i nomi dei parametri con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
-Creare una regola con [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico *tcp* sulla porta *80*:
+Creare una regola con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico *tcp* sulla porta *80*:
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -43,7 +44,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Creare quindi il gruppo di sicurezza di rete con [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e assegnare la regola HTTP appena creata come indicato di seguito. L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Creare quindi il gruppo di sicurezza di rete con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) e assegnare la regola HTTP appena creata come indicato di seguito. L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -53,7 +54,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-Ora si assegnerà il gruppo di sicurezza di rete a una subnet. L'esempio seguente assegna una rete virtuale esistente denominata *myVnet* alla variabile *$vnet* con [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork):
+Ora si assegnerà il gruppo di sicurezza di rete a una subnet. L'esempio seguente assegna una rete virtuale esistente denominata *myVnet* alla variabile *$vnet* con [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -61,7 +62,7 @@ $vnet = Get-AzVirtualNetwork `
     -Name "myVnet"
 ```
 
-Associare il gruppo di sicurezza di rete alla subnet con [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig). L'esempio seguente associa la subnet denominata *mySubnet* al gruppo di sicurezza di rete:
+Associare il gruppo di sicurezza di rete alla subnet con [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig). L'esempio seguente associa la subnet denominata *mySubnet* al gruppo di sicurezza di rete:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -73,7 +74,7 @@ Set-AzVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-Infine, aggiornare la rete virtuale con [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) affinché le modifiche abbiano effetto:
+Infine, aggiornare la rete virtuale con [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) affinché le modifiche abbiano effetto:
 
 ```powershell
 Set-AzVirtualNetwork -VirtualNetwork $vnet
@@ -91,4 +92,3 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 * [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Definizione di gruppo di sicurezza di rete](../../virtual-network/security-overview.md)
 * [Panoramica di Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
-

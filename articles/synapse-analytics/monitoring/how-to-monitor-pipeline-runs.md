@@ -1,6 +1,6 @@
 ---
-title: La pipeline di monitoraggio esegue Azure sinapsi Studio (anteprima)
-description: Usare Azure sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro.
+title: Monitorare le esecuzioni di pipeline con sinapsi Studio
+description: Usare sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16400d7f292ad5844add3d4a5fc019e84bd27127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075899"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usare Azure sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro
+# <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usare sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro
 
-Con l'analisi delle sinapsi di Azure è possibile creare pipeline complesse che consentono di automatizzare e orchestrare le attività di spostamento dei dati, trasformazione dei dati e calcolo all'interno della soluzione. È possibile creare e monitorare queste pipeline usando Azure sinapsi Studio (anteprima).
+Con l'analisi delle sinapsi di Azure è possibile creare pipeline complesse che consentono di automatizzare e orchestrare le attività di spostamento dei dati, trasformazione dei dati e calcolo all'interno della soluzione. È possibile creare e monitorare queste pipeline usando sinapsi Studio (anteprima).
 
 Questo articolo illustra come monitorare le esecuzioni della pipeline, che consente di tenere sotto controllo lo stato, i problemi e lo stato di avanzamento delle pipeline più recenti.
 
 ## <a name="access-the-list-of-pipeline-runs"></a>Accedere all'elenco di esecuzioni di pipeline
 
-Per visualizzare l'elenco delle esecuzioni di pipeline nell'area di lavoro, aprire prima di tutto [Azure sinapsi Studio](https://web.azuresynapse.net/) e selezionare l'area di lavoro.
+Per visualizzare l'elenco delle esecuzioni di pipeline nell'area di lavoro, aprire prima di tutto [il sistema sinapsi Studio](https://web.azuresynapse.net/) e selezionare l'area di lavoro.
 
 ![Accedi all'area di lavoro](./media/common/login-workspace.png)
 

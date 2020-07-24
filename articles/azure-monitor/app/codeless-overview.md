@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 87342dcd316b0364522baa01e632b704665c998e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9be0808d4edc9662c1d3a4144f3102242560564
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85363732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075348"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Che cos'è la strumentazione automatica o la connessione non codificata-monitoraggio di Azure Application Insights?
 
@@ -41,7 +41,7 @@ Con l'aggiunta di più integrazioni, la matrice di funzionalità di strumentazio
 
 ### <a name="windows"></a>Windows
 
-[Il monitoraggio delle applicazioni nel servizio app Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net) è disponibile per l'applicazione .NET ed è abilitato per impostazione predefinita, è possibile abilitare .NET Core con un solo clic e Java e Node.js sono in anteprima privata.
+[Il monitoraggio delle applicazioni nel servizio app Azure](./azure-web-apps.md?tabs=net) è disponibile per l'applicazione .NET ed è abilitato per impostazione predefinita, è possibile abilitare .NET Core con un solo clic e Java e Node.js sono in anteprima privata.
 
 ### <a name="linux"></a>Linux 
 
@@ -49,24 +49,24 @@ Il monitoraggio delle applicazioni Java e Node.js nel servizio app è in version
 
 ## <a name="azure-functions"></a>Funzioni di Azure
 
-Il monitoraggio di base per funzioni di Azure è abilitato per impostazione predefinita per la raccolta di log, prestazioni, dati di errore e richieste HTTP. Per le applicazioni Java, è possibile abilitare il monitoraggio più completo con la traccia distribuita e ottenere i dettagli della transazione end-to-end. Questa funzionalità per Java è in anteprima pubblica ed è possibile [abilitarla in portale di Azure](https://docs.microsoft.com/azure/azure-monitor/app/monitor-functions).
+Il monitoraggio di base per funzioni di Azure è abilitato per impostazione predefinita per la raccolta di log, prestazioni, dati di errore e richieste HTTP. Per le applicazioni Java, è possibile abilitare il monitoraggio più completo con la traccia distribuita e ottenere i dettagli della transazione end-to-end. Questa funzionalità per Java è in anteprima pubblica ed è possibile [abilitarla in portale di Azure](./monitor-functions.md).
 
 ## <a name="azure-kubernetes-service"></a>Servizio Azure Kubernetes
 
-La strumentazione senza codice del servizio Azure Kubernetes è attualmente disponibile per le applicazioni Java tramite l' [agente autonomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). 
+La strumentazione senza codice del servizio Azure Kubernetes è attualmente disponibile per le applicazioni Java tramite l' [agente autonomo](./java-in-process-agent.md). 
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>VM Windows di Azure e set di scalabilità di macchine virtuali
 
-La [strumentazione automatica per le VM di Azure e il set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps) è disponibile per le applicazioni .NET 
+La [strumentazione automatica per le VM di Azure e il set di scalabilità di macchine virtuali](./azure-vm-vmss-apps.md) è disponibile per le applicazioni .NET 
 
 ## <a name="on-premises-servers"></a>Server locali
-È possibile abilitare facilmente il monitoraggio per i [server Windows locali per le applicazioni .NET](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) e per le [app java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+È possibile abilitare facilmente il monitoraggio per i [server Windows locali per le applicazioni .NET](./status-monitor-v2-overview.md) e per le [app java](./java-in-process-agent.md).
 
 ## <a name="other-environments"></a>Altri ambienti
-Il versatile agente autonomo Java funziona in qualsiasi ambiente, non è necessario instrumentare il codice. [Seguire la guida](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) per abilitare Application Insights e leggere le straordinarie funzionalità dell'agente Java. L'agente è in anteprima pubblica e disponibile in tutte le aree geografiche. 
+Il versatile agente autonomo Java funziona in qualsiasi ambiente, non è necessario instrumentare il codice. [Seguire la guida](./java-in-process-agent.md) per abilitare Application Insights e leggere le straordinarie funzionalità dell'agente Java. L'agente è in anteprima pubblica e disponibile in tutte le aree geografiche. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Panoramica di Application Insights](./app-insights-overview.md)
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

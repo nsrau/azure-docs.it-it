@@ -4,15 +4,15 @@ description: Informazioni su come trasmettere i log delle risorse di Azure a un'
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077092"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
@@ -43,7 +43,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Category | A | B | C |
+    | Provider di risorse | Category | Una | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | Z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |
@@ -85,17 +85,15 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 
 ### <a name="select-the-collection-mode"></a>Selezionare la modalità di raccolta
-La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in modalità **diagnostica di Azure** o **specifica della risorsa** senza alcuna scelta. Per informazioni dettagliate sulla modalità di utilizzo, vedere la [documentazione relativa a ogni servizio](diagnostic-logs-schema.md) . Tutti i servizi di Azure utilizzeranno la modalità specifica della risorsa. Come parte di questa transizione, alcune risorse consentiranno di selezionare una modalità nell'impostazione di diagnostica. Specificare la modalità specifica della risorsa per tutte le nuove impostazioni di diagnostica, in quanto ciò rende più semplice la gestione dei dati e può essere utile per evitare migrazioni complesse in un secondo momento.
+La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in modalità **diagnostica di Azure** o **specifica della risorsa** senza alcuna scelta. Per informazioni dettagliate sulla modalità di utilizzo, vedere la [documentazione relativa a ogni servizio](./resource-logs-schema.md) . Tutti i servizi di Azure utilizzeranno la modalità specifica della risorsa. Come parte di questa transizione, alcune risorse consentiranno di selezionare una modalità nell'impostazione di diagnostica. Specificare la modalità specifica della risorsa per tutte le nuove impostazioni di diagnostica, in quanto ciò rende più semplice la gestione dei dati e può essere utile per evitare migrazioni complesse in un secondo momento.
   
    ![Selettore modalità impostazioni di diagnostica](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Attualmente, la **diagnostica di Azure** e la modalità **specifica delle risorse** possono essere selezionate solo quando si configura l'impostazione di diagnostica nel portale di Azure. Se si configura l'impostazione usando l'interfaccia della riga di comando, PowerShell o l'API REST, per impostazione predefinita verrà usata la **diagnostica di Azure**.
+> Per un esempio di impostazione della modalità di raccolta usando un modello di Resource Manager, vedere [Gestione risorse esempi di modelli per le impostazioni di diagnostica in monitoraggio di Azure](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-È possibile modificare un'impostazione di diagnostica esistente in modalità specifica della risorsa. In questo caso, i dati già raccolti rimarranno nella tabella _AzureDiagnostics_ fino a quando non vengono rimossi in base all'impostazione di conservazione per l'area di lavoro. I nuovi dati verranno raccolti nella tabella dedicata. Utilizzare l'operatore [Union](https://docs.microsoft.com/azure/kusto/query/unionoperator) per eseguire query sui dati in entrambe le tabelle.
+
+È possibile modificare un'impostazione di diagnostica esistente in modalità specifica della risorsa. In questo caso, i dati già raccolti rimarranno nella tabella _AzureDiagnostics_ fino a quando non vengono rimossi in base all'impostazione di conservazione per l'area di lavoro. I nuovi dati verranno raccolti nella tabella dedicata. Utilizzare l'operatore [Union](/azure/kusto/query/unionoperator) per eseguire query sui dati in entrambe le tabelle.
 
 Continua a guardare il Blog sugli [aggiornamenti di Azure per gli](https://azure.microsoft.com/updates/) annunci relativi ai servizi di Azure che supportano la modalità specifica delle risorse.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Ogni BLOB PT1H.json contiene un BLOB JSON di eventi che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio, h=12). Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m = 00) è sempre 00, perché gli eventi del log delle risorse sono suddivisi in singoli BLOB all'ora.
 
-All'interno del PT1H.jsfile, ogni evento viene archiviato con il formato seguente. Verrà usato uno schema di primo livello comune, ma sarà univoco per ogni servizio di Azure, come descritto in [schema dei log delle risorse](diagnostic-logs-schema.md).
+All'interno del PT1H.jsfile, ogni evento viene archiviato con il formato seguente. Verrà usato uno schema di primo livello comune, ma sarà univoco per ogni servizio di Azure, come descritto in [schema dei log delle risorse](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics di diagnostica desktop virtuale di Windows-Azure
-description: Come usare log Analytics con la funzionalità diagnostica desktop virtuali di Windows.
+title: Log Analytics di diagnostica desktop virtuale di Windows (2019)-Azure
+description: Informazioni su come usare log Analytics con la funzionalità di diagnostica desktop virtuale di Windows (versione 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077621"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
+# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Usare Log Analytics per la funzionalità di diagnostica (versione 2019)
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../diagnostics-log-analytics.md).

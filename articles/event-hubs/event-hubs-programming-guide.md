@@ -3,15 +3,15 @@ title: Guida per programmatori .NET-Hub eventi di Azure (legacy) | Microsoft Doc
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0186357ec7f0f8541acf33c524a57cdb8e8dc55c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074841"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
-Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
+Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](./event-hubs-about.md).
 
 > [!WARNING]
 > Questa guida è destinata al vecchio pacchetto **Microsoft. Azure. EventHubs** . Si consiglia di [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) del codice per usare il pacchetto [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
@@ -96,7 +96,7 @@ Si noti che un singolo batch non deve superare il limite di 1 MB di un evento. I
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Inviare in modo asincrono e inviare a livello di scalabilità
 
-È possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) restituisce un oggetto [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). È possibile usare la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi del client.
+È possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) restituisce un oggetto [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1). È possibile usare la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi del client.
 
 ## <a name="event-consumers"></a>Consumer di eventi
 La classe [EventProcessorHost][] elabora i dati da Hub eventi. È consigliabile usare questa implementazione durante la creazione di reader di eventi sulla piattaforma .NET. [EventProcessorHost][] fornisce un ambiente di runtime thread-safe, multiprocesso e sicuro per le implementazioni del processore di eventi che fornisce inoltre la gestione di lease di Checkpoint e la partizione.
@@ -149,8 +149,8 @@ Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hu
 
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
-* [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
-* [Informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Panoramica dell'API di Hub eventi](./event-hubs-samples.md)
+* [Informazioni su Hub eventi](./event-hubs-about.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Riferimento all'API host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

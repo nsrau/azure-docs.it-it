@@ -3,12 +3,12 @@ title: Librerie di gestione - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni per la libreria che è possibile usare per gestire entità e spazi dei nomi di Hub eventi di Azure da .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79656d95cf925c21b0f0c5f2b3bafe6348e0b553
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074832"
 ---
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
 
@@ -26,7 +26,7 @@ Per iniziare a usare le librerie di gestione di Hub eventi, è necessario esegui
 
 * [Usare il portale di Azure per creare Active Directory applicazione e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. È necessario avere autorizzazioni di **Proprietario** per il gruppo di risorse in cui verranno eseguite le librerie.
 

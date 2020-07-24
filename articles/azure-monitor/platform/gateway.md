@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298344"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077269"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -149,7 +149,7 @@ Per installare un gateway usando l'installazione guidata, seguire questa procedu
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installare il gateway Log Analytics tramite la riga di comando
 
-Il file scaricato per il gateway è un pacchetto di Windows Installer che supporta l'installazione invisibile all'utente dalla riga di comando o da un altro metodo automatico. Se non si ha familiarità con le opzioni della riga di comando standard per Windows Installer, vedere [Opzioni della riga di comando](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+Il file scaricato per il gateway è un pacchetto di Windows Installer che supporta l'installazione invisibile all'utente dalla riga di comando o da un altro metodo automatico. Se non si ha familiarità con le opzioni della riga di comando standard per Windows Installer, vedere [Opzioni della riga di comando](/windows/desktop/msi/command-line-options).
  
 Nella tabella seguente vengono evidenziati i parametri supportati dal programma di installazione.
 
@@ -185,11 +185,11 @@ Dopo l'installazione, è possibile verificare che le impostazioni siano accettat
 
 ## <a name="configure-network-load-balancing"></a>Configurare il bilanciamento del carico di rete
 
-È possibile configurare il gateway per la disponibilità elevata utilizzando bilanciamento carico di rete (NLB) utilizzando bilanciamento carico di [rete](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)o i bilanciamenti del carico basati su hardware. Il servizio di bilanciamento del carico gestisce il traffico reindirizzando le connessioni richieste dagli agenti di Log Analytics o dai server di gestione di Operations Manager nei nodi relativi. Se un server gateway si arresta, il traffico viene reindirizzato ad altri nodi.
+È possibile configurare il gateway per la disponibilità elevata utilizzando bilanciamento carico di rete (NLB) utilizzando bilanciamento carico di [rete](/windows-server/networking/technologies/network-load-balancing)Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)o i bilanciamenti del carico basati su hardware. Il servizio di bilanciamento del carico gestisce il traffico reindirizzando le connessioni richieste dagli agenti di Log Analytics o dai server di gestione di Operations Manager nei nodi relativi. Se un server gateway si arresta, il traffico viene reindirizzato ad altri nodi.
 
 ### <a name="microsoft-network-load-balancing"></a>Bilanciamento carico di rete Microsoft
 
-Per informazioni su come progettare e distribuire un cluster di bilanciamento del carico di rete di Windows Server 2016, vedere [Bilanciamento carico di rete](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). La procedura seguente illustra come configurare un cluster di bilanciamento del carico di rete Microsoft.  
+Per informazioni su come progettare e distribuire un cluster di bilanciamento del carico di rete di Windows Server 2016, vedere [Bilanciamento carico di rete](/windows-server/networking/technologies/network-load-balancing). La procedura seguente illustra come configurare un cluster di bilanciamento del carico di rete Microsoft.  
 
 1. Accedere al server Windows membro del cluster di bilanciamento del carico di rete con un account amministrativo.  
 2. Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
@@ -248,7 +248,7 @@ Per usare il gateway OMS per supportare Operations Manager, è necessario dispor
 
 Se il gruppo di gestione Operations Manager viene registrato con un'area di lavoro di Log Analytics per la prima volta, non verrà visualizzata l'opzione per specificare la configurazione proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
 
-Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. A tale scopo, seguire questa procedura:
+Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. Seguire questa procedura:
 
 1. Aprire un prompt dei comandi con privilegi elevati:
 
@@ -329,7 +329,7 @@ Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore 
 
 | **Cmdlet** | **Parameters** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Codice |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password (stringa sicura) |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  

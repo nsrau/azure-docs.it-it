@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f369be97c65c7d6704e61241c4455eb60166b2c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc21dc67dd6c686eedf307660a8d8b7afd60db71
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075842"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Ripristinare un pool SQL eliminato usando Azure sinapsi Analytics
 
@@ -32,7 +32,7 @@ In questo articolo si apprenderà come ripristinare un'operazione SQL usando il 
 
 Per ripristinare un pool SQL eliminato, usare il cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Se anche il server corrispondente è stato eliminato, non è possibile ripristinare tale data warehouse.
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 4. Selezionare la sottoscrizione che contiene il pool SQL eliminato da ripristinare.

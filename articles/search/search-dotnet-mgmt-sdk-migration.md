@@ -8,13 +8,13 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 436c2620b83513a2b814e050b2ae6407930b082d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/08/2020
+ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076417"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Aggiornamento delle versioni di Azure search .NET Management SDK
 
@@ -46,7 +46,7 @@ La versione 3,0 aggiunge la protezione degli endpoint privati limitando l'access
 
 ### <a name="new-apis"></a>Nuove API
 
-| API | Categoria| Dettagli |
+| API | Category| Dettagli |
 |-----|--------|------------------|
 | [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall IP | Consente di limitare l'accesso a un endpoint di servizio a un elenco di indirizzi IP consentiti. Vedere [configurare il firewall IP](service-configure-firewall.md) per i concetti e le istruzioni del portale. |
 | [Risorsa collegamento privato condiviso](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Collegamento privato | Creare una risorsa di collegamento privata condivisa che deve essere utilizzata da un servizio di ricerca.  |

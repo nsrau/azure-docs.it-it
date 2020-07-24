@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205085"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075807"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Ripristino geografico per il pool SQL
 
@@ -36,7 +36,7 @@ Per eseguire il ripristino da un backup geografico, usare il cmdlet [Get-AzSqlDa
 > È possibile eseguire un ripristino geografico alla seconda generazione. A tale scopo, specificare ServiceObjectiveName di seconda generazione (ad es. DW1000**c**) come parametro facoltativo.
 >
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 4. Consente di selezionare la sottoscrizione che contiene il data warehouse da ripristinare.
@@ -77,7 +77,7 @@ Il database ripristinato sarà abilitato TDE se il database di origine è abilit
 Attenersi alla procedura descritta di seguito per ripristinare un pool SQL da un backup geografico:
 
 1. Accedere al proprio account di [portale di Azure](https://portal.azure.com/) .
-2. Selezionare **+ Crea una risorsa**.
+2. Fare clic su **Crea una risorsa**.
 
    ![Nuovo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 

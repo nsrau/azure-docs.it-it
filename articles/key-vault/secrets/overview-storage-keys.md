@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076725"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -90,7 +90,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Tenere presente che le autorizzazioni per gli account di archiviazione non sono disponibili nella pagina "Criteri di accesso" dell'account di archiviazione nel portale di Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Creare un account di archiviazione gestito Key Vault
 
- Creare un account di archiviazione gestito Key Vault usando l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Impostare un periodo di rigenerazione di 90 giorni. Dopo 90 giorni, Key Vault Rigenera `key1` e scambia la chiave attiva da `key2` a `key1` . `key1`viene quindi contrassegnato come chiave attiva. Fornire al comando i valori di parametro seguenti:
+ Creare un account di archiviazione gestito Key Vault usando l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Impostare un periodo di rigenerazione di 90 giorni. Quando è il momento di ruotare, l'insieme di credenziali delle chiavi rigenera la chiave che non è attiva, quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in qualsiasi momento. si tratta della chiave attiva. Fornire al comando i valori di parametro seguenti:
 
 - `--vault-name`: Passare il nome dell'insieme di credenziali delle chiavi. Per trovare il nome dell'insieme di credenziali delle chiavi, usare il comando [AZ Key Vault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) dell'interfaccia della riga di comando di Azure.
 - `-n`: Passare il nome dell'account di archiviazione. Per trovare il nome dell'account di archiviazione, usare il comando [AZ storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) dell'interfaccia della riga di comando di Azure.

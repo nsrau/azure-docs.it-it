@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79096787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077129"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log della piattaforma di monitoraggio di Azure archiviati in un account di archiviazione
 
 > [!WARNING]
-> Se si inviano [log delle risorse di Azure o metriche a un account di archiviazione usando le impostazioni di diagnostica](resource-logs-collect-storage.md) o i [log attività in un account di archiviazione usando profili di log](resource-logs-collect-storage.md), il formato dei dati nell'account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
+> Se si inviano [log delle risorse di Azure o metriche a un account di archiviazione usando le impostazioni di diagnostica](./resource-logs.md#send-to-azure-storage) o i [log attività in un account di archiviazione usando profili di log](./resource-logs.md#send-to-azure-storage), il formato dei dati nell'account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
 >
 
 ## <a name="what-changed"></a>Cosa è cambiato
@@ -28,9 +29,9 @@ Monitoraggio di Azure offre una funzionalità che consente di inviare log delle 
 * L'impostazione di un'impostazione di diagnostica tra prima del 1 ° novembre ha continuato a emettere i dati nel formato corrente fino al 1 ° novembre.
 * Questa modifica si è verificata in una sola volta in tutte le aree del cloud pubblico. La modifica non si verificherà ancora nei Microsoft Azure gestiti da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
 * Questa modifica interessa i tipi di dati seguenti:
-  * [Log delle risorse di Azure](archive-diagnostic-logs.md) ([vedere l'elenco di risorse qui](diagnostic-logs-schema.md))
+  * [Log delle risorse di Azure](./resource-logs.md#send-to-azure-storage) ([vedere l'elenco di risorse qui](./resource-logs-schema.md))
   * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](diagnostic-settings.md)
-  * [Dati del log attività Azure esportati tramite i profili di log](activity-log-collect.md)
+  * [Dati del log attività Azure esportati tramite i profili di log](./activity-log.md)
 * Questa modifica non interessa:
   * Log dei flussi di rete
   * I log dei servizi di Azure non sono ancora disponibili tramite monitoraggio di Azure (ad esempio, log delle risorse del servizio app Azure, log di analisi archiviazione)
@@ -122,7 +123,7 @@ Il nuovo formato usa [righe JSON](http://jsonlines.org/), dove ogni evento è un
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Questo nuovo formato abilita il Monitoraggio di Azure per eseguire il push di file di log mediante [blob di accodamento](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), che risultano più efficienti per l'aggiunta continua di nuovi dati di eventi.
+Questo nuovo formato abilita il Monitoraggio di Azure per eseguire il push di file di log mediante [blob di accodamento](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), che risultano più efficienti per l'aggiunta continua di nuovi dati di eventi.
 
 ## <a name="how-to-update"></a>Come eseguire l'aggiornamento
 
@@ -132,6 +133,5 @@ Gli strumenti personalizzati devono essere aggiornati per gestire il formato cor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sull' [archiviazione dei log delle risorse delle risorse in un account di archiviazione](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Informazioni sull'[archiviazione dei dati del log attività a un account di archiviazione](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Informazioni sull' [archiviazione dei log delle risorse delle risorse in un account di archiviazione](./resource-logs.md#send-to-azure-storage)
+* Informazioni sull'[archiviazione dei dati del log attività a un account di archiviazione](./activity-log.md#legacy-collection-methods)

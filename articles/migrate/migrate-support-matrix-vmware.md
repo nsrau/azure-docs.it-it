@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ca59e3b9eaf62a46ca4df3a582e7b8f290e7da6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1c1e349f31f6650c0f0910642d60193ebc0dd3a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078004"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -87,7 +87,7 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 **Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).
 **Credenziali del server vCenter** | Per la visualizzazione delle dipendenze è necessario un account server vCenter con accesso di sola lettura e privilegi abilitati per Macchine virtuali > Operazioni Guest.
 **Autorizzazioni VM Windows** |  Per l'analisi delle dipendenze, l'appliance Azure Migrate necessita di un account amministratore di dominio o di un account amministratore locale per accedere alle macchine virtuali Windows.
-**Autorizzazioni VM Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agenti obbligatori** | Non sono necessari agenti nei computer che si vuole analizzare.
 **Strumenti VMware** | Gli strumenti VMware (successivi alla versione 10.2) devono essere installati e in esecuzione in ogni macchina virtuale che si vuole analizzare.

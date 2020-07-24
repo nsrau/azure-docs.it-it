@@ -2,23 +2,23 @@
 title: 'Configurare Azure AD autenticazione per la connessione VPN utente: rete WAN virtuale'
 description: Informazioni su come configurare l'autenticazione Azure Active Directory per la VPN utente.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077481"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
 
 Questo articolo illustra come configurare l'autenticazione Azure AD per la VPN utente in una rete WAN virtuale per la connessione alle risorse in Azure tramite una connessione VPN OpenVPN. L'autenticazione di Azure Active Directory è disponibile solo per i gateway che usano il protocollo OpenVPN e i client che eseguono Windows.
 
-Questo tipo di connessione richiede la configurazione di un client nel computer client. Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica di WAN virtuale](virtual-wan-about.md).
+Questo tipo di connessione richiede la configurazione di un client nel computer client. Per altre informazioni sulla rete WAN virtuale, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -38,7 +38,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
-* Si ha una rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nella portale di Azure, vedere la [Guida introduttiva](../virtual-network/quick-create-portal.md).
+* Si ha una rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[Avvio rapido](../virtual-network/quick-create-portal.md).
 
 * La rete virtuale non presenta alcun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub della rete WAN virtuale.
 
@@ -158,11 +158,11 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![eliminazione](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![eliminazione](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticare i problemi di connessione
 

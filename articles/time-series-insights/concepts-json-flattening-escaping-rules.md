@@ -1,6 +1,6 @@
 ---
-title: Regole di escape e Flat JSON-Azure Time Series Insights | Microsoft Docs
-description: Informazioni sulla gestione delle matrici e sull'escape di JSON in Azure Time Series Insights.
+title: Regole di escape e Flat JSON-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Informazioni sulla gestione delle matrici e sull'escape di JSON in Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049853"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075682"
 ---
 # <a name="ingestion-rules"></a>Regole di inserimento
 ### <a name="json-flattening-escaping-and-array-handling"></a>Flat JSON, escape e gestione delle matrici
 
-L'ambiente di Azure Time Series Insights creerà in modo dinamico le colonne degli archivi a caldo e a freddo, seguendo un particolare set di convenzioni di denominazione. Quando si inserisce un evento, viene applicato un set di regole al payload JSON e ai nomi di proprietà. Questi includono l'escape di determinati caratteri speciali e l'appiattimento di oggetti JSON annidati. È importante conoscere queste regole per comprendere in che modo la forma di JSON influirà sul modo in cui gli eventi vengono archiviati e sottoposti a query. Per l'elenco completo delle regole, vedere la tabella seguente. Gli esempi A & B illustrano inoltre come sia possibile eseguire in batch più serie temporali in una matrice in modo efficiente.
+L'ambiente di Azure Time Series Insights Gen2 creerà in modo dinamico le colonne degli archivi a caldo e a freddo, seguendo un particolare set di convenzioni di denominazione. Quando si inserisce un evento, viene applicato un set di regole al payload JSON e ai nomi di proprietà. Questi includono l'escape di determinati caratteri speciali e l'appiattimento di oggetti JSON annidati. È importante conoscere queste regole per comprendere in che modo la forma di JSON influirà sul modo in cui gli eventi vengono archiviati e sottoposti a query. Per l'elenco completo delle regole, vedere la tabella seguente. Gli esempi A & B illustrano inoltre come sia possibile eseguire in batch più serie temporali in una matrice in modo efficiente.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ L'ambiente di Azure Time Series Insights creerà in modo dinamico le colonne deg
 
 | Regola | JSON di esempio |Nome colonna nello spazio di archiviazione |
 |---|---|---|
-| Il tipo di dati TSI viene aggiunto alla fine del nome della colonna come "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| La [proprietà timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) dell'origine evento verrà salvata in TSI come "timestamp" nell'archivio e il valore archiviato in UTC. È possibile personalizzare la proprietà timestamp delle origini eventi in modo che soddisfi le esigenze della soluzione, ma il nome della colonna nell'archiviazione a caldo e a freddo è "timestamp". Altre proprietà JSON DateTime che non sono il timestamp dell'origine eventi verranno salvate con "_datetime" nel nome della colonna, come indicato nella regola precedente.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| Il tipo di dati Azure Time Series Insights Gen2 viene aggiunto alla fine del nome della colonna come "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
+| La [proprietà timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) dell'origine evento verrà salvata in Azure Time Series Insights Gen2 come "timestamp" nell'archiviazione e il valore archiviato in formato UTC. È possibile personalizzare la proprietà timestamp delle origini eventi in modo che soddisfi le esigenze della soluzione, ma il nome della colonna nell'archiviazione a caldo e a freddo è "timestamp". Altre proprietà JSON DateTime che non sono il timestamp dell'origine eventi verranno salvate con "_datetime" nel nome della colonna, come indicato nella regola precedente.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | Nomi delle proprietà JSON che includono i caratteri speciali. [\ è sono preceduti da un carattere di escape con [' and ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | [' ID. Wasp '] _string |
 | In [' and '] è presente un ulteriore escape di virgolette singole e barre rovesciate. Una virgoletta singola verrà scritta come \' e una barra rovesciata verrà scritta come\\\ | ```"Foo's Law Value": "17.139999389648"``` | [' Foo \' s Law value '] _double |
 | Gli oggetti JSON annidati sono bidimensionali con un punto come separatore. È supportato l'annidamento di un massimo di 10 livelli. |  ```"series": {"value" : 316 }``` | serie. value_long |
@@ -186,4 +185,4 @@ La configurazione e il payload precedenti produrranno tre colonne e un evento
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle limitazioni della [velocità effettiva](concepts-streaming-throughput-limitations.md) dell'ambiente
+* Informazioni sulle limitazioni della [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075766"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -48,7 +48,22 @@ la tecnologia 10ZiG, con hardware e software client all'avanguardia e con thin-E
 
 la leadership del mercato 10ZiG's in dispositivi endpoint client thin e zero e nel software di gestione per i desktop virtuali è esemplificata dal modo in cui lavorano per i clienti. L'hardware thin client viene creato con le funzionalità e le opzioni di vantaggio appositamente progettate per garantire che i clienti ricevano i dispositivi client appropriati in base alle esigenze. 10ZiG Personalizza i dispositivi per adattarsi agli ambienti dei clienti con client basati su Windows e Linux che offrono le migliori prestazioni possibili nei desktop virtuali, sia all'interno che all'esterno del cloud.
 
-- [Accedere al sito Web del partner](https://www.10zig.com/).
+- [Accedere al sito Web del partner](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Logo di automai](./media/partners/automai.png)
+
+È possibile usare la piattaforma di automazione robotica di automai per testare i processi aziendali chiave in un ambiente di desktop virtuale Windows prima che la distribuzione diventi disponibile.
+
+Grazie allo strumento ScenarioBuilder di automai e al motore del flusso di lavoro basato su GUI, i team IT possono registrare i flussi di lavoro degli utenti finali reali e convertirli automaticamente in script. Automai quindi usa bot che eseguono processi da singoli desktop per emulare l'attività degli utenti finali in una simulazione e segnalare i risultati. Questo semplifica notevolmente i processi di test in modo che gli amministratori IT possano sottoporre a test anche gli scenari più complessi.
+
+Quando si è pronti per l'avvio, è possibile usare tutti gli script del flusso di lavoro creati per il test di carico per monitorare continuamente le prestazioni nell'ambiente di produzione. I bot di automai possono eseguire più del semplice monitoraggio della disponibilità. I bot possono anche testare i flussi di lavoro degli utenti finali da percorsi chiave, acquisire schermate e raccogliere segnalazioni di errori in tempo reale. Questo comporta un approccio più proattivo rispetto a quello reattivo per le correzioni di bug per le applicazioni desktop virtuali Windows.
+
+Automai consente di usare gli stessi script per i test delle prestazioni, il test funzionale, il monitoraggio delle prestazioni e anche l'automazione dei processi robotizzati, il tutto su una piattaforma.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Accedere al sito Web del partner](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ Le licenze di endpoint a virgola mobile univoche dei client di sistema ekran son
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Passare alla pagina del partner](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logo di FabulaTech](./media/partners/fabulatech.png)
+
+FabulaTech si integra perfettamente con i client desktop virtuali di Windows. Una volta installato, il software FabulaTech viene avviato automaticamente quando si stabilisce una connessione con un desktop remoto.
+
+Quando un utente accede al proprio desktop virtuale, il software FabulaTech crea un dispositivo virtuale. Ad esempio, è possibile creare una webcam virtuale, un scanner o un lettore di impronte digitali. Le app in esecuzione in una sessione remota possono accedere al dispositivo virtuale come se fosse un dispositivo fisico. È possibile configurare il dispositivo virtuale nel desktop virtuale di Windows con il menu icona della barra delle applicazioni, il che significa che è anche possibile usare questa soluzione nei thin client. A questo punto, tutte le comunicazioni avvengono tramite la connessione Desktop remoto esistente, il che significa che il firewall è configurato per l'utente. Tutto funziona correttamente.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Accedere al sito Web del partner](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible
 

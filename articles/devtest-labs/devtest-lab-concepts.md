@@ -3,12 +3,12 @@ title: Concetti relativi a DevTest Labs | Microsoft Docs
 description: Informazioni sui concetti di base di DevTest Labs e su come possa semplificare la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482752"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074957"
 ---
 # <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
 ## <a name="overview"></a>Panoramica
@@ -56,7 +56,7 @@ I criteri consentono di controllare i costi nel lab. Ad esempio, è possibile cr
 I limiti rappresentano un meccanismo per ridurre al minimo gli sprechi nel lab. Ad esempio, è possibile impostare un limite per limitare il numero di macchine virtuali che possono essere create per ogni utente o in un lab.
 
 ## <a name="security-levels"></a>Livelli di sicurezza
-L'accesso sicuro è determinato dal controllo degli accessi in base al ruolo di Azure. Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito definiti dal Controllo degli accessi in base al ruolo.
+L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito definiti dal Controllo degli accessi in base al ruolo.
 
 * Autorizzazione: un'autorizzazione è un accesso definito a un'azione specifica, ad esempio un accesso in lettura a tutte le macchine virtuali.
 * Ruolo: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Ad esempio, il ruolo *proprietario della sottoscrizione* ha accesso a tutte le risorse all'interno di una sottoscrizione.
