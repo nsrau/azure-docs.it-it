@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059140"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi del client Desktop remoto
 
@@ -61,7 +62,7 @@ Se il browser inizia a funzionare o smette di funzionare mentre si usa il client
 
 ## <a name="web-client-does-not-show-my-resources"></a>Il client Web non mostra le risorse personali
 
-Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato effettuato l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Desktop virtuale Windows, è necessario effettuare l'accesso o usare una finestra del browser privata.
+Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario firmare o usare una finestra del browser privata.
 
 Se si usa la versione dell'autunno 2019 di Desktop virtuale Windows, usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
 

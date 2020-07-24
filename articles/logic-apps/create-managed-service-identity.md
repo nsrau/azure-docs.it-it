@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060964"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
@@ -306,8 +306,8 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
 * [Azure portal](#azure-portal-assign-access)
 * [Modello di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Interfaccia della riga di comando di Azure ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
+* Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Interfaccia della riga di comando di Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
 * [API REST di Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -387,18 +387,18 @@ Questa procedura mostra come usare l'identità gestita con un trigger o un'azion
    | **autenticazione** | Sì | Il tipo di autenticazione da usare per autenticare l'accesso alla risorsa o all'entità di destinazione |
    ||||
 
-   Come esempio specifico, si supponga di voler eseguire l'[operazione Snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) in un BLOB nell'account di archiviazione di Azure in cui è stato precedentemente configurato l'accesso per l'identità. Tuttavia, il [connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/) attualmente non offre questa operazione. In alternativa, è possibile eseguire questa operazione usando l'[azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) o un'altra [operazione dell'API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
+   Come esempio specifico, si supponga di voler eseguire l'[operazione Snapshot BLOB](/rest/api/storageservices/snapshot-blob) in un BLOB nell'account di archiviazione di Azure in cui è stato precedentemente configurato l'accesso per l'identità. Tuttavia, il [connettore di archiviazione BLOB di Azure](/connectors/azureblob/) attualmente non offre questa operazione. In alternativa, è possibile eseguire questa operazione usando l'[azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) o un'altra [operazione dell'API REST del servizio BLOB](/rest/api/storageservices/operations-on-blobs).
 
    > [!IMPORTANT]
    > Per accedere agli account di archiviazione di Azure dietro i firewall usando le richieste HTTP e le identità gestite, assicurarsi di configurare anche l'account di archiviazione con l'[eccezione che consente l'accesso da parte di servizi Microsoft attendibili](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
 
-   Per eseguire l'[operazione Snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), l'azione HTTP specifica le proprietà seguenti:
+   Per eseguire l'[operazione Snapshot BLOB](/rest/api/storageservices/snapshot-blob), l'azione HTTP specifica le proprietà seguenti:
 
    | Proprietà | Obbligatoria | Valore di esempio | Descrizione |
    |----------|----------|---------------|-------------|
    | **Metodo** | Sì | `PUT`| Il metodo HTTP usato dall'operazione Snapshot BLOB |
    | **URI** | Sì | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | L'ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure che usa questa sintassi |
-   | **Intestazioni** | Sì, per Archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | I valori di intestazione `x-ms-blob-type` e `x-ms-version` richiesti per le operazioni di Archiviazione di Azure. <p><p>**Importante**: nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Intestazioni** | Sì, per Archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | I valori di intestazione `x-ms-blob-type` e `x-ms-version` richiesti per le operazioni di Archiviazione di Azure. <p><p>**Importante**: nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Query** | Sì, per questa operazione | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione Snapshot BLOB. |
    |||||
 
@@ -441,7 +441,7 @@ Questa procedura mostra come usare l'identità gestita con un trigger o un'azion
    Per altre informazioni sull'autorizzazione dell'accesso con Azure AD per Archiviazione di Azure, vedere gli argomenti seguenti:
 
    * [Autorizzare l'accesso a BLOB e code di Azure tramite Azure Active Directory](../storage/common/storage-auth-aad.md)
-   * [Autorizzare l'accesso ad Archiviazione di Azure con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Autorizzare l'accesso ad Archiviazione di Azure con Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continuare a compilare l'app per la logica nel modo desiderato.
 

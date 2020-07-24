@@ -4,11 +4,12 @@ description: Eseguire il monitoraggio dei carichi di lavoro di Backup di Azure e
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054613"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Eseguire il monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -55,7 +56,7 @@ Usare un gruppo di azioni per specificare un canale di notifica. Per visualizzar
 
 È possibile soddisfare tutti i requisiti di avviso e monitoraggio solo da Log Analytics oppure è possibile usare Log Analytics per integrare le notifiche predefinite.
 
-Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi dei log tramite Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [Creare e gestire gruppi di azioni nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi dei log tramite Monitoraggio di Azure](../azure-monitor/platform/alerts-log.md) e [Creare e gestire gruppi di azioni nel portale di Azure](../azure-monitor/platform/action-groups.md).
 
 ### <a name="sample-kusto-queries"></a>Query Kusto di esempio
 
@@ -179,7 +180,7 @@ Per identificare il log appropriato e creare un avviso:
 
 2. Selezionare il nome dell'operazione per visualizzare i dettagli pertinenti.
 3. Selezionare **Nuova regola di avviso** per aprire la pagina **Crea regola**.
-4. Per creare un avviso, seguire la procedura descritta in [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+4. Per creare un avviso, seguire la procedura descritta in [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md).
 
    ![Nuova regola di avviso](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -192,8 +193,8 @@ Qui la risorsa è l'insieme di credenziali di Servizi di ripristino stesso. Ripe
 Anche se è possibile ricevere notifiche tramite i log attività, per il monitoraggio su larga scala è consigliabile usare Log Analytics anziché i log attività. Ecco perché:
 
 - **Scenari con limitazioni**: le notifiche tramite i log attività si applicano solo ai backup di macchine virtuali di Azure. È necessario configurare le notifiche per ogni insieme di credenziali di Servizi di ripristino.
-- **Corrispondenza con la definizione**: l'attività di backup pianificata non rientra nella definizione più recente dei log attività, mentre è allineata con i [log delle risorse](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Questo allineamento causa effetti imprevisti quando i dati che passano attraverso il canale dei log attività cambiano.
-- **Problemi con il canale dei log attività**: negli insiemi di credenziali di Servizi di ripristino i log attività di cui viene eseguito il pump da Backup di Azure seguono un nuovo modello. Questa modifica purtroppo influisce sulla generazione dei log attività in Azure per enti pubblici, Azure Germania e Azure Cina (21Vianet). Se gli utenti di questi servizi cloud creano o configurano avvisi da log attività in Monitoraggio di Azure, gli avvisi non vengono attivati. In tutte le aree pubbliche di Azure, poi, se un utente [raccoglie i log attività di Servizi di ripristino in un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), questi log non vengono visualizzati.
+- **Corrispondenza con la definizione**: l'attività di backup pianificata non rientra nella definizione più recente dei log attività, mentre è allineata con i [log delle risorse](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Questo allineamento causa effetti imprevisti quando i dati che passano attraverso il canale dei log attività cambiano.
+- **Problemi con il canale dei log attività**: negli insiemi di credenziali di Servizi di ripristino i log attività di cui viene eseguito il pump da Backup di Azure seguono un nuovo modello. Questa modifica purtroppo influisce sulla generazione dei log attività in Azure per enti pubblici, Azure Germania e Azure Cina (21Vianet). Se gli utenti di questi servizi cloud creano o configurano avvisi da log attività in Monitoraggio di Azure, gli avvisi non vengono attivati. In tutte le aree pubbliche di Azure, poi, se un utente [raccoglie i log attività di Servizi di ripristino in un'area di lavoro Log Analytics](../azure-monitor/platform/activity-log.md), questi log non vengono visualizzati.
 
 Usare un'area di lavoro Log Analytics per il monitoraggio e l'invio di avvisi su larga scala per tutti i carichi di lavoro protetti da Backup di Azure.
 

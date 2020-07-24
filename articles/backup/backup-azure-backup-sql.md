@@ -3,11 +3,12 @@ title: Backup di SQL Server in Azure come carico di lavoro DPM
 description: Introduzione al backup dei database di SQL Server con il servizio backup di Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055379"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 
@@ -20,6 +21,34 @@ Per eseguire il backup di un database di SQL Server in Azure e ripristinarlo da 
 1. Creare un criterio di backup per proteggere i database di SQL Server in Azure.
 1. Creare copie di backup su richiesta in Azure.
 1. Ripristinare il database da Azure.
+
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
+
+* Se un database con file è ubicato in una condivisione di file remota, la protezione fallirà con Errore ID 104. DPM non supporta la protezione per i dati SQL Server in una condivisione file remota.
+* DPM non è in grado di proteggere i database archiviati nelle condivisioni SMB remote.
+* Verificare che le [repliche del gruppo di disponibilità siano configurate in sola lettura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* È necessario aggiungere in modo esplicito l'account di sistema **NTAuthority\System** al gruppo Sysadmin in SQL Server.
+* Quando si esegue un ripristino del percorso alternativo per un database parzialmente indipendente, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità [database indipendenti](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) .
+* Quando si esegue un ripristino in un percorso alternativo per un database di un flusso di file, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità di [database del flusso di file](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) .
+* Protezione per SQL Server AlwaysOn:
+  * DPM rileva i gruppi di disponibilità quando si esegue un'interrogazione al momento della creazione del gruppo protezione dati.
+  * DPM rileva un failover e continua la protezione del database.
+  * DPM supporta le configurazioni dei cluster multisito per un'istanza di SQL Server.
+* Quando si proteggono i database che utilizzano la funzionalità AlwaysOn, DPM presenta le seguenti limitazioni:
+  * DPM rispetta i criteri di backup per i gruppi di disponibilità che vengono impostati nelle preferenze di backup di SQL Server, come descritto di seguito:
+    * Preferisco secondario: i backup devono essere eseguiti in una replica secondaria tranne quando la replica primaria è l'unica replica online. Se sono disponibili più repliche secondarie, verrà selezionato per il backup il nodo con la priorità di backup più elevata. Se è disponibile solo la replica primaria, il backup deve essere eseguito nella replica primaria.
+    * Solo secondario: il backup non deve essere eseguito nella replica primaria. Se la replica primaria è l'unica online, il backup non deve essere eseguito.
+    * Primario: i backup devono essere sempre eseguiti nella replica primaria.
+    * Qualsiasi replica: i backup possono essere eseguiti in qualsiasi replica nel gruppo di disponibilità. Il nodo da cui eseguire il backup sarà basato sulle priorità di backup per ciascuno dei nodi.
+  * Tenere presente quanto segue:
+    * I backup possono essere eseguiti da qualsiasi replica leggibile, ovvero primario, secondario sincrono, secondario asincrono.
+    * Se una replica viene esclusa dal backup, ad esempio se **Escludi replica** è abilitato o è contrassegnato come non leggibile, la replica non verrà selezionata per il backup in alcuna opzione.
+    * Se sono disponibili e leggibili più repliche, per il backup verrà selezionato il nodo con la priorità di backup più elevata.
+    * Se il backup non riesce nel nodo selezionato, l'operazione di backup avrà esito negativo.
+    * Il ripristino nel percorso originale non è supportato.
+* Problemi di backup SQL Server 2014 o versioni successive:
+  * SQL Server 2014 ha aggiunto una nuova funzionalità per creare un [database per SQL Server locale nell'archivio BLOB di Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Impossibile utilizzare DPM per proteggere questa configurazione.
+  * Esistono alcuni problemi noti relativi alla preferenza di backup "preferisci secondario" per l'opzione SQL AlwaysOn. DPM acquisisce sempre un backup dal database secondario. Se non viene trovato alcun database secondario, il backup ha esito negativo.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -100,7 +129,7 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
 
     ![Scegliere un criterio di conservazione](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    Esempio:
+    In questo esempio:
 
     * I backup vengono eseguiti ogni giorno alle ore 12:00 e 8:00. Sono conservati per 180 giorni.
     * Il backup di sabato alle 12:00 PM viene mantenuto per 104 settimane.

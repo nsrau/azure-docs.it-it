@@ -1,5 +1,5 @@
 ---
-title: Come generare e trasferire chiavi protette dal modulo di protezione hardware per Azure Key Vault - Azure Key Vault | Microsoft Docs
+title: Come generare & trasferire chiavi protette da HSM-BYOK-Azure Key Vault
 description: Usare questo articolo per pianificare, generare e trasferire chiavi HSM protette da usare con Azure Key Vault. Noto anche come BYOK (Bring your own key).
 services: key-vault
 author: amitbapat
@@ -10,11 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 52214d42467dfa86b5e085a660a9416904b7de59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4df934f38a8fb657fa4a8de5922d96197a3d02cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061112"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importare chiavi HSM protette per Key Vault (BYOK)
 
@@ -46,7 +47,7 @@ Ecco una panoramica del processo. I passaggi specifici da completare sono descri
 
 La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
-| Requisito | Altre informazioni |
+| Requisito | Ulteriori informazioni |
 | --- | --- |
 | Una sottoscrizione di Azure. |Per creare un insieme di credenziali delle chiavi in Azure Key Vault, è necessaria una sottoscrizione di Azure. [Iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). |
 | Uno SKU Key Vault Premium per importare le chiavi protette dal modulo di protezione hardware |Per ulteriori informazioni sui livelli di servizio e sulle funzionalità di Azure Key Vault, vedere [prezzi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -55,7 +56,7 @@ La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
 ## <a name="supported-hsms"></a>HSM supportati
 
-|Nome fornitore|Tipo fornitore|Modelli HSM supportati|Altre informazioni|
+|Nome fornitore|Tipo fornitore|Modelli HSM supportati|Ulteriori informazioni|
 |---|---|---|---|
 |nCipher|Produttore<br/>Modulo di protezione hardware come servizio|<ul><li>famiglia nShield di HSM</li><li>nShield come servizio</ul>|[nCipher nuovo strumento e documentazione di BYOK](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Thales|Produttore|<ul><li>Famiglia lunare HSM 7 con firmware versione 7,3 o successiva</li></ul>| [Strumento e documentazione di luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|

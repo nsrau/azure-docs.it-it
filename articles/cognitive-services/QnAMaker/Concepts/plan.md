@@ -1,33 +1,33 @@
 ---
 title: Pianificare l'app-QnA Maker
-description: Per pianificare l'app QnA Maker è necessario comprendere il funzionamento di QnA Maker e interagire con altri servizi di Azure, oltre ad alcuni concetti della Knowledge base.
+description: Informazioni su come pianificare l'app QnA Maker. Informazioni sul funzionamento di QnA Maker e sull'interazione con altri servizi di Azure e alcuni concetti della Knowledge base.
 ms.topic: conceptual
 ms.date: 07/2/2020
-ms.openlocfilehash: d19ec51aec7e71b6f040a03543f72af3aed09556
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 19499aceed96155fa42c78865b1d673a3830f5cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85875709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054213"
 ---
 # <a name="plan-your-qna-maker-app"></a>Pianificare l'app QnA Maker
 
-Per pianificare l'app QnA Maker è necessario comprendere il funzionamento di QnA Maker e interagire con altri servizi di Azure, oltre ad alcuni concetti della Knowledge base.
+Per pianificare l'app QnA Maker, è necessario comprendere come funziona QnA Maker e interagisce con altri servizi di Azure. È inoltre necessario disporre di una solida conoscenza dei concetti relativi alla Knowledge base.
 
 ## <a name="azure-resources"></a>Risorse di Azure
 
-Ogni [risorsa di Azure](azure-resources.md#resource-purposes) creata con QnA Maker ha uno scopo specifico. Poiché ogni risorsa ha i propri scopi, limiti e piano [tariffario](azure-resources.md#pricing-tier-considerations), è importante comprendere le operazioni eseguite da queste risorse come parte del processo di pianificazione.
+Ogni [risorsa di Azure](azure-resources.md#resource-purposes) creata con QnA Maker ha uno scopo specifico. Ogni risorsa ha i propri scopi, limiti e piano [tariffario](azure-resources.md#pricing-tier-considerations). È importante comprendere la funzione di queste risorse in modo che sia possibile utilizzare tali informazioni nel processo di pianificazione.
 
-|Risorsa|Scopo|
+| Resource | Scopo |
 |--|--|
-| Risorsa [QnA Maker](azure-resources.md#qna-maker-resource)|Creazione e stima di query|
-| Risorsa [ricerca cognitiva](azure-resources.md#cognitive-search-resource)|Archiviazione e ricerca di dati|
-| Risorsa del servizio [app e risorsa del servizio del piano app](azure-resources.md#app-service-and-app-service-plan)|Eseguire query sull'endpoint di stima|
-| Risorsa [Application Insights](azure-resources.md#application-insights)|Telemetria stima query|
+| Risorsa [QnA Maker](azure-resources.md#qna-maker-resource) | Creazione e stima di query |
+| Risorsa [ricerca cognitiva](azure-resources.md#cognitive-search-resource) | Archiviazione e ricerca di dati |
+| Risorsa del servizio [app e risorsa del servizio del piano app](azure-resources.md#app-service-and-app-service-plan) | Eseguire query sull'endpoint di stima |
+| Risorsa [Application Insights](azure-resources.md#application-insights) | Telemetria stima query |
 
 ### <a name="resource-planning"></a>Pianificazione delle risorse
 
-Durante l'apprendimento della creazione e della stima delle query, usando il livello gratuito, `F0` , di ogni risorsa funziona e fornirà l'esperienza di creazione e di stima delle query. Quando ci si sposta in uno scenario di produzione, in tempo reale, rivalutare la selezione della risorsa.
+Il livello gratuito, `F0` , di ogni risorsa funziona e può fornire l'esperienza di creazione e di stima delle query. È possibile utilizzare questo livello per apprendere la creazione e la stima delle query. Quando si passa a uno scenario di produzione o Live, rivalutare la selezione della risorsa.
 
 #### <a name="qna-maker-resource"></a>Risorsa QnA Maker
 
@@ -35,7 +35,7 @@ Una singola risorsa QnA Maker può ospitare più di una Knowledge base. Il numer
 
 #### <a name="knowledge-base-size-and-throughput"></a>Dimensioni e velocità effettiva della Knowledge base
 
-Quando si prevede di compilare un'app reale, pianificare le risorse per le dimensioni della Knowledge base e le richieste di stima delle query che si prevede.
+Quando si compila un'app reale, pianificare risorse sufficienti per le dimensioni della Knowledge base e per le richieste di stima delle query previste.
 
 Una dimensione della Knowledge base viene controllata da:
 * Limiti del piano tariffario per le [risorse ricerca cognitiva](../../../search/search-limits-quotas-capacity.md)
@@ -45,49 +45,49 @@ La richiesta di stima della query della Knowledge base è controllata dal piano 
 
 ### <a name="resource-sharing"></a>Condivisione delle risorse
 
-Se si dispone già di alcune di queste risorse in uso, è possibile valutare la possibilità di condividere le risorse. Sebbene sia [possibile condividere](azure-resources.md#share-services-with-qna-maker)alcune risorse, si tratta di uno scenario avanzato.
+Se si dispone già di alcune di queste risorse in uso, è possibile valutare la possibilità di condividere le risorse. Vedere quali risorse [possono essere condivise](azure-resources.md#share-services-with-qna-maker) con la consapevolezza che la condivisione delle risorse è uno scenario avanzato.
 
 Tutte le Knowledge base create nella stessa risorsa QnA Maker condividono lo stesso endpoint di stima della query di **test** .
 
-### <a name="understanding-impact-of-resource-selection"></a>Informazioni sull'effetto della selezione delle risorse
+### <a name="understand-the-impact-of-resource-selection"></a>Comprendere l'effetto della selezione delle risorse
 
 La selezione corretta delle risorse significa che la Knowledge base risponde correttamente alle stime delle query.
 
-Se la Knowledge base non funziona correttamente, il problema è in genere la gestione delle risorse non corretta.
+Se la Knowledge base non funziona correttamente, si tratta in genere di un problema di gestione delle risorse non corretta.
 
 La selezione di risorse non corretta richiede l'analisi per determinare quale [risorsa deve essere modificata](azure-resources.md#when-to-change-a-pricing-tier).
 
 ## <a name="knowledge-bases"></a>Knowledge base
 
-Una Knowledge base è collegata direttamente alla risorsa QnA Maker e include le coppie Question e Answer (QnA) utilizzate per rispondere alle richieste di stima delle query.
+Una Knowledge base è collegata direttamente alla risorsa QnA Maker. Include le coppie Question e Answer (QnA) utilizzate per rispondere alle richieste di stima delle query.
 
 ### <a name="language-considerations"></a>Considerazioni sul linguaggio
 
 La prima Knowledge base creata nella risorsa QnA Maker imposta la lingua per la risorsa. È possibile avere una sola lingua per una risorsa QnA Maker.
 
-Strutturare le risorse QnA Maker in base alla lingua o utilizzare [Translator](../../translator/translator-info-overview.md) per modificare una query da un'altra lingua nella lingua della Knowledge base prima di inviare la query all'endpoint di stima della query.
+È possibile strutturare le risorse QnA Maker in base alla lingua oppure è possibile utilizzare [Translator](../../translator/translator-info-overview.md) per modificare una query da un'altra lingua nella lingua della Knowledge base prima di inviare la query all'endpoint di stima della query.
 
-### <a name="ingesting-data-sources"></a>Inserimento di origini dati
+### <a name="ingest-data-sources"></a>Inserire origini dati
 
-Le [origini dati](knowledge-base.md)inserite, utilizzate per creare una Knowledge base, possono essere una delle seguenti:
+Per creare una Knowledge base, è possibile utilizzare una delle seguenti [origini dati](knowledge-base.md) inserite:
 
 * URL pubblico
 * URL di SharePoint privato
 * File
 
-Il processo di inserimento converte i [tipi di contenuto supportati](content-types.md) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato la Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Il processo di inserimento converte i [tipi di contenuto supportati](content-types.md) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato una Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considerazioni sul formato dei dati
 
-Poiché il formato finale di una coppia di QnA è Markdown, è importante comprendere il [supporto di Markdown](../reference-markdown-format.md) .
+Poiché il formato finale di una coppia di QnA è Markdown, è importante comprendere il [supporto di Markdown](../reference-markdown-format.md).
 
-Le immagini collegate devono essere disponibili da un URL pubblico per poter essere visualizzate nel riquadro di test del portale QnA Maker e in qualsiasi applicazione client perché QnA Maker non fornisce l'autenticazione per il contenuto, incluse le immagini.
+Le immagini collegate devono essere disponibili da un URL pubblico da visualizzare nel riquadro di test del portale QnA Maker o in un'applicazione client. QnA Maker non fornisce l'autenticazione per il contenuto, incluse le immagini.
 
 ### <a name="bot-personality"></a>Personalità bot
 
 Aggiungere una personalità bot alla Knowledge base con [Chit-Chat](../how-to/chit-chat-knowledge-base.md). Questa personalità si presenta con le risposte fornite in un certo tono colloquiale, ad esempio *Professional* e *friendly*. Questo Chit-Chat viene fornito come set di conversazioni, che è disponibile per il controllo totale da aggiungere, modificare e rimuovere.
 
-Una personalità bot è consigliata se il bot si connette alla Knowledge base. Se ci si connette a diversi servizi, uno dei quali è la Knowledge base, è possibile scegliere di continuare a usare Chit-Chat nella Knowledge base, ma è necessario rivedere il modo in cui il servizio bot interagisce per sapere se si tratta della progettazione dell'architettura corretta per l'utilizzo.
+Una personalità bot è consigliata se il bot si connette alla Knowledge base. È possibile scegliere di utilizzare Chit-Chat nella Knowledge base anche se si è connessi anche ad altri servizi, ma è necessario rivedere il modo in cui il servizio bot interagisce per sapere se si tratta della progettazione dell'architettura corretta per l'utilizzo.
 
 ### <a name="conversation-flow-with-a-knowledge-base"></a>Flusso di conversazioni con una Knowledge base
 
@@ -103,37 +103,37 @@ La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in
 
 ## <a name="integration-with-client-applications"></a>Integrazione con le applicazioni client
 
-L'integrazione con [le applicazioni client](integration-with-other-applications.md) significa inviare una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
+L'integrazione con [le applicazioni client](integration-with-other-applications.md) viene eseguita inviando una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
 
-Per autenticare correttamente una richiesta client, è necessario che l'applicazione client invii le credenziali corrette e l'ID Knowledge base. Se si usa un servizio Azure bot, configurare l'impostazione come parte della configurazione di bot nell'portale di Azure.
+Per autenticare correttamente una richiesta client, è necessario che l'applicazione client invii le credenziali corrette e l'ID Knowledge base. Se si usa un servizio Azure bot, configurare queste impostazioni come parte della configurazione di bot nel portale di Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Flusso di conversazione in un'applicazione client
 
 Il flusso di conversazione in un' [applicazione client](integration-with-other-applications.md), ad esempio un bot di Azure, potrebbe richiedere funzionalità prima e dopo l'interazione con la Knowledge base.
 
-Se l'applicazione client supporta il flusso di conversazioni, fornendo metodi alternativi per gestire i prompt di completamento o Chit-Chit, progettarli in anticipo e assicurarsi che la query che usa nell'applicazione client venga gestita correttamente, da un altro servizio o inviata alla Knowledge base.
+L'applicazione client supporta il flusso di conversazioni, fornendo metodi alternativi per gestire le richieste di completamento o includere Chit-Chit? In tal caso, progettare questi dati in anticipo e assicurarsi che la query dell'applicazione client venga gestita correttamente da un altro servizio o quando viene inviata alla Knowledge base.
 
-### <a name="dispatching-between-qna-maker-and-language-understanding-luis"></a>Invio tra QnA Maker e Language Understanding (LUIS)
+### <a name="dispatch-between-qna-maker-and-language-understanding-luis"></a>Invio tra QnA Maker e Language Understanding (LUIS)
 
-Un'applicazione client può fornire diverse funzionalità, una delle quali risponde a una Knowledge base. Altre funzionalità dovrebbero comunque comprendere il testo colloquiale ed estrarre il suo significato.
+Un'applicazione client può fornire diverse funzionalità, una delle quali risponde a una Knowledge base. Altre funzionalità devono ancora comprendere il testo colloquiale ed estrarre il significato.
 
-Un'architettura di applicazione client comune prevede l'uso combinato di QnA Maker e [Language Understanding (Luis)](../../LUIS/what-is-luis.md) . LUIS fornisce la classificazione e l'estrazione del testo per qualsiasi query, incluso ad altri servizi, mentre QnA Maker fornisce risposte dalla Knowledge base.
+Un'architettura di applicazione client comune prevede l'uso combinato di QnA Maker e [Language Understanding (Luis)](../../LUIS/what-is-luis.md) . LUIS fornisce la classificazione e l'estrazione del testo per qualsiasi query, incluso ad altri servizi. QnA Maker fornisce risposte dalla Knowledge base.
 
-In un' [architettura condivisa](../choose-natural-language-processing-service.md), l'invio tra i due servizi viene eseguito con lo strumento di [invio](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) di bot Framework.
+In uno scenario di [architettura condivisa](../choose-natural-language-processing-service.md) di questo tipo, l'invio tra i due servizi viene eseguito dallo strumento di [invio](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) di bot Framework.
 
 ### <a name="active-learning-from-a-client-application"></a>Apprendimento attivo da un'applicazione client
 
-QnA Maker utilizza l' _apprendimento attivo_ per migliorare la Knowledge base suggerendo domande alternative a una risposta. L'applicazione client è responsabile di una parte di questo [apprendimento attivo](active-learning-suggestions.md). L'applicazione client, tramite richieste di conversazione, è in grado di determinare che la risposta restituita dalla Knowledge base non è la risposta che l'utente stava cercando e determinare la risposta migliore. L'applicazione client deve restituire [tali informazioni alla Knowledge base](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) per migliorare la qualità della stima.
+QnA Maker utilizza l' _apprendimento attivo_ per migliorare la Knowledge base suggerendo domande alternative a una risposta. L'applicazione client è responsabile di una parte di questo [apprendimento attivo](active-learning-suggestions.md). Tramite le richieste di conversazione, l'applicazione client può determinare che la Knowledge base ha restituito una risposta non utile per l'utente e può determinare una risposta migliore. L'applicazione client deve restituire [tali informazioni alla Knowledge base](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) per migliorare la qualità della stima.
 
 ### <a name="providing-a-default-answer"></a>Fornire una risposta predefinita
 
-Se la Knowledge base non trova una risposta, viene restituita la _risposta predefinita_. Questa risposta è configurabile dal portale di QnA Maker, nella pagina **Impostazioni** o nelle [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Se la Knowledge base non trova una risposta, viene restituita la _risposta predefinita_. Questa risposta può essere configurata nella pagina **Impostazioni** del portale QnA Maker o nelle [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
-Questa risposta predefinita è diversa da quella predefinita di Azure bot. La risposta predefinita di Azure bot è configurata nel portale di Azure, per il bot, come parte delle impostazioni di configurazione e viene restituita quando la soglia del punteggio non viene soddisfatta.
+Questa risposta predefinita è diversa da quella predefinita di Azure bot. Configurare la risposta predefinita per il bot di Azure nel portale di Azure come parte delle impostazioni di configurazione. Viene restituito quando la soglia del punteggio non viene soddisfatta.
 
-## <a name="prediction"></a>Previsione
+## <a name="prediction"></a>Stima
 
-La stima è la risposta della Knowledge base che include più informazioni rispetto alla semplice risposta. Per ottenere una risposta di stima della query, usare l' [API GeneateAnswer](query-knowledge-base.md).
+La stima è la risposta della Knowledge base e include altre informazioni rispetto alla semplice risposta. Per ottenere una risposta di stima della query, usare l' [API GenerateAnswer](query-knowledge-base.md).
 
 ### <a name="prediction-score-fluctuations"></a>Fluttuazioni del Punteggio di stima
 
@@ -144,13 +144,13 @@ Un punteggio può variare in base a diversi fattori:
 * Filtro per i metadati
 * Query inviata a `test` o `production` Knowledge base
 
-È previsto un [rango di risposta in due fasi](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
-* Ricerca cognitiva: primo rango: affinché una risposta venga restituita da ricerca cognitiva, il numero di _risposte consentite_ deve essere sufficientemente elevato da garantire che le risposte migliori vengano restituite da ricerca cognitiva in modo che possano passare al ranker QnA Maker
-* QnA Maker-Second Rank: applicare conteggi e machine learning per determinare la risposta migliore.
+È disponibile un [rango di risposta in due fasi](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
+- Ricerca cognitiva-primo rango. Impostare il numero di _risposte consentite_ in modo sufficientemente elevato da restituire le risposte migliori dal ricerca cognitiva e quindi passare al QnA Maker Ranker.
+- QnA Maker al secondo rango. Applicare conteggi e machine learning per determinare la risposta migliore.
 
 ### <a name="service-updates"></a>Aggiornamenti del servizio
 
-Gli aggiornamenti dei servizi vengono gestiti automaticamente applicando gli [aggiornamenti più recenti del runtime](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Applicare gli [aggiornamenti del runtime più recenti](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) per gestire automaticamente gli aggiornamenti del servizio.
 
 ### <a name="scaling-throughput-and-resiliency"></a>Scalabilità, velocità effettiva e resilienza
 
@@ -169,9 +169,9 @@ Il [ciclo](development-lifecycle-knowledge-base.md) di vita di sviluppo di una K
 Le [coppie di QnA](question-answer-set.md) devono essere progettate e sviluppate in base all'utilizzo dell'applicazione client.
 
 Ogni coppia può contenere:
-* Filtraggio dei metadati durante l'esecuzione di query. Questo consente di contrassegnare le coppie QnA con informazioni aggiuntive sull'origine, il contenuto, il formato e lo scopo dei dati.
-* Richieste di completamento: determinare un percorso attraverso la Knowledge base in modo che l'utente arrivi alla risposta corretta.
-* Domande alternative: le domande alternative sono importanti per consentire alla ricerca di trovare una corrispondenza con la risposta da diverse forme della domanda. I suggerimenti per l' [apprendimento attivo](active-learning-suggestions.md) diventano domande alternative.
+* Filtraggio dei metadati durante l'esecuzione di query per consentire di contrassegnare le coppie QnA con informazioni aggiuntive sull'origine, il contenuto, il formato e lo scopo dei dati.
+* Prompt di completamento: consente di determinare un percorso attraverso la Knowledge base, in modo che l'utente arrivi alla risposta corretta.
+* Domande alternative: importante per consentire alla ricerca di trovare la corrispondenza con la risposta da diverse forme della domanda. I suggerimenti per l' [apprendimento attivo](active-learning-suggestions.md) diventano domande alternative.
 
 ### <a name="devops-development"></a>Sviluppo DevOps
 
@@ -179,9 +179,9 @@ Per lo sviluppo di una Knowledge base da inserire in una pipeline DevOps è nece
 
 Una Knowledge base condivide l'indice ricerca cognitiva con tutte le altre Knowledge base nella risorsa QnA Maker. Mentre la Knowledge base è isolata dalla partizione, la condivisione dell'indice può causare una differenza nel punteggio rispetto alla Knowledge base pubblicata.
 
-Per ottenere lo _stesso punteggio_ sulle `test` `production` Knowledge base e, isolare una risorsa QnA Maker a una singola Knowledge base. In questa architettura, la risorsa deve essere attiva solo fino alla lunghezza del test batch isolato.
+Per avere lo _stesso punteggio_ sulle `test` `production` Knowledge base e, isolare una risorsa QnA Maker a una singola Knowledge base. In questa architettura, la risorsa deve solo vivere finché il test batch isolato.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Risorse di Azure](../how-to/set-up-qnamaker-service-azure.md)
 * [Coppie di domande e risposte](question-answer-set.md)

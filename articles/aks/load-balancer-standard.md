@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056799"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>Creare il cluster con un indirizzo IP pubblico o prefissi
 
-Per supportare scenari come l'elenco di elementi consentiti degli endpoint in uscita, è possibile importare indirizzi IP o prefissi degli indirizzi IP in uscita al momento della creazione del cluster. Aggiungere gli stessi parametri illustrati in precedenza al passaggio di creazione del cluster per definire gli indirizzi IP pubblici e i prefissi degli indirizzi IP all'inizio del ciclo di vita di un cluster.
+Per supportare scenari come l'aggiunta di endpoint in uscita a un elenco consentiti, è possibile che si vogliano importare indirizzi IP o prefissi IP per l'uscita al momento della creazione del cluster. Aggiungere gli stessi parametri illustrati in precedenza al passaggio di creazione del cluster per definire gli indirizzi IP pubblici e i prefissi degli indirizzi IP all'inizio del ciclo di vita di un cluster.
 
 Per creare un nuovo cluster con gli indirizzi IP pubblici all'inizio, usare il comando *az aks create* con il parametro *load-balancer-outbound-ips*.
 
@@ -229,7 +229,7 @@ Per superare in modo sicuro oltre 100 nodi, è necessario aggiungere altri indir
 > [!IMPORTANT]
 > È necessario [calcolare la quota necessaria e verificare i requisiti][requirements] prima di personalizzare *allocatedOutboundPorts* per evitare problemi di connettività o di ridimensionamento.
 
-È anche possibile usare i **`load-balancer-outbound-ports`** parametri durante la creazione di un cluster, ma è anche necessario specificare **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  ad esempio:
+È anche possibile usare i **`load-balancer-outbound-ports`** parametri durante la creazione di un cluster, ma è anche necessario specificare **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  Ad esempio:
 
 ```azurecli-interactive
 az aks create \
@@ -291,6 +291,24 @@ spec:
     app: azure-vote-front
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
+```
+
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Mantenere l'indirizzo IP del client per le connessioni in ingresso
+
+Per impostazione predefinita, un servizio di tipo `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) e in AKS non rende permanente l'indirizzo IP del client nella connessione al Pod. L'IP di origine nel pacchetto che viene recapitato al Pod sarà l'indirizzo IP privato del nodo. Per mantenere l'indirizzo IP del client, è necessario impostare `service.spec.externalTrafficPolicy` su `local` nella definizione del servizio. Il manifesto seguente mostra un esempio:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
 ```
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Personalizzazioni aggiuntive tramite annotazioni Kubernetes

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059842"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Connettere la macchina virtuale Qualys ad Azure Sentinel con la funzione di Azure
+
+> [!IMPORTANT]
+> Il connettore dati della VM Qualys in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il connettore di gestione della vulnerabilità Qualys consente di connettere facilmente tutti i log della soluzione di sicurezza della [VM Qualys](https://www.qualys.com/apps/vulnerability-management/) con Azure Sentinel, visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. L'integrazione tra la macchina virtuale Qualys e Azure Sentinel usa funzioni di Azure per eseguire il pull dei dati di log tramite l'API REST.
 

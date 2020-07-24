@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 45fb1f8844067cb34b415c3897db3b1233ab5c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124487"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057563"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -16,7 +16,7 @@ I suggerimenti sulle prestazioni in Azure Advisor consentono di migliorare la ve
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Ridurre la durata (TTL) DNS nel profilo di gestione traffico per eseguire il failover a endpoint integri più velocemente
 
-È possibile usare [le impostazioni TTL (time-to-Live)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) nel profilo di gestione traffico di Azure per specificare la velocità con cui cambiare gli endpoint se un determinato endpoint smette di rispondere alle query. Se si riducono i valori TTL, i client verranno indirizzati a endpoint operativi più velocemente.
+È possibile usare [le impostazioni TTL (time-to-Live)](../traffic-manager/traffic-manager-performance-considerations.md) nel profilo di gestione traffico di Azure per specificare la velocità con cui cambiare gli endpoint se un determinato endpoint smette di rispondere alle query. Se si riducono i valori TTL, i client verranno indirizzati a endpoint operativi più velocemente.
 
 Azure Advisor identifica i profili di gestione traffico con un valore TTL più lungo configurato. Si consiglia di configurare la durata (TTL) su 20 secondi o 60 secondi, a seconda che il profilo sia configurato per [failover rapido](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
@@ -27,7 +27,7 @@ Azure Advisor offre una vista coerente e consolidata delle raccomandazioni per t
 > [!NOTE]
 > Prima di poter ottenere consigli, è necessario che il database sia in uso per circa una settimana e che, entro tale settimana, sia necessaria un'attività coerente. Advisor per database SQL può essere più facilmente ottimizzato per modelli di query coerenti anziché picchi irregolari casuali di attività.
 
-Per ulteriori informazioni, vedere [SQL Advisor per database](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Per ulteriori informazioni, vedere [SQL Advisor per database](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
 
 ## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Aggiornare la libreria client di archiviazione alla versione più recente per migliorare l'affidabilità e le prestazioni
 
@@ -39,7 +39,7 @@ Azure Advisor integra i consigli per migliorare l'esperienza del servizio app e 
 * Rilevamento delle istanze in cui le risorse di memoria o CPU sono esaurite dai runtime delle app, con opzioni di mitigazione.
 * Rilevamento delle istanze in cui la condivisione percorso risorse come app Web e database può migliorare le prestazioni e ridurre i costi.
 
-Per ulteriori informazioni, vedere [procedure consigliate per il servizio app Azure](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+Per ulteriori informazioni, vedere [procedure consigliate per il servizio app Azure](../app-service/app-service-best-practices.md).
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Usare Managed disks per evitare la limitazione di I/O del disco
 
@@ -53,11 +53,11 @@ Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a
 
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Rimuovere l'asimmetria dei dati nelle tabelle SQL Data Warehouse per aumentare le prestazioni delle query
 
-L'asimmetria dei dati può causare lo spostamento dei dati o i colli di bottiglia delle risorse non necessari quando si esegue il carico di lavoro Advisor rileva l'asimmetria dei dati di distribuzione superiore al 15%. È consigliabile ridistribuire i dati e rivedere le selezioni della chiave di distribuzione della tabella. Per altre informazioni sull'identificazione e la rimozione dell'asimmetria, vedere [risoluzione dei problemi di asimmetria](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+L'asimmetria dei dati può causare lo spostamento dei dati o i colli di bottiglia delle risorse non necessari quando si esegue il carico di lavoro Advisor rileva l'asimmetria dei dati di distribuzione superiore al 15%. È consigliabile ridistribuire i dati e rivedere le selezioni della chiave di distribuzione della tabella. Per altre informazioni sull'identificazione e la rimozione dell'asimmetria, vedere [risoluzione dei problemi di asimmetria](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
 ## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Creare o aggiornare le statistiche delle tabelle obsolete nelle tabelle di SQL Data Warehouse per aumentare le prestazioni delle query
 
-Advisor identifica le tabelle che non dispongono di [statistiche di tabella](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) aggiornate e consiglia di creare o aggiornare le statistiche. Il Query Optimizer in Azure SQL Data Warehouse usa le statistiche aggiornate per stimare la cardinalità o il numero di righe nei risultati della query. Queste stime consentono al Query Optimizer di creare un piano di query per offrire le prestazioni più rapide.
+Advisor identifica le tabelle che non dispongono di [statistiche di tabella](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) aggiornate e consiglia di creare o aggiornare le statistiche. Il Query Optimizer in Azure SQL Data Warehouse usa le statistiche aggiornate per stimare la cardinalità o il numero di righe nei risultati della query. Queste stime consentono al Query Optimizer di creare un piano di query per offrire le prestazioni più rapide.
 
 ## <a name="improve-mysql-connection-management"></a>Migliorare la gestione delle connessioni a MySQL
 
@@ -76,7 +76,7 @@ Advisor identifica le tabelle che non sono tabelle replicate, ma che potrebbero 
 - Tipo di distribuzione della tabella. 
 - Numero di partizioni nella tabella SQL Data Warehouse. 
 
-È possibile che venga fornita un'euristica aggiuntiva nell'indicazione del contesto. Per altre informazioni su come viene determinata questa raccomandazione, vedere [SQL data warehouse raccomandazioni](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+È possibile che venga fornita un'euristica aggiuntiva nell'indicazione del contesto. Per altre informazioni su come viene determinata questa raccomandazione, vedere [SQL data warehouse raccomandazioni](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Eseguire la migrazione dell'account di archiviazione a Azure Resource Manager per ottenere le funzionalità più recenti di Azure
 
@@ -88,7 +88,7 @@ Eseguire la migrazione del modello di distribuzione dell'account di archiviazion
 Advisor identifica gli account di archiviazione autonomi che usano il modello di distribuzione classica e consiglia di eseguire la migrazione al modello di distribuzione Gestione risorse.
 
 > [!NOTE]
-> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per ulteriori informazioni, vedere il [ritiro di avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per ulteriori informazioni, vedere il [ritiro di avvisi classici](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
 
@@ -120,17 +120,17 @@ Advisor rileva le versioni non supportate di Kubernetes.
 Un utilizzo elevato della CPU in un periodo prolungato può causare un rallentamento delle prestazioni delle query per il carico di lavoro. L'aumento delle dimensioni della CPU consente di ottimizzare la fase di esecuzione delle query del database e migliorare le prestazioni complessive. Advisor identifica i server con un utilizzo elevato della CPU che probabilmente esegue carichi di lavoro vincolati alla CPU e consiglia la scalabilità del calcolo.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Ridurre i vincoli di memoria nel database di Azure per MySQL, database di Azure per PostgreSQL e database di Azure per i server MariaDB oppure passare a uno SKU con ottimizzazione per la memoria
-Una percentuale di riscontri nella cache ridotta può comportare un rallentamento delle prestazioni delle query e maggiore IOPS. Questa condizione potrebbe essere causata da un piano di query non valido o da un carico di lavoro con utilizzo intensivo della memoria. Correggendo il piano di query o [aumentando la memoria](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) di database di Azure per PostgreSQL, database di Azure per MySQL o database di Azure per il server MariaDB, è possibile ottimizzare l'esecuzione del carico di lavoro del database. Azure Advisor identifica i server interessati da questa varianza del pool di buffer elevata. Si consiglia di eseguire una di queste operazioni: 
+Una percentuale di riscontri nella cache ridotta può comportare un rallentamento delle prestazioni delle query e maggiore IOPS. Questa condizione potrebbe essere causata da un piano di query non valido o da un carico di lavoro con utilizzo intensivo della memoria. Correggendo il piano di query o [aumentando la memoria](../postgresql/concepts-pricing-tiers.md) di database di Azure per PostgreSQL, database di Azure per MySQL o database di Azure per il server MariaDB, è possibile ottimizzare l'esecuzione del carico di lavoro del database. Azure Advisor identifica i server interessati da questa varianza del pool di buffer elevata. Si consiglia di eseguire una di queste operazioni: 
 - Correzione del piano di query
 - Passare a uno SKU con una maggiore quantità di memoria 
 - Aumentare le dimensioni di archiviazione per ottenere un numero maggiore di IOPS.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Usare una replica di lettura di database di Azure per MySQL o database di Azure per PostgreSQL per la scalabilità orizzontale delle letture per carichi di lavoro a elevato utilizzo di lettura
-Advisor usa l'euristica basata sul carico di lavoro, ad esempio il rapporto tra le letture e le scritture nel server negli ultimi sette giorni per identificare i carichi di lavoro a elevato utilizzo di lettura. Una risorsa database di Azure per PostgreSQL o database di Azure per MySQL con un rapporto di lettura/scrittura elevato può comportare conflitti di CPU o di memoria e causare un rallentamento delle prestazioni delle query. L'aggiunta di una [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) consente di scalare in orizzontale le letture nel server di replica e di evitare vincoli di CPU o di memoria nel server primario. Advisor identifica i server con carichi di lavoro a elevato utilizzo di lettura e consiglia di aggiungere una [replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)   di lettura per l'offload di alcuni carichi di lavoro di lettura.
+Advisor usa l'euristica basata sul carico di lavoro, ad esempio il rapporto tra le letture e le scritture nel server negli ultimi sette giorni per identificare i carichi di lavoro a elevato utilizzo di lettura. Una risorsa database di Azure per PostgreSQL o database di Azure per MySQL con un rapporto di lettura/scrittura elevato può comportare conflitti di CPU o di memoria e causare un rallentamento delle prestazioni delle query. L'aggiunta di una [replica](../postgresql/howto-read-replicas-portal.md) consente di scalare in orizzontale le letture nel server di replica e di evitare vincoli di CPU o di memoria nel server primario. Advisor identifica i server con carichi di lavoro a elevato utilizzo di lettura e consiglia di aggiungere una [replica](../postgresql/concepts-read-replicas.md)   di lettura per l'offload di alcuni carichi di lavoro di lettura.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Ridimensionare il database di Azure per MySQL, database di Azure per PostgreSQL o database di Azure per il server MariaDB in uno SKU superiore per evitare vincoli di connessione
-Ogni nuova connessione al server di database occupa la memoria. Le prestazioni del server di database peggiorano se le connessioni al server hanno esito negativo a causa di un [limite massimo](https://docs.microsoft.com/azure/postgresql/concepts-limits) di memoria. Azure Advisor identifica i server che eseguono con molti errori di connessione. Si consiglia di aggiornare i limiti di connessione del server per fornire una maggiore quantità di memoria al server eseguendo una delle operazioni seguenti:
+Ogni nuova connessione al server di database occupa la memoria. Le prestazioni del server di database peggiorano se le connessioni al server hanno esito negativo a causa di un [limite massimo](../postgresql/concepts-limits.md) di memoria. Azure Advisor identifica i server che eseguono con molti errori di connessione. Si consiglia di aggiornare i limiti di connessione del server per fornire una maggiore quantità di memoria al server eseguendo una delle operazioni seguenti:
 - Aumentare il livello di calcolo. 
 - Usare SKU con ottimizzazione per la memoria, che hanno più risorse di calcolo per core.
 
@@ -168,4 +168,4 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
 * [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

@@ -2,13 +2,13 @@
 title: Modificare una knowledge base - QnA Maker
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054025"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -54,7 +54,7 @@ La modifica di testo in formato RTF del testo di risposta offre lo stile Markdow
     > [!div class="mx-imgBorder"]
     > ![Utilizzare l'editor di testo RTF per scrivere e formattare il testo e salvarlo come Markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
 
-    |Funzionalità dell'editor RTF|Tasti di scelta rapida|
+    |Funzionalità dell'editor RTF|Tasto di scelta rapida|
     |--|--|
     |Consente di passare da un editor di testo RTF a un Markdown e viceversa. `</>`|CTRL+M|
     |Grassetto. **B**|CTR + LB|
@@ -111,6 +111,10 @@ Non è possibile collegare coppie QnA nei metadati della risposta.
 ## <a name="add-metadata"></a>Aggiungere metadati
 
 Aggiungere le coppie di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando **Mostra metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il **+** segno per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
+
+Altre informazioni sui metadati sono disponibili nella Guida introduttiva del portale QnA Maker per i metadati:
+* [Creazione e modifica-aggiungere metadati alla coppia QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Query PREDICTION-Filtra risposte per metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salva le modifiche apportate alle coppie QnA
 

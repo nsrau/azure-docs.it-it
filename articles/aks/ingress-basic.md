@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso di base NGINX in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: bb7ac1d76e93a95fedc1dfdbfd67d2b057db60e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: d96118e8f9de37432874a9864fc5c35faeb95a5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057220"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso del servizio Azure Kubernetes
 
@@ -163,10 +163,10 @@ Entrambe le applicazioni sono in esecuzione nel cluster Kubernetes. Per instrada
 
 Nell'esempio seguente il traffico verso *EXTERNAL_IP* viene indirizzato al servizio denominato `aks-helloworld-one` . Il traffico verso *EXTERNAL_IP/Hello-World-Two* viene indirizzato al `aks-helloworld-two` servizio. Il traffico verso *EXTERNAL_IP/routing statico* viene indirizzato al servizio denominato `aks-helloworld-one` per gli asset statici.
 
-Creare un file denominato `hello-world-ingress.yaml` e copiarlo nell'esempio YAML seguente.
+Creare un file denominato *Hello-World-ingress. YAML* e copiarlo nel seguente esempio YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -188,7 +188,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -226,7 +226,7 @@ Aggiungere ora il percorso */Hello-World-Two* all'indirizzo IP, ad esempio *EXTE
 
 ![Seconda app in esecuzione dietro al controller di ingresso](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Questo articolo ha usato Helm per installare i componenti di ingresso e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 

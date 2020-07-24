@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi di installazione
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054646"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -76,6 +76,12 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 | ---     | ---     | ---    |
 | <br /><ul><li>L'agente del servizio di ripristino Microsoft Azure non è riuscito a connettersi al Backup di Microsoft Azure. (ID: 100050) Controllare le impostazioni di rete e assicurarsi di essere in grado di connettersi a Internet.<li>(407) Necessaria autenticazione proxy. |Un proxy blocca la connessione. |  <ul><li>In Internet Explorer passare a **strumenti**  >  **Opzioni Internet**  >  **sicurezza**  >  **Internet**. Selezionare **livello personalizzato** e scorrere verso il basso fino alla sezione **download del file** . Selezionare **Abilita**.<p>Potrebbe inoltre essere necessario aggiungere [URL e indirizzi IP](install-mars-agent.md#verify-internet-access) ai siti attendibili in Internet Explorer.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<li> Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano questi [URL e indirizzi IP](install-mars-agent.md#verify-internet-access). <li>Se nel server è installato un software antivirus, escludere questi file dall'analisi antivirus: <ul><li>CBengine.exe (anziché dpmra.exe).<li>CSC.exe (correlato a .NET Framework). È presente un CSC.exe per ogni versione di .NET Framework installata nel server. Escludere CSC.exe file per tutte le versioni di .NET Framework nel server interessato. <li>Percorso della cartella scratch o della cache. <br>Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch.<li>La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Non è possibile usare il file di credenziali dell'insieme di credenziali specificato perché non è stato scaricato dall'insieme di credenziali associato a questo server
+
+| Errore  | Possibile causa | Azioni consigliate |
+| ---     | ---     | ---    |
+| Non è possibile usare il file di credenziali dell'insieme di credenziali specificato perché non viene scaricato dall'insieme di credenziali associato a questo server. (ID: 100110) Fornire le credenziali appropriate per l'insieme di credenziali. | Il file delle credenziali dell'insieme di credenziali si trova in un insieme di credenziali diverso da quello in cui questo server è già registrato. | Assicurarsi che il computer di destinazione e il computer di origine siano registrati nello stesso insieme di credenziali dei servizi di ripristino. Se il server di destinazione è già stato registrato in un insieme di credenziali diverso, usare l'opzione **Registra server** per eseguire la registrazione nell'insieme di credenziali corretto.  
+
 ## <a name="backup-jobs-completed-with-warning"></a>Processi di backup completati con avviso
 
 - Quando l'agente MARS esegue l'iterazione su file e cartelle durante il backup, potrebbero verificarsi varie condizioni che possono causare la contrassegnazione del backup come completato con avvisi. In queste condizioni, un processo viene visualizzato come completato con avvisi. Questo è un problema, ma significa che non è stato possibile eseguire il backup di almeno un file. Quindi, il processo ha ignorato il file, ma è stato eseguito il backup di tutti gli altri file in questione nell'origine dati.
@@ -91,7 +97,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 - Il servizio di backup contrassegnerà questi file come non riusciti nel file di log, con la convenzione di denominazione seguente: *LastBackupFailedFilesxxxx.txt* nella cartella *C:\Programmi\Microsoft Azure Recovery Service Agent\temp*
 - Per risolvere il problema, esaminare il file di log per comprendere la natura del problema:
 
-  | Codice di errore             | Motivi                                             | Consigli                                              |
+  | Codice di errore             | Motivi                                             | Indicazioni                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | Il file o la directory è danneggiato e illeggibile. | Eseguire **chkdsk** nel volume di origine.                             |
   | 0x80070002, 0 x 80070003 | Il sistema non è in grado di trovare il file specificato.         | [Verificare che la cartella Scratch non sia piena](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)  <br><br>  Controllare se esiste un volume in cui è configurato lo spazio scratch (non eliminato)  <br><br>   [Assicurarsi che l'agente MARS sia escluso dall'antivirus installato nel computer](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |

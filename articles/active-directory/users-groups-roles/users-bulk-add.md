@@ -13,11 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057886"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creare utenti in blocco in Azure Active Directory
 
@@ -47,6 +48,7 @@ Un modello CSV scaricato contiene le righe descritte di seguito:
 - Le colonne obbligatorie sono riportate per prime.
 - Non è consigliabile aggiungere nuove colonne al modello. Eventuali colonne aggiuntive aggiunte saranno ignorate e non verranno elaborate.
 - È consigliabile scaricare la versione più recente del modello CSV il più spesso possibile.
+- Assicurarsi di controllare che non sia presente uno spazio vuoto non previsto prima/dopo qualsiasi campo. Per il **nome dell'entità utente**, con tale spazio vuoto si verificherà un errore di importazione.
 
 ## <a name="to-create-users-in-bulk"></a>Per creare utenti in blocco
 

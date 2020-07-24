@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8da2355b62d7be36b10ac9a1ce4b53e87b4b288
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059219"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gestire i dati di riferimento in disponibilità generale per un ambiente Azure Time Series Insights con C#
+# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c"></a>Gestire i dati di riferimento per un ambiente Azure Time Series Insights generazione 1 con C #
 
-Questo articolo illustra come combinare C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) e Azure Active Directory per eseguire richieste API a livello di codice all'[API di gestione dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) in disponibilità generale di Azure Time Series Insights.
+Questo articolo illustra come combinare C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory per eseguire richieste API a livello di codice al riferimento Azure Time Series Insights generazione 1 [Gestione dati API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
 > [!TIP]
 > Vedere gli esempi di codice C# in disponibilità generale in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
@@ -30,7 +30,7 @@ Questo articolo illustra come combinare C#, [MSAL.NET](https://github.com/AzureA
 Il codice di esempio seguente illustra le funzionalità seguenti:
 
 * Acquisizione di un token di accesso con [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Operazioni CREATE, READ, UPDATE e DELETE sequenziali nell'[API di gestione dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) in disponibilità generale.
+* Operazioni di creazione, lettura, aggiornamento ed eliminazione sequenziali sul riferimento di generazione 1 [Gestione dati API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 * Codici di risposta comuni che includono [codici di errore comuni](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
     
     L'API di gestione dati di riferimento elabora ogni elemento singolarmente e un errore con un elemento non impedisce il completamento corretto degli altri. Se, ad esempio, la richiesta contiene 100 elementi e un elemento contiene un errore, verranno scritti 99 elementi e ne verrà rifiutato uno.
@@ -39,8 +39,8 @@ Il codice di esempio seguente illustra le funzionalità seguenti:
 
 Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
 
-1. [Effettuare il provisioning di un ambiente Azure Time Series Insights in disponibilità generale](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-).
+1. Effettuare [il provisioning di un ambiente Azure Time Series Insights di generazione 1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+)
 
 1. [Creare un set di dati di riferimento](time-series-insights-add-reference-data-set.md) nell'ambiente. Usare lo schema dei dati di riferimento seguente:
 
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere la documentazione di riferimento per l'[API di gestione dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) in disponibilità generale.
+- Leggere la documentazione di riferimento per l' [API Gestione dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) di generazione 1.

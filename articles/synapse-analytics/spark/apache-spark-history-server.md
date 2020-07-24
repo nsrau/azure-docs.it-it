@@ -1,5 +1,5 @@
 ---
-title: Usare il server di cronologia Spark esteso per eseguire il debug di app-Apache Spark in sinapsi di Azure
+title: Usare il server di cronologia Spark esteso per eseguire il debug delle app
 description: Usare il server di cronologia Spark esteso per eseguire il debug e la diagnosi delle applicazioni Spark in Azure sinapsi Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059978"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
 
@@ -120,13 +120,13 @@ Il nodo Graph Mostra i colori visualizzati nella legenda mappa termica.
 
 Per riprodurre il processo, selezionare **riproduzione**. È possibile selezionare **Arresta** in qualsiasi momento per arrestare. I colori delle attività mostrano stati diversi durante la riproduzione:
 
-|Colore|Significato|
+|Color|Significato|
 |-|-|
 |Green|Succeeded: il processo è stato completato correttamente.|
 |Orange|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
-|Blu|Running: l'attività è in esecuzione.|
-|bianco|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
-|Rosso|Non riuscito: l'attività non è riuscita.|
+|Blue|Running: l'attività è in esecuzione.|
+|Bianca|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
+|Red|Non riuscito: l'attività non è riuscita.|
 
 La figura seguente mostra i colori di stato verde, arancione e blu.
 
@@ -182,7 +182,7 @@ Nel nodo del grafico del processo vengono visualizzate le informazioni seguenti 
     >  
     > Le dimensioni dei dati di lettura e scrittura sono pari a 1 MB = 1000 KB = 1000 * 1000 byte.
 
-### <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+### <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 
 Inviare commenti e suggerimenti con problemi selezionando Invia **commenti e suggerimenti**.
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare l'appartenenza a un gruppo Azure Active Directory per limitare l'accesso alle risorse del cluster usando il controllo degli accessi in base al ruolo (RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: bb48e4f72506a69969cae39810640d23d771bde3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/21/2020
+ms.openlocfilehash: 646b1b5fb5079f0b959aaa2337c1dbab09ff4134
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106085"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057339"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controllare l'accesso alle risorse cluster usando il controllo degli accessi in base al ruolo e le identità del Azure Active Directory nel servizio Azure Kubernetes
 
@@ -137,7 +137,7 @@ Creare un file denominato `role-dev-namespace.yaml` e incollare il manifesto YAM
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-full-access
   namespace: dev
@@ -168,7 +168,7 @@ A questo punto, creare un oggetto Role per il gruppo *AppDev* per usare il ruolo
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-access
   namespace: dev
@@ -202,7 +202,7 @@ Creare un file denominato `role-sre-namespace.yaml` e incollare il manifesto YAM
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-full-access
   namespace: sre
@@ -233,7 +233,7 @@ Creare un oggetto Role per il gruppo *opssre* per usare il ruolo creato in prece
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-access
   namespace: sre
@@ -266,13 +266,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Pianificare un pod NGINX di base usando il comando [kubectl Run][kubectl-run] nello spazio dei nomi *dev* :
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+kubectl run nginx-dev --image=nginx --namespace dev
 ```
 
 Al prompt di accesso immettere le credenziali per il proprio `appdev@contoso.com` account creato all'inizio dell'articolo. Una volta eseguito l'accesso, il token dell'account viene memorizzato nella cache per i `kubectl` comandi successivi. La pianificazione di NGINX è stata completata, come illustrato nell'output di esempio seguente:
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+$ kubectl run nginx-dev --image=nginx --namespace dev
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B24ZD6FP8 to authenticate.
 
@@ -313,7 +313,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 Allo stesso modo, provare a pianificare un pod in uno spazio dei nomi diverso, ad esempio lo spazio dei nomi *SRE* . L'appartenenza al gruppo dell'utente non è allineata a un ruolo Kubernetes e a un ruolo per concedere queste autorizzazioni, come illustrato nell'output di esempio seguente:
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
+$ kubectl run nginx-dev --image=nginx --namespace sre
 
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot create resource "pods" in API group "" in the namespace "sre"
 ```
@@ -331,14 +331,14 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Provare a pianificare e visualizzare i pod nello spazio dei nomi *SRE* assegnato. Quando richiesto, accedere con le proprie `opssre@contoso.com` credenziali create all'inizio dell'articolo:
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+kubectl run nginx-sre --image=nginx --namespace sre
 kubectl get pods --namespace sre
 ```
 
 Come illustrato nell'output di esempio seguente, è possibile creare e visualizzare i pod correttamente:
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+$ kubectl run nginx-sre --image=nginx --namespace sre
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BM4RHP3FD to authenticate.
 
@@ -354,7 +354,7 @@ A questo punto, provare a visualizzare o pianificare i pod al di fuori dello spa
 
 ```console
 kubectl get pods --all-namespaces
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+kubectl run nginx-sre --image=nginx --namespace dev
 ```
 
 Questi `kubectl` comandi hanno esito negativo, come illustrato nell'output di esempio seguente. L'appartenenza a gruppi dell'utente e il ruolo Kubernetes e RoleBindings non concedono le autorizzazioni per la creazione o la gestione delle risorse in altri spazi dei nomi:
@@ -363,11 +363,11 @@ Questi `kubectl` comandi hanno esito negativo, come illustrato nell'output di es
 $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot list pods at the cluster scope
 
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+$ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 In questo articolo sono state create risorse nel cluster AKS e utenti e gruppi in Azure AD. Per pulire tutte le risorse, eseguire i comandi seguenti:
 

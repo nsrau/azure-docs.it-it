@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058619"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -76,7 +76,7 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
 > [!NOTE]
 >Il nome `displayName` non può contenere spazi.
 
-È possibile definire i ruoli dell'app nei confronti di `users`, `applications` o di entrambi. Se disponibili per le `applications`, i ruoli dell'app vengono visualizzati come autorizzazioni dell'applicazione nel pannello **Autorizzazioni necessarie**. L'esempio seguente mostra un ruolo dell'app destinato a un'`Application`.
+È possibile definire i ruoli dell'app nei confronti di `users`, `applications` o di entrambi. Se disponibile per `applications` , i ruoli dell'app vengono visualizzati come autorizzazioni dell'applicazione nella sezione **gestisci** > **le autorizzazioni API > aggiungere un'autorizzazione > API personali > scegliere un'API > le autorizzazioni dell'applicazione**. L'esempio seguente mostra un ruolo dell'app destinato a un'`Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Dopo aver aggiunto i ruoli dell'app nell'applicazione, è possibile assegnarli a
 1. Scegliere un ruolo e premere il pulsante **Seleziona**.
 1. Premere il pulsante **Assegna** nella parte inferiore della pagina per completare le assegnazioni di utenti e gruppi all'app.
 1. Verificare che gli utenti e i gruppi aggiunti siano presenti nell'elenco **Utenti e gruppi** aggiornato.
+
+### <a name="receive-roles-in-tokens"></a>Ricevere i ruoli nei token
+
+Quando gli utenti assegnati ai vari ruoli dell'app possono accedere all'applicazione, i relativi token avranno i rispettivi ruoli assegnati nell' `roles` attestazione.
 
 ## <a name="more-information"></a>Ulteriori informazioni
 

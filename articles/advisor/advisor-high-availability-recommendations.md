@@ -3,12 +3,12 @@ title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057667"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
@@ -59,7 +59,7 @@ Se un profilo di gestione traffico è configurato per il routing geografico, il 
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Usare l'eliminazione temporanea nell'account di archiviazione di Azure per salvare e ripristinare i dati dopo l'eliminazione o la sovrascrittura accidentale
 
-Abilitare l'[eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) nell'account di archiviazione per fare in modo che i BLOB eliminati passino in uno stato di eliminazione temporanea anziché essere definitivamente eliminati. Quando i dati vengono sovrascritti, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. L'uso dell'eliminazione temporanea consente di eseguire il ripristino da eliminazioni accidentali o sovrascritture. Advisor identifica gli account di archiviazione di Azure per i quali non è abilitata l'eliminazione temporanea e suggerisce di abilitarla.
+Abilitare l'[eliminazione temporanea](../storage/blobs/soft-delete-overview.md) nell'account di archiviazione per fare in modo che i BLOB eliminati passino in uno stato di eliminazione temporanea anziché essere definitivamente eliminati. Quando i dati vengono sovrascritti, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. L'uso dell'eliminazione temporanea consente di eseguire il ripristino da eliminazioni accidentali o sovrascritture. Advisor identifica gli account di archiviazione di Azure per i quali non è abilitata l'eliminazione temporanea e suggerisce di abilitarla.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurare il gateway VPN in modalità attiva-attiva per garantire la resilienza di connessione
 
@@ -107,7 +107,7 @@ A partire dal 1 ° luglio 2020, non sarà possibile creare nuovi cluster Kafka u
 A partire dal 1 ° luglio 2020, non sarà possibile creare nuovi cluster Spark usando Spark 2,1 o 2,2 in HDInsight 3,6. Non sarà possibile creare nuovi cluster Spark usando Spark 2,3 in HDInsight 4,0. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Abilitare la replica delle macchine virtuali
-Le macchine virtuali in cui non è abilitata la replica in un'altra area non sono resilienti per le interruzioni di regione. La replica delle macchine virtuali riduce eventuali conseguenze aziendali negative durante le interruzioni dell'area di Azure. Advisor rileva le VM in cui la replica non è abilitata e consiglia di abilitarla. Quando si Abilita la replica, se si verifica un'interruzione, è possibile visualizzare rapidamente le macchine virtuali in un'area di Azure remota. [Altre informazioni sulla replica delle macchine virtuali.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Le macchine virtuali in cui non è abilitata la replica in un'altra area non sono resilienti per le interruzioni di regione. La replica delle macchine virtuali riduce eventuali conseguenze aziendali negative durante le interruzioni dell'area di Azure. Advisor rileva le VM in cui la replica non è abilitata e consiglia di abilitarla. Quando si Abilita la replica, se si verifica un'interruzione, è possibile visualizzare rapidamente le macchine virtuali in un'area di Azure remota. [Altre informazioni sulla replica delle macchine virtuali.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 

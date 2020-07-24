@@ -4,11 +4,12 @@ description: In Azure creare backup coerenti con le applicazioni per le macchine
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054844"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -64,7 +65,7 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
     - **ScriptsExecutionPollTimeSeconds**: consente di impostare il tempo di sospensione dell'estensione tra ogni polling e l'esecuzione dello script. Se, ad esempio, il valore è 2, l'estensione controlla se l'esecuzione dello script pre/post è stata completata ogni 2 secondi. Il valore minimo e massimo che può assumere è rispettivamente 1 e 5. Il valore deve essere rigorosamente un numero intero.
 
-6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -85,4 +86,4 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare il backup delle VM in un insieme di credenziali di servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configurare il backup delle VM in un insieme di credenziali di servizi di ripristino](./backup-azure-vms-first-look-arm.md)

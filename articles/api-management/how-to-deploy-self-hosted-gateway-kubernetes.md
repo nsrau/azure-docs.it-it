@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056376"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuire un gateway self-hosted in Kubernetes
 
@@ -35,7 +35,7 @@ Questo articolo descrive i passaggi per la distribuzione del componente gateway 
 3. Selezionare **distribuzione**.
 4. Un token di accesso nella casella di testo **token** è stato generato automaticamente, in base ai valori predefiniti per la **scadenza** e la **chiave privata** . Se necessario, scegliere i valori in uno o entrambi i controlli per generare un nuovo token.
 5. Selezionare la scheda **Kubernetes** in **script di distribuzione**.
-6. Selezionare il collegamento **<nome gateway>. yml** e scaricare il file YAML.
+6. Selezionare il collegamento al file con estensione ** \<gateway-name\> yml** e scaricare il file YAML.
 7. Selezionare l'icona **copia** nell'angolo inferiore destro della casella di testo **Distribuisci** per salvare i `kubectl` comandi negli Appunti.
 8. Incollare i comandi nella finestra del terminale o del comando. Il primo comando crea un segreto Kubernetes che contiene il token di accesso generato nel passaggio 4. Il secondo comando applica il file di configurazione scaricato nel passaggio 6 al cluster Kubernetes e prevede che il file si trovi nella directory corrente.
 9. Eseguire i comandi per creare gli oggetti Kubernetes necessari nello [spazio dei nomi predefinito](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e avviare i pod del gateway self-hosted dall' [immagine del contenitore](https://aka.ms/apim/sputnik/dhub) scaricata da Microsoft container Registry.
@@ -106,6 +106,12 @@ La risoluzione dei nomi DNS gioca un ruolo fondamentale nella capacità di un ga
 Il file YAML fornito nella portale di Azure applica i criteri predefiniti di [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Questo criterio fa sì che le richieste di risoluzione dei nomi non risolte dal DNS del cluster vengano inviate al server DNS upstream ereditato dal nodo.
 
 Per informazioni sulla risoluzione dei nomi in Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Provare a personalizzare i [criteri DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) o la [configurazione DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) nel modo appropriato per la configurazione.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Nomi di dominio personalizzati e certificati SSL
+
+Se si usano nomi di dominio personalizzati per gli endpoint di gestione API, soprattutto se si usa un nome di dominio personalizzato per l'endpoint di gestione, potrebbe essere necessario aggiornare il valore di `config.service.endpoint` nel file ** \<gateway-name\> YAML** per sostituire il nome di dominio predefinito con il nome di dominio personalizzato. Verificare che sia possibile accedere all'endpoint di gestione dal Pod del gateway self-hosted nel cluster Kubernetes.
+
+In questo scenario, se il certificato SSL usato dall'endpoint di gestione non è firmato da un certificato CA noto, è necessario assicurarsi che il certificato della CA sia considerato attendibile dal Pod del gateway self-hosted.
 
 ### <a name="configuration-backup"></a>Backup configurazione
 Per informazioni sul comportamento del gateway self-hosted in presenza di un'interruzione temporanea della connettività di Azure, vedere [Panoramica del gateway self-hosted](self-hosted-gateway-overview.md#connectivity-to-azure).

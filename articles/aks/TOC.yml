@@ -66,6 +66,9 @@
       items:
         - name: Panoramica
           href: best-practices.md
+        - name: Architettura di base per un cluster del servizio Azure Kubernetes
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: Per gli operatori del cluster
           items:
             - name: Isolamento cluster e multi-tenant
@@ -144,7 +147,7 @@
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
             - name: Usare il portale di Azure
               href: virtual-nodes-portal.md

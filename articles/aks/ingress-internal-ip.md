@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso NGINX per una rete interna e privata in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: eecf34c6ad622c374e6f43670972279e297662a9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: a20ef3155e41a438aed7cea7e7d9814b3add4d14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056983"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso per una rete interna virtuale del servizio Azure Kubernetes
 
@@ -35,7 +35,7 @@ Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di coman
 
 Per impostazione predefinita, il controller di ingresso NGINX viene creato con un'assegnazione di indirizzo IP pubblico e dinamico. Un requisito di configurazione comune consiste nell'usare una rete privata interna e un indirizzo IP. Questo approccio consente di limitare l'accesso ai servizi ai soli utenti interni, escludendo qualsiasi accesso esterno.
 
-Creare un file denominato *interne ingress.yaml* usando il file manifesto di esempio seguente. Questo esempio assegna *10.240.0.42* alla risorsa *loadBalancerIP*. Fornire il proprio indirizzo IP interno per l'uso con il controller di ingresso. Assicurarsi che questo indirizzo IP non sia già in uso all'interno della rete virtuale.
+Creare un file denominato *interne ingress.yaml* usando il file manifesto di esempio seguente. Questo esempio assegna *10.240.0.42* alla risorsa *loadBalancerIP*. Fornire il proprio indirizzo IP interno per l'uso con il controller di ingresso. Assicurarsi che questo indirizzo IP non sia già in uso all'interno della rete virtuale. Inoltre, se si usa una rete virtuale e una subnet esistenti, è necessario configurare il cluster AKS con le autorizzazioni corrette per gestire la rete virtuale e la subnet. Per altre informazioni, vedere [usare la rete kubenet con gli intervalli di indirizzi IP in Azure Kubernetes Service (AKS)][aks-configure-kubenet-networking] o [configurare la rete di Azure CNI in Azure KUBERNETES Service (AKS)][aks-configure-advanced-networking] .
 
 ```yaml
 controller:
@@ -185,7 +185,7 @@ Nell'esempio seguente il traffico verso l'indirizzo `http://10.240.0.42/` viene 
 Creare un file denominato `hello-world-ingress.yaml` e copiarlo nell'esempio YAML seguente.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -268,7 +268,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Questo articolo ha usato Helm per installare i componenti in ingresso. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 
@@ -358,3 +358,5 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md

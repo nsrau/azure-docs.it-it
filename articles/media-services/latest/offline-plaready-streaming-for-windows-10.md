@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060597"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming PlayReady offline per Windows 10 con servizi multimediali V3
 
@@ -44,7 +44,7 @@ Il problema che è necessario affrontare nell'implementazione della modalità of
 * Il formato MP4 è supportato da numerosi lettori e strumenti di codifica, ma non è disponibile alcuna associazione tra il contenitore MP4 e DRM.
 * A lungo termine, la soluzione sarà CFF con CENC. Tuttavia, l'ecosistema di supporto per strumenti e lettori non è ancora in grado di offrire queste funzionalità. È necessaria una soluzione immediata.
  
-L'idea è: il formato di file Smooth Streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC ha un'associazione con PlayReady (CTR AES-128). Un singolo file Smooth Streaming con estensione ismv (presupponendo che sia stato eseguito il muxing dell'audio nel video) è esso stesso un file MP4 frammentato (fMP4) e può essere usato per la riproduzione. Se a un contenuto Smooth Streaming viene applicata la crittografia PlayReady, ogni file con estensione ismv diventa un file fMP4 protetto da PlayReady. È possibile scegliere un file con estensione ismv con la velocità in bit preferita e rinominarlo come MP4 per il download.
+L'idea è: il formato di file Smooth Streaming ([PIFF](/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC ha un'associazione con PlayReady (CTR AES-128). Un singolo file Smooth Streaming con estensione ismv (presupponendo che sia stato eseguito il muxing dell'audio nel video) è esso stesso un file MP4 frammentato (fMP4) e può essere usato per la riproduzione. Se a un contenuto Smooth Streaming viene applicata la crittografia PlayReady, ogni file con estensione ismv diventa un file fMP4 protetto da PlayReady. È possibile scegliere un file con estensione ismv con la velocità in bit preferita e rinominarlo come MP4 per il download.
 
 Sono disponibili due opzioni per l'hosting di file MP4 protetti da PlayReady per il download progressivo:
 

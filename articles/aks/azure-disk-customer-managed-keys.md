@@ -3,20 +3,17 @@ title: Usare una chiave gestita dal cliente per crittografare i dischi di Azure 
 description: Bring your own key (BYOK) per crittografare i dischi dati e del sistema operativo AKS.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252046"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057292"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Usare le chiavi personalizzate (BYOK) con i dischi di Azure in Azure Kubernetes Service (AKS)
 
 Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire [chiavi gestite dal cliente][customer-managed-keys] da usare per la crittografia dei dati inattivi per i dischi del sistema operativo e dei dati per i cluster AKS.
-
-> [!NOTE]
-> BYOK Linux e i cluster AKS basati su Windows sono disponibili nelle [aree di Azure][supported-regions] che supportano la crittografia lato server di Azure Managed Disks.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -164,7 +161,6 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Limitazioni
 
-* BYOK è attualmente disponibile solo in GA e anteprima in alcune [aree di Azure][supported-regions]
 * Crittografia del disco dati supportata con Kubernetes versione 1,17 e successive   
 * Disponibile solo nelle aree in cui BYOK è supportato
 * La crittografia con chiavi gestite dal cliente è attualmente solo per i nuovi cluster AKS. i cluster esistenti non possono essere aggiornati

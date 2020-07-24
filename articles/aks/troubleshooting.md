@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056509"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -80,7 +80,11 @@ AKS dispone di piani di controllo a disponibilità elevata che si ridimensionano
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[Il traffico interno tra i nodi viene bloccato?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Ricevo `TCP timeouts` , ad esempio`dial tcp <Node_IP>:10250: i/o timeout`
+
+Questi timeout possono essere correlati al traffico interno tra i nodi bloccati. Verificare che il traffico non venga bloccato, ad esempio da [gruppi di sicurezza di rete](concepts-security.md#azure-network-security-groups) nella subnet per i nodi del cluster.
 
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Qual è la procedura per abilitare il controllo degli accessi in base al ruolo (RBAC) in un cluster esistente?
 
@@ -197,14 +201,14 @@ Verificare che le impostazioni non siano in conflitto con le regole per le porte
 
 In Kubernetes versione 1.10, MountVolume.WaitForAttach potrebbe non riuscire con un rimontaggio del disco di Azure.
 
-In Linux, è possibile che venga visualizzato un errore di formato DevicePath errato. ad esempio:
+In Linux, è possibile che venga visualizzato un errore di formato DevicePath errato. Ad esempio:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. ad esempio:
+In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. Ad esempio:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -274,7 +278,7 @@ Questo problema è stato risolto nelle versioni di Kubernetes seguenti:
 | 1.12 | 1.12.9 o successive |
 | 1.13 | 1.13.6 o successive |
 | 1,14 | 1.14.2 o successive |
-| 1.15 e successive | N/A |
+| 1.15 e successive | N/D |
 
 Se si usa una versione di Kubernetes che non dispone della correzione per questo problema e il nodo ha un elenco dischi obsoleto, è possibile attenuare il problema scollegando tutti i dischi non esistenti dalla macchina virtuale come operazione in blocco. **Lo scollegamento dei dischi non esistenti singolarmente può avere esito negativo.**
 
@@ -293,7 +297,7 @@ Questo problema è stato risolto nelle versioni di Kubernetes seguenti:
 | 1.12 | 1.12.10 o successive |
 | 1.13 | 1.13.8 o successive |
 | 1,14 | 1.14.4 o successive |
-| 1.15 e successive | N/A |
+| 1.15 e successive | N/D |
 
 Se si usa una versione di Kubernetes che non dispone della correzione per questo problema e il nodo si trova in stato di errore, è possibile attenuare il problema aggiornando manualmente lo stato della macchina virtuale usando uno dei metodi seguenti:
 
@@ -410,7 +414,7 @@ Se la chiave dell'account di archiviazione è cambiata, è possibile che vengano
 
 È possibile attenuare il problema aggiornando manualmente il campo `azurestorageaccountkey` in un segreto di File di Azure con la chiave dell'account di archiviazione con codifica base64.
 
-Per codificare la chiave dell'account di archiviazione in base64, è possibile usare `base64`. ad esempio:
+Per codificare la chiave dell'account di archiviazione in base64, è possibile usare `base64`. Ad esempio:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055781"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJ
 
@@ -24,7 +24,7 @@ Questo articolo illustra:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configura l'ambiente di sviluppo
 
 Per sviluppare una funzione con Java e IntelliJ, installare il software seguente:
 
@@ -44,7 +44,7 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 2. Per accedere all'account Azure, aprire **Azure Explorer** sulla barra laterale e quindi fare clic su **Azure Sign In** (Accesso ad Azure) sulla barra superiore. Oppure scegliere **Tools/Azure/Azure Sign in** (Strumenti/Azure/Accesso ad Azure) dal menu IDEA.
     ![Comando di accesso ad Azure in IntelliJ][intellij-azure-login]
 
-3. Nella finestra **Azure Sign In** (Accesso ad Azure) selezionare **Device Login** (Accesso dispositivo) e quindi fare clic su **Sign in** (Accedi) ([altre opzioni di accesso](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. Nella finestra **Azure Sign In** (Accesso ad Azure) selezionare **Device Login** (Accesso dispositivo) e quindi fare clic su **Sign in** (Accedi) ([altre opzioni di accesso](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![Finestra di accesso ad Azure con l'accesso dispositivo selezionato][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ In questa sezione si userà Azure Toolkit for IntelliJ per creare un progetto lo
 È stato creato un progetto di funzioni Java con una funzione attivata tramite HTTP. Il progetto è stato quindi eseguito in un computer locale e distribuito in Azure. A questo punto, estendere la funzione effettuando l'operazione seguente.
 
 > [!div class="nextstepaction"]
-> [Aggiungere un'associazione di output della coda di Archiviazione di Azure](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Aggiungere un'associazione di output della coda di Archiviazione di Azure](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

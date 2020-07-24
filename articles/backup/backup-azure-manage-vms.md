@@ -4,11 +4,12 @@ description: Informazioni su come gestire e monitorare i backup delle macchine v
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054748"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -53,6 +54,17 @@ Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Gestire i criteri di backup per una macchina virtuale
 
+### <a name="modify-backup-policy"></a>Modificare i criteri di backup
+
+Per modificare un criterio di backup esistente:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/). Aprire il dashboard dell'insieme di credenziali.
+2. In **gestisci > criteri di backup**selezionare i criteri di backup per il tipo macchina virtuale di Azure.
+3.  Fare clic su modifica e modificare le impostazioni.
+
+
+### <a name="switch-backup-policy"></a>Cambia criterio di backup 
+
 Per gestire i criteri di backup:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Aprire il dashboard dell'insieme di credenziali.
@@ -77,6 +89,9 @@ Per gestire i criteri di backup:
 * Se il backup iniziale è in sospeso, il backup su richiesta crea una copia completa della macchina virtuale nell'insieme di credenziali di servizi di ripristino.
 * Se il backup iniziale è completo, un backup su richiesta invierà solo le modifiche dallo snapshot precedente all'insieme di credenziali dei servizi di ripristino. Ovvero, i backup successivi sono sempre incrementali.
 * Il periodo di mantenimento dati per un backup su richiesta è il valore di conservazione specificato quando si attiva il backup.
+
+> [!NOTE]
+> Il servizio backup di Azure supporta fino a nove backup su richiesta al giorno, ma Microsoft consiglia di non avere più di quattro backup su richiesta giornalieri per garantire prestazioni ottimali.
 
 Per attivare un backup su richiesta:
 
@@ -125,6 +140,9 @@ Per arrestare la protezione ed eliminare i dati di una macchina virtuale:
 
     ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> Al termine dell'operazione di eliminazione, i dati di cui è stato eseguito il backup verranno conservati per 14 giorni nello [stato](./soft-delete-virtual-machines.md)di eliminazione temporanea. <br>Inoltre, è possibile [abilitare o disabilitare l'eliminazione](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)temporanea.
+
 ## <a name="resume-protection-of-a-vm"></a>Riprendere la protezione di una macchina virtuale
 
 Se è stata scelta l'opzione [Interrompi protezione e Mantieni dati di backup](#stop-protection-and-retain-backup-data) durante l'arresto della protezione della macchina virtuale, è possibile usare **Riprendi backup**. Questa opzione non è disponibile se si sceglie [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) o [Elimina dati di backup](#delete-backup-data).
@@ -157,7 +175,7 @@ Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
   * Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 
-Per proteggere i dati, backup di Azure include la funzionalità di eliminazione temporanea. Con l'eliminazione temporanea, anche dopo l'eliminazione del backup (tutti i punti di ripristino) di una macchina virtuale, i dati di backup vengono conservati per 14 giorni aggiuntivi. Per ulteriori informazioni, vedere [la documentazione relativa a soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+Per proteggere i dati, backup di Azure include la funzionalità di eliminazione temporanea. Con l'eliminazione temporanea, anche dopo l'eliminazione del backup (tutti i punti di ripristino) di una macchina virtuale, i dati di backup vengono conservati per 14 giorni aggiuntivi. Per ulteriori informazioni, vedere [la documentazione relativa a soft delete](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > Quando si eliminano i dati di backup, vengono eliminati tutti i punti di ripristino associati. Non è possibile scegliere punti di ripristino specifici da eliminare.
@@ -172,4 +190,4 @@ Per proteggere i dati, backup di Azure include la funzionalità di eliminazione 
 
 * Informazioni su come [eseguire il backup di macchine virtuali di Azure dalle impostazioni della macchina virtuale](backup-azure-vms-first-look-arm.md).
 * Informazioni su come [ripristinare le macchine virtuali](backup-azure-arm-restore-vms.md).
-* Informazioni su come [monitorare i backup delle macchine virtuali di Azure](backup-azure-monitor-vms.md).
+* Informazioni su come [monitorare i backup delle macchine virtuali di Azure](./backup-azure-monitoring-built-in-monitor.md).

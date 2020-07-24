@@ -5,18 +5,19 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 906f3d45edef6180557c54f0ff29cd11a1c96fa3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055662"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in Azure
 
 Questo articolo illustra come creare e pubblicare un progetto di funzione Java in funzioni di Azure con lo strumento da riga di comando Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP. 
 
 > [!NOTE]
-> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

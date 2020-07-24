@@ -3,17 +3,18 @@ title: Eseguire il backup delle condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055029"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Eseguire il backup di una condivisione file di Azure con backup di Azure tramite l'API REST
 
 Questo articolo descrive come eseguire il backup di una condivisione file di Azure usando backup di Azure tramite l'API REST.
 
-Questo articolo presuppone che sia già stato creato un insieme di credenziali dei servizi di ripristino e un criterio per la configurazione del backup per la condivisione file. Se non lo si è fatto, fare riferimento alle esercitazioni [creare](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) l'insieme di credenziali e [creare criteri](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) per l'API REST per creare nuovi insiemi di credenziali e criteri.
+Questo articolo presuppone che sia già stato creato un insieme di credenziali dei servizi di ripristino e un criterio per la configurazione del backup per la condivisione file. Se non lo si è fatto, fare riferimento alle esercitazioni [creare](./backup-azure-arm-userestapi-createorupdatevault.md) l'insieme di credenziali e [creare criteri](./backup-azure-arm-userestapi-createorupdatepolicy.md) per l'API REST per creare nuovi insiemi di credenziali e criteri.
 
 Per questo articolo, verranno usate le risorse seguenti:
 
@@ -31,7 +32,7 @@ Per questo articolo, verranno usate le risorse seguenti:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Individuare gli account di archiviazione con condivisioni file di Azure non protette
 
-L'insieme di credenziali deve individuare tutti gli account di archiviazione di Azure nella sottoscrizione con condivisioni file di cui è possibile eseguire il backup nell'insieme di credenziali di servizi di ripristino. Questa azione viene attivata tramite l'[operazione di aggiornamento](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh), Si tratta di un'operazione *post* asincrona che garantisce che l'insieme di credenziali ottenga l'elenco più recente di tutte le condivisioni file di Azure non protette nella sottoscrizione corrente è le memorizza nella cache. Una volta che la condivisione file è stata memorizzata nella cache, i servizi di ripristino possono accedere alla condivisione file e proteggerla.
+L'insieme di credenziali deve individuare tutti gli account di archiviazione di Azure nella sottoscrizione con condivisioni file di cui è possibile eseguire il backup nell'insieme di credenziali di servizi di ripristino. Questa azione viene attivata tramite l'[operazione di aggiornamento](/rest/api/backup/protectioncontainers/refresh), Si tratta di un'operazione *post* asincrona che garantisce che l'insieme di credenziali ottenga l'elenco più recente di tutte le condivisioni file di Azure non protette nella sottoscrizione corrente è le memorizza nella cache. Una volta che la condivisione file è stata memorizzata nella cache, i servizi di ripristino possono accedere alla condivisione file e proteggerla.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -55,7 +56,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Risposte
 
-L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'operazione di aggiornamento è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
@@ -107,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Ottenere l'elenco degli account di archiviazione che possono essere protetti con l'insieme di credenziali di servizi di ripristino
 
-Per confermare che la memorizzazione nella cache è stata eseguita, elencare tutti gli account di archiviazione da proteggere nella sottoscrizione. Individuare quindi l'account di archiviazione desiderato nella risposta. Questa operazione viene eseguita tramite l'operazione [Get ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) .
+Per confermare che la memorizzazione nella cache è stata eseguita, elencare tutti gli account di archiviazione da proteggere nella sottoscrizione. Individuare quindi l'account di archiviazione desiderato nella risposta. Questa operazione viene eseguita tramite l'operazione [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -159,7 +160,7 @@ Poiché è possibile individuare l'account di archiviazione *testvault2* nel cor
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Registrare un account di archiviazione con l'insieme di credenziali di servizi
 
-Questo passaggio è necessario solo se l'account di archiviazione non è stato registrato in precedenza con l'insieme di credenziali. È possibile registrare l'insieme di credenziali tramite l' [operazione ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Questo passaggio è necessario solo se l'account di archiviazione non è stato registrato in precedenza con l'insieme di credenziali. È possibile registrare l'insieme di credenziali tramite l' [operazione ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -208,7 +209,7 @@ Il corpo della richiesta di creazione è il seguente:
  }
 ```
 
-Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, vedere [ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, vedere [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
 Si tratta di un'operazione asincrona e restituisce due risposte: "202 accettate" quando l'operazione viene accettata e "200 OK" al termine dell'operazione.  Per tenere traccia dello stato dell'operazione, usare l'intestazione Location per ottenere lo stato più recente dell'operazione.
 
@@ -240,7 +241,7 @@ protectionContainers/StorageContainer;Storage;AzureFiles;testvault2",
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Chiedere a tutte le condivisioni file non protette in un account di archiviazione
 
-È possibile richiedere informazioni sugli elementi da proteggere in un account di archiviazione usando l'operazione di [richiesta di contenitori di protezione](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) . Si tratta di un'operazione asincrona e i risultati devono essere rilevati usando l'intestazione Location.
+È possibile richiedere informazioni sugli elementi da proteggere in un account di archiviazione usando l'operazione di [richiesta di contenitori di protezione](/rest/api/backup/protectioncontainers/inquire) . Si tratta di un'operazione asincrona e i risultati devono essere rilevati usando l'intestazione Location.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -275,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Selezionare la condivisione file di cui si vuole eseguire il backup
 
-È possibile elencare tutti gli elementi da proteggere nella sottoscrizione e individuare la condivisione file desiderata di cui eseguire il backup usando l'operazione [Get backupprotectableItems](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) .
+È possibile elencare tutti gli elementi da proteggere nella sottoscrizione e individuare la condivisione file desiderata di cui eseguire il backup usando l'operazione [Get backupprotectableItems](/rest/api/backup/backupprotectableitems/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -350,7 +351,7 @@ La risposta contiene l'elenco di tutte le condivisioni file non protette e conti
 
 ### <a name="enable-backup-for-the-file-share"></a>Abilita backup per la condivisione file
 
-Quando la condivisione file pertinente viene "identificata" con il nome descrittivo, selezionare i criteri da proteggere. Per altre informazioni sui criteri esistenti nell'insieme di credenziali, vedere [elenco API dei criteri](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). e quindi selezionare i [criteri rilevanti](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) facendo riferimento al nome dei criteri stessi. Per creare i criteri, vedere l'[esercitazione sulla creazione di criteri](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
+Quando la condivisione file pertinente viene "identificata" con il nome descrittivo, selezionare i criteri da proteggere. Per altre informazioni sui criteri esistenti nell'insieme di credenziali, vedere [elenco API dei criteri](/rest/api/backup/backuppolicies/list). e quindi selezionare i [criteri rilevanti](/rest/api/backup/protectionpolicies/get) facendo riferimento al nome dei criteri stessi. Per creare i criteri, vedere l'[esercitazione sulla creazione di criteri](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 L'abilitazione della protezione è un'operazione *put* asincrona che crea un "elemento protetto".
 
@@ -466,11 +467,11 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-| Nome       | Type                       | Descrizione                       |
+| Nome       | Tipo                       | Descrizione                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Proprietà | AzurefilesharebackupReques | Proprietà di BackupRequestResource |
 
-Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il backup di elementi protetti](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il backup di elementi protetti](/rest/api/backup/backups/trigger#request-body).
 
 Esempio di corpo della richiesta
 
@@ -488,7 +489,7 @@ Esempio di corpo della richiesta
 
 ### <a name="responses"></a>Risposte
 
-L'attivazione di un backup su richiesta è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'attivazione di un backup su richiesta è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
@@ -539,7 +540,7 @@ Al termine dell'operazione, viene restituita la risposta 200 (OK) con l'ID del p
 }
 ```
 
-Poiché il processo di backup è un'operazione con esecuzione prolungata, ne deve essere tenuta traccia come illustrato nel [documento per monitorare i processi usando l'API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Poiché il processo di backup è un'operazione con esecuzione prolungata, ne deve essere tenuta traccia come illustrato nel [documento per monitorare i processi usando l'API REST](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

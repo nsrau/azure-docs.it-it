@@ -3,15 +3,17 @@ title: Eliminare accidentalmente la protezione per le condivisioni file di Azure
 description: Informazioni su come l'eliminazione temporanea può proteggere le condivisioni file di Azure da eliminazioni accidentali.
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 09d74a135fc43a7758004d77af2ec4c478345a2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84122277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054380"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminare accidentalmente la protezione per le condivisioni file di Azure con backup di Azure
 
-Per garantire la protezione contro attacchi cibernetici o l'eliminazione accidentale, l' [eliminazione](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) temporanea è abilitata per tutte le condivisioni file in un account di archiviazione quando si configura il backup per qualsiasi condivisione file nel rispettivo account di archiviazione. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per almeno 14 giorni aggiuntivi, consentendo il ripristino delle condivisioni file senza perdita di dati.  
+Per garantire la protezione contro attacchi cibernetici o l'eliminazione accidentale, l' [eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea è abilitata per tutte le condivisioni file in un account di archiviazione quando si configura il backup per qualsiasi condivisione file nel rispettivo account di archiviazione. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per almeno 14 giorni aggiuntivi, consentendo il ripristino delle condivisioni file senza perdita di dati.  
 
 L'eliminazione temporanea è supportata solo per gli account di archiviazione standard e Premium ed è attualmente abilitata dal lato backup di Azure in [queste aree](azure-file-share-support-matrix.md).
 
@@ -27,7 +29,7 @@ Quando si configura il backup per la prima volta per una condivisione file in un
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-snapshots-and-restore-points-will-be-retained-in-soft-deleted-state-after-i-delete-the-file-share"></a>È possibile configurare il numero di giorni per cui gli snapshot e i punti di ripristino verranno conservati in uno stato di eliminazione temporanea dopo l'eliminazione della condivisione file?
 
-Sì, è possibile impostare il periodo di conservazione in base ai requisiti. In [questo documento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal) vengono illustrati i passaggi per configurare il periodo di conservazione. Per gli account di archiviazione con condivisioni file di cui è stato eseguito il backup, l'impostazione minima del periodo di memorizzazione deve essere 14 giorni.
+Sì, è possibile impostare il periodo di conservazione in base ai requisiti. In [questo documento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal) vengono illustrati i passaggi per configurare il periodo di conservazione. Per gli account di archiviazione con condivisioni file di cui è stato eseguito il backup, l'impostazione minima del periodo di memorizzazione deve essere 14 giorni.
 
 ### <a name="does-azure-backup-reset-my-retention-setting-because-i-configured-it-to-less-than-14-days"></a>Backup di Azure Reimposta l'impostazione di conservazione perché ho configurato un valore inferiore a 14 giorni?
 
@@ -39,14 +41,14 @@ Durante il periodo di eliminazione temporanea, il costo dell'istanza protetta e 
 
 ### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-deleted-state"></a>È possibile eseguire un'operazione di ripristino quando i dati sono in stato di eliminazione temporanea?
 
-È prima di tutto necessario annullare l'eliminazione della condivisione file eliminata temporaneamente per eseguire operazioni di ripristino. L'operazione di annullamento dell'eliminazione consente di portare la condivisione file nello stato di backup in cui è possibile eseguire il ripristino in qualsiasi momento. Per informazioni su come annullare l'eliminazione della condivisione file, visitare [questo collegamento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) o vedere [annullare l'eliminazione dello script di condivisione file](./scripts/backup-powershell-script-undelete-file-share.md).
+È prima di tutto necessario annullare l'eliminazione della condivisione file eliminata temporaneamente per eseguire operazioni di ripristino. L'operazione di annullamento dell'eliminazione consente di portare la condivisione file nello stato di backup in cui è possibile eseguire il ripristino in qualsiasi momento. Per informazioni su come annullare l'eliminazione della condivisione file, visitare [questo collegamento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) o vedere [annullare l'eliminazione dello script di condivisione file](./scripts/backup-powershell-script-undelete-file-share.md).
 
 ### <a name="how-can-i-purge-the-data-of-a-file-share-in-a-storage-account-that-has-at-least-one-protected-file-share"></a>Come è possibile eliminare i dati di una condivisione file in un account di archiviazione con almeno una condivisione file protetta?
 
 Se si dispone di almeno una condivisione file protetta in un account di archiviazione, significa che l'eliminazione temporanea è abilitata per tutte le condivisioni file nell'account e i dati verranno conservati per 14 giorni dopo l'operazione di eliminazione. Tuttavia, se si desidera eliminare immediatamente i dati e non si desidera che vengano conservati, attenersi alla procedura seguente:
 
-1. Se la condivisione file è già stata eliminata mentre l'eliminazione temporanea è stata abilitata, è necessario prima annullare l'eliminazione della condivisione file dal [portale file](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) oppure usare lo [script Annulla eliminazione file di condivisione file](./scripts/backup-powershell-script-undelete-file-share.md).
-2. Disabilitare l'eliminazione temporanea per le condivisioni file nell'account di archiviazione attenendosi alla procedura descritta in [questo documento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#disable-soft-delete).
+1. Se la condivisione file è già stata eliminata mentre l'eliminazione temporanea è stata abilitata, è necessario prima annullare l'eliminazione della condivisione file dal [portale file](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) oppure usare lo [script Annulla eliminazione file di condivisione file](./scripts/backup-powershell-script-undelete-file-share.md).
+2. Disabilitare l'eliminazione temporanea per le condivisioni file nell'account di archiviazione attenendosi alla procedura descritta in [questo documento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#disable-soft-delete).
 3. A questo punto, eliminare la condivisione file di cui si desidera eliminare immediatamente il contenuto.
 
 >[!NOTE]
@@ -57,7 +59,7 @@ Se si dispone di almeno una condivisione file protetta in un account di archivia
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Nel contesto dell'impostazione di eliminazione temporanea di una condivisione file, quali modifiche eseguono backup di Azure quando si annulla la registrazione di un account di archiviazione?
 
-Al momento dell'annullamento della registrazione, backup di Azure controlla l'impostazione del periodo di memorizzazione per le condivisioni file e, se è maggiore di 14 giorni o meno di 14 giorni, lascia la conservazione così com'è. Tuttavia, se la conservazione è di 14 giorni, la si considera abilitata da backup di Azure e quindi si disabilita l'eliminazione temporanea durante il processo di annullamento della registrazione. Se si vuole annullare la registrazione dell'account di archiviazione mantenendo l'impostazione di conservazione così com'è, abilitarla di nuovo dal riquadro account di archiviazione dopo aver completato l'annullamento della registrazione. È possibile fare riferimento a [questo collegamento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) per i passaggi di configurazione.
+Al momento dell'annullamento della registrazione, backup di Azure controlla l'impostazione del periodo di memorizzazione per le condivisioni file e, se è maggiore di 14 giorni o meno di 14 giorni, lascia la conservazione così com'è. Tuttavia, se la conservazione è di 14 giorni, la si considera abilitata da backup di Azure e quindi si disabilita l'eliminazione temporanea durante il processo di annullamento della registrazione. Se si vuole annullare la registrazione dell'account di archiviazione mantenendo l'impostazione di conservazione così com'è, abilitarla di nuovo dal riquadro account di archiviazione dopo aver completato l'annullamento della registrazione. È possibile fare riferimento a [questo collegamento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) per i passaggi di configurazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,14 +3,14 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298498"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055300"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsdi riferimento per funzioni di Azure 2. x e versioni successive 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
 > [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
@@ -181,12 +181,12 @@ Per la struttura JSON completa, vedere l' [esempio precedente host.jssu file](#s
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sulle eccezioni nelle app .NET](/azure/azure-monitor/app/snapshot-debugger) e [risolvere i problemi di abilitazione Application Insights snapshot debugger o la visualizzazione di snapshot](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sulle eccezioni nelle app .NET](../azure-monitor/app/snapshot-debugger.md) e [risolvere i problemi di abilitazione Application Insights snapshot debugger o la visualizzazione di snapshot](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
 | agentEndpoint | Null | Endpoint utilizzato per la connessione al servizio Application Insights Snapshot Debugger. Se null, viene utilizzato un endpoint predefinito. |
-| captureSnapshotMemoryWeight | 0.5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0,5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limite al numero di richieste non riuscite per richiedere snapshot prima che il processore di telemetria sia disabilitato.|
 | handleUntrackedExceptions | true | Abilita o Disabilita il rilevamento di eccezioni non rilevate da Application Insights telemetria. |
 | isEnabled | true | Abilita o Disabilita la raccolta di snapshot | 
@@ -310,7 +310,7 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
-|logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. Le versioni 2. x e successive seguono il layout ASP.NET Core per i filtri delle categorie di log. Questa impostazione consente di filtrare la registrazione per specifiche funzioni. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
+|logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. Le versioni 2. x e successive seguono il layout ASP.NET Core per i filtri delle categorie di log. Questa impostazione consente di filtrare la registrazione per specifiche funzioni. Per altre informazioni, vedere [Filtro dei log](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
 |console|n/d| Impostazione di registrazione nella [console](#console). |
 |applicationInsights|n/d| Impostazione di [ApplicationInsights](#applicationinsights). |
 

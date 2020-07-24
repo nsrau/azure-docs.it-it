@@ -2,13 +2,13 @@
 title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057190"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -79,7 +79,7 @@ Quando si lavora con il gruppo di risorse nodo, tenere presente che non è possi
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare i tag e altre proprietà delle risorse del servizio Azure Kubernetes nel gruppo di risorse nodo?
 
-La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. AKS consente di creare e modificare tag personalizzati creati dagli utenti finali. Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. Per ottenere questo risultato, è possibile creare criteri di Azure con un ambito nel gruppo di risorse gestite.
+La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. AKS consente di creare e modificare i tag personalizzati creati dagli utenti finali ed è possibile aggiungere tali tag quando si [Crea un pool di nodi](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. Questa operazione può essere eseguita anche creando criteri di Azure con un ambito nel gruppo di risorse gestite.
 
 Tuttavia, la modifica di eventuali **tag creati da Azure** sulle risorse nel gruppo di risorse nodo nel cluster AKS è un'azione non supportata che interrompe l'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ I nodi dell'agente del servizio Azure Kubernetes sono fatturati come macchine vi
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare o eseguire la migrazione del cluster tra tenant di Azure?
 
-È possibile usare il comando `az aks update-credentials` per spostare un cluster del servizio Azure Kubernetes tra i tenant di Azure. Seguire le istruzioni riportate in [Scegliere di aggiornare o creare un'entità servizio](./update-credentials.md), quindi quelle in [Aggiornare il cluster del servizio Azure Kubernetes con le nuove credenziali](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Lo stato di trasferimento del cluster AKS tra i tenant non è al momento supportato.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare o eseguire la migrazione del cluster tra sottoscrizioni?
 

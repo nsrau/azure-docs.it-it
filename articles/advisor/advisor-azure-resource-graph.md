@@ -4,12 +4,12 @@ description: Eseguire query per i dati di Advisor in Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117835"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057778"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Eseguire una query per i dati di Advisor in Resource Graph Explorer (grafico delle risorse di Azure)
 
@@ -24,7 +24,7 @@ Le risorse di Advisor vengono ora caricate in [Azure Resource Graph](https://azu
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Tipi di risorse Advisor in Azure Graph
 
-Tipi di risorse Advisor disponibili nel [grafico risorse](https://docs.microsoft.com/azure/governance/resource-graph/): sono disponibili tre tipi di risorse per l'esecuzione di query in risorse Advisor. Di seguito è riportato l'elenco delle risorse ora disponibili per l'esecuzione di query nel grafico risorse.
+Tipi di risorse Advisor disponibili nel [grafico risorse](../governance/resource-graph/index.yml): sono disponibili tre tipi di risorse per l'esecuzione di query in risorse Advisor. Di seguito è riportato l'elenco delle risorse ora disponibili per l'esecuzione di query nel grafico risorse.
 * Microsoft. Advisor/configurazioni
 * Microsoft. Advisor/raccomandazioni
 * Microsoft. Advisor/evitamenti
@@ -42,4 +42,4 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
 * [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

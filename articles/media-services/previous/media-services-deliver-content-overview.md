@@ -1,25 +1,21 @@
 ---
-title: Distribuzione di contenuti ai clienti | Microsoft Docs
+title: Distribuzione di contenuti ai clienti
 description: Questo argomento fornisce informazioni generali su tutti gli aspetti inerenti la distribuzione di contenuti con Servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060363"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
 Quando si distribuiscono contenuti in streaming o video on demand ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete.
@@ -55,7 +51,7 @@ Con Servizi multimediali è possibile definire filtri per i propri asset. I filt
 
 Per altre informazioni, vedere [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md).
 
-## <a name="locators"></a><a id="locators"/>Localizzatori
+## <a name="locators"></a><a name="locators"></a>Localizzatori
 Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, prima è necessario "pubblicare" la risorsa creando un localizzatore. Un localizzatore fornisce un punto di ingresso per accedere ai file contenuti in un asset. Servizi multimediali supporta due tipi di localizzatori:
 
 * Localizzatori OnDemandOrigin. Questi consentono di trasmettere file multimediali in streaming (ad esempio MPEG DASH, HLS o Smooth Streaming) o eseguire il download progressivo dei file.
@@ -70,9 +66,9 @@ Per i localizzatori vengono definite date di scadenza. Il portale di Azure impos
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
-I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](/previous-versions/azure/dn282272(v=azure.100)).
 
 Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
 
@@ -87,7 +83,7 @@ Per poter fornire agli utenti URL di streaming, è prima necessario creare un lo
 
 È possibile trasmettere il flusso su TLS solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net". Gli URL di streaming che contengono "origin.mediaservices.windows.net" (il vecchio formato) non supportano TLS. Se l'URL è nel vecchio formato e si vuole essere in grado di eseguire lo streaming su TLS, creare un nuovo endpoint di streaming. Usare gli URL basati sul nuovo endpoint di streaming per lo streaming del contenuto su TLS.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>Formati degli URL di streaming
+## <a name="streaming-url-formats"></a><a name="URLs"></a>Formati degli URL di streaming
 
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
@@ -192,4 +188,3 @@ Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming genera
 
 ## <a name="related-topics"></a>Argomenti correlati
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
-

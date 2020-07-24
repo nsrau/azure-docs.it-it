@@ -4,11 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054986"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -22,7 +23,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 - **Rimuovi elementi** usare questa opzione per rimuovere gli elementi dal backup.
   - Usare **le impostazioni di esclusione** per rimuovere tutti gli elementi all'interno di un volume anziché **rimuovere gli elementi**.
   - La cancellazione di tutte le selezioni in un volume comporta la conservazione dei backup obsoleti degli elementi in base alle impostazioni di conservazione al momento dell'ultimo backup, senza l'ambito della modifica.
-  - Riselezionando questi elementi, viene effettuato un primo backup completo e le nuove modifiche ai criteri non vengono applicate ai backup precedenti.
+  - Riselezionando questi elementi, viene effettuato un primo backup completo e le nuove modifiche dei criteri non vengono applicate ai backup precedenti.
   - La deselezione di un intero volume mantiene il backup passato senza alcun ambito per la modifica dei criteri di conservazione.
 - **Impostazioni di esclusione** usare questa opzione per escludere elementi specifici dal backup.
 
@@ -108,10 +109,10 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **Sospendi backup pianificato** esaminare le informazioni e fare clic su **fine**.
+1. In **Sospendi backup pianificato**esaminare le informazioni e fare clic su **fine**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. In **Modifica processo di backup** controllare che la pianificazione della sospensione del backup sia in stato di esito positivo e fare clic su **Chiudi** per terminare.
+1. In **Modifica processo di backup**, verificare che la pianificazione della sospensione del backup sia in stato di esito positivo, quindi fare clic su **Chiudi** per terminare.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrestare la protezione ed eliminare i dati di backup
 
@@ -155,17 +156,18 @@ Se la protezione è stata interrotta durante la conservazione dei dati e si è d
 
 Viene usata una passphrase per crittografare e decrittografare i dati durante il backup o il ripristino del computer locale o locale usando l'agente MARS da o verso Azure. Se la passphrase è stata persa o dimenticata, è possibile rigenerare la passphrase (purché il computer sia ancora registrato con l'insieme di credenziali di servizi di ripristino e il backup sia configurato) attenendosi alla procedura seguente:
 
-- Dalla console dell'agente Mars passare al **riquadro azioni**  >  **modifica proprietà** >. Passare quindi alla **scheda crittografia**.<br>
-- Selezionare la casella di controllo **Cambia passphrase** .<br>
-- Immettere una nuova passphrase o fare clic su **genera passphrase**.
-- Fare clic su **Sfoglia** per salvare la nuova passphrase.
+1. Dalla console dell'agente Mars passare al **riquadro azioni**  >  **modifica proprietà** >. Passare quindi alla **scheda crittografia**.<br>
+1. Selezionare la casella di controllo **Cambia passphrase** .<br>
+1. Immettere una nuova passphrase o fare clic su **genera passphrase**.
+1. Fare clic su **Sfoglia** per salvare la nuova passphrase.
 
     ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase.png)
-- Fai clic su **OK** per applicare le modifiche.  Se la [funzionalità di sicurezza](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) è abilitata nella portale di Azure per l'insieme di credenziali di servizi di ripristino, verrà richiesto di immettere il pin di sicurezza. Per ricevere il PIN, seguire i passaggi elencati in questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Incollare il PIN di sicurezza dal portale e fare clic su **OK** per applicare le modifiche.<br>
+
+1. Fai clic su **OK** per applicare le modifiche.  Se la [funzionalità di sicurezza](./backup-azure-security-feature.md#enable-security-features) è abilitata nel portale di Azure per l'insieme di credenziali di servizi di ripristino, verrà richiesto di immettere il pin di sicurezza. Per ricevere il PIN, seguire i passaggi elencati in questo [articolo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Incollare il PIN di sicurezza dal portale e fare clic su **OK** per applicare le modifiche.<br>
 
     ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
-- Verificare che la passphrase venga salvata in modo sicuro in un percorso alternativo (diverso dalla macchina di origine), preferibilmente nella Azure Key Vault. Tenere traccia di tutte le passphrase se è stato eseguito il backup di più computer con gli agenti MARS.
+1. Verificare che la passphrase venga salvata in modo sicuro in un percorso alternativo (diverso dalla macchina di origine), preferibilmente nella Azure Key Vault. Tenere traccia di tutte le passphrase se è stato eseguito il backup di più computer con gli agenti MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gestione dei dati di backup per computer non disponibili
 
@@ -182,13 +184,14 @@ Per questi computer, il servizio backup di Azure garantisce che l'ultimo punto d
 La gestione dei criteri di backup per MARS viene eseguita tramite la console MARS e non tramite il portale. Se è necessario estendere le impostazioni di conservazione per i punti di ripristino esistenti prima della scadenza, è necessario ripristinare il computer, installare la console di MARS ed estendere il criterio.
 
 - Per ripristinare il computer, seguire questa procedura:
-  - [Ripristinare la macchina virtuale in un computer di destinazione alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Ricreare il computer di destinazione con lo stesso nome host del computer di origine
-  - Installare l'agente e ripetere la registrazione nello stesso insieme di credenziali e con la stessa passphrase
-  - Avviare il client MARS per estendere la durata di conservazione in base ai requisiti
+  1. [Ripristinare la macchina virtuale in un computer di destinazione alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Ricreare il computer di destinazione con lo stesso nome host del computer di origine
+  1. Installare l'agente e ripetere la registrazione nello stesso insieme di credenziali e con la stessa passphrase
+  1. Avviare il client MARS per estendere la durata di conservazione in base ai requisiti
 - Il computer appena ripristinato, protetto con MARS, continuerà a eseguire i backup.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per l'agente Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per l'agente Mars](./backup-support-matrix-mars-agent.md).
 - Altre informazioni sul [comportamento di conservazione dei criteri di backup su richiesta](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Per domande più frequenti, vedere domande [frequenti sull'agente Mars](backup-azure-file-folder-backup-faq.md).

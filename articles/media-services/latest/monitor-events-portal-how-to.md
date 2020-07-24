@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92a97ddbd9497954b35efa33de7c2f843d4dd934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76509224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060686"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e il portale di Azure
 
@@ -32,7 +33,7 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 ## <a name="prerequisites"></a>Prerequisiti 
 
 * Avere una sottoscrizione di Azure attiva.
-* Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
+* Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061213"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -33,7 +33,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 - Segreto client
 - Stringa di connessione all’Hub eventi
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
@@ -61,8 +61,14 @@ A tale scopo, seguire questa procedura:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Eseguire il comando seguente. In questo modo si connette un account autenticato da usare per le richieste di Azure AD
 
-6. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ A tale scopo, seguire questa procedura:
 
     ```
 
-7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
+8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ A tale scopo, seguire questa procedura:
 
     ```
 
-8. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
+9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Crea metadati del dispositivo o del sensore
@@ -142,7 +148,7 @@ Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/Fa
 
 Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti generate nella sezione precedente:
 

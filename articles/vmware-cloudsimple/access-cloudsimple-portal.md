@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ea178655646f7f130476acaffc35c60181968ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058712"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Accedere alla soluzione VMware tramite il portale di CloudSimple dal portale di Azure
 
@@ -23,7 +23,7 @@ Single Sign-on è supportato per l'accesso al portale di CloudSimple. Dopo aver 
 
 Gli utenti con ruoli predefiniti di **proprietario** e **collaboratore** possono accedere al portale di CloudSimple.  I ruoli devono essere configurati nel gruppo di risorse in cui viene distribuito il servizio CloudSimple.  I ruoli possono anche essere configurati nell'oggetto servizio CloudSimple.  Per altre informazioni sul controllo del ruolo, vedere l'articolo [visualizzare le assegnazioni di ruolo](../role-based-access-control/check-access.md) . Solo gli utenti con ruoli predefiniti di **proprietario** e **collaboratore** possono accedere al portale di CloudSimple.  I ruoli devono essere configurati nella sottoscrizione.  Per altre informazioni sul controllo del ruolo, vedere l'articolo [visualizzare le assegnazioni di ruolo](../role-based-access-control/check-access.md) .
 
-Se si utilizzano ruoli personalizzati, il ruolo deve disporre di una delle operazioni seguenti in ```Actions``` .  Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).  Se una delle operazioni è parte di ```NotActions``` , l'utente non può accedere al portale di CloudSimple.
+Se si utilizzano ruoli personalizzati, il ruolo deve disporre di una delle operazioni seguenti in ```Actions``` .  Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).  Se una delle operazioni è parte di ```NotActions``` , l'utente non può accedere al portale di CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*

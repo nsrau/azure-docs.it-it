@@ -3,15 +3,16 @@ title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054903"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
-Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino. Quando si apre un insieme di credenziali di Servizi di ripristino dall'elenco, viene aperto il dashboard **Panoramica** dell'insieme di credenziali selezionato. Il dashboard fornisce diversi dettagli sull'insieme di credenziali. Sono disponibili *riquadri* che mostrano lo stato di avvisi critici e di avviso, i processi di backup in corso e non riusciti e la quantità di archiviazione con ridondanza locale (con ridondanza locale) e l'archiviazione con ridondanza geografica (GRS) usata. Se si esegue un backup delle VM di Azure nell'insieme di credenziali, il riquadro [**Stato del controllo preliminare di backup** visualizza eventuali avvisi critici o avvertenze](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). L'immagine seguente illustra il dashboard **Panoramica** per **Contoso-vault**. Il riquadro **Elementi di backup** mostra che sono presenti nove elementi registrati nell'insieme di credenziali.
+Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino. Quando si apre un insieme di credenziali di Servizi di ripristino dall'elenco, viene aperto il dashboard **Panoramica** dell'insieme di credenziali selezionato. Il dashboard fornisce diversi dettagli sull'insieme di credenziali. Sono disponibili *riquadri* che mostrano lo stato di avvisi critici e di avviso, i processi di backup in corso e non riusciti e la quantità di archiviazione con ridondanza locale (con ridondanza locale) e l'archiviazione con ridondanza geografica (GRS) usata. Se si esegue un backup delle VM di Azure nell'insieme di credenziali, il riquadro [**Stato del controllo preliminare di backup** visualizza eventuali avvisi critici o avvertenze](#backup-pre-check-status). L'immagine seguente illustra il dashboard **Panoramica** per **Contoso-vault**. Il riquadro **Elementi di backup** mostra che sono presenti nove elementi registrati nell'insieme di credenziali.
 
 ![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -29,7 +30,7 @@ Per monitorare gli avvisi o visualizzare i dati di gestione su un insieme di cre
 
    ![Aprire l'elenco degli insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-3. Nella finestra di dialogo **Tutti i servizi** digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando l'opzione **Insiemi di credenziali dei servizi di ripristino** viene visualizzata, fare clic per aprire l'elenco degli insiemi di credenziali di Servizi di ripristino presenti nella sottoscrizione.
+3. Nella finestra di dialogo **Tutti i servizi** digitare **Servizi di ripristino**. Quando si inizia a digitare, l'elenco viene filtrato in base all'input. Quando l'opzione **Insiemi di credenziali dei servizi di ripristino** viene visualizzata, fare clic per aprire l'elenco degli insiemi di credenziali di Servizi di ripristino presenti nella sottoscrizione.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
@@ -110,7 +111,7 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 * Elementi di backup
 * Server protetti
 * Gravità
-* Duration
+* Durata
 * Data creazione
 * Stato
 * Ora ultima occorrenza
@@ -177,7 +178,7 @@ Per esplorare uno specifico tipo di istanza protetta, fare clic sull'elemento ne
 
 ![Elenco del tipo di backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-L'elenco di macchine virtuali include dati utili: il gruppo di risorse associato, il [controllo preliminare di backup](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) precedente, lo stato dell'ultimo backup e la data del punto di ripristino più recente. I puntini di sospensione nell'ultima colonna aprono il menu per attivare le attività comuni. I dati utili forniti nelle colonne sono diversi per ogni tipo di backup.
+L'elenco di macchine virtuali include dati utili: il gruppo di risorse associato, il [controllo preliminare di backup](#backup-pre-check-status) precedente, lo stato dell'ultimo backup e la data del punto di ripristino più recente. I puntini di sospensione nell'ultima colonna aprono il menu per attivare le attività comuni. I dati utili forniti nelle colonne sono diversi per ogni tipo di backup.
 
 ![Elenco del tipo di backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -244,7 +245,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Tutti gli stati
 * Completi
 * In corso
-* Operazione non riuscita
+* Non riuscito
 * Cancellati
 * Completato con avvisi
 
@@ -286,4 +287,4 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
-* Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
+* Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](./backup-overview.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056736"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -35,14 +35,14 @@ La possibilità di gestire il controllo degli accessi in base al ruolo per le ri
 - Iscriversi per l'anteprima <https://aka.ms/aad-rbac-sign-up-form> .
 - Assicurarsi di avere `EnableAzureRBACPreview` abilitato il flag funzionalità.
 - Assicurarsi di avere `AAD-V2` abilitato il flag funzionalità.
-- Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.55 o versione successiva
+- Assicurarsi che sia installata l' `aks-preview` [estensione CLI][az-extension-add] v 0.4.55 o versione successiva
 - Assicurarsi di aver installato [kubectl v 1.18.3 +][az-aks-install-cli].
 
 #### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>`EnableAzureRBACPreview`Funzionalità di registrazione e `AAD-V2` anteprima
 
 Per creare un cluster AKS che usa il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes, è necessario abilitare i `EnableAzureRBACPreview` `AAD-V2` flag di funzionalità e nella sottoscrizione.
 
-Registrare il `EnableAzureRBACPreview` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
+Registrare i `EnableAzureRBACPreview` `AAD-V2` flag della funzionalità e usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
@@ -64,9 +64,9 @@ Quando si è pronti, aggiornare la registrazione del provider di risorse *Micros
 az provider register --namespace Microsoft.ContainerService
 ```
 
-#### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
+#### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 
-Per creare un cluster del servizio contenitore di Azure che usa il controllo degli accessi in *base al ruolo* di Azure, è necessaria la versione 0.4.55 o successiva dell'estensione CLI Installare l'estensione *aks-preview* dell'interfaccia della riga di comando di Azure usando il comando [az extension add][az-extension-add], quindi verificare la disponibilità di eventuali aggiornamenti usando il comando [az extension update][az-extension-update]:
+Per creare un cluster del servizio contenitore di Azure che usa il controllo degli accessi in *base al ruolo* di Azure, è necessaria la versione 0.4.55 o successiva dell'estensione CLI Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] oppure installare gli aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension

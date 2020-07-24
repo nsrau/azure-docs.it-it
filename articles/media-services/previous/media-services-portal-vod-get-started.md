@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5a09d672f44ce8835571277ab35f7545c7f5f33e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62754c455ec6aad4a3990bf4af749dcdcd425e55
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060219"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra il processo di implementazione di un servizio di base per la distribuzione di contenuti video on demand con l'applicazione Servizi multimediali di Azure nel portale di Azure.
 
@@ -125,7 +125,7 @@ Un URL di firma di accesso condiviso ha il formato seguente:
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
@@ -154,7 +154,7 @@ Considerazioni applicabili:
 * Verificare che il video sia stato pubblicato.
 * Media Player nel portale di Azure esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, selezionare e copiare l'URL e quindi incollarlo in un altro lettore. È ad esempio possibile testare il video in [Azure Media Player](https://aka.ms/azuremediaplayer).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061603"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
 Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
-Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; per lavorare con le relazioni e il [grafo gemello](concepts-twins-graph.md) nel suo complesso, vedere [How-to: Manage The Twin Graph with Relationships](how-to-manage-graph.md).
+Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; per lavorare con le relazioni e il [grafo gemello](concepts-twins-graph.md) nel suo complesso, vedere [*How-to: Manage The Twin Graph with Relationships*](how-to-manage-graph.md).
 
 > [!TIP]
 > Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
@@ -44,7 +44,7 @@ Il modello e i valori delle proprietà iniziali vengono forniti tramite il `init
 
 ### <a name="initialize-properties"></a>Inizializza proprietà
 
-L'API per la creazione di dispositivi gemelli accetta un oggetto che può essere serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [concetti: dispositivi gemelli digitali e il grafico a gemelli](concepts-twins-graph.md) .
+L'API per la creazione di dispositivi gemelli accetta un oggetto che può essere serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [*concetti: dispositivi gemelli digitali e il grafico a gemelli*](concepts-twins-graph.md) .
 
 È possibile creare un oggetto Parameter manualmente oppure usando una classe helper fornita. Di seguito è riportato un esempio di ogni.
 
@@ -91,7 +91,7 @@ object result = await client.GetDigitalTwin(id);
 
 Questa chiamata restituisce i dati gemelli come stringa JSON. 
 
-Per recuperare più dispositivi gemelli usando una singola chiamata API, vedere gli esempi di API di query in [procedura: eseguire una query sul grafico gemello](how-to-query-graph.md).
+Per recuperare più dispositivi gemelli usando una singola chiamata API, vedere gli esempi di API di query in [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 
 Si consideri il modello seguente (scritto in [Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) che definisce una *Luna*:
 
@@ -168,7 +168,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-Per altre informazioni sulle classi helper di serializzazione, vedere [procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md).
+Per altre informazioni sulle classi helper di serializzazione, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="update-a-digital-twin"></a>Aggiornare un dispositivo gemello digitale
 
@@ -337,13 +337,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### <a name="delete-all-digital-twins"></a>Elimina tutti i dispositivi gemelli digitali
 
-Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente, scaricare l'app di esempio usata nell' [esercitazione: esplorare le nozioni di base con un'app client di esempio](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllTwins` funzione.
+Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente, scaricare l'app di esempio usata nell' [*esercitazione: esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllTwins` funzione.
 
 ## <a name="manage-twins-with-cli"></a>Gestire i dispositivi gemelli con CLI
 
-I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli](how-to-use-cli.md).
+I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come creare e gestire le relazioni tra i dispositivi gemelli digitali:
-* [Procedura: gestire il grafo gemello con relazioni](how-to-manage-graph.md)
+* [*Procedura: gestire il grafo gemello con relazioni*](how-to-manage-graph.md)

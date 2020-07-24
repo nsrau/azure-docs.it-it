@@ -1,20 +1,20 @@
 ---
 title: Creare un'offerta del modulo Azure IoT Edge con il Centro per i partner in Azure Marketplace
-description: Informazioni su come creare, configurare e pubblicare un'offerta del modulo IoT Edge in Azure Marketplace tramite il Centro per i partner
+description: Informazioni su come creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace tramite il centro per i partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053664"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creare, configurare e pubblicare un'offerta del modulo IoT Edge in Azure Marketplace
+# <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
 Questo articolo descrive come creare e pubblicare un'offerta del modulo IoT Edge per Azure Marketplace. Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
@@ -230,7 +230,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
 6. Nome
-7. Summary
+7. Riepilogo
 8. Descrizione
 9. Collegamenti utili
 10. Screenshot/video

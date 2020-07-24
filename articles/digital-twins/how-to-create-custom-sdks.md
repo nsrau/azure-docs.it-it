@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135869"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061850"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
-Attualmente, l'unico SDK del piano dati pubblicato per interagire con le API dei dispositivi gemelli digitali di Azure è per .NET (C#). Per informazioni generali su .NET SDK e sulle API, vedere [procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un proprio SDK nel linguaggio preferito, usando autorest.
+Attualmente, l'unico SDK del piano dati pubblicato per interagire con le API dei dispositivi gemelli digitali di Azure è per .NET (C#). Per informazioni generali su .NET SDK e sulle API, vedere [*procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un proprio SDK nel linguaggio preferito, usando autorest.
 
 ## <a name="set-up-your-machine"></a>Configurare il computer
 
@@ -37,19 +37,19 @@ npm install -g autorest@2.0.4413
 Per eseguire autorest nel file con estensione per i gemelli digitali di Azure, seguire questa procedura:
 1. Copiare il file spavalderia di Digital gemelli di Azure e la cartella di esempi associata in una directory di lavoro.
 2. Utilizzare una finestra del prompt dei comandi per passare alla directory di lavoro.
-3. Eseguire autorest con il comando seguente. Sostituire il `<language>` segnaposto con la lingua scelta: `--python` , `--java` , `--go` e così via (è possibile trovare l'elenco completo delle opzioni nel [file Leggimi di autorest](https://github.com/Azure/autorest)).
+3. Eseguire autorest con il comando seguente. Sostituire il `<language>` segnaposto con la lingua scelta: `--python` , `--java` , `--go` e così via. (È possibile trovare l'elenco completo delle opzioni nel [file Leggimi di autorest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Viene quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*, che continuerà a essere usato nel resto degli esempi di utilizzo in questo articolo.
+Verrà quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*. Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
 
 Autorest supporta un'ampia gamma di generatori di codice della lingua.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Aggiungere l'SDK a un progetto di Visual Studio
 
-È possibile includere i file generati da autorest direttamente in una soluzione .NET. Tuttavia, poiché sarà probabilmente necessario Azure Digital Twins SDK in diversi progetti distinti (le app client, le app di funzioni di Azure e così via), può essere utile creare un progetto separato, ovvero una libreria di classi .NET, dai file generati. È quindi possibile includere questo progetto di libreria di classi in diverse soluzioni come riferimento al progetto.
+È possibile includere i file generati da autorest direttamente in una soluzione .NET. Tuttavia, è probabile che si voglia includere Azure Digital Gemells SDK in diversi progetti distinti (app client, app di funzioni di Azure e così via). Per questo motivo, può essere utile compilare un progetto separato, ovvero una libreria di classi .NET, dai file generati. È quindi possibile includere questo progetto di libreria di classi in diverse soluzioni come riferimento al progetto.
 
 In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e che può essere incluso in altri progetti. Questa procedura si basa su **Visual Studio** (è possibile installare la versione più recente da [qui](https://visualstudio.microsoft.com/downloads/)).
 
@@ -73,7 +73,7 @@ Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacche
 
 1. Nel pannello verificare che sia selezionata la scheda *Sfoglia* .
 2. Cerca *Microsoft. Rest*
-3. Selezionare i pacchetti *ClientRuntime* e *ClientRuntime. Azure* e aggiungerli alla soluzione
+3. Selezionare i `ClientRuntime` `ClientRuntime.Azure` pacchetti e e aggiungerli alla soluzione
 
 È ora possibile compilare il progetto e includerlo come riferimento a un progetto in qualsiasi applicazione di dispositivi digitali gemelli di Azure che si scrive.
 
@@ -87,7 +87,7 @@ Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
 ### <a name="typed-and-untyped-data"></a>Dati tipizzati e non tipizzati
 
-Le chiamate API REST in genere restituiscono oggetti fortemente tipizzati. Tuttavia, poiché i dispositivi gemelli digitali di Azure consentono agli utenti di definire tipi personalizzati per i dispositivi gemelli, non è possibile predefinire i dati restituiti statici per molte chiamate di Azure Digital gemelli. Al contrario, le API restituiscono tipi di wrapper fortemente tipizzati, se applicabile, e i dati dei dispositivi gemelli con tipizzazione personalizzata si trovano in oggetti Json.NET (utilizzati ovunque il tipo di dati "oggetto" viene visualizzato nelle firme dell'API). È possibile eseguire il cast di questi oggetti in modo appropriato nel codice.
+Le chiamate API REST in genere restituiscono oggetti fortemente tipizzati. Tuttavia, poiché i dispositivi gemelli digitali di Azure consentono agli utenti di definire tipi personalizzati per i dispositivi gemelli, non è possibile predefinire i dati restituiti statici per molte chiamate di Azure Digital gemelli. Al contrario, le API restituiscono tipi di wrapper fortemente tipizzati, se applicabile, e i dati del dispositivo gemello personalizzato si trovano in oggetti Json.NET (utilizzati ovunque il tipo di dati "oggetto" viene visualizzato nelle firme dell'API). È possibile eseguire il cast di questi oggetti in modo appropriato nel codice.
 
 ### <a name="error-handling"></a>Gestione degli errori
 
@@ -115,7 +115,7 @@ Autorest genera due tipi di modelli di paging per l'SDK:
 
 Nel modello di paging non di query sono disponibili due versioni di ciascuna chiamata:
 * Una versione per effettuare la chiamata iniziale (ad esempio `DigitalTwins.ListEdges()` )
-* Versione per ottenere le pagine successive, con suffisso "Next" (ad esempio `DigitalTwins.ListEdgesNext()` )
+* Versione per ottenere le pagine seguenti. Queste chiamate hanno un suffisso "Next" (ad esempio `DigitalTwins.ListEdgesNext()` )
 
 Ecco un frammento di codice che illustra come recuperare un elenco di pagine di relazioni in uscita da dispositivi gemelli digitali di Azure:
 ```csharp
@@ -188,4 +188,4 @@ try
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esaminare i passaggi per creare un'app client in cui è possibile usare l'SDK:
-* [Esercitazione: Scrivere il codice di un'app client](tutorial-code.md)
+* [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

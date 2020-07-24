@@ -3,21 +3,22 @@ title: Autorizzazioni in Azure Advisor
 description: Le autorizzazioni di Advisor e il modo in cui possono bloccare la possibilità di configurare le sottoscrizioni o posticipare o ignorare le raccomandazioni.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057585"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorizzazioni in Azure Advisor
 
-Azure Advisor fornisce consigli basati sull'utilizzo e la configurazione delle risorse e delle sottoscrizioni di Azure. Advisor utilizza i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) forniti dal controllo degli [accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) per gestire l'accesso ai consigli e alle funzionalità di Advisor. 
+Azure Advisor fornisce consigli basati sull'utilizzo e la configurazione delle risorse e delle sottoscrizioni di Azure. Advisor utilizza i [ruoli predefiniti](../role-based-access-control/built-in-roles.md) forniti dal controllo degli [accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) per gestire l'accesso ai consigli e alle funzionalità di Advisor. 
 
 ## <a name="roles-and-their-access"></a>Ruoli e relativo accesso
 
 Nella tabella seguente vengono definiti i ruoli e l'accesso in Advisor:
 
-| **Role** | **Visualizza le raccomandazioni** | **Modifica regole** | **Modificare la configurazione della sottoscrizione** | **Modificare la configurazione del gruppo di risorse**| **Ignorare e posticipare le raccomandazioni**|
+| **Ruolo** | **Visualizza le raccomandazioni** | **Modifica regole** | **Modificare la configurazione della sottoscrizione** | **Modificare la configurazione del gruppo di risorse**| **Ignorare e posticipare le raccomandazioni**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Proprietario della sottoscrizione|**X**|**X**|**X**|**X**|**X**|
 |Collaboratore alla sottoscrizione|**X**|**X**|**X**|**X**|**X**|
@@ -38,15 +39,15 @@ La mancanza di autorizzazioni appropriate può impedire la possibilità di esegu
 
 ### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Non è possibile configurare le sottoscrizioni o i gruppi di risorse
 
-Quando si tenta di configurare le sottoscrizioni o i gruppi di risorse in Advisor, è possibile notare che l'opzione da includere o escludere è disabilitata. Questo stato indica che non si dispone di un livello di autorizzazione sufficiente per il gruppo di risorse o la sottoscrizione. Per risolvere questo problema, informazioni su come [concedere un accesso utente](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Quando si tenta di configurare le sottoscrizioni o i gruppi di risorse in Advisor, è possibile notare che l'opzione da includere o escludere è disabilitata. Questo stato indica che non si dispone di un livello di autorizzazione sufficiente per il gruppo di risorse o la sottoscrizione. Per risolvere questo problema, informazioni su come [concedere un accesso utente](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Non è possibile posticipare o ignorare una raccomandazione
 
-Se viene visualizzato un errore durante il tentativo di posticipare o ignorare una raccomandazione, è possibile che non si disponga di autorizzazioni sufficienti. Assicurarsi di avere almeno l'accesso collaboratore alla risorsa interessata della raccomandazione che si sta posticipando o scegliendo. Per risolvere questo problema, informazioni su come [concedere un accesso utente](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Se viene visualizzato un errore durante il tentativo di posticipare o ignorare una raccomandazione, è possibile che non si disponga di autorizzazioni sufficienti. Assicurarsi di avere almeno l'accesso collaboratore alla risorsa interessata della raccomandazione che si sta posticipando o scegliendo. Per risolvere questo problema, informazioni su come [concedere un accesso utente](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo ha fornito una panoramica del modo in cui Advisor usa il controllo degli accessi in base al ruolo per controllare le autorizzazioni utente e risolvere i problemi comuni Per altre informazioni su Advisor, vedere:
 
-- [Cos'è Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Introduzione ad Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Che cos'è Azure Advisor?](./advisor-overview.md)
+- [Introduzione ad Azure Advisor](./advisor-get-started.md)

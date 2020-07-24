@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563112"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055180"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -27,7 +27,7 @@ Se si tenta di eliminare l'insieme di credenziali senza rimuovere le dipendenze,
 
 - Non è possibile eliminare l'insieme di credenziali perché contiene risorse esistenti. Assicurarsi che non siano presenti elementi di backup, server protetti o server di gestione di backup associati a questo insieme di credenziali. Annullare la registrazione dei seguenti contenitori associati a questo insieme di credenziali prima di procedere con l'eliminazione.
 
-- L'insieme di credenziali di Servizi di ripristino non può essere eliminato perché sono presenti elementi di backup eliminati temporaneamente nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente dopo 14 giorni dall'operazione di eliminazione. Provare l'eliminazione dell'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali. Per altre informazioni, vedere [eliminazione temporanea per backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+- L'insieme di credenziali di Servizi di ripristino non può essere eliminato perché sono presenti elementi di backup eliminati temporaneamente nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente dopo 14 giorni dall'operazione di eliminazione. Provare l'eliminazione dell'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali. Per altre informazioni, vedere [eliminazione temporanea per backup di Azure](./backup-azure-security-feature-cloud.md).
 
 ## <a name="proper-way-to-delete-a-vault"></a>Modo corretto per eliminare un insieme di credenziali
 
@@ -36,9 +36,9 @@ Se si tenta di eliminare l'insieme di credenziali senza rimuovere le dipendenze,
 
 Per eliminare correttamente un insieme di credenziali, è necessario seguire i passaggi nell'ordine seguente:
 
-- **Passaggio 1**: disabilitare la funzionalità di eliminazione temporanea. Per la procedura di disabilitazione dell'eliminazione temporanea, [vedere qui](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
+- **Passaggio 1**: disabilitare la funzionalità di eliminazione temporanea. Per la procedura di disabilitazione dell'eliminazione temporanea, [vedere qui](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) .
 
-- **Passaggio 2**: dopo la disabilitazione dell'eliminazione temporanea, controllare se sono presenti elementi in precedenza rimasti nello stato di eliminazione temporanea. Se sono presenti elementi in stato di eliminazione temporanea, è necessario annullarne l' *eliminazione* ed *eliminarli* nuovamente. [Seguire questa procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) per trovare gli elementi di eliminazione temporanea ed eliminarli definitivamente.
+- **Passaggio 2**: dopo la disabilitazione dell'eliminazione temporanea, controllare se sono presenti elementi in precedenza rimasti nello stato di eliminazione temporanea. Se sono presenti elementi in stato di eliminazione temporanea, è necessario annullarne l' *eliminazione* ed *eliminarli* nuovamente. [Seguire questa procedura](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) per trovare gli elementi di eliminazione temporanea ed eliminarli definitivamente.
 
 - **Passaggio 3**: è necessario controllare tutte le tre posizioni seguenti per verificare se sono presenti elementi protetti:
 
@@ -209,7 +209,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
            [<CommonParameters>]
     ```
 
-  [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) su come disabilitare la protezione per un elemento protetto da backup di Azure.
+  [Altre informazioni](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) su come disabilitare la protezione per un elemento protetto da backup di Azure.
 
 - Arrestare la protezione ed eliminare i dati per tutti gli elementi protetti da backup nel cloud (ad esempio: VM IaaS, condivisione file di Azure e così via):
 
@@ -225,7 +225,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
        [<CommonParameters>]
     ```
 
-    [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   informazioni su Disabilita la protezione per un elemento protetto da backup.
+    [Altre informazioni](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection)   informazioni su Disabilita la protezione per un elemento protetto da backup.
 
 - Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure, usare il comando di PowerShell seguente per eliminare i dati di cui è stato eseguito il backup da ogni modulo di PowerShell MARS:
 
@@ -263,7 +263,7 @@ Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la regi
               [<CommonParameters>]
     ```
 
-    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un server Windows o di un altro contenitore dall'insieme di credenziali.
+    [Altre](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) informazioni su come annullare la registrazione di un server Windows o di un altro contenitore dall'insieme di credenziali.
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manage:
 
@@ -278,7 +278,7 @@ Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la regi
           [<CommonParameters>]
     ```
 
-    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un contenitore di gestione di backup dall'insieme di credenziali.
+    [Altre](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) informazioni su come annullare la registrazione di un contenitore di gestione di backup dall'insieme di credenziali.
 
 Dopo aver eliminato definitivamente i dati sottoposti a backup e aver annullato la registrazione di tutti i contenitori, procedere con l'eliminazione dell'insieme di credenziali.
 
@@ -293,7 +293,7 @@ Per eliminare un insieme di credenziali dei servizi di ripristino:
       [<CommonParameters>]
    ```
 
-[Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) informazioni sull'eliminazione di un insieme di credenziali di servizi di ripristino.
+[Altre](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) informazioni sull'eliminazione di un insieme di credenziali di servizi di ripristino.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Eliminare l'insieme di credenziali di servizi di ripristino tramite CLI
 
@@ -330,7 +330,7 @@ Per eliminare l'insieme di credenziali di servizi di ripristino esistente, segui
                        [--yes]
     ```
 
-    Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
+    Per altre informazioni, vedere questo [articolo](/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager
 

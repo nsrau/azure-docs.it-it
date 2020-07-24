@@ -3,11 +3,12 @@ title: Monitoraggio e registrazione-Azure
 description: Questo articolo fornisce una panoramica di analisi video in tempo reale su IoT Edge monitoraggio e registrazione.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060458"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
@@ -97,7 +98,7 @@ Analisi video in tempo reale su IoT Edge emette eventi o dati di telemetria in b
      }
    }
    ```
-Gli eventi generati dal modulo vengono inviati all' [Hub IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)e da qui è possibile instradarli ad altre destinazioni. 
+Gli eventi generati dal modulo vengono inviati all' [Hub IOT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e da qui è possibile instradarli ad altre destinazioni. 
 
 ## <a name="controlling-events"></a>Controllo degli eventi
 
@@ -109,7 +110,7 @@ Gli eventi generati dal modulo vengono inviati all' [Hub IOT Edge](https://docs.
    
 Gli eventi di analisi vengono generati da nodi come il processore di rilevamento del movimento o il processore di estensione HTTP e il sink dell'hub Internet viene usato per inviarli all'hub IoT Edge. 
 
-È possibile controllare il [routing di tutti gli eventi precedenti](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) tramite una proprietà desiderata del modulo $edgeHub gemello (nel manifesto di distribuzione):
+È possibile controllare il [routing di tutti gli eventi precedenti](../../iot-edge/module-composition.md#declare-routes) tramite una proprietà desiderata del modulo $edgeHub gemello (nel manifesto di distribuzione):
 
 ```
  "$edgeHub": {
@@ -125,16 +126,16 @@ Gli eventi di analisi vengono generati da nodi come il processore di rilevamento
  }
 ```
 
-In precedenza, lvaEdge è il nome per l'analisi video in tempo reale sul modulo IoT Edge e la regola di routing segue lo schema definito in [Declare Routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+In precedenza, lvaEdge è il nome per l'analisi video in tempo reale sul modulo IoT Edge e la regola di routing segue lo schema definito in [Declare Routes](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Per assicurarsi che gli eventi di analisi raggiungano l'hub di IoT Edge, è necessario che sia presente un nodo del sink dell'hub Internet a valle di qualsiasi nodo del processore di rilevamento del movimento e/o di qualsiasi nodo del processore di estensione HTTP.
 
 ## <a name="event-schema"></a>Schema di eventi
 
-Gli eventi hanno origine nel dispositivo perimetrale e possono essere usati nel perimetro o nel cloud. Gli eventi generati da analisi video in tempo reale su IoT Edge sono conformi al [modello di messaggistica di streaming](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) stabilito dall'hub Azure Internet, con proprietà di sistema, proprietà dell'applicazione e corpo.
+Gli eventi hanno origine nel dispositivo perimetrale e possono essere usati nel perimetro o nel cloud. Gli eventi generati da analisi video in tempo reale su IoT Edge sono conformi al [modello di messaggistica di streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) stabilito dall'hub Azure Internet, con proprietà di sistema, proprietà dell'applicazione e corpo.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Ogni evento, se osservato tramite l'hub Internet delle cose, avrà un set di proprietà comuni, come descritto di seguito.
 
@@ -199,7 +200,7 @@ L'ora dell'evento è descritta in stringa ISO8601 e indica l'ora in cui si è ve
 
 ## <a name="logging"></a>Registrazione
 
-Analogamente ad altri moduli IoT Edge, è anche possibile [esaminare i log dei contenitori](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) sul dispositivo perimetrale. Le informazioni scritte nei log possono essere controllate dalle proprietà [gemelle del modulo seguenti](module-twin-configuration-schema.md) :
+Analogamente ad altri moduli IoT Edge, è anche possibile [esaminare i log dei contenitori](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) sul dispositivo perimetrale. Le informazioni scritte nei log possono essere controllate dalle proprietà [gemelle del modulo seguenti](module-twin-configuration-schema.md) :
 
 * logLevel
 
@@ -221,7 +222,7 @@ Analogamente ad altri moduli IoT Edge, è anche possibile [esaminare i log dei c
 
 In alcuni casi, potrebbe essere necessario generare log più dettagliati rispetto a quelli descritti in precedenza per consentire al supporto tecnico di Azure di risolvere un problema. Per eseguire questa operazione, è necessario eseguire due passaggi.
 
-Per prima cosa, [collegare lo spazio di archiviazione del modulo alla risorsa di archiviazione del dispositivo](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) tramite CreateOptions. Se si esamina un [modello di manifesto di distribuzione](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) dall'avvio rapido, verrà visualizzato quanto segue:
+Per prima cosa, [collegare lo spazio di archiviazione del modulo alla risorsa di archiviazione del dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) tramite CreateOptions. Se si esamina un [modello di manifesto di distribuzione](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) dall'avvio rapido, verrà visualizzato quanto segue:
 
 ```
 "createOptions": {

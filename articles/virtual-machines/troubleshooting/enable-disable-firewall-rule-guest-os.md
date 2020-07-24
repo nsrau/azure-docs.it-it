@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058756"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
 
@@ -29,7 +29,7 @@ Questo articolo fornisce informazioni di riferimento per la risoluzione dei prob
 
 *   La disabilitazione di tutti i profili firewall è un modo più sicuro di risolvere i problemi rispetto all'impostazione della regola del firewall specifica di RDP.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario. Gli esempi seguenti usano regole RDP. Gli stessi metodi possono tuttavia essere applicati a qualsiasi altro tipo di traffico specificando la chiave del Registro di sistema corretta.
 
@@ -77,7 +77,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
 Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile apportare le mitigazioni seguenti usando l'altra macchina virtuale.
 
-1.  Nella macchina virtuale per la risoluzione dei problemi scaricare [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Nella macchina virtuale per la risoluzione dei problemi scaricare [PSTools](/sysinternals/downloads/pstools).
 
 2.  Aprire un'istanza di CMD e accedere alla macchina virtuale tramite il relativo indirizzo IP interno. 
 

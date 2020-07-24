@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060607"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
 
 > [!NOTE]
-> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), le procedure generali sono identiche per l'[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
+> Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), le procedure generali sono identiche per l'[API REST](/rest/api/media/liveevents), l'[interfaccia della riga di comando](/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 È possibile usare Servizi multimediali di Azure per distribuire i flussi crittografati con licenze Microsoft PlayReady, Google Widevine o Apple FairPlay. Per una spiegazione approfondita, vedere [protezione del contenuto con crittografia dinamica](content-protection-overview.md).
 
@@ -55,8 +55,8 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 * Vedere l'articolo [Panoramica della protezione del contenuto](content-protection-overview.md).
 * Vedere la pagina relativa alla [progettazione del sistema di protezione dei contenuti con DRM multiplo con controllo di accesso](design-multi-drm-system-with-access-control.md).
 * Installare Visual Studio Code o Visual Studio.
-* Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
-* Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](access-api-cli-how-to.md)
+* Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](./create-account-howto.md).
+* Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](./access-api-howto.md)
 * Impostare i valori appropriati nel file di configurazione dell'app (appsettings.json).
 
 ## <a name="download-code"></a>Scaricare il codice
@@ -144,7 +144,7 @@ Quando si crea un **localizzatore di streaming**, è necessario specificare il v
 
 ## <a name="get-a-test-token"></a>Ottenere un token di test
 
-In questa esercitazione si specifica una restrizione del token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) ed è ciò che viene configurato nell'esempio.
+In questa esercitazione si specifica una restrizione del token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) ed è ciò che viene configurato nell'esempio.
 
 In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che il token presentato al servizio di distribuzione delle chiavi deve contenere l'identificatore dell'entità ContentKey. Nell'esempio non viene specificata una chiave simmetrica quando si crea il localizzatore di streaming, il sistema crea una sequenza casuale. Per generare il token di test, è necessario ottenere il Idchiavesimmetrica da inserire nell'attestazione ContentKeyIdentifierClaim.
 
@@ -152,7 +152,7 @@ In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che 
 
 ## <a name="build-a-streaming-url"></a>Creare un URL di streaming
 
-Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, l'*endpoint di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
+Ora che è stato creato l'oggetto [StreamingLocator](/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, l'*endpoint di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -164,7 +164,7 @@ Quando si esegue l'app, viene visualizzata la schermata seguente:
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Ad esempio, il codice seguente elimina il processo, gli asset creati e i criteri della chiave simmetrica:
+In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Ad esempio, il codice seguente elimina il processo, gli asset creati e i criteri di chiave simmetrica:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 

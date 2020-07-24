@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061750"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -99,7 +99,7 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 * Viene creato un dispositivo gemello digitale
 * Un dispositivo gemello digitale è stato eliminato
 
-#### <a name="properties"></a>Properties
+#### <a name="properties"></a>Proprietà
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
@@ -185,7 +185,7 @@ Ecco un altro esempio di un dispositivo gemello digitale. Questo si basa su un [
 
 Le **notifiche di modifica delle relazioni** vengono attivate quando viene creata, aggiornata o eliminata una relazione di un dispositivo gemello digitale. 
 
-#### <a name="properties"></a>Properties
+#### <a name="properties"></a>Proprietà
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
@@ -241,7 +241,7 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 * Quando vengono modificati i valori o i metadati della proprietà.
 * Quando vengono modificati i metadati del componente o del dispositivo digitale. Un esempio di questo scenario è la modifica del modello di un dispositivo gemello digitale.
 
-#### <a name="properties"></a>Properties
+#### <a name="properties"></a>Proprietà
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
@@ -300,7 +300,7 @@ La notifica corrispondente, se eseguita in modo sincrono dal servizio, ad esempi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come creare endpoint e route per recapitare gli eventi:
-* [Procedura: gestire endpoint e Route](how-to-manage-routes.md)
+* [*Procedura: gestire endpoint e Route*](how-to-manage-routes.md)
 
 In alternativa, Scopri di più sulle API dei dispositivi digitali gemelli di Azure e sulle opzioni dell'SDK:
-* [Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md)
+* [*Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md)

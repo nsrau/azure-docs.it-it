@@ -1,14 +1,14 @@
 ---
-title: Migliorare una knowledge base - QnA Maker
+title: Domande consigliate sull'apprendimento attivo-QnA Maker
 description: Migliorare la qualità della Knowledge base con l'apprendimento attivo. Verifica, accetta o rifiuta, Aggiungi senza rimuovere o modificare le domande esistenti.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bb95ddc40e122e2589d0396b94f0de921aab9350
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053926"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 

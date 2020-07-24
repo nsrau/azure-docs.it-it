@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055613"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
@@ -21,14 +21,14 @@ Questo articolo illustra come creare un progetto per funzioni [senza server](htt
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configura l'ambiente di sviluppo
 
 Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che siano installati gli elementi seguenti:
 
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/)versione 8.
 -  [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), con supporto per Java e Maven.
--  [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+-  [Interfaccia della riga di comando di Azure](/cli/azure)
 
 > [!IMPORTANT] 
 > Per completare questa guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
@@ -43,7 +43,7 @@ Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che sia
 1. Assicurarsi di inserire i valori per tutti i campi, ad esempio `resourceGroup` , `appName` e `appRegion` (usare un diverso AppName diverso da **fabrikam-Function-20170920120101928**) e infine **terminare**.
     ![Create2 di Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il codice generato nel progetto è una semplice funzione [attivata tramite HTTP](/azure/azure-functions/functions-bindings-http-webhook) che restituisce il corpo della richiesta di attivazione dell'HTTP.
+Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il codice generato nel progetto è una semplice funzione [attivata tramite HTTP](./functions-bindings-http-webhook.md) che restituisce il corpo della richiesta di attivazione dell'HTTP.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Eseguire le funzioni in locale nell'IDE
 

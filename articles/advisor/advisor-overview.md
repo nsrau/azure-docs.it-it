@@ -3,12 +3,12 @@ title: Presentazione di Azure Advisor
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057694"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -51,13 +51,13 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quali autorizzazioni sono necessarie per accedere ad Advisor?
  
-È possibile accedere ai consigli di Advisor come *Proprietario*, *Collaboratore* o *Lettore* di una sottoscrizione.
+È possibile accedere ai consigli di Advisor come *proprietario*, *collaboratore*o *lettore* di una sottoscrizione, di un gruppo di risorse o di una risorsa.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
 Advisor fornisce consigli per gateway applicazione, servizi app, set di disponibilità, cache di Azure, Azure Data Factory, database di Azure per MySQL, database di Azure per PostgreSQL, database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, indirizzi IP pubblici di Azure, SQL Data Warehouse, server SQL, account di archiviazione, profili di gestione traffico e macchine virtuali.
 
-Azure Advisor include anche le raccomandazioni del [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) che possono includere consigli per altri tipi di risorse.
+Azure Advisor include anche le raccomandazioni del [Centro sicurezza di Azure](../security-center/security-center-recommendations.md) che possono includere consigli per altri tipi di risorse.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 

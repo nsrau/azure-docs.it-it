@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81380681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059424"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights Gen1
 
 Questo articolo descrive due impostazioni primarie che influiscano sulla conservazione dei dati nell'ambiente Azure Time Series Insights.
 
 ## <a name="video"></a>Video
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Il video seguente riepiloga Time Series Insights la conservazione dei dati e la relativa modalità di pianificazione.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Il video seguente riepiloga Azure Time Series Insights la conservazione dei dati e la relativa modalità di pianificazione.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ Inoltre, l'ambiente di Azure Time Series Insights dispone di un **limite di arch
 - **Sospendere il traffico in ingresso**
 
 > [!NOTE]
-> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze dopo l'ora di creazione usando il portale di Azure nella pagina **Configura** dell'ambiente Time Series Insights.
-> * Per informazioni su come configurare i criteri di conservazione, vedere [Configuring Retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze dopo l'ora di creazione usando il portale di Azure nella pagina **Configura** dell'ambiente Azure Time Series Insights.
+> * Per informazioni su come configurare i criteri di conservazione, vedere [Configuring Retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Entrambi i criteri di conservazione dei dati sono descritti in dettaglio più avanti.
 
 ## <a name="purge-old-data"></a>Eliminare i dati meno recenti
 
 - **Elimina dati obsoleti** è l'impostazione predefinita per gli ambienti Azure Time Series Insights.  
-- È preferibile **eliminare i dati obsoleti** quando gli utenti vogliono avere sempre i *dati più recenti* nell'ambiente Time Series Insights.
+- È preferibile **eliminare i dati obsoleti** quando gli utenti vogliono avere sempre i *dati più recenti* nell'ambiente Azure Time Series Insights.
 - L'impostazione **Ripulisci dati obsoleti** *Elimina* i dati dopo che sono stati raggiunti i limiti dell'ambiente (periodo di conservazione, dimensioni o conteggio, a seconda di quale valore viene raggiunto per primo). L'assorbimento è impostato a 30 giorni per impostazione predefinita.
 - I dati inseriti meno recenti vengono eliminati per primi (approccio "First in First out").
 
@@ -69,7 +69,7 @@ Ogni volta che la velocità in ingresso giornaliera di questo ambiente supera 0,
 - Consente di evitare la perdita di dati, ma può creare un'opportunità per la perdita dei dati più recenti se il traffico in ingresso viene sospeso oltre il periodo di conservazione dell'origine evento.
 - Tuttavia, una volta raggiunta la capacità massima di un ambiente, l'ambiente sospende l'ingresso dei dati fino a quando non si verificano le azioni aggiuntive seguenti:
 
-   - È possibile aumentare la capacità massima dell'ambiente per aggiungere altre unità di scala, come descritto in [come ridimensionare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+   - È possibile aumentare la capacità massima dell'ambiente per aggiungere altre unità di scala, come descritto in [come ridimensionare l'ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
    - Viene raggiunto il periodo di conservazione dei dati e i dati vengono eliminati, portando l'ambiente al di sotto della capacità massima.
 
 ### <a name="example-three"></a>Esempio tre
@@ -86,16 +86,16 @@ Quando il traffico in ingresso riprende:
 > [!IMPORTANT]
 > È consigliabile impostare gli avvisi affinché inviino una notifica per evitare la sospensione del traffico in ingresso. Poiché il periodo di conservazione predefinito per le origini eventi di Azure è di 1 giorno, è possibile che si verifichi la perdita di dati. Pertanto quando il traffico in ingresso viene sospeso probabilmente i dati più recenti andranno persi a meno che l'utente non intervenga. È necessario aumentare la capacità o cambiare il comportamento in **Eliminare i dati meno recenti** per evitare un'eventuale perdita di dati.
 
-Negli hub eventi interessati provare a regolare la proprietà **Conservazione messaggi** per ridurre al minimo la perdita di dati quando si verifica la sospensione del traffico in ingresso in Time Series Insights.
+Negli hub eventi interessati, valutare la possibilità di modificare la proprietà di **conservazione dei messaggi** per ridurre al minimo la perdita di dati quando si verifica la sospensione in ingresso in Azure Time Series Insights.
 
 [![Conservazione messaggi dell'hub eventi.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Se non è configurata alcuna proprietà nell'origine evento ( `timeStampPropertyName` ), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la configurazione `timeStampPropertyName` nel pacchetto di dati quando vengono analizzati gli eventi.
+Se non è configurata alcuna proprietà nell'origine evento ( `timeStampPropertyName` ), Azure Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la configurazione `timeStampPropertyName` nel pacchetto di dati quando vengono analizzati gli eventi.
 
-Informazioni su [come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per ridimensionare l'ambiente in modo da supportare capacità aggiuntiva o aumentare la durata della conservazione.
+Informazioni su [come ridimensionare l'ambiente di Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per ridimensionare l'ambiente in modo da supportare capacità aggiuntiva o aumentare la durata della conservazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla configurazione o la modifica delle impostazioni di conservazione dei dati, vedere [configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Per informazioni sulla configurazione o la modifica delle impostazioni di conservazione dei dati, vedere [configurazione della conservazione in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Informazioni sulla [riduzione della latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

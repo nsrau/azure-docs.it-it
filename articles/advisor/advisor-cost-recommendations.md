@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078562"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057738"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -89,7 +89,7 @@ Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot nell'
 Con l'intelligence sul numero di oggetti di archiviazione BLOB di Azure, sulle dimensioni totali e sulle transazioni, Advisor rileva se è necessario abilitare la gestione del ciclo di vita per i dati di livello su uno o più account di archiviazione. Viene richiesto di creare regole di gestione del ciclo di vita per la suddivisione automatica dei dati in livelli di archiviazione ad accesso sporadico o Archivio per ottimizzare i costi di archiviazione mantenendo i dati nell'archiviazione BLOB di Azure per la compatibilità delle applicazioni.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Creare una raccomandazione del disco del sistema operativo temporaneo
-Il [disco del sistema operativo temporaneo](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) consente di: 
+Il [disco del sistema operativo temporaneo](../virtual-machines/windows/ephemeral-os-disks.md) consente di: 
 - Risparmiare sui costi di archiviazione per i dischi del sistema operativo. 
 - Ottenere una latenza di lettura/scrittura più bassa per i dischi del sistema operativo. 
 - Ottenere più velocemente operazioni di ricreazione dell'immagine della macchina virtuale reimpostando il sistema operativo e il disco temporaneo sullo stato originale.
@@ -114,4 +114,3 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Raccomandazioni per la disponibilità elevata di Advisor](advisor-high-availability-recommendations.md)
 * [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-

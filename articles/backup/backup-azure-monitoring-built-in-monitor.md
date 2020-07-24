@@ -4,11 +4,12 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054544"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -27,7 +28,7 @@ I processi dalle seguenti soluzioni di backup di Azure sono illustrati di seguit
 - Backup di macchine virtuali di Azure
 - Backup di file di Azure
 - Backup del carico di lavoro di Azure, ad esempio SQL e SAP HANA
-- Agente di Backup di Azure (MAB)
+- Agente di Servizi di ripristino di Microsoft Azure (MARS)
 
 I processi da System Center Data Protection Manager (SC-DPM), server di Backup di Microsoft Azure (MAB) non vengono visualizzati.
 
@@ -43,7 +44,7 @@ Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in mo
 Gli scenari seguenti sono definiti dal servizio come scenari di avviso.
 
 - Errori di backup/ripristino
-- Backup completato con avvisi per l'agente di Backup di Azure (MAB)
+- Backup completato con avvisi per l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 - Arrestare la protezione con Mantieni dati/arresta la protezione con Elimina dati
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Gli avvisi delle seguenti soluzioni di backup di Azure sono illustrati qui
@@ -51,7 +52,7 @@ Gli scenari seguenti sono definiti dal servizio come scenari di avviso.
 - Backup di macchine virtuali di Azure
 - Backup di File di Azure
 - Backup del carico di lavoro di Azure, ad esempio SQL, SAP HANA
-- Agente di Backup di Azure (MAB)
+- Agente di Servizi di ripristino di Microsoft Azure (MARS) 
 
 > [!NOTE]
 > Gli avvisi di System Center Data Protection Manager (SC-DPM), server di Backup di Microsoft Azure (MAB) non vengono visualizzati qui.
