@@ -1,124 +1,348 @@
 ---
 title: Accesso JIT (Just-in-Time) alle macchine virtuali nel Centro sicurezza di Azure | Microsoft Docs
-description: In questo documento viene illustrato come usare l'accesso JIT (Just-in-Time) alle macchine virtuali nel Centro sicurezza di Azure per controllare l'accesso alle macchine virtuali di Azure.
+description: Questo documento illustra in che modo JIT (just-in-Time VM Access) nel centro sicurezza di Azure consente di controllare l'accesso alle macchine virtuali di Azure.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78f5a34b64736808ac03771dcd8b5380482ab341
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089785"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con accesso just-in-Time
 
-Se si usa il piano tariffario standard del Centro sicurezza (vedere i [prezzi](/azure/security-center/security-center-pricing)), è possibile bloccare il traffico in ingresso nelle macchine virtuali di Azure con l'accesso JIT (just-in-Time) alle macchine virtuali (VM). In questo modo si riduce l'esposizione agli attacchi e si semplifica l'accesso per la connessione alle macchine virtuali quando necessario.
+Bloccare il traffico in ingresso alle macchine virtuali di Azure con la funzionalità di accesso JIT (just-in-Time) del Centro sicurezza di Azure (VM). In questo modo si riduce l'esposizione agli attacchi offrendo un facile accesso quando è necessario connettersi a una macchina virtuale.
 
-> [!NOTE]
-> Attualmente, l'accesso JIT alle macchine virtuali in Centro sicurezza supporta solo le macchine virtuali distribuite tramite Azure Resource Manager. Per altre informazioni sui modelli di distribuzione classica e con Azure Resource Manager, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/management/deployment-models.md).
+Per una spiegazione completa del funzionamento di JIT e della logica sottostante, vedere la pagina relativa [alla spiegazione JIT](just-in-time-explained.md).
 
-[!INCLUDE [security-center-jit-description](../../includes/security-center-jit-description.md)]
+Questa pagina illustra come includere JIT nel programma di sicurezza. Si apprenderà come: 
 
-## <a name="configure-jit-on-a-vm"></a>Configurare JIT in una macchina virtuale
+- **Abilitare JIT nelle VM** : è possibile abilitare JIT con le proprie opzioni personalizzate per una o più macchine virtuali con il Centro sicurezza, PowerShell o l'API REST. In alternativa, è possibile abilitare JIT con parametri hardcoded predefiniti da macchine virtuali di Azure. Se abilitata, JIT blocca il traffico in ingresso nelle macchine virtuali di Azure creando una regola nel gruppo di sicurezza di rete.
+- **Richiedere l'accesso a una macchina virtuale in cui è abilitato JIT** : l'obiettivo di JIT è garantire che anche se il traffico in ingresso è bloccato, il Centro sicurezza offre ancora un facile accesso per connettersi alle macchine virtuali quando necessario. È possibile richiedere l'accesso a una macchina virtuale abilitata per JIT dal centro sicurezza, dalle macchine virtuali di Azure, da PowerShell o dall'API REST.
+- **Controllare l'attività** : per assicurarsi che le macchine virtuali siano protette in modo appropriato, esaminare gli accessi alle macchine virtuali abilitate per JIT nell'ambito dei normali controlli di sicurezza.   
 
-Esistono tre modi per configurare un criterio JIT in una macchina virtuale:
 
-- [Configurare l'accesso JIT nel centro sicurezza di Azure](#jit-asc)
-- [Configurare l'accesso JIT in una pagina di VM di Azure](#jit-vm)
-- [Configurare un criterio JIT in una macchina virtuale a livello di codice](#jit-program)
 
-## <a name="configure-jit-in-azure-security-center"></a>Configurare JIT nel centro sicurezza di Azure
+## <a name="availability"></a>Disponibilità
 
-Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'accesso a una macchina virtuale usando un criterio JIT
+- Stato versione: **disponibilità generale**
+- Prezzi: **livello standard**. [Altre informazioni sui prezzi](/azure/security-center/security-center-pricing).
+- Ruoli e autorizzazioni necessari:
+    - I ruoli **Reader** e **SecurityReader** possono visualizzare lo stato e i parametri JIT.
+    - Per creare ruoli personalizzati che possono funzionare con JIT, vedere [quali sono le autorizzazioni necessarie per configurare e usare JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).
+- Macchine virtuali supportate: 
+    - ✔ Macchine virtuali distribuite tramite Azure Resource Manager.
+    - Macchine virtuali ✘ distribuite con i modelli di distribuzione classica. [Altre informazioni su questi modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).
+    - Macchine virtuali ✘ protette dai firewall di Azure controllati da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview).
+- Cloud: 
+    - ✔ Cloud commerciali
+    - ✔ Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)
 
-### <a name="configure-jit-access-on-a-vm-in-security-center"></a>Configurare l'accesso JIT in una macchina virtuale nel centro sicurezza<a name="jit-asc"></a>
 
-1. Aprire il dashboard **Centro sicurezza**.
 
-1. Nel riquadro a sinistra selezionare **Accesso Just-In-Time alla VM**.
 
-    ![Riquadro Accesso Just-In-Time alla VM](./media/security-center-just-in-time/just-in-time.png)
+## <a name="enable-jit-vm-access"></a>Abilitare l'accesso JIT alla VM<a name="jit-configure"></a>
 
-    Viene visualizzata la finestra di **accesso just-in-time alla VM** con informazioni sullo stato delle macchine virtuali:
+È possibile abilitare l'accesso JIT alle VM con le opzioni personalizzate per una o più macchine virtuali con il Centro sicurezza o a livello di codice. 
 
-    - **Configurata** - Macchine virtuali che sono state configurate per supportare l'accesso JIT. I dati visualizzati sono relativi all'ultima settimana e includono, per ogni macchina virtuale, il numero di richieste approvate, la data e l'ora dell'ultimo accesso e l'ultimo utente.
-    - Macchine virtuali **consigliate** che possono supportare l'accesso just-in-time alle macchine virtuali ma non sono state configurate in. È consigliabile abilitare il controllo dell'accesso JIT per queste macchine virtuali.
-    - **Nessuna raccomandazione** - I motivi per cui una macchina virtuale può risultare non raccomandata sono:
-      - Gruppo di sicurezza di rete mancante - La soluzione JIT richiede la presenza di un gruppo di sicurezza di rete.
-      - Macchina virtuale classica - L'accesso JIT alle macchine virtuali in Centro sicurezza attualmente supporta solo le macchine virtuali distribuite tramite Azure Resource Manager. La soluzione JIT non supporta la distribuzione classica. 
-      - Altro: una macchina virtuale si trova in questa categoria se la soluzione JIT è disattivata nei criteri di sicurezza della sottoscrizione o del gruppo di risorse o se la macchina virtuale non dispone di un indirizzo IP pubblico e non ha un NSG di sicurezza di sistema.
+In alternativa, è possibile abilitare JIT con parametri hardcoded predefiniti da macchine virtuali di Azure.
 
-1. Selezionare la scheda **Consigliati**.
+Ognuna di queste opzioni è illustrata in una scheda separata riportata di seguito.
 
-1. In **macchina virtuale**fare clic sulle VM che si vuole abilitare. Verrà visualizzato un segno di spunta accanto a una macchina virtuale.
+### <a name="azure-security-center"></a>[**Centro sicurezza di Azure**](#tab/jit-config-asc)
 
-      ![Abilitare l'accesso JIT alla VM](./media/security-center-just-in-time/enable-just-in-time.png)
+### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Abilitare JIT nelle VM dal centro sicurezza di Azure<a name="jit-asc"></a>
 
-1. Fare clic **su Enable JIT in VM**. Viene visualizzato un riquadro che mostra le porte predefinite consigliate dal centro sicurezza di Azure:
+![Configurazione dell'accesso JIT alle macchine virtuali nel centro sicurezza di Azure](./media/security-center-just-in-time/jit-config-security-center.gif)
+
+Dal centro sicurezza è possibile abilitare e configurare l'accesso JIT alla macchina virtuale.
+
+1. Dal menu del Centro sicurezza selezionare **accesso just-in-time alle macchine virtuali**.
+
+    Viene visualizzata la pagina di **accesso just-in-time alle VM** con le macchine virtuali raggruppate nelle schede seguenti:
+
+    - **Configurate** : macchine virtuali che sono già state configurate per supportare l'accesso just-in-time alle macchine virtuali. Per ogni macchina virtuale, la scheda configurata Mostra:
+        - numero di richieste JIT approvate negli ultimi sette giorni
+        - Data e ora dell'ultimo accesso
+        - dettagli della connessione configurati
+        - Ultimo utente
+    - **Non configurato** : le macchine virtuali senza JIT sono abilitate, ma in grado di supportare JIT. Si consiglia di abilitare JIT per queste macchine virtuali.
+    - Non **supportate** : le macchine virtuali senza JIT sono abilitate e non supportano la funzionalità. La macchina virtuale potrebbe trovarsi in questa scheda per i motivi seguenti:
+      - Gruppo di sicurezza di rete mancante (NSG): JIT richiede la configurazione di un NSG
+      - VM classica: JIT supporta le macchine virtuali distribuite tramite Azure Resource Manager, non "distribuzione classica". [Altre informazioni sui modelli di distribuzione classica di Visual studio Azure Resource Manager](../azure-resource-manager/management/deployment-models.md).
+      - Altro: la macchina virtuale potrebbe trovarsi in questa scheda se la soluzione JIT è disabilitata nei criteri di sicurezza della sottoscrizione o del gruppo di risorse.
+
+1. Dalla scheda **non configurata** , contrassegnare le VM da proteggere con JIT e selezionare **Abilita JIT sulle VM**. 
+
+    Viene visualizzata la pagina accesso JIT alla macchina virtuale che elenca le porte che il Centro sicurezza consiglia di proteggere:
     - 22 - SSH
     - 3389 - RDP
     - 5985 - WinRM 
     - 5986 - WinRM
-1. Facoltativamente, è possibile aggiungere porte personalizzate all'elenco:
 
-      1. Scegliere **Aggiungi**. Verrà visualizzata la finestra **Aggiungi configurazione porta** .
-      1. Per ogni porta che si sceglie di configurare, sia predefinita che personalizzata, è possibile personalizzare le impostazioni seguenti:
-            - **Tipo di protocollo** - Il protocollo consentito su questa porta quando una richiesta viene approvata.
-            - **Allowed source IP addresses** (Indirizzi IP di origine consentiti) - Gli intervalli IP consentiti su questa porta quando una richiesta viene approvata.
-            - **Tempo massimo della richiesta** - È l'intervallo di tempo massimo durante il quale una porta specifica può essere aperta.
+    Per accettare le impostazioni predefinite, selezionare **Salva**.
 
-     1. Fare clic su **OK**.
+1. Per personalizzare le opzioni JIT:
 
-1. Fare clic su **Salva**.
+    - Aggiungere porte personalizzate con il pulsante **Aggiungi** . 
+    - Modificare una delle porte predefinite selezionandola nell'elenco.
 
-> [!NOTE]
->Quando è abilitata l'accesso JIT alla macchina virtuale per una macchina virtuale, il Centro sicurezza di Azure crea le regole di "nega tutto il traffico in ingresso" per le porte selezionate nei gruppi di sicurezza di rete associati e nel firewall di Azure. Se sono state create altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, la nuova regola "nega tutto il traffico in ingresso" ha la priorità nei gruppi di sicurezza di rete e nel firewall di Azure.
+    Per ogni porta (personalizzata e predefinita) il riquadro **configurazione aggiunta porta** offre le opzioni seguenti:
+
+    - **Protocollo**: protocollo consentito su questa porta quando viene approvata una richiesta
+    - **Indirizzi IP di origine consentiti**: intervalli IP consentiti su questa porta quando viene approvata una richiesta
+    - **Tempo di richiesta massimo**: intervallo di tempo massimo durante il quale è possibile aprire una porta specifica
+
+     1. Impostare la sicurezza delle porte in base alle esigenze.
+
+     1. Selezionare **OK**.
+
+1. Selezionare **Salva**.
 
 
-## <a name="request-jit-access-via-security-center"></a>Richiedere l'accesso JIT tramite il Centro sicurezza
 
-Per richiedere l'accesso a una macchina virtuale tramite il Centro sicurezza:
+### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Modificare la configurazione JIT in una VM abilitata per JIT usando il Centro sicurezza<a name="jit-modify"></a>
 
-1. In **Accesso Just-In-Time alla VM** selezionare la scheda **Configurata**.
+È possibile modificare la configurazione JIT di una macchina virtuale aggiungendo e configurando una nuova porta da proteggere per tale macchina virtuale o modificando qualsiasi altra impostazione correlata a una porta già protetta.
 
-1. In **macchina virtuale**fare clic sulle macchine virtuali per cui si desidera richiedere l'accesso. Viene inserito un segno di spunta accanto alla macchina virtuale.
+Per modificare le regole JIT esistenti per una macchina virtuale:
 
-    - L'icona nella colonna **Dettagli connessione** indica se JIT è abilitato in NSG o FW. Se è abilitata su entrambi, viene visualizzata solo l'icona del firewall.
+1. Dal menu del Centro sicurezza selezionare **accesso just-in-time alle macchine virtuali**.
+
+1. Dalla scheda **configurato** , fare clic con il pulsante destro del mouse sulla macchina virtuale a cui si desidera aggiungere una porta e scegliere modifica. 
+
+    ![Modifica di una configurazione di accesso JIT alla VM nel centro sicurezza di Azure](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+
+1. In **Configurazione dell'accesso JIT alla VM** è possibile modificare le impostazioni esistenti di una porta già protetta o aggiungere una nuova porta personalizzata.
+
+1. Al termine della modifica delle porte, selezionare **Salva**.
+ 
+
+
+### <a name="azure-virtual-machines"></a>[**Macchine virtuali di Azure**](#tab/jit-config-avm)
+
+### <a name="enable-jit-on-your-vms-from-azure-virtual-machines"></a>Abilitare JIT nelle VM da macchine virtuali di Azure
+
+È possibile abilitare JIT in una macchina virtuale dalle pagine di macchine virtuali di Azure della portale di Azure.
+
+![Configurazione dell'accesso JIT alle VM in macchine virtuali di Azure](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+
+> [!TIP]
+> Se una macchina virtuale ha già abilitato JIT, quando si passa alla relativa pagina di configurazione si noterà che JIT è abilitato ed è possibile usare il collegamento per aprire la pagina di accesso just-in-time alle macchine virtuali nel centro sicurezza e visualizzare e modificare le impostazioni.
+
+1. Dalla [portale di Azure](https://ms.portal.azure.com)cercare e selezionare **macchine virtuali**. 
+
+1. Selezionare la macchina virtuale che si vuole proteggere con JIT.
+
+1. Nel menu selezionare **configurazione**.
+
+1. In **accesso JIT**selezionare **Abilita Just-in-Time**. 
+
+    Questo consente l'accesso JIT per la macchina virtuale usando le impostazioni predefinite seguenti:
+
+    - Computer Windows:
+        - Porta RDP 3389
+        - Tre ore di accesso massimo consentito
+        - Gli indirizzi IP di origine consentiti sono impostati su Any
+    - Computer Linux:
+        - Porta SSH 22
+        - Tre ore di accesso massimo consentito
+        - Gli indirizzi IP di origine consentiti sono impostati su Any
+
+1. Per modificare uno di questi valori o aggiungere altre porte alla configurazione JIT, usare la pagina just-in-Time del Centro sicurezza di Azure:
+
+    1. Dal menu del Centro sicurezza selezionare **accesso just-in-time alle macchine virtuali**.
+
+    1. Dalla scheda **configurato** , fare clic con il pulsante destro del mouse sulla macchina virtuale a cui si desidera aggiungere una porta e scegliere modifica. 
+
+        ![Modifica di una configurazione di accesso JIT alla VM nel centro sicurezza di Azure](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+
+    1. In **Configurazione dell'accesso JIT alla VM** è possibile modificare le impostazioni esistenti di una porta già protetta o aggiungere una nuova porta personalizzata.
+
+    1. Al termine della modifica delle porte, selezionare **Salva**.
+
+
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
+
+### <a name="enable-jit-on-your-vms-using-powershell"></a>Abilitare JIT nelle VM tramite PowerShell
+
+Per abilitare l'accesso just-in-time alle macchine virtuali da PowerShell, usare il cmdlet di PowerShell ufficiale del Centro sicurezza di Azure `Set-AzJitNetworkAccessPolicy` .
+
+**Esempio** : abilitare l'accesso just-in-time alle macchine virtuali in una macchina virtuale specifica con le regole seguenti:
+
+* Chiudere le porte 22 e 3389
+* Impostare un intervallo di tempo massimo di 3 ore per ciascuno, in modo che sia possibile aprirlo per ogni richiesta approvata
+* Consente all'utente che richiede l'accesso di controllare gli indirizzi IP di origine
+* Consenti all'utente che richiede l'accesso di stabilire una sessione riuscita su una richiesta di accesso just-in-Time approvata
+
+I comandi di PowerShell seguenti creano questa configurazione JIT:
+
+1. Assegnare una variabile che contenga le regole di accesso just-in-time per una macchina virtuale:
+
+    ```azurepowershell
+    $JitPolicy = (@{
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        ports=(@{
+             number=22;
+             protocol="\*";
+             allowedSourceAddressPrefix=@("\*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="\*";
+             allowedSourceAddressPrefix=@("\*");
+             maxRequestAccessDuration="PT3H"})})
+    ```
+
+1. Inserire le regole di accesso just-in-time della macchina virtuale in una matrice:
+    
+    ```azurepowershell
+    $JitPolicyArr=@($JitPolicy)
+    ```
+
+1. Configurare le regole di accesso just-in-time alle macchine virtuali nella macchina virtuale selezionata:
+    
+    ```azurepowershell
+    Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr
+    ```
+
+    Usare il parametro-Name per specificare una macchina virtuale. Ad esempio, per stabilire la configurazione JIT per due diverse macchine virtuali, VM1 e VM2, usare: ```Set-AzJitNetworkAccessPolicy -Name VM1``` e ```Set-AzJitNetworkAccessPolicy -Name VM2``` .
+
+
+### <a name="rest-api"></a>[**API REST**](#tab/jit-config-api)
+
+### <a name="enable-jit-on-your-vms-using-the-rest-api"></a>Abilitare JIT nelle VM usando l'API REST
+
+È possibile usare la funzionalità di accesso JIT alle macchine virtuali tramite l'API Centro sicurezza di Azure. Usare questa API per ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. 
+
+Per altre informazioni, vedere [criteri di accesso alla rete JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+
+
+--- 
+
+
+
+
+
+
+
+
+
+
+## <a name="request-access-to-a-jit-enabled-vm"></a>Richiedere l'accesso a una macchina virtuale abilitata per JIT
+
+È possibile richiedere l'accesso a una VM abilitata per JIT dal portale di Azure (nel centro sicurezza o macchine virtuali di Azure) o a livello di codice.
+
+Ognuna di queste opzioni è illustrata in una scheda separata riportata di seguito.
+
+### <a name="azure-security-center"></a>[**Centro sicurezza di Azure**](#tab/jit-request-asc)
+
+### <a name="request-access-to-a-jit-enabled-vm-from-azure-security-center"></a>Richiedere l'accesso a una macchina virtuale abilitata per JIT dal centro sicurezza di Azure 
+
+Quando per una macchina virtuale è abilitata la modalità JIT, è necessario richiedere l'accesso per la connessione. È possibile richiedere l'accesso in qualsiasi modo supportato, indipendentemente dal modo in cui è stato abilitato JIT.
+
+![Richiesta dell'accesso JIT dal centro sicurezza](./media/security-center-just-in-time/jit-request-security-center.gif)
+
+1. Dalla pagina **accesso just-in-time alle VM** selezionare la scheda **configurata** .
+
+1. Contrassegnare le macchine virtuali a cui si vuole accedere.
+
+    - L'icona nella colonna **Dettagli connessione** indica se JIT è abilitato nel gruppo di sicurezza di rete o nel firewall. Se è abilitata su entrambi, viene visualizzata solo l'icona del firewall.
 
     - La colonna **Dettagli connessione** fornisce le informazioni necessarie per connettere la macchina virtuale e le relative porte aperte.
 
-      ![Richiedere l'accesso just-in-time](./media/security-center-just-in-time/request-just-in-time-access.png)
+1. Selezionare **Richiedi accesso**. Verrà visualizzata la finestra **Richiedi accesso** .
 
-1. Fare clic su **Richiedi accesso**. Verrà visualizzata la finestra **Richiedi accesso** .
+1. In **Richiedi accesso** è possibile configurare, per ogni macchina virtuale, le porte da aprire, gli indirizzi IP di origine per cui la porta viene aperta e l'intervallo di tempo per l'apertura della porta. Sarà possibile richiedere l'accesso alle porte configurate. Ogni porta ha un tempo massimo consentito derivato dalla configurazione JIT creata.
 
-      ![Dettagli JIT](./media/security-center-just-in-time/just-in-time-details.png)
-
-1. In **Richiedi accesso** è possibile configurare, per ogni macchina virtuale, le porte da aprire, gli indirizzi IP di origine per cui la porta viene aperta e l'intervallo di tempo per l'apertura della porta. Sarà possibile richiedere l'accesso solo alle porte configurate nei criteri JIT (just-in-Time). Ogni porta ha un tempo massimo consentito, derivato dai criteri JIT.
-
-1. Fare clic su **Apri porte**.
+1. Selezionare **Open ports** (Apri porte).
 
 > [!NOTE]
 > Se un utente che richiede l'accesso si trova dietro un proxy, l'opzione **Indirizzo IP personale** potrebbe non funzionare. Potrebbe essere necessario definire l'intervallo di indirizzi IP completo dell'organizzazione.
 
 
 
-## <a name="edit-a-jit-access-policy-via-security-center"></a>Modificare i criteri di accesso JIT tramite il Centro sicurezza
+### <a name="azure-virtual-machines"></a>[**Macchine virtuali di Azure**](#tab/jit-request-avm)
 
-È possibile modificare i criteri JIT esistenti di una macchina virtuale aggiungendo e configurando una nuova porta da proteggere per la macchina virtuale o modificando qualsiasi altra impostazione correlata a una porta già protetta.
+### <a name="request-access-to-a-jit-enabled-vm-from-the-azure-virtual-machines-connect-page"></a>Richiedere l'accesso a una VM abilitata per JIT dalla pagina Connect della macchina virtuale di Azure
 
-Per modificare un criterio JIT esistente di una macchina virtuale:
+Quando per una macchina virtuale è abilitata la modalità JIT, è necessario richiedere l'accesso per la connessione. È possibile richiedere l'accesso in qualsiasi modo supportato, indipendentemente dal modo in cui è stato abilitato JIT.
 
-1. Nella scheda **Configurata**, in **VM** selezionare una macchina virtuale a cui aggiungere una porta facendo clic sui tre puntini nella riga della macchina virtuale. 
+  >![richiesta JIT JIT](./media/security-center-just-in-time/jit-request-vm.png)
 
-1. Selezionare **Modifica**.
 
-1. In **Configurazione dell'accesso JIT alla VM** è possibile modificare le impostazioni esistenti di una porta già protetta o aggiungere una nuova porta personalizzata. 
-  ![accesso jit alle vm](./media/security-center-just-in-time/edit-policy.png)
+Per richiedere l'accesso da macchine virtuali di Azure:
+
+1. Nella portale di Azure aprire le pagine macchine virtuali.
+
+1. Selezionare la macchina virtuale a cui si desidera connettersi e aprire la pagina **Connetti** .
+
+    Azure verifica se JIT è abilitato nella macchina virtuale.
+
+    - Se JIT non è abilitato per la macchina virtuale, verrà richiesto di abilitarlo.
+
+    - Se JIT è abilitato, selezionare **Richiedi accesso** per passare una richiesta di accesso con l'IP richiedente, l'intervallo di tempo e le porte configurate per la macchina virtuale.
+
+> [!NOTE]
+> Dopo che una richiesta è stata approvata per una macchina virtuale protetta da firewall di Azure, il Centro sicurezza fornisce all'utente i dettagli di connessione appropriati (il mapping della porta dalla tabella DNAT) da usare per la connessione alla macchina virtuale.
+
+
+
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
+
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Richiedere l'accesso a una macchina virtuale abilitata per JIT usando PowerShell
+
+Nell'esempio seguente, è possibile visualizzare una richiesta di accesso JIT alla macchina virtuale per una macchina virtuale specifica in cui si richiede l'apertura della porta 22 per un indirizzo IP specifico e per un determinato periodo di tempo:
+
+Eseguire questo comando in PowerShell:
+
+1. Configurare le proprietà di accesso alla richiesta della macchina virtuale:
+
+    ```azurepowershell
+    $JitPolicyVm1 = (@{
+        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        ports=(@{
+           number=22;
+           endTimeUtc="2020-07-15T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+    ```
+
+1. Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
+
+    ```azurepowershell
+    $JitPolicyArr=@($JitPolicyVm1)
+    ```
+        
+1. Inviare l'accesso alla richiesta (usare l'ID risorsa del passaggio 1)
+
+    ```azurepowershell
+    Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+    ```
+
+Per altre informazioni, vedere la [documentazione del cmdlet di PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+
+
+
+### <a name="rest-api"></a>[**API REST**](#tab/jit-request-api)
+
+### <a name="request-access-to-a-jit-enabled-vms-using-the-rest-api"></a>Richiedere l'accesso a una VM abilitata per JIT usando l'API REST
+
+È possibile usare la funzionalità di accesso JIT alle macchine virtuali tramite l'API Centro sicurezza di Azure. Usare questa API per ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. 
+
+Per altre informazioni, vedere [criteri di accesso alla rete JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+
+---
+
+
+
+
+
 
 
 
@@ -126,136 +350,28 @@ Per modificare un criterio JIT esistente di una macchina virtuale:
 
 È possibile ottenere informazioni approfondite sulle attività delle macchine virtuali tramite la funzionalità Ricerca log. Per visualizzare i log:
 
-1. In **Accesso Just-In-Time alla VM** selezionare la scheda **Configurata**.
-2. In **macchine virtuali**selezionare una macchina virtuale per la quale visualizzare le informazioni facendo clic sui tre puntini di sospensione nella riga della macchina virtuale e selezionare **log attività** dal menu. Viene aperto il **log attività** .
+1. Dall' **accesso just-in-time alle macchine virtuali**, selezionare la scheda **configurata** .
 
-   ![Selezionare il log attività](./media/security-center-just-in-time/select-activity-log.png)
+1. Per la macchina virtuale che si desidera controllare, aprire il menu con i puntini di sospensione alla fine della riga.
+ 
+1. Selezionare **log attività** dal menu.
 
-   **Log attività** fornisce una visualizzazione filtrata delle operazioni precedenti per la macchina virtuale, con data, ora e sottoscrizione.
+   ![Selezionare il log attività JIT just-in-Time](./media/security-center-just-in-time/jit-select-activity-log.png)
 
-È possibile scaricare le informazioni del log selezionando **Fare clic qui per scaricare tutti gli elementi come file CSV**.
+   Il log attività fornisce una visualizzazione filtrata delle operazioni precedenti per tale macchina virtuale insieme a data, ora e sottoscrizione.
 
-Modificare i filtri e fare clic su **applica** per creare una ricerca e un log.
-
-
-
-## <a name="configure-jit-access-from-an-azure-vms-page"></a>Configurare l'accesso JIT dalla pagina di una macchina virtuale di Azure<a name="jit-vm"></a>
-
-Per praticità, è possibile connettersi a una macchina virtuale usando JIT direttamente dall'interno della pagina della VM nel centro sicurezza.
-
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Configurare l'accesso JIT in una macchina virtuale tramite la pagina VM di Azure
-
-Per semplificare l'implementazione dell'accesso JIT nelle macchine virtuali, è possibile impostare una macchina virtuale per consentire solo l'accesso JIT direttamente dall'interno della macchina virtuale.
-
-1. Dalla [portale di Azure](https://ms.portal.azure.com)cercare e selezionare **macchine virtuali**. 
-2. Selezionare la macchina virtuale di cui si vuole limitare l'accesso just-in-time.
-3. Nel menu selezionare **configurazione**.
-4. In **accesso JIT**selezionare **Abilita Just-in-Time**. 
-
-In questo modo si abilita l'accesso JIT per la macchina virtuale con le impostazioni seguenti:
-
-- Server Windows:
-    - Porta RDP 3389
-    - Tre ore di accesso massimo consentito
-    - Gli indirizzi IP di origine consentiti sono impostati su Any
-- Server Linux:
-    - Porta SSH 22
-    - Tre ore di accesso massimo consentito
-    - Gli indirizzi IP di origine consentiti sono impostati su Any
-     
-Se in una macchina virtuale è già abilitato JIT, quando si passa alla pagina di configurazione, sarà possibile vedere che JIT è abilitato e si potrà usare il collegamento per aprire il criterio in Centro sicurezza di Azure per visualizzare e modificare le impostazioni.
-
-![configurazione JIT nella macchina virtuale](./media/security-center-just-in-time/jit-vm-config.png)
-
-### <a name="request-jit-access-to-a-vm-via-an-azure-vms-page"></a>Richiedere l'accesso JIT a una macchina virtuale tramite la pagina di una macchina virtuale di Azure
-
-Nel portale di Azure, quando si prova a connettersi a una macchina virtuale, Azure verifica se si dispone di un criterio di accesso JIT configurato su tale macchina virtuale.
-
-- Se nella macchina virtuale sono configurati criteri JIT, è possibile fare clic su **Richiedi accesso** per concedere l'accesso in base ai criteri JIT impostati per la macchina virtuale. 
-
-  >![richiesta JIT](./media/security-center-just-in-time/jit-request.png)
-
-  L'accesso viene richiesto con i parametri predefiniti seguenti:
-
-  - **IP di origine**:' any ' (*) (non può essere modificato)
-  - **intervallo di tempo**: tre ore (non può essere modificato) <!--Isn't this set in the policy-->
-  - **numero di porta** Porta RDP 3389 per Windows/porta 22 per Linux (è possibile modificare)
-
-    > [!NOTE]
-    > Dopo che una richiesta è stata approvata per una macchina virtuale protetta da firewall di Azure, il Centro sicurezza fornisce all'utente i dettagli di connessione appropriati (il mapping della porta dalla tabella DNAT) da usare per la connessione alla macchina virtuale.
-
-- Se JIT non è configurato in una macchina virtuale, verrà richiesto di configurare un criterio JIT.
-
-  ![prompt jit](./media/security-center-just-in-time/jit-prompt.png)
-
-## <a name="configure-a-jit-policy-on-a-vm-programmatically"></a>Configurare un criterio JIT in una macchina virtuale a livello di codice<a name="jit-program"></a>
-
-È possibile configurare e usare l'accesso JIT tramite le API REST e PowerShell.
-
-### <a name="jit-vm-access-via-rest-apis"></a>Accesso JIT alle VM tramite le API REST
-
-È possibile usare la funzionalità di accesso JIT alle macchine virtuali tramite l'API Centro sicurezza di Azure. Tramite questa API è possibile ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. Per informazioni sull'API REST Just-In-Time, vedere [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies) (Criteri di accesso alla rete JIT).
-
-### <a name="jit-vm-access-via-powershell"></a>Accesso JIT alle VM tramite PowerShell
-
-Per usare la soluzione di accesso JIT alle macchine virtuali tramite PowerShell, usare i cmdlet ufficiali di PowerShell di Centro sicurezza di Azure e in particolare `Set-AzJitNetworkAccessPolicy`.
-
-L'esempio seguente imposta criteri di accesso JIT alla macchina virtuale per una macchina virtuale specifica e imposta quanto segue:
-
-1.    Chiudere le porte 22 e 3389.
-
-2.    Impostare un intervallo di tempo massimo di 3 ore per ognuna in modo che possano essere aperte in seguito all'approvazione di una richiesta.
-3.    Consente all'utente che richiede l'accesso di controllare gli indirizzi IP di origine e consente all'utente di aprire una sessione riuscita in seguito all'approvazione di una richiesta di accesso JIT.
-
-Eseguire i comandi seguenti in PowerShell per svolgere queste operazioni:
-
-1.    Assegnare una variabile che contiene solo i criteri di accesso JIT alla macchina virtuale per una macchina virtuale:
-
-        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porte = (@ {Number = 22;        protocollo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        protocollo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"})})
-
-2.    Inserire i criteri di accesso JIT alla macchina virtuale in una matrice:
-    
-        $JitPolicyArr = @ ($JitPolicy)
-
-3.    Configurare i criteri di accesso JIT alla macchina virtuale nella macchina virtuale selezionata:
-    
-        Set-AzJitNetworkAccessPolicy-Kind "Basic"-location "LOCATION"-Name "default"-ResourceGroupName "RESOURCEGROUP"-VirtualMachine $JitPolicyArr 
-
-### <a name="request-access-to-a-vm-via-powershell"></a>Richiedere l'accesso a una macchina virtuale tramite PowerShell
-
-Nell'esempio seguente, è possibile visualizzare una richiesta di accesso JIT alla macchina virtuale per una macchina virtuale specifica in cui si richiede l'apertura della porta 22 per un indirizzo IP specifico e per un determinato periodo di tempo:
-
-Eseguire questo comando in PowerShell:
-1.    Configurare le proprietà della richiesta di accesso alla macchina virtuale
-
-        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porte = (@ {Number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("INDIRIZZOIPV4")})})
-2.    Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
-
-        $JitPolicyArr = @ ($JitPolicyVm 1)
-3.    Inviare la richiesta di accesso usando l'ID risorsa ottenuto al passaggio 1
-
-        Start-AzJitNetworkAccessPolicy-ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default"-VirtualMachine $JitPolicyArr
-
-Per ulteriori informazioni, vedere la [documentazione del cmdlet di PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+1. Per scaricare le informazioni del log, selezionare **Scarica come CSV**.
 
 
-## <a name="automatic-cleanup-of-redundant-jit-rules"></a>Pulizia automatica di regole JIT ridondanti 
 
-Ogni volta che si aggiorna un criterio JIT, viene eseguito automaticamente uno strumento di pulizia per verificare la validità dell'intero set di regole. Lo strumento cerca eventuali mancate corrispondenze tra le regole nei criteri e le regole nel gruppo di sicurezza di rete. Se lo strumento di pulizia rileva una mancata corrispondenza, determina la cause e, quando è sicuro, rimuove le regole incorporate che non sono più necessarie. Lo strumento di pulizia non elimina mai le regole create dall'utente.
 
-Scenari di esempio in cui la pulitura potrebbe rimuovere una regola predefinita:
 
-- Quando esistono due regole con definizioni identiche e una con una priorità più alta (ovvero, la regola di priorità inferiore non verrà mai utilizzata)
-- Quando una descrizione della regola include il nome di una macchina virtuale che non corrisponde all'indirizzo IP di destinazione nella regola 
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come usare l'accesso JIT (Just-in-Time) alle macchine virtuali in Centro sicurezza per controllare l'accesso alle macchine virtuali di Azure.
+In questo articolo si è appreso come configurare e usare l'accesso just-in-time alle macchine virtuali. Per informazioni sul motivo per cui è necessario usare JIT, leggere l'articolo del concetto che descrive le minacce da difendere:
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
-
-- Il modulo Microsoft Learn [protegge i server e le macchine virtuali da attacchi di forza bruta e malware con il Centro sicurezza di Azure](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
-- [Impostazione dei criteri di sicurezza](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione delle raccomandazioni di sicurezza](security-center-recommendations.md) : informazioni su come i consigli consentono di proteggere le risorse di Azure.
-- [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+> [!div class="nextstepaction"]
+> [Spiegazione di JIT](just-in-time-explained.md)

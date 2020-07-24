@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090468"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell
 
@@ -121,7 +122,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Se Key Vault era già stato aggiunto a questo ruolo nel proprio account di archiviazione, si riceverà l'errore *"L'assegnazione di ruolo esiste già"* . È possibile anche verificare l'assegnazione del ruolo consultando la pagina "Controllo di accesso (IAM)" dell'account di archiviazione nel portale di Azure.  
+Se Key Vault era già stato aggiunto a questo ruolo nel proprio account di archiviazione, si riceverà l'errore *"L'assegnazione di ruolo esiste già"* errore. È possibile anche verificare l'assegnazione del ruolo consultando la pagina "Controllo di accesso (IAM)" dell'account di archiviazione nel portale di Azure.  
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concedere all'account utente l'autorizzazione per gli account di archiviazione gestiti
 
@@ -163,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Abilitare la rigenerazione delle chiavi
 
-Se si desidera Key Vault rigenerare periodicamente le chiavi dell'account di archiviazione, è possibile utilizzare il Azure PowerShell cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) per impostare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Dopo tre giorni, Key Vault rigenererà' Key2' e scambierà la chiave attiva da' Key2' a' Key1', sostituendo con ' Primary ' è Secondary ' per gli account di archiviazione classici.
+Se si desidera Key Vault rigenerare periodicamente le chiavi dell'account di archiviazione, è possibile utilizzare il Azure PowerShell cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) per impostare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Quando è il momento di ruotare, Key Vault rigenera la chiave che non è attiva, quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in un momento qualsiasi. Si tratta della chiave attiva.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

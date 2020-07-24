@@ -3,8 +3,8 @@ title: 'Problemi noti: migrazioni online da PostgreSQL a database di Azure per P
 titleSuffix: Azure Database Migration Service
 description: Informazioni sui problemi noti e sulle limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL usando il servizio migrazione del database di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 564581a102ac3fab504e82db00ef54b3e45d0c19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235256"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090740"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL
 
@@ -91,12 +91,12 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 Quando si tenta di eseguire una migrazione in linea da AWS Servizi Desktop remoto da AWS a database di Azure per PostgreSQL, è possibile che si verifichino i seguenti errori.
 
-- **Errore**: il valore predefinito della colonna ' {column}' nella tabella ' {Table}' nel database ' {database}' è diverso nei server di origine e di destinazione. È "{value on source}" nell'origine e "{value on target}" nella destinazione.
+- **Errore**: Il valore predefinito della colonna "{column}" nella tabella "{table}" del database "{database}" è diverso nei server di origine e di destinazione. È "{value on source}" nell'origine e "{value on target}" nella destinazione.
 
   **Limitazione**: questo errore si verifica quando il valore predefinito in uno schema di colonna è diverso tra i database di origine e di destinazione.
   **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Errore**: il database di destinazione ' {database}' contiene ' {Number of tables}' tabelle in cui il database di origine ' {database}' contiene ' {Number of tables}' tabelle. Il numero di tabelle nei database di origine e di destinazione deve corrispondere.
+- **Errore**: Il database di destinazione "{database}" ha "{number of tables}" tabelle, mentre il database di origine "{database}" ha "{number of tables}" tabelle. Il numero di tabelle nei database di origine e di destinazione deve corrispondere.
 
   **Limitazione**: questo errore si verifica quando il numero di tabelle è diverso tra i database di origine e di destinazione.
 

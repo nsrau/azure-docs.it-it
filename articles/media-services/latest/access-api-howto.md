@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090162"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Ottenere le credenziali per accedere all'API Servizi multimediali  
 
@@ -55,7 +56,7 @@ Autentica un servizio usando un'app Azure Active Directory (Azure AD) e il segre
 
 La sezione **Gestisci l'app AAD e il segreto** consente di selezionare o creare una nuova app di Azure AD e di generare un segreto. Per motivi di sicurezza, non è possibile visualizzare il segreto dopo la chiusura del pannello. L'applicazione usa l'ID applicazione e il segreto per l'autenticazione per ottenere un token valido per servizi multimediali.
 
-Assicurarsi di disporre delle autorizzazioni sufficienti per registrare un'applicazione con il tenant Azure AD e per assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [Autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Assicurarsi di disporre delle autorizzazioni sufficienti per registrare un'applicazione con il tenant Azure AD e per assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 #### <a name="connect-to-media-services-api"></a>Connettersi all'API Servizi multimediali
 

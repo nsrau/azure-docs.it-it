@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981156"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090247"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 
@@ -31,7 +32,7 @@ Per creare un'app senza server in Visual Studio, è necessario:
     > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
 
   * [Microsoft Azure SDK per .NET (versione 2.9.1 o successiva)](https://azure.microsoft.com/downloads/). 
-  Altre informazioni su [Azure SDK per .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Altre informazioni su [Azure SDK per .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -43,7 +44,7 @@ Per creare un'app senza server in Visual Studio, è necessario:
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
   * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) per le funzioni di debug locale.
@@ -135,7 +136,7 @@ Per modificare l'app per la logica dopo la distribuzione, aprire l'app per la lo
 
 ## <a name="create-your-azure-functions-project"></a>Creare il progetto di funzioni di Azure
 
-Per creare il progetto e la funzione di funzioni usando JavaScript, Python, F #, PowerShell, batch o bash, seguire la procedura descritta in [usare Azure Functions Core Tools](../azure-functions/functions-run-local.md). Per sviluppare la funzione di Azure usando C# all'interno della soluzione, usare una libreria di classi C# attenendosi alla procedura descritta in [pubblicare una libreria di classi .NET come app per le funzioni](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+Per creare il progetto e la funzione di funzioni usando JavaScript, Python, F #, PowerShell, batch o bash, seguire la procedura descritta in [usare Azure Functions Core Tools](../azure-functions/functions-run-local.md). Per sviluppare la funzione di Azure usando C# all'interno della soluzione, usare una libreria di classi C# attenendosi alla procedura descritta in [pubblicare una libreria di classi .NET come app per le funzioni](https://azure.microsoft.com/blog/).
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuire le funzioni da Visual Studio
 

@@ -3,11 +3,12 @@ title: Inviare avvisi di integrità dei servizi di Azure con PagerDuty
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di PagerDuty.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091539"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con PagerDuty usando i webhook
 
@@ -38,7 +39,7 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Creare un avviso usando PagerDuty nel portale di Azure
 ### <a name="for-a-new-action-group"></a>Per un nuovo gruppo di azioni:
-1. Seguire i passaggi da 1 a 8 in [Creare un avviso per una notifica sull'integrità dei servizi per un nuovo gruppo di azioni usando il portale di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Seguire i passaggi da 1 a 8 in [Creare un avviso per una notifica sull'integrità dei servizi per un nuovo gruppo di azioni usando il portale di Azure](./alerts-activity-log-service-notifications-portal.md).
 
 1. Definire l'elenco di **azioni**:
 
@@ -86,5 +87,5 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Informazioni sulle [notifiche per l'integrità del servizio](../azure-monitor/platform/service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](./service-notifications.md).
 - Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

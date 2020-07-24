@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090859"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Traduci
 
@@ -43,7 +43,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>in</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
 </table>
@@ -123,7 +123,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da tradurre.
 
@@ -178,7 +178,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
@@ -236,7 +236,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 
@@ -317,6 +317,7 @@ La traduzione di più stringhe contemporaneamente equivale semplicemente a speci
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+La risposta contiene la traduzione di tutte le parti di testo nello stesso ordine in cui si trovava nella richiesta.
 Il corpo della risposta è:
 
 ```
@@ -363,7 +364,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Azione</th>
+  <th>Operazione</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
@@ -390,12 +391,12 @@ Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag
   </tr>
 </table> 
 
-ad esempio:
+Ad esempio:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-Viene restituito:
+Il comando restituisce:
 
 ```
 [

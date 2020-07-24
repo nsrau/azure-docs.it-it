@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091250"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Abilitare i server DNS del cloud privato CloudSimple per l'invio della ricerca DNS delle risorse locali ai server DNS
 
@@ -31,7 +32,7 @@ L'invio della ricerca DNS per il server DNS locale consente di usare il cloud pr
 Una connessione di rete deve essere presente dalla rete cloud privata alla rete locale per il funzionamento dell'invio DNS.  Per configurare la connessione di rete, è possibile usare:
 
 * [Connettersi da locale a CloudSimple usando ExpressRoute](on-premises-connection.md)
-* [Configurare un gateway VPN da sito a sito](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Configurare un gateway VPN da sito a sito](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Le porte del firewall devono essere aperte in questa connessione per il funzionamento dell'invio DNS.  Le porte utilizzate sono la porta TCP 53 o la porta UDP 53.
 

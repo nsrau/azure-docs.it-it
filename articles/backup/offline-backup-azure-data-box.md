@@ -3,12 +3,12 @@ title: Backup non in linea tramite Azure Data Box
 description: Informazioni su come usare Azure Data Box per inizializzare i dati di backup iniziali di grandi dimensioni offline dall'agente MARS a un insieme di credenziali di servizi di ripristino.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091029"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
 
@@ -153,7 +153,7 @@ L'agente MARS opera nel contesto del sistema locale, pertanto è necessario forn
 Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema locale usando il protocollo NFS:
 
 1. Abilitare il client per la funzionalità NFS in Windows Server in cui è installato l'agente MARS. Specificare il file WIM di origine alternativo *: D: \sources\install.wim: 4*.
-1. Scaricare PSExec da <https://download.sysinternals.com/files/PSTools.zip> al server in cui è installato l'agente Mars.
+1. Scaricare PsExec dalla pagina [Sysinternals](/sysinternals/downloads/psexec) al server in cui è installato l'agente Mars.
 1. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente con la directory che contiene *PSExec.exe* come directory corrente.
 
     ```cmd

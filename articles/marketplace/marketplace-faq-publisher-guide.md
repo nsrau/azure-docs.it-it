@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 05/08/2020
-ms.openlocfilehash: ad4e80c98097955703e4a6fb3c64e93a338f2720
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090145"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Domande frequenti sul marketplace commerciale di Microsoft
 
@@ -46,7 +46,7 @@ Per altre informazioni, guardare il video [Perché vendere sul marketplace](http
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>È previsto un costo per la pubblicazione di offerte nel marketplace commerciale di Microsoft?
 
-No, non è previsto alcun costo per la pubblicazione di offerte nel marketplace commerciale. Microsoft trattiene una piccola percentuale sulla vendita, come commissioni per la transazione, che verrà investita nel programma Marketplace Rewards, nell'innovazione della piattaforma e nelle operazioni del marketplace commerciale.
+No, non è previsto alcun costo per la pubblicazione di offerte nel marketplace commerciale. Microsoft trattiene una piccola percentuale sulla vendita, come commissioni per la transazione, che verrà investita nel programma Marketplace Rewards, nell'innovazione della piattaforma e nelle operazioni del marketplace commerciale. Questa tariffa per le transazioni è ridotta per le offerte incentivate di [co-selling IP di Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) .
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Come si effettua l'iscrizione come editore nel marketplace commerciale di Microsoft?
 

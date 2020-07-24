@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77566149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091267"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creazione di macchine virtuali VMware nel cloud privato
 
@@ -121,9 +122,9 @@ Linux offre diversi pacchetti per la configurazione dei server DNS.  Di seguito 
 
 Negli argomenti Microsoft viene descritto come configurare un server Windows come server DNS e come server DHCP.
 
-[Windows Server come server DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Windows Server come server DNS](/windows-server/networking/dns/dns-top)
 
-[Windows Server come server DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+[Windows Server come server DHCP](/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## <a name="customize-networking-configuration-optional"></a>Personalizzare la configurazione di rete (facoltativo)
 
@@ -199,7 +200,7 @@ Avviare un server http che è in ascolto sulla porta 80.
 python2.7 -m SimpleHTTPServer 80
 ```
 
-o
+oppure
 
 ```
 python3 -m http.server 80

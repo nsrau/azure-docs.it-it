@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di host sessione desktop virtuale di Windows-Azure
+title: Risolvere i problemi relativi a host sessione desktop virtuale Windows Spring 2020-Azure
 description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1e155dc850143ee252effe5ec9d8ef2d716611
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091318"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
@@ -25,7 +25,7 @@ ms.locfileid: "85362357"
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 

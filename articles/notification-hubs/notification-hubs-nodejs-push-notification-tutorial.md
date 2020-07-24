@@ -17,12 +17,12 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2921fb2895b8e42c0564c6e815a08da1d7e9d12d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82592010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089975"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
 
@@ -44,7 +44,7 @@ Gli scenari presentati includono l'invio di notifiche push ad applicazioni nelle
 
 ## <a name="notification-hubs"></a>Hub di notifica
 
-Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](/previous-versions/azure/azure-services/jj927170(v=azure.100)) .
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
 
@@ -89,7 +89,7 @@ Ottenere il valore `connectionstring` della connessione dal [portale di Azure] s
 ![Portale di Azure - Hub di notifica](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](/powershell/azureps-cmdlets-docs) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
+> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](/powershell/azure/) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](/cli/azure/install-classic-cli).
 
 ## <a name="general-architecture"></a>Architettura generale
 
@@ -155,11 +155,11 @@ L'oggetto `MpnsService` specifica un metodo `send` che è possibile usare per in
 - **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 - **Payload** : il payload XML del messaggio.
 - **TargetName**  -  `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
-- **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](https://msdn.microsoft.com/library/hh221551.aspx) .
+- **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) .
 - **Options** : intestazioni delle richieste facoltative.
 - **Callback** : la funzione di richiamata.
 
-Per un elenco dei valori validi per `TargetName`, `NotificationClass`, e le opzioni di intestazione, vedere la pagina [Pushing Notifications from a Server](https://msdn.microsoft.com/library/hh221551.aspx) (Notifiche push da un server).
+Per un elenco dei valori validi per `TargetName`, `NotificationClass`, e le opzioni di intestazione, vedere la pagina [Pushing Notifications from a Server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) (Notifiche push da un server).
 
 Nel codice di esempio seguente viene usata l'istanza di `MpnsService` esposta da `NotificationHubService` per inviare una notifica push di tipo avviso popup:
 
@@ -182,7 +182,7 @@ L'oggetto `WnsService` specifica un metodo `send` che è possibile usare per inv
 - **Options** : intestazioni delle richieste facoltative.
 - **Callback** : la funzione di richiamata.
 
-Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](/previous-versions/windows/apps/hh465435(v=win.10)).
 
 Nel codice seguente viene usata l'istanza di `WnsService` esposta da `NotificationHubService` per inviare una notifica push di tipo avviso popup a un'app UWP:
 
@@ -199,7 +199,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 I frammenti di codice di esempio riportati sopra consentono di creare facilmente l'infrastruttura del servizio per recapitare notifiche push a un'ampia gamma di dispositivi. A questo punto, dopo aver appreso le nozioni di base dell'uso di Hub di notifica con Node.js, usare i collegamenti seguenti per scoprire come estendere ulteriormente queste funzionalità.
 
-- Vedere la documentazione MSDN su [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+- Vedere la documentazione MSDN su [Hub di notifica di Azure](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visitare il repository [Azure SDK for Node] su GitHub per altri esempi e dettagli relativi all'implementazione.
 
 [Azure SDK per Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -222,14 +222,14 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter_sqlexpression
+[Azure Service Bus Notification Hubs]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-[webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
+[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [Portale di Azure]: https://portal.azure.com

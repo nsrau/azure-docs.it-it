@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d79d1bf846cc023b86c3e33b17c91cce77ffe9ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089873"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteggi le tue macchine e le tue applicazioni
 Quando il Centro sicurezza di Azure identifica le potenziali vulnerabilità di sicurezza, viene creato un Consiglio che guida l'utente nel processo di configurazione dei controlli necessari per rafforzare e proteggere le risorse.
@@ -83,7 +84,7 @@ Qui sono visualizzasti i dettagli sulla sicurezza relativi alla macchina virtual
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Set di scalabilità di macchine virtuali
 Il Centro sicurezza rileva automaticamente se sono presenti set di scalabilità e consiglia di installare l'agente di Log Analytics su di essi.
 
 Per installare l'agente di Log Analytics: 

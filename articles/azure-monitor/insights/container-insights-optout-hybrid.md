@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster Kubernetes ibrido | Microsoft 
 description: Questo articolo descrive come è possibile arrestare il monitoraggio del cluster Kubernetes ibrido con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091199"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Come arrestare il monitoraggio del cluster ibrido
 
@@ -58,7 +58,7 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 
 ## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Come arrestare il monitoraggio su Arc abilitato Kubernetes
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 1. Scaricare e salvare lo script in una cartella locale che configuri il cluster con il componente aggiuntivo monitoraggio usando i comandi seguenti:
 
@@ -120,4 +120,4 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro Log Analytics è stata creata solo per supportare il monitoraggio del cluster e non è più necessaria, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se l'area di lavoro Log Analytics è stata creata solo per supportare il monitoraggio del cluster e non è più necessaria, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../platform/delete-workspace.md).

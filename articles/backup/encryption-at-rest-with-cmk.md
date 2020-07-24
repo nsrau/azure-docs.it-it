@@ -3,16 +3,16 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091097"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
-Backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK) invece di usare chiavi gestite dalla piattaforma, abilitate per impostazione predefinita. Le chiavi usate per crittografare i dati di backup devono essere archiviate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK) invece di usare chiavi gestite dalla piattaforma, abilitate per impostazione predefinita. Le chiavi usate per crittografare i dati di backup devono essere archiviate in [Azure Key Vault](../key-vault/index.yml).
 
 La chiave di crittografia usata per crittografare i backup può essere diversa da quella usata per l'origine. I dati vengono protetti usando una chiave di crittografia dei dati basata su AES 256, che, a sua volta, viene protetta usando le chiavi (KEK). In questo modo si ottiene il controllo completo sui dati e sulle chiavi. Per consentire la crittografia, è necessario che all'insieme di credenziali dei servizi di ripristino sia concesso l'accesso alla chiave di crittografia nel Azure Key Vault. È possibile modificare la chiave come e quando richiesto.
 
@@ -31,7 +31,7 @@ Questo articolo illustra quanto segue:
 
 - Questa funzionalità **non supporta attualmente il backup con l'agente Mars**e potrebbe non essere possibile usare un insieme di credenziali crittografato con CMK per lo stesso. L'agente MARS usa una crittografia basata su passphrase utente. Questa funzionalità non supporta inoltre il backup di VM classiche.
 
-- Questa funzionalità non è correlata a [crittografia dischi di Azure](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e dm-crypt (per Linux)
+- Questa funzionalità non è correlata a [crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e dm-crypt (per Linux)
 
 - L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
 
@@ -92,7 +92,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
-È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](../key-vault/general/overview-soft-delete.md).
 
 ![Abilitare la protezione dell'eliminazione temporanea e della ripulitura](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Prima di procedere alla configurazione della protezione, è consigliabile assicu
 >
 >Se tutti i passaggi precedenti sono stati confermati, procedere solo con la configurazione del backup.
 
-Il processo per configurare ed eseguire i backup in un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente è identico a quello di un insieme di credenziali che usa chiavi gestite dalla piattaforma, **senza modifiche all'esperienza**. Questo vale per il [backup di macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) e per il backup dei carichi di lavoro in esecuzione all'interno di una macchina virtuale, ad esempio [SAP Hana](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) database.
+Il processo per configurare ed eseguire i backup in un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente è identico a quello di un insieme di credenziali che usa chiavi gestite dalla piattaforma, **senza modifiche all'esperienza**. Questo vale per il [backup di macchine virtuali di Azure](./quick-backup-vm-portal.md) e per il backup dei carichi di lavoro in esecuzione all'interno di una macchina virtuale, ad esempio [SAP Hana](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) database.
 
 ## <a name="restoring-data-from-backup"></a>Ripristino dei dati dal backup
 
 ### <a name="vm-backup"></a>Backup VM
 
-I dati archiviati nell'insieme di credenziali di servizi di ripristino possono essere ripristinati in base ai passaggi descritti [qui](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). Quando si esegue il ripristino da un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente, è possibile scegliere di crittografare i dati ripristinati con un set di crittografia del disco (DES).
+I dati archiviati nell'insieme di credenziali di servizi di ripristino possono essere ripristinati in base ai passaggi descritti [qui](./backup-azure-arm-restore-vms.md). Quando si esegue il ripristino da un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente, è possibile scegliere di crittografare i dati ripristinati con un set di crittografia del disco (DES).
 
 #### <a name="restoring-vm--disk"></a>Ripristino di VM/dischi
 

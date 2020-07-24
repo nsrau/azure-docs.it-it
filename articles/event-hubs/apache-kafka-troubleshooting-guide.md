@@ -3,17 +3,18 @@ title: Risolvere i problemi relativi a hub eventi di Azure per Apache Kafka
 description: Questo articolo illustra come risolvere i problemi relativi a hub eventi di Azure per Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090570"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guida alla risoluzione dei problemi di Apache Kafka per hub eventi
 Questo articolo fornisce suggerimenti per la risoluzione dei problemi che possono verificarsi quando si usano Hub eventi per Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Eccezione server occupato
-È possibile che venga generata un'eccezione di server occupato a causa della limitazione Kafka. Con i client AMQP, Hub eventi restituisce immediatamente un'eccezione **Server occupato** al momento della limitazione del servizio. Equivale a un messaggio "Riprova più tardi". In Kafka i messaggi vengono posticipati prima del completamento. La lunghezza del ritardo viene restituita in millisecondi come `throttle_time_ms` nella risposta di produzione/recupero. Nella maggior parte dei casi, queste richieste ritardate non vengono registrate come eccezioni ServerBusy nei dashboard di hub eventi. Al contrario, il valore della risposta `throttle_time_ms` deve essere usato come indicatore che la velocità effettiva ha superato la quota di cui è stato effettuato il provisioning.
+È possibile che venga generata un'eccezione di server occupato a causa della limitazione di Kafka. Con i client AMQP, Hub eventi restituisce immediatamente un'eccezione **Server occupato** al momento della limitazione del servizio. Equivale a un messaggio "Riprova più tardi". In Kafka i messaggi vengono posticipati prima del completamento. La lunghezza del ritardo viene restituita in millisecondi come `throttle_time_ms` nella risposta di produzione/recupero. Nella maggior parte dei casi, queste richieste ritardate non vengono registrate come eccezioni server occupate nei dashboard di hub eventi. Al contrario, il valore della risposta `throttle_time_ms` deve essere usato come indicatore che la velocità effettiva ha superato la quota di cui è stato effettuato il provisioning.
 
 Se il traffico è eccessivo, il servizio presenta il comportamento seguente:
 
@@ -48,13 +49,13 @@ Se si riscontrano problemi durante l'uso di Kafka negli hub eventi, controllare 
 - **Traffico di blocco del firewall** : assicurarsi che la porta **9093** non sia bloccata dal firewall.
 - **TopicAuthorizationException** : di seguito sono riportate le cause più comuni di questa eccezione:
     - Errore di digitazione nella stringa di connessione nel file di configurazione o
-    - Tentativo di usare hub eventi per Kafka in uno spazio dei nomi di livello Basic. Hub eventi per Kafka è [supportato solo per gli spazi dei nomi di livello standard e dedicato](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Tentativo di usare hub eventi per Kafka in uno spazio dei nomi di livello Basic. La funzionalità Hub eventi per Kafka è [supportata solo per gli spazi dei nomi di livello standard e dedicato](https://azure.microsoft.com/pricing/details/event-hubs/).
 - **Versione di Kafka non corrispondente** : gli hub eventi per gli ecosistemi Kafka supportano le versioni 1,0 e successive di Kafka. Alcune applicazioni che usano Kafka versione 0,10 e successive potrebbero talvolta funzionare a causa della compatibilità con le versioni precedenti del protocollo Kafka, ma è consigliabile evitare di usare le versioni precedenti dell'API. Kafka versioni 0,9 e versioni precedenti non supportano i protocolli SASL richiesti e non possono connettersi a hub eventi.
 - **Codifiche strane nelle intestazioni AMQP quando** si utilizza Kafka: quando si inviano eventi a un hub eventi tramite AMQP, tutte le intestazioni di payload AMQP vengono serializzate nella codifica AMQP. I consumer Kafka non deserializzano le intestazioni da AMQP. Per leggere i valori di intestazione, decodificare manualmente le intestazioni AMQP. In alternativa, è possibile evitare di usare le intestazioni AMQP se si è certi che si utilizzerà tramite il protocollo Kafka. Per altre informazioni, vedere [questo problema di GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Autenticazione SASL** : il Framework per collaborare con il protocollo di autenticazione SASL richiesto dagli hub di eventi può essere più difficile rispetto a quello che soddisfa l'occhio. Vedere se è possibile risolvere i problemi di configurazione usando le risorse del Framework nell'autenticazione SASL. 
 
 ## <a name="limits"></a>Limiti
-Apache Kafka rispetto a hub eventi Kafka. Nella maggior parte dei casi, gli hub eventi per gli ecosistemi Kafka hanno gli stessi valori predefiniti, le stesse proprietà, i codici di errore e il comportamento generale che Apache Kafka. Le istanze in cui queste due differenze sono esplicitamente (o in cui Hub eventi impone un limite a Kafka non) sono elencate di seguito:
+Apache Kafka rispetto a hub eventi Kafka. Per la maggior parte, gli hub eventi Kafka hanno le stesse impostazioni predefinite, le proprietà, i codici di errore e il comportamento generale che Apache Kafka. Le istanze di queste due differenze in modo esplicito (o in cui Hub eventi impone un limite a Kafka non) sono elencate di seguito:
 
 - La lunghezza massima della `group.id` proprietà è di 256 caratteri
 - La dimensione massima di `offset.metadata.max.bytes` è 1024 byte
@@ -67,4 +68,4 @@ Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere gli articoli
 - [Guida per gli sviluppatori Apache Kafka per hub eventi](apache-kafka-developer-guide.md)
 - [Guida alla migrazione di Apache Kafka per hub eventi](apache-kafka-migration-guide.md)
 - [Domande frequenti-Hub eventi per Apache Kafka](apache-kafka-frequently-asked-questions.md)
-- [Configurazioni consigliate](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configurazioni consigliate](apache-kafka-configurations.md)

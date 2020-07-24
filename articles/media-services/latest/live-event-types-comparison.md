@@ -13,21 +13,22 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78244649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090060"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
-In servizi multimediali di Azure è possibile impostare un [evento Live](https://docs.microsoft.com/rest/api/media/liveevents) su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
+In servizi multimediali di Azure è possibile impostare un [evento Live](/rest/api/media/liveevents) su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
 
 In questo articolo vengono confrontate le funzionalità dei tipi di evento Live.
 
 ## <a name="types-comparison"></a>Confronto tra tipi 
 
-Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento Live. I tipi vengono impostati durante la creazione con [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento Live. I tipi vengono impostati durante la creazione con [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. I flussi inseriti passano attraverso l'evento live senza ulteriori elaborazioni. Definito anche evento Live pass-through.
 * **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni di **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit (i dettagli seguiranno più avanti in questo articolo).
@@ -64,7 +65,7 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 
 ## <a name="system-presets"></a>Set di impostazioni di sistema
 
-Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live sono determinate dal [set di impostazioni](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Se si usa un codificatore Live **standard** (LiveEventEncodingType. standard), il set di impostazioni *Default720p* specifica un set di 6 coppie di risoluzione/bitrate descritte di seguito. In caso contrario, se si usa un codificatore Live **Premium1080p** (LiveEventEncodingType. Premium1080p), il set di impostazioni *Default1080p* specifica il set di output di coppie di risoluzione/velocità in bit.
+Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live sono determinate dal [set di impostazioni](/rest/api/media/liveevents/create#liveeventencoding). Se si usa un codificatore Live **standard** (LiveEventEncodingType. standard), il set di impostazioni *Default720p* specifica un set di 6 coppie di risoluzione/bitrate descritte di seguito. In caso contrario, se si usa un codificatore Live **Premium1080p** (LiveEventEncodingType. Premium1080p), il set di impostazioni *Default1080p* specifica il set di output di coppie di risoluzione/velocità in bit.
 
 > [!NOTE]
 > Non è possibile applicare il set di impostazioni Default1080p a un evento Live se è stato configurato per la codifica live standard. si riceverà un errore. Si otterrà inoltre un errore se si tenta di applicare il set di impostazioni Default720p a un codificatore Premium1080p Live.
@@ -73,14 +74,14 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica il feed nei 6 livelli seguenti. Nella tabella riportata di seguito, la velocità in bit è in Kbps, MaxFPS rappresenta il numero massimo di frame consentito (in frame al secondo), il profilo rappresenta il profilo H. 264 utilizzato.
 
-| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |
-| 2200 |960 |540 |30 |Alta |
-| 1350 |704 |396 |30 |Alta |
-| 850 |512 |288 |30 |Alta |
-| 550 |384 |216 |30 |Alta |
-| 200 |340 |192 |30 |Alta |
+| 3500 |1280 |720 |30 |Alto |
+| 2200 |960 |540 |30 |Alto |
+| 1350 |704 |396 |30 |Alto |
+| 850 |512 |288 |30 |Alto |
+| 550 |384 |216 |30 |Alto |
+| 200 |340 |192 |30 |Alto |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Live standard.
@@ -90,14 +91,14 @@ Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazi
 
 Se il feed di contributo è di risoluzione 1080p, il set di impostazioni **Default1080p** codifica il feed nei 6 livelli seguenti.
 
-| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alta |
-| 3000 |1280 |720 |30 |Alta |
-| 1600 |960 |540 |30 |Alta |
-| 800 |640 |360 |30 |Alta |
-| 400 |480 |270 |30 |Alta |
-| 200 |320 |180 |30 |Alta |
+| 5500 |1920 |1080 |30 |Alto |
+| 3000 |1280 |720 |30 |Alto |
+| 1600 |960 |540 |30 |Alto |
+| 800 |640 |360 |30 |Alto |
+| 400 |480 |270 |30 |Alto |
+| 200 |320 |180 |30 |Alto |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Premium1080p Live.

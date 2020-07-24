@@ -3,11 +3,13 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091012"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -31,10 +33,10 @@ Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
 **Computer in un insieme di credenziali** | Fino a 1.000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dei dati** | La dimensione massima di una singola [origine dati](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) è 54.400 GB. Questo limite non si applica ai backup delle VM di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
+**Origini dei dati** | La dimensione massima di una singola [origine dati](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) è 54.400 GB. Questo limite non si applica ai backup delle VM di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
 **Backup in un insieme di credenziali** | **VM di Azure:** una volta al giorno.<br/><br/>**Computer protetti da DPM/MABS:** due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente MARS:** tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
-**Spostamento di insiemi di credenziali** | È possibile [spostare insiemi di credenziali](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo spostamento di insiemi di credenziali tra aree non è supportato.
+**Spostamento di insiemi di credenziali** | È possibile [spostare insiemi di credenziali](./backup-azure-move-recovery-services-vault.md) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo spostamento di insiemi di credenziali tra aree non è supportato.
 **Spostamento dei dati tra insiemi di credenziali** | Lo spostamento di dati sottoposti a backup tra insiemi di credenziali non è supportato.
 **Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica o archiviazione con ridondanza locale) per un insieme di credenziali prima che vengano archiviati i backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 
@@ -55,7 +57,7 @@ Se si vuole eseguire il backup dei computer locali, sono supportati gli scenari 
 
 **Limite** | **Dettagli**
 --- | ---
-**Dischi di dati delle VM di Azure** | Vedere la [matrice di supporto per il backup di VM di Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Dischi di dati delle VM di Azure** | Vedere la [matrice di supporto per il backup di VM di Azure](./backup-support-matrix-iaas.md#vm-storage-support).
 **Dimensioni dei dischi di dati delle VM di Azure** | Le dimensioni possono raggiungere i 32 TB per un disco singolo e un massimo di 256 TB combinati per tutti i dischi in una VM.
 
 ### <a name="azure-vm-backup-options"></a>Opzioni di backup delle VM di Azure

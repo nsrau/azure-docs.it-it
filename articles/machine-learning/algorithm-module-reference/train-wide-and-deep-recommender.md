@@ -1,5 +1,5 @@
 ---
-title: Score Image Model
+title: Usare il modulo Train Wide & Deep Recommender
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare il modulo Train Wide & Deep Recommender per eseguire il training di un modello di raccomandazione.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090179"
 ---
 # <a name="train-wide--deep-recommender"></a>Eseguire il training dell'ampia & raccomandazione profonda
 Questo articolo descrive come usare il modulo **Train Wide & proformer Deep Recommender** in Azure Machine Learning Designer (Preview) per eseguire il training di un modello di raccomandazione. Questo modulo si basa su un'ampia gamma di & Deep Learning, proposta da Google.
@@ -66,7 +66,7 @@ Il set di dati delle **funzionalità utente** deve contenere gli identificatori 
 
 Per un esempio, un set tipico di funzionalità utente potrebbe essere simile al seguente: 
 
-|UserId|Age|Sesso|Interest|Location|
+|UserId|Età|Sesso|Interest|Location|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|male| Dramma    |Europa|
 |223|40|female|Romanticismo|Asia|
@@ -77,7 +77,7 @@ Il set di dati delle funzioni elemento deve contenere gli identificatori element
 
 Per un esempio, un set tipico di funzionalità degli elementi potrebbe essere simile al seguente:  
 
-|MovieId|Titolo|Lingua originale|Generi|Year|
+|MovieId|Titolo|Lingua originale|Generi|Anno|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Padrino|Inglese|Dramma|1972|
 |31381|Al vento|Inglese|Cronologia|1939|

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091352"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -64,9 +65,9 @@ Non è possibile usare gli elenchi di controllo di accesso per fornire un livell
 
 Per impostare le autorizzazioni a livello di file e directory, vedere gli articoli seguenti:
 
-|||
+| Ambiente | Articolo |
 |--------|-----------|
-|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
@@ -111,7 +112,7 @@ La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. 
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lettura + Scrittura + Esecuzione |
 | 5            | `R-X`        | Lettura + Esecuzione         |
-| 4            | `R--`        | Lettura                   |
+| 4            | `R--`        | Read                   |
 | 0            | `---`        | Nessuna autorizzazione         |
 
 #### <a name="permissions-inheritance"></a>Ereditarietà delle autorizzazioni

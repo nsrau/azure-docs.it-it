@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090621"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornire Key Vault autenticazione con un'identità gestita
 
@@ -35,7 +35,7 @@ Per completare questa guida, sono necessarie le risorse seguenti.
    - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Creare un insieme di credenziali delle chiavi con il portale di Azure](../secrets/quick-create-portal.md).
 - Un'applicazione del servizio app esistente a cui concedere l'accesso all'insieme di credenziali delle chiavi. È possibile crearne rapidamente uno attenendosi alla procedura descritta nella [documentazione del servizio app](../../app-service/overview.md).
-- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare il [portale di Azure](https://portal.azure.com).
+- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/). In alternativa, è possibile usare il [portale di Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema 
@@ -52,7 +52,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**. 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![Screenshot che mostra il salvataggio di un'identità assegnata dal sistema.](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -100,7 +100,7 @@ Prendere nota dell'oggetto `PrincipalId` , che sarà necessario nella sezione su
 
 1.  Fare clic su **Aggiungi** per completare l'aggiunta dei nuovi criteri di accesso.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Screenshot che mostra l'aggiunta di un nuovo criterio di accesso nel portale di Azure.](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

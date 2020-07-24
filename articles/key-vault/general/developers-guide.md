@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090536"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -40,7 +40,7 @@ Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle c
 
 - [Creare e gestire insiemi di credenziali delle chiavi tramite l'interfaccia della riga di comando](../secrets/quick-create-cli.md)
 - [Creare e gestire insiemi di credenziali delle chiavi tramite PowerShell](../secrets/quick-create-powershell.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con la porta di Azure](../secrets/quick-create-portal.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con il portale di Azure](../secrets/quick-create-portal.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con Python](../secrets/quick-create-python.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con Java](../secrets/quick-create-java.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Per altre informazioni sulla versione 2.x di .NET SDK, vedere le [note sulla ver
 
 In Node.js l'API di gestione e l'API degli oggetti di Key Vault sono separate. L'articolo di panoramica seguente consente di accedere a entrambe. 
 
-[Moduli di Azure Key Vault per Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Moduli di Azure Key Vault per Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Librerie di Azure Key Vault per Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Librerie di Azure Key Vault per Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -100,7 +100,7 @@ Per esempi completi che usano l'insieme di credenziali delle chiavi con le appli
 
 Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare l'insieme di credenziali delle chiavi di Azure:
 
-- [Modificare l'ID tenant dell'insieme di credenziali delle chiavi dopo lo spostamento della sottoscrizione](subscription-move-fix.md): quando si sposta la sottoscrizione di Azure dal tenant A al tenant B, gli insiemi di credenziali delle chiavi esistenti non sono accessibili dalle entità (utenti e applicazioni) nel tenant B. Per risolvere questo problema, seguire questa guida.
+- [Modificare l'ID tenant dell'insieme di credenziali delle chiavi dopo lo spostamento della sottoscrizione](move-subscription.md): quando si sposta la sottoscrizione di Azure dal tenant A al tenant B, gli insiemi di credenziali delle chiavi esistenti non sono accessibili dalle entità (utenti e applicazioni) nel tenant B. Per risolvere questo problema, seguire questa guida.
 - [Accesso a un insieme di credenziali delle chiavi protetto da firewall](access-behind-firewall.md): per accedere a un insieme di credenziali delle chiavi, l'applicazione client dell'insieme di credenziali delle chiavi deve poter accedere a più endpoint per varie funzionalità.
 - [Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure](../keys/hsm-protected-keys.md) : questo articolo consente di pianificare, generare e quindi trasferire le proprie chiavi HSM protette da usare con l'insieme di credenziali delle chiavi di Azure.
 - [Passare valori protetti come password durante la distribuzione](../../azure-resource-manager/templates/key-vault-parameter.md) : se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.

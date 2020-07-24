@@ -3,12 +3,12 @@ title: Panoramica di Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive Monitoraggio di Azure per contenitori, che consente di monitorare la soluzione relativa alle informazioni dettagliate sui contenitori del servizio Azure Kubernetes, e il valore che offre attraverso il monitoraggio dell'integrità dei cluster del servizio Azure Kubernetes e di Istanze di Container in Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091165"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
 
@@ -17,7 +17,7 @@ Monitoraggio di Azure per contenitori è una funzionalità progettata per monito
 - Cluster Managed Kubernetes ospitati in [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Cluster Kubernetes autogestiti ospitati in Azure con il [motore AKS](https://github.com/Azure/aks-engine)
 - [Istanze di Azure Container](../../container-instances/container-instances-overview.md)
-- Cluster Kubernetes autogestiti ospitati in [Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o in locale
+- Cluster Kubernetes autogestiti ospitati in [Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o in locale
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc abilitato Kubernetes](../../azure-arc/kubernetes/overview.md) (anteprima)
 
@@ -40,7 +40,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 * Comprendere il comportamento del cluster con carichi medi e più pesanti. Queste informazioni sono utili per identificare i requisiti di capacità e determinare il carico massimo che può sostenere il cluster.
 * Configurare gli avvisi per notificare in modo proattivo l'utente o registrarlo quando l'utilizzo della CPU e della memoria nei nodi o nei contenitori supera le soglie o quando si verifica un cambiamento dello stato di integrità nel cluster nell'infrastruttura o nel rollup dello stato dei nodi.
 * Eseguire l'integrazione con [Prometeo](https://prometheus.io/docs/introduction/overview/) per visualizzare le metriche dell'applicazione e del carico di lavoro che raccoglie da nodi e Kubernetes usando le [query](container-insights-log-search.md) per creare avvisi personalizzati, dashboard ed eseguire analisi dettagliate.
-* Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/Azure/aks-engine) locale e nel [motore AKS in Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/Azure/aks-engine) locale e nel [motore AKS in Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitorare i carichi di lavoro dei contenitori [distribuiti in Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
@@ -51,7 +51,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 
 Le principali differenze nel monitoraggio di un cluster di Windows Server rispetto a un cluster Linux sono le seguenti:
 
-- Windows non dispone di una metrica RSS di memoria e, di conseguenza, non è disponibile per i nodi e i contenitori di Windows. La metrica [working set](https://docs.microsoft.com/windows/win32/memory/working-set) è disponibile.
+- Windows non dispone di una metrica RSS di memoria e, di conseguenza, non è disponibile per i nodi e i contenitori di Windows. La metrica [working set](/windows/win32/memory/working-set) è disponibile.
 - Le informazioni sulla capacità di archiviazione su disco non sono disponibili per i nodi Windows.
 - Vengono monitorati solo gli ambienti Pod, non gli ambienti docker.
 - Con la versione di anteprima, sono supportati un massimo di 30 contenitori di Windows Server. Questa limitazione non si applica ai contenitori Linux.

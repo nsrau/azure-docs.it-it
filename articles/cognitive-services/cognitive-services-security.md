@@ -1,21 +1,21 @@
 ---
-title: Sicurezza
+title: Sicurezza dei servizi cognitivi di Azure
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulle diverse considerazioni sulla sicurezza per l'utilizzo di servizi cognitivi.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090842"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -31,7 +31,7 @@ Tutti gli endpoint di servizi cognitivi esposti tramite HTTP applicano TLS 1,2. 
 
 Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedure <span class="docon docon-navigate-external x-hidden-focus"></span> consigliate Transport Layer Security </a>.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo (RBAC). È possibile utilizzare il controllo degli accessi in base al ruolo per semplificare la cerimonia relativa alla gestione manuale delle entità. Per informazioni dettagliate, vedere [controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/overview.md).
 
@@ -203,9 +203,19 @@ Customer Lockbox è disponibile per questo servizio cognitivo:
 
 * Traduttore
 
-Per Language Understanding, i tecnici Microsoft non accederanno ai dati dei clienti nello SKU di E0. Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata per l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
+Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti nel livello E0: 
 
-Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. Tuttavia, i dati dei clienti possono essere archiviati usando BYOS ("Bring your own storage"), consentendo di ottenere controlli dati simili per [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). Tenere presente che i dati del servizio vocale rimangono e vengono elaborati nell'area in cui è stata creata la risorsa di riconoscimento vocale. Questo vale per tutti i dati inattivi e i dati in transito. Quando si usano le funzionalità di personalizzazione, come Riconoscimento vocale personalizzato e la voce personalizzata, tutti i dati dei clienti vengono trasferiti, archiviati ed elaborati nella stessa area in cui risiedono le risorse di BYOS (se usate) e del servizio di riconoscimento vocale.
+* Language Understanding
+* Viso
+* Content Moderator
+* Personalizza esperienze
+
+> [!IMPORTANT]
+> Per il **riconoscimento dei moduli**, i tecnici Microsoft non accederanno ai dati dei clienti nelle risorse create dopo il 10 luglio 2020.
+
+Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
+
+Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. Tuttavia, i dati dei clienti possono essere archiviati tramite Bring your own Storage (BYOS), consentendo di ottenere controlli dati simili per Customer Lockbox. Tenere presente che i dati del servizio vocale rimangono e vengono elaborati nell'area in cui è stata creata la risorsa di riconoscimento vocale. Questo vale per tutti i dati inattivi e i dati in transito. Quando si usano le funzionalità di personalizzazione, come Riconoscimento vocale personalizzato e la voce personalizzata, tutti i dati dei clienti vengono trasferiti, archiviati ed elaborati nella stessa area in cui risiedono le risorse di BYOS (se usate) e del servizio di riconoscimento vocale.
 
 > [!IMPORTANT]
 > Microsoft **non** usa i dati dei clienti per migliorare i propri modelli di riconoscimento vocale. Inoltre, se la registrazione dell'endpoint è disabilitata e non vengono utilizzate personalizzazioni, non vengono archiviati dati del cliente. 

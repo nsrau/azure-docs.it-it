@@ -3,11 +3,12 @@ title: Eseguire la migrazione a hub eventi di Azure per Apache Kafka
 description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf585cdc0a43c595ec013ba78a2e3ae191c40b8d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322744"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090655"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Eseguire la migrazione a Hub eventi di Azure per ecosistemi Apache Kafka
 Hub eventi di Azure espone un endpoint Apache Kafka, che consente di connettersi a hub eventi usando il protocollo Kafka. Apportando modifiche minime all'applicazione Kafka esistente, è possibile connettersi a hub eventi di Azure e sfruttare i vantaggi dell'ecosistema di Azure. Hub eventi per il supporto Kafka [Apache Kafka versione 1,0](https://kafka.apache.org/10/documentation.html) e successive.
@@ -15,7 +16,7 @@ Hub eventi di Azure espone un endpoint Apache Kafka, che consente di connettersi
 ## <a name="pre-migration"></a>Pre-migrazione 
 
 ### <a name="create-an-azure-account"></a>Creare un account Azure
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 ### <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 Seguire le istruzioni dettagliate riportate nell'articolo [creare un hub eventi](event-hubs-create.md) per creare uno spazio dei nomi di hub eventi e un hub eventi. 
@@ -60,4 +61,4 @@ Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere gli articoli
 - [Guida alla risoluzione dei problemi di Apache Kafka per hub eventi](apache-kafka-troubleshooting-guide.md)
 - [Domande frequenti-Hub eventi per Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Guida per gli sviluppatori Apache Kafka per hub eventi di Azure](apache-kafka-developer-guide.md)
-- [Configurazioni consigliate](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configurazioni consigliate](apache-kafka-configurations.md)

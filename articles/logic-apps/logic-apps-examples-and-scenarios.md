@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84190728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090281"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
@@ -35,10 +36,10 @@ Ecco alcuni esempi che descrivono i trigger usati di frequente:
     * [Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Esercitazione: creare flussi di lavoro ricorrenti automatizzati e basati sulla pianificazione usando app per la logica di Azure](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * Il trigger **quando viene ricevuto un messaggio di posta elettronica** consente all'app per la logica di verificare la presenza di nuovi messaggi di posta elettronica da qualsiasi provider di posta elettronica supportato dalle app per la logica, ad esempio [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/)e così via.
+  * Il trigger **quando viene ricevuto un messaggio di posta elettronica** consente all'app per la logica di verificare la presenza di nuovi messaggi di posta elettronica da qualsiasi provider di posta elettronica supportato dalle app per la logica, ad esempio [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [gmail](/connectors/gmail/), [Outlook.com](/connectors/outlook/)e così via.
 
     > [!IMPORTANT]
-    > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+    > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
     Per altre informazioni, vedere gli argomenti seguenti:<p>
 
@@ -98,17 +99,17 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 
 È possibile sviluppare e distribuire interamente app per la logica con Visual Studio, Azure DevOps o qualsiasi altro strumento di controllo del codice sorgente e compilazione automatica. Per supportare la distribuzione per i flussi di lavoro e le connessioni dipendenti in un modello di risorse, le app per la logica usano i modelli di distribuzione delle risorse di Azure. Gli strumenti di Visual Studio generano automaticamente questi modelli, che è possibile archiviare per il controllo del codice sorgente finalizzato al controllo delle versioni. Per i log di notifica e di diagnostica per lo stato di esecuzione dei flussi di lavoro, le app per la logica di Azure forniscono inoltre monitoraggio e avvisi.
 
-### <a name="deploy"></a>Distribuire
+### <a name="deploy"></a>Distribuisci
 
 * [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati usando app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Panoramica: automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Creare modelli di Azure Resource Manager per automatizzare la distribuzione di App per la logica di Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Implementare modelli di Azure Resource Manager per App per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
-* [Esempio: connettersi alle code del bus di servizio di Azure da app per la logica di Azure e distribuirle con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: connettersi agli account di archiviazione di Azure da app per la logica di Azure e distribuirli con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: configurare un'azione dell'app per le funzioni per app per la logica di Azure e distribuirla con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: connettersi a un account di integrazione da app per la logica di Azure e distribuirlo con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [Esempio: orchestrare Azure Pipelines usando app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [Esempio: connettersi alle code del bus di servizio di Azure da app per la logica di Azure e distribuirle con Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: connettersi agli account di archiviazione di Azure da app per la logica di Azure e distribuirli con Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: configurare un'azione dell'app per le funzioni per app per la logica di Azure e distribuirla con Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: connettersi a un account di integrazione da app per la logica di Azure e distribuirlo con Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Esempio: orchestrare Azure Pipelines usando app per la logica di Azure](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 ### <a name="manage"></a>Gestione
 
@@ -142,7 +143,7 @@ App per la logica di Azure si integra con molti servizi, ad esempio funzioni di 
 * [Esercitazione: creare un dashboard di social networking basato su intelligenza artificiale usando Power BI e app per la logica di Azure](https://aka.ms/logicappsdemo)
 * [Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Esercitazione: Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog: chiamare i servizi SOAP usando app per la logica di Azure](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [Blog: chiamare i servizi SOAP usando app per la logica di Azure](/archive/blogs/logicapps/using-soap-services-with-logic-apps)
 
 ## <a name="end-to-end-scenarios"></a>Scenari end-to-end
 

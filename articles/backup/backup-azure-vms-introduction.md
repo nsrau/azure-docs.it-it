@@ -3,15 +3,16 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091046"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
-Questo articolo descrive il modo in cui il [servizio backup di Azure](backup-introduction-to-azure-backup.md) esegue il backup di macchine virtuali (VM) di Azure.
+Questo articolo descrive il modo in cui il [servizio backup di Azure](./backup-overview.md) esegue il backup di macchine virtuali (VM) di Azure.
 
 Backup di Azure offre backup indipendenti e isolati per prevenire la distruzione accidentale dei dati nelle macchine virtuali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire facilmente il ripristino in base alle esigenze.
 
@@ -25,8 +26,8 @@ Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
 
 1. Per le macchine virtuali di Azure selezionate per il backup, backup di Azure avvia un processo di backup in base alla pianificazione del backup specificata.
 1. Durante il primo backup, un'estensione di backup viene installata nella macchina virtuale se la macchina virtuale è in esecuzione.
-    - Per le macchine virtuali Windows, viene installata l' [estensione VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) .
-    - Per le macchine virtuali Linux, è installata l' [estensione VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) .
+    - Per le macchine virtuali Windows, viene installata l' [estensione VMSnapshot](../virtual-machines/extensions/vmsnapshot-windows.md) .
+    - Per le macchine virtuali Linux, è installata l' [estensione VMSnapshotLinux](../virtual-machines/extensions/vmsnapshot-linux.md) .
 1. Per le macchine virtuali Windows in esecuzione, le coordinate di backup con Windows Servizio Copia Shadow del volume (VSS) per creare uno snapshot coerente con l'app della macchina virtuale.
     - Per impostazione predefinita, il backup esegue backup VSS completi.
     - Se il backup non è in grado di eseguire uno snapshot coerente con l'app, acquisisce uno snapshot coerente con il file dell'archiviazione sottostante, perché non vengono eseguite Scritture dell'applicazione durante l'arresto della macchina virtuale.
@@ -63,7 +64,7 @@ Viene anche eseguito il backup di BEKs. Quindi, se i BEKs vengono persi, gli ute
 
 Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
 
-- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.  Per impostazione predefinita, backup di Azure esegue un backup VSS completo, troncando i log dell'applicazione, ad esempio SQL Server al momento del backup per ottenere un backup coerente a livello di applicazione.  Se si usa un database di SQL Server nel backup delle macchine virtuali di Azure, è possibile modificare l'impostazione per eseguire un backup di copia VSS (per mantenere i log). Per altre informazioni, vedi [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
+- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.  Per impostazione predefinita, backup di Azure esegue un backup VSS completo, troncando i log dell'applicazione, ad esempio SQL Server al momento del backup per ottenere un backup coerente a livello di applicazione.  Se si usa un database di SQL Server nel backup delle macchine virtuali di Azure, è possibile modificare l'impostazione per eseguire un backup di copia VSS (per mantenere i log). Per altre informazioni, vedi [questo articolo](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **Macchine virtuali Linux:** Per eseguire snapshot coerenti con l'app di macchine virtuali Linux, usare il Framework di pre-script e post-script di Linux per scrivere script personalizzati per garantire la coerenza.
 
@@ -80,6 +81,9 @@ La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 **Coerenza con le applicazioni** | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con l'app usano un VSS writer (o script pre/post per Linux) per assicurare la coerenza dei dati dell'app prima che venga eseguito un backup. | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con l'app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente. | Windows: tutti i writer VSS sono riusciti<br/><br/> Linux: gli script pre/post sono configurati e sono riusciti
 **Coerente con il file System** | I backup coerenti con il file System garantiscono la coerenza eseguendo uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con il file System, viene avviata la macchina virtuale. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni writer VSS non sono riusciti <br/><br/> Linux: predefinito (se gli script pre/post non sono configurati o non sono riusciti)
 **Coerenza con l'arresto anomalo del sistema** | Gli snapshot coerenti con l'arresto anomalo del sistema si verificano in genere se una macchina virtuale di Azure si arresta al momento del backup. Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup. | Inizia con il processo di avvio della macchina virtuale seguito da un controllo del disco per correggere gli errori di danneggiamento. Tutti i dati in memoria o le operazioni di scrittura che non sono stati trasferiti sul disco prima dell'arresto anomalo vengono persi. Le app implementano una propria procedura di verifica dei dati. Ad esempio, un'app di database può utilizzare il log delle transazioni per la verifica. Se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue il rollback delle transazioni fino a quando i dati non sono coerenti. | La macchina virtuale è in stato di arresto (arrestato/deallocato).
+
+>[!NOTE]
+> Se lo stato di provisioning è **succeeded**, backup di Azure esegue backup coerenti con il file System. Se lo stato di provisioning non è **disponibile** o **non è riuscito**, vengono eseguiti backup coerenti con l'arresto anomalo del sistema. Se lo stato di provisioning sta **creando** o **eliminando**, significa che backup di Azure sta ritentando le operazioni.
 
 ## <a name="backup-and-restore-considerations"></a>Considerazioni su backup e ripristino
 
@@ -107,8 +111,8 @@ Questi scenari comuni possono influire sul tempo di backup totale:
 Quando si configurano backup per macchine virtuali, è consigliabile seguire queste procedure:
 
 - Modificare l'ora di pianificazione predefinita impostata in un criterio. Se, ad esempio, l'ora predefinita per il criterio è impostata su 00:00, applicare un incremento di alcuni minuti affinché le risorse vengano usate in modo ottimale.
-- Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
-- Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito necessario per i backup successivi al primo
+- Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](../storage/common/storage-account-upgrade.md) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
+- Per il backup delle macchine virtuali che usano archiviazione Premium con il ripristino immediato, si consiglia di allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
 - Il limite relativo al numero di dischi per account di archiviazione dipende dalla modalità con cui le applicazioni in esecuzione in una macchina virtuale IaaS accedono ai dischi. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
 ## <a name="backup-costs"></a>Costi di backup

@@ -24,7 +24,7 @@
 - name: Procedure
   items:
     - name: Configurare gli avvisi per gli eventi di Integrità dei servizi
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
       href: service-notifications.md
     - name: Inviare avvisi a sistemi esterni tramite webhook

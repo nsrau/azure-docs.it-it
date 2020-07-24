@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ae1ec7eb566871402d44a0f24878b4ea92197f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090230"
 ---
 # <a name="collect-data-from-models-in-production"></a>Raccogliere dati dai modelli nell'ambiente di produzione
 
@@ -71,7 +71,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
 
-È possibile abilitare la raccolta dei dati indipendentemente dal modello distribuito tramite Azure Machine Learning o altri strumenti.
+È possibile abilitare la [raccolta dei dati](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) indipendentemente dal modello distribuito tramite Azure Machine Learning o altri strumenti.
 
 Per abilitare la raccolta dei dati, è necessario:
 

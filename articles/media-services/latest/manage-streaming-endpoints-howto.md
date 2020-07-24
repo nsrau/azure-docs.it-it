@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3b319c583422b32798fce9cef4c73a4aa1f8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090043"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gestire gli endpoint di streaming con servizi multimediali V3
 
 Quando viene creato l'account di servizi multimediali, all'account viene aggiunto un [endpoint di streaming](streaming-endpoint-concept.md) **predefinito** con stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della [crittografia dinamica](content-protection-overview.md), l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
 
-Questo articolo illustra come eseguire il comando [Start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) sull'endpoint di streaming usando tecnologie diverse. 
+Questo articolo illustra come eseguire il comando [Start](/rest/api/media/streamingendpoints/start) sull'endpoint di streaming usando tecnologie diverse. 
  
 > [!NOTE]
 > Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
@@ -45,7 +46,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Per altre informazioni, vedere: 
 
-* La documentazione di riferimento per l' [avvio di StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) .
+* La documentazione di riferimento per l' [avvio di StreamingEndpoint](/rest/api/media/streamingendpoints/start) .
 * L'avvio di un endpoint di streaming è un'operazione asincrona. 
 
     Per informazioni su come monitorare le operazioni a esecuzione prolungata, vedere [operazioni con esecuzione prolungata](media-services-apis-overview.md).
@@ -69,7 +70,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Per altre informazioni, vedere [AZ AMS streaming-endpoint Start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Per altre informazioni, vedere [AZ AMS streaming-endpoint Start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Usare SDK
 
@@ -105,4 +106,4 @@ Vedere l' [esempio di codice .NET](https://github.com/Azure-Samples/media-servic
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Specifica OpenAPI di Media Services V3 (spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Operazioni dell'endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Operazioni dell'endpoint di streaming](/rest/api/media/streamingendpoints)

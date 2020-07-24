@@ -3,12 +3,12 @@ title: Creare avvisi di Integrità risorse usando il portale di Azure
 description: Creare un avviso usando portale di Azure che inviano una notifica quando le risorse di Azure diventano non disponibili.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529217"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091573"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurare avvisi di integrità risorse tramite il portale di Azure
 
@@ -45,7 +45,7 @@ Integrità risorse avviso utilizzando portale di Azure
 1. Nel [portale](https://portal.azure.com/)di Azure selezionare **integrità del servizio**.
 
     ![Selezione dell'integrità del servizio](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. Nella sezione **integrità risorse** selezionare **integrità risorse**.
+2. Nella sezione **integrità risorse** selezionare integrità del **servizio**.
 3. Selezionare **Aggiungi avviso integrità risorse** e compilare i campi.
 4. In destinazione avviso selezionare la **sottoscrizione**, i **tipi di risorse**, i **gruppi di risorse** e la **risorsa** per cui si vuole ricevere un avviso.
 

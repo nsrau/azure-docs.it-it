@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090961"
 ---
 # <a name="create-application-with-simple-commands"></a>Creare un'applicazione con comandi semplici
 
@@ -83,8 +83,8 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
     
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
-    | **Nome**       | ConfirmationResponse                  | Nome che descrive lo scopo della regola          |
-    | **Condizioni** | nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
+    | **Name**       | ConfirmationResponse                  | Nome che descrive lo scopo della regola          |
+    | **Condizioni** | Nessuna                                     | Condizioni che determinano quando la regola può essere eseguita    |
     | **Actions**    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
     
 
@@ -96,11 +96,10 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
 1. Selezionare **Save (Salva** ) per salvare l'azione.
 1. Nella sezione **regole di completamento** selezionare **Salva** per salvare tutte le modifiche. 
 
-
- > [!NOTE]
+    > [!NOTE]
     > Non è necessario usare la regola di completamento predefinita fornita con il comando. Se necessario, è possibile eliminare la regola di completamento predefinita esistente e aggiungere una regola personalizzata.
 
-### <a name="try-it-out"></a>Procedura
+### <a name="try-it-out"></a>Provare questa operazione
 
 Testare il comportamento usando il pannello test chat
 1. Selezionare l'icona del **Training** presente nella parte superiore del riquadro destro.
@@ -126,7 +125,7 @@ Modificare quindi le regole di completamento **eseguite** esistenti come indicat
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | Nome  | ConfirmationResponse                  |
-| Condizioni | nessuno                                     |
+| Condizioni | Nessuna                                     |
 | Azioni    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, setting temperature to 40 degrees` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -137,12 +136,12 @@ Creare un nuovo comando **sealarm** usando la frase di esempio "**impostare un a
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | Nome regola  | ConfirmationResponse                  |
-| Condizioni | nessuno                                     |
+| Condizioni | Nessuna                                     |
 | Azioni    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, setting an alarm for 9 am tomorrow` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
 
-## <a name="try-it-out"></a>Procedura
+## <a name="try-it-out"></a>Provare questa operazione
 
 Testare il comportamento usando il pannello test chat
 1. Selezionare il pulsante **Train** (Esegui il training). Una volta completato il training, selezionare **test** e provare:

@@ -3,12 +3,12 @@ title: Domande frequenti Azure Migrate
 description: Risposte alle domande più comuni sul servizio Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81530318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090009"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuni
 
@@ -17,7 +17,7 @@ Questo articolo risponde alle domande più comuni su Azure Migrate. Per eventual
 - Domande sull' [appliance Azure migrate](common-questions-appliance.md)
 - Domande su [individuazione, valutazione e visualizzazione delle dipendenze](common-questions-discovery-assessment.md)
 
-## <a name="what-is-azure-migrate"></a>Cos'è Azure Migrate?
+## <a name="what-is-azure-migrate"></a>Che cos'è Azure Migrate?
 
 Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud pubblico e privato in Azure. L'hub fornisce strumenti Azure Migrate per la valutazione e la migrazione e offerte ISV di terze parti. [Altre informazioni](migrate-services-overview.md)
 
@@ -32,6 +32,10 @@ Usare Azure Migrate per individuare, valutare e migrare l'infrastruttura, le app
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) è una soluzione di ripristino di emergenza. 
 
 Lo strumento di migrazione del server Azure Migrate: USA alcune funzionalità di Site Recovery back-end per la migrazione in modalità Lift-and-Shift di alcuni computer locali.
+
+## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Ho un progetto con l'esperienza classica precedente di Azure Migrate. Ricerca per categorie iniziare a usare la nuova versione?
+
+Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto Azure migrate](create-manage-projects.md)e [aggiungervi strumenti di valutazione e migrazione](how-to-add-tool-first-time.md) . Usare le esercitazioni per comprendere come usare gli strumenti di valutazione e migrazione disponibili. Se si dispone di un'area di lavoro Log Analytics collegata a un progetto classico, è possibile collegarla a un progetto di versione corrente dopo aver eliminato il progetto classico.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual è la differenza tra Azure Migrate: server assessment e MAP Toolkit?
 

@@ -1,20 +1,20 @@
 ---
 title: Crittografia del servizio di riconoscimento form dei dati inattivi
 titleSuffix: Azure Cognitive Services
-description: Modulo di crittografia dei dati inattivi.
+description: Microsoft offre chiavi di crittografia gestite da Microsoft e consente inoltre di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per il riconoscimento del modulo e come abilitare e gestire CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/10/2020
 ms.author: egeaney
-ms.openlocfilehash: b897de94ad8cdb628520f9386b076f762a5cc230
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf2a6a96517d1c3d63989bc511957019f078cd42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090876"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il riconoscimento moduli
 
@@ -31,5 +31,3 @@ Il riconoscitore di form di Azure crittografa automaticamente i dati quando veng
 
 * [Modulo di richiesta della chiave gestita dal cliente per il riconoscimento del modulo](https://aka.ms/cogsvc-cmk)
 * [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-
-

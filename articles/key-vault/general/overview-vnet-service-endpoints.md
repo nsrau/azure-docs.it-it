@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090485"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -39,7 +39,7 @@ Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 
 Ecco i passaggi necessari per configurare i firewall e le reti virtuali. Questi passaggi sono applicabili se si usa PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure.
 
-1. Abilitare la [registrazione Key Vault](logging.md)) per visualizzare i log di accesso dettagliati. Ciò è utile nella diagnostica quando i firewall e le regole di rete virtuale impediscono l'accesso a un insieme di credenziali delle chiavi. Questo passaggio è facoltativo ma consigliato.
+1. Abilitare la [registrazione in Key Vault](logging.md) per visualizzare i log di accesso dettagliati. Ciò è utile nella diagnostica quando i firewall e le regole di rete virtuale impediscono l'accesso a un insieme di credenziali delle chiavi. Questo passaggio è facoltativo ma consigliato.
 2. Abilitare gli **endpoint del servizio per l'insieme di credenziali delle chiavi** per le reti virtuali di destinazione e le subnet.
 3. Configurare i firewall e le regole di rete virtuale per un insieme di credenziali delle chiavi per limitare l'accesso a tale insieme da reti virtuali, subnet e intervalli di indirizzi IPv4 specifici.
 4. Se questo insieme di credenziali delle chiavi deve essere accessibile da tutti i servizi Microsoft attendibili, abilitare l'opzione per consentire ai **servizi di Azure attendibili** di connettersi a Key Vault.
@@ -80,7 +80,7 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Hub eventi di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Bus di servizio di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Importazione/Esportazione di Azure| [Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Registro Azure Container|[Crittografia del registro di sistema con chiavi gestite dal cliente](../../container-registry/container-registry-customer-managed-keys.md)
+|Registro Azure Container|[Crittografia del registro di sistema con chiavi gestite dal cliente](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Trasferire gli artefatti in un altro registro](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > L'utente deve impostare i criteri di accesso pertinenti per Key Vault in modo da consentire ai servizi corrispondenti di ottenere l'accesso a Key Vault.

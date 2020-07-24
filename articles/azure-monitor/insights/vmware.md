@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091182"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
 
@@ -126,7 +127,7 @@ Da qui è possibile modificare la query di log per modificarla per un elemento s
 #### <a name="find-esxi-host-events"></a>Individuazione degli eventi host ESXi
 Un singolo host ESXi genera più log, in base ai loro processi. La soluzione di monitoraggio VMware li centralizza e riepiloga il conteggio degli eventi. Questa vista centralizzata aiuta a comprendere quale host ESXi ha un volume elevato di eventi e quali eventi si verificano più di frequente nell'ambiente.
 
-![event](./media/vmware/events.png)
+![evento](./media/vmware/events.png)
 
 È possibile approfondire più nel dettaglio facendo clic su un host ESXi o un tipo di evento.
 
@@ -155,7 +156,7 @@ Il salvataggio delle query di log è una funzionalità standard di monitoraggio 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Creazione di avvisi da query
-Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](../platform/alerts-overview.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
+Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](../platform/alerts-overview.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Cosa bisogna fare con l'impostazione esistente dell'host ESXi? Quali saranno le conseguenze per l'ambiente esistente?
@@ -189,7 +190,7 @@ Possono esserci diversi motivi:
 
     a. Verificare che l'agente di Log Analytics sia in esecuzione usando `ps -ef | grep oms`. Se non è in esecuzione, avviare il processo eseguendo il comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Aprire il file `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Aprire il file `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
      c. Verificare che l'impostazione di gruppo e utente sia valida e appropriata, come nella stringa seguente: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

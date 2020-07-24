@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster Azure e Red Hat OpenShift V4 |
 description: Questo articolo descrive come arrestare il monitoraggio del cluster di Azure Red Hat OpenShift e Red Hat OpenShift versione 4 con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091148"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Come arrestare il monitoraggio del cluster Azure e Red Hat OpenShift V4
 
@@ -49,4 +49,4 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro Log Analytics è stata creata solo per supportare il monitoraggio del cluster e non è più necessaria, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se l'area di lavoro Log Analytics è stata creata solo per supportare il monitoraggio del cluster e non è più necessaria, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../platform/delete-workspace.md).

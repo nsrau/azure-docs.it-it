@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091080"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -111,7 +111,7 @@ Windows 8 o versione successiva | 54400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o versioni successive | 54400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Macchina virtuale di Azure | Vedere la [matrice di supporto per il backup di macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Macchina virtuale di Azure | Vedere la [matrice di supporto per il backup di macchine virtuali di Azure](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Come vengono determinate le dimensioni dell'origine dati?
 
@@ -120,14 +120,14 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 **Origine dati** | **Dettagli**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
-Database SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
+Database di SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati sottoposti a backup con un insieme di credenziali di Servizi di ripristino?
 
-Non esiste alcun limite alla quantità totale di dati di cui è possibile eseguire il backup usando un insieme di credenziali di servizi di ripristino. Le singole origini dati, diverse dalle macchine virtuali di Azure, possono avere una dimensione massima di 54.400 GB. Per altre informazioni sui limiti, vedere la [sezione limiti dell'insieme di credenziali nella matrice di supporto](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Non esiste alcun limite alla quantità totale di dati di cui è possibile eseguire il backup usando un insieme di credenziali di servizi di ripristino. Le singole origini dati, diverse dalle macchine virtuali di Azure, possono avere una dimensione massima di 54.400 GB. Per altre informazioni sui limiti, vedere la [sezione limiti dell'insieme di credenziali nella matrice di supporto](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali di Servizi di ripristino sono inferiori a quelle dei dati selezionati per il backup?
 

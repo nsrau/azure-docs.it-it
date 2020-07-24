@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089907"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integrazione del Container Registry di Azure con il Centro sicurezza
 
@@ -30,6 +30,11 @@ Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiun
 
 - Stato versione: **disponibilità generale**
 - Ruoli necessari: **Reader di sicurezza** e [ruolo di lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Registri supportati:
+    - ✔ Registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.
+    - ✘ Registri ACR ospitati da Windows.
+    - Registri "privati" di ✘: il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Se si dispone di accesso limitato ai registri con un firewall, un endpoint del servizio o un endpoint privato (ad esempio, collegamento privato di Azure), il Centro sicurezza non è attualmente in grado di connettersi al registro di sistema o di analizzarlo.
+    - ✘ Immagini estremamente minimaliste come immagini di [Scratch Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.
 - Cloud: 
     - ✔ Cloud commerciali
     - Cloud ✘ US Government
@@ -40,7 +45,7 @@ Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiun
 
 Ogni volta che viene eseguito il push di un'immagine nel registro, il Centro sicurezza analizza automaticamente tale immagine. Per attivare l'analisi di un'immagine, eseguirne il push nel repository.
 
-Al termine dell'analisi (in genere dopo circa 10 minuti, ma può essere fino a 40 minuti), i risultati sono disponibili come raccomandazioni del Centro sicurezza, come indicato di seguito:
+Al termine dell'analisi (in genere dopo circa 2 minuti, ma può essere fino a 15 minuti), i risultati sono disponibili come raccomandazioni del Centro sicurezza, come indicato di seguito:
 
 [![Esempio di raccomandazione del Centro sicurezza di Azure sulle vulnerabilità individuate in un'immagine ospitata di Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -58,11 +63,6 @@ Il Centro sicurezza identifica i registri ACR basati su ARM nella sottoscrizione
 
 
 ## <a name="acr-with-security-center-faq"></a>Domande frequenti su ACR con Centro sicurezza
-
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quali tipi di immagini possono essere analizzati dal centro sicurezza di Azure?
-Il Centro sicurezza analizza le immagini basate sul sistema operativo Linux che forniscono l'accesso alla Shell. 
-
-Lo scanner Qualys non supporta immagini estremamente minimaliste come immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo l'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.
 
 ### <a name="how-does-azure-security-center-scan-an-image"></a>In che modo il Centro sicurezza di Azure esegue l'analisi di un'immagine?
 Viene eseguito il pull dell'immagine dal registro di sistema. Viene quindi eseguito in una sandbox isolata con lo scanner Qualys che estrae un elenco di vulnerabilità note.

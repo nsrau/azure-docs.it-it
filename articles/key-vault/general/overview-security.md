@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090519"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
@@ -64,7 +65,7 @@ I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, 
 > [!IMPORTANT]
 > I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
 
-Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione di Key Vault](/rest/api/keyvault/).
+Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) o le [API REST di gestione di Key Vault](/rest/api/keyvault/).
 
 È possibile limitare l'accesso al piano dati usando gli [endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole di rete virtuale](network-security.md) per un ulteriore livello di sicurezza.
 

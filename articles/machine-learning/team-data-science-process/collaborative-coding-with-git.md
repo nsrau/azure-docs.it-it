@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721898"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090213"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
@@ -28,7 +29,7 @@ Per connettere un elemento di lavoro a un nuovo ramo, selezionare **i puntini** 
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Nella finestra di dialogo **Crea un ramo** specificare il nome del nuovo ramo e il repository e il ramo di base Azure Repos git. Il repository di base deve trovarsi nello stesso progetto Azure DevOps dell'elemento di lavoro. Il ramo di base può essere il ramo master o un altro ramo esistente. Selezionare **Crea ramo**. 
+Nella finestra di dialogo **Crea un ramo** specificare il nome del nuovo ramo e il repository e il ramo di base Azure Repos git. Il repository di base deve trovarsi nello stesso progetto Azure DevOps dell'elemento di lavoro. Il ramo di base può essere qualsiasi ramo esistente. Selezionare **Crea ramo**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -50,7 +51,7 @@ Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi
 
 È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione storia utente-attività quando più persone lavorano su storie utente diverse per lo stesso progetto o su attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
 
-Il diagramma seguente illustra la strategia di creazione di rami consigliata per TDSP. Potrebbero non essere necessari tutti i rami, come illustrato di seguito, in particolare quando solo una o due persone lavorano su un progetto o solo una persona lavora per tutte le attività di una storia utente. Tuttavia, la separazione del ramo di sviluppo dal ramo master è sempre una procedura consigliata e può aiutare a impedire che il ramo di rilascio venga interrotto dalle attività di sviluppo. Per una descrizione completa del modello di ramo git, vedere [un modello di branching git riuscito](https://nvie.com/posts/a-successful-git-branching-model/).
+Il diagramma seguente illustra la strategia di creazione di rami consigliata per TDSP. Potrebbero non essere necessari tutti i rami, come illustrato di seguito, in particolare quando solo una o due persone lavorano su un progetto o solo una persona lavora per tutte le attività di una storia utente. Tuttavia, la separazione del ramo di sviluppo dal ramo primario è sempre una procedura consigliata e può aiutare a impedire che il ramo di rilascio venga interrotto dalle attività di sviluppo. Per una descrizione completa del modello di ramo git, vedere [un modello di branching git riuscito](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -97,7 +98,7 @@ Confermare che la richiesta è contrassegnata come **completata**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Quando si torna a **repository** nel percorso di spostamento a sinistra, è possibile vedere che è stato passato al ramo master dopo l'eliminazione del `script` ramo.
+Quando si torna a **repository** nel percorso di spostamento a sinistra, è possibile vedere che è stato passato al Branch principale dall' `script` eliminazione del ramo.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

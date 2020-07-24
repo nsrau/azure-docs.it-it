@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090332"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Migliorare la sicurezza per i messaggi B2B usando i certificati
 
@@ -59,7 +59,7 @@ Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2
 
 ## <a name="upload-a-private-certificate"></a>Caricare un certificato privato
 
-Per usare un *certificato privato* nelle app per la logica con funzionalità B2B, è necessario prima caricare il certificato nell'account di integrazione. È necessario avere anche una chiave privata da aggiungere ad [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Per usare un *certificato privato* nelle app per la logica con funzionalità B2B, è necessario prima caricare il certificato nell'account di integrazione. È necessario avere anche una chiave privata da aggiungere ad [Azure Key Vault](../key-vault/general/overview.md). 
 
 Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integration-agreements.md) creati, il certificato diventa disponibile per proteggere i messaggi B2B.
 
@@ -68,7 +68,7 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
 
 1. [Aggiungere la chiave privata in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) e specificare un **nome chiave**.
    
-2. Autorizzare App per la logica di Azure a eseguire operazioni su Azure Key Vault. Per concedere l'accesso all'entità servizio di App per la logica, usare il comando di PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), ad esempio:
+2. Autorizzare App per la logica di Azure a eseguire operazioni su Azure Key Vault. Per concedere l'accesso all'entità servizio di App per la logica, usare il comando di PowerShell, [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), ad esempio:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
@@ -86,11 +86,11 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
    | Proprietà | Valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*Nome certificato*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
-   | **Tipo di certificato** | Private | Tipo del certificato |
+   | **Tipo di certificato** | Privata | Tipo del certificato |
    | **Certificate** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*Integration-account-Resource-Group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
    | **Insieme di credenziali di chiave** | <*Key-Vault-Name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
-   | **Nome della chiave** | <*nome chiave*> | Nome della chiave |
+   | **Nome chiave** | <*nome chiave*> | Nome della chiave |
    ||||
 
    ![Scegliere "Aggiungi" e specificare i dettagli del certificato](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)

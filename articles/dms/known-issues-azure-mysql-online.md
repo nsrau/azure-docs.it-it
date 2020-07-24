@@ -3,8 +3,8 @@ title: 'Problemi noti: migrazioni online al database di Azure per MySQL'
 titleSuffix: Azure Database Migration Service
 description: Informazioni sui problemi noti e sulle limitazioni della migrazione con migrazioni online in database di Azure per MySQL quando si usa il servizio migrazione del database di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090706"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemi di migrazione online & limitazioni di Azure DB per MySQL con il servizio migrazione del database di Azure
 
@@ -135,6 +135,8 @@ Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database 
     ```
 
 - Nel servizio migrazione del database di Azure, il limite di database di cui eseguire la migrazione in un'unica attività di migrazione è quattro.
+
+- Azure DMS non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga corrispondente nella tabella figlio quando una riga viene eliminata o aggiornata nella tabella padre. Per ulteriori informazioni, vedere la sezione azioni referenziali dell'articolo [vincoli di chiave esterna](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)nella documentazione di MySQL. Per il servizio DMS di Azure è necessario eliminare i vincoli di chiave esterna nel server di database di destinazione durante il caricamento iniziale dei dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un [dump e un ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) . 
 
 - **Errore:** Dimensioni delle righe troppo grandi (> 8126). Potrebbe essere utile modificare alcune colonne in testo o BLOB. Nel formato di riga corrente, il prefisso BLOB di 0 byte viene archiviato inline.
 

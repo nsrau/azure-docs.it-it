@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090383"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere e confermare messaggi AS2 B2B usando app per la logica di Azure e Enterprise Integration Pack
 
@@ -34,7 +35,7 @@ Questo articolo illustra come creare un'app per la logica che riceve una richies
 
   Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [Guida introduttiva: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md) associato alla sottoscrizione di Azure e collegato all'app per la logica. Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
+* Un [account di integrazione](./logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e collegato all'app per la logica. Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
 
 * Almeno due [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione insieme ai [contratti AS2 e X12](logic-apps-enterprise-integration-agreements.md) per tali partner.
 
@@ -104,7 +105,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
 1. Nell'azione **AS2 Decode** selezionare **nuovo passaggio**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, selezionare **predefinito**. Nella casella di ricerca immettere `condition`. Nell'elenco **azioni** selezionare **condizione**.
+1. In **scegliere un'azione**, nella casella di ricerca, selezionare **predefinito**. Nella casella di ricerca immettere `condition`. Nell'elenco **Azioni** selezionare **Condizione**.
 
    ![Aggiungere l'azione "Condition"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

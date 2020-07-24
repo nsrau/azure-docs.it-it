@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090451"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -45,6 +46,9 @@ Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 | Contatori di byte |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard restituisce i dati elaborati per ogni front-end. È possibile notare che i byte non sono distribuiti equamente tra le istanze back-end. Questa operazione è prevista perché l'algoritmo Load Balancer di Azure è basato sui flussi | Media |
 | Contatori di pacchetti |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard restituisce i pacchetti elaborati per ogni front-end.| Media |
 
+  >[!NOTE]
+  >Quando si usa la distribuzione del traffico da un servizio di bilanciamento del carico interno tramite un pacchetto di un dispositivo virtuale virtuale o un pacchetto SYN del firewall, il contatore di byte e le metriche dei contatori dei pacchetti non sono disponibili e verranno visualizzati come zero. 
+  
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Consente di visualizzare le metriche di Load Balancer nel portale di Azure
 
 Il portale di Azure espone le metriche del servizio di bilanciamento del carico tramite la pagina metrica, disponibile sia nella pagina delle risorse del servizio di bilanciamento del carico per una determinata risorsa che nella pagina Monitoraggio di Azure. 

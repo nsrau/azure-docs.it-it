@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c888fe0f2f4df722948cc6d22e1ef50fd1a3d42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090502"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -59,7 +59,7 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 ## <a name="management-plane-and-rbac"></a>Piano di gestione e controllo degli accessi in base al ruolo
 
-Nel piano di gestione si usa il controllo degli accessi in base al ruolo (RBAC) per autorizzare le operazioni che un chiamante può eseguire. Nel modello di controllo degli accessi in base al ruolo ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Nel piano di gestione si usa il controllo degli accessi in base al ruolo (RBAC) per autorizzare le operazioni che un chiamante può eseguire. Nel modello di controllo degli accessi in base al ruolo ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
 
@@ -82,7 +82,7 @@ L'accesso al piano dati viene concesso impostando i criteri di accesso di Key Va
 
 È possibile visualizzare l'elenco completo delle operazioni di insieme di credenziali e segreti e informazioni sulle operazioni consentite quando si configurano i criteri di accesso dell'insieme di credenziali delle chiavi visualizzando il riferimento seguente. [Riferimento all'operazione di Key Vault](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È possibile concedere a un utente l'accesso solo alle chiavi e non ai segreti. Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione di Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+<a id="key-vault-access-policies"></a> I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È possibile concedere a un utente l'accesso solo alle chiavi e non ai segreti. Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) o le [API REST di gestione di Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > I criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
@@ -130,7 +130,7 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno |
-| Revisori | nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. |
+| Revisori | Nessuna | Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. |
 | Applicazione | nessuno | Chiavi: sign<br>Segreti: get |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori necessitano dell'accesso `Contributor` a tali tipi di risorse. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.

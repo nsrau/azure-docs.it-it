@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090944"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entità per impostazioni cultura nel modello LUIS
 
@@ -44,13 +44,13 @@ La disponibilità di un'entità precompilata in una lingua specifica è determin
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```zh-CN``` |
-------|:------:|
+| Entità predefinita | zh-CN |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -66,13 +66,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```nl-NL``` |
-------|:------:|
+| Entità predefinita | nl-NL |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -88,13 +88,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```en-US``` |
-------|:------:|
+| Entità predefinita | it-IT |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -110,13 +110,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```fr-FR``` |
-------|:------:|
+| Entità predefinita | fr-FR |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -132,13 +132,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```fr-CA``` |
-------|:------:|
+| Entità predefinita | fr-CA |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -154,13 +154,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```de-DE``` |
-------|:------:|
+|Entità predefinita | de-DE |
+| -------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -178,13 +178,13 @@ L'età, la valuta, la dimensione, il numero, la risoluzione percentuale e la _ri
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```it-IT``` |
-------|:------:|
+| Entità predefinita | it-IT |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -200,13 +200,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```ja-JP``` |
-------|:------:|
+|Entità predefinita | ja-JP |
+| -------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2,-   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2,-   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2,-   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2,-   |
@@ -222,13 +222,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```ko-KR``` |
-------|:------:|
+| Entità predefinita | ko-KR |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
@@ -244,13 +244,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```pt-BR``` |
-------|:------:|
+| Entità predefinita | pt-BR |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -266,13 +266,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```es-ES``` |
-------|:------:|
+| Entità predefinita | es-ES |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -288,13 +288,13 @@ Sono supportate le entità seguenti:
 
 Sono supportate le entità seguenti:
 
-|Entità predefinita|```es-MX``` |
-------|:------:|
+| Entità predefinita | es-MX |
+| --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
-[Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -316,8 +316,8 @@ KeyPhrase non è disponibile in tutte le impostazioni cultura secondarie del por
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
