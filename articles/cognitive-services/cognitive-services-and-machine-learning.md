@@ -3,18 +3,16 @@ title: Servizi cognitivi e Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Informazioni su Servizi cognitivi di Azure rispetto ad altre offerte di Azure per Machine Learning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
-ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856735"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132841"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -25,8 +23,8 @@ Servizi cognitivi fornisce funzionalità di machine learning per risolvere i pro
 |Categoria servizio|Scopo|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
-|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
-|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.|
+|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Consente alle app di elaborare il linguaggio naturale con script precompilati, di effettuare valutazioni e riconoscere i desideri degli utenti.|
+|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiunge le API di Ricerca Bing alle app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata API.|
 |[Funzionalità vocali](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
 |[Visione](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
@@ -40,7 +38,7 @@ Usare un'altra soluzione di apprendimento automatico quando si:
 
 * È necessario scegliere l'algoritmo ed è necessario eseguire il training su dati molto specifici.
 
-## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
+## <a name="what-is-machine-learning"></a>Che cos'è Machine Learning?
 
 Machine Learning è un concetto in cui è possibile riunire i dati e un algoritmo per risolvere una necessità specifica. Una volta sottoposto a training i dati e l'algoritmo, l'output è un modello che è possibile utilizzare di nuovo con dati diversi. Il modello con training fornisce informazioni dettagliate in base ai nuovi dati. 
 
@@ -95,7 +93,7 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |Ricerca Bing |x|||
 |[Visione artificiale](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Servizio visione artificiale personalizzato](./Custom-Vision-Service/home.md)||x||
+|[Visione personalizzata](./Custom-Vision-Service/home.md)||x||
 |[Viso](./Face/Overview.md)|x|x||
 |[Riconoscimento modulo](./form-recognizer/overview.md)||x||
 |[Strumento di lettura immersiva](./immersive-reader/overview.md)|x|||
@@ -129,7 +127,7 @@ Servizi cognitivi che forniscono modelli esportati per altri strumenti di Machin
 
 |Servizio cognitivo|Informazioni sul modello|
 |--|--|
-|[Servizio visione artificiale personalizzato](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
+|[Visione personalizzata](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
 
 ## <a name="learn-more"></a>Altre informazioni
 

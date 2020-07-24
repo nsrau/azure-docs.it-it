@@ -7,11 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550ed5791df821b1793755f5046da92adf6e3f3a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701848"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131549"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Come proteggere le zone e i record DNS privati
 
@@ -23,7 +24,7 @@ Questo articolo illustra il modo in cui DNS di Azure consente di proteggere le z
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Il Controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per gli utenti, i gruppi e le risorse di Azure. Con RBAC è possibile concedere il livello di accesso necessario agli utenti. Per altre informazioni su come il Controllo degli accessi in base al ruolo facilita la gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente la gestione degli accessi con granularità fine per utenti, gruppi e risorse di Azure. Con RBAC è possibile concedere il livello di accesso necessario agli utenti. Per altre informazioni sul modo in cui RBAC consente di gestire l'accesso, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Ruolo Collaboratore zona DNS privato
 
@@ -167,7 +168,7 @@ La proprietà Actions definisce le autorizzazioni specifiche di DNS seguenti:
 * `Microsoft.Network/privateDNSZones/read`concede l'autorizzazione per leggere le zone DNS private, ma non per modificarle, consentendo di visualizzare l'area in cui viene creato il record CNAME.
 
 > [!NOTE]
-> Non è efficace usare un ruolo personalizzato del Controllo degli accessi in base al ruolo per impedire l'eliminazione di set di record, consentendo tuttavia il relativo aggiornamento. Impedisce l'eliminazione di set di record, ma non la relativa modifica.  Le modifiche consentite includono l'aggiunta e la rimozione di record dal set di record, inclusa la rimozione di tutti i record per ottenere un set di record vuoto. Questo è lo stesso effetto ottenuto eliminando il set di record dal punto di vista della risoluzione DNS.
+> L'uso di un ruolo personalizzato di Azure per impedire l'eliminazione di set di record consentendo comunque l'aggiornamento non è un controllo efficace. Impedisce l'eliminazione di set di record, ma non la relativa modifica.  Le modifiche consentite includono l'aggiunta e la rimozione di record dal set di record, inclusa la rimozione di tutti i record per ottenere un set di record vuoto. Questo è lo stesso effetto ottenuto eliminando il set di record dal punto di vista della risoluzione DNS.
 
 Le definizioni di ruolo personalizzate attualmente non possono essere definite tramite il portale di Azure. È possibile creare un ruolo personalizzato basato su questa definizione di ruolo tramite Azure PowerShell:
 

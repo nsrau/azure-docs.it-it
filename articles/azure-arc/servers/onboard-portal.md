@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: cf09dd1521994f01e5f43b981d4bff540f3b1f40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe26731a7f217d0f441a3dea1650f2652677a57f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506452"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133011"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -88,6 +88,10 @@ Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le i
 1. Accedere al server.
 
 1. Aprire un prompt dei comandi di PowerShell con privilegi elevati.
+
+    >[!NOTE]
+    >Lo script supporta solo l'esecuzione da una versione a 64 bit di Windows PowerShell.
+    >
 
 1. Passare alla cartella o alla condivisione in cui è stato copiato lo script ed eseguirlo sul server eseguendo lo script `./OnboardingScript.ps1`.
 

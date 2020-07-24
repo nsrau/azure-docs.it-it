@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444455"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132824"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -122,7 +123,7 @@ Una volta configurati gli endpoint di servizio per un servizio specifico, verifi
 
 Gli endpoint di servizio possono essere configurati in reti virtuali indipendentemente da un utente con accesso in scrittura a una rete virtuale. Per proteggere le risorse dei servizi di Azure in una VNet, l'utente deve disporre delle autorizzazioni per *Microsoft. Network/virtualNetworks/Subnets/joinViaServiceEndpoint/Action* per le subnet aggiunte. Per impostazione predefinita, i ruoli di amministratore del servizio incorporati includono questa autorizzazione. Per modificare l'autorizzazione, è possibile creare ruoli personalizzati.
 
-Per altre informazioni sui ruoli predefiniti, vedere [ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per altre informazioni sull'assegnazione di autorizzazioni specifiche ai ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Per altre informazioni sui ruoli predefiniti, vedere [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per altre informazioni sull'assegnazione di autorizzazioni specifiche ai ruoli personalizzati, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Le reti virtuali e le risorse dei servizi di Azure possono trovarsi nella stessa sottoscrizione o in sottoscrizioni diverse. Se la rete virtuale e le risorse dei servizi di Azure si trovano in sottoscrizioni diverse, le risorse devono trovarsi nello stesso tenant di Active Directory (AD). 
 
@@ -151,4 +152,3 @@ Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di re
 - [Integrazione di servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
 - [Criteri degli endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-

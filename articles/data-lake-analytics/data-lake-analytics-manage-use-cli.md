@@ -2,18 +2,16 @@
 title: Gestire Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per gestire processi, origini dati e utenti di Data Lake Analytics.
 services: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121419"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132518"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 

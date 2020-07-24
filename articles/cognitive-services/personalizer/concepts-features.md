@@ -3,19 +3,17 @@ title: 'Funzionalità: azione e contesto-personalizzatore'
 titleSuffix: Azure Cognitive Services
 description: Personalizza esperienze usa caratteristiche, ossia informazioni su azioni e contesto, per fornire suggerimenti più accurati per la classificazione. Possono essere molto generiche o specifiche di un elemento.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77026150"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132773"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -25,7 +23,7 @@ Personalizza esperienze usa le **caratteristiche**, ossia informazioni sul **con
 
 Ad esempio, una **caratteristica** potrebbe riguardare:
 
-* _Persona utente_ , ad esempio `Sports_Shopper`. Questo non deve essere un ID utente singolo. 
+* _Persona utente_ , ad esempio `Sports_Shopper` . Questo non deve essere un ID utente singolo. 
 * Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
 * Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
@@ -61,7 +59,7 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Weather
+* Condizioni climatiche
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -72,7 +70,7 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. 
 
 > [!Note]
-> Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio `user` `state`,, `device` e iniziano con `u`, `s`e. `d` Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
+> Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio, `user` , `state` e `device` iniziano con `u` , `s` e `d` . Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
 
 Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
@@ -154,8 +152,8 @@ Ad esempio:
 
 È possibile usare diversi altri [Servizi cognitivi di Azure](https://www.microsoft.com/cognitive-services), come
 
-* [Collegamento di entità](../entitylinking/home.md)
-* [Text Analytics](../text-analytics/overview.md)
+* [Collegamento delle entità](../entitylinking/home.md)
+* [Analisi del testo](../text-analytics/overview.md)
 * [Emozioni](../emotion/home.md)
 * [Visione artificiale](../computer-vision/home.md)
 
@@ -181,7 +179,7 @@ Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a
 
 Di seguito sono riportati alcuni esempi:
 
-|Scopo|Action|
+|Scopo|Operazione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|

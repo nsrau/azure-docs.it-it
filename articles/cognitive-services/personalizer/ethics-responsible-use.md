@@ -3,19 +3,17 @@ title: Etica e uso responsabile - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurarsi di sospendere la ricerca, apprendere e deliberare l'effetto della personalizzazione sulla vita degli utenti. In caso di dubbi, chiedere indicazioni.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: diberry
-ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478099"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132722"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 

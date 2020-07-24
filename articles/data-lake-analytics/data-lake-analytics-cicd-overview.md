@@ -2,20 +2,20 @@
 title: Come configurare una pipeline di CI/CD per Azure Data Lake Analytics
 description: Informazioni su come configurare l'integrazione continua e la distribuzione continua per Azure Data Lake Analytics.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121521"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130138"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -302,7 +302,7 @@ In Strumenti Azure Data Lake per Visual Studio sono disponibili modelli di proge
 
 MSBuild non offre supporto integrato per i progetti di database U-SQL. Per ottenere questa funzionalità, è necessario aggiungere un riferimento per la soluzione al pacchetto NuGet [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), che aggiunge il servizio di linguaggio necessario.
 
-Per aggiungere il riferimento al pacchetto NuGet, fare clic con il pulsante destro del mouse sulla soluzione in Esplora soluzioni di Visual Studio. Scegliere **Gestisci pacchetti NuGet**. Quindi cercare e installare il pacchetto NuGet. In alternativa, è possibile aggiungere un file denominato **packages.config** nella cartella della soluzione e inserire i contenuti seguenti:
+Per aggiungere il riferimento al pacchetto NuGet, fare clic con il pulsante destro del mouse sulla soluzione in Esplora soluzioni di Visual Studio. Scegli **Gestisci pacchetti NuGet**. Quindi cercare e installare il pacchetto NuGet. In alternativa, è possibile aggiungere un file denominato **packages.config** nella cartella della soluzione e inserire i contenuti seguenti:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -453,7 +453,7 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Default Value | Obbligatoria |
+| Parametro | Descrizione | Default Value | Richiesto |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -462,13 +462,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Richiesto|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Richiesto|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|

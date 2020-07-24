@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392319"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131413"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -27,9 +27,9 @@ Questa procedura comprende:
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Seguire l'esercitazione sui dispositivi gemelli digitali di Azure [: connettere una soluzione end-to-end](./tutorial-end-to-end.md).
+* Seguire l'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md).
     * Si estenderà questo dispositivo gemello con un endpoint e una route aggiuntivi. Si aggiungerà anche un'altra funzione all'app per le funzioni da questa esercitazione. 
-* Seguire l'esercitazione sulle mappe di Azure [: usare Azure Maps Creator per creare mappe interne](../azure-maps/tutorial-creator-indoor-maps.md) per creare una mappa di Azure Maps indoor con uno *stato di funzionalità*.
+* Seguire l'esercitazione sulle mappe di Azure [*: usare Azure Maps Creator per creare mappe interne*](../azure-maps/tutorial-creator-indoor-maps.md) per creare una mappa di Azure Maps indoor con uno *stato di funzionalità*.
     * Le [funzionalità statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) sono raccolte di proprietà dinamiche (Stati) assegnate alle funzionalità del set di dati, ad esempio sale o apparecchiature. Nell'esercitazione sulle mappe di Azure precedente, lo stato della funzionalità archivia lo stato della chat in una mappa.
     * Sono necessari l'ID *degli Stati* della funzionalità e l' *ID sottoscrizione*di Azure maps.
 
@@ -45,9 +45,9 @@ In primo luogo, verrà creata una route nei dispositivi gemelli digitali di Azur
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare le notifiche di aggiornamento del dispositivo gemello
 
-Le istanze dei dispositivi gemelli digitali di Azure possono generare eventi di aggiornamento gemelli ogni volta che viene aggiornato lo stato di un dispositivo Esercitazione sui dispositivi [gemelli digitali di Azure: connettere una soluzione end-to-end](./tutorial-end-to-end.md) collegata in precedenza illustra uno scenario in cui un termometro viene usato per aggiornare un attributo di temperatura collegato al dispositivo gemello di una stanza. Si estenderà la soluzione sottoscrivendo le notifiche di aggiornamento per i dispositivi gemelli e usando tali informazioni per aggiornare le mappe.
+Le istanze dei dispositivi gemelli digitali di Azure possono generare eventi di aggiornamento gemelli ogni volta che viene aggiornato lo stato di un dispositivo Esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) collegata in precedenza illustra uno scenario in cui un termometro viene usato per aggiornare un attributo di temperatura collegato al dispositivo gemello di una stanza. Si estenderà la soluzione sottoscrivendo le notifiche di aggiornamento per i dispositivi gemelli e usando tali informazioni per aggiornare le mappe.
 
-Questo modello legge direttamente dalla chat room, invece del dispositivo Internet delle cose, che ci offre la flessibilità necessaria per modificare l'origine dati sottostante per la temperatura senza dover aggiornare la logica di mapping. Ad esempio, è possibile aggiungere più termometrie o impostare questa stanza per condividere un termometro con un'altra stanza, senza dover aggiornare la logica della mappa.
+Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo Internet delle cose, che offre la flessibilità necessaria per modificare l'origine dati sottostante per la temperatura senza dover aggiornare la logica di mapping. Ad esempio, è possibile aggiungere più termometrie o impostare questa stanza per condividere un termometro con un'altra stanza, senza dover aggiornare la logica della mappa.
 
 1. Creare un argomento di griglia di eventi, che riceverà gli eventi dall'istanza di Azure Digital gemelli.
     ```azurecli
@@ -61,14 +61,14 @@ Questo modello legge direttamente dalla chat room, invece del dispositivo Intern
 
 3. Creare una route nei dispositivi gemelli digitali di Azure per inviare eventi di aggiornamento dei dispositivi gemelli all'endpoint.
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Creare una funzione di Azure per aggiornare le mappe
 
-Verrà creata una funzione attivata da griglia di eventi all'interno dell'app per le funzioni dall' [esercitazione end-to-end](./tutorial-end-to-end.md). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
+Verrà creata una funzione attivata da griglia di eventi all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
 
-Vedere il documento seguente per informazioni di riferimento: [trigger di griglia di eventi di Azure per funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Vedere il documento seguente per informazioni di riferimento: [*trigger di griglia di eventi di Azure per funzioni di Azure*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
 
 Sostituire il codice della funzione con il codice seguente. Escluderà solo gli aggiornamenti agli spazi gemelli, leggerà la temperatura aggiornata e invierà le informazioni a Maps di Azure.
 
@@ -100,7 +100,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 
@@ -138,9 +138,9 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 Per visualizzare la temperatura di aggiornamento Live, attenersi alla procedura seguente:
 
-1. Iniziare a inviare i dati delle cose simulate eseguendo il progetto **DeviceSimulator** dall'esercitazione sui dispositivi gemelli digitali di Azure [: connettere una soluzione end-to-end](tutorial-end-to-end.md). Le istruzioni per questa operazione sono disponibili nella sezione [*configurare ed eseguire la simulazione*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
+1. Iniziare a inviare i dati delle cose simulate eseguendo il progetto **DeviceSimulator** dall'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Le istruzioni per questa operazione sono disponibili nella sezione [*configurare ed eseguire la simulazione*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
 2. Usare [il modulo **Azure Maps indoor** ](../azure-maps/how-to-use-indoor-module.md) per eseguire il rendering delle mappe interne create in Azure Maps Creator.
-    1. Copiare il codice HTML dall' [*esempio: usare la sezione del modulo Maps*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) indoor dell'esercitazione sulle mappe interne [: usare il modulo mappe interne di Azure Maps](../azure-maps/how-to-use-indoor-module.md) in un file locale.
+    1. Copiare il codice HTML dall' [*esempio: usare la sezione del modulo Maps*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) indoor dell'esercitazione sulle mappe interne [*: usare il modulo mappe interne di Azure Maps*](../azure-maps/how-to-use-indoor-module.md) in un file locale.
     1. Sostituire *tilesetId* e *STATESETID* nel file HTML locale con i valori.
     1. Aprire il file nel browser.
 
@@ -160,5 +160,5 @@ A seconda della configurazione della topologia, sarà possibile archiviare quest
 
 Per altre informazioni sulla gestione, l'aggiornamento e il recupero delle informazioni dal grafico gemello, vedere i riferimenti seguenti:
 
-* [Procedura: gestire i dispositivi gemelli digitali](./how-to-manage-twin.md)
-* [Procedura: eseguire una query sul grafico gemello](./how-to-query-graph.md)
+* [*Procedura: gestire i dispositivi gemelli digitali*](./how-to-manage-twin.md)
+* [*Procedura: eseguire una query sul grafico gemello*](./how-to-query-graph.md)

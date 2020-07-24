@@ -2,18 +2,16 @@
 title: Creare & query Azure Data Lake Analytics-portale di Azure
 description: Usare il portale di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8f0a5697a128deb75537f3d48a3830dc7ba9df9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564778"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132535"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introduzione ad Azure Data Lake Analytics con il portale di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

@@ -1,18 +1,19 @@
 ---
 title: Come usare il modulo di i/o spaziale di Maps di Azure | Mappe Microsoft Azure
 description: Informazioni su come usare il modulo IO spaziale fornito da Azure Maps Web SDK. Questo modulo fornisce funzionalità affidabili per consentire agli sviluppatori di integrare con facilità i dati spaziali con Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0532b1548af9be04a53f3ba06147fdde4722f307
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804640"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130699"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo di i/o spaziale di Maps di Azure
 
@@ -38,7 +39,7 @@ Questo video offre una panoramica del modulo di i/o spaziale in Azure Maps Web S
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e [ottenere la chiave di sottoscrizione primaria per l'account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) e [ottenere la chiave di sottoscrizione primaria per l'account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Installazione del modulo IO spaziale
 

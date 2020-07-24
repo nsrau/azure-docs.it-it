@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725852"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131566"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -41,7 +42,7 @@ Questo scenario è illustrato in un diagramma seguente:
 
 Prima di continuare con questo esempio, è necessario completare i prerequisiti seguenti.
 1. Creare un hub IoT. Per istruzioni, vedere la sezione *creare un hub* di tutto il contenuto di [questa Guida introduttiva sull'hub](../iot-hub/quickstart-send-telemetry-cli.md) .
-2. Creare almeno una funzione di Azure per elaborare gli eventi dall'hub. Vedere [procedura: configurare una funzione di Azure per l'elaborazione dei dati](how-to-create-azure-function.md) per creare una funzione di base di Azure in grado di connettersi ai dispositivi gemelli digitali di Azure e chiamare le funzioni API dei dispositivi gemelli digitali di Azure. Il resto di questa procedura verrà compilato su questa funzione.
+2. Creare almeno una funzione di Azure per elaborare gli eventi dall'hub. Vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md) per creare una funzione di base di Azure in grado di connettersi ai dispositivi gemelli digitali di Azure e chiamare le funzioni API dei dispositivi gemelli digitali di Azure. Il resto di questa procedura verrà compilato su questa funzione.
 3. Configurare una destinazione evento per i dati dell'hub. Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet. In *eventi*creare una sottoscrizione per la funzione di Azure. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Portale di Azure: aggiunta di una sottoscrizione di eventi":::
@@ -54,7 +55,7 @@ Prima di continuare con questo esempio, è necessario completare i prerequisiti 
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Creare una funzione di Azure in Visual Studio
 
-Questa sezione usa gli stessi passaggi di avvio di Visual Studio e lo scheletro della funzione di Azure da [procedura: configurare una funzione di Azure per l'elaborazione dei dati](how-to-create-azure-function.md). Lo scheletro gestisce l'autenticazione e crea un client del servizio, pronto per l'elaborazione dei dati e per chiamare le API di Azure Digital gemelli in risposta. 
+Questa sezione usa gli stessi passaggi di avvio di Visual Studio e lo scheletro della funzione di Azure da [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md). Lo scheletro gestisce l'autenticazione e crea un client del servizio, pronto per l'elaborazione dei dati e per chiamare le API di Azure Digital gemelli in risposta. 
 
 Il fulcro della funzione Skeleton è il seguente:
 
@@ -267,9 +268,9 @@ A questo punto si dispone di una funzione di Azure attrezzata per leggere e inte
 
 ## <a name="debug-azure-function-apps-locally"></a>Eseguire il debug di app per le funzioni di Azure localmente
 
-È possibile eseguire il debug di funzioni di Azure con un trigger di griglia di eventi in locale. Per altre informazioni, vedere [trigger griglia di eventi di debug in locale](../azure-functions/functions-debug-event-grid-trigger-local.md).
+È possibile eseguire il debug di funzioni di Azure con un trigger di griglia di eventi in locale. Per altre informazioni, vedere [*trigger griglia di eventi di debug in locale*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scopri di più sui dati in ingresso e in uscita con i dispositivi gemelli digitali di Azure:
-* [Concetti: integrazione con altri servizi](concepts-integration.md)
+* [*Concetti: integrazione con altri servizi*](concepts-integration.md)

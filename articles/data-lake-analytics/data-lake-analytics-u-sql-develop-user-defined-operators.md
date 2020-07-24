@@ -3,18 +3,16 @@ title: Sviluppare operatori U-SQL definiti dall'utente-Azure Data Lake Analytics
 description: Informazioni su come sviluppare operatori definiti dall'utente da usare più volte nei processi di Azure Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 771590a145d4da0a3a81050e6bbe8a9a4d528b30
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71cb6e026c81b00e475ae3f4e7fc4958a8de82a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121215"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131804"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Sviluppare operatori U-SQL definiti dall'utente (UDO)
 Questo articolo descrive come sviluppare operatori definiti dall'utente per elaborare i dati in un processo U-SQL.
@@ -26,7 +24,7 @@ Questo articolo descrive come sviluppare operatori definiti dall'utente per elab
 1. In Visual Studio selezionare **File > Nuovo > Progetto > U-SQL Project** (Progetto U-SQL).
 2. Fare clic su **OK**. Visual Studio crea una soluzione con un file Script.usql.
 3. In **Esplora soluzioni** espandere Script.usql e fare doppio clic su **Script.usql.cs**.
-4. Incollare il seguente codice nel file:
+4. Incollare il codice seguente nel file:
 
    ```usql
    using Microsoft.Analytics.Interfaces;

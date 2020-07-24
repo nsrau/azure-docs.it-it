@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850285"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130189"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitoraggio di Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Quando si usano applicazioni e processi aziendali critici basati sulle risorse d
 
 * **Monitoraggio dal portale di Azure Cosmos DB:** È possibile monitorare con le metriche disponibili nella scheda **metriche** dell'account Azure Cosmos. Le metriche in questa scheda includono velocità effettiva, archiviazione, disponibilità, latenza, coerenza e metriche a livello di sistema. Per impostazione predefinita, queste metriche hanno un periodo di conservazione di 7 giorni. Per altre informazioni, vedere la sezione [monitoraggio dei dati raccolti dalla Azure Cosmos DB](#monitoring-from-azure-cosmos-db) di questo articolo.
 
-* **Monitorare con le metriche in monitoraggio di Azure:** È possibile monitorare le metriche dell'account Azure Cosmos e creare dashboard dal monitoraggio di Azure. Monitoraggio di Azure raccoglie le metriche Azure Cosmos DB per impostazione predefinita, non è necessario configurare nulla in modo esplicito. Queste metriche vengono raccolte con una granularità di un minuto, la granularità può variare in base alla metrica scelta. Per impostazione predefinita, queste metriche hanno un periodo di conservazione di 30 giorni. La maggior parte delle metriche disponibili dalle opzioni precedenti è disponibile anche in queste metriche. Per altre informazioni, vedere la sezione [analizzare i dati delle metriche](#analyze-metric-data) in questo articolo.
+* **Monitorare con le metriche in monitoraggio di Azure:** È possibile monitorare le metriche dell'account Azure Cosmos e creare dashboard dal monitoraggio di Azure. Monitoraggio di Azure raccoglie le metriche Azure Cosmos DB per impostazione predefinita, non è necessario configurare nulla in modo esplicito. Queste metriche vengono raccolte con una granularità di un minuto, la granularità può variare in base alla metrica scelta. Per impostazione predefinita, queste metriche hanno un periodo di conservazione di 30 giorni. La maggior parte delle metriche disponibili dalle opzioni precedenti è disponibile anche in queste metriche. I valori della dimensione per le metriche, ad esempio il nome del contenitore, non fanno distinzione tra maiuscole e minuscole. Pertanto, è necessario utilizzare il confronto senza distinzione tra maiuscole e minuscole quando si esegue confronti tra stringhe su questi valori di dimensione. Per altre informazioni, vedere la sezione [analizzare i dati delle metriche](#analyze-metric-data) in questo articolo.
 
 * **Monitorare con i log di diagnostica in monitoraggio di Azure:** È possibile monitorare i log dell'account Azure Cosmos e creare dashboard dal monitoraggio di Azure. I dati di telemetria, ad esempio eventi e tracce che si verificano a una seconda granularità, vengono archiviati come log. Se, ad esempio, la velocità effettiva di un contenitore è modificata, le proprietà di un account Cosmos vengono modificate. questi eventi vengono acquisiti all'interno dei log. È possibile analizzare questi log eseguendo query sui dati raccolti. Per altre informazioni, vedere la sezione [analizzare i dati dei log](#analyze-log-data) di questo articolo.
 

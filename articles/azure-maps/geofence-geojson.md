@@ -1,19 +1,19 @@
 ---
 title: Formato dati GeoJSON per Geofence | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come preparare i dati di georecinzione che possono essere usati nell'API Microsoft Azure Maps GET e POST geofence.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335609"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131306"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 
@@ -30,7 +30,7 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 * `expiredTime` è la data e l'ora di scadenza dei dati di geofencing. Se il valore di `userTime` nella richiesta è successivo rispetto a tale valore, i dati corrispondenti del recinto virtuale sono considerati come dati scaduti e non viene eseguita una query. Su cui, il geometryId dei dati di questo recinto virtuale sarà incluso nella matrice `expiredGeofenceGeometryId` all'interno della risposta del recinto virtuale.
 * `validityPeriod` è un elenco del periodo di validità del recinto virtuale. Se il valore di `userTime` nella richiesta non rientra nel periodo di validità, i dati corrispondenti del recinto virtuale vengono considerati come non validi e non viene eseguita una query. Il geometryId dei dati di questo recinto virtuale è incluso nella matrice `invalidPeriodGeofenceGeometryId` all'interno della risposta del recinto virtuale. Nella tabella seguente vengono illustrate le proprietà dell'elemento validityPeriod.
 
-| Nome | Type | Obbligatoria  | Descrizione |
+| Nome | Tipo | Obbligatoria  | Descrizione |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Data e ora di inizio del periodo di validità. |
 | endTime   | Datetime  | true |  Data e ora di fine del periodo di validità. |

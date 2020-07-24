@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259809"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133062"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
 La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, SSE crittografa automaticamente i dati archiviati in dischi gestiti di Azure (dischi del sistema operativo e dischi dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. 
 
-I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](/windows/desktop/seccng/cng-portal)
 
 La crittografia lato server non influisce sulle prestazioni dei dischi gestiti e non sono previsti costi aggiuntivi. 
 
@@ -50,9 +50,9 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Crittografia in host-end-to-end Encryption per i dati della VM
 
-La crittografia end-to-end viene avviata dall'host della macchina virtuale, il server Azure a cui è allocata la macchina virtuale. I dati nei dischi temporanei e nelle cache del disco del sistema operativo/dati vengono archiviati nell'host VM. Quando si Abilita la crittografia end-to-end, tutti questi dati vengono crittografati inattivi e i flussi vengono crittografati nel servizio di archiviazione, dove vengono salvati in modo permanente. La crittografia end-to-end non usa la CPU della VM e non influisca sulle prestazioni della VM. 
+La crittografia end-to-end viene avviata dall'host della macchina virtuale, il server Azure a cui è allocata la macchina virtuale. I dati nei dischi temporanei, i dischi del sistema operativo temporanei e le cache del disco del sistema operativo/dati salvati vengono archiviati nell'host VM. Quando si Abilita la crittografia end-to-end, tutti questi dati vengono crittografati inattivi e i flussi vengono crittografati nel servizio di archiviazione, dove vengono salvati in modo permanente. La crittografia end-to-end non usa la CPU della VM e non influisca sulle prestazioni della VM. 
 
-I dischi temporanei vengono crittografati a riposo con chiavi gestite dalla piattaforma quando si Abilita la crittografia end-to-end. Le cache del sistema operativo e del disco dati vengono crittografate a riposo con chiavi gestite dal cliente o gestite dalla piattaforma, a seconda del tipo di crittografia. Se, ad esempio, un disco è crittografato con chiavi gestite dal cliente, la cache per il disco viene crittografata con le chiavi gestite dal cliente e se un disco viene crittografato con le chiavi gestite dalla piattaforma, la cache per il disco viene crittografata con le chiavi gestite dalla piattaforma.
+I dischi temporanei e i dischi del sistema operativo temporaneo vengono crittografati a riposo con chiavi gestite dalla piattaforma quando si Abilita la crittografia end-to-end. Le cache del sistema operativo e del disco dati vengono crittografate a riposo con chiavi gestite dal cliente o gestite dalla piattaforma, a seconda del tipo di crittografia. Se, ad esempio, un disco è crittografato con chiavi gestite dal cliente, la cache per il disco viene crittografata con le chiavi gestite dal cliente e se un disco viene crittografato con le chiavi gestite dalla piattaforma, la cache per il disco viene crittografata con le chiavi gestite dalla piattaforma.
 
 ### <a name="restrictions"></a>Restrizioni
 
@@ -68,7 +68,7 @@ I dischi temporanei vengono crittografati a riposo con chiavi gestite dalla piat
 
 ## <a name="double-encryption-at-rest"></a>Crittografia a doppio inattivo
 
-I clienti sensibili alla sicurezza elevata interessati dal rischio associato a un algoritmo di crittografia specifico, un'implementazione o una chiave compromessa possono ora optare per un ulteriore livello di crittografia usando un algoritmo/modalità di crittografia diverso a livello di infrastruttura usando chiavi di crittografia gestite dalla piattaforma. Questo nuovo livello può essere applicato a dischi, snapshot e immagini, ognuno dei quali verrà crittografato a riposo con crittografia doppia.
+I clienti sensibili alla sicurezza elevata interessati dal rischio associato a un algoritmo di crittografia specifico, un'implementazione o una chiave compromessa possono ora optare per un ulteriore livello di crittografia usando un algoritmo/modalità di crittografia diverso a livello di infrastruttura usando chiavi di crittografia gestite dalla piattaforma. Questo nuovo livello può essere applicato a sistemi operativi e dischi dati, snapshot e immagini salvati in modo permanente, che verranno tutti crittografati a riposo con la crittografia doppia.
 
 ### <a name="supported-regions"></a>Aree supportate
 
@@ -76,7 +76,7 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Crittografia lato server e Crittografia dischi di Azure
 
-[Crittografia dischi di Azure](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la funzionalità [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) di Windows per crittografare i dischi gestiti con le chiavi gestite dal cliente all'interno della macchina virtuale guest.  La crittografia lato server con chiavi gestite dal cliente migliora la funzionalità Crittografia dischi di Azure poiché consente di usare qualsiasi tipo e immagine di sistema operativo per le macchine virtuali crittografando i dati nel servizio di archiviazione.
+[Crittografia dischi di Azure](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la funzionalità [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) di Windows per crittografare i dischi gestiti con le chiavi gestite dal cliente all'interno della macchina virtuale guest. La crittografia lato server con chiavi gestite dal cliente migliora la funzionalità Crittografia dischi di Azure poiché consente di usare qualsiasi tipo e immagine di sistema operativo per le macchine virtuali crittografando i dati nel servizio di archiviazione.
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory di Azure AD a un'altra, l'identità gestita associata ai dischi gestiti non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere [Trasferimento di una sottoscrizione tra directory di Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -84,9 +84,8 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare la crittografia end-to-end usando la crittografia nell'host-PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Abilitare la crittografia doppia per i dischi gestiti-PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Abilitare le chiavi gestite dal cliente per i dischi gestiti-PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Abilitare le chiavi gestite dal cliente per Managed disks-portale](disks-enable-customer-managed-keys-portal.md)
+- Abilitare la crittografia end-to-end usando la crittografia nell'host con [PowerShell](disks-enable-host-based-encryption-powershell.md) o il [portale di Azure](disks-enable-host-based-encryption-portal.md).
+- Abilitare la crittografia doppia per i dischi gestiti con [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) o il [portale di Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Abilitare le chiavi gestite dal cliente per i dischi gestiti con [PowerShell](disks-enable-customer-managed-keys-powershell.md) o il [portale di Azure](disks-enable-customer-managed-keys-portal.md).
 - [Esplorare i modelli di Azure Resource Manager per la creazione di dischi crittografati con chiavi gestite dal cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)

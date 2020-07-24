@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808183"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132042"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -176,7 +176,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 | **Error (Errore) (Error (Errore)e)** | **Actions** |
 | --- | --- |
-| Mancata corrispondenza del codice di stato del probe: errore 401 ricevuto | Verificare se il server back-end richiede l'autenticazione. A questo punto, i probe del gateway applicazione non possono passare le credenziali per l'autenticazione. Consentire \"HTTP 401\" in una corrispondenza del codice di stato del probe o eseguire una verifica tramite probe in un percorso in cui il server non richiede l'autenticazione. | |
+| Mancata corrispondenza del codice di stato del probe: errore 401 ricevuto | Verificare se il server back-end richiede l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione. Consentire \"HTTP 401\" in una corrispondenza del codice di stato del probe o eseguire una verifica tramite probe in un percorso in cui il server non richiede l'autenticazione. | |
 | Mancata corrispondenza del codice di stato del probe: errore 403 ricevuto | Accesso negato. Controllare se l'accesso al percorso è consentito nel server back-end. | |
 | Mancata corrispondenza del codice di stato del probe: errore 404 ricevuto | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare i parametri del nome host o del percorso in un valore accessibile. | |
 | Mancata corrispondenza del codice di stato del probe: errore 405 ricevuto | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Verificare se il server consente questo metodo. | |

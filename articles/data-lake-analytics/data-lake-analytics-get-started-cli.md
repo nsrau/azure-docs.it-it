@@ -2,17 +2,15 @@
 title: Creare & query Azure Data Lake Analytics-interfaccia della riga di comando di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: e8de36cca8386ed2a8ddba5782b7b48f248192e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44648f1c01aed221e90029eb64d48576b899b1c4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564824"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132586"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
 

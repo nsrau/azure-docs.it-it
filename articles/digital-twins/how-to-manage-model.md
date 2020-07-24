@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390585"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132280"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -66,7 +66,7 @@ Questo modello definisce un nome e un ID univoco per la stanza del paziente e le
 Seguendo questo metodo, è possibile scegliere di definire i modelli per il reparto, le zone o l'ospedale.
 
 > [!TIP]
-> È disponibile una libreria sul lato client per l'analisi e la convalida di DTDL. Genera un modello a oggetti C# del contenuto DTDL, che può essere usato in scenari di sviluppo basati su modelli, ad esempio la generazione di elementi dell'interfaccia utente. È anche possibile usare questa libreria per assicurarsi che i modelli non presentino errori di sintassi prima di caricarli. Per ulteriori informazioni su questa libreria e sull'accesso a un esempio basato su di esso per un validator DTDL, vedere [procedura: analizzare e convalidare i modelli](how-to-use-parser.md).
+> È disponibile una libreria sul lato client per l'analisi e la convalida di DTDL. Genera un modello a oggetti C# del contenuto DTDL, che può essere usato in scenari di sviluppo basati su modelli, ad esempio la generazione di elementi dell'interfaccia utente. È anche possibile usare questa libreria per assicurarsi che i modelli non presentino errori di sintassi prima di caricarli. Per ulteriori informazioni su questa libreria e sull'accesso a un esempio basato su di esso per un validator DTDL, vedere [*procedura: analizzare e convalidare i modelli*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Gestire i modelli con le API.
 
@@ -190,7 +190,7 @@ Lo stato di rimozione delle autorizzazioni di un modello è incluso nei `ModelDa
 
 È possibile eliminare tutti i modelli nell'istanza in una sola volta oppure è possibile eseguire questa operazione su base individuale.
 
-Per un esempio di come eliminare tutti i modelli, scaricare l'app di esempio usata nell' [esercitazione: esplorare le nozioni di base con un'app client di esempio](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllModels` funzione.
+Per un esempio di come eliminare tutti i modelli, scaricare l'app di esempio usata nell' [*esercitazione: esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllModels` funzione.
 
 Il resto di questa sezione suddivide l'eliminazione del modello in modo più dettagliato e Mostra come eseguire questa operazione per un singolo modello.
 
@@ -235,7 +235,7 @@ Operazioni che è **possibile** eseguire:
 
 Operazioni che **non è possibile eseguire** :
 * Modificare le relazioni in uscita (ad esempio, relazioni *da* questo gemello ad altri gemelli)
-* Modifica di proprietà
+* Modificare le proprietà
 
 ##### <a name="after-deletion-re-uploading-a-model"></a>Dopo l'eliminazione: nuovo caricamento di un modello
 
@@ -247,9 +247,9 @@ I dispositivi gemelli digitali di Azure non impediscono questo stato, quindi pre
 
 ## <a name="manage-models-with-cli"></a>Gestire modelli con l'interfaccia della riga di comando
 
-I modelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli](how-to-use-cli.md).
+I modelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come creare e gestire i dispositivi gemelli digitali in base ai modelli:
-* [Procedura: gestire i dispositivi gemelli digitali](how-to-manage-twin.md)
+* [*Procedura: gestire i dispositivi gemelli digitali*](how-to-manage-twin.md)

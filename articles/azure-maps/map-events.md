@@ -1,19 +1,20 @@
 ---
 title: Gestire gli eventi della mappa | Mappe di Microsoft Azure
 description: Questo articolo spiega come creare una mappa interattiva con eventi di mappa usando l'SDK Web per Mappe di Microsoft Azure.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 94ff9cff31703dbfa9c08b2a3e60eb29b0997a86
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124007"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130461"
 ---
 # <a name="interact-with-the-map"></a>Interazione con la mappa
 

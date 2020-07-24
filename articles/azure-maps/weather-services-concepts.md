@@ -1,19 +1,19 @@
 ---
 title: Concetti relativi ai servizi meteorologici | Mappe Microsoft Azure
 description: In questo articolo verranno illustrati i concetti che si applicano a Microsoft Azure Maps Weather Services.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221766"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132110"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
@@ -54,7 +54,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 
 Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode`È un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
 
-| Numero icona |Icona| Giorno | Notte | Text |
+| Numero icona |Icona| Giorno | Notte | Testo |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sì |  No    | Sunny|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sì |  No    | Per lo più soleggiato|
@@ -81,7 +81,7 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sì |  Sì   | Nevischio|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sì |  Sì   | Congelamento pioggia|
 | 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sì |  Sì   | Pioggia e neve|
-| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
 | 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|

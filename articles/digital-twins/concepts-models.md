@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258281"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131634"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
 
@@ -24,12 +24,12 @@ I modelli vengono scritti usando il **linguaggio DTDL (Digital Twin Definition L
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digital Twin Definition Language (DTDL) per la scrittura di modelli
 
-I modelli per i dispositivi gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Gemini Definition Language). DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). I dispositivi gemelli digitali di Azure usano DTDL *versione 2*.
+I modelli per i dispositivi gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Gemini Definition Language). DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+
+I dispositivi gemelli digitali di Azure usano DTDL *versione 2*. Per ulteriori informazioni su questa versione di DTDL, vedere la relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Non tutti i servizi che usano DTDL implementano esattamente le stesse funzionalità di DTDL. Ad esempio, il Plug and Play Internet delle cose non usa le funzionalità di DTDL per i grafici, mentre i dispositivi gemelli digitali di Azure attualmente non implementano i comandi di DTDL. Per altre informazioni sulle funzionalità di DTDL specifiche per i dispositivi gemelli digitali di Azure, vedere la sezione più avanti in questo articolo sulle specifiche di implementazione di DTDL per i dispositivi [digitali gemelli di Azure](#azure-digital-twins-dtdl-implementation-specifics).
-
-Per ulteriori informazioni su DTDL in generale, vedere la relativa documentazione specifica in GitHub: [Digital Gemini Definition Language (DTDL)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## <a name="elements-of-a-model"></a>Elementi di un modello
 
@@ -62,7 +62,9 @@ Per garantire la compatibilità di un modello DTDL con i dispositivi gemelli dig
 
 I modelli di tipo gemello possono essere scritti in qualsiasi editor di testo. Il linguaggio DTDL segue la sintassi JSON, quindi è necessario archiviare i modelli con estensione *JSON*. L'uso dell'estensione JSON consentirà a molti editor di testo di programmazione di fornire il controllo della sintassi di base ed evidenziare i documenti DTDL. Per [Visual Studio Code](https://code.visualstudio.com/)è disponibile anche un' [estensione DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) .
 
-Di seguito è riportato un esempio di un modello tipico, scritto come un'interfaccia DTDL. Il modello descrive i pianeti, ognuno con un nome, una massa e una temperatura. Il pianeta può avere Moons come satelliti e può contenere crateri.
+Questa sezione contiene un esempio di un modello tipico, scritto come interfaccia DTDL. Il modello descrive i **pianeti**, ognuno con un nome, una massa e una temperatura.
+ 
+Tenere presente che i pianeti possono interagire anche con le **lune** che sono i loro satelliti e possono contenere **crateri**. Nell'esempio seguente il `Planet` modello esprime le connessioni a queste altre entità facendo riferimento a due modelli esterni, `Moon` e `Crater` . Questi modelli sono definiti anche nel codice di esempio riportato di seguito, ma sono conservati molto semplici, in modo da evitare di detrarre dall' `Planet` esempio principale.
 
 ```json
 [
@@ -101,6 +103,11 @@ Di seguito è riportato un esempio di un modello tipico, scritto come un'interfa
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ L'interfaccia di estensione non può modificare alcuna definizione delle interfa
 
 L'esempio di validator DTDL si basa su una libreria parser .NET DTDL, disponibile in NuGet come libreria lato client: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). È anche possibile usare direttamente la libreria per progettare una soluzione di convalida personalizzata. Quando si usa la libreria del parser, assicurarsi di usare una versione compatibile con la versione che esegue i dispositivi gemelli digitali di Azure. Durante l'anteprima, si tratta della versione *3.7.0*.
 
-Per altre informazioni sulla libreria del parser, inclusi esempi di utilizzo, vedere [procedura: analizzare e convalidare i modelli](how-to-use-parser.md).
+Per altre informazioni sulla libreria del parser, inclusi esempi di utilizzo, vedere [*procedura: analizzare e convalidare i modelli*](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come gestire i modelli con le API DigitalTwinsModels:
-* [Procedura: gestire modelli personalizzati](how-to-manage-model.md)
+* [*Procedura: Gestire i modelli personalizzati*](how-to-manage-model.md)
 
 In alternativa, informazioni su come vengono creati i dispositivi digitali gemelli in base ai modelli:
-* [Concetti: i dispositivi gemelli digitali e i grafici gemelli](concepts-twins-graph.md)
+* [*Concetti: i dispositivi gemelli digitali e i grafici gemelli*](concepts-twins-graph.md)
 

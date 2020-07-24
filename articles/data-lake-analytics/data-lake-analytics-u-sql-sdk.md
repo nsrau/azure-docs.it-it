@@ -4,16 +4,15 @@ description: Informazioni su come eseguire e testare i processi di U-SQL locali 
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110471"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132416"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -65,7 +64,7 @@ Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso a
 
 Quando si esegue lo script U-SQL localmente, durante la compilazione viene creata una directory di lavoro nella directory di lavoro corrente. Oltre agli output di compilazione, nella directory di lavoro verrà creata una copia shadow dei file di runtime necessari per l'esecuzione locale. La cartella radice della directory di lavoro è denominata "ScopeWorkDir" e i file nella directory di lavoro sono i seguenti:
 
-|Directory/File|Directory/File|Directory/File|Definizione|Description|
+|Directory/File|Directory/File|Directory/File|Definizione|Descrizione|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Stringa di hash della versione di runtime|Copia shadow dei file di runtime necessari per l'esecuzione locale|
 | |Script_66AE4909AA0ED06C| |Nome di script + stringa hash del percorso dello script|Output di compilazione e registrazione del passaggio di esecuzione|
@@ -144,21 +143,21 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 |Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
-|-CodeBehind|False|Lo script ha code-behind con estensione cs|
+|-CodeBehind|Falso|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
 |-DataRoot| Variabile di ambiente DataRoot|DataRoot per l'esecuzione locale, impostazione predefinita su variabile di ambiente 'LOCALRUN_DATAROOT'|
 |-MessageOut| |Messaggi dump sulla console a un file|
 |-Parallel|1|Esegue il piano con il parallelismo specificato|
 |-References| |Elenco di percorsi agli assembly di riferimento aggiuntivi o a file di dati code-behind, separati da ";"|
-|-UdoRedirect|False|Genera la configurazione di reindirizzamento di assembly Udo|
+|-UdoRedirect|Falso|Genera la configurazione di reindirizzamento di assembly Udo|
 |-UseDatabase|master|Database da usare per la registrazione di assembly temporanei code-behind|
-|-Verbose|False|Mostrare gli output dettagliati dal runtime|
+|-Verbose|Falso|Mostrare gli output dettagliati dal runtime|
 |-WorkDir|Directory corrente|Directory per l'uso del compilatore e gli output|
 |-RunScopeCEP|0|Modalità ScopeCEP da usare|
 |-ScopeCEPTempPath|temp|Percorso temporaneo da usare per lo streaming di dati|
 |-OptFlags| |Elenco delimitato da virgole con i flag di ottimizzazione|
 
-Ad esempio:
+Ecco un esempio:
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 
@@ -332,13 +331,13 @@ LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|Description|
+|Parametro|Type|Descrizione|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 ### <a name="properties"></a>Proprietà
 
-|Proprietà|Type|Description|
+|Proprietà|Tipo|Descrizione|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|

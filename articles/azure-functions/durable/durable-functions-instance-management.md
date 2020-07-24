@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1837d342c4476633ee33a8579abe7389ac9bbddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce85473e80bfccf1bcff3e21408fd91e4cd428a4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476824"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131328"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -18,13 +18,13 @@ Se si usa l'estensione [Durable Functions](durable-functions-overview.md) per fu
 
 È possibile avviare e terminare le istanze, ad esempio, ed è possibile eseguire query sulle istanze, inclusa la possibilità di eseguire query su tutte le istanze e le istanze di query con i filtri. Inoltre, è possibile inviare eventi alle istanze, attendere il completamento dell'orchestrazione e recuperare gli URL del webhook di gestione HTTP. Questo articolo descrive anche altre operazioni di gestione, incluse le istanze di riavvolgimento, l'eliminazione della cronologia delle istanze e l'eliminazione di un hub attività.
 
-In Durable Functions sono disponibili opzioni per la modalità di implementazione di ciascuna di queste operazioni di gestione. Questo articolo fornisce esempi che usano la [Azure Functions Core Tools](../functions-run-local.md) sia per .NET (C#) che per JavaScript.
+In Durable Functions sono disponibili opzioni per la modalità di implementazione di ciascuna di queste operazioni di gestione. Questo articolo fornisce esempi che usano la [Azure Functions Core Tools](../functions-run-local.md) per .NET (C#), JavaScript e Python.
 
 ## <a name="start-instances"></a>Istanze di avvio
 
 È importante poter avviare un'istanza di orchestrazione. Questa operazione viene in genere eseguita quando si usa un'associazione Durable Functions nel trigger di un'altra funzione.
 
-Il `StartNewAsync` Metodo (.NET) o `startNew` (JavaScript) nell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) avvia una nuova istanza. Internamente, questo metodo Accoda un messaggio nella coda dei controlli, che quindi attiva l'inizio di una funzione con il nome specificato che usa l' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger).
+Il `StartNewAsync` Metodo (.NET), `startNew` (JavaScript) o `start_new` (Python) nell'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) avvia una nuova istanza. Internamente, questo metodo Accoda un messaggio nella coda dei controlli, che quindi attiva l'inizio di una funzione con il nome specificato che usa l' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger).
 
 Questa operazione asincrona viene completata quando il processo di orchestrazione viene pianificato correttamente.
 
@@ -102,6 +102,56 @@ module.exports = async function(context, input) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+<a name="javascript-function-json"></a>Se non specificato diversamente, gli esempi in questa pagina usano il trigger HTTP con le function.jsseguenti.
+
+**function.json**
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [    
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> Questo esempio è destinato Durable Functions versione 2. x. Nella versione 1. x, usare `orchestrationClient` anziché `durableClient` .
+
+**__init__. py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    
+    instance_id = await client.start_new('HelloWorld', None, None)
+    logging.log(f"Started orchestration with ID = ${instance_id}.")
+
+```
+
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
@@ -127,7 +177,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 Come parte del lavoro richiesto per gestire le orchestrazioni, è molto probabile che sia necessario raccogliere informazioni sullo stato di un'istanza di orchestrazione (ad esempio, se è stata completata normalmente o non riuscita).
 
-Il `GetStatusAsync` Metodo (.NET) o `getStatus` (JavaScript) nell'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) esegue una query sullo stato di un'istanza di orchestrazione.
+Il `GetStatusAsync` Metodo (.NET), `getStatus` (JavaScript) o il `get_status` Metodo (Python) nell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) esegue una query sullo stato di un'istanza di orchestrazione.
 
 Accetta `instanceId` (obbligatorio), `showHistory` (facoltativo), `showHistoryOutput` (facoltativo) e `showInput` (facoltativo) come parametri.
 
@@ -153,7 +203,7 @@ Il metodo restituisce un oggetto con le proprietà seguenti:
   * **Terminata**: l'istanza è stata terminata in modo anomalo.
 * **History**: cronologia di esecuzione dell'orchestrazione. Questo campo viene popolato solo se `showHistory` è impostato su `true`.
 
-Questo metodo restituisce `null` (.NET) o `undefined` (JavaScript) se l'istanza non esiste.
+Questo metodo restituisce `null` (.NET), `undefined` (JavaScript) o `None` (Python) se l'istanza non esiste.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -185,6 +235,19 @@ module.exports = async function(context, instanceId) {
 ```
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    status = await client.get_status(instance_id)
+    # do something based on the current status
+```
 
 ---
 
@@ -218,7 +281,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 Anziché eseguire una query su un'istanza dell'orchestrazione alla volta, potrebbe risultare più efficiente eseguire una query su tutti gli elementi contemporaneamente.
 
-È possibile usare il metodo `GetStatusAsync` (.NET) o il metodo `getStatusAll` (JavaScript) per eseguire query sugli stati delle istanze di orchestrazione. In .NET è possibile passare un `CancellationToken` oggetto nel caso in cui si desideri annullarlo. Il metodo restituisce oggetti con le stesse proprietà del metodo `GetStatusAsync` con parametri.
+`GetStatusAsync` `getStatusAll` Per eseguire una query sugli stati di tutte le istanze di orchestrazione, è possibile utilizzare il metodo (.NET), (JavaScript) o `get_status_all` (Python). In .NET è possibile passare un `CancellationToken` oggetto nel caso in cui si desideri annullarlo. Il metodo restituisce oggetti con le stesse proprietà del metodo `GetStatusAsync` con parametri.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -253,6 +316,24 @@ module.exports = async function(context, req) {
         context.log(JSON.stringify(instance));
     });
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import json
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    instances = await client.get_status_all()
+
+    for instance in instances:
+        logging.log(json.dumps(instance))
 ```
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
@@ -331,6 +412,31 @@ module.exports = async function(context, req) {
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+from datetime import datetime
+import json
+import azure.functions as func
+import azure.durable_functions as df
+from azure.durable_functions.models.OrchestrationRuntimeStatus import OrchestrationRuntimeStatus
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    runtime_status = [OrchestrationRuntimeStatus.Completed, OrchestrationRuntimeStatus.Running]
+
+    instances = await client.get_status_by(
+        datetime(2018, 3, 10, 10, 1, 0),
+        datetime(2018, 3, 10, 10, 23, 59),
+        runtime_status
+    )
+
+    for instance in instances:
+        logging.log(json.dumps(instance))
+```
+
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
@@ -355,7 +461,7 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 Se è presente un'istanza di orchestrazione che impiega troppo tempo per l'esecuzione oppure è sufficiente arrestarla prima del completamento per qualsiasi motivo, è possibile terminarla.
 
-`TerminateAsync`Per terminare le istanze di, è possibile utilizzare il metodo (.NET) o `terminate` (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) . I due parametri sono un `instanceId` e una `reason` stringa, che vengono scritti nei log e nello stato dell'istanza.
+È possibile utilizzare il `TerminateAsync` Metodo (.NET), `terminate` (JavaScript) o il `terminate` Metodo (Python) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) per terminare le istanze. I due parametri sono un `instanceId` e una `reason` stringa, che vengono scritti nei log e nello stato dell'istanza.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -387,6 +493,19 @@ module.exports = async function(context, instanceId) {
 ```
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    reason = "It was time to be done."
+    return client.terminate(instance_id, reason)
+```
 
 ---
 
@@ -453,6 +572,19 @@ module.exports = async function(context, instanceId) {
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    event_data = [1, 2 ,3]
+    return client.raise_event(instance_id, 'MyEvent', event_data)
+```
+
 ---
 
 > [!NOTE]
@@ -493,6 +625,39 @@ Di seguito è riportato un esempio di funzione trigger HTTP che illustra come us
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+timeout = "timeout"
+retry_interval = "retryInterval"
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    instance_id = await client.start_new(req.route_params['functionName'], None, req.get_body())
+    logging.log(f"Started orchestration with ID = '${instance_id}'.")
+
+    timeout_in_milliseconds = get_time_in_seconds(req, timeout)
+    timeout_in_milliseconds = timeout_in_milliseconds if timeout_in_milliseconds != None else 30000
+    retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
+    retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
+
+    return client.wait_for_completion_or_create_check_status_response(
+        req,
+        instance_id,
+        timeout_in_milliseconds,
+        retry_interval_in_milliseconds
+    )
+
+def get_time_in_seconds(req: func.HttpRequest, query_parameter_name: str):
+    query_value = req.params.get(query_parameter_name)
+    return query_value if query_value != None else 1000
+```
 
 ---
 
@@ -600,6 +765,22 @@ modules.exports = async function(context, ctx) {
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.cosmosdb.cdb.Document:
+    client = df.DurableOrchestrationClient(starter)
+
+    payload = client.create_check_status_response(req, instance_id).get_body().decode()
+
+    return func.cosmosdb.CosmosDBConverter.encode({
+        id: instance_id,
+        payload: payload
+    })
+```
 ---
 
 ## <a name="rewind-instances-preview"></a>Riavvolgi istanze (anteprima)
@@ -647,6 +828,22 @@ module.exports = async function(context, instanceId) {
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
 
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Questa funzionalità non è attualmente supportata in Python.
+
+<!-- ```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    reason = "Orchestrator failed and needs to be revived."
+    return client.rewind(instance_id, reason)
+``` -->
+
 ---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
@@ -692,6 +889,18 @@ module.exports = async function(context, instanceId) {
 ```
 
 Vedere [avviare le istanze](#javascript-function-json) per il function.jsnella configurazione.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    return client.purge_instance_history(instance_id)
+```
 
 ---
 
@@ -759,7 +968,22 @@ module.exports = async function (context, myTimer) {
     return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from azure.durable_functions.models.DurableOrchestrationStatus import OrchestrationRuntimeStatus
+from datetime import datetime, timedelta
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    created_time_from = datetime.datetime()
+    created_time_to = datetime.datetime.today + timedelta(days = -30)
+    runtime_statuses = [OrchestrationRuntimeStatus.Completed]
+
+    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+```
 ---
 
 > [!NOTE]

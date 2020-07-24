@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4ffbe10a1f9a1629c74c144b8773a7de89890576
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836380"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132008"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 
@@ -27,10 +28,10 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
 * Visualizzare le regole di avviso definite in [Avvisi di Azure](alerts-overview.md)
-* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](powershell-quickstart-samples.md) o l'[interfaccia della riga di comando multipiattaforma](../samples/cli-samples.md).
+* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](/rest/api/monitor/metrics), i [cmdlet di PowerShell](../samples/powershell-samples.md) o l'[interfaccia della riga di comando multipiattaforma](../samples/cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
 * Visualizzare le [impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.
-* Visualizzare il [profilo di registro](activity-log-export.md) per una sottoscrizione.
+* Visualizzare il [profilo di registro](./activity-log.md#legacy-collection-methods) per una sottoscrizione.
 * Visualizzare le impostazioni di scalabilità automatica.
 * Visualizzare impostazioni e attività di avviso.
 * Accedere ai dati di Application Insights e visualizzarli in AI Analytics.
@@ -51,7 +52,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
 * Configurare le [impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
-* Impostare il [profilo di registro](activity-log-export.md) per una sottoscrizione.\*
+* Impostare il [profilo di registro](./activity-log.md#legacy-collection-methods) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro Log Analytics.
@@ -66,8 +67,8 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
-Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Monitoraggio delle autorizzazioni e dei ruoli personalizzati di Azure
+Se i ruoli predefiniti precedenti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato di Azure](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
 | Operazione | Descrizione |
 | --- | --- |
@@ -96,7 +97,7 @@ Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è
 > 
 > 
 
-Ad esempio, usando la tabella sopra è possibile creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo per un "lettore di registro attività" come il seguente:
+Ad esempio, usando la tabella precedente, è possibile creare un ruolo personalizzato di Azure per un "lettore di log attività" simile al seguente:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -125,7 +126,7 @@ Tutti e tre questi tipi di dati possono essere archiviati in un account di archi
 * Non concedere mai l'autorizzazione ListKeys ad account di archiviazione o hub eventi nell'ambito della sottoscrizione quando un utente ha bisogno solo dell'accesso ai dati di monitoraggio. Piuttosto, assegnare queste autorizzazioni all'utente nell'ambito di una risorsa o di un gruppo di risorse (se si dispone di un gruppo di risorse di monitoraggio dedicato).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitare l'accesso agli account di archiviazione relativi al monitoraggio
-Quando un utente o un'applicazione richiede l'accesso ai dati di monitoraggio in un account di archiviazione, è necessario [generare una firma di accesso condiviso per l'account](https://msdn.microsoft.com/library/azure/mt584140.aspx) nell'account di archiviazione che contiene i dati di monitoraggio con accesso in sola lettura a livello di servizio all'archivio BLOB. In PowerShell, potrebbe avere un aspetto simile al seguente:
+Quando un utente o un'applicazione richiede l'accesso ai dati di monitoraggio in un account di archiviazione, è necessario [generare una firma di accesso condiviso per l'account](/rest/api/storageservices/create-account-sas) nell'account di archiviazione che contiene i dati di monitoraggio con accesso in sola lettura a livello di servizio all'archivio BLOB. In PowerShell, potrebbe avere un aspetto simile al seguente:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -134,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 A questo punto è possibile fornire il token all'entità che ha bisogno di leggere da quell'account di archiviazione; tale token può elencare e leggere da tutti i BLOB nell'account di archiviazione.
 
-In alternativa, se è necessario verificare l'autorizzazione con il Controllo degli accessi in base al ruolo, è possibile concedere a tale entità l'autorizzazione Microsoft.Storage/storageAccounts/listkeys/action su quel particolare account di archiviazione. Questo è necessario per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per l'archiviazione in un account di archiviazione. Ad esempio, è possibile creare il seguente ruolo personalizzato nel Controllo degli accessi in base al ruolo per un utente o un'applicazione che deve solo leggere da un account di archiviazione:
+In alternativa, se è necessario verificare l'autorizzazione con il Controllo degli accessi in base al ruolo, è possibile concedere a tale entità l'autorizzazione Microsoft.Storage/storageAccounts/listkeys/action su quel particolare account di archiviazione. Questo è necessario per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per l'archiviazione in un account di archiviazione. Ad esempio, è possibile creare il ruolo personalizzato di Azure seguente per un utente o un'applicazione che deve leggere solo da un account di archiviazione:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,5 +189,3 @@ Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../../role-based-access-control/overview.md)
 * [Panoramica sul monitoraggio in Azure](../../azure-monitor/overview.md)
-
-

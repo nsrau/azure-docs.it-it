@@ -3,19 +3,17 @@ title: Apprendimento per rinforzo - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Personalizza esperienze usa informazioni su azioni e contesto corrente per fornire suggerimenti più accurati per la classificazione. Le informazioni su queste azioni e sul contesto sono attributi o proprietà definiti come caratteristiche.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: diberry
-ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68662828"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132739"
 ---
 # <a name="what-is-reinforcement-learning"></a>Cos'è l'apprendimento per rinforzo?
 

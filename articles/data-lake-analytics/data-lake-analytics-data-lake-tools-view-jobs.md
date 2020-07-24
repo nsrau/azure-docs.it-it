@@ -2,17 +2,15 @@
 title: Usare Job browser & vista processi-Azure Data Lake Analytics
 description: Questo articolo descrive come usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: e0db5482a48819074fc0552417aa79dbc2e5cf66
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120178"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131889"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
 Il servizio Azure Data Lake Analytics archivia i processi inviati in un archivio query. Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7ac04b29853ce0d4f6ac4004bdfad4effd283170
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103790"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132994"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connettere macchine virtuali ibride ad Azure su larga scala
 
@@ -76,7 +76,7 @@ Il ruolo di **Onboarding di Azure Connected Machine** contiene solo le autorizza
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installare l'agente e connettersi ad Azure
 
-I passaggi seguenti consentono di installare e configurare l'agente del computer connesso nei computer ibridi usando il modello dello script, che esegue passaggi simili descritti nell'articolo [Connettere macchine virtuali ibride ad Azure dal portale di Azure](onboard-portal.md). La differenza si trova nel passaggio finale in cui viene stabilita la connessione ad Azure Arc tramite il comando `azcmagent` con l'uso dell'entità servizio. 
+I passaggi seguenti consentono di installare e configurare l'agente del computer connesso nei computer ibridi usando il modello dello script, che esegue passaggi simili descritti nell'articolo [Connettere macchine virtuali ibride ad Azure dal portale di Azure](onboard-portal.md). La differenza si trova nel passaggio finale in cui viene stabilita la connessione ad Azure Arc tramite il comando `azcmagent` con l'uso dell'entità servizio.
 
 Le impostazioni seguenti consentono di configurare il comando `azcmagent` da usare per l'entità servizio.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Lo script supporta solo l'esecuzione da una versione a 64 bit di Windows PowerShell.
+>
+
 ### <a name="linux-installation-script"></a>Script di installazione Linux
 
 L'esempio seguente rappresenta un agente di Connected Machine per lo script di installazione Linux modificato per usare l'entità servizio in modo che supporti un'installazione completamente automatizzata e non interattiva dell'agente.
@@ -130,6 +134,9 @@ azcmagent connect \
   --location "{resourceLocation}" \
   --subscription-id "{subscriptionID}"
 ```
+
+>[!NOTE]
+>Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
 
 Dopo aver installato l'agente e averlo configurato per la connessione ad Azure Arc per server (anteprima), passare al portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195248"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131821"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Baseline della sicurezza di Azure per Cosmos DB
 
@@ -78,7 +78,7 @@ Configurare la condivisione delle risorse tra le origini:https://docs.microsoft.
 
 Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di Azure Cosmos DB per proteggersi da attacchi DDoS. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
-Come configureAzure Cosmos DB Advanced Threat Protection:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Come configurare Azure Cosmos DB Advanced Threat Protection:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 Come configurare Protezione DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -121,7 +121,7 @@ Come configurare Cosmos DB Advanced Threat Protection:https://docs.microsoft.com
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
-**Linee guida**: per le risorse che richiedono l'accesso all'account Azure Cosmos, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete in securitygGroups di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureCosmosDB) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
+**Linee guida**: per le risorse che richiedono l'accesso all'account Azure Cosmos, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureCosmosDB) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
 Per altre informazioni sull'uso dei tag di servizio: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 

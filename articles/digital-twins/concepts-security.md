@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522262"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131617"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteggere i dispositivi gemelli digitali di Azure con controllo degli accessi in base al ruolo
 
@@ -35,7 +35,7 @@ Il passaggio di autenticazione richiede che qualsiasi richiesta dell'applicazion
 
 Per il passaggio di autorizzazione è necessario assegnare un ruolo RBAC all'entità di sicurezza. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. I dispositivi gemelli digitali di Azure forniscono i ruoli RBAC che includono i set di autorizzazioni per le risorse di Azure Digital gemelli. Questi ruoli sono descritti più avanti in questo articolo.
 
-Per altre informazioni sui ruoli e sulle assegnazioni di ruolo supportati in Azure, vedere informazioni sui [diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md) nella documentazione relativa a RBAC di Azure.
+Per altre informazioni sui ruoli e sulle assegnazioni di ruolo supportati in Azure, vedere informazioni sui [*diversi ruoli*](../role-based-access-control/rbac-and-directory-admin-roles.md) nella documentazione relativa a RBAC di Azure.
 
 ### <a name="authentication-with-managed-identities"></a>Autenticazione con identità gestite
 
@@ -46,19 +46,19 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli RBAC per i dispositivi gemelli digitali di Azure
 
 Azure fornisce i ruoli RBAC predefiniti seguenti per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
-* Proprietario di dispositivi gemelli digitali di Azure (anteprima): usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
-* Lettore di dispositivi gemelli digitali di Azure (anteprima): usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
+* *Proprietario di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
+* *Lettore di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
 
 > [!TIP]
-> Il ruolo lettore di dispositivi digitali gemelli di Azure (anteprima) supporta ora anche le relazioni di esplorazione.
+> Il ruolo lettore di dispositivi *digitali gemelli di Azure (anteprima)* supporta ora anche le relazioni di esplorazione.
 
-Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [definizioni di ruolo](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli RBAC personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
+Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [*definizioni di ruolo*](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [*ruoli personalizzati di Azure*](../role-based-access-control/custom-roles.md).
 
 È possibile assegnare i ruoli in due modi:
-* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [aggiungere o rimuovere assegnazioni di ruolo con il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md))
+* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo con il controllo degli accessi in base al ruolo e il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
 * tramite i comandi dell'interfaccia della riga di comando per aggiungere o rimuovere un ruolo
 
-Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi [gemelli di Azure per la *connessione di una soluzione end-to-end*](tutorial-end-to-end.md).
+Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi gemelli di Azure per la [*connessione di una soluzione end-to-end*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Ambiti delle autorizzazioni
 
@@ -71,8 +71,14 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 * Relazione digitale gemello: le azioni per questa risorsa definiscono il controllo sulle operazioni CRUD sulle [relazioni](concepts-twins-graph.md) tra i dispositivi gemelli digitali nel grafico gemello.
 * Route dell'evento: le azioni per questa risorsa determinano le autorizzazioni per [indirizzare gli eventi](concepts-route-events.md) da dispositivi gemelli digitali di Azure a un servizio endpoint, ad esempio [Hub eventi](../event-hubs/event-hubs-about.md), [griglia di eventi](../event-grid/overview.md)o [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere un errore dalla lettura della richiesta di servizio `403 (Forbidden)` . Per ulteriori informazioni e procedure per la risoluzione dei problemi, vedere [*risoluzione dei problemi: richiesta di Azure Digital Twins non riuscita con stato: 403 (accesso negato)*](troubleshoot-error-403.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere come eseguire la procedura dettagliata con un'applicazione client di esempio in [*procedura: autenticare un'applicazione client*](how-to-authenticate-client.md).
+* Vedere questi concetti in azione in [*procedura: configurare un'istanza di e l'autenticazione*](how-to-set-up-instance-scripted.md)di.
+
+* Vedere come interagire con questi concetti dal codice dell'applicazione client in [*procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md).
 
 * Scopri di più su [RBAC per Azure](../role-based-access-control/overview.md).

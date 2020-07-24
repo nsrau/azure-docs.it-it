@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc273c2e6e27c191b4407ffae86a4ba227ee642b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461668"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131039"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure
 
@@ -33,7 +33,7 @@ Servizio app di Azure è una soluzione PaaS (piattaforma distribuita come serviz
 Il servizio app fornisce un servizio OAuth 2.0 per il provider di identità. OAuth 2.0 è incentrato sulla semplicità di sviluppo client fornendo i flussi di autorizzazione specifici per le applicazioni Web, applicazioni desktop e telefoni cellulari. Azure AD usa OAuth 2.0 per consentire all'utente di autorizzare l'accesso alle applicazioni per dispositivi mobili e alle applicazioni Web. Per altre informazioni, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Limitare l'accesso in base al ruolo
-La limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Usare il controllo degli accessi in base al ruolo per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito, ad esempio la necessità di conoscere e privilegiare i principi di sicurezza. Per altre informazioni sulla concessione agli utenti dell'accesso alle applicazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](/azure/role-based-access-control/overview)
+La limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Usare il controllo degli accessi in base al ruolo per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito, ad esempio la necessità di conoscere e privilegiare i principi di sicurezza. Per altre informazioni su come concedere agli utenti l'accesso alle applicazioni, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Proteggere le chiavi.
 Non importa quanto è valida la sicurezza impostata se si perdono le chiavi di sottoscrizione. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico. Per altre informazioni, vedere [Che cos'è Azure Key Vault?](../../key-vault/general/overview.md)

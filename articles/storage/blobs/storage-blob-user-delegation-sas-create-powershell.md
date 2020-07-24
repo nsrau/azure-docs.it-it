@@ -10,11 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f245b1baddad52f18f66e99fa98d9ec5f73c8011
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803531"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130903"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell
 
@@ -24,7 +25,7 @@ Questo articolo illustra come usare le credenziali Azure Active Directory (Azure
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
+## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 
 Per creare una firma di accesso condiviso di delega utente con PowerShell, installare la versione 1.10.0 o successiva del modulo AZ. storage. Per installare la versione più recente del modulo, seguire questa procedura:
 
@@ -89,7 +90,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
+Per altre informazioni sui ruoli predefiniti che includono l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** , vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Usare le credenziali Azure AD per proteggere una firma di accesso condiviso
 

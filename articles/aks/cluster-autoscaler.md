@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252029"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130835"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -44,7 +44,7 @@ Sia il componente di scalabilità automatica orizzontale dei pod, sia il compone
 
 Per altre informazioni sui casi in cui il componente di scalabilità automatica del cluster potrebbe non essere in grado di effettuare la riduzione, vedere [Quali tipi di pod possono impedire al componente di scalabilità automatica del cluster di rimuovere un nodo?][autoscaler-scaledown]
 
-Il componente di scalabilità automatica del cluster usa i parametri di avvio per elementi come gli intervalli di tempo tra gli eventi di scalabilità e le soglie delle risorse. Per altre informazioni sui parametri usati dal componente di scalabilità automatica del cluster, vedere [Quali sono i parametri del componente di scalabilità automatica del cluster?][autoscaler-parameters]
+Il componente di scalabilità automatica del cluster usa i parametri di avvio per elementi come gli intervalli di tempo tra gli eventi di scalabilità e le soglie delle risorse. Per altre informazioni sui parametri usati dal servizio di scalabilità automatica del cluster, vedere [quali sono i parametri del servizio di scalabilità automatica del cluster?][autoscaler-parameters]
 
 Il componente di scalabilità automatica orizzontale e il componente di scalabilità automatica del cluster possono essere usati insieme e spesso sono entrambi distribuiti in un cluster. Nell’uso combinato, il componente di scalabilità automatica orizzontale dei pod è dedicato all’esecuzione del numero di pod necessari per soddisfare le richieste delle applicazioni. Il componente di scalabilità automatica del cluster è dedicato all’esecuzione del numero di nodi richiesto per supportare i pod pianificati.
 
@@ -56,7 +56,7 @@ Il componente di scalabilità automatica orizzontale e il componente di scalabil
 Se è necessario creare un cluster AKS, usare il comando [az aks create][az-aks-create]. Per abilitare e configurare il componente di scalabilità automatica del cluster nel pool di nodi per il cluster, usare il parametro *--enable-cluster-autoscaler* e specificare un *--min-count* e un *--max-count* di nodi.
 
 > [!IMPORTANT]
-> Il ridimensionamento automatico del cluster è un componente di Kubernetes. Anche se il cluster del servizio Azure Kubernetes usa un set di scalabilità per i nodi di macchine virtuali, non abilitare o modificare manualmente le impostazioni di scalabilità per il ridimensionamento automatico nel portale di Azure o tramite l'interfaccia della riga di comando di Azure. Consentire il ridimensionamento automatico del cluster Kubernetes di gestire le impostazioni di scalabilità necessaria. Per altre informazioni, consultare [È possibile modificare le risorse del servizio Azure Kubernetes nel gruppo di risorse del nodo?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
+> Il ridimensionamento automatico del cluster è un componente di Kubernetes. Anche se il cluster del servizio Azure Kubernetes usa un set di scalabilità per i nodi di macchine virtuali, non abilitare o modificare manualmente le impostazioni di scalabilità per il ridimensionamento automatico nel portale di Azure o tramite l'interfaccia della riga di comando di Azure. Consentire il ridimensionamento automatico del cluster Kubernetes di gestire le impostazioni di scalabilità necessaria. Per altre informazioni, consultare [È possibile modificare le risorse del servizio Azure Kubernetes nel gruppo di risorse del nodo?][aks-faq-node-resource-group]
 
 L'esempio seguente crea un cluster AKS con un pool a nodo singolo supportato da un set di scalabilità di macchine virtuali. Abilita anche il componente di scalabilità automatica del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
 
@@ -77,6 +77,26 @@ az aks create \
 ```
 
 Sono necessari alcuni minuti per creare il cluster e configurare le impostazioni del componente di scalabilità automatica del cluster.
+
+## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Aggiornare un cluster AKS esistente per abilitare il ridimensionamento automatico del cluster
+
+Usare il comando [AZ AKS Update][az-aks-update] per abilitare e configurare il servizio di scalabilità automatica del cluster nel pool di nodi per il cluster esistente. Usare il parametro *--Enable-cluster-AutoScaler* e specificare un nodo *--min-count* e *--Max-count*.
+
+> [!IMPORTANT]
+> Il ridimensionamento automatico del cluster è un componente di Kubernetes. Anche se il cluster del servizio Azure Kubernetes usa un set di scalabilità per i nodi di macchine virtuali, non abilitare o modificare manualmente le impostazioni di scalabilità per il ridimensionamento automatico nel portale di Azure o tramite l'interfaccia della riga di comando di Azure. Consentire il ridimensionamento automatico del cluster Kubernetes di gestire le impostazioni di scalabilità necessaria. Per altre informazioni, consultare [È possibile modificare le risorse del servizio Azure Kubernetes nel gruppo di risorse del nodo?][aks-faq-node-resource-group]
+
+L'esempio seguente aggiorna un cluster AKS esistente per abilitare il ridimensionamento automatico del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+Sono necessari alcuni minuti per aggiornare il cluster e configurare le impostazioni di scalabilità automatica del cluster.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Modificare le impostazioni del componente di scalabilità automatica del cluster
 
@@ -136,7 +156,7 @@ az extension update --name aks-preview
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Impostare il componente di scalabilità automatica del cluster in un cluster AKS esistente
 
-Per impostare il profilo di scalabilità automatica del cluster nel cluster in uso, usare il [comando az aks update][az-aks-update] con il parametro *cluster-autoscaler-profile*. Nell'esempio seguente l'intervallo di analisi viene impostato su 30 secondi nel profilo.
+Per impostare il profilo di scalabilità automatica del cluster nel cluster in uso, usare il [comando az aks update][az-aks-update-preview] con il parametro *cluster-autoscaler-profile*. Nell'esempio seguente l'intervallo di analisi viene impostato su 30 secondi nel profilo.
 
 ```azurecli-interactive
 az aks update \
@@ -179,7 +199,7 @@ Il comando precedente crea un cluster AKS e definisce l'intervallo di analisi co
 
 ### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Reimpostare il profilo di scalabilità automatica del cluster sui valori predefiniti
 
-Usare il comando [az aks update][az-aks-update] per reimpostare il profilo di scalabilità automatica del cluster nel cluster in uso.
+Usare il comando [az aks update][az-aks-update-preview] per reimpostare il profilo di scalabilità automatica del cluster nel cluster in uso.
 
 ```azurecli-interactive
 az aks update \
@@ -190,7 +210,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Disabilitare il componente di scalabilità automatica del cluster
 
-Se non si vuole più usare il componente di scalabilità automatica del cluster, è possibile disabilitarlo usando il comando [az aks update][az-aks-update], specificando il parametro *--disable-cluster-autoscaler*. I nodi non vengono rimossi quando il componente di scalabilità automatica del cluster è disabilitato.
+Se non si vuole più usare il componente di scalabilità automatica del cluster, è possibile disabilitarlo usando il comando [az aks update][az-aks-update-preview], specificando il parametro *--disable-cluster-autoscaler*. I nodi non vengono rimossi quando il componente di scalabilità automatica del cluster è disabilitato.
 
 ```azurecli-interactive
 az aks update \
@@ -203,7 +223,7 @@ az aks update \
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Riabilitare un componente di scalabilità automatica del cluster disabilitato
 
-Se si vuole riabilitare il componente di scalabilità automatica del cluster per un cluster esistente, si può usare il comando [az aks update][az-aks-update] specificando i parametri *--enable-cluster-autoscaler*, *--min-count* e *--max-count*.
+Se si vuole riabilitare il componente di scalabilità automatica del cluster per un cluster esistente, si può usare il comando [az aks update][az-aks-update-preview] specificando i parametri *--enable-cluster-autoscaler*, *--min-count* e *--max-count*.
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperare i log e lo stato del componente di scalabilità automatica del cluster
 
@@ -213,7 +233,7 @@ AKS gestisce il componente di scalabilità automatica per conto dell'utente e lo
 
 Per configurare i log in modo che il componente di scalabilità automatica del cluster ne esegua il push in Log Analytics, attenersi alla seguente procedura.
 
-1. Configurare una regola per i log delle risorse per eseguire il push dei log del componente di scalabilità automatica del cluster in Log Analytics. [Le istruzioni sono descritte in dettaglio qui](./view-master-logs.md#enable-resource-logs), assicurarsi di selezionare la casella per `cluster-autoscaler` quando si selezionano le opzioni per "Log".
+1. Configurare una regola per i log delle risorse per eseguire il push dei log del componente di scalabilità automatica del cluster in Log Analytics. [Le istruzioni sono descritte in dettaglio qui][aks-view-master-logs], assicurarsi di selezionare la casella per `cluster-autoscaler` quando si selezionano le opzioni per "Log".
 1. Fare clic sulla sezione "Log" del cluster usando il portale di Azure.
 1. Immettere la seguente query di esempio in Log Analytics:
 
@@ -232,11 +252,11 @@ Il componente di scalabilità automatica del cluster scriverà anche lo stato di
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
-Per altre informazioni sugli elementi registrati dal componente di scalabilità automatica, vedere le domande frequenti sul [progetto GitHub Kubernetes/AutoScaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+Per altre informazioni sugli elementi registrati dal componente di scalabilità automatica, vedere le domande frequenti sul [progetto GitHub Kubernetes/AutoScaler][kubernetes-faq].
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Usare il componente di scalabilità automatica del cluster con più pool di nodi abilitati
 
-Il componente di scalabilità automatica del cluster può essere usato insieme a [più pool di nodi](use-multiple-node-pools.md) abilitati. Consultare questo documento per informazioni su come abilitare più pool di nodi e aggiungere altri pool di nodi a un cluster esistente. Quando si usano entrambe le funzionalità insieme, si abilita il componente di scalabilità automatica del cluster per ogni singolo pool di nodi del cluster e si possono passare regole di scalabilità automatica univoche a ognuno di essi.
+Il componente di scalabilità automatica del cluster può essere usato insieme a [più pool di nodi][aks-multiple-node-pools] abilitati. Consultare questo documento per informazioni su come abilitare più pool di nodi e aggiungere altri pool di nodi a un cluster esistente. Quando si usano entrambe le funzionalità insieme, si abilita il componente di scalabilità automatica del cluster per ogni singolo pool di nodi del cluster e si possono passare regole di scalabilità automatica univoche a ognuno di essi.
 
 Il comando seguente presuppone che l'utente si sia attenuto alle [istruzioni iniziali](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) contenute in questo documento e voglia aggiornare il numero massimo di un pool di nodi esistente da *3* a *5*. Usare il comando [az aks nodepool update][az-aks-nodepool-update] per aggiornare le impostazioni di un pool di nodi esistente.
 
@@ -268,22 +288,27 @@ Questo articolo ha descritto come ridimensionare automaticamente il numero di no
 
 <!-- LINKS - internal -->
 [aks-faq]: faq.md
+[aks-faq-node-resource-group]: faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
+[aks-multiple-node-pools]: use-multiple-node-pools.md
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
-[az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
+[az-aks-update-preview]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca
+[kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why

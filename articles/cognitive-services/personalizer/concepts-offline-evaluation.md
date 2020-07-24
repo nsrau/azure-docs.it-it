@@ -3,19 +3,17 @@ title: Usare il metodo di valutazione offline-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come usare la valutazione offline per misurare l'efficacia dell'app e analizzare il ciclo di apprendimento.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: diberry
-ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623595"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132756"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
 
@@ -55,7 +53,7 @@ Criteri correnti inclusi nella valutazione:
 | Impostazioni di apprendimento | Scopo|
 |--|--|
 |**Criteri online**| i criteri di apprendimento correnti usati in Personalizza esperienze |
-|**Di base**|Il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls)|
+|**Versione di base**|Il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls)|
 |**Criteri casuali**|un comportamento di classificazione immaginario che restituisce sempre una scelta casuale di azioni da quelle fornite.|
 |**Criteri personalizzati**|ulteriori criteri di apprendimento caricati all'avvio della valutazione.|
 |**Criteri ottimizzati**|se la valutazione è stata avviata con l'opzione di individuare un criterio ottimizzato, anch'esso verrà confrontato e sarà possibile scaricarlo o renderlo il criterio di apprendimento online, sostituendo quello corrente.|
@@ -108,5 +106,5 @@ Le valutazioni offline possono fornire informazioni sul livello di incisività d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare](how-to-settings.md)
-le[valutazioni Esegui offline](how-to-offline-evaluation.md) di personalizzazione informazioni sul [funzionamento della personalizzazione](how-personalizer-works.md)
+[Configurare il Personalizzatore](how-to-settings.md) 
+ [Esegui valutazioni offline](how-to-offline-evaluation.md) Informazioni sul [funzionamento del personalizzatore](how-personalizer-works.md)

@@ -1,14 +1,14 @@
 ---
 title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970944"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131498"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
@@ -20,6 +20,24 @@ Lungo il percorso di implementazione dei processi di governance del cloud, arriv
 Criteri come codice è la combinazione di queste idee. Essenzialmente, le definizioni dei criteri vengono mantenute nel controllo del codice sorgente e, ogni volta che viene apportata una modifica, tale modifica viene testata e convalidata. Tuttavia, questo non dovrebbe essere l'unico ambito del coinvolgimento dei criteri con Infrastruttura come codice o DevOps.
 
 Il passaggio della convalida dovrebbe essere un componente anche di altri flussi di lavoro di integrazione continua o distribuzione continua. Un esempio è la distribuzione di un ambiente applicativo o di un'infrastruttura virtuale. Rendendo la convalida dei criteri di Azure un componente iniziale del processo di compilazione e distribuzione, i team delle applicazioni e delle operazioni individuano se le modifiche non sono conformi, molto prima che sia troppo tardi e si stia tentando di eseguire la distribuzione nell'ambiente di produzione.
+
+## <a name="definitions-and-foundational-information"></a>Definizioni e informazioni fondamentali
+
+Prima di accedere ai dettagli dei criteri come flusso di lavoro del codice, esaminare le definizioni e gli esempi seguenti:
+
+- [Definizione criteri](./definition-structure.md)
+- [Definizione di iniziativa](./initiative-definition-structure.md)
+
+I nomi file sono allineati alle parti della definizione Policy o Initiative:
+- `policy(set).json`-Intera definizione
+- `policy(set).parameters.json`-La `properties.parameters` parte della definizione
+- `policy.rules.json`-La `properties.policyRule` parte della definizione
+- `policyset.definitions.json`-La `properties.policyDefinitions` parte della definizione
+
+Esempi di questi formati di file sono disponibili nel [repository GitHub di criteri di Azure](https://github.com/Azure/azure-policy/):
+
+- Definizione dei criteri: [aggiungere un tag alle risorse](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Definizione di iniziativa: [tag di fatturazione](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
@@ -127,7 +145,7 @@ Questo articolo illustra il flusso di lavoro generale dei criteri come codice e 
 
 - Informazioni sulla [struttura delle definizioni dei criteri](./definition-structure.md).
 - Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
-- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

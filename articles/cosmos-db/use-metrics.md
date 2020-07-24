@@ -6,17 +6,17 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/18/2019
-ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/22/2020
+ms.openlocfilehash: b8cf0425a4a40c4692f4c0c7fcf11dbb23019b23
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027815"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132671"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
-Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](cosmos-db-azure-monitor-metrics.md) di Azure. 
+Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. I valori della dimensione per le metriche, ad esempio il nome del contenitore, non fanno distinzione tra maiuscole e minuscole. Pertanto, è necessario utilizzare il confronto senza distinzione tra maiuscole e minuscole quando si esegue confronti tra stringhe su questi valori di dimensione. Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](cosmos-db-azure-monitor-metrics.md) di Azure.
 
 Questo articolo illustra dettagliatamente i casi d'uso comuni e come usare le metriche di Azure Cosmos DB per analizzare ed eseguire il debug di questi problemi. Le metriche vengono raccolte ogni cinque minuti e vengono conservate per sette giorni.
 

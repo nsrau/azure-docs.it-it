@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829398"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131056"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
-## <a name="what-is-azure"></a>Cos'è Azure?
+## <a name="what-is-azure"></a>Che cos'è Azure?
 
 Azure è una piattaforma cloud completa che può ospitare le applicazioni esistenti e semplificare lo sviluppo di nuove applicazioni. Azure può persino migliorare le applicazioni locali. Azure integra i servizi cloud necessari per sviluppare, testare, distribuire e gestire le applicazioni, sfruttando al contempo le efficienze dei cloud computing.
 
@@ -76,7 +76,7 @@ Dato il livello di controllo disponibile per le VM, in Azure è possibile esegui
 
 > **Uso consigliato**: usare macchine virtuali se si vuole il controllo completo sull'infrastruttura dell'applicazione o se è necessario eseguire la migrazione in Azure di carichi di lavoro delle applicazioni locali senza dover apportare modifiche.
 >
-> **Come iniziare**: creare una [VM Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [VM Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) dal Portale di Azure.
+> **Come iniziare**: creare una [VM Linux](../../virtual-machines/linux/quick-create-portal.md) o una [VM Windows](../../virtual-machines/windows/quick-create-portal.md) dal Portale di Azure.
 
 #### <a name="azure-functions-serverless"></a>Funzioni di Azure (senza server)
 
@@ -141,11 +141,6 @@ I contenitori Docker, un tipo di virtualizzazione del sistema operativo, consent
 
 In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicazioni.
 
-- **Estensione VM di Azure Docker**: consente di usare gli strumenti di Docker per configurare una VM come host Docker.
-
-  > **Uso consigliato**: quando si vuole generare distribuzioni di contenitori coerenti per le applicazioni in una VM o usare [Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Come iniziare**: [creare un ambiente Docker in Azure tramite l'estensione VM di Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Azure Kubernetes Service**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione di applicazioni in contenitori. Per altre informazioni sul servizio Azure Kubernetes, vedere [Introduzione al servizio Kubernetes di Azure](../../aks/intro-kubernetes.md).
 
@@ -163,7 +158,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   >
   > **Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
@@ -302,7 +297,7 @@ Azure Resource Explorer è un ottimo strumento per la visualizzazione delle riso
 
 Quando si consente l'accesso alle risorse di Azure, è sempre consigliabile fornire agli utenti il privilegio minimo necessario per eseguire un'attività specifica.
 
-- **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. RBAC consente di distribuire le risorse in un gruppo di risorse e concedere le autorizzazioni a un utente o a un gruppo specifico. Consente inoltre di limitare l'accesso solo alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
+- **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. RBAC consente di distribuire le risorse in un gruppo di risorse e concedere le autorizzazioni a un utente o a un gruppo specifico. Consente inoltre di limitare l'accesso solo alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
   > **Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
   >
@@ -319,8 +314,8 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 * Nel portale
 * Nel modello di Azure Resource Manager
 * Utilizzo dell'API REST
-* Uso dell'interfaccia della riga di comando di Azure
-* Utilizzo di PowerShell
+* Con l'interfaccia della riga di comando di Azure
+* Uso di PowerShell
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../resource-group-using-tags.md).
 

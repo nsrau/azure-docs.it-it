@@ -3,16 +3,14 @@ title: Abilitare e visualizzare i log di diagnostica per Azure Data Lake Analyti
 description: Informazioni su come configurare e accedere ai log di diagnostica per Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121436"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132603"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -128,28 +126,28 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| time |string |Il timestamp del log (fusorario UTC) |
-| resourceId |string |Identificatore della risorsa interessata dall'operazione |
-| category |string |La categoria di log. Ad esempio, **Richieste**. |
-| operationName |string |Il nome dell'operazione registrata. Ad esempio, GetAggregatedJobHistory. |
-| resultType |string |Lo stato dell'operazione, ad esempio 200. |
-| callerIpAddress |string |L’indirizzo IP del client che esegue la richiesta |
-| correlationId |string |Identificatore del log. Questo valore può essere usato per raggruppare un set di voci di log correlate. |
+| time |Stringa |Il timestamp del log (fusorario UTC) |
+| resourceId |Stringa |Identificatore della risorsa interessata dall'operazione |
+| category |Stringa |La categoria di log. Ad esempio, **Richieste**. |
+| operationName |Stringa |Il nome dell'operazione registrata. Ad esempio, GetAggregatedJobHistory. |
+| resultType |Stringa |Lo stato dell'operazione, ad esempio 200. |
+| callerIpAddress |Stringa |L’indirizzo IP del client che esegue la richiesta |
+| correlationId |Stringa |Identificatore del log. Questo valore può essere usato per raggruppare un set di voci di log correlate. |
 | identity |Oggetto |L'identità che ha generato il log |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di richiesta) |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Path |string |Il percorso coinvolto nell'operazione |
+| HttpMethod |Stringa |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
+| Percorso |Stringa |Il percorso coinvolto nell'operazione |
 | RequestContentLength |INT |La lunghezza del contenuto della richiesta HTTP |
-| ClientRequestId |string |Identificatore che identifica in modo univoco la richiesta |
-| StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
-| EndTime |string |L'ora in cui il server ha inviato una risposta |
+| ClientRequestId |Stringa |Identificatore che identifica in modo univoco la richiesta |
+| StartTime |Stringa |L'ora in cui il server ha ricevuto la richiesta |
+| EndTime |Stringa |L'ora in cui il server ha inviato una risposta |
 
 ### <a name="audit-logs"></a>Log di controllo
 
@@ -178,15 +176,15 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| time |string |Il timestamp del log (fusorario UTC) |
-| resourceId |string |Identificatore della risorsa interessata dall'operazione |
-| category |string |La categoria di log. Ad esempio, **Audit**. |
-| operationName |string |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
-| resultType |string |Stato secondario per lo stato del processo (operationName). |
-| resultSignature |string |Informazioni aggiuntive sullo stato di processo (operationName). |
-| identity |string |L'utente che ha richiesto l'operazione. Ad esempio: susan@contoso.com. |
+| time |Stringa |Il timestamp del log (fusorario UTC) |
+| resourceId |Stringa |Identificatore della risorsa interessata dall'operazione |
+| category |Stringa |La categoria di log. Ad esempio, **Audit**. |
+| operationName |Stringa |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
+| resultType |Stringa |Stato secondario per lo stato del processo (operationName). |
+| resultSignature |Stringa |Informazioni aggiuntive sullo stato di processo (operationName). |
+| identity |Stringa |L'utente che ha richiesto l'operazione. Ad esempio: susan@contoso.com. |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di controllo) |
 
 > [!NOTE]
@@ -196,15 +194,15 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| JobId |string |L'ID assegnato al processo |
-| JobName |string |Il nome fornito per il processo |
-| JobRunTime |string |Il runtime usato per l'elaborazione del processo |
-| SubmitTime |string |Ora (UTC) in cui è stato inviato il processo |
-| StartTime |string |Ora di avvio dell'esecuzione del processo dopo l'invio (in UTC) |
-| EndTime |string |Ora di fine del processo |
-| Parallelismo |string |Numero di unità di Data Lake Analytics richieste per questo processo durante l'invio |
+| JobId |Stringa |L'ID assegnato al processo |
+| JobName |Stringa |Il nome fornito per il processo |
+| JobRunTime |Stringa |Il runtime usato per l'elaborazione del processo |
+| SubmitTime |Stringa |Ora (UTC) in cui è stato inviato il processo |
+| StartTime |Stringa |Ora di avvio dell'esecuzione del processo dopo l'invio (in UTC) |
+| EndTime |Stringa |Ora di fine del processo |
+| Parallelismo |Stringa |Numero di unità di Data Lake Analytics richieste per questo processo durante l'invio |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** forniscono informazioni su un'operazione. Queste voci contengono un valore solo se l'operazione è stata avviata o completata. Ad esempio, **SubmitTime** contiene un valore solo dopo che **operationName** ha il valore **JobSubmitted**.

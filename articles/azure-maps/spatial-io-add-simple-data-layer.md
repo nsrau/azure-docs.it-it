@@ -1,19 +1,19 @@
 ---
 title: Aggiungere un livello dati semplice | Mappe Microsoft Azure
 description: Informazioni su come aggiungere un livello dati semplice usando il modulo IO spaziale, fornito da Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 622aa41975fdec015e4ca4964309c5c4bf274ef2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885955"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131447"
 ---
 # <a name="add-a-simple-data-layer"></a>Aggiungere un livello dati semplice
 
@@ -113,7 +113,7 @@ Se una funzionalità è un oggetto `Point` o `MultiPoint` e la funzionalità non
 
 Viene anche eseguito il rendering dei cluster usando il livello Bubble. Per impostazione predefinita, il raggio di un cluster è impostato su `16` . Il colore del cluster varia a seconda del numero di punti del cluster, come definito di seguito:
 
-| numero di punti | Colore    |
+| numero di punti | Color    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |

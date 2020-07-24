@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559835"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132263"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure
 
@@ -23,14 +23,9 @@ I tipi di endpoint supportati sono:
 * [Griglia di eventi](../event-grid/overview.md)
 * [Bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Per altre informazioni sui diversi endpoint, vedere [scegliere tra i servizi di messaggistica di Azure](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+Per altre informazioni sui diversi endpoint, vedere [*scegliere tra i servizi di messaggistica di Azure*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Gli endpoint e le route vengono gestiti con le [**API EventRoutes**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.com).
-
-> [!NOTE]
-> La gestione delle route degli eventi tramite il portale di Azure è attualmente disponibile solo per gli utenti di Azure negli account di dominio aziendale. 
->
->Se si usa un account Microsoft personale [(MSA)](https://account.microsoft.com/account/Account), ad esempio un @outlook.com account, usare l'interfaccia della riga di comando di Azure Digital gemelli o l'interfaccia della riga di comando per gestire le route degli eventi, come descritto in questo articolo.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -70,7 +65,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="manage-event-routes-with-apis"></a>Gestire le route degli eventi con le API
 
-Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una route dell'evento. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [concetti relativi al routing di eventi gemelli digitali di Azure](concepts-route-events.md).
+Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una route dell'evento. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
+
+È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
+
+>[!NOTE]
+>Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se la distribuzione della route non riesce perché gli endpoint non sono pronti, attendere alcuni minuti e riprovare.
+>
+> Se si crea uno script per questo flusso, è possibile che si voglia tenere conto di questa situazione creando in 2-3 minuti di tempo di attesa per il completamento della distribuzione del servizio endpoint prima di passare alla configurazione del routing.
 
 Gli esempi in questo articolo usano C# SDK.
 
@@ -147,7 +149,7 @@ Ecco i filtri di route supportati.
 
 | Nome filtro | Descrizione | Schema filtro | Valori supportati | 
 | --- | --- | --- | --- |
-| Type | [Tipo di eventi](./concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Tipo | [Tipo di eventi](./concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Source (Sorgente) | Nome dell'istanza di Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Per le notifiche**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Per la telemetria**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Oggetto | Descrizione dell'evento nel contesto dell'origine evento precedente | `"filter": " subject = '<subject>'"` | **Per le notifiche**: l'oggetto è`<twinid>` <br> o un formato URI per gli oggetti, che sono identificati in modo univoco da più parti o ID:<br>`<twinid>/relationships/<relationshipid>`<br> **Per la telemetria**: l'oggetto è il percorso del componente (se i dati di telemetria vengono emessi da un componente gemello), ad esempio `comp1.comp2` . Se i dati di telemetria non vengono emessi da un componente, il relativo campo soggetto è vuoto. |
 | Schema dei dati | ID modello DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **Per la telemetria**: lo schema di dati è l'ID modello del dispositivo gemello o il componente che genera i dati di telemetria <br>**Per le notifiche**: schema dati non supportato|
@@ -174,7 +176,7 @@ Quando si implementa o si aggiorna un filtro, la modifica potrebbe richiedere al
 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gestire endpoint e route con l'interfaccia della riga di comando
 
-Gli endpoint e le route possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli](how-to-use-cli.md).
+Gli endpoint e le route possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="monitor-event-routes"></a>Monitorare le route degli eventi
 
@@ -189,4 +191,4 @@ Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sui diversi tipi di messaggi di evento che è possibile ricevere, vedere:
-* [Procedura: interpretare i dati degli eventi](how-to-interpret-event-data.md)
+* [*Procedura: interpretare i dati degli eventi*](how-to-interpret-event-data.md)

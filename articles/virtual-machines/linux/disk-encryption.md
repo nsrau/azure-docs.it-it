@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fba16f9245c8d438268338329ebadad7a57ef206
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502725"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131923"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
@@ -80,8 +80,7 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare la crittografia end-to-end usando la crittografia nell'interfaccia della riga di comando di host](disks-enable-host-based-encryption-cli.md)
-- [Abilitare la crittografia a doppio inattivo per Managed disks-CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [Abilitare le chiavi gestite dal cliente per Managed disks-CLI](disks-enable-customer-managed-keys-cli.md)
-- [Abilitare le chiavi gestite dal cliente per Managed disks-portale](disks-enable-customer-managed-keys-portal.md)
+- Abilitare la crittografia end-to-end usando la crittografia nell'host con l' [interfaccia](disks-enable-host-based-encryption-cli.md) della riga di comando o la [portale di Azure](disks-enable-host-based-encryption-portal.md).
+- Abilitare la crittografia doppia per i dischi gestiti con l' [interfaccia](disks-enable-double-encryption-at-rest-cli.md) della riga di comando o la [portale di Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Abilitare le chiavi gestite dal cliente per Managed disks con l' [interfaccia](disks-enable-customer-managed-keys-cli.md) della riga di comando o la [portale di Azure](disks-enable-customer-managed-keys-portal.md).
 - [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)

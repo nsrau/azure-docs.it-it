@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66236909"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132246"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controllo degli accessi in base al ruolo (RBAC) per gli account di servizi multimediali
 
@@ -36,14 +36,14 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-L'articolo [definizioni di ruolo predefinite](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) indica esattamente ciò che viene concesso dal ruolo. 
+L'articolo [definizioni di ruolo predefinite](../../role-based-access-control/built-in-roles.md) indica esattamente ciò che viene concesso dal ruolo. 
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Ruoli di amministratore della sottoscrizione classica, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [Che cos'è RBAC per le risorse di Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Usa RBAC per gestire l'accesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Operazioni del provider di risorse di servizi multimediali](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [Ruoli di amministratore della sottoscrizione classica, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md)
+- [Usa RBAC per gestire l'accesso](../../role-based-access-control/role-assignments-rest.md)
+- [Operazioni del provider di risorse di servizi multimediali](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

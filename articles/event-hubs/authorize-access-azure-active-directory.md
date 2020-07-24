@@ -3,12 +3,12 @@ title: Autorizzare l'accesso con Azure Active Directory
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 734c95f6f26dbb646f641e4446287df52c86be6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e529a1b72e364514d00c3b7ba84ba26490a9a0bb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317983"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131906"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -34,8 +34,8 @@ Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un
 Azure fornisce i seguenti ruoli predefiniti di controllo degli accessi in base al ruolo per autorizzare l'accesso ai dati di hub eventi tramite Azure AD e OAuth:
 
 - [Proprietario dei dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
-- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
-- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
+- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
+- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
 
 ## <a name="resource-scope"></a>Ambito risorsa 
 Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
@@ -53,7 +53,7 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 > - Questo contenuto si applica sia a hub eventi che a hub eventi per Apache Kafka. Per altre informazioni su Hub eventi per il supporto Kafka, vedere [Hub eventi per Kafka-sicurezza e autenticazione](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
 
 
-Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere informazioni sulle [definizioni](../role-based-access-control/role-definitions.md#management-and-data-operations)dei ruoli. Per informazioni sulla creazione di ruoli RBAC personalizzati, vedere [creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
+Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere informazioni sulle [definizioni](../role-based-access-control/role-definitions.md#management-and-data-operations)dei ruoli. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 
 

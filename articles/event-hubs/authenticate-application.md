@@ -3,12 +3,12 @@ title: Autenticare un'applicazione per accedere alle risorse di hub eventi di Az
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cf51daef7298ff0ad487d5a072b6126557578c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56c9033d5b44fde50ebac25bf194cbea486ad387
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537293"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131940"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi
 Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` (per i client Kafka la risorsa per la richiesta di un token è `https://<namespace>.servicebus.windows.net` ). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
@@ -107,7 +107,7 @@ Per un elenco degli scenari per i quali è supportato l'acquisizione di token, v
     Questo esempio è stato aggiornato in modo da usare la libreria **Azure. Messaging. EventHubs** più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per ulteriori informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md)?
+- Per altre informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 - Per informazioni su come assegnare e gestire le assegnazioni di ruolo di controllo degli accessi in base al ruolo con Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST, vedere gli articoli seguenti:
     - [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)

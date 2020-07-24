@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986780"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132943"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ Se non diversamente specificato, è consigliabile seguire tutte le procedure con
 
 Si prevede di continuare a aggiornare le raccomandazioni e le procedure consigliate elencate di seguito. Fornire l'input o qualsiasi correzione per questo documento usando il collegamento **feedback** nella parte inferiore di questo articolo.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure e SQL Istanza gestita supportano due tipi di autenticazione:
 
@@ -228,10 +228,10 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
 - Nei database SQL:
   - Usare autorizzazioni granulari e ruoli del database definiti dall'utente (o ruoli del server in Istanza gestita):
     1. Creare i ruoli necessari
-       - [CREA RUOLO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Creare gli utenti necessari
-       - [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. Aggiungere utenti come membri ai ruoli
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -240,9 +240,9 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
   - Assicurarsi di non assegnare utenti a ruoli non necessari.
 
 - In Azure Resource Manager:
-  - Usare i ruoli predefiniti se disponibili o i ruoli RBAC personalizzati e assegnare le autorizzazioni necessarie.
-    - [Ruoli predefiniti per Azure](../../role-based-access-control/built-in-roles.md)
-    - [Ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md)
+  - Usare i ruoli predefiniti se disponibili o i ruoli personalizzati di Azure e assegnare le autorizzazioni necessarie.
+    - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
+    - [Ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md)
 
 **Procedure consigliate**:
 
@@ -291,7 +291,7 @@ La separazione dei compiti, detta anche separazione dei compiti, descrive la nec
 - Identificare una gerarchia completa di utenti (e processi automatizzati) che accedono al sistema.
 
 - Creare ruoli in base ai gruppi di utenti necessari e assegnare autorizzazioni ai ruoli.
-  - Per le attività a livello di gestione in portale di Azure o tramite l'automazione di PowerShell usare i ruoli RBAC. Trovare un ruolo predefinito corrispondente al requisito oppure creare un ruolo personalizzato RBAC usando le autorizzazioni disponibili
+  - Per le attività a livello di gestione in portale di Azure o tramite l'automazione di PowerShell usare i ruoli RBAC. Trovare un ruolo predefinito che corrisponda al requisito oppure creare un ruolo personalizzato di Azure usando le autorizzazioni disponibili
   - Creare ruoli del server per attività a livello di server (creazione di nuovi account di accesso, database) in un'istanza gestita.
   - Creare ruoli del database per le attività a livello di database.
 
@@ -342,8 +342,8 @@ Per i lettori che desiderano approfondire il proprio SoD, è consigliabile usare
   - [Firma di stored procedure](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Per gestione risorse di Azure:
-  - [Ruoli predefiniti per Azure](../../role-based-access-control/built-in-roles.md)
-  - [Ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md)
+  - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
+  - [Ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md)
   - [Uso di Azure AD Privileged Identity Management per l'accesso con privilegi elevati](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Eseguire revisioni del codice regolari

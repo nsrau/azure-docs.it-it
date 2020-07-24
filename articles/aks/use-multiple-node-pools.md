@@ -4,14 +4,14 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250856"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133096"
 ---
-# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster nel servizio Azure Kubernetes (AKS)
 
 In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi*. Questi pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. Il numero iniziale di nodi e la relativa dimensione (SKU) viene definito quando si crea un cluster AKS, che crea un [pool di nodi di sistema][use-system-pool]. Per supportare applicazioni con esigenze di calcolo o di archiviazione diverse, è possibile creare *pool di nodi utente*aggiuntivi. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. I pool di nodi utente sono i punti in cui inserire i pod specifici dell'applicazione. Usare, ad esempio, questi pool di nodi utente aggiuntivi per fornire GPU per applicazioni a elevato utilizzo di calcolo o per l'accesso a un'archiviazione SSD a prestazioni elevate.
 
@@ -37,7 +37,7 @@ Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che suppo
 * Tutti i pool di nodi devono trovarsi nella stessa rete virtuale.
 * Quando si creano più pool di nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere al set di versioni per il piano di controllo. Questa operazione può essere aggiornata dopo il provisioning del cluster tramite operazioni del pool per nodo.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 > [!Important]
 > Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
@@ -503,6 +503,9 @@ az aks nodepool add \
     --no-wait
 ```
 
+> [!NOTE]
+> Un Taint può essere impostato solo per i pool di nodi durante la creazione del pool di nodi.
+
 L'output di esempio seguente del comando [AZ AKS nodepool list][az-aks-nodepool-list] Mostra che *taintnp* sta *creando* nodi con i *notains*specificati:
 
 ```console
@@ -783,7 +786,7 @@ az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodep
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 In questo articolo è stato creato un cluster AKS che include nodi basati su GPU. Per ridurre i costi non necessari, è consigliabile eliminare il *gpunodepool*o l'intero cluster AKS.
 

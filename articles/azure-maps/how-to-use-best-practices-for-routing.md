@@ -1,18 +1,19 @@
 ---
 title: Procedure consigliate per le mappe di Azure servizio di pianificazione percorso | Mappe Microsoft Azure
 description: Informazioni su come instradare i veicoli usando servizio di pianificazione percorso da Microsoft Azure maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266696"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132212"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedure consigliate per il servizio Route di Azure Maps
 
@@ -30,7 +31,7 @@ ms.locfileid: "84266696"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per effettuare chiamate alle API Maps di Azure, sono necessari un account Azure Maps e una chiave. Per altre informazioni, vedere [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [Ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). La chiave primaria è nota anche come chiave di sottoscrizione primaria o chiave di sottoscrizione.
+Per effettuare chiamate alle API Maps di Azure, sono necessari un account Azure Maps e una chiave. Per altre informazioni, vedere [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account) e [Ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). La chiave primaria è nota anche come chiave di sottoscrizione primaria o chiave di sottoscrizione.
 
 Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md). Per ulteriori informazioni sulla copertura del servizio di pianificazione percorso, vedere la pagina relativa al [code coverage di routing](routing-coverage.md).
 

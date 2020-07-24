@@ -2,20 +2,18 @@
 title: Pianificare processi U-SQL di Azure Data Lake Analytics tramite SSIS
 description: Informazioni su come usare SQL Server Integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: cafb657bbb981edddf9d6bbcfc8d390a519804b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121300"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132501"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
 

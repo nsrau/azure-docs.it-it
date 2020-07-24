@@ -3,13 +3,12 @@ title: Risoluzione dei problemi-QnA Maker
 description: L'elenco curato delle domande più frequenti relative al servizio QnA Maker consentirà di adottare il servizio più rapidamente e con risultati migliori.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
-ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804351"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131991"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -20,7 +19,7 @@ L'elenco curato delle domande più frequenti relative al servizio QnA Maker cons
 ## <a name="manage-predictions"></a>Gestisci stime
 
 <details>
-<summary><b>Come è possibile migliorare le prestazioni della velocità effettiva per le stime delle query?</b></summary>
+<summary><b>Come è possibile migliorare le prestazioni di velocità effettiva per le previsioni delle query?</b></summary>
 
 **Risposta**: i problemi di prestazioni della velocità effettiva indicano che è necessario eseguire la scalabilità verticale sia per il servizio app che per il ricerca cognitiva. Prendere in considerazione l'aggiunta di una replica al ricerca cognitiva per migliorare le prestazioni.
 
@@ -30,7 +29,7 @@ Altre informazioni sui [piani tariffari](Concepts/azure-resources.md).
 <details>
 <summary><b>Come ottenere l'endpoint del servizio QnAMaker</b></summary>
 
-**Risposta**: l'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto di QnAMaker o UserVoice. L'endpoint è un URL nel formato seguente: `https://your-resource-name.azurewebsites.net`.
+**Risposta**: l'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto di QnAMaker o UserVoice. L'endpoint è un URL nel formato seguente: `https://your-resource-name.azurewebsites.net` .
 
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 
@@ -209,12 +208,12 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 1. Sempre nel servizio app, selezionare strumenti di **sviluppo**, **strumenti avanzati**, quindi **fare**clic su. Verrà visualizzata una nuova finestra del browser.
 1. Selezionare **console di debug**, quindi **cmd** per aprire uno strumento da riga di comando.
 1. Passare alla directory _site/wwwroot/data/QnAMaker/_ .
-1. Rimuovere tutte le cartelle il cui nome inizia `rd`con.
+1. Rimuovere tutte le cartelle il cui nome inizia con `rd` .
 
     Non **eliminare** gli elementi seguenti:
 
-    * File KbIdToRankerMappings. txt
-    * File EndpointSettings. JSON
+    * File KbIdToRankerMappings.txt
+    * EndpointSettings.jssu file
     * Cartella EndpointKeys
 
 1. Avviare il servizio app.
@@ -244,7 +243,7 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 **Risposta**: è necessario disporre delle informazioni seguenti sulla Knowledge Base:
 
 * ID della Knowledge base.
-* Nome del sottodominio personalizzato dell'endpoint pubblicato della Knowledge base, `host`noto come, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
+* Nome del sottodominio personalizzato dell'endpoint pubblicato della Knowledge base, noto come `host` , disponibile nella pagina **Impostazioni** dopo la pubblicazione.
 * Chiave endpoint pubblicata della Knowledge base, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
 
 Con queste informazioni, andare al servizio app del bot nella portale di Azure. In **Impostazioni-> configurazione > impostazioni applicazione**modificare tali valori.

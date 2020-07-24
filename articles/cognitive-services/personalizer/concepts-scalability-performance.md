@@ -3,19 +3,17 @@ title: Scalabilità e prestazioni-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: 'Nei siti Web e nelle applicazioni ad alte prestazioni e con traffico elevato è necessario tenere in considerazione due fattori principali in merito alla scalabilità e alle prestazioni di Personalizza esperienze: latenza e velocità effettiva di training.'
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52d22fce64a26267e73cb9a1df8614129bb96c3e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73490790"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132688"
 ---
 # <a name="scalability-and-performance"></a>Scalabilità e prestazioni
 
