@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074321"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -32,7 +32,7 @@ Si riscontrano problemi di connettività RDP intermittenti durante le sessioni. 
 
 Questo problema può verificarsi se il Listener RDP non è configurato correttamente. In genere, questo problema si verifica in una macchina virtuale che usa un'immagine personalizzata.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Prima di seguire questa procedura, [eseguire uno snapshot del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) della macchina virtuale interessata come backup. 
 
@@ -95,7 +95,7 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
 
 ### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
 4. Avviare Editor del Registro di sistema (regedit.exe).
@@ -184,8 +184,3 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
 
 ## <a name="need-help"></a>Richiesta di assistenza 
 Contattare il supporto tecnico. Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-
-
-
-
-

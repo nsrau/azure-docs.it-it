@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250088"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074362"
 ---
-# <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Console seriale per le chiamate SysRq e NMI
+# <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>Usare la console seriale di Azure per le chiamate a SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>Richiesta del sistema (SysRq)
 Un SysRq è una sequenza di tasti riconosciuta dal kernel del sistema operazione Linux, che può attivare un set di azioni predefinite. Questi comandi vengono spesso usati quando la risoluzione dei problemi o il ripristino della macchina virtuale non può essere eseguito tramite l'amministrazione tradizionale, ad esempio se la macchina virtuale non risponde. Usando la funzionalità SysRq della console seriale di Azure si imita la pressione della chiave di SysRq e i caratteri inseriti su una tastiera fisica.
@@ -28,11 +29,11 @@ Dopo che la sequenza SysRq viene recapitata, la configurazione del kernel potrà
 
 La console seriale di Azure può essere usata per inviare una SysRq a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Screenshot della console seriale di Azure. L'icona della tastiera è evidenziata e il relativo menu è visibile. Questo menu contiene un elemento di comando Send SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Scegliendo "Invia comando SysRq" verrà aperta una finestra di dialogo, che offre opzioni di SysRq comune oppure accetta una sequenza di comandi di SysRq immessi nella finestra di dialogo.  Questo permette alle serie di SysRq di eseguire un'operazione di alto livello, ad esempio un riavvio sicuro usando: `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Screenshot della finestra di dialogo Invia comando SysRq al Guest. L'opzione per l'immissione di comandi è selezionata e la casella comando contiene REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Il comando SysRq non può essere usato nelle macchine virtuali che vengono arrestate o il cui kernel è in uno stato di non risposta. (ad esempio un kernel panic).
 
@@ -101,7 +102,7 @@ Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il s
 
 La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema.  I sistemi operativi Linux possono essere configurati per l'arresto anomalo del sistema e per creare un dump della memoria quando il sistema operativo riceve un NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Screenshot della console seriale. L'icona della tastiera è evidenziata e il relativo menu è visibile. Questo menu contiene un elemento interrupt non mascherabile.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 ### <a name="enable-nmi"></a>Abilitare NMI
 Per i sistemi Linux che supportano sysctl per la configurazione dei parametri del kernel, è possibile abilitare un panic quando si riceve questo NMI usando il comando seguente:

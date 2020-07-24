@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074270"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -65,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Modello
-Nei modelli Resource Manager è necessario specificare il parametro aggiuntivo `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
+Nei modelli Resource Manager è necessario specificare il parametro aggiuntivo `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -189,7 +190,7 @@ Altre informazioni su come [Modificare un set di scalabilità di macchine virtua
 ## <a name="next-steps"></a>Passaggi successivi
 - Scopri di più su [come risparmiare denaro con il vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Altre informazioni sulle [Domande frequenti sul vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](/windows-server/get-started/azure-hybrid-benefit)
 - Altre informazioni su come il [Vantaggio Azure Hybrid e Azure Site Recovery rendano la migrazione delle applicazioni in Azure ancora più conveniente](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Altre informazioni su [Windows 10 in Azure con Multitenant Hosting Rights](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Altre informazioni su [Windows 10 in Azure con Multitenant Hosting Rights](./windows-desktop-multitenant-hosting-deployment.md)
 - Altre informazioni sull' [uso di modelli di gestione risorse](../../azure-resource-manager/management/overview.md)

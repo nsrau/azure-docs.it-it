@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074135"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot
 
@@ -37,7 +37,7 @@ Per creare uno snapshot, completare i passaggi seguenti:
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-Nei passaggi seguenti viene illustrato come copiare il disco rigido virtuale e creare la configurazione dello snapshot. È quindi possibile eseguire uno snapshot del disco usando il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Nei passaggi seguenti viene illustrato come copiare il disco rigido virtuale e creare la configurazione dello snapshot. È quindi possibile eseguire uno snapshot del disco usando il cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) . 
 
  
 
@@ -53,18 +53,18 @@ Nei passaggi seguenti viene illustrato come copiare il disco rigido virtuale e c
 2. Ottenere la macchina virtuale:
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Creare la configurazione dello snapshot. Per questo esempio, lo snapshot è del disco del sistema operativo:
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ Nei passaggi seguenti viene illustrato come copiare il disco rigido virtuale e c
 4. Fare lo snapshot:
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

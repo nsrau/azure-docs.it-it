@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074286"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
 
@@ -25,13 +26,13 @@ ms.locfileid: "76045367"
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitazione delle richieste di Azure Resource Manager e dei provider di risorse  
 
-Come porta di accesso per Azure, Azure Resource Manager esegue l'autenticazione, la convalida di primo grado e la limitazione di tutte le richieste API in ingresso. I limiti per la frequenza delle chiamate di Azure Resource Manager e le intestazioni HTTP delle risposte di diagnostica correlate sono descritti [qui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
+Come porta di accesso per Azure, Azure Resource Manager esegue l'autenticazione, la convalida di primo grado e la limitazione di tutte le richieste API in ingresso. I limiti per la frequenza delle chiamate di Azure Resource Manager e le intestazioni HTTP delle risposte di diagnostica correlate sono descritti [qui](../../azure-resource-manager/management/request-limits-and-throttling.md).
  
 Quando un client API di Azure riceve un errore di limitazione delle richieste, lo stato HTTP è 429 - Numero eccessivo di richieste. Per stabilire se la limitazione delle richieste viene applicata da Azure Resource Manager o da un provider di risorse sottostante come il provider di risorse di calcolo, esaminare `x-ms-ratelimit-remaining-subscription-reads` per le richieste GET e le intestazioni della risposta `x-ms-ratelimit-remaining-subscription-writes` per le richieste non GET. Se il conteggio delle chiamate rimanenti è prossimo a 0, è stato raggiunto il limite di chiamate generale della sottoscrizione definito da Azure Resource Manager. Le attività di tutti i client della sottoscrizione vengono conteggiate insieme. In caso contrario, la limitazione proviene dal provider di risorse di destinazione (quello interessato dal segmento `/providers/<RP>` dell'URL della richiesta). 
 
 ## <a name="call-rate-informational-response-headers"></a>Intestazioni di risposta informativa sulla frequenza delle chiamate 
 
-| Header                            | Formato del valore                           | Esempio                               | Descrizione                                                                                                                                                                                               |
+| Intestazione                            | Formato del valore                           | Esempio                               | Descrizione                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Numero di chiamate API rimanenti per i criteri di limitazione delle richieste che coprono il contenitore di risorse o il gruppo di operazioni che include la destinazione della richiesta                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Numero di chiamate "addebitato" per questa richiesta HTTP rispetto al limite dei criteri applicabili. Generalmente è 1. Le richieste batch, ad esempio per il ridimensionamento di un set di scalabilità di macchine virtuali, possono comportare l'addebito di un numero superiore. |
@@ -78,8 +79,8 @@ Come illustrato in precedenza, tutti gli errori di limitazione delle richieste i
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Analizzatore della frequenza delle chiamate API e degli errori di limitazione
 È disponibile una versione di anteprima di una funzionalità di risoluzione dei problemi per l'API del provider di risorse di calcolo. Questi cmdlet di PowerShell forniscono statistiche sulla frequenza delle richieste API per ogni intervallo di tempo per ogni operazione e sulle violazioni delle limitazioni per ogni gruppo di operazioni (criteri):
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Export-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Le statistiche sulle chiamate dell'API possono offrire informazioni dettagliate molto utili in merito al comportamento dei client di una sottoscrizione e facilitare l'identificazione dei modelli di chiamata che causano la limitazione.
 
@@ -99,4 +100,4 @@ I cmdlet di PowerShell usano un'API del servizio REST, che può essere facilment
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle linee guida relative alla ripetizione dei tentativi per altri servizi in Azure, vedere [Materiale sussidiario su come eseguire nuovi tentativi per servizi specifici](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Per altre informazioni sulle linee guida relative alla ripetizione dei tentativi per altri servizi in Azure, vedere [Materiale sussidiario su come eseguire nuovi tentativi per servizi specifici](/azure/architecture/best-practices/retry-service-specific)

@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074249"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come abilitare Hyper-V in una macchina virtuale di Azur
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creare una VM di Azure in grado di supportare l'annidamento
 
-Creare una nuova VM Azure di Windows Server 2016. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](acu.md).
+Creare una nuova VM Azure di Windows Server 2016. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](../acu.md).
 
 Ricordarsi di scegliere dimensioni di macchina virtuale sufficienti a supportare le richieste di una macchina virtuale guest. In questo esempio viene usata una macchina virtuale di Azure di dimensioni D3_v3. 
 
@@ -30,7 +30,7 @@ Per informazioni sulla disponibilità delle macchine virtuali della serie Dv3 o 
 
 >[!NOTE]
 >
->Per istruzioni dettagliate sulla creazione di una nuova macchina virtuale, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Per istruzioni dettagliate sulla creazione di una nuova macchina virtuale, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](./tutorial-manage-vm.md)
     
 ## <a name="connect-to-your-azure-vm"></a>Connettersi alla macchina virtuale di Azure
 
@@ -145,7 +145,7 @@ Seguire la procedura seguente per configurare DHCP nella macchina virtuale host 
   
 3. Selezionare la casella di controllo **Server DHCP**, fare clic su **Aggiungi funzionalità** e quindi fare clic su **Avanti** fino a completare la procedura guidata.
   
-4. Fare clic su **Install** (Installa).
+4. Fare clic su **Installa**.
 
 #### <a name="configure-a-new-dhcp-scope"></a>Configurare un nuovo ambito DHCP
 
@@ -181,4 +181,4 @@ In questo esempio verrà usato un indirizzo compreso nell'intervallo 192.168.0.0
 Nella macchina virtuale guest aprire il browser e passare a una pagina Web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-Per istruzioni su come abilitare la connettività trasparente tra le macchine virtuali guest e le macchine virtuali di Azure, fare riferimento a [questo documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Per istruzioni su come abilitare la connettività trasparente tra le macchine virtuali guest e le macchine virtuali di Azure, fare riferimento a [questo documento](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

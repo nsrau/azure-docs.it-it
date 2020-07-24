@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80633957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074295"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>La macchina virtuale non risponde con l'errore "C01A001D" quando si applica Windows Update
 
@@ -27,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui Windows Up
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, viene visualizzato il Windows Update (KB) in corso, ma ha esito negativo con codice di errore:' C01A001D '.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, viene visualizzato il Windows Update (KB) in corso, ma ha esito negativo con codice di errore:' C01A001D '.
 
 ![Windows Update non risponde](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -49,17 +49,17 @@ Non è possibile creare un file principale nella file system. Il sistema operati
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Seguire [i passaggi 1-3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Seguire [i passaggi 1-3 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 2. Connettersi alla macchina virtuale di ripristino usando Connessione Desktop remoto.
 
 ### <a name="free-up-space-on-the-hard-disk"></a>Liberare spazio sul disco rigido
 
 Se il disco non è già 1 TB, è necessario ridimensionarlo. Quando il disco è di 1 TB, eseguire una pulizia del disco e una deframmentazione dell'unità.
 
-1. Controllare se il disco è pieno. Se il disco è inferiore a 1 TB, [espanderlo fino a un massimo di 1 TB usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Controllare se il disco è pieno. Se il disco è inferiore a 1 TB, [espanderlo fino a un massimo di 1 TB usando PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Quando il disco è di 1 TB, eseguire una pulitura del disco.
-    - [Scollegare il disco dati dalla macchina virtuale interruppe](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-    - [Alleghi il disco dati a una macchina virtuale funzionante](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - [Scollegare il disco dati dalla macchina virtuale interruppe](../windows/detach-disk.md).
+    - [Alleghi il disco dati a una macchina virtuale funzionante](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
     - Usare lo [strumento di pulitura disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) per liberare spazio.
 3. Dopo il ridimensionamento e la pulizia, deframmentare l'unità:
 
@@ -115,4 +115,4 @@ Se il disco non è già 1 TB, è necessario ridimensionarlo. Quando il disco è 
 
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.
+Usare [il passaggio 5 dei comandi di ripristino della macchina](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) virtuale per riassemblare la macchina virtuale.

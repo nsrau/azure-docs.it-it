@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0588f02c6dfb557f32aae56dc742b9390c3cdbcb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ba4b8de4b8cf1d1d1b8124185a8006eb7695b21e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955081"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074508"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Modello di licenza PlayReady di servizi multimediali V3 con 
 
@@ -62,7 +62,7 @@ L'XML è conforme all'XML schema del modello di licenza PlayReady definito nella
 
 Servizi multimediali offre tipi utili per configurare un modello di licenza PlayReady. 
 
-Il frammento di codice seguente usa le classi .NET di Servizi multimediali per configurare il modello di licenza PlayReady. Le classi sono definite nello spazio dei nomi [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet). Il frammento di codice configura l'elemento PlayRight della licenza PlayReady. PlayRight consente all'utente di riprodurre il contenuto in base alle eventuali restrizioni configurate nella licenza e nell'elemento PlayRight stesso, per i criteri specifici di riproduzione. La maggior parte dei criteri in un elemento PlayRight riguarda la restrizione di output che controlla i tipi di output su cui è possibile riprodurre il contenuto. Include anche eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consente di visualizzare il video solo su output digitali. Non è consentito riprodurre il contenuto su output video analogici.
+Il frammento di codice seguente usa le classi .NET di Servizi multimediali per configurare il modello di licenza PlayReady. Le classi sono definite nello spazio dei nomi [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet). Il frammento di codice configura l'elemento PlayRight della licenza PlayReady. PlayRight consente all'utente di riprodurre il contenuto in base alle eventuali restrizioni configurate nella licenza e nell'elemento PlayRight stesso, per i criteri specifici di riproduzione. La maggior parte dei criteri in un elemento PlayRight riguarda la restrizione di output che controlla i tipi di output su cui è possibile riprodurre il contenuto. Include anche eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consente di visualizzare il video solo su output digitali. Non è consentito riprodurre il contenuto su output video analogici.
 
 > [!IMPORTANT]
 > La licenza PlayReady prevede restrizioni molto efficaci. Se le protezioni dell'output sono eccessivamente restrittive, il contenuto potrebbe risultare non riproducibile in alcuni client. Per altre informazioni, vedere le [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).

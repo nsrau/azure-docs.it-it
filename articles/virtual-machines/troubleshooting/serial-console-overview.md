@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074337"
 ---
 # <a name="azure-serial-console"></a>Console seriale di Azure
 
@@ -33,7 +34,7 @@ La console seriale funziona allo stesso modo per istanze di macchine virtuali e 
 Per accedere alla console seriale nell'istanza della macchina virtuale o del set di scalabilità di macchine virtuali, è necessario:
 
 - Abilitare la diagnostica di avvio per la macchina virtuale
-- Un account utente che usi l'autenticazione della password deve esistere all'interno della macchina virtuale. È possibile creare un utente basato su password con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
+- Un account utente che usi l'autenticazione della password deve esistere all'interno della macchina virtuale. È possibile creare un utente basato su password con la funzione di [reimpostazione della password](../extensions/vmaccess.md#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
 - L'account di Azure che accede alla console seriale deve disporre del [ruolo di Collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) sia per la macchina virtuale che per l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md)
 
 > [!NOTE]
@@ -68,7 +69,7 @@ La console seriale è disponibile per i set di scalabilità di macchine virtuali
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1.2 nella console seriale
-La console seriale usa TLS 1.2 end-to-end per proteggere tutte le comunicazioni all'interno del servizio. La console seriale presenta una dipendenza da un account di archiviazione di diagnostica di avvio gestito dall'utente e TLS 1.2 deve essere configurato separatamente per l'account di archiviazione. Le istruzioni complete sono riportate [qui](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+La console seriale usa TLS 1.2 end-to-end per proteggere tutte le comunicazioni all'interno del servizio. La console seriale presenta una dipendenza da un account di archiviazione di diagnostica di avvio gestito dall'utente e TLS 1.2 deve essere configurato separatamente per l'account di archiviazione. Le istruzioni complete sono riportate [qui](../../storage/common/transport-layer-security-configure-minimum-version.md).
 
 ## <a name="advanced-uses-for-serial-console"></a>Opzioni d'uso avanzate per la console seriale
 Oltre all'accesso alla console per la macchina virtuale, è anche possibile usare la console seriale di Azure per le operazioni seguenti:
