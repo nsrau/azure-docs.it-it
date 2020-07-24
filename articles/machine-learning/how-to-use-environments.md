@@ -1,5 +1,5 @@
 ---
-title: Creare ambienti ML riutilizzabili
+title: Usare gli ambienti software
 titleSuffix: Azure Machine Learning
 description: Creare e gestire gli ambienti per il training e la distribuzione dei modelli. Gestire i pacchetti Python e altre impostazioni per l'ambiente.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 07/23/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f9ddc498fdcfe3d1b6da57e012166066feec933e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c7229aaeef8b756b244e55920263eb046ed87f13
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207024"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129492"
 ---
-# <a name="how-to-use-environments-in-azure-machine-learning"></a>Come usare gli ambienti in Azure Machine Learning
+# <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare e gestire [ambienti](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning. Usare gli ambienti per tenere traccia e riprodurre le dipendenze del software dei progetti man mano che si evolvono.
@@ -93,9 +93,9 @@ Environment(name="myenv")
 
 Se si definisce un ambiente personalizzato, è necessario elencare `azureml-defaults` con version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene la funzionalità necessaria per ospitare il modello come servizio Web.
 
-### <a name="use-conda-pip-and-docker-files"></a>Usare i file conda, PIP e Docker
+### <a name="use-conda-and-pip-specification-files"></a>Usare i file di specifica conda e PIP
 
-È possibile creare un ambiente da una specifica conda o da un file di requisiti PIP. Usare il [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metodo o il metodo [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) . Nell'argomento del metodo includere il nome dell'ambiente e il percorso del file desiderato. È anche possibile creare un ambiente da un file Docker con il [`load_from_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) metodo. Nell'argomento del metodo includere il percorso della directory di origine contenente il file docker. 
+È possibile creare un ambiente da una specifica conda o da un file di requisiti PIP. Usare il [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metodo o il metodo [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) . Nell'argomento del metodo includere il nome dell'ambiente e il percorso del file desiderato. 
 
 ```python
 # From a Conda specification file
@@ -104,10 +104,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
 
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
-                                          file_path = "path-to-pip-requirements-file")
-                                          
-# From a Docker file
-myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
+                                          file_path = "path-to-pip-requirements-file")                                          
 ```
 
 ### <a name="use-existing-environments"></a>USA ambienti esistenti
@@ -180,6 +177,12 @@ conda_dep.add_pip_package("pillow")
 myenv.python.conda_dependencies=conda_dep
 ```
 
+È anche possibile aggiungere variabili di ambiente all'ambiente. Che diventano quindi disponibili usando OS. Environ. Get nello script di training.
+
+```python
+myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
+```
+
 >[!IMPORTANT]
 > Se si usa la stessa definizione di ambiente per un'altra esecuzione, il servizio Azure Machine Learning riutilizza l'immagine memorizzata nella cache dell'ambiente. Se si crea un ambiente con una dipendenza del pacchetto sbloccata, ad esempio ```numpy``` , tale ambiente continuerà a utilizzare la versione del pacchetto installata _al momento della creazione dell'ambiente_. Inoltre, qualsiasi ambiente futuro con definizione di corrispondenza continuerà a utilizzare la versione precedente. Per altre informazioni, vedere [Building, Caching e riuso dell'ambiente](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
@@ -248,9 +251,9 @@ build.wait_for_completion(show_output=True)
 
 ## <a name="enable-docker"></a>Abilita Docker
 
-La [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) della classe Azure Machine Learning `Environment` consente di personalizzare e controllare in modo accurato il sistema operativo guest in cui si esegue il training. La `arguments` variabile può essere usata per specificare argomenti aggiuntivi da passare al comando Docker Run.
+Il contenitore Docker fornisce un modo efficiente per incapsulare le dipendenze. Quando si Abilita Docker, Azure ML compila un'immagine Docker e crea un ambiente Python all'interno del contenitore, in base alle specifiche. Le immagini Docker vengono memorizzate nella cache e riutilizzate: la prima esecuzione in un nuovo ambiente richiede in genere più tempo durante la compilazione dell'immagine.
 
-Quando si Abilita Docker, il servizio compila un'immagine docker. Crea anche un ambiente Python che usa le specifiche all'interno del contenitore docker. Questa funzionalità offre isolamento e riproducibilità aggiuntive per le esecuzioni di training.
+La [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) della classe Azure Machine Learning `Environment` consente di personalizzare e controllare in modo accurato il sistema operativo guest in cui si esegue il training. La `arguments` variabile può essere usata per specificare argomenti aggiuntivi da passare al comando Docker Run.
 
 ```python
 # Creates the environment inside a Docker container.
@@ -267,10 +270,16 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
+>[!IMPORTANT]
+> Azure Machine Learning supporta solo le immagini Docker che forniscono il software seguente:
+> * Ubuntu 16,04 o versione successiva.
+> * Conda 4.5. # o successiva.
+> * Python 3.5. #, 3.6. # o 3.7. #.
+
 È anche possibile specificare un Dockerfile personalizzato. È più semplice iniziare da una delle immagini di base Azure Machine Learning usando ```FROM``` il comando Docker e quindi aggiungere passaggi personalizzati. Usare questo approccio se è necessario installare pacchetti non Python come dipendenze. Ricordarsi di impostare l'immagine di base su None.
 
 ```python
-# Specify docker steps as a string. Alternatively, load the string from a file.
+# Specify docker steps as a string. 
 dockerfile = r"""
 FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
 RUN echo "Hello from custom container!"
@@ -279,13 +288,15 @@ RUN echo "Hello from custom container!"
 # Set base image to None, because the image is defined by dockerfile.
 myenv.docker.base_image = None
 myenv.docker.base_dockerfile = dockerfile
+
+# Alternatively, load the string from a file.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = "./Dockerfile"
 ```
 
-### <a name="use-user-managed-dependencies"></a>Usare dipendenze gestite dall'utente
+### <a name="specify-your-own-python-interpreter"></a>Specificare un interprete Python personalizzato
 
 In alcune situazioni, l'immagine di base personalizzata potrebbe già contenere un ambiente Python con i pacchetti che si vuole usare.
-
-Per impostazione predefinita, Azure Machine Learning servizio compilerà un ambiente conda con le dipendenze specificate e eseguirà l'esecuzione in tale ambiente, anziché usare le librerie Python installate nell'immagine di base. Poiché l'ambiente conda è isolato dall'immagine di base personalizzata, i pacchetti installati altrove non verranno inclusi.
 
 Per usare i pacchetti installati e disabilitare conda, impostare il parametro `Environment.python.user_managed_dependencies = True` . Verificare che l'immagine di base contenga un interprete Python e che i pacchetti siano necessari per lo script di training.
 
@@ -304,6 +315,9 @@ myenv.docker.base_dockerfile = dockerfile
 myenv.python.user_managed_dependencies=True
 myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 ```
+
+> [!WARNING]
+> Se si installano alcune dipendenze Python nell'immagine Docker e si dimentica di impostare user_managed_dependencies = true, tali pacchetti non sono presenti nell'ambiente di esecuzione, causando così errori di Runtime. Per impostazione predefinita, Azure ML compilerà un ambiente conda con le dipendenze specificate e eseguirà l'esecuzione in tale ambiente invece di usare le librerie Python installate nell'immagine di base.
 
 ## <a name="use-environments-for-training"></a>Usare gli ambienti per il training
 
@@ -397,6 +411,8 @@ service = Model.deploy(
 
 Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) si espande in base ai concetti e ai metodi illustrati in questo articolo.
 
+Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) illustra come eseguire il training di un modello localmente con diversi tipi di ambienti.
+
 [Distribuire un modello usando un'immagine di base Docker personalizzata](how-to-deploy-custom-docker-image.md) illustra come distribuire un modello usando un'immagine di base Docker personalizzata.
 
 Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) illustra come distribuire un modello Spark come servizio Web.
@@ -434,4 +450,3 @@ az ml environment download -n myenv -d downloaddir
 * Per usare una destinazione di calcolo gestita per eseguire il training di un modello, vedere [esercitazione: eseguire il training di un modello](tutorial-train-models-with-aml.md).
 * Quando si dispone di un modello [sottoposto a training, scoprire come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Visualizzare il [ `Environment` riferimento all'SDK di classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
-* Per ulteriori informazioni sui concetti e i metodi descritti in questo articolo, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments).

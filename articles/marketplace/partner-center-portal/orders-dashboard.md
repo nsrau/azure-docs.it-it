@@ -1,16 +1,16 @@
 ---
-title: Dashboard degli ordini del Centro per i partner nell'analisi per il marketplace commerciale
-description: Informazioni su come accedere ai report analitici relativi agli ordini di offerte del marketplace in un formato grafico e scaricabile.
+title: Dashboard degli ordini del centro per i partner in analisi del Marketplace commerciale, Microsoft AppSource e Azure Marketplace
+description: Informazioni su come accedere ai report analitici sugli ordini di offerte del Marketplace commerciale in un formato grafico e scaricabile.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 7a704936b35ba5c747ab5884c61f3f5413ac5f07
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536131"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127316"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi per il marketplace commerciale
 
@@ -33,6 +33,8 @@ Per accedere a **Dashboard ordini** negli strumenti di analisi del Centro per i 
 - [Tendenza ordini e postazioni](#orders-and-seats-trend)
 - [Tabella Dettagli ordine](#order-details-table)
 
+La latenza massima tra creazione degli ordini e creazione di report nel centro per i partner è di 48 ore.
+
 ## <a name="order-dashboard-details"></a>Dettagli dashboard ordine
 
 Questa sezione descrive in modo più dettagliato i report di analisi.
@@ -53,7 +55,7 @@ Il valore percentuale accanto a Totale ordini rappresenta la quantità di increm
 
 ### <a name="orders-by-geography"></a>Ordini per area geografica
 
-La mappa termica **Ordini per area geografica** visualizza il numero degli ordini in una mappa mondiale e mostra le postazioni mappate in base al paese o all'area del cliente. Questa mappa termica funziona allo stesso modo della mappa termica **[Clienti per area geografica](./customer-dashboard.md#customer-by-geography)** .
+La mappa termica **Orders by geography** Visualizza un conteggio degli ordini in una mappa mondiale e Mostra le postazioni mappate in base al paese del cliente/area geografica. Questa mappa termica funziona allo stesso modo della mappa termica **[Clienti per area geografica](./customer-dashboard.md#customer-by-geography)** .
 
 ![Centro per i partner - Analizza - Ordini per area geografica](./media/orders-by-geography.png)
 
@@ -71,7 +73,7 @@ Il grafico ad anello **Ordini per offerte** organizza gli ordini (compresi gli o
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Tendenza ordini per sito e per postazione
 
-Il grafico ad anello**per sito e per postazione** rappresenta il dettaglio degli ordini SaaS per sito e SaaS per postazione acquistati dai clienti (questo grafico include gli ordini annullati). L'istogramma rappresenta la tendenza degli ordini SaaS per sito e SaaS per postazione acquistati dai clienti (questo grafico include gli ordini annullati).
+Il grafico ad anello per **sito rispetto al posto** rappresenta la suddivisione degli ordini SaaS per sito SaaS e per postazione acquistati dai clienti (questo grafico include gli ordini annullati). L'istogramma rappresenta la tendenza degli ordini SaaS per sito e SaaS per postazione acquistati dai clienti (questo grafico include gli ordini annullati).
 
 ### <a name="orders-by-plans"></a>Ordini per piani
 
@@ -79,10 +81,10 @@ Il grafico **Orders by plans** rappresenta la tendenza degli ordini a livello di
 
 ### <a name="orders-and-seats-trend"></a>Tendenza ordini e postazioni
 
-Il grafico **Tendenza ordini e postazioni** presenta le prime 50 offerte con il maggior numero di ordini. Questi vengono visualizzati in una classifica e sono ordinati in base al numero massimo di ordini e alla percentuale di ordine.
+Il grafico **Tendenza ordini e postazioni** presenta le prime 50 offerte con il maggior numero di ordini. Questi vengono visualizzati in una bacheca e ordinati in base al numero massimo di ordini e alla percentuale di ordine.
 
 - **Orders by plans** : selezionare un'offerta per visualizzare la suddivisione dei conteggi degli ordini per i primi cinque piani nel grafico.
-- **Sedili per piani** : la tendenza mensile delle postazioni per i primi cinque piani. Se l'offerta selezionata non è un'offerta per postazione, in quest'area del grafico non vengono visualizzati dati.
+- **Sedili per piani** : la tendenza mensile delle postazioni per i primi cinque piani. Se l'offerta selezionata non è un'offerta per postazione, non verrà visualizzato alcun dato.
 
 ### <a name="canceled-orders-by-offers"></a>Ordini annullati per offerte
 
@@ -98,14 +100,14 @@ La tabella Dettagli ordine visualizza un elenco numerato dei 1000 ordini princip
 - Ogni colonna della griglia è ordinabile.
 - Se il numero dei record è inferiore a 1000, è possibile estrarre i dati in un file con estensione tsv.
 - Se il numero dei record è superiore a 1000, i dati esportati verranno inseriti in modo asincrono in una pagina di download nei 30 giorni successivi.
-- Alla **tabella Dettagli ordine** è possibile applicare filtri per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati per paese/area, tipo di licenza di Azure o del Marketplace, tipo di offerta, stato dell'ordine, versioni di valutazione gratuite, ID sottoscrizione del Marketplace, ID cliente e nome della società.
-- Poiché le offerte SaaS acquistate tramite Azure Marketplace o AppSource non richiedono una sottoscrizione di Azure, l'ID sottoscrizione del Marketplace verrà visualizzato come 00000000-0000-0000-0000-000000000000 nella sezione **Dati ordini dettagliati**.
+- Applicare i filtri alla **tabella Order Details** per visualizzare solo i dati a cui si è interessati. Filtra per paese/area geografica, tipo di licenza di Azure, tipo di licenza per Marketplace commerciale, tipo di offerta, stato dell'ordine, tracce gratuite, ID sottoscrizione del Marketplace commerciale, ID cliente e nome della società.
+- Poiché le offerte SaaS acquistate tramite Azure Marketplace o AppSource, non richiedono una sottoscrizione di Azure, l'ID sottoscrizione del Marketplace verrà visualizzato come 00000000-0000-0000-0000-000000000000 nella sezione **dati dettagliati sugli ordini** .
 
 #### <a name="orders-page-filters"></a>Filtri della pagina Ordini
 
 Questi filtri vengono applicati a livello di pagina.
 
-È possibile selezionare più filtri per eseguire il rendering del grafico per i criteri che si sceglie di visualizzare e i dati da visualizzare nella griglia/esportazione **Dati ordini dettagliati**. I filtri vengono applicati ai dati estratti per l'intervallo di dati selezionato nell'angolo in alto a destra della pagina degli ordini.
+È possibile selezionare più filtri per eseguire il rendering del grafico per i criteri che si sceglie di visualizzare e i dati da visualizzare nella griglia/esportazione **Dati ordini dettagliati**. I filtri vengono applicati ai dati estratti per l'intervallo di dati selezionato nell'angolo superiore destro della pagina Orders.
 
 - I tipi di offerta e i nomi delle offerte vengono elencati solo per le offerte correlate a ordini effettuati durante l'intervallo di date selezionato. I nomi delle offerte nell'elenco vengono visualizzati per i tipi di offerta selezionati nell'elenco.
 - I filtri applicati mostrano le metriche totali all'interno di ogni selezione per ogni filtro selezionato. I filtri applicati non vengono visualizzati quando si sceglie la selezione predefinita.

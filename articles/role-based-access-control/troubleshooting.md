@@ -15,11 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790705"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129441"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -65,7 +66,7 @@ $ras.Count
 - È possibile definire un solo gruppo di gestione in `AssignableScopes` di un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima.
 - I ruoli personalizzati con `DataActions` non possono essere assegnati all'ambito del gruppo di gestione.
 - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione di ruolo.
-- Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+- Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Trasferimento di una sottoscrizione a una directory diversa
 

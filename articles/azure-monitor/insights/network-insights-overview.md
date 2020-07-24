@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654869"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128676"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
 Monitoraggio di Azure per la rete offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione delle risorse che ospitano il sito Web semplicemente cercando il nome del sito Web ospitato.
@@ -29,7 +30,7 @@ La vista integrità risorse e avvisi può essere personalizzata usando filtri co
 
 La casella di ricerca può essere usata per cercare le risorse e le risorse associate. Un indirizzo IP pubblico, ad esempio, è associato a un gateway applicazione. La ricerca del nome DNS degli indirizzi IP pubblici identificherà sia l'IP pubblico che il gateway applicazione associato.
 
-![Ricerca](media/network-insights-overview/search.png)
+![Cerca](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Integrità risorse e metrica
@@ -47,7 +48,7 @@ Facendo clic sulle due connessioni ER e VPN non disponibili, viene avviata una v
 La griglia degli **avvisi** a destra fornisce una visualizzazione di tutti gli avvisi generati per le risorse selezionate tra tutte le sottoscrizioni. Fare clic sui conteggi degli avvisi per passare alla pagina avvisi dettagliati.
 
 ## <a name="dependency-view"></a>Visualizzazione dipendenze
-La visualizzazione delle **dipendenze** consente di visualizzare il modo in cui la risorsa è configurata. Attualmente la visualizzazione dipendenze è supportata solo per il gateway applicazione. È possibile accedere alla vista dipendenze facendo clic sul nome della risorsa del gateway applicazione nella visualizzazione griglia metriche.
+La visualizzazione delle **dipendenze** consente di visualizzare il modo in cui la risorsa è configurata. Attualmente la visualizzazione dipendenze è supportata per il gateway applicazione, la rete WAN virtuale e la Load Balancer. Ad esempio, nel caso del gateway applicazione, è possibile accedere alla visualizzazione dipendenze facendo clic sul nome della risorsa del gateway applicazione nella visualizzazione griglia metriche. Questo vale anche per la rete WAN virtuale e la Load Balancer. 
 
 ![Visualizzazione del gateway applicazione](media/network-insights-overview/application-gateway.png)
 
@@ -69,4 +70,4 @@ Fare clic su **visualizzazione metrica dettagliata** per avviare una cartella di
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- Per altre informazioni sul monitoraggio della rete, vedere informazioni su [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+- Per altre informazioni sul monitoraggio della rete, vedere informazioni su [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).

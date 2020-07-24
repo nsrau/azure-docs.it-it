@@ -9,30 +9,26 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.custom: it-pro, seodec18
+ms.date: 7/21/2020
+ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc659f3d580646c1e86e5e97940268311e5546f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 749ee479f19b0855700cf1ca15aefd9b983dd7f7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460535"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129543"
 ---
-# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dei dati Identity per i clienti australiani e neozelandesi in Azure Active Directory
+# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dati del cliente per clienti australiani e neozelandesi in Azure Active Directory
 
-I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sulla posizione in cui vengono archiviati i dati dei clienti di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
+Azure Active Directory (Azure AD) archivia i dati dei clienti in una posizione geografica in base al paese specificato al momento dell'iscrizione a un servizio online Microsoft. I Microsoft Online Services includono Office 365 e Azure. 
+
+Per informazioni sulla posizione in cui si trovano i dati Azure AD e altri servizi Microsoft, vedere la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) del Centro protezione Microsoft.
+
+Dal 26 febbraio 2020, Microsoft ha iniziato a archiviare i dati dei clienti di Azure AD per i nuovi tenant con un indirizzo di fatturazione australiano o neozelandese all'interno dei data center australiani. Tra il 1 ° maggio 2020 e il 31 ottobre 2020, Microsoft eseguirà la migrazione dei tenant esistenti che dispongono di un indirizzo di fatturazione australiano o neozelandese per i Data Center australiani senza richiedere alcuna azione da parte del cliente. Il processo di migrazione non implica alcun tempo di inattività per i clienti e non influirà sulle funzionalità di un tenant durante la migrazione.
+
+Inoltre, alcune funzionalità di Azure AD non supportano ancora l'archiviazione dei dati dei clienti in Australia. Per informazioni sulle funzionalità specifiche, visitare la [mappa dei dati Azure ad](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9). Ad esempio, Microsoft Azure Multi-Factor Authentication archivia i dati dei clienti negli Stati Uniti e li elabora a livello globale. Vedere Data [Residency e i dati dei clienti per Azure multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency).
 
 > [!NOTE]
-> I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati dei clienti Identity. Valutare ogni servizio e applicazione usato per determinare il modo in cui i dati dei clienti Identity vengono elaborati da tale servizio e applicazione e se soddisfano i requisiti di archiviazione dei dati aziendali. Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione Where is your data located? (Percorso di archiviazione dei dati) di Microsoft Trust Center.
+> I prodotti, i servizi e le applicazioni di terze parti Microsoft che si integrano con Azure AD possono accedere ai dati dei clienti. Valutare ogni prodotto, servizio e applicazione utilizzato per determinare il modo in cui i dati dei clienti vengono elaborati dal prodotto, dal servizio e dall'applicazione specifici e dal fatto che soddisfino i requisiti di archiviazione dei dati dell'azienda. Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
-Per i clienti che hanno fornito un indirizzo in Australia e Nuova Zelanda e USA Azure AD edizione gratuita, Azure AD mantiene i dati personali inattivi nei data center australiani. 
-
-Tutti gli altri servizi Azure AD Premium archiviano i dati dei clienti nei data center globali. Per trovare il Data Center per un servizio, vedere [Azure Active Directory: dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
-
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication
-
-Il servizio multi-factor authentication in Azure AD archivia i dati dei clienti Identity nei data center globali inattivi. Per ulteriori informazioni sulle informazioni sugli utenti raccolte e archiviate da Azure multi-factor authentication e dal server di autenticazione a più fattori di Azure, vedere la pagina relativa alla [raccolta di dati utente multi-factor authentication Azure](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency). Se i clienti usano l'autenticazione a più fattori, i dati verranno archiviati all'esterno dei data center dell'Australia. 
-
-## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli:
-- [Informazioni su Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)

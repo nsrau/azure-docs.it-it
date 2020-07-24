@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255660"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129305"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
@@ -47,13 +47,21 @@ Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente ch
 1. Dal menu Start eseguire **Regedit** come amministratore. Passare a **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Creare il valore seguente per la chiave teams:
 
-| Nome             | Type   | Dati/valore  |
+| Nome             | Tipo   | Dati/valore  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>Installare il servizio WebSocket Teams
 
 Installare il [servizio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) nell'immagine di macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
+
+#### <a name="latest-websocket-service-versions"></a>Versioni più recenti del servizio WebSocket
+
+Nella tabella seguente sono elencate le versioni correnti disponibili per ogni gruppo di utenti:
+
+|Versione    |Data di rilascio  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
 
 ### <a name="install-microsoft-teams"></a>Installare Microsoft Teams
 
@@ -111,7 +119,7 @@ Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla
 
       Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, tornare a [installare Microsoft teams](#install-microsoft-teams) e assicurarsi di aver completato il processo di installazione.
 
-## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
 L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team in un ambiente non virtualizzato. Per ulteriori informazioni sulle limitazioni dei team negli ambienti virtualizzati, consultare i [team per l'infrastruttura desktop virtualizzata](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
 

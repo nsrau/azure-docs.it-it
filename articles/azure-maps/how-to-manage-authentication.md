@@ -2,19 +2,19 @@
 title: Gestire l'autenticazione
 titleSuffix: Azure Maps
 description: Usare il portale di Azure per gestire l'autenticazione in mappe Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981719"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126857"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -43,14 +43,14 @@ La tabella seguente descrive gli scenari di autenticazione e autorizzazione comu
 > [!IMPORTANT]
 > Microsoft consiglia di implementare Azure Active Directory (Azure AD) con il controllo degli accessi in base al ruolo (RBAC) per le applicazioni di produzione.
 
-| Scenario                                                                                    | Authentication | Autorizzazione | Lavoro di sviluppo | Lavoro operativo |
+| Scenario                                                                                    | Autenticazione | Autorizzazione | Lavoro di sviluppo | Lavoro operativo |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Chiave condivisa     | N/D           | Media             | Alta               |
-| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alta          | Basso                | Media             |
-| [Applicazione Web a pagina singola con accesso Single Sign-on interattivo](./how-to-secure-spa-users.md) | Azure AD       | Alta          | Media             | Media             |
-| [Applicazione Web a pagina singola con accesso non interattivo](./how-to-secure-spa-app.md)      | Azure AD       | Alta          | Media             | Media             |
-| [Applicazione Web con accesso Single Sign-on interattivo](./how-to-secure-webapp-users.md)          | Azure AD       | Alta          | Alta               | Media             |
-| [Dispositivo a cui è vincolato il dispositivo/input](./how-to-secure-device-code.md)                     | Azure AD       | Alta          | Media             | Media             |
+| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Chiave condivisa     | N/D           | Media             | Alto               |
+| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Basso                | Media             |
+| [Applicazione Web a pagina singola con accesso Single Sign-on interattivo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Medio             | Livello medio             |
+| [Applicazione Web a pagina singola con accesso non interattivo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Medio             | Livello medio             |
+| [Applicazione Web con accesso Single Sign-on interattivo](./how-to-secure-webapp-users.md)          | Azure AD       | Alto          | Alto               | Medio             |
+| [Dispositivo a cui è vincolato il dispositivo/input](./how-to-secure-device-code.md)                     | Azure AD       | Alto          | Medio             | Livello medio             |
 
 I collegamenti nella tabella consentono di ottenere informazioni dettagliate sulla configurazione per ogni scenario.
 

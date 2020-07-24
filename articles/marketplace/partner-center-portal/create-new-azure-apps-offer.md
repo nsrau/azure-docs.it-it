@@ -3,14 +3,16 @@ title: Creare un'offerta per un'applicazione Azure - Marketplace commerciale Mic
 description: Informazioni sui passaggi e sulle considerazioni per la creazione di una nuova offerta per un'applicazione Azure nel portale del marketplace commerciale nel Centro per i partner. È possibile presentare o vendere l'offerta per un'applicazione Azure in Azure Marketplace o tramite il programma Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121972"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127435"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -65,7 +67,7 @@ Il video [Creazione di modelli di soluzione e applicazioni gestite per Azure Mar
 
 Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti di scripting seguenti:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 È consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo:
@@ -185,8 +187,8 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Condizioni per l'utilizzo
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Summary
-8. Description
+7. Riepilogo
+8. Descrizione
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
@@ -196,7 +198,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Titolo
-2. Description
+2. Descrizione
 3. Collegamenti utili
 4. Screenshots (Schermate)
 
@@ -308,7 +310,7 @@ La configurazione tecnica definisce i dettagli (ID tenant e ID app) usati per id
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Questa scheda consente di fornire diverse opzioni per il piano all'interno della stessa offerta. Questi piani (definiti SKU nel portale Cloud Partner) possono differire in termini di tipo di piano (modello di soluzione o applicazione gestita), monetizzazione o destinatari.  Configurare almeno un piano per presentare l'offerta nel marketplace.
+Questa scheda consente di fornire diverse opzioni per il piano all'interno della stessa offerta. Questi piani, chiamati in precedenza SKU, possono differire in termini di tipo di piano (modello di soluzione e applicazione gestita), monetizzazione o destinatari. Configurare almeno un piano per presentare l'offerta nel marketplace.
 
 Una volta creati i piani, in questa scheda vengono visualizzati i nomi, gli ID, il tipo di piano, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili.
 
@@ -510,7 +512,7 @@ Indicare chi deve avere accesso di gestione a questa applicazione gestita in ogn
 
 **Autorizzazioni**: aggiungere l'ID oggetto di Azure Active Directory dell'utente, del gruppo o dell'applicazione cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite. Identificare l'utente tramite l'ID entità di sicurezza, disponibile nel [pannello degli utenti di Azure Active Directory del portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Per ogni entità di sicurezza, selezionare uno dei ruoli predefiniti di Azure AD nell'elenco (Proprietario o Collaboratore). Il ruolo selezionato descrive le autorizzazioni dell'entità di sicurezza per le risorse nella sottoscrizione del cliente. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md). Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).
+Per ogni entità di sicurezza, selezionare uno dei ruoli predefiniti di Azure AD nell'elenco (Proprietario o Collaboratore). Il ruolo selezionato descrive le autorizzazioni dell'entità di sicurezza per le risorse nella sottoscrizione del cliente. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Benché sia possibile aggiungere fino a 100 autorizzazioni per cloud, è in genere più semplice creare un gruppo di utenti di Active Directory e specificarne l'ID in "ID entità di sicurezza". In questo modo, sarà possibile aggiungere altri utenti al gruppo di gestione dopo la distribuzione del piano e ridurre la necessità di aggiornare il piano solo per aggiungere altre autorizzazioni.

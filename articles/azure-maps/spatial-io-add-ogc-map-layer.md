@@ -1,19 +1,19 @@
 ---
 title: Aggiungere un livello mappa Open Geospatial Consortium (OGC) | Mappe Microsoft Azure
 description: Informazioni su come sovrapporre un livello mappa OGC sulla mappa e come usare le diverse opzioni nella classe OgcMapLayer.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334292"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128557"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Aggiungere un livello mappa dal Open Geospatial Consortium (OGC)
 
@@ -28,7 +28,7 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 - GetFeatureInfo richiede il supporto o la gestione delle proiezioni da parte del servizio `EPSG:4326` . 
 - Operazioni supportate:
 
-    | | |
+    | Operazione | Descrizione |
     | :-- | :-- |
     | GetCapabilities | Recupera i metadati relativi al servizio con le funzionalità supportate |
     | GetMap | Recupera un'immagine mappa per un'area specificata |
@@ -42,7 +42,7 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 - L'identificatore TileMatrix deve essere un valore intero corrispondente a un livello di zoom sulla mappa. In una mappa di Azure, il livello di zoom è un valore compreso tra `"0"` e `"22"` . Pertanto, `"0"` è supportato, ma `"00"` non è supportato.
 - Operazioni supportate:
 
-    | | |
+    | Operazione | Descrizione |
     | :-- | :-- |
     | GetCapabilities | Recupera le operazioni e le funzionalità supportate |
     | GetTile | Recupera le immagini per un riquadro particolare |

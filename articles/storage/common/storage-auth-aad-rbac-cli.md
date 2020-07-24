@@ -1,21 +1,21 @@
 ---
 title: Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo per l'accesso ai dati
 titleSuffix: Azure Storage
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per assegnare autorizzazioni a un Azure Active Directory entità di sicurezza con il controllo degli accessi in base al ruolo. Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per assegnare autorizzazioni a un Azure Active Directory entità di sicurezza con il controllo degli accessi in base al ruolo. Archiviazione di Azure supporta i ruoli predefiniti e personalizzati di Azure per l'autenticazione tramite Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c74bc8bd92e2d210c8fe5deaff30d55a36bb5e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808871"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127214"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo RBAC per l'accesso ai dati BLOB e Queue
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protett
 
 Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per quell'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per elencare i ruoli RBAC predefiniti e assegnarli agli utenti. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure, vedere [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per elencare i ruoli RBAC predefiniti e assegnarli agli utenti. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure, vedere [interfaccia della riga di comando di Azure](/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Ruoli Controllo degli accessi in base al ruolo per BLOB e code
 
@@ -108,7 +108,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-### <a name="resource-group-scope"></a>Ambito del gruppo di risorse
+### <a name="resource-group-scope"></a>Gruppo di risorse
 
 Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di risorse per il `--resource-group` parametro. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati:
 

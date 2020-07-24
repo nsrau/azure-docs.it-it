@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263355"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127197"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -45,7 +46,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
 -   **Controllo degli accessi in base al ruolo (RBAC)**
 
-    Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando RBAC è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per svolgere il proprio lavoro. Per ulteriori informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo (RBAC) in Azure](../../role-based-access-control/overview.md).
+    Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando RBAC è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per svolgere il proprio lavoro. Per altre informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in Azure](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Casi d'uso comuni
 

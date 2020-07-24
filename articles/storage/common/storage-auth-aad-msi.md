@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808876"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127180"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -61,7 +61,7 @@ Se l'ambiente di sviluppo non supporta la Single Sign-On o l'accesso tramite un 
 
 #### <a name="create-the-service-principal"></a>Creare l'entità servizio
 
-Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo RBAC, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Fornire inoltre l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
+Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo RBAC, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Fornire inoltre l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
 
@@ -93,7 +93,7 @@ Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'e
 
 La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
-|Variabile di ambiente|valore
+|Variabile di ambiente|Valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
 |`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio

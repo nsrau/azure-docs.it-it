@@ -1,18 +1,19 @@
 ---
 title: Copertura del routing | Mappe Microsoft Azure
 description: In questo articolo vengono fornite informazioni sulle aree con il code coverage di routing per Microsoft Azure maps.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d581380bed3cb0cbc50a0b763a1dc7fe7ee1d04e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123888"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129526"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
 

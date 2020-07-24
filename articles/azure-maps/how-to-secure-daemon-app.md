@@ -2,19 +2,19 @@
 title: Come proteggere un'applicazione daemon
 titleSuffix: Azure Maps
 description: Usare il portale di Azure per gestire l'autenticazione per configurare un'applicazione daemon attendibile.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988476"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126772"
 ---
 # <a name="secure-a-daemon-application"></a>Proteggere un'applicazione daemon
 
@@ -114,7 +114,7 @@ Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identi
 > [!div class="mx-imgBorder"]
 > ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Passare all' **account Azure Maps**. Selezionare il **controllo di accesso (IAM)**  >  **assegnazioni di ruolo**.
+1. Passare all' **account Azure Maps**. Selezionare **Controllo di accesso (IAM)** > **Assegnazioni di ruolo**.
 
     > [!div class="mx-imgBorder"]
     > ![Concedere il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-grant-rbac.png)

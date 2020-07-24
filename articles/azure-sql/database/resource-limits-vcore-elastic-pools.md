@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 06/10/2020
-ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: f71daab55139f6b4690df50472928db466774cb3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668458"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128268"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,31 +170,64 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Fsv2-serie di calcolo con provisioning per utilizzo generico
 
-### <a name="fsv2-series-compute-generation-preview"></a>Generazione di calcolo della serie Fsv2 (anteprima)
+### <a name="fsv2-series-compute-generation-part-1"></a>Generazione di calcolo della serie Fsv2 (parte 1)
 
-|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_72|
-|:--- | --: |
-|Generazione di calcolo|Serie Fsv2|
-|vCore|72|
-|Memoria (GB)|136,2|
-|Numero massimo di database per pool <sup>1</sup>|500|
-|Supporto per columnstore|Sì|
-|Archiviazione OLTP in memoria (GB)|N/D|
-|Dimensioni massime dei dati (GB)|4096|
-|Dimensioni massime del log (GB)|1024|
-|Dimensioni massime dati TempDB (GB)|333|
-|Tipo di archiviazione|Archiviazione (remota) Premium|
-|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Numero massimo di IOPS dati per pool <sup>2</sup>|16.000|
-|Velocità massima di log per pool (MBps)|37,5|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|3780|
-|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|3780|
-|Numero massimo di sessioni simultanee|30.000|
-|Numero minimo/massimo di opzioni vCore del pool elastico per database|0-72|
-|Numero di repliche|1|
-|Zone di disponibilità multiple|N/D|
-|Scalabilità orizzontale in lettura|N/D|
-|Archivio di backup incluso|Dimensioni del database 1X|
+|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|vCore|8|10|12|14|16|
+|Memoria (GB)|15.1|18,9|22,7|26,5|30,2|
+|Numero massimo di database per pool <sup>1</sup>|500|500|500|500|500|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1536|
+|Dimensioni massime del log (GB)|336|336|336|336|512|
+|Dimensioni massime dati TempDB (GB)|333|333|333|333|333|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Numero massimo di IOPS dati per pool <sup>2</sup>|2560|3200|3840|4480|5120|
+|Velocità massima di log per pool (MBps)|30|30|30|30|30|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|400|500|600|700|800|
+|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|800|1000|1200|1400|1600|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
+|Numero minimo/massimo di opzioni vCore del pool elastico per database|0-8|0-10|0-12|0-14|0-16|
+|Numero di repliche|1|1|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+
+<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>2</sup> il valore massimo per le dimensioni di i/o comprese tra 8 kb e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Generazione di calcolo della serie Fsv2 (parte 2)
+
+|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|vCore|18|20|24|32|36|72|
+|Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Numero massimo di database per pool <sup>1</sup>|500|500|500|500|500|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|1536|1536|1536|3072|3072|4096|
+|Dimensioni massime del log (GB)|512|512|512|1024|1024|1024|
+|Dimensioni massime dati TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Numero massimo di IOPS dati per pool <sup>2</sup>|5760|6400|7680|10240|11520|23040|
+|Velocità massima di log per pool (MBps)|30|30|30|30|30|30|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|900|1000|1200|1600|1800|3600|
+|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
+|Numero minimo/massimo di opzioni vCore del pool elastico per database|0-18|0-20|0-24|0-32|0-36|0-72|
+|Numero di repliche|1|1|1|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 <sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
 
@@ -281,7 +315,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Memoria (GB)|20,8|31,1|41,5|51,9|62,3|72,7|
 |Numero massimo di database per pool <sup>1</sup>|50|100|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|3,14|4.71|6,28|8,65|11,02|13,39|
+|Archiviazione OLTP in memoria (GB)|3,14|4,71|6,28|8,65|11,02|13,39|
 |Dimensioni massime dei dati (GB)|1024|1536|1536|1536|3072|3072|
 |Dimensioni massime del log (GB)|307|307|461|461|922|922|
 |Dimensioni massime dati TempDB (GB)|128|192|256|320|384|448|
@@ -338,31 +372,31 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Business critical-serie di calcolo con provisioning-M
 
-### <a name="m-series-compute-generation-preview"></a>Generazione di calcolo della serie M (anteprima)
+### <a name="m-series-compute-generation-part-1"></a>Generazione di calcolo della serie M (parte 1)
 
-|Dimensioni di calcolo (obiettivo di servizio)|BC_M_128|
-|:--- | --: |
-|Generazione di calcolo|Serie M|
-|vCore|128|
-|Memoria (GB)|3767,1|
-|Numero massimo di database per pool <sup>1</sup>|100|
-|Supporto per columnstore|Sì|
-|Archiviazione OLTP in memoria (GB)|1768|
-|Dimensioni massime dei dati (GB)|4096|
-|Dimensioni massime del log (GB)|2048|
-|Dimensioni massime dati TempDB (GB)|4096|
-|Tipo di archiviazione|SSD locale|
-|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Numero massimo di IOPS dati per pool <sup>2</sup>|200.000|
-|Velocità massima di log per pool (MBps)|333|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|13.440|
-|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|13.440|
-|Numero massimo di sessioni simultanee|30.000|
-|Numero minimo/massimo di opzioni vCore del pool elastico per database|0-128|
-|Numero di repliche|4|
-|Zone di disponibilità multiple|Sì|
-|Scalabilità orizzontale in lettura|Sì|
-|Archivio di backup incluso|Dimensioni del database 1X|
+|Dimensioni di calcolo (obiettivo di servizio)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie M|Serie M|Serie M|Serie M|Serie M|Serie M|
+|vCore|8|10|12|14|16|18|
+|Memoria (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Numero massimo di database per pool <sup>1</sup>|100|100|100|100|100|100|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|64|80|96|112|128|150|
+|Dimensioni massime dei dati (GB)|512|640|768|896|1024|1152|
+|Dimensioni massime del log (GB)|171|213|256|299|341|384|
+|Dimensioni massime dati TempDB (GB)|256|320|384|448|512|576|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Numero massimo di IOPS dati per pool <sup>2</sup>|12.499|15.624|18.748|21.873|24.998|28.123|
+|Velocità massima di log per pool (MBps)|48|60|72|84|96|108|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|800|1\.000|1.200|1.400|1.600|1.800|
+|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|800|1\.000|1.200|1.400|1.600|1.800|
+|Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|30000|
+|Numero minimo/massimo di opzioni vCore del pool elastico per database|0-8|0-10|0-12|0-14|0-16|0-18|
+|Numero di repliche|4|4|4|4|4|4|
+|Zone di disponibilità multiple|No|No|No|No|No|No|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 <sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
 
@@ -371,6 +405,42 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 <sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool riceve una quantità identica di risorse di calcolo per elaborare le query. Il database SQL di Azure offre equità di condivisione delle risorse tra i database garantendo la parità delle sezioni del tempo di calcolo. L'equa condivisione delle risorse del pool elastico avviene in aggiunta a qualsiasi quantità di risorse altrimenti garantita per ogni database quando il numero minimo di vCore per database è impostato su un valore diverso da zero.
+
+
+
+### <a name="m-series-compute-generation-part-2"></a>Generazione di calcolo della serie M (parte 2)
+
+|Dimensioni di calcolo (obiettivo di servizio)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie M|Serie M|Serie M|Serie M|Serie M|
+|vCore|20|24|32|64|128|
+|Memoria (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Numero massimo di database per pool <sup>1</sup>|100|100|100|100|100|100|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|172|216|304|704|1768|
+|Dimensioni massime dei dati (GB)|1280|1536|2048|4096|4096|
+|Dimensioni massime del log (GB)|427|512|683|1024|1024|
+|Dimensioni massime dati TempDB (GB)|4096|2048|1024|768|640|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Numero massimo di IOPS dati per pool <sup>2</sup>|31.248|37.497|49.996|99.993|160.000|
+|Velocità massima di log per pool (MBps)|120|144|192|264|264|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|
+|Numero di repliche|4|4|4|4|4|
+|Zone di disponibilità multiple|No|No|No|No|No|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>2</sup> il valore massimo per le dimensioni di i/o comprese tra 8 kb e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+
+Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool riceve una quantità identica di risorse di calcolo per elaborare le query. Il database SQL di Azure offre equità di condivisione delle risorse tra i database garantendo la parità delle sezioni del tempo di calcolo. L'equa condivisione delle risorse del pool elastico avviene in aggiunta a qualsiasi quantità di risorse altrimenti garantita per ogni database quando il numero minimo di vCore per database è impostato su un valore diverso da zero.
+
 
 ## <a name="database-properties-for-pooled-databases"></a>Proprietà del database per i database in pool
 

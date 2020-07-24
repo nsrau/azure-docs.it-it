@@ -3,18 +3,16 @@ title: Gestire Azure Data Lake Analytics tramite Azure SDK per Node.js
 description: Questo articolo descrive come usare Azure SDK per Node.js per gestire account, origini dati, processi e utenti di Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: f821f8f8fddfafbdba060fd3f9940ce32c138755
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d5ac360b70cf9e8c3b808d2316698ae223c72362
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121351"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127520"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestire Azure Data Lake Analytics tramite Azure SDK per Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -27,7 +25,7 @@ Sono supportate le versioni seguenti:
 * **Versione dell'API REST per il catalogo: 2015-10-01-preview**
 * **Versione dell'API REST per il processo: 2016-03-20-preview**
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 * Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
 * Gestione dei processi: inviare, ottenere, elencare, annullare.
 * Gestione del catalogo: ottenere ed elencare.

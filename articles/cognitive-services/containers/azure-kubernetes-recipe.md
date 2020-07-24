@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cdd1cf255c943c8dc6d55a5b749b30357bdcd373
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876726"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128574"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
@@ -27,7 +27,7 @@ Questa procedura richiede diversi strumenti che devono essere installati ed eseg
 
 * Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Git](https://git-scm.com/downloads) per il sistema operativo, in modo che sia possibile clonare l'[esempio](https://github.com/Azure-Samples/cognitive-services-containers-samples) usato in questa procedura.
-* [Interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Motore Docker](https://www.docker.com/products/docker-engine) e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * Una risorsa di Azure con il piano tariffario corretto. Non tutti i piani tariffari funzionano con questo contenitore:
@@ -389,7 +389,7 @@ Aprire un browser e passare all'indirizzo IP esterno del contenitore `language` 
 
 Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `language-frontend` nel formato seguente: `http://<external-ip>/helloworld`. Il testo `helloworld` nelle impostazioni cultura inglese viene stimato come `English`.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 
@@ -405,15 +405,3 @@ az group delete --name cogserv-container-rg
 
 > [!div class="nextstepaction"]
 > [Contenitori di servizi cognitivi](../cognitive-services-container-support.md)
-
-<!--
-kubectl get secrets
-
->az aks browse --resource-group diberry-cogserv-container-rg --name diberry-kubernetes-languagedetection
-
-kubectl proxy
-
-http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/pod/default/language-frontend-6d65bdb77c-8f4qv?namespace=default
-
-kubectl describe pod language-frontend-6d65bdb77c
--->

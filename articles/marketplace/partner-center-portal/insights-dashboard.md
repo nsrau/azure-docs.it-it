@@ -1,20 +1,20 @@
 ---
-title: Informazioni dettagliate sul marketplace - Supporto del marketplace commerciale di Microsoft
+title: Marketplace Insights-Marketplace commerciale Microsoft, Microsoft AppSource e Azure Marketplace
 description: È possibile accedere a un riepilogo delle analisi Web del marketplace, che consente di misurare il coinvolgimento dei clienti in Microsoft AppSource e Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+ms.openlocfilehash: c72f3c9cce19896557fa9f4114b935fcc5ca8dc2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120399"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128948"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Dashboard Informazioni dettagliate sul marketplace nel Centro per i partner
 
-Questo articolo illustra il dashboard Informazioni dettagliate sul marketplace disponibile nel Centro per i partner. Il dashboard visualizza un riepilogo delle analisi Web del marketplace e consente agli autori di misurare il coinvolgimento dei clienti riguardo alle rispettive pagine dei dettagli dei prodotti elencate nelle vetrine del marketplace: Microsoft AppSource e Azure Marketplace.
+Questo articolo illustra il dashboard Informazioni dettagliate sul marketplace disponibile nel Centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del Marketplace commerciale: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard Informazioni dettagliate sul marketplace
 
@@ -25,18 +25,20 @@ Si possono visualizzare rappresentazioni grafiche degli elementi seguenti:
 - [Riepilogo di Informazioni dettagliate sul marketplace](#marketplace-insights-summary)
 - [Visite alle pagine per area geografica](#page-visits-by-geography)  
 - [Visite alle pagine rispetto alla tendenza dei visitatori univoci](#page-visits-versus-unique-visitors-trend)
-- [Invito all'azione rispetto a visitatori univoci con inviti all'azione](#call-to-action-versus-unique-visitors-with-ctas)
+- [Chiamata a Action (CTA) rispetto ai visitatori univoci con CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Visite alle pagine e invito all'azione in base alle offerte](#page-visits-and-calls-to-action-by-offers)
 - [Tendenza percentuale di invito all'azione](#call-to-action-percentage-trend)
 - [Visite alle pagine e inviti all'azione in base a domini di riferimento](#page-visits-and-calls-to-action-by-referral-domains)
 - [Tabella dei dettagli di Informazioni dettagliate sul marketplace](#marketplace-insights-details-table)
+
+La latenza massima tra gli utenti che visitano le offerte in Azure Marketplace o AppSource e la creazione di report nel centro per i partner è 48 ore.
 
 >[!NOTE]
 > Per definizioni dettagliate della terminologia di analisi, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Layout del dashboard Informazioni dettagliate
 
-È possibile visualizzare le metriche del marketplace in diversi modi:
+Visualizzare le metriche del Marketplace commerciale in diversi modi:
 
 - Schede di vetrine
 - Filtri di pagina
@@ -74,7 +76,7 @@ Questo numero rappresenta il conteggio dei visitatori univoci durante l'interval
 
 ### <a name="call-to-action"></a>Chiamata all'azione
 
-Questo numero rappresenta il numero di clic sul pulsante **Invito all'azione** effettuati nella pagina dell'offerta (pagina dei dettagli del prodotto). Gli **inviti all'azione** vengono conteggiati quando sono selezionati i pulsanti **Scarica adesso**, **Versione di valutazione gratuita**, **Contattami** e **Test drive**.
+Questo numero rappresenta il numero di clic sul pulsante **Invito all'azione** effettuati nella pagina dell'offerta (pagina dei dettagli del prodotto). Le **chiamate all'azione** vengono conteggiate quando gli utenti selezionano i pulsanti **Ottieni ora**, **versione di valutazione gratuita**, **Contatta me**o **test drive** .
 
 ![Riepilogo inviti all'azione di Informazioni dettagliate nel Centro per i partner](./media/insights-summary.png)
 
@@ -128,7 +130,7 @@ Questa tabella offre una visualizzazione elenco delle visite alle pagine e degli
 
 - I dati possono essere estratti in un file CSV se il numero dei record è inferiore a 1000.
 - Se il numero dei record è superiore a 1000, i dati esportati verranno inseriti in modo asincrono in una pagina di download nei 30 giorni successivi.
-- Si possono applicare filtri per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati in base ai nomi delle offerte e ai nomi delle campagne.  
+- Filtrare i dati in base ai nomi delle offerte e ai nomi delle campagne per visualizzare i dati a cui si è interessati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

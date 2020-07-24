@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386284"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128931"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -52,6 +52,9 @@ Per indicazioni, vedere [disponibilità elevata e bilanciamento del carico delle
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Terminazione TLS (ispezione TLS/HTTPS o accelerazione) sul traffico dai server del connettore ad Azure supportato?
 
 Il connettore del proxy di applicazione esegue l'autenticazione basata sui certificati in Azure. La terminazione TLS (ispezione TLS/HTTPS o accelerazione) interrompe questo metodo di autenticazione e non è supportata. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione TLS.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>È necessario TLS 1,2 per tutte le connessioni?
+Sì. Per fornire ai nostri clienti la crittografia migliore della categoria, il servizio Application Proxy limita l'accesso ai soli protocolli TLS 1.2. Queste modifiche sono state implementate gradualmente e sono effettive a partire dal 31 agosto 2019. Per mantenere la connessione con il servizio Application Proxy, assicurarsi che tutte le combinazioni client-server e browser-server siano aggiornate per l'uso di TLS 1.2. Queste includono i client usati dagli utenti per accedere alle applicazioni pubblicate tramite Application Proxy. Vedere [Preparazione per l'uso di TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) per riferimenti e risorse utili.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile inserire un dispositivo proxy di inoltro tra i server del connettore e il server applicazioni back-end?
 Sì, questo scenario è supportato a partire dalla versione del connettore 1.5.1526.0. Vedere [usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -93,6 +96,9 @@ Dalla pagina registrazioni applicazioni è possibile modificare l'URL della Home
 
 No, non è previsto alcun requisito IIS per le applicazioni pubblicate. È possibile pubblicare applicazioni Web in esecuzione su server diversi da Windows Server. Tuttavia, potrebbe non essere possibile usare la preautenticazione con un server non Windows, a seconda che il server Web supporti la negoziazione (autenticazione Kerberos). IIS non è richiesto nel server in cui è installato il connettore.
 
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>È possibile configurare il proxy di applicazione per aggiungere l'intestazione HSTS?
+Il proxy di applicazione non aggiunge automaticamente l'intestazione HTTP Strict-Transport-Security alle risposte HTTPS, ma manterrà l'intestazione se si trova nella risposta originale inviata dall'applicazione pubblicata. La dimostrazione di un'impostazione per abilitare questa funzionalità è nella roadmap. Se si è interessati a un'anteprima che consente di aggiungerla alle risposte, rivolgersi a aadapfeedback@microsoft.com per informazioni dettagliate.
+
 ## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando è consigliabile usare il metodo PrincipalsAllowedToDelegateToAccount quando si configura la delega vincolata Kerberos (delega vincolata Kerberos)?
@@ -133,7 +139,7 @@ Sì, è previsto. Lo scenario di pre-autenticazione richiede un controllo Active
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Il client Web di Desktop remoto (HTML5) è supportato?
 
-No, questo scenario non è attualmente supportato. Per gli aggiornamenti su questa funzionalità, seguire il forum dei commenti e suggerimenti [UserVoice](https://aka.ms/aadapuservoice) .
+Sì, questo scenario è attualmente disponibile in anteprima pubblica. Vedere [pubblicare desktop remoto con Azure ad proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Dopo aver configurato lo scenario di pre-autenticazione, ho notato che l'utente deve eseguire l'autenticazione due volte: prima nel modulo di accesso Azure AD e quindi nel modulo di accesso RDWeb. È normale? Come posso ridurlo a un accesso?
 

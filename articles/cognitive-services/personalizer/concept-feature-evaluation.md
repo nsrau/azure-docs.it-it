@@ -3,19 +3,17 @@ title: Valutazione delle funzionalità-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: Quando si esegue una valutazione nella risorsa di personalizzazione dall'portale di Azure, il Personalizzatore fornisce informazioni sulle funzionalità del contesto e delle azioni che influiscono sul modello.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0e47a2943cf8c934d201f76aefc41868adf0b25
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70242422"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127724"
 ---
 # <a name="feature-evaluation"></a>Valutazione delle funzionalità
 

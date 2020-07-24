@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807714"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128727"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
 
@@ -25,7 +25,7 @@ Quando si accede ai dati di BLOB o di Accodamento usando il [portale di Azure](h
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Autorizzazioni necessarie per accedere ai dati BLOB o di Accodamento
 
-A seconda di come si vuole autorizzare l'accesso ai dati BLOB o di Accodamento nella portale di Azure, sono necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo (RBAC). Per ulteriori informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo (RBAC)?](../../role-based-access-control/overview.md).
+A seconda di come si vuole autorizzare l'accesso ai dati BLOB o di Accodamento nella portale di Azure, sono necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="use-the-account-access-key"></a>Usare la chiave di accesso dell'account
 
@@ -57,7 +57,7 @@ I ruoli predefiniti che supportano l'accesso ai dati BLOB o della coda includono
 - [Collaboratore dati della coda di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): autorizzazioni di lettura/scrittura/eliminazione per le code.
 - [Lettore dati della coda di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): autorizzazioni di sola lettura per le code.
 
-I ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite dai ruoli predefiniti. Per altre informazioni sulla creazione di ruoli RBAC personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md) e informazioni sulle [definizioni di ruolo per le risorse di Azure](../../role-based-access-control/role-definitions.md).
+I ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite dai ruoli predefiniti. Per altre informazioni sulla creazione di ruoli personalizzati di Azure, vedere [ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md) e [comprendere le definizioni dei ruoli per le risorse di Azure](../../role-based-access-control/role-definitions.md).
 
 L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di **collaboratore dati della coda di archiviazione** .
 
@@ -107,7 +107,7 @@ Quando si carica un BLOB dalla portale di Azure, è possibile specificare se aut
 Per specificare come autorizzare un'operazione di caricamento di BLOB, attenersi alla procedura seguente:
 
 1. Nella portale di Azure passare al contenitore in cui si vuole caricare un BLOB.
-1. Fare clic sul pulsante **Carica**.
+1. Selezionare il pulsante **Carica**.
 1. Espandere la sezione **Avanzate** per visualizzare le proprietà avanzate per il BLOB.
 1. Nel campo **tipo di autenticazione** , indicare se si desidera autorizzare l'operazione di caricamento utilizzando l'account Azure ad o la chiave di accesso dell'account, come illustrato nella figura seguente:
 

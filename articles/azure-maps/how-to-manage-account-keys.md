@@ -1,19 +1,19 @@
 ---
 title: Gestire l'account Azure Maps nell'portale di Azure | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come usare il portale di Azure per gestire l'account Microsoft Azure maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 42247cc576e55c7c504e9832017af336439b11b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3317b063b5b05a57f08bbd15be827cd83075de34
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335542"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126959"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507157"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128659"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -105,7 +105,7 @@ Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzaz
 
 Con il controllo degli accessi in base al ruolo di Azure si crea una *definizione del ruolo* che determina le autorizzazioni da applicare. A un utente o a un gruppo viene quindi assegnata questa definizione di ruolo tramite un' *assegnazione di ruolo* per un determinato *ambito*, che può essere una singola risorsa, un gruppo di risorse o nella sottoscrizione.
 
-Per altre informazioni, vedere [Informazioni sul controllo degli accessi in base al ruolo di Azure][azure-rbac].
+Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure).][azure-rbac]
 
 Per il funzionamento completo di un cluster AKS sono necessari due livelli di accesso: 
 1. [Accedere alla risorsa AKS nella sottoscrizione di Azure](#azure-rbac-to-authorize-access-to-the-aks-resource). Questo processo consente di controllare le operazioni di ridimensionamento o di aggiornamento del cluster usando le API AKS, oltre a eseguire il pull dei kubeconfig.

@@ -3,18 +3,16 @@ title: Guida alla programmabilità di U-SQL per Azure Data Lake
 description: Informazioni sul set di servizi di Azure Data Lake Analytics che consente di creare una piattaforma Big Data basata sul cloud.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 2fb54c821c50ff8e1364a125cc5db181aedf0437
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110590"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127418"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -494,7 +492,7 @@ using System.IO;
 
 * Definire un tipo definito dall'utente con l'attributo SqlUserDefinedType.
 
-**SqlUserDefinedType** è usato per contrassegnare la definizione di un tipo in un assembly come tipo definito dall'utente (UDT) in U-SQL. Le proprietà dell'attributo corrispondono alle caratteristiche fisiche dell'UDT. Questa classe non può essere ereditata.
+**SqlUserDefinedType** è usato per contrassegnare la definizione di un tipo in un assembly come tipo definito dall'utente (UDT) in U-SQL. Le proprietà dell'attributo corrispondono alle caratteristiche fisiche dell'UDT. La classe non può essere ereditata.
 
 SqlUserDefinedType è un attributo obbligatorio per la definizione dell'UDT.
 
@@ -789,11 +787,7 @@ namespace USQL_Programmability
             }
 
             return new FiscalPeriod(FiscalQuarter, FiscalMonth);
-        }
-
-
-
-        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
+        }        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
         public struct FiscalPeriod
         {
             public int Quarter { get; private set; }
@@ -910,7 +904,7 @@ La definizione della classe base delle aggregazioni definite dall'utente è la s
     }
 ```
 
-**SqlUserDefinedAggregate** indica che il tipo deve essere registrato come aggregazione definita dall'utente. Questa classe non può essere ereditata.
+**SqlUserDefinedAggregate** indica che il tipo deve essere registrato come aggregazione definita dall'utente. La classe non può essere ereditata.
 
 L'attributo SqlUserDefinedType è **facoltativo** per la definizione UDAGG.
 
@@ -1091,7 +1085,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-L'attributo **SqlUserDefinedExtractor** indica che il tipo deve essere registrato come estrattore definito dall'utente. Questa classe non può essere ereditata.
+L'attributo **SqlUserDefinedExtractor** indica che il tipo deve essere registrato come estrattore definito dall'utente. La classe non può essere ereditata.
 
 SqlUserDefinedExtractor è un attributo facoltativo per la definizione di UDE, che consente di definire la proprietà AtomicFileProcessing dell'oggetto UDE.
 
@@ -1269,7 +1263,7 @@ public class MyOutputter : IOutputter
 * La classe del costruttore viene usata per passare parametri all'outputter definito dall'utente.
 * `Close` viene usato per eseguire facoltativamente l'override per rilasciare uno stato dispendioso o determinare quando è stata scritta l'ultima riga.
 
-L'attributo **SqlUserDefinedOutputter** indica che il tipo deve essere registrato come outputter definito dall'utente. Questa classe non può essere ereditata.
+L'attributo **SqlUserDefinedOutputter** indica che il tipo deve essere registrato come outputter definito dall'utente. La classe non può essere ereditata.
 
 SqlUserDefinedOutputter è un attributo facoltativo per la definizione di un outputter definito dall'utente. Viene usato per definire la proprietà AtomicFileProcessing.
 
@@ -1512,7 +1506,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor** indica che il tipo deve essere registrato come Processor definito dall'utente. Questa classe non può essere ereditata.
+**SqlUserDefinedProcessor** indica che il tipo deve essere registrato come Processor definito dall'utente. La classe non può essere ereditata.
 
 Per la definizione degli elaboratori definiti dall'utente, l'attributo SqlUserDefinedProcessor è **facoltativo**.
 
@@ -1633,7 +1627,7 @@ public class ParserApplier : IApplier
 * Apply viene chiamato per ogni riga della tabella esterna. Restituisce il set di righe di output di `IUpdatableRow`.
 * La classe del costruttore viene usata per passare parametri all'oggetto di applicazione definito dall'utente.
 
-**SqlUserDefinedApplier** indica che il tipo deve essere registrato come oggetto di applicazione definito dall'utente. Questa classe non può essere ereditata.
+**SqlUserDefinedApplier** indica che il tipo deve essere registrato come oggetto di applicazione definito dall'utente. La classe non può essere ereditata.
 
 **SqlUserDefinedApplier** è **facoltativo** per la definizione di un oggetto di applicazione definito dall'utente.
 
@@ -1847,7 +1841,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-L'attributo **SqlUserDefinedCombiner** indica che il tipo deve essere registrato come combinatore definito dall'utente. Questa classe non può essere ereditata.
+L'attributo **SqlUserDefinedCombiner** indica che il tipo deve essere registrato come combinatore definito dall'utente. La classe non può essere ereditata.
 
 **SqlUserDefinedCombiner** viene usato per definire la proprietà della modalità di combinazione. È un attributo facoltativo per la definizione di un combinatore definito dall'utente.
 
@@ -2107,7 +2101,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-L'attributo **SqlUserDefinedReducer** indica che il tipo deve essere registrato come riduttore definito dall'utente. Questa classe non può essere ereditata.
+L'attributo **SqlUserDefinedReducer** indica che il tipo deve essere registrato come riduttore definito dall'utente. La classe non può essere ereditata.
 **SqlUserDefinedReducer** è un attributo facoltativo per la definizione di un riduttore definito dall'utente. Viene usato per definire la proprietà IsRecursive.
 
 * bool     IsRecursive    

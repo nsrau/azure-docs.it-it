@@ -3,18 +3,16 @@ title: Gestire Azure Data Lake Analytics tramite il portale di Azure
 description: Questo articolo descrive come usare il portale di Azure per gestire utenti, processi, origini dati e account di Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: e9709f8ee700958b310b2fa94a546bb3ea4fc511
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121317"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127537"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

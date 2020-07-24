@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70999176"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128404"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per applicazioni mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
@@ -65,7 +65,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati con funziona
 Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 
 - [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Ruoli predefiniti per le risorse di Azure](/azure/role-based-access-control/built-in-roles)
+- [Ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles)
 - [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Usare la crittografia lato client per i dati di valore elevato

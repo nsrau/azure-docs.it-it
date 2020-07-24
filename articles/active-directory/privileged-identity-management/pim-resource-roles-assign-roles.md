@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023772"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128166"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Assegnare i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -28,12 +28,12 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) può gest
 
 - Proprietario
 - Amministratore accessi utente
-- Collaboratore
+- Autore di contributi
 - Amministrazione della protezione
 - Gestore della sicurezza SQL
 
 > [!NOTE]
-> Utenti o membri di un gruppo assegnato ai ruoli di sottoscrizione di proprietario o amministratore accesso utenti e Azure AD amministratori globali che abilitano la gestione delle sottoscrizioni in Azure AD hanno le autorizzazioni di amministratore delle risorse per impostazione predefinita. Questi amministratori possono assegnare ruoli, configurare le impostazioni dei ruoli ed esaminare l'accesso usando Privileged Identity Management per le risorse di Azure. Un utente non può gestire Privileged Identity Management per le risorse senza autorizzazioni di amministratore delle risorse. Visualizzare l'elenco dei [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
+> Utenti o membri di un gruppo assegnato ai ruoli di sottoscrizione di proprietario o amministratore accesso utenti e Azure AD amministratori globali che abilitano la gestione delle sottoscrizioni in Azure AD hanno le autorizzazioni di amministratore delle risorse per impostazione predefinita. Questi amministratori possono assegnare ruoli, configurare le impostazioni dei ruoli ed esaminare l'accesso usando Privileged Identity Management per le risorse di Azure. Un utente non può gestire Privileged Identity Management per le risorse senza autorizzazioni di amministratore delle risorse. Visualizzare l'elenco dei [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Assegnare un ruolo
 
