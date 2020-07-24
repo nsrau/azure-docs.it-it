@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068515"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure
 
@@ -125,9 +125,8 @@ Per Azure, è consigliabile impostare la pressione del protocollo MSS TCP su 1.3
 
 La latenza di rete è regolata dalla velocità della luce su una rete in fibra ottica. La velocità effettiva di rete del protocollo TCP è regolata anche dal tempo di round trip (RTT) tra due dispositivi di rete.
 
-| | | | |
-|-|-|-|-|
-|**Route**|**Distanza**|**Tempo unidirezionale**|**RTT**|
+| Route | Distanza | Tempo unidirezionale | RTT |
+| ----- | -------- | ------------ | --- |
 |Da New York a San Francisco|4.148 km|21 MS|42 ms|
 |Da New York a Londra|5.585 km|28 ms|56 ms|
 |Da New York a Sydney|15.993 km|80 ms|160 ms|
@@ -162,9 +161,8 @@ Di seguito è illustrata la formula per calcolare la velocità effettiva massima
 
 Questa tabella mostra la velocità effettiva massima in megabyte/al secondo di una singola connessione TCP. Per migliorare la leggibilità, i megabyte vengono utilizzati per l'unità di misura.
 
-| | | | |
-|-|-|-|-|
-|**Dimensioni finestra TCP (byte)**|**Latenza RTT (MS)**|**Velocità effettiva massima di megabyte/secondo**|**Velocità effettiva massima di megabit/secondo**|
+| Dimensioni finestra TCP (byte) | Latenza RTT (MS) | Velocità effettiva massima di megabyte/secondo | Velocità effettiva massima di megabit/secondo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|1|65,54|524,29|
 |65.535|30|2,18|17,48|
 |65.535|60|1.09|8,74|
@@ -179,9 +177,8 @@ La scalabilità della finestra TCP è una tecnica che aumenta in modo dinamico l
 
 Questa tabella illustra le relazioni seguenti:
 
-| | | | |
-|-|-|-|-|
-|**Dimensioni finestra TCP (byte)**|**Latenza RTT (MS)**|**Velocità effettiva massima di megabyte/secondo**|**Velocità effettiva massima di megabit/secondo**|
+| Dimensioni finestra TCP (byte) | Latenza RTT (MS) | Velocità effettiva massima di megabyte/secondo | Velocità effettiva massima di megabit/secondo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|30|2,18|17,48|
 |131.070|30|4.37|34,95|
 |262.140|30|8,74|69,91|
@@ -221,10 +218,9 @@ Set-NetTCPSetting
 
 Queste sono le impostazioni TCP valide per `AutoTuningLevel` :
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Fattore di scala**|**Moltiplicatore di scala**|**Formula per <br/> calcolare le dimensioni massime della finestra**|
-|Disabilitata|nessuno|nessuno|Dimensioni finestra|
+| AutoTuningLevel | Fattore di scala | Moltiplicatore di scala | Formula per<br/>Calcola dimensioni massime della finestra |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
+|Disabled|Nessuna|Nessuna|Dimensioni finestra|
 |Con restrizioni|4|2 ^ 4|Dimensioni finestra * (2 ^ 4)|
 |Con restrizioni elevata|2|2 ^ 2|Dimensioni finestra * (2 ^ 2)|
 |Normale|8|2 ^ 8|Dimensioni finestra * (2 ^ 8)|

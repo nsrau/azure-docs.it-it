@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 2f71a1d26543e7436dee039592d120b52d5c9fea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7da6c0f88ae68f473e57590824e675299f7d524b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068574"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
@@ -46,7 +46,7 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
+1. Nel menu del portale di Azure o nella **home page** selezionare **Crea una risorsa**.
 2. Immettere *indirizzo ip pubblico* nella casella *Cerca nel Marketplace*. Selezionare la voce **Indirizzo IP pubblico** visualizzata nei risultati della ricerca.
 3. In **Indirizzo IP pubblico**, selezionare **Crea**.
 4. In **Crea indirizzi IP pubblici** immettere o selezionare i valori per le impostazioni seguenti, quindi selezionare **Crea**:
@@ -61,8 +61,8 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
    |Etichetta del nome DNS|No|Deve essere univoca all'interno della località di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Azure registra automaticamente il nome e l'indirizzo IP nel proprio DNS, consentendo la connessione a una risorsa con tale nome. Per creare il nome DNS completo, Azure aggiunge una subnet predefinita come *location.cloudapp.azure.com* al nome specificato, dove location è la località selezionata. Se si sceglie di creare entrambe le versioni dell'indirizzo, lo stesso nome DNS viene assegnato sia all'indirizzo IPv4 che all'indirizzo IPv6. Il DNS predefinito di Azure contiene i record dei nomi AAAA sia per IPv4 che per IPv6 e risponde con entrambi i record quando viene eseguita una ricerca per il nome DNS. Il client sceglie con quale indirizzo comunicare, IPv4 o IPv6. Anziché (oppure oltre a) usare l'etichetta del nome DNS con il suffisso predefinito, è possibile usare il servizio DNS di Azure per configurare un nome DNS con un suffisso personalizzato che viene risolto nell'indirizzo IP pubblico. Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Nome (visibile solo se si seleziona la versione IP di **entrambi**)|Sì, se si seleziona la versione IP di **entrambi**|Il nome deve essere diverso da quello immesso come primo **nome** in questo elenco. Se si sceglie di creare sia un indirizzo IPv4 che un indirizzo IPv6, il portale crea due risorse indirizzo IP pubblico separate, a ognuna delle quali è assegnata una versione dell'indirizzo IP.|
    |Assegnazione di indirizzi IP (visibile solo se si seleziona la versione IP di **entrambi**)|Sì, se si seleziona la versione IP di **entrambi**|Stesse restrizioni dell'assegnazione di indirizzi IP precedente|
-   |Subscription|Sì|Deve esistere nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa a cui si associeranno gli IP pubblici.|
-   |Resource group|Sì|Può esistere nello stesso gruppo di risorse o in un altro [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa alla quale si associeranno gli indirizzi IP pubblici.|
+   |Sottoscrizione|Sì|Deve esistere nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa a cui si associeranno gli IP pubblici.|
+   |Gruppo di risorse|Sì|Può esistere nello stesso gruppo di risorse o in un altro [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa alla quale si associeranno gli indirizzi IP pubblici.|
    |Posizione|Sì|Deve esistere nella stessa [posizione](https://azure.microsoft.com/regions), nota anche come area, come risorsa a cui associare gli IP pubblici.|
    |Zona di disponibilità| No | Questa impostazione viene visualizzata solo se si seleziona una località supportata. Per un elenco di località supportate, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se è stato selezionato lo SKU **Basic**, viene selezionata automaticamente l'opzione *Nessuna*. Se si preferisce garantire una zona specifica, è possibile selezionarne una. Entrambe le opzioni non prevedono la ridondanza della zona. Se è stato selezionato lo SKU **Standard**: viene selezionata automaticamente l'opzione con ridondanza della zona e il percorso dei dati è resiliente agli errori a livello di zona. Se si preferisce garantire una zona specifica, non resiliente agli errori a livello di zona, è possibile selezionarne una.
 
@@ -98,7 +98,7 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 
 Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
 
-- Una macchina virtuale [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creazione) o una [macchina virtuale esistente](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- Una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creazione) o una [macchina virtuale esistente](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [Load Balancer con connessione Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway applicazione di Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Connessione da sito a sito con gateway VPN di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -108,7 +108,7 @@ Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
 
 Per eseguire attività negli indirizzi IP pubblici, l'account deve essere assegnato al ruolo [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Action                                                             | Nome                                                           |
+| Operazione                                                             | Nome                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | Leggere un indirizzo IP pubblico                                          |
 | Microsoft.Network/publicIPAddresses/write                          | Creare o aggiornare un indirizzo IP pubblico                           |

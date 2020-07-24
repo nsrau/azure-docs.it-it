@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Azure sinapsi Studio (anteprima)
+title: Risolvere i problemi di sinapsi Studio (anteprima)
 description: Risolvere i problemi di Azure sinapsi Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20978a6389c790575fa26258c4468f891af733ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b0070b35d6ee85f698960708363e7b4d226a8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070275"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Risoluzione dei problemi di Azure sinapsi Studio (anteprima)
 

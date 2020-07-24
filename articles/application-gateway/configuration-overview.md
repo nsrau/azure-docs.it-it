@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068034"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -286,7 +286,7 @@ Con le regole di riscrittura è possibile aggiungere, rimuovere o aggiornare le 
 I parametri Header e URL possono essere impostati su valori statici o ad altre intestazioni e variabili server. Questo consente di utilizzare casi di utilizzo importanti, ad esempio l'estrazione di indirizzi IP del client, la rimozione di informazioni riservate sul back-end, l'aggiunta di ulteriore sicurezza e così via.
 Per altre informazioni, vedere:
 
- - [Panoramica delle intestazioni HTTP di riscrittura](rewrite-http-headers-url.md)
+ - [Riscrivere le intestazioni HTTP e la panoramica degli URL](rewrite-http-headers-url.md)
  - [Configurare la riscrittura dell'intestazione HTTP](rewrite-http-headers-portal.md)
  - [Configurare la riscrittura URL](rewrite-url-portal.md)
 

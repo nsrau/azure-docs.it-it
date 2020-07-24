@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069140"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Risolvere l'errore di avvio: errore lettura da disco
 
@@ -26,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui non è pos
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che verrà visualizzato il messaggio: "A disk read error occurred (Errore lettura da disco). Premere Ctrl + Alt + Canc per riavviare".
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che verrà visualizzato il messaggio: "A disk read error occurred (Errore lettura da disco). Premere Ctrl + Alt + Canc per riavviare".
 
    ![Messaggio di errore: A disk read error occurred. Press Ctrl+Alt+Del to restart (Errore lettura da disco. Premere CTRL+ALT+CANC per riavviare).](./media/disk-read-error-occurred/1.png)
 
@@ -50,7 +51,7 @@ Questo messaggio di errore indica che la struttura del disco è danneggiata e il
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="set-partition-status-to-active"></a>Impostare lo stato della partizione su attivo
@@ -142,4 +143,4 @@ Le macchine virtuali di prima generazione devono prima verificare che la partizi
    
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.

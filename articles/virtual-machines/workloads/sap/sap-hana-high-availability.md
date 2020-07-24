@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2b4b207aca92cc37b71f3cb12ec579a6b57e832
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068954"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -123,7 +124,7 @@ Per distribuire il modello, seguire questi passaggi:
 1. Creare una rete virtuale.
 1. Creare un set di disponibilità.
    - Impostare il numero massimo di domini di aggiornamento.
-1. Creare un servizio di bilanciamento del carico (interno). Si consiglia di usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Creare un servizio di bilanciamento del carico (interno). Si consiglia di usare [Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
    - Selezionare la rete virtuale creata nel passaggio 2.
 1. Creare la macchina virtuale 1.
    - Usare un'immagine SLES4SAP nella raccolta di Azure che sia supportata per SAP HANA nel tipo di macchina virtuale selezionato.
@@ -169,7 +170,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **OK**.
 
    > [!Note]
-   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del Load Balancer interno standard di Azure (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del Load Balancer interno standard di Azure (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questa procedura di configurazione:
    1. Prima, creare il pool di indirizzi IP front-end:
@@ -232,7 +233,7 @@ Per distribuire il modello, seguire questi passaggi:
    Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 > Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creare un cluster Pacemaker
@@ -276,11 +277,11 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. Si consiglia di creare un volume con striping per migliorare le prestazioni di I/O e allineare le dimensioni di striping ai valori documentati in [Configurazioni di archiviazione della macchina virtuale SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). L'argomento `-i` deve essere il numero dei volumi fisici sottostanti e l'argomento `-I` è la dimensione della striscia. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. La dimensione di striping per il volume di dati è **256KiB**. Un volume fisico viene usato per il volume di log, quindi non viene usata alcuna opzione `-i` o `-I` in modo esplicito per i comandi del volume di log.  
+   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. Si consiglia di creare un volume con striping per migliorare le prestazioni di I/O e allineare le dimensioni di striping ai valori documentati in [Configurazioni di archiviazione della macchina virtuale SAP HANA](./hana-vm-operations-storage.md). L'argomento `-i` deve essere il numero dei volumi fisici sottostanti e l'argomento `-I` è la dimensione della striscia. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. La dimensione di striping per il volume di dati è **256KiB**. Un volume fisico viene usato per il volume di log, quindi non viene usata alcuna opzione `-i` o `-I` in modo esplicito per i comandi del volume di log.  
 
    > [!IMPORTANT]
    > Usare l'opzione `-i` e impostarla sul numero del volume fisico sottostante quando si usano più volumi fisici per ogni volume di dati, di log o condiviso. Usare l'opzione `-I` per specificare le dimensioni di striping durante la creazione di un volume con striping.  
-   > Vedere [Configurazioni di archiviazione della macchina virtuale SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per le configurazioni di archiviazione consigliate, incluse le dimensioni di striping e il numero di dischi.  
+   > Vedere [Configurazioni di archiviazione della macchina virtuale SAP HANA](./hana-vm-operations-storage.md) per le configurazioni di archiviazione consigliate, incluse le dimensioni di striping e il numero di dischi.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -1137,4 +1138,3 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
-

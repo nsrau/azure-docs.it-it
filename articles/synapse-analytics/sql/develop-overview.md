@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070048"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per le funzionalità di SQL sinapsi in Azure sinapsi Analytics
 In questo articolo è possibile trovare un elenco di risorse per il pool SQL e le funzioni SQL su richiesta (anteprima) di sinapsi SQL. Gli articoli consigliati sono suddivisi in due sezioni: decisioni di progettazione chiave e tecniche di sviluppo e codifica.
@@ -25,8 +25,8 @@ L'obiettivo di questi articoli è aiutare a sviluppare l'approccio tecnico ottim
 ## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
 Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per lo sviluppo di sinapsi SQL:
 
-|                                                          |   Pool SQL   | SQL su richiesta |
-| -----------------------------------------------------    | ---- | ---- |
+| Articolo | Pool SQL | SQL su richiesta |
+| ------- | -------- | ------------- |
 | [Connessioni](connect-overview.md)                    | Sì | Sì |
 | [Classi di risorse e concorrenza](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sì    | No |
 | [Transazioni](develop-transactions.md)              | Sì | No |
@@ -40,12 +40,12 @@ Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per
 | [CETAS](develop-tables-cetas.md)                     | Sì | Sì |
 
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 Di seguito sono riportati gli articoli essenziali che evidenziano tecniche di codifica, suggerimenti e consigli per lo sviluppo specifici:
 
-|                                            | Pool SQL | SQL su richiesta |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Articolo | Pool SQL | SQL su richiesta |
+| ------- | -------- | ------------- |
 | [Stored procedure](develop-stored-procedures.md)  | Sì                | No                      |
 | [Etichette](develop-label.md)                           | Sì                | No                      |
 | [Visualizzazioni](develop-views.md)                             | Sì                | Sì                     |

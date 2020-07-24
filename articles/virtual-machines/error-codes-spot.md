@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069789"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messaggi di errore per le VM spot e i set di scalabilità
 
@@ -34,7 +35,6 @@ Di seguito sono riportati alcuni possibili codici di errore che è possibile ric
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Il prezzo massimo è supportato solo per le macchine virtuali Azure spot. | Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  La richiesta di spostamento delle risorse contiene una macchina virtuale Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID macchina virtuale. | Non è possibile spostare le VM spot. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  La richiesta di spostamento delle risorse contiene un set di scalabilità di macchine virtuali Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID del set di scalabilità di macchine virtuali. | Non è possibile spostare le istanze del set di scalabilità di punti. |
-| EphemeralOSDisksNotSupportedForSpotVMs | I dischi del sistema operativo temporaneo non sono supportati per le macchine virtuali spot. | Usare un normale disco del sistema operativo per la macchina virtuale spot. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | La macchina virtuale Azure spot non è supportata nel set di scalabilità di macchine virtuali con la modalità di orchestrazione VM. | Impostare la modalità di orchestrazione sul set di scalabilità di macchine virtuali per usare le istanze di spot. |
 
 

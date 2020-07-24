@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068214"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
-
-> [!NOTE]
-> Al momento, ASP.NET Core attualmente non supporta il popolamento dell'utente corrente con la funzionalità di autenticazione/autorizzazione.
->
 
 Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'autorizzazione ed è quindi possibile consentire l'accesso degli utenti e l'accesso ai dati senza scrivere codice, o con una minima quantità di codice, nell'app Web, nell'API RESTful, nel back-end per dispositivi mobili e anche in [Funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app.
 
@@ -28,6 +24,9 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 >
 > Il ASP.NET Core 2,1 e versioni successive ospitate dal servizio app è già stato modificato per questa modifica di rilievo e gestire in modo appropriato Chrome 80 e i browser meno recenti. Inoltre, la stessa patch per ASP.NET Framework 4.7.2 viene distribuita nelle istanze del servizio app nell'intero gennaio 2020. Per ulteriori informazioni, tra cui come sapere se l'applicazione ha ricevuto la patch, vedere [app Azure Service navigava sullostesso sito cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> La funzionalità di autenticazione/autorizzazione viene anche chiamata "Easy auth".
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](../app-service-mobile/app-service-mobile-auth.md).
 
@@ -53,6 +52,10 @@ Per tutti i Framework di linguaggio, il servizio app rende disponibili al codice
 Per [funzioni di Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` non viene popolato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni della richiesta o ottenere l' `ClaimsPrincipal` oggetto dal contesto della richiesta o anche tramite un parametro di associazione. Per ulteriori informazioni, vedere [utilizzo delle identità client](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
 Per altre informazioni, vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims).
+
+> [!NOTE]
+> Al momento, ASP.NET Core attualmente non supporta il popolamento dell'utente corrente con la funzionalità di autenticazione/autorizzazione. Tuttavia, per colmare questo gap sono disponibili [componenti middleware open source](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) .
+>
 
 ### <a name="token-store"></a>Archivio di token
 
@@ -134,10 +137,6 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 > [!CAUTION]
 > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderate per le app che vogliono un home page disponibile pubblicamente, come in molte applicazioni a singola pagina.
-
-> [!NOTE]
-> Autenticazione/autorizzazione era precedentemente nota come Easy auth.
->
 
 ## <a name="more-resources"></a>Altre risorse
 

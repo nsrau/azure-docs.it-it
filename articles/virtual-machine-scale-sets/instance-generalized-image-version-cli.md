@@ -1,5 +1,5 @@
 ---
-title: Creare un set di scalabilità da un'immagine generalizzata
+title: Creare un set di scalabilità da un'immagine generalizzata con interfaccia della riga di comando di Azure
 description: Creare un set di scalabilità usando un'immagine generalizzata in una raccolta di immagini condivise.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069838"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Creare un set di scalabilità da un'immagine generalizzata
+# <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Creare un set di scalabilità da un'immagine generalizzata con interfaccia della riga di comando di Azure
 
 Creare un set di scalabilità da una versione di immagine generalizzata archiviata in una [raccolta di immagini condivise](shared-image-galleries.md) usando l'interfaccia della riga di comando di Azure. Se si vuole creare un set di scalabilità usando una versione di immagine specializzata, vedere [creare istanze del set di scalabilità da un'immagine specializzata](instance-specialized-image-version-cli.md).
 

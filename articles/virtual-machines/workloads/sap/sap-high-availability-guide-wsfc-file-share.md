@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068682"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
 
@@ -113,7 +114,7 @@ Il servizio Spazi di archiviazione diretta viene usato come disco condiviso per 
 Quando si sceglie Spazi di archiviazione diretta, prendere in considerazione i casi d'uso seguenti:
 
 - Le macchine virtuali usate per compilare il cluster di Spazi di archiviazione diretta devono essere distribuite in un set di disponibilità di Azure.
-- Per il ripristino di emergenza di un cluster di Spazi di archiviazione diretta, è possibile usare [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Per il ripristino di emergenza di un cluster di Spazi di archiviazione diretta, è possibile usare [Azure Site Recovery Services](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - Non è supportata l'estensione del cluster con spazio di archiviazione diretta tra zone di disponibilità di Azure diversi.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Prerequisiti SAP per le condivisioni file di tipo scale-out in Azure

@@ -6,20 +6,21 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068199"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
-Nel servizio app un'app viene eseguita in un _piano di servizio app_. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. Queste risorse di calcolo sono analoghe alla [_server farm_](https://wikipedia.org/wiki/Server_farm) di un tradizionale hosting Web. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app).
+Nel servizio app un'app viene eseguita in un _piano di servizio app_. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. Queste risorse di calcolo sono analoghe alla [_server farm_](https://wikipedia.org/wiki/Server_farm) nell'hosting Web convenzionale. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app).
 
 Quando si crea un piano di servizio app in una determinata area (ad esempio, Europa occidentale), viene creato un set di risorse di calcolo per quel piano in quell'area. Tutte le app inserite nel piano di servizio app vengono eseguite in queste risorse di calcolo definite dal piano di servizio app. Ogni piano di servizio app definisce:
 
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
-- Numero di istanze di VM
+- Numero di istanze della macchina virtuale
 - Dimensioni delle istanze di VM (Small, Medium, Large)
 - Piano tariffario (gratuito, condiviso, Basic, standard, Premium, PremiumV2, isolated)
 
@@ -27,7 +28,7 @@ Il _piano tariffario_ di un piano di servizio app determina le funzionalità del
 
 - **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa VM di Azure delle altre app del servizio app, incluse le app di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
 - **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in VM di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
-- **Isolated**: questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
+- **Isolated**: questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per lo scale-out.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -78,8 +79,10 @@ Non viene addebitato alcun costo per l'uso delle funzionalità del servizio app 
 
 > [!NOTE]
 > Se si integra il servizio app con un altro servizio di Azure, potrebbe essere necessario tenere presenti le tariffe per questi altri servizi. Se ad esempio si usa Gestione traffico di Azure per ridimensionare l'app geograficamente, anche Gestione traffico di Azure viene fatturato in base all'utilizzo. Per valutare il costo per tutti i servizi in Azure, vedere [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/). 
->
->
+
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Che cosa accade se sono necessarie altre funzionalità per l'app?
 

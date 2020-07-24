@@ -1,5 +1,5 @@
 ---
-title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
+title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM (Linux)
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni di macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f9713c0ce2df2533a49086c6c4a95aeaa24c48e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2129130dab58c9e1fb98878efc3ec668eeb45359
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069773"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
@@ -134,7 +134,7 @@ az policy assignment create \
     }'
 ```
 
-## <a name="test-the-policy"></a>Testare i criteri
+## <a name="test-the-policy"></a>Testare il criterio
 
 Testare i criteri creando una nuova macchina virtuale e provando ad aggiungere un nuovo utente.
 

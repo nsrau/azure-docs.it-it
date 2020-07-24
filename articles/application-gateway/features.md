@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067979"
 ---
 # <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione Azure
 
@@ -34,7 +35,7 @@ Il gateway applicazione include le funzionalità seguenti:
 - [Traffico Websocket e HTTP/2](#websocket-and-http2-traffic)
 - [Esaurimento delle connessioni](#connection-draining)
 - [Pagine di errore personalizzate](#custom-error-pages)
-- [Riscrivere le intestazioni HTTP](#rewrite-http-headers)
+- [Riscrivere le intestazioni HTTP e l'URL](#rewrite-http-headers-and-url)
 - [Ridimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminazione Secure Sockets Layer (SSL/TLS)
@@ -82,13 +83,13 @@ Per altre informazioni, vedere [Panoramica del routing basato sul percorso URL](
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
 
-L'hosting di più siti consente di configurare più siti Web nella stessa istanza del gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione (per prestazioni ottimali). Ogni sito Web può essere indirizzato al proprio pool. Ad esempio, il gateway applicazione può servire il traffico per `contoso.com` e `fabrikam.com` da due pool di server denominati ContosoServerPool e FabrikamServerPool.
+Con il gateway applicazione, è possibile configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
 
-Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
+Le richieste per `http://contoso.com` vengono indirizzate a ContosoServerPool, `http://fabrikam.com` vengono instradate a FabrikamServerPool e così via.
 
-Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione.
+Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione. Per altre informazioni, vedere [hosting di più siti nel gateway applicazione](multiple-site-overview.md).
 
-Per altre informazioni, vedere [hosting di più siti nel gateway applicazione](multiple-site-overview.md).
+È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a 5 nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Reindirizzamento
 
@@ -126,11 +127,11 @@ Per altre informazioni, vedere [Panoramica della configurazione del gateway appl
 
 ## <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
-Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
+Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Con una pagina di errore personalizzata è possibile usare il layout e il marchio aziendali.
 
 Per altre informazioni, vedere [Errori personalizzati](custom-error.md).
 
-## <a name="rewrite-http-headers"></a>Riscrivere le intestazioni HTTP
+## <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
 
 Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. La riscrittura delle intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio:
 
@@ -138,9 +139,11 @@ Le intestazioni HTTP consentono al client e al server di passare informazioni ag
 - Rimozione di campi di intestazione della risposta che possono rivelare informazioni riservate.
 - Rimozione delle informazioni sulle porte dalle intestazioni X-Forwarded-For.
 
-Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. Consente inoltre di aggiungere le condizioni necessarie per garantire che le intestazioni specificate vengono riscritte solo in presenza di determinate condizioni.
+Il gateway applicazione e lo SKU WAF V2 supportano la possibilità di aggiungere, rimuovere o aggiornare intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta e risposta si spostano tra il client e i pool back-end. È inoltre possibile riscrivere gli URL, i parametri della stringa di query e il nome host. Con la riscrittura URL e il routing basato su percorso URL, è possibile scegliere di indirizzare le richieste a uno dei pool back-end in base al percorso originale o al percorso riscritto, usando l'opzione mappa di percorso di rivalutazione. 
 
-Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
+Offre inoltre la possibilità di aggiungere condizioni per garantire che le intestazioni o l'URL specificato vengano riscritti solo quando vengono soddisfatte determinate condizioni. Queste condizioni sono basate sulle informazioni sulla richiesta e sulla risposta.
+
+Per altre informazioni, vedere [riscrivere le intestazioni HTTP e l'URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Ridimensionamento
 
@@ -152,7 +155,7 @@ Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
-| Dimensioni medie risposta della pagina di back-end | Piccola | Media | Grande |
+| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | large |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 kB |35 Mbps |100 Mbps |200 Mbps |

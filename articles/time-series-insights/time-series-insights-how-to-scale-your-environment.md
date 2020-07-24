@@ -5,21 +5,22 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070082"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
+# <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Come ridimensionare l'ambiente Gen1 Azure Time Series Insights
 
-Questo articolo descrive come modificare la capacità dell'ambiente di Time Series Insights usando il [portale di Azure](https://portal.azure.com). Per capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato.
+Questo articolo descrive come modificare la capacità dell'ambiente di Azure Time Series Insights usando il [portale di Azure](https://portal.azure.com). Per capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato.
 
 È possibile usare il portale di Azure per aumentare o diminuire la capacità in uno SKU di prezzo specifico.
 
@@ -31,11 +32,11 @@ Non è però consentita la modifica dello SKU di piano tariffario. Ad esempio, u
 
 ## <a name="change-the-capacity-of-your-environment"></a>Modificare la capacità dell'ambiente
 
-1. Nel portale di Azure individuare selezionare l'ambiente Time Series Insights in uso.
+1. Nella portale di Azure individuare e selezionare l'ambiente Azure Time Series Insights.
 
-1. Nel menu per l'ambiente di Time Series Insights selezionare **Configurazione archiviazione**.
+1. Nel menu per l'ambiente di Azure Time Series Insights selezionare **Configurazione archiviazione**.
 
-   [![Configurare la capacità del Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Configurare la capacità del Azure Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Regolare il dispositivo di scorrimento **Capacità** per selezionare una capacità che soddisfi i requisiti in termini di velocità in ingresso e capacità di archiviazione. Si noti che la **velocità in ingresso**, la **capacità di archiviazione** e i **costi stimati** vengono aggiornati in modo dinamico per illustrare l'impatto della modifica.
 
@@ -49,8 +50,8 @@ Non è però consentita la modifica dello SKU di piano tariffario. Ad esempio, u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Informazioni sulla conservazione in Time Series Insights).
+- Per ulteriori informazioni, vedere informazioni sulla [conservazione in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Informazioni sulla [configurazione della conservazione dei dati in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Informazioni sulla [configurazione della conservazione dei dati in Azure Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Informazioni sulla [pianificazione dell'ambiente](time-series-insights-environment-planning.md).
