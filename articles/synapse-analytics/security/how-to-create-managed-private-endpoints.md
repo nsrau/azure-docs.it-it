@@ -1,5 +1,5 @@
 ---
-title: Creare un endpoint privato gestito per connettersi ai risultati dell'origine dati.
+title: Creare un endpoint privato gestito per connettersi ai risultati dell'origine dati
 description: In questo articolo viene illustrato come creare un endpoint privato gestito per le origini dati da un'area di lavoro di Azure sinapsi.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6f0054364e5bbfb80fc4c1b9db6a4c15f365a81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065473"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creare un endpoint privato gestito per l'origine dati (anteprima)
 
@@ -31,7 +31,7 @@ In Azure sinapsi Studio selezionare la scheda **Gestisci** dal pannello di navig
 
 ## <a name="step-3-select-the-data-source-type"></a>Passaggio 3: selezionare il tipo di origine dati
 
-Consente di selezionare il tipo di origine dati. In questo caso, l'origine dati di destinazione è un account ADLS Gen2. Selezionare **Continua**.
+Consente di selezionare il tipo di origine dati. In questo caso, l'origine dati di destinazione è un account ADLS Gen2. Seleziona **Continua**.
 ![Selezionare un tipo di origine dati di destinazione](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-3.png)
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Passaggio 4: immettere le informazioni sull'origine dati

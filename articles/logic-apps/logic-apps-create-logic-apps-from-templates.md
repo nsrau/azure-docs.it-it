@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066249"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
 
@@ -49,7 +50,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
    | **Gruppo di risorse** | *nome-gruppo-di-risorse-di-Azure* | Creare o selezionare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) per questa app per la logica e per organizzare tutte le risorse associate a questa app. | 
    | **Posizione** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
-   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Configurare la [registrazione diagnostica](../logic-apps/monitor-logic-apps-log-analytics.md) per l'app per la logica usando i [log di Monitoraggio di Azure](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
+   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Configurare la [registrazione diagnostica](../logic-apps/monitor-logic-apps-log-analytics.md) per l'app per la logica usando i [log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
    |||| 
 
 4. Al termine, selezionare **Aggiungi al dashboard**. L'app per la logica verrà così visualizzata nel dashboard di Azure e aperta dopo la distribuzione. Scegliere **Create**.
@@ -145,7 +146,7 @@ Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
 ## <a name="get-support"></a>Supporto
 
-* Per domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Per domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

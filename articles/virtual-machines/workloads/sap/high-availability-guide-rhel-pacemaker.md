@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 999ab77538a145189e0576c920216fa55d8508f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85366824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065142"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -120,7 +120,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    > [!IMPORTANT]
-   > Se è necessario aggiornare l'agente di isolamento di Azure e, se si usa un ruolo personalizzato, assicurarsi di aggiornare il ruolo personalizzato in modo da includere l'azione **Spegnimento**. Per informazioni, vedere [Creare un ruolo personalizzato per l'agente di isolamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
+   > Se è necessario aggiornare l'agente di isolamento di Azure e, se si usa un ruolo personalizzato, assicurarsi di aggiornare il ruolo personalizzato in modo da includere l'azione **Spegnimento**. Per informazioni, vedere [Creare un ruolo personalizzato per l'agente di isolamento](#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** Configurare la risoluzione dei nomi host
 
@@ -220,7 +220,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creare un ruolo personalizzato per l'agente di isolamento
 
-L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È necessario concedere all'entità servizio le autorizzazioni per avviare e arrestare (spegnimento) tutte le macchine virtuali del cluster. Se il ruolo personalizzato non è già stato creato, è possibile farlo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È necessario concedere all'entità servizio le autorizzazioni per avviare e arrestare (spegnimento) tutte le macchine virtuali del cluster. Se il ruolo personalizzato non è già stato creato, è possibile farlo usando [PowerShell](../../../role-based-access-control/role-assignments-powershell.md) o l'[interfaccia della riga di comando di Azure](../../../role-based-access-control/role-assignments-cli.md).
 
 Per il file di input usare il contenuto seguente. Tale contenuto deve essere adattato alle sottoscrizioni, ovvero è necessario sostituire c276fc76-9cd4-44c9-99a7-4fd71546436e ed e91d47c4-76f3-4271-a796-21b4ecfe3624 con gli ID delle sottoscrizioni. Se si ha una sola sottoscrizione, rimuovere la seconda voce in AssignableScopes.
 
@@ -291,7 +291,7 @@ op monitor interval=3600
 </code></pre>
 
 > [!TIP]
->L'agente di isolamento di Azure ha bisogno di connettersi agli endpoint pubblici come documentato, con l'aggiunta di possibili soluzioni, in [Connettività di endpoint pubblici per macchine virtuali con ILB standard](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>L'agente di isolamento di Azure ha bisogno di connettersi agli endpoint pubblici come documentato, con l'aggiunta di possibili soluzioni, in [Connettività di endpoint pubblici per macchine virtuali con ILB standard](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

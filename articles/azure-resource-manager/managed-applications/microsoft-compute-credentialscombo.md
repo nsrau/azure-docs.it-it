@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063800"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento Microsoft.Compute.CredentialsCombo dell'interfaccia utente
 
@@ -19,15 +20,15 @@ Si tratta di un gruppo di controlli con convalida predefinita per le chiavi pubb
 
 Per Windows, gli utenti visualizzeranno:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
 
 Per Linux con la password selezionata, gli utenti visualizzeranno:
 
-![Password Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Password Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
 
 Per Linux con chiave pubblica SSH selezionata, gli utenti visualizzeranno:
 
-![Chiave Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Chiave Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>SCHEMA
 

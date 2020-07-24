@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065650"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guida alla pubblicazione per le offerte di macchine virtuali
 
@@ -47,7 +47,7 @@ Usare il tipo di offerta della *macchina virtuale* quando si distribuisce un'app
 > Al momento, gli impegni monetari associati a un Enterprise Agreement possono essere usati per l'utilizzo di Azure della VM, ma non per i costi di licenza software.  
 > 
 > [!NOTE]
-> È possibile limitare l'individuazione e la distribuzione della macchina virtuale a un set specifico di clienti pubblicando l'immagine e i prezzi come offerta privata. Le offerte private offrono la possibilità di creare offerte esclusive per i clienti più vicini e offrire software e termini personalizzati. Tali condizioni personalizzate consentono di porre in evidenza numerosi scenari, con offerte contenenti condizioni e prezzi particolari, nonché l'accesso anticipato a versioni software limitate. Le offerte private consentono di fornire prezzi o prodotti specifici a un set limitato di clienti creando un nuovo SKU con tali dettagli.  
+> È possibile limitare l'individuazione e la distribuzione della macchina virtuale a un set specifico di clienti pubblicando l'immagine e i prezzi come offerta privata. Le offerte private offrono la possibilità di creare offerte esclusive per i clienti più vicini e offrire software e termini personalizzati. Tali condizioni personalizzate consentono di porre in evidenza numerosi scenari, con offerte contenenti condizioni e prezzi particolari, nonché l'accesso anticipato a versioni software limitate. Le offerte private consentono di fornire prezzi o prodotti specifici a un set limitato di clienti creando un nuovo piano con tali dettagli.  
 >
 > Per altre informazioni, vedere [offerte private in Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 

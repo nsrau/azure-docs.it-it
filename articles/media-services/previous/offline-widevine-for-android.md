@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065491"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android  
 
@@ -29,7 +29,7 @@ ms.locfileid: "80294341"
 > * [Versione 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 
@@ -181,7 +181,7 @@ Ciò significa che il servizio token di sicurezza deve avere la logica di busine
 
 ### <a name="question"></a>Domanda
 
-Per i livelli di sicurezza di Widevine, nella documentazione relativa alla [Panoramica dell'architettura di WIDEVINE DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) di Google, definisce tre diversi livelli di sicurezza. mentre nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview) ne vengono presentati cinque. Qual è la relazione o la corrispondenza tra i due diversi set di livelli di sicurezza?
+Per i livelli di sicurezza di Widevine, nella documentazione relativa alla [Panoramica dell'architettura di WIDEVINE DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) di Google, definisce tre diversi livelli di sicurezza. mentre nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](./media-services-widevine-license-template-overview.md) ne vengono presentati cinque. Qual è la relazione o la corrispondenza tra i due diversi set di livelli di sicurezza?
 
 ### <a name="answer"></a>Risposta
 
@@ -191,7 +191,7 @@ Nella panoramica dell' [architettura WIDEVINE DRM](https://storage.googleapis.co
 2.  Livello di sicurezza 2: la crittografia (ma non l'elaborazione dei dati video) viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.
 3.  Livello di sicurezza 3: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza.
 
-Parallelamente, nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview) la proprietà security_level di content_key_specs può avere i cinque valori seguenti, che definiscono i diversi requisiti di affidabilità client per la riproduzione di contenuto:
+Parallelamente, nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](./media-services-widevine-license-template-overview.md) la proprietà security_level di content_key_specs può avere i cinque valori seguenti, che definiscono i diversi requisiti di affidabilità client per la riproduzione di contenuto:
 
 1.  È necessaria una soluzione di crittografia white box basata su software.
 2.  Sono necessari una soluzione di crittografia software e un decodificatore offuscato.
@@ -224,6 +224,6 @@ Per migliorare la velocità di download sono disponibili due diverse strategie:
 
 * Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7902ea2e30dec20e57d88344dc9507aec3993600
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064102"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento Microsoft.Common.PasswordBox dell'interfaccia utente
 
@@ -17,7 +18,7 @@ Controllo che può essere usato per fornire e confermare una password.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 
-![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
+![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft-common-passwordbox.png)
 
 ## <a name="schema"></a>SCHEMA
 

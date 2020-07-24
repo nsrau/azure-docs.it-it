@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064454"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -49,7 +49,7 @@ Non è necessario configurare autorizzazioni se si è un Collaboratore per la so
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Autorizzazioni per un account di Automazione e un'area di lavoro Log Analytics già esistenti
 
-Per abilitare una macchina virtuale per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività con un account di Automazione e un'area di lavoro Log Analytics esistenti, sono necessarie le autorizzazioni seguenti nell'ambito Gruppo di risorse. Per altre informazioni sui ruoli, vedere [Ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
+Per abilitare una macchina virtuale per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività con un account di Automazione e un'area di lavoro Log Analytics esistenti, sono necessarie le autorizzazioni seguenti nell'ambito Gruppo di risorse. Per altre informazioni sui ruoli, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 | Autorizzazione | Scope|
 | --- | --- |

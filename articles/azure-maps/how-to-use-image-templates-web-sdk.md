@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064697"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -148,44 +148,337 @@ Questa tabella elenca tutti i modelli di immagine attualmente disponibili in Azu
 
 **Modelli icona simboli**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| marker | spessore indicatore | cerchio indicatore | indicatore-Flat |
-|![icona marcatore](./media/image-templates/marker.png)|![icona spessore indicatore](./media/image-templates/marker-thick.png)|![icona del cerchio del marcatore](./media/image-templates/marker-circle.png)|![icona marcatore-Flat](./media/image-templates/marker-flat.png)|
-||||
-| quadrato marcatore | marcatore-quadrato-cluster | freccia marcatore | indicatore-palla-pin | 
-|![icona marcatore-quadrato](./media/image-templates/marker-square.png)|![icona marcatore-quadrato-cluster](./media/image-templates/marker-square-cluster.png)|![icona freccia marcatore](./media/image-templates/marker-arrow.png)|![icona indicatore-palla-pin](./media/image-templates/marker-ball-pin.png)|
-||||
-| marcatore-quadrato arrotondato | marcatore-quadrato-arrotondato-cluster | flag | flag-triangolo |
-| ![icona marcatore-quadrato arrotondato](./media/image-templates/marker-square-rounded.png) | ![icona del cluster di marcatore-quadrato-arrotondato](./media/image-templates/marker-square-rounded-cluster.png) | ![icona contrassegno](./media/image-templates/flag.png) | ![Flag-icona triangolo](./media/image-templates/flag-triangle.png) |
-||||
-| triangolo | spessore triangolare | triangolo-freccia su | triangolo-freccia sinistra |
-| ![icona a forma di triangolo](./media/image-templates/triangle.png) | ![icona a forma di triangolo](./media/image-templates/triangle-thick.png) | ![triangolo-icona freccia su](./media/image-templates/triangle-arrow-up.png) | ![icona a forma di triangolo e freccia sinistra](./media/image-templates/triangle-arrow-left.png) |
-||||
-| esagono | spessore esagonale | esagonale arrotondato | esagono-arrotondato-spessore |
-| ![icona esagonale](./media/image-templates/hexagon.png) | ![icona con spessore esagonale](./media/image-templates/hexagon-thick.png) | ![icona esagonale arrotondata](./media/image-templates/hexagon-rounded.png) | ![icona di spessore esagonale-arrotondato](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| aggiungi | pin-round | arrotondato-quadrato | arrotondato-spessore quadrato |
-| ![Icona Aggiungi](./media/image-templates/pin.png) | ![icona pin-round](./media/image-templates/pin-round.png) | ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png) | ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png) |
-||||
-| freccia su | freccia su-sottile | car ||
-| ![icona freccia su](./media/image-templates/arrow-up.png) | ![freccia su-icona sottile](./media/image-templates/arrow-up-thin.png) | ![icona dell'auto](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      marker
+   :::column-end:::
+   :::column span="":::
+      spessore indicatore
+   :::column-end:::
+   :::column span="":::
+      cerchio indicatore
+   :::column-end:::
+   :::column span="":::
+      indicatore-Flat
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona marcatore](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona spessore indicatore](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona del cerchio del marcatore](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona marcatore-Flat](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      quadrato marcatore
+   :::column-end:::
+   :::column span="":::
+      marcatore-quadrato-cluster
+   :::column-end:::
+   :::column span="":::
+      freccia marcatore
+   :::column-end:::
+   :::column span="":::
+      indicatore-palla-pin
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona marcatore-quadrato](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona marcatore-quadrato-cluster](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona freccia marcatore](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona indicatore-palla-pin](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marcatore-quadrato arrotondato
+   :::column-end:::
+   :::column span="":::
+      marcatore-quadrato-arrotondato-cluster
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      flag-triangolo
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona marcatore-quadrato arrotondato](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona del cluster di marcatore-quadrato-arrotondato](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona contrassegno](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![Flag-icona triangolo](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      triangolo
+   :::column-end:::
+   :::column span="":::
+      spessore triangolare
+   :::column-end:::
+   :::column span="":::
+      triangolo-freccia su
+   :::column-end:::
+   :::column span="":::
+      triangolo-freccia sinistra
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona a forma di triangolo](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona a forma di triangolo](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangolo-icona freccia su](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona a forma di triangolo e freccia sinistra](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      esagono
+   :::column-end:::
+   :::column span="":::
+      spessore esagonale
+   :::column-end:::
+   :::column span="":::
+      esagonale arrotondato
+   :::column-end:::
+   :::column span="":::
+      esagono-arrotondato-spessore
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona esagonale](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona con spessore esagonale](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona esagonale arrotondata](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona di spessore esagonale-arrotondato](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      aggiungi
+   :::column-end:::
+   :::column span="":::
+      pin-round
+   :::column-end:::
+   :::column span="":::
+      arrotondato-quadrato
+   :::column-end:::
+   :::column span="":::
+      arrotondato-spessore quadrato
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Icona Aggiungi](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona pin-round](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      freccia su
+   :::column-end:::
+   :::column span="":::
+      freccia su-sottile
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona freccia su](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![freccia su-icona sottile](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona dell'auto](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Modelli modello di riempimento poligono**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| Checker | controllo-ruotato | cerchi | Cerchi-spaziatura |
-| ![icona di controllo](./media/image-templates/checker.png) | ![controllo-icona ruotata](./media/image-templates/checker-rotated.png) | ![icona cerchi](./media/image-templates/circles.png) | ![icona con spaziatura a cerchi](./media/image-templates/circles-spaced.png) |
-|||||
-| righe diagonali | diagonali-linee-in basso | strisce diagonali | strisce diagonali-giù |
-| ![icona linee diagonali](./media/image-templates/diagonal-lines-up.png) | ![icona delle linee diagonali](./media/image-templates/diagonal-lines-down.png) | ![icona con strisce diagonali](./media/image-templates/diagonal-stripes-up.png) | ![icona con strisce diagonali](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| linee griglia | ruotato-griglie-linee | ruotato-griglie-striping | riempimento x |
-| ![icona linee griglia](./media/image-templates/grid-lines.png) | ![icona ruotata-griglia-linee](./media/image-templates/rotated-grid-lines.png) | ![icona ruotata-griglia-Stripe](./media/image-templates/rotated-grid-stripes.png) | ![icona riempimento x](./media/image-templates/x-fill.png) |
-|||||
-| zig-zag | zig-zag-verticale | punti |  |
-| ![icona zig-zag](./media/image-templates/zig-zag.png) | ![icona zig-zag-Vertical](./media/image-templates/zig-zag-vertical.png) | ![icona punti](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      Checker
+   :::column-end:::
+   :::column span="":::
+      controllo-ruotato
+   :::column-end:::
+   :::column span="":::
+      cerchi
+   :::column-end:::
+   :::column span="":::
+      Cerchi-spaziatura
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona di controllo](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![controllo-icona ruotata](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona cerchi](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona con spaziatura a cerchi](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      righe diagonali
+   :::column-end:::
+   :::column span="":::
+      diagonali-linee-in basso
+   :::column-end:::
+   :::column span="":::
+      strisce diagonali
+   :::column-end:::
+   :::column span="":::
+      strisce diagonali-giù
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona linee diagonali](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona delle linee diagonali](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona con strisce diagonali](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona con strisce diagonali](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      linee griglia
+   :::column-end:::
+   :::column span="":::
+      ruotato-griglie-linee
+   :::column-end:::
+   :::column span="":::
+      ruotato-griglie-striping
+   :::column-end:::
+   :::column span="":::
+      riempimento x
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona linee griglia](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona ruotata-griglia-linee](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona ruotata-griglia-Stripe](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona riempimento x](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      zig-zag
+   :::column-end:::
+   :::column span="":::
+      zig-zag-verticale
+   :::column-end:::
+   :::column span="":::
+      punti
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icona zig-zag](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona zig-zag-Vertical](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![icona punti](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Icone di immagine precaricate**
 

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066223"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -120,7 +121,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 
 ## <a name="get-support"></a>Supporto
 
-* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

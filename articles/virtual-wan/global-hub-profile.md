@@ -2,17 +2,17 @@
 title: Scaricare i profili VPN globali o basati su hub della rete WAN virtuale di Azure | Microsoft Docs
 description: Informazioni sulla connettività scalabile da ramo a ramo, sulle aree disponibili e sui partner.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 4/20/2020
 ms.author: alzam
-ms.openlocfilehash: be2ea92ddbcce7c1e0ab5ba7d172cda0e05984fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064803"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Scaricare un profilo globale o basato su hub per i client VPN utente
 

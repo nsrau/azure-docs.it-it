@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066389"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurare un singolo indirizzo IP per uno o più ambienti del servizio di integrazione in app per la logica di Azure
 
@@ -48,7 +49,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    ![Configurare la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome route** | <*Unique-route-name*> | Nome univoco per la route nella tabella di route |
    | **Prefisso indirizzo** | <*Indirizzo di destinazione*> | Prefisso dell'indirizzo per il sistema di destinazione in cui si vuole che il traffico in uscita vada. Assicurarsi di usare la [notazione CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per questo indirizzo. In questo esempio, questo prefisso dell'indirizzo è per un server SFTP, descritto nella sezione [configurare la regola di rete](#set-up-network-rule). |
@@ -72,7 +73,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    **Proprietà della raccolta regole di rete**
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-Name*> | Nome della raccolta di regole di rete |
    | **Priority** | <*livello di priorità*> | Ordine di priorità da utilizzare per l'esecuzione della raccolta regole. Per altre informazioni, vedere [quali sono alcuni concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -81,7 +82,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    **Proprietà della regola di rete**
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Name*> | Nome della regola di rete |
    | **Protocollo** | <*protocolli di connessione*> | Protocolli di connessione da utilizzare. Ad esempio, se si usano le regole di NSG, selezionare sia **TCP** che **UDP**, non solo **TCP**. |
@@ -95,8 +96,8 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
    * [Configurare una regola di rete](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Logica di elaborazione delle regole del Firewall di Azure](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Domande frequenti su Firewall di Azure](../firewall/firewall-faq.md)
-   * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [INTERFACCIA della riga di comando di Azure: AZ Network Firewall Network-Rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+   * [INTERFACCIA della riga di comando di Azure: AZ Network Firewall Network-Rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

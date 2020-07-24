@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259187"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064909"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -60,6 +60,9 @@ Per ogni hub virtuale è disponibile anche una **tabella di route None** . La pr
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagazione":::
 
+### <a name="labels"></a><a name="static"></a>Etichette
+Le etichette forniscono un meccanismo per raggruppare logicamente le tabelle di route. Questa operazione è particolarmente utile durante la propagazione delle route dalle connessioni a più tabelle di route. Ad esempio, la tabella di route predefinita include un'etichetta incorporata denominata ' default '. Quando gli utenti propagano le route di connessione all'etichetta ' default ', si applica automaticamente a tutte le tabelle di route predefinite in ogni hub della rete WAN virtuale. 
+
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurazione delle route statiche in una connessione di rete virtuale
 
 La configurazione delle route statiche fornisce un meccanismo per gestire il traffico attraverso un indirizzo IP hop successivo, che può essere un appliance virtuale di rete sottoposta a provisioning in una VNet spoke collegata a un hub virtuale. La route statica è costituita da un nome di route, da un elenco di prefissi di destinazione e da un indirizzo IP hop successivo.
@@ -69,13 +72,13 @@ Disponibile solo nella portale di Azure, questa opzione consente all'utente di p
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Eseguire il routing delle tabelle nelle WAN virtuali Basic e standard prima del set di funzionalità di associazione e propagazione
 
-Le tabelle di route ora includono funzionalità per l'associazione e la propagazione. Una tabella di route preesistente è una tabella di route che non dispone di queste funzionalità. Se si dispone di route preesistenti nel routing Hub e si desidera utilizzare le nuove funzionalità, tenere presente quanto segue:
+Le tabelle di route includono ora funzionalità per l'associazione e la propagazione. Le tabelle di route preesistenti non hanno queste funzionalità. Se si dispone di route preesistenti nel routing dell'hub e si vogliono usare le nuove funzionalità, considerare le opzioni seguenti:
 
 * **Clienti WAN virtuali standard con route preesistenti nell'hub virtuale**:
 
 Per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto per il completamento della distribuzione in Azure. Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
 
-* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto per il completamento della distribuzione in Azure. Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle, quindi **aggiornare** la rete WAN virtuale di base alla rete WAN virtuale standard. Vedere [aggiornare una rete WAN virtuale da Basic a standard](upgrade-virtual-wan.md).
+* **Utenti della rete WAN virtuale Basic con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto che venga completata la distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

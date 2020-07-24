@@ -1,18 +1,19 @@
 ---
 title: Procedure consigliate per il servizio di ricerca di Mappe di Azure | Mappe di Microsoft Azure
 description: Informazioni su come applicare le procedure consigliate quando si usa il servizio di ricerca di Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84264367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064267"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedure consigliate per il servizio di ricerca di Mappe di Azure
 
@@ -27,7 +28,7 @@ Questo articolo descrive come applicare procedure efficaci quando si chiamano da
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per effettuare chiamate alle API del servizio Mappe di Azure, sono necessari un account Mappe di Azure e una chiave. Per altre informazioni, vedere [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [Ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+Per effettuare chiamate alle API del servizio Mappe di Azure, sono necessari un account Mappe di Azure e una chiave. Per altre informazioni, vedere [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account) e [Ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
@@ -84,7 +85,7 @@ Per limitare geograficamente i risultati in base all'area pertinente per l'utent
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Geocodifica inversa e filtro per un tipo di entità geografia
 
-Quando si esegue una ricerca di geocodifica inversa nell'[API di ricerca inversa di indirizzi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), il servizio può restituire poligoni per le aree amministrative. Ad esempio, Yoi potrebbe voler recuperare il poligono area per una città. Per limitare la ricerca a specifici tipi di entità geografia, includere il parametro `entityType` nelle richieste. 
+Quando si esegue una ricerca di geocodifica inversa nell'[API di ricerca inversa di indirizzi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), il servizio può restituire poligoni per le aree amministrative. Ad esempio, potrebbe essere necessario recuperare il poligono area per una città. Per limitare la ricerca a specifici tipi di entità geografia, includere il parametro `entityType` nelle richieste. 
 
 La risposta risultante contiene l'ID area geografica e il tipo di entità di cui è stata trovata una corrispondenza. Se si specifica più di un'entità, l'endpoint restituisce l'*entità più piccola disponibile*. È possibile usare l'ID geometria restituito per ottenere la geometria dell'area geografica tramite il [servizio di ricerca di poligoni](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -966,7 +967,7 @@ Le risposte per l'API di [ricerca di indirizzi](https://docs.microsoft.com/rest/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere:
+Per ulteriori informazioni, vedere:
 
 > [!div class="nextstepaction"]
 > [Come creare richieste al servizio di ricerca di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)

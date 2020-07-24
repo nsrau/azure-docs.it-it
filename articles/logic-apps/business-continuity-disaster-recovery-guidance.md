@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066534"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuità aziendale e ripristino di emergenza per app per la logica di Azure
 
@@ -157,7 +157,7 @@ Quando l'app per la logica viene attivata e viene avviata l'esecuzione, lo stato
 
 Per ridurre al minimo il numero di istanze del flusso di lavoro in corso abbandonate, è possibile scegliere tra diversi modelli di messaggio che è possibile implementare, ad esempio:
 
-* [Modello di slittamento di routing fisso](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Modello di slittamento di routing fisso](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Questo modello di messaggio aziendale che suddivide un processo di business in fasi più piccole. Per ogni fase viene configurata un'app per la logica che gestisce il carico di lavoro per la fase. Per comunicare tra loro, le app per la logica usano un protocollo di messaggistica asincrono, ad esempio code o argomenti del bus di servizio di Azure. Quando si divide un processo in fasi più piccole, si riduce il numero di processi aziendali che potrebbero rimanere bloccati in un'istanza dell'app per la logica non riuscita. Per informazioni più generali su questo modello, vedere [modelli di integrazione aziendale-routing Slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Per ridurre al minimo il numero di istanze del flusso di lavoro in corso abbando
 
   ![Suddividere un processo di business in fasi rappresentate da app per la logica, che comunicano tra loro usando le code del bus di servizio di Azure](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Se le istanze di app per la logica primaria e secondaria seguono lo stesso modello di instradamento di routing nelle rispettive posizioni, è possibile implementare il [modello di consumer concorrente](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) impostando i [ruoli attivo-attivo](#roles) per tali istanze.
+  Se le istanze di app per la logica primaria e secondaria seguono lo stesso modello di instradamento di routing nelle rispettive posizioni, è possibile implementare il [modello di consumer concorrente](/azure/architecture/patterns/competing-consumers) impostando i [ruoli attivo-attivo](#roles) per tali istanze.
 
 * [Modello di gestione processi (Broker)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ Dal punto di vista del ripristino di emergenza, quando si configurano le istanze
   Ad esempio, la lettura da una coda di messaggi, ad esempio una coda del bus di servizio di Azure, USA lo stato lato server perché il servizio di Accodamento mantiene i blocchi sui messaggi per evitare che altri client leggano gli stessi messaggi.
 
   > [!NOTE]
-  > Se l'app per la logica deve leggere i messaggi in un ordine specifico, ad esempio da una coda del bus di servizio, è possibile usare il modello di consumer concorrente ma solo se combinato con le sessioni del bus di servizio, noto anche come modello di serie di istruzioni [ *sequenziali* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). In caso contrario, è necessario configurare le istanze dell'app per la logica con i ruoli attivo-passivo.
+  > Se l'app per la logica deve leggere i messaggi in un ordine specifico, ad esempio da una coda del bus di servizio, è possibile usare il modello di consumer concorrente ma solo se combinato con le sessioni del bus di servizio, noto anche come modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy). In caso contrario, è necessario configurare le istanze dell'app per la logica con i ruoli attivo-passivo.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Dal punto di vista del ripristino di emergenza, il trigger di richiesta è un ri
 
 * [Attivo-passivo](#roles): solo l'istanza primaria è attiva e gestisce tutto il lavoro, mentre l'istanza secondaria attende fino a quando non si verificano interruzioni o errori delle esperienze primarie. Il chiamante o il router determina quando chiamare l'istanza secondaria.
 
-Come architettura consigliata, è possibile usare gestione API di Azure come proxy per le app per la logica che usano trigger di richiesta. Gestione API offre [resilienza incorporata tra più aree e la capacità di instradare il traffico tra più endpoint](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+Come architettura consigliata, è possibile usare gestione API di Azure come proxy per le app per la logica che usano trigger di richiesta. Gestione API offre [resilienza incorporata tra più aree e la capacità di instradare il traffico tra più endpoint](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Per questa attività, nella posizione secondaria creare un'app per la logica wat
 
 ### <a name="activate-your-secondary-instance"></a>Attivare l'istanza secondaria
 
-Per attivare automaticamente l'istanza secondaria, è possibile creare un'app per la logica che chiama l'API di gestione, ad esempio il [connettore Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) per attivare le app per la logica appropriate nella posizione secondaria. È possibile espandere l'app watchdog per chiamare questa app per la logica di attivazione dopo un numero specifico di errori.
+Per attivare automaticamente l'istanza secondaria, è possibile creare un'app per la logica che chiama l'API di gestione, ad esempio il [connettore Azure Resource Manager](/connectors/arm/) per attivare le app per la logica appropriate nella posizione secondaria. È possibile espandere l'app watchdog per chiamare questa app per la logica di attivazione dopo un numero specifico di errori.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Per attivare automaticamente l'istanza secondaria, è possibile creare un'app pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica della resilienza per Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Elenco di controllo per la resilienza per servizi di Azure specifici](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Gestione dei dati per la resilienza in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Backup e ripristino di emergenza per le applicazioni Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Eseguire il ripristino dopo un'interruzione di servizio a livello di area](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Panoramica della resilienza per Azure](/azure/architecture/framework/resiliency/overview)
+* [Elenco di controllo per la resilienza per servizi di Azure specifici](/azure/architecture/checklist/resiliency-per-service)
+* [Gestione dei dati per la resilienza in Azure](/azure/architecture/framework/resiliency/data-management)
+* [Backup e ripristino di emergenza per le applicazioni Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Eseguire il ripristino dopo un'interruzione di servizio a livello di area](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Contratti di servizio Microsoft per i servizi di Azure](https://azure.microsoft.com/support/legal/sla/)

@@ -3,17 +3,17 @@ title: Usare il modulo Piante di interni di Mappe di Azure
 description: Informazioni su come usare il modulo Piante di interni di Mappe di Microsoft Azure per eseguire il rendering delle mappe incorporando le librerie JavaScript del modulo.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f7bca363e22524546e7ee46bf44ddb18dacf00d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064239"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Usare il modulo Piante di interni di Mappe di Azure
 
@@ -42,16 +42,14 @@ Per usare la versione della Rete di distribuzione dei contenuti di Azure ospitat
 
  In alternativa, è possibile scaricare il modulo *Interni di Mappe di Azure*. Il modulo *Interni di Mappe di Azure* contiene una libreria client per accedere ai servizi di Mappe di Azure. Attenersi alla procedura seguente per installare e caricare il modulo *Interni* nell'applicazione Web.  
   
-  1. Scaricare il pacchetto [azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
+  1. Installare il [pacchetto Azure-Maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
-  2. Installare il pacchetto NPM. Assicurarsi di usare i privilegi di amministratore nella console:
-
       ```powershell
       >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. Fare riferimento al foglio di stile e a JavaScript del modulo *Interni di Mappe di Azure* nell'elemento `<head>` del file HTML:
+  2. Fare riferimento al foglio di stile e a JavaScript del modulo *Interni di Mappe di Azure* nell'elemento `<head>` del file HTML:
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -71,7 +69,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },

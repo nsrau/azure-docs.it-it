@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065960"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -47,7 +48,7 @@ In app per la logica di Azure il gateway dati locale supporta i [connettori loca
 * SQL Server
 * Teradata
 
-App per la logica di Azure supporta operazioni di lettura e scrittura tramite il gateway dati. Per queste operazioni sono però previsti [limiti di dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
+App per la logica di Azure supporta operazioni di lettura e scrittura tramite il gateway dati. Per queste operazioni sono però previsti [limiti di dimensioni del payload](/data-integration/gateway/service-gateway-onprem#considerations). Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -116,7 +117,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
    Un nome di connessione univoco consente di individuare facilmente la connessione in un secondo momento, soprattutto se si creano più connessioni. Se applicabile, è necessario includere anche il dominio completo per il proprio nome utente.
 
-   Esempio:
+   Ecco un esempio:
 
    ![Creare una connessione tra l'app per la logica e il gateway dati](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 

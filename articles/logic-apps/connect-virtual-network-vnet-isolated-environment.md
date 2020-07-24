@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066477"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -44,7 +44,7 @@ Questo articolo spiega come completare queste attività usando il portale di Azu
   > [!IMPORTANT]
   > Le app per la logica, i trigger predefiniti, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso da quello con pagamento in base al consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, vedere il [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md#fixed-pricing). Per informazioni sui prezzi, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
 
-* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). La rete virtuale deve avere quattro subnet *vuote* che non sono delegate a nessun servizio per la creazione e la distribuzione di risorse in ISE. Ogni subnet supporta un componente di App per la logica diverso usato nell’ISE. È possibile creare le subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE in cui è possibile creare subnet contemporaneamente. Altre informazioni sui [requisiti delle subnet](#create-subnet).
+* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). La rete virtuale deve avere quattro subnet *vuote* , necessarie per la creazione e la distribuzione di risorse in ISE, e vengono usate dai componenti interni delle app per la logica, ad esempio i connettori e la memorizzazione nella cache per le prestazioni. È possibile creare le subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE per poter creare le subnet nello stesso momento. Tuttavia, prima di creare le subnet, esaminare i [requisiti della subnet](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -55,8 +55,6 @@ Questo articolo spiega come completare queste attività usando il portale di Azu
   > * 127.0.0.0/8
   > * 168.63.129.16/32
   > * 169.254.169.254/32
-  > 
-  > I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura e non possono usare questi caratteri: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. Per distribuire ISE tramite un modello di Azure Resource Manager, assicurarsi prima di tutto di delegare una subnet vuota a `Microsoft.Logic/integrationServiceEnvironment` . Non è necessario eseguire questa delega quando si esegue la distribuzione tramite il portale di Azure.
 
   * Assicurarsi che la rete virtuale [consenta l'accesso per l’ISE](#enable-access) in modo che l’ISE possa funzionare correttamente e rimanere accessibile.
 
@@ -134,6 +132,7 @@ Questa tabella descrive le porte necessarie all’ISE per essere accessibile e l
 | Integrità risorse di Azure | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Obbligatoria per la pubblicazione dello stato di integrità in Integrità risorse. |
 | Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | Istanze di accesso Cache Azure per Redis tra Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383 e vedere le **Note**| Per fare in modo che l’ISE funzioni con Cache di Azure per Redis, è necessario aprire queste [porte in uscita e in ingresso descritte dalle Domande frequenti su Cache Redis di Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Risoluzione dei nomi DNS | **VirtualNetwork** | * | Indirizzi IP per qualsiasi server DNS (Custom Domain Name System) nella rete virtuale | 53 | Obbligatorio solo quando si usano server DNS personalizzati nella rete virtuale |
 |||||||
 
 È anche necessario aggiungere regole in uscita per [ambiente del servizio app (ASE)](../app-service/environment/intro.md):
@@ -168,18 +167,30 @@ Questa tabella descrive le porte necessarie all’ISE per essere accessibile e l
    | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Numero di unità di elaborazione supplementari da usare per questa risorsa dell'ambiente del servizio di integrazione. Per aggiungere la capacità dopo la creazione, vedere [Aggiungere la capacità ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Endpoint di accesso** | Sì | **Interno** o **Esterno** | Tipo di endpoint di accesso da usare per l’ISE. Questi endpoint determinano se i trigger o webhook di richiesta nelle app per la logica nell’ISE possono ricevere chiamate dall'esterno della rete virtuale. <p><p>La selezione influisce anche sul modo in cui è possibile visualizzare e accedere agli input e agli output nella cronologia di esecuzione delle app per la logica. Per altre informazioni, vedere [Accesso endpoint dell’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: È possibile selezionare l'endpoint di accesso solo durante la creazione dell’ISE e non è possibile modificare questa opzione in un secondo momento. |
    | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si dispone di una rete, [creare prima una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
-   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
+   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* , che sono necessarie per la creazione e la distribuzione di risorse in ISE e vengono usate dai componenti interni delle app per la logica, ad esempio i connettori e la memorizzazione nella cache per le prestazioni. <p>**Importante**: assicurarsi [di esaminare i requisiti della subnet prima di continuare con la procedura seguente per creare le subnet](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
-   **Creare una subnet**
+   **Crea subnet**
 
-   Per creare e distribuire le risorse nell'ambiente, l’ISE necessita di quattro subnet *vuote* che non sono delegate ad alcun servizio. Ogni subnet supporta un componente di App per la logica diverso usato nell’ISE. *Non è possibile* modificare gli indirizzi di queste subnet dopo aver creato l'ambiente. Ogni subnet deve soddisfare questi requisiti:
+   ISE necessita di quattro subnet *vuote* , che sono necessarie per la creazione e la distribuzione di risorse in ISE e vengono usate dai componenti interni delle app per la logica, ad esempio i connettori e la memorizzazione nella cache per le prestazioni. *Non è possibile* modificare gli indirizzi di queste subnet dopo aver creato l'ambiente. Se si crea e si distribuisce ISE tramite il portale di Azure, assicurarsi di non delegare tali subnet a tutti i servizi di Azure. Tuttavia, se si crea e si distribuisce ISE tramite l'API REST, Azure PowerShell o un modello di Azure Resource Manager, è necessario [delegare](../virtual-network/manage-subnet-delegation.md) una subnet vuota a `Microsoft.integrationServiceEnvironment` . Per ulteriori informazioni, vedere [Add a subnet Delegation](../virtual-network/manage-subnet-delegation.md).
 
-   * Il nome inizia con un carattere alfabetico o un carattere di sottolineatura (nessun numero) e non usa questi caratteri: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   Ogni subnet deve soddisfare questi requisiti:
+
+   * Usa un nome che inizia con un carattere alfabetico o un carattere di sottolineatura (nessun numero) e non usa i caratteri seguenti: `<` , `>` , `%` , `&` , `\\` , `?` , `/` .
 
    * Usa il [formato CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio indirizzi di classe B.
+   
+     > [!IMPORTANT]
+     >
+     > Non usare gli spazi di indirizzi IP seguenti per la rete virtuale o le subnet perché non sono risolvibili dalle app per la logica di Azure:<p>
+     > 
+     > * 0.0.0.0/8
+     > * 100.64.0.0/10
+     > * 127.0.0.0/8
+     > * 168.63.129.16/32
+     > * 169.254.169.254/32
 
    * Usa un `/27` nello spazio degli indirizzi perché ogni subnet richiede 32 indirizzi. Ad esempio, `10.0.0.0/27` ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32. Altri indirizzi non offrono ulteriori vantaggi. Per altre informazioni sul calcolo degli indirizzi, vedere [Blocchi CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 

@@ -1,38 +1,40 @@
 ---
-title: Restituire o sostituire il dispositivo Azure Stack Edge | Microsoft Docs
-description: Viene descritto come restituire o sostituire il dispositivo Azure Stack Edge.
+title: Restituire il dispositivo Azure Stack Edge | Microsoft Docs
+description: Viene descritto come restituire il dispositivo Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067055"
 ---
-# <a name="return-or-replace-your-azure-stack-edge-device"></a>Restituire o sostituire il dispositivo Azure Stack Edge
+# <a name="return-your-azure-stack-edge-device"></a>Restituire il dispositivo Azure Stack Edge
 
-Questo articolo descrive come cancellare i dati e restituire il dispositivo Azure Stack Edge. Dopo aver restituito il dispositivo, si può anche eliminare la risorsa associata al dispositivo o ordinare un dispositivo sostitutivo.
+Questo articolo descrive come cancellare i dati e restituire il dispositivo Azure Stack Edge. Dopo avere restituito il dispositivo, è anche possibile eliminare la risorsa associata al dispositivo.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 >
 > * Cancellare i dati dai dischi dati del dispositivo
-> * Aprire un ticket di supporto per restituire il dispositivo
+> * Avviare il ritorno del dispositivo in portale di Azure
 > * Imballare il dispositivo e pianificare il ritiro
 > * Eliminare la risorsa nel portale di Azure
-> * Ottenere un dispositivo sostitutivo
 
 ## <a name="erase-data-from-the-device"></a>Cancellare i dati dal dispositivo
 
 Per cancellare i dati dai dischi dati del dispositivo, è necessario reimpostare il dispositivo. A questo scopo è possibile usare l'interfaccia utente Web locale o l'interfaccia di PowerShell.
 
 Prima di procedere con la reimpostazione, creare una copia dei dati locali del dispositivo, se necessario. È possibile copiare i dati del dispositivo in un contenitore di Archiviazione di Azure.
+
+È possibile avviare il ritorno del dispositivo anche prima della reimpostazione del dispositivo. 
 
 Per reimpostare il dispositivo tramite l'interfaccia utente Web locale, seguire questa procedura.
 
@@ -53,19 +55,50 @@ In alternativa, connettersi all'interfaccia di PowerShell del dispositivo e usar
 > - Se si sta facendo un cambio di dispositivo o si sta eseguendo l'aggiornamento a un nuovo dispositivo, è consigliabile reimpostare il dispositivo solo dopo aver ricevuto quello nuovo.
 > - La reimpostazione del dispositivo elimina solo tutti i dati locali dal dispositivo. I dati presenti nel cloud non vengono eliminati e sono soggetti ad [addebiti](https://azure.microsoft.com/pricing/details/storage/). Questi dati devono essere eliminati separatamente usando uno strumento di gestione dell'archiviazione nel cloud come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="open-a-support-ticket"></a>Aprire un ticket di supporto
+## <a name="initiate-device-return"></a>Avviare il ritorno del dispositivo
 
 Per iniziare il processo di restituzione, seguire questa procedura.
 
-1. Aprire un ticket di supporto con il supporto tecnico Microsoft indicando che si vuole restituire il dispositivo. Selezionare il tipo di problema **Hardware Azure Stack Edge**.
+1. Passare alla risorsa Azure Stack Edge/Data Box Gateway in portale di Azure. Nella **Panoramica**passare alla barra dei comandi nel riquadro di destra e selezionare **return Device**. 
 
-    ![Aprire il ticket di supporto](media/azure-stack-edge-return-device/open-support-ticket-1.png)  
+    ![Restituisci dispositivo 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
-2. Si verrà contattati da un tecnico del supporto tecnico Microsoft. Specificare i dettagli di spedizione.
-3. Se serve una scatola di spedizione, è possibile richiederla. Rispondere **Sì** alla domanda **Need an empty box to return** (Serve una scatola vuota per la restituzione).
+2. Nel pannello **Restituisci dispositivo** , in **Dettagli di base**:
 
+    1. Fornire il numero di serie del dispositivo. Per ottenere il numero di serie del dispositivo, passare all'interfaccia utente Web locale del dispositivo e quindi passare a **Panoramica**.  
+    
+    ![Numero di serie 1 del dispositivo](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+
+    2. Immettere il numero di tag del servizio che corrisponde a cinque o più identificatori di caratteri univoci per il dispositivo. Il tag del servizio si trova nell'angolo inferiore destro del dispositivo (quando si fa fronte al dispositivo). Estrarre il tag informazioni (si tratta di un pannello di etichette di scorrimento). Questo pannello contiene informazioni di sistema, ad esempio tag di servizio, NIC, indirizzo MAC e così via. 
+    
+    ![Numero di tag del servizio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+
+    3. Nell'elenco a discesa scegliere un motivo per la restituzione.
+
+    ![Restituisci dispositivo 2](media/azure-stack-edge-return-device/return-device-2.png) 
+
+3. In **Dettagli spedizione**:
+
+    1. Specificare il nome, il nome della società e l'indirizzo completo della società. Immettere un telefono dell'ufficio, inclusi il prefisso e un ID di posta elettronica per la notifica.
+    2. Se serve una scatola di spedizione, è possibile richiederla. Rispondere **Sì** alla domanda **Need an empty box to return** (Serve una scatola vuota per la restituzione).
+
+    ![Restituisci dispositivo 3](media/azure-stack-edge-return-device/return-device-3.png)
+
+4. Esaminare le **condizioni sulla privacy** e selezionare la casella di controllo nella nota che è stata esaminata e accettata le condizioni per la privacy.
+
+5. Selezionare **Avvia la restituzione**.
+
+    ![Restituisci dispositivo 4](media/azure-stack-edge-return-device/return-device-4.png) 
+
+6. Una volta acquisiti i dettagli del dispositivo, è possibile inviare una notifica al team operativo di Azure Stack Edge tramite un messaggio di posta elettronica. È possibile usare l'applicazione di posta elettronica presumendo che l'applicazione di posta elettronica sia installata e configurata. È anche possibile copiare i dati per creare e inviare un messaggio di posta elettronica.
+
+    ![Restituisci dispositivo 5](media/azure-stack-edge-return-device/return-device-5.png) 
+
+7. Una volta che il team operativo Azure Stack Edge riceve il messaggio di posta elettronica, invierà un'etichetta di spedizione inversa. Quando si riceve questa etichetta, è possibile pianificare il ritiro del dispositivo con il vettore. 
 
 ## <a name="schedule-a-pickup"></a>Pianificare un ritiro
+
+Per pianificare un prelievo, seguire questa procedura.
 
 1. Arrestare il dispositivo. Nell'interfaccia utente Web locale passare a **Manutenzione > Power settings** (Impostazioni di alimentazione).
 2. Selezionare **Arresta**. Quando viene chiesta conferma, fare clic su **Sì** per continuare. Per altre informazioni, vedere [Gestire l'avvio/arresto](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
@@ -84,13 +117,14 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 
 Dopo la ricezione nel data center di Azure, il dispositivo viene controllato per escludere la presenza di danni o segnali di manomissione.
 
-- Se il dispositivo arriva intatto e in buono stato, il contatore di fatturazione si interrompe per tale risorsa. Si verrà contattati dal supporto tecnico Microsoft per confermare la restituzione del dispositivo. È quindi possibile eliminare la risorsa associata al dispositivo nel portale di Azure.
+- Se il dispositivo arriva intatto ed è in forma corretta, il contatore della fatturazione si interrompe per la risorsa. Si verrà contattati dal supporto tecnico Microsoft per confermare la restituzione del dispositivo. È quindi possibile eliminare la risorsa associata al dispositivo nel portale di Azure.
 - Se il dispositivo arriva notevolmente danneggiato, è possibile che vengano applicate ammende. Per altre informazioni, vedere le [domande frequenti sul dispositivo perso o danneggiato](https://azure.microsoft.com/pricing/details/databox/edge/) e le [condizioni d'uso del servizio](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 È possibile eliminare il dispositivo nel portale di Azure:
--    Dopo aver effettuato l'ordine e prima che il dispositivo venga preparato da Microsoft.
--    Dopo la restituzione a Microsoft, il dispositivo viene sottoposto a un'ispezione fisica presso il data center di Azure, quindi il supporto tecnico Microsoft chiama per confermare che il dispositivo è stato restituito.
+
+- Dopo aver effettuato l'ordine e prima che il dispositivo venga preparato da Microsoft.
+- Dopo la restituzione a Microsoft, il dispositivo viene sottoposto a un'ispezione fisica presso il data center di Azure, quindi il supporto tecnico Microsoft chiama per confermare che il dispositivo è stato restituito.
 
 Se il dispositivo è stato attivato in un'altra sottoscrizione o località, Microsoft sposterà l'ordine nella nuova sottoscrizione o località entro un giorno lavorativo. Una volta spostato l'ordine, è possibile eliminare questa risorsa.
 
@@ -107,21 +141,7 @@ Per eliminare il dispositivo e la risorsa nel portale di Azure, seguire questa p
 
 Si riceverà una notifica dopo che il dispositivo e la risorsa associata saranno stati eliminati correttamente.
 
-## <a name="get-a-replacement-device"></a>Ottenere un dispositivo sostitutivo
-
-Un dispositivo sostitutivo è necessario quando il dispositivo esistente presenta un errore hardware o necessita di un aggiornamento. Se il dispositivo ha un problema a livello di hardware, seguire questa procedura:
-
-1. [Aprire un ticket di supporto per un problema hardware](#open-a-support-ticket). Il supporto tecnico Microsoft determinerà che un'unità sostituibile sul campo non è disponibile per questa istanza o che l'hardware del dispositivo deve essere aggiornato. In entrambi i casi, il supporto tecnico ordinerà un dispositivo sostitutivo.
-2. [Creare una nuova risorsa](azure-stack-edge-deploy-prep.md#create-a-new-resource) per il dispositivo sostitutivo. Selezionare la casella di controllo accanto a **I have an Azure Stack Edge device** (Ho un dispositivo Azure Stack Edge). 
-3. Dopo aver ricevuto un dispositivo sostitutivo, [installarlo](azure-stack-edge-deploy-install.md) e [attivarlo](azure-stack-edge-deploy-connect-setup-activate.md) con la nuova risorsa.
-4. Seguire tutti i passaggi per restituire il dispositivo originale:
-    1. Aprire un altro ticket per restituire il dispositivo originale.
-    2. [Cancellare i dati contenuti nel dispositivo](#erase-data-from-the-device).
-    3. [Pianificare un ritiro](#schedule-a-pickup).
-    5. [Eliminare la risorsa](#delete-the-resource) associata al dispositivo restituito.
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire la larghezza di banda](azure-stack-edge-manage-bandwidth-schedules.md).
+- Informazioni su come [ottenere un dispositivo Azure stack Edge sostitutivo](azure-stack-edge-replace-device.md).
