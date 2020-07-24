@@ -4,11 +4,12 @@ description: Linguaggi, piattaforme e integrazioni disponibili per Application I
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 153d4ad3d95c182dcc4f2aa3bad857d7e1984cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5403162a2511862dd1c649dc273a35a550abaaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891118"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024283"
 ---
 # <a name="supported-languages"></a>Lingue supportate
 
@@ -25,7 +26,7 @@ ms.locfileid: "82891118"
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - per app già attive](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md), inclusi i ruoli Web e di lavoro
-* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+* [Funzioni di Azure](../../azure-functions/functions-monitoring.md)
 ### <a name="instrumentation-through-code-sdks"></a>Strumentazione tramite codice (SDK)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
@@ -38,11 +39,11 @@ ms.locfileid: "82891118"
 * [Ruoli di lavoro, servizi e applicazioni desktop di Windows](../../azure-monitor/app/windows-desktop.md)
 
 ## <a name="logging-frameworks"></a>Framework di registrazione
-* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
+* [ILogger](./ilogger.md)
 * [Log4Net, NLog o System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J o Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Plug-in LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Monitoraggio di Azure](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Monitoraggio di Azure](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 ## <a name="export-and-data-analysis"></a>Esportazione e analisi dei dati
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)

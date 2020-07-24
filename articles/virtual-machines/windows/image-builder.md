@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6fa1f6bcc6c91a493225726bc0df60d2d0b4a1e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027938"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Anteprima: creare una VM Windows con Azure Image Builder
 
@@ -102,7 +102,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare autorizzazioni per il gruppo di risorse
-Il generatore di immagini userà l' [identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) specificata per inserire l'immagine nel gruppo di risorse. In questo esempio verrà creata una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine. La definizione del ruolo verrà quindi assegnata all'identità utente.
+Il generatore di immagini userà l' [identità utente](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) specificata per inserire l'immagine nel gruppo di risorse. In questo esempio verrà creata una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine. La definizione del ruolo verrà quindi assegnata all'identità utente.
 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>Creare identità gestite assegnate dall'utente e concedere autorizzazioni 
 ```bash

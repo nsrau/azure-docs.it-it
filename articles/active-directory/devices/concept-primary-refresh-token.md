@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025881"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un token di aggiornamento primario?
 
@@ -64,7 +65,7 @@ Il token di aggiornamento primario viene rilasciato durante l'autenticazione ute
 Negli scenari con dispositivi registrati in Azure AD, il plug-WAM di Azure AD è l'autorità primaria per il token di aggiornamento primario perché l'accesso a Windows non viene effettuato con questo account Azure AD.
 
 > [!NOTE]
-> I provider di identità di terze parti devono supportare il protocollo WS-Trust per consentire il rilascio dei token di aggiornamento primario nei dispositivi Windows 10. Senza WS-Trust, il token di aggiornamento primario non può essere rilasciato agli utenti nei dispositivi aggiunti ad Azure AD ibrido o aggiunti ad Azure AD
+> I provider di identità di terze parti devono supportare il protocollo WS-Trust per consentire il rilascio dei token di aggiornamento primario nei dispositivi Windows 10. Senza WS-Trust, non è possibile rilasciare PRT per gli utenti in Azure AD ibrido aggiunti o Azure AD dispositivi aggiunti. Solo in ADFS sono necessari endpoint usernamemixed. ADFS/Services/Trust/2005/windowstransport e ADFS/Services/Trust/13/windowstransport devono essere abilitati solo come endpoint con accesso alla Intranet e **non devono essere esposti** come endpoint con rete Extranet tramite il proxy applicazione Web
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Qual è la durata di un token di aggiornamento primario?
 
@@ -147,7 +148,7 @@ I diagrammi seguenti illustrano i dettagli sottostanti relativi a rilascio, rinn
 | Passaggio | Descrizione |
 | :---: | --- |
 | A | L'utente immette la sua password nell'interfaccia utente di accesso. L'interfaccia utente di accesso passa le credenziali in un buffer di autenticazione a LSA, che a sua volta le passa internamente a CloudAP. CloudAP inoltra la richiesta al plug-in CloudAP. |
-| B | Il plug-in CloudAP avvia una richiesta di individuazione dell'area di autenticazione per identificare il provider di identità per l'utente. Se il tenant dell'utente dispone di una configurazione del provider di servizi di federazione, Azure AD restituisce l'endpoint MEX (Metadata Exchange endpoint) del provider di servizi di federazione. In caso contrario, Azure AD indica che l'utente è gestito, specificando che può eseguire l'autenticazione con Azure AD. |
+| b | Il plug-in CloudAP avvia una richiesta di individuazione dell'area di autenticazione per identificare il provider di identità per l'utente. Se il tenant dell'utente dispone di una configurazione del provider di servizi di federazione, Azure AD restituisce l'endpoint MEX (Metadata Exchange endpoint) del provider di servizi di federazione. In caso contrario, Azure AD indica che l'utente è gestito, specificando che può eseguire l'autenticazione con Azure AD. |
 | C | Se l'utente è gestito, CloudAP ottiene l'oggetto nonce da Azure AD. Se l'utente è federato, il plug-in CloudAP richiede un token SAML al provider di servizi di federazione con le credenziali dell'utente. Una volta ricevuto il token SAML, richiede un oggetto nonce ad Azure AD. |
 | D | Il plug-in CloudAP crea la richiesta di autenticazione con le credenziali dell'utente, l'oggetto nonce e un ambito del broker, firma la richiesta con la chiave del dispositivo (dkpriv) e la invia ad Azure AD. In un ambiente federato il plug-in CloudAP usa il token SAML restituito dal provider di servizi di federazione anziché le credenziali dell'utente. |
 | E | Azure AD convalida le credenziali dell'utente, l'oggetto nonce e la firma del dispositivo, verifica che il dispositivo sia valido nel tenant e rilascia il token di aggiornamento primario crittografato. Insieme al token di aggiornamento primario, Azure AD rilascia anche una chiave simmetrica, denominata chiave della sessione, crittografata da Azure AD tramite la chiave di trasporto (tkpub). La chiave della sessione è anche incorporata nel token di aggiornamento primario. La chiave della sessione funge da chiave di dimostrazione del possesso (PoP, Proof-of-Possession) per le successive richieste con il token di aggiornamento primario. |
@@ -160,12 +161,15 @@ I diagrammi seguenti illustrano i dettagli sottostanti relativi a rilascio, rinn
 | Passaggio | Descrizione |
 | :---: | --- |
 | A | L'utente immette la sua password nell'interfaccia utente di accesso. L'interfaccia utente di accesso passa le credenziali in un buffer di autenticazione a LSA, che a sua volta le passa internamente a CloudAP. CloudAP inoltra la richiesta al plug-in CloudAP. |
-| B | Se l'utente ha già eseguito l'accesso in precedenza, Windows avvia l'accesso dalla cache e convalida le credenziali per consentire all'utente di accedere. Ogni 4 ore il plug-in CloudAP avvia il rinnovo del token di aggiornamento primario in modo asincrono. |
+| b | Se l'utente ha già eseguito l'accesso in precedenza, Windows avvia l'accesso dalla cache e convalida le credenziali per consentire all'utente di accedere. Ogni 4 ore il plug-in CloudAP avvia il rinnovo del token di aggiornamento primario in modo asincrono. |
 | C | Il plug-in CloudAP avvia una richiesta di individuazione dell'area di autenticazione per identificare il provider di identità per l'utente. Se il tenant dell'utente dispone di una configurazione del provider di servizi di federazione, Azure AD restituisce l'endpoint MEX (Metadata Exchange endpoint) del provider di servizi di federazione. In caso contrario, Azure AD indica che l'utente è gestito, specificando che può eseguire l'autenticazione con Azure AD. |
 | D | Se l'utente è federato, il plug-in CloudAP richiede un token SAML al provider di servizi di federazione con le credenziali dell'utente. Una volta ricevuto il token SAML, richiede un oggetto nonce ad Azure AD. Se l'utente è gestito, CloudAP ottiene l'oggetto nonce direttamente da Azure AD. |
 | E | Il plug-in CloudAP crea la richiesta di autenticazione con le credenziali dell'utente, l'oggetto nonce e il token di aggiornamento primario esistente, firma la richiesta con la chiave della sessione e la invia ad Azure AD. In un ambiente federato il plug-in CloudAP usa il token SAML restituito dal provider di servizi di federazione anziché le credenziali dell'utente. |
 | F | Azure AD convalida la firma della chiave della sessione confrontandola con la chiave della sessione incorporata nel token di aggiornamento primario, convalida l'oggetto nonce, verifica che il dispositivo sia valido nel tenant e rilascia un nuovo token di aggiornamento primario. Come illustrato in precedenza, il token di aggiornamento primario viene di nuovo associato alla chiave della sessione crittografata dalla chiave di trasporto (tkpub). |
 | G | Il plug-in CloudAP passa il token di aggiornamento primario e la chiave della sessione crittografati a CloudAP. CloudAP richiede al TPM di decrittografare la chiave della sessione usando la chiave di trasporto (tkpriv) e di crittografarla di nuovo usando la chiave del TPM stesso. CloudAP archivia la chiave della sessione crittografata nella cache insieme al token di aggiornamento primario. |
+
+> [!NOTE]
+> Un PRT può essere rinnovato esternamente senza la necessità di una connessione VPN quando gli endpoint usernamemixed sono abilitati esternamente.
 
 ### <a name="prt-usage-during-app-token-requests"></a>Uso del token di aggiornamento primario durante le richieste di token dell'app
 

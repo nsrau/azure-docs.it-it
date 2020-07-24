@@ -4,11 +4,12 @@ description: Configurare i test Web in Application Insights. Ottenere avvisi se 
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024589"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
@@ -22,7 +23,7 @@ Sono disponibili tre tipi di test di disponibilità:
 
 * [Test di ping URL](#create-a-url-ping-test): un semplice test che può essere creato nel portale di Azure.
 * [Test Web](availability-multistep.md)in più passaggi: registrazione di una sequenza di richieste Web, che può essere riprodotta per testare scenari più complessi. I test Web in più passaggi vengono creati in Visual Studio Enterprise e caricati nel portale per l'esecuzione.
-* [Test di disponibilità del rilevamento personalizzato](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se si decide di creare un'applicazione personalizzata per eseguire i test di disponibilità, il `TrackAvailability()` metodo può essere usato per inviare i risultati a Application Insights.
+* [Test di disponibilità del rilevamento personalizzato](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se si decide di creare un'applicazione personalizzata per eseguire i test di disponibilità, il `TrackAvailability()` metodo può essere usato per inviare i risultati a Application Insights.
 
 **È possibile creare fino a 100 test di disponibilità per ogni risorsa Application Insights.**
 
@@ -50,7 +51,7 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro di disponibi
 |**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
 |**Località di test**| Sono le posizioni da cui i server inviano richieste Web all'URL indicato. **Il numero minimo di località di test consigliate è cinque** per essere certi di poter distinguere i problemi del sito Web da quelli della rete. È possibile selezionare fino a 16 località.
 
-**Se l'URL non è visibile dalla rete Internet pubblica, è possibile scegliere di aprire selettivamente il firewall per consentire solo le transazioni di test tramite**. Per ulteriori informazioni sulle eccezioni del firewall per gli agenti di test di disponibilità, consultare la [Guida all'indirizzo IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Se l'URL non è visibile dalla rete Internet pubblica, è possibile scegliere di aprire selettivamente il firewall per consentire solo le transazioni di test tramite**. Per ulteriori informazioni sulle eccezioni del firewall per gli agenti di test di disponibilità, consultare la [Guida all'indirizzo IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > Si consiglia vivamente di eseguire test da più posizioni con **un minimo di cinque posizioni**. Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. È stato inoltre rilevato che la configurazione ottimale prevede che il **numero di percorsi di test sia uguale alla soglia della posizione di avviso + 2**.
@@ -112,7 +113,7 @@ Fare clic sulla riga dell'eccezione per visualizzare i dettagli dell'eccezione l
 
 ![Diagnostica lato server](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](../platform/metrics-getting-started.md):
 
 1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test.
 2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.
@@ -130,5 +131,3 @@ Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche d
 
 * [Avvisi di disponibilità](availability-alerts.md)
 * [Test Web in più passaggi](availability-multistep.md)
-
-

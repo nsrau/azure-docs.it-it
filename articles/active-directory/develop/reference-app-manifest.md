@@ -1,5 +1,6 @@
 ---
 title: Informazioni sul manifesto dell'app Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Descrizione dettagliata del manifesto dell'app Azure Active Directory, che rappresenta una configurazione dell'identità dell'applicazione in un tenant di Azure AD e che viene usato per facilitare l'autorizzazione OAuth, per l'esperienza di consenso e altro ancora.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026748"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
-Il manifesto dell'applicazione contiene una definizione di tutti gli attributi di un oggetto applicazione in Microsoft Identity Platform. Funge inoltre da meccanismo per laggiornamento dell'oggetto applicazione. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+Il manifesto dell'applicazione contiene una definizione di tutti gli attributi di un oggetto applicazione in Microsoft Identity Platform. Funge inoltre da meccanismo per laggiornamento dell'oggetto applicazione. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](/graph/api/resources/application).
 
-È possibile configurare gli attributi di un'app tramite il portale di Azure o a livello di codice usando l'[API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Tuttavia, esistono alcuni scenari in cui è necessario modificare il manifesto dell'applicazione per configurare l'attributo di un'applicazione. Tali scenari includono:
+È possibile configurare gli attributi di un'app tramite il portale di Azure o a livello di codice usando l'[API REST](/graph/api/resources/application) o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Tuttavia, esistono alcuni scenari in cui è necessario modificare il manifesto dell'applicazione per configurare l'attributo di un'applicazione. Tali scenari includono:
 
 * Se l'app è stata registrata come multi-tenant di Azure AD e per account Microsoft personali, non è possibile modificare gli account Microsoft supportati nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione.
 * Se è necessario definire le autorizzazioni e i ruoli supportati dall'applicazione, è necessario modificare il manifesto dell'applicazione.
@@ -433,7 +434,7 @@ Esempio:
 | parentalControlSettings | string |
 
 - `countriesBlockedForMinors` specifica i paesi e le aree in cui l'app è bloccata per i minori.
-- `legalAgeGroupRule` specifica la regola gruppo relativa all'età legale che si applica agli utenti dell'app. Può essere impostata su `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` o `BlockMinors`.  
+- `legalAgeGroupRule` specifica la regola gruppo relativa all'età legale che si applica agli utenti dell'app. Può essere impostata su `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` o `BlockMinors`.
 
 Esempio:
 
@@ -493,7 +494,7 @@ Esempio:
 | :--- | :--- |
 | publicClient | Boolean|
 
-Specifica se l'applicazione è un client pubblico, ad esempio un'applicazione installata in esecuzione in un dispositivo mobile. 
+Specifica se l'applicazione è un client pubblico, ad esempio un'applicazione installata in esecuzione in un dispositivo mobile.
 
 Questa proprietà è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituita da `allowPublicClient` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
 
@@ -669,7 +670,7 @@ Quando si tenta di caricare un manifesto scaricato in precedenza, è possibile c
 
 Se viene visualizzato uno di questi errori, è consigliabile eseguire le operazioni seguenti:
 
-1. Modificare gli attributi singolarmente nell'editor del manifesto anziché caricare un manifesto scaricato in precedenza. Usare la tabella in [Riferimento del manifesto](#manifest-reference) per comprendere la sintassi e la semantica degli attributi vecchi e nuovi, in modo da poter modificare correttamente gli attributi a cui si è interessati. 
+1. Modificare gli attributi singolarmente nell'editor del manifesto anziché caricare un manifesto scaricato in precedenza. Usare la tabella in [Riferimento del manifesto](#manifest-reference) per comprendere la sintassi e la semantica degli attributi vecchi e nuovi, in modo da poter modificare correttamente gli attributi a cui si è interessati.
 1. Se il flusso di lavoro richiede di salvare i manifesti nel repository di origine per usarli in seguito, è consigliabile riassegnare i manifesti salvati nel repository a quello visualizzato nell'esperienza **Registrazioni app**.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,15 +3,16 @@ title: Contatori delle prestazioni in Application Insights | Documentazione Micr
 description: Sistema di monitoraggio e contatori delle prestazioni .NET personalizzati in Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024419"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
-Windows offre un'ampia gamma di [contatori delle prestazioni](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori delle prestazioni personalizzati. La raccolta dei contatori delle prestazioni è supportata se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore. Sebbene le applicazioni in esecuzione come App Web di Azure non dispongano di accesso diretto ai contatori delle prestazioni, Application Insights raccoglie un subset di contatori disponibili.
+Windows offre un'ampia gamma di [contatori delle prestazioni](/windows/desktop/perfctrs/about-performance-counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori delle prestazioni personalizzati. La raccolta dei contatori delle prestazioni è supportata se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore. Sebbene le applicazioni in esecuzione come App Web di Azure non dispongano di accesso diretto ai contatori delle prestazioni, Application Insights raccoglie un subset di contatori disponibili.
 
 ## <a name="view-counters"></a>Visualizzare i contatori
 
@@ -39,7 +40,7 @@ Se il contatore delle prestazioni desiderato non è incluso nell'elenco delle me
 
     `Get-Counter -ListSet *`
 
-    Vedere [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).
+    Vedere [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1).
 2. Aprire ApplicationInsights.config.
 
    * Se Application Insights è stato aggiunto all'app durante lo sviluppo, modificare ApplicationInsights.config nel progetto e quindi distribuirlo di nuovo nei server.
@@ -108,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contatori delle prestazioni in Analytics
-È possibile cercare e visualizzare report dei contatori delle prestazioni in [Analytics](../../azure-monitor/app/analytics.md).
+È possibile cercare e visualizzare report dei contatori delle prestazioni in [Analytics](../log-query/log-query-overview.md).
 
 Lo schema **performanceCounters** espone `category`, il nome `counter` e il nome `instance` per ogni contatore delle prestazioni.  Nei dati di telemetria per ogni applicazione verranno visualizzati solo i contatori per l'applicazione specifica. Ad esempio, per visualizzare quali contatori sono disponibili: 
 
@@ -152,4 +153,3 @@ Come per altre metriche, è possibile [impostare un avviso](../../azure-monitor/
 
 * [Rilevamento delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)
 * [Rilevamento delle eccezioni](../../azure-monitor/app/asp-net-exceptions.md)
-

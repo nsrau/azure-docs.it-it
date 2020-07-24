@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029434"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali
 **Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate  funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.
@@ -73,7 +73,7 @@ Alcuni aspetti da considerare:
     Se i dati non sono presenti, il problema riguarda l'estensione della diagnostica in esecuzione nelle macchine virtuali. Se i dati sono presenti, il problema può riguardare le regole di scalabilità oppure il servizio Insights. Verificare lo [Stato di Azure](https://azure.microsoft.com/status/).
     
     Dopo aver seguito questa procedura, qualora ci siano ancora problemi di scalabilità automatica è possibile provare le risorse seguenti: 
-    * Leggere i forum sulla [pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html) o sull'[overflow dello stack](https://stackoverflow.com/questions/tagged/azure) 
+    * Leggere i forum sulla [pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-virtual-machines.html) o sull'[overflow dello stack](https://stackoverflow.com/questions/tagged/azure) 
     * Registrare una chiamata del supporto. Sarà necessario, condividere il modello e la visualizzazione dei dati sulle prestazioni.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

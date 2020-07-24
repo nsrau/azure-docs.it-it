@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023994"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -218,7 +218,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 
 | Problema | Descrizione |
 | :---- | :--------- |
-| Il riquadro Gestisci backup per un server non Mostra database con iperscalabilità. Questi verranno filtrati dalla visualizzazione.  | L'iperscalabilità ha un metodo separato per la gestione dei backup, quindi non si applicano le impostazioni di conservazione a lungo termine e di conservazione dei backup temporizzati. Di conseguenza, i database con iperscalabilità non vengono visualizzati nel riquadro Gestisci backup.|
+| Il riquadro Gestisci backup per un server non Mostra database con iperscalabilità. Questi verranno filtrati dalla visualizzazione.  | L'iperscalabilità ha un metodo separato per la gestione dei backup, quindi non si applicano le impostazioni di conservazione a lungo termine e di conservazione dei backup temporizzati. Di conseguenza, i database con iperscalabilità non vengono visualizzati nel riquadro Gestisci backup.<br><br>Per i database migrati a iperscalare da altri livelli di servizio del database SQL di Azure, i backup pre-migrazione vengono conservati per la durata del periodo di [conservazione dei backup](automated-backups-overview.md#backup-retention) del database di origine. Questi backup possono essere utilizzati per [ripristinare](recovery-using-backups.md#programmatic-recovery-using-automated-backups) il database di origine a un punto nel tempo prima della migrazione.|
 | Ripristino temporizzato | Non è possibile ripristinare un database non iperscalabile come database iperscalabile e non è possibile ripristinare un database con iperscalabilità come database non iperscalabile. Per un database non iperscalato di cui è stata eseguita la migrazione a iperscalabile modificando il livello di servizio, eseguire il ripristino fino a un punto nel tempo prima della migrazione e all'interno del periodo di conservazione dei backup del database è possibile [a livello di programmazione](recovery-using-backups.md#programmatic-recovery-using-automated-backups). Il database ripristinato sarà non iperscalabile. |
 | Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema compattando i file di grandi dimensioni in modo che siano inferiori a 1 TB. Se si esegue la migrazione di un database usato durante il processo di migrazione, assicurarsi che non ci siano file con dimensioni maggiori di 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Istanza gestita di SQL | Il Istanza gestita SQL di Azure non è attualmente supportato con i database con iperscalabilità. |

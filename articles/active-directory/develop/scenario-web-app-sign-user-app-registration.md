@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026254"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -40,9 +41,9 @@ Per registrare l'applicazione, è possibile usare:
 > Il portale da usare varia a seconda che l'applicazione venga eseguita nel cloud pubblico Microsoft Azure o in un cloud nazionale o sovrano. Per altre informazioni, vedere [cloud nazionali](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale. In alternativa, accedere al portale di Azure di scelta per il cloud nazionale.
-1. Se l'account consente di accedere a più di un tenant, selezionare l'account nell'angolo in alto a destra. Quindi, impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) desiderato.
-1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi selezionare **registrazioni app**  >  **nuova registrazione**.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale. In alternativa, accedere al [portale di Azure di scelta](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) per il cloud nazionale.
+2. Se l'account consente di accedere a più di un tenant, selezionare l'account nell'angolo in alto a destra. Quindi, impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) desiderato.
+3. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi selezionare **registrazioni app**  >  **nuova registrazione**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -50,12 +51,14 @@ Per registrare l'applicazione, è possibile usare:
    1. Scegliere i tipi di account supportati per l'applicazione. Vedere [tipi di account supportati](./v2-supported-account-types.md).
    1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app. Ad esempio, immettere **AspNetCore-webapp**.
    1. Per **URI di reindirizzamento**aggiungere il tipo di applicazione e la destinazione URI che accetterà le risposte del token restituito dopo l'autenticazione. Ad esempio, immettere **https://localhost:44321** . Selezionare quindi **Register (registra**).
+   ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Selezionare il menu **Autenticazione** e quindi aggiungere le informazioni seguenti:
    1. Per **URL di risposta**, aggiungere **https://localhost:44321/signin-oidc** di tipo **Web**.
    1. Nella sezione **Impostazioni avanzate** impostare **URL di disconnessione** su **https://localhost:44321/signout-oidc** .
    1. In **Concessione implicita** selezionare **Token ID**.
    1. Selezionare **Salva**.
-
+  ![registration](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
@@ -116,7 +119,7 @@ Per registrare l'applicazione, è possibile usare:
 > - MyOrg (solo account in questa directory organizzativa)
 > - AnyOrg (account in qualsiasi directory organizzativa)
 >
-> È possibile creare un'applicazione che esegua l'accesso degli utenti con gli account Microsoft personali (ad esempio, Skype, Xbox o Outlook.com). Per prima cosa, creare un'applicazione multi-tenant. I tipi di account supportati sono account in qualsiasi directory dell'organizzazione. Modificare quindi la `signInAudience` proprietà nel manifesto dell'applicazione dal portale di Azure. Per ulteriori informazioni, vedere il [passaggio 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) nell'esercitazione ASP.NET Core. È possibile generalizzare questo passaggio per le app Web in qualsiasi linguaggio.
+> È possibile creare un'applicazione che esegua l'accesso degli utenti con gli account Microsoft personali (ad esempio, Skype, Xbox o Outlook.com). Per prima cosa, creare un'applicazione multi-tenant. I tipi di account supportati sono account in qualsiasi directory dell'organizzazione. Impostare quindi la [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) proprietà su **2** e la [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) proprietà su `AzureADandPersonalMicrosoftAccount` nel [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) dal portale di Azure. Per ulteriori informazioni, vedere il [passaggio 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) nell'esercitazione ASP.NET Core. È possibile generalizzare questo passaggio per le app Web in qualsiasi linguaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

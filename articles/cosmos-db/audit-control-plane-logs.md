@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023688"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo Azure Cosmos DB
 
@@ -26,9 +27,9 @@ Di seguito sono riportati alcuni scenari di esempio in cui sono utili le operazi
 
 ## <a name="disable-key-based-metadata-write-access"></a>Disabilitare l'accesso in scrittura ai metadati basati su chiave
 
-Prima di controllare le operazioni del piano di controllo in Azure Cosmos DB, disabilitare l'accesso in scrittura ai metadati basati su chiave per l'account. Quando l'accesso in scrittura ai metadati basati su chiave è disabilitato, non è consentito l'accesso ai client che si connettono all'account Azure Cosmos tramite chiavi dell'account. È possibile disabilitare l'accesso in scrittura impostando la `disableKeyBasedMetadataWriteAccess` proprietà su true. Dopo aver impostato questa proprietà, le modifiche apportate a qualsiasi risorsa possono verificarsi da un utente con il ruolo di controllo degli accessi in base al ruolo (RBAC) e le credenziali appropriate. Per altre informazioni su come impostare questa proprietà, vedere l'articolo [Impedisci modifiche da SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
+Prima di controllare le operazioni del piano di controllo in Azure Cosmos DB, disabilitare l'accesso in scrittura ai metadati basati su chiave per l'account. Quando l'accesso in scrittura ai metadati basati su chiave è disabilitato, non è consentito l'accesso ai client che si connettono all'account Azure Cosmos tramite chiavi dell'account. È possibile disabilitare l'accesso in scrittura impostando la `disableKeyBasedMetadataWriteAccess` proprietà su true. Dopo aver impostato questa proprietà, le modifiche apportate a qualsiasi risorsa possono verificarsi da un utente con il ruolo di controllo degli accessi in base al ruolo (RBAC) e le credenziali appropriate. Per altre informazioni su come impostare questa proprietà, vedere l'articolo [Impedisci modifiche da SDK](role-based-access-control.md#prevent-sdk-changes) . 
 
-Dopo l' `disableKeyBasedMetadataWriteAccess` Abilitazione di, se i client basati su SDK eseguono operazioni di creazione o aggiornamento, l'errore *"operazione" post "sulla risorsa" ContainerNameorDatabaseName "non è consentito tramite Azure Cosmos DB endpoint* viene restituito. È necessario attivare l'accesso a tali operazioni per l'account o eseguire le operazioni di creazione/aggiornamento tramite Azure Resource Manager, l'interfaccia della riga di comando di Azure o Azure PowerShell. Per tornare indietro, impostare disableKeyBasedMetadataWriteAccess su **false** usando l'interfaccia della riga di comando di Azure, come descritto nell'articolo [Impedisci modifiche da Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Assicurarsi di modificare il valore di `disableKeyBasedMetadataWriteAccess` in false anziché true.
+Dopo l' `disableKeyBasedMetadataWriteAccess` Abilitazione di, se i client basati su SDK eseguono operazioni di creazione o aggiornamento, l'errore *"operazione" post "sulla risorsa" ContainerNameorDatabaseName "non è consentito tramite Azure Cosmos DB endpoint* viene restituito. È necessario attivare l'accesso a tali operazioni per l'account o eseguire le operazioni di creazione/aggiornamento tramite Azure Resource Manager, l'interfaccia della riga di comando di Azure o Azure PowerShell. Per tornare indietro, impostare disableKeyBasedMetadataWriteAccess su **false** usando l'interfaccia della riga di comando di Azure, come descritto nell'articolo [Impedisci modifiche da Cosmos SDK](role-based-access-control.md#prevent-sdk-changes) . Assicurarsi di modificare il valore di `disableKeyBasedMetadataWriteAccess` in false anziché true.
 
 Quando si disattiva l'accesso in scrittura ai metadati, tenere presente quanto segue:
 

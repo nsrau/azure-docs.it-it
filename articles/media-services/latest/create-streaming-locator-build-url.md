@@ -11,15 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023246"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creare un localizzatore di streaming e gli URL di compilazione
 
-Per creare un URL di streaming in servizi multimediali di Azure, è prima di tutto necessario creare un [localizzatore di streaming](streaming-locators-concept.md). Si concatenano quindi il nome host dell' [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start** per avviare il flusso.
+Per creare un URL di streaming in servizi multimediali di Azure, è prima di tutto necessario creare un [localizzatore di streaming](streaming-locators-concept.md). Si concatenano quindi il nome host dell' [endpoint di streaming](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start** per avviare il flusso.
 
 Questo articolo illustra come creare un localizzatore di streaming e creare un URL di streaming usando gli SDK Java e .NET.
 

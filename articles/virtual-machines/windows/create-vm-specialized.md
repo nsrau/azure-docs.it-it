@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 49554c053af0ceecf2b7f0b1162b7212694239db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028091"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -32,7 +33,7 @@ Questo articolo illustra come usare i dischi gestiti. Se è presente una distrib
 
 ## <a name="option-1-use-an-existing-disk"></a>Opzione 1: Usare un disco esistente
 
-Se una macchina virtuale è stata eliminata e si vuole riutilizzare il disco del sistema operativo per crearne una nuova, usare [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Se una macchina virtuale è stata eliminata e si vuole riutilizzare il disco del sistema operativo per crearne una nuova, usare [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -67,7 +68,7 @@ Se si vuole copiare una VM esistente in un'altra area, è consigliabile usare az
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Acquisire uno snapshot del disco del sistema operativo
 
-È possibile acquisire uno snapshot di un'intera macchina virtuale (tutti i dischi inclusi) o solo di un singolo disco. I passaggi seguenti illustrano come acquisire uno snapshot del disco del sistema operativo della macchina virtuale con il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+È possibile acquisire uno snapshot di un'intera macchina virtuale (tutti i dischi inclusi) o solo di un singolo disco. I passaggi seguenti illustrano come acquisire uno snapshot del disco del sistema operativo della macchina virtuale con il cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot). 
 
 Per prima cosa, impostare alcuni parametri. 
 
@@ -115,7 +116,7 @@ Per creare una VM a prestazioni elevate con questo snapshot, aggiungere il param
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creare un nuovo disco dallo snapshot
 
-Creare un disco gestito dallo snapshot usando [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Questo esempio usa *myOSDisk* come nome del disco.
+Creare un disco gestito dallo snapshot usando [New-AzDisk](/powershell/module/az.compute/new-azdisk). Questo esempio usa *myOSDisk* come nome del disco.
 
 Creare un nuovo gruppo di risorse per la nuova VM.
 
@@ -235,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>Aggiungere il disco del sistema operativo 
 
-Aggiungere il disco del sistema operativo alla configurazione usando [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). In questo esempio le dimensioni del disco vengono impostate su *128 GB* e viene collegato il disco gestito come disco del sistema operativo *Windows*.
+Aggiungere il disco del sistema operativo alla configurazione usando [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). In questo esempio le dimensioni del disco vengono impostate su *128 GB* e viene collegato il disco gestito come disco del sistema operativo *Windows*.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -244,7 +245,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Completare la VM 
 
-Creare la macchina virtuale usando [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) con le configurazioni appena create.
+Creare la macchina virtuale usando [New-AzVM](/powershell/module/az.compute/new-azvm) con le configurazioni appena create.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -269,4 +270,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Passaggi successivi
 Accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
-

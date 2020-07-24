@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027496"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Abilitare Azure Multi-Factor Authentication per singolo utente per proteggere gli eventi di accesso
 
@@ -78,7 +78,7 @@ Per modificare lo stato di un utente di Azure Multi-Factor Authentication, compl
 
 ## <a name="change-state-using-powershell"></a>Modificare lo stato con PowerShell
 
-Per modificare lo stato utente usando [Azure AD PowerShell](/powershell/azure/overview) è necessario modificare il parametro `$st.State` per un account utente. Sono disponibili tre possibili stati per un account utente:
+Per modificare lo stato utente usando [Azure AD PowerShell](/powershell/azure/) è necessario modificare il parametro `$st.State` per un account utente. Sono disponibili tre possibili stati per un account utente:
 
 * *Enabled*
 * *Applicato*
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Il comportamento e lo script PowerShell sono stati modificati di recente. In precedenza, lo script salvava i metodi di MFA, disabilitava MFA e ripristinava i metodi. Questo non è più necessario, ora che il comportamento predefinito per la disabilitazione non cancella i metodi.
->
 > Se si abilita nuovamente MFA su un oggetto utente che già presenta alcuni dettagli di registrazione, come numero di telefono o indirizzo di posta elettronica, gli amministratori devono chiedere all'utente di effettuare nuovamente la registrazione a Microsoft Azure Multi-Factor Authentication tramite il portale di Azure o PowerShell. Se l'utente non effettua nuovamente la registrazione, lo stato di MFA non passa da *Abilitato* ad *Applicato* nell'interfaccia utente di gestione di MFA.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare impostazioni di Azure Multi-Factor Authentication come gli indirizzi IP attendibili, i messaggi vocali personalizzati e gli avvisi di illeciti, vedere l'articolo [Configurare le impostazioni di Azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Per la gestione delle impostazioni utente per Azure Multi-Factor Authentication, vedere l'articolo [Gestire le impostazioni utente con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+Per configurare le impostazioni di Azure Multi-Factor Authentication, vedere [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md).
+
+Per la gestione delle impostazioni utente per Azure Multi-Factor Authentication, vedere l'articolo [Gestire le impostazioni utente con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 Per comprendere il motivo per cui all'utente è stato richiesto o non è stato richiesto di eseguire l'autenticazione a più fattori, vedere [Report di Azure Multi-Factor Authentication](howto-mfa-reporting.md).

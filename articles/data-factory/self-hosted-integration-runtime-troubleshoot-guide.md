@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023839"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra i metodi più comuni per la risoluzione dei problemi relativi al runtime di integrazione self-hosted in Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Raccogliere i log del runtime di integrazione self-hosted da Azure Data Factory
+
+Per le attività non riuscite in esecuzione sul runtime di integrazione self-hosted IR/Shared, Azure Data Factory supporta la visualizzazione e il caricamento dei log degli errori. È possibile seguire questa procedura per ottenere l'ID della segnalazione errori, quindi immettere l'ID del report per individuare i problemi noti correlati.
+
+1. Passare alla pagina **esecuzioni attività** .
+
+1. Nella colonna **errore** fare clic sul pulsante sotto.
+
+    ![Pagina esecuzioni attività](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Vengono visualizzati i log correlati per l'esecuzione dell'attività non riuscita. Per ulteriore assistenza, fare clic sul pulsante **Invia log** .
+
+    ![Invia log](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. È possibile scegliere i log da inviare. Per il runtime di integrazione *self-hosted*, è possibile caricare i log relativi all'attività non riuscita o a tutti i log nel nodo IR self-hosted. Per il runtime di integrazione *condiviso*, è possibile caricare solo i log relativi alle attività non riuscite.
+
+    ![Selezione dei log](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Quando si caricano i log, tenere un record dell'ID del report, se è necessaria ulteriore assistenza per risolvere il problema.
+
+    ![Carica log](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> La visualizzazione del log e il caricamento delle richieste verranno eseguiti in tutte le istanze del runtime di integrazione self-hosted online. Verificare che tutte le istanze del runtime di integrazione Self-Hosted siano online in caso di log mancanti. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Errori comuni e soluzioni
 

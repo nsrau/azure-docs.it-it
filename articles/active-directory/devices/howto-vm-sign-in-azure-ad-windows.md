@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025847"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
-Le organizzazioni possono ora usare l'autenticazione Azure Active Directory (AD) per le macchine virtuali (VM) di Azure che eseguono **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** e versioni successive. L'uso di Azure AD per l'autenticazione nelle macchine virtuali consente di controllare e applicare in modo centralizzato i criteri. Strumenti come il controllo degli accessi in base al ruolo di Azure (RBAC) e Azure AD l'accesso condizionale consentono di controllare chi può accedere a una macchina virtuale. Questo articolo illustra come creare e configurare una macchina virtuale Windows Server 2019 per usare l'autenticazione Azure AD.
+Le organizzazioni possono ora usare l'autenticazione Azure Active Directory (AD) per le macchine virtuali (VM) di Azure che eseguono **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** e versioni successive. L'uso di Azure AD per l'autenticazione nelle macchine virtuali consente di controllare e applicare in modo centralizzato i criteri. Strumenti come il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e Azure AD l'accesso condizionale consentono di controllare chi può accedere a una macchina virtuale. Questo articolo illustra come creare e configurare una macchina virtuale Windows Server 2019 per usare l'autenticazione Azure AD.
 
 > [!NOTE]
 > Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,7 +32,7 @@ L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows i
 - Non è più necessario gestire gli account di amministratore locale.
 - Il controllo degli accessi in base al ruolo di Azure consente di concedere l'accesso appropriato alle macchine virtuali in base alla necessità e di rimuoverlo quando non è più necessario.
 - Prima di consentire l'accesso a una macchina virtuale, Azure AD l'accesso condizionale può applicare requisiti aggiuntivi, ad esempio: 
-   - Autenticazione a più fattori
+   - Multi-Factor Authentication
    - Controllo del rischio di accesso
 - Automatizzare e ridimensionare Azure AD join di macchine virtuali Windows di Azure che fanno parte delle distribuzioni VDI.
 
@@ -125,7 +125,7 @@ az vm create \
 > [!NOTE]
 > È necessario abilitare l'identità gestita assegnata dal sistema nella macchina virtuale prima di installare l'estensione della VM di accesso Azure AD.
 
-La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
+La creazione della VM e delle risorse di supporto richiede alcuni minuti.
 
 Infine, installare l'estensione della macchina virtuale Azure AD login per abilitare Azure AD account di accesso per la macchina virtuale Windows. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [AZ VM Extension](/cli/azure/vm/extension#az-vm-extension-set) set per installare l'estensione AADLoginForWindows nella macchina virtuale denominata myVM nel gruppo di risorse myResourceGroup:
 
@@ -200,7 +200,10 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Windows in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "accesso alla macchina virtuale Windows di Azure" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
 
 > [!NOTE]
-> Se si usa "Richiedi autenticazione a più fattori" come controllo di concessione dell'accesso per richiedere l'accesso all'app "accesso alle macchine virtuali Windows di Azure", è necessario fornire l'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP alla macchina virtuale Windows di destinazione in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o la authenication biometrica con il client RDP. Il supporto per l'autenticazione biometrica è stato aggiunto al client RDP in Windows 10 versione 1809. Il desktop remoto che usa l'autenticazione di Windows Hello for business è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non sono disponibili per il modello di attendibilità
+> Se si usa "Richiedi autenticazione a più fattori" come controllo di concessione dell'accesso per richiedere l'accesso all'app "accesso alle macchine virtuali Windows di Azure", è necessario fornire l'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP alla macchina virtuale Windows di destinazione in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o l'autenticazione biometrica con il client RDP. Il supporto per l'autenticazione biometrica è stato aggiunto al client RDP in Windows 10 versione 1809. Il desktop remoto che usa l'autenticazione di Windows Hello for business è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non sono disponibili per il modello di attendibilità
+
+> [!WARNING]
+> La Multi-Factor Authentication di Azure abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
@@ -221,7 +224,7 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

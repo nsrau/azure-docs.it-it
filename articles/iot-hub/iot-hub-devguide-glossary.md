@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023467"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 
@@ -26,7 +26,7 @@ Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT
 
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) è uno dei protocolli di messaggistica supportati da [Hub IoT](#iot-hub) per la comunicazione con i dispositivi. Per altre informazioni sui protocolli di messaggistica supportati dall'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Gestione automatica dei dispositivi
+## <a name="automatic-device-management"></a>Gestione dispositivi automatica
 
 La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi nel loro intero ciclo di vita. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito.  Si compone delle [configurazioni automatiche del dispositivo](iot-hub-auto-device-config.md) e delle [distribuzioni automatiche di IoT Edge](../iot-edge/how-to-deploy-at-scale.md).
 
@@ -64,7 +64,7 @@ Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centr
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
+[Azure PowerShell](/powershell/azure/) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -134,7 +134,7 @@ Si riferisce ai messaggi inviati da un dispositivo connesso a [Hub IoT](#iot-hub
 
 Nel contesto di IoT, un dispositivo è in genere un dispositivo di elaborazione autonomo e su scala ridotta, che potrebbe raccogliere dati o controllare altri dispositivi. Ad esempio, un dispositivo potrebbe essere un sistema di monitoraggio ambientale o un controller per i sistemi di irrigazione e ventilazione in una serra. Il [catalogo dei dispositivi](https://catalog.azureiotsolutions.com/) contiene un elenco di dispositivi hardware certificati da usare con [hub IoT](#iot-hub).
 
-## <a name="device-app"></a>App per dispositivi
+## <a name="device-app"></a>App per dispositivo
 
 Un'app per dispositivi viene eseguita nel [dispositivo](#device) e gestisce la comunicazione con l'[hub IoT](#iot-hub). In genere si usa uno degli [Azure IoT SDK per dispositivi](#azure-iot-device-sdks) quando si implementa un'app per dispositivi. In diverse esercitazioni su IoT si usa un [dispositivo simulato](#simulated-device) per praticità.
 
@@ -286,7 +286,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), il te
 
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà segnalate sono un sottoparagrafo del dispositivo gemello usato con le [proprietà desiderate](#desired-properties) per sincronizzare la condizione o la configurazione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'[app per dispositivo](#device-app) e possono essere lette e sottoposte a query da un'[app back-end](#back-end-app).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Gruppo di risorse
 
 [Azure Resource Manager](#azure-resource-manager) usa i gruppi di risorse per raggruppare le risorse correlate. È possibile usare un gruppo di risorse per eseguire operazioni su tutte le risorse del gruppo contemporaneamente.
 
@@ -318,10 +318,10 @@ Un criterio di accesso condiviso definisce le autorizzazioni concesse a chiunque
 
 Per motivi di praticità, diverse esercitazioni su Hub IoT usano dispositivi simulati per consentire di eseguire esempi nel computer locale. Un [dispositivo fisico](#physical-device) è invece un vero e proprio dispositivo, ad esempio un Raspberry Pi, che si connette a un hub IoT.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 Una _soluzione_ può essere una soluzione di Visual Studio che include uno o più progetti, ma una _soluzione_ può anche essere una soluzione IoT che include elementi come dispositivi, [app per dispositivo](#device-app), un hub IoT, altri servizi di Azure e [app back-end](#back-end-app).
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>Sottoscrizione
 
 In una sottoscrizione di Azure viene eseguita la fatturazione. Ogni risorsa di Azure creata o ogni servizio di Azure usato è associato a una singola sottoscrizione. Anche diverse quote si applicano al livello di una sottoscrizione.
 

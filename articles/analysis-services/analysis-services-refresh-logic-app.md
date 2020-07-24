@@ -6,11 +6,13 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79126946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025320"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -18,7 +20,7 @@ Usando le app per la logica e le chiamate REST, è possibile eseguire operazioni
 
 Per altre informazioni sull'uso delle API REST con Azure Analysis Services, vedere [aggiornamento asincrono con l'API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  Gli esempi in questo articolo utilizzeranno un'entità servizio (SPN) per l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -61,13 +63,13 @@ Questo passaggio verrà popolato con l'URL HTTP POST dopo il salvataggio dell'ap
 
 Configurare l'attività HTTP come indicato di seguito:
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**Metodo**     |POST         |
 |**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/refreshes|
-|**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Intestazioni](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Per altre informazioni sulla forma del corpo della richiesta, vedere [aggiornamento asincrono con l'API REST-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Autenticazione**     |Autenticazione OAuth Active Directory         |
+|**autenticazione**     |Autenticazione OAuth Active Directory         |
 |**Tenant**     |Compilare il Azure Active Directory TenantId         |
 |**Destinatari**     |https://*. asazure. Windows. NET         |
 |**ID client**     |Immettere il nome dell'entità servizio ClientID         |

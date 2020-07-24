@@ -1,25 +1,25 @@
 ---
 title: Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB
 titleSuffix: Azure Storage
-description: I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste (anteprima). L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB.
+description: I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029740"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornire una chiave di crittografia per una richiesta all'archivio BLOB (anteprima)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB
 
-I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste (anteprima). L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
+I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
 
 ## <a name="encrypting-read-and-write-operations"></a>Crittografia delle operazioni di lettura e scrittura
 

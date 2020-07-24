@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023263"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
@@ -243,12 +244,12 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`ha un valore della chiave richiesta. È possibile usare `AlternativeMediaId` se si vuole eseguire il mapping della richiesta a un'entità da parte dell'utente. Ad esempio, `AlternativeMediaId` può essere usato per semplificare la ricerca delle autorizzazioni.
 
-Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Se viene ricevuto l' `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriati.
 
@@ -265,4 +266,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 * [Progettare un sistema di protezione dei contenuti con DRM multiplo con controllo di accesso](design-multi-drm-system-with-access-control.md)
 * [Crittografia lato archiviazione](storage-account-concept.md#storage-side-encryption)
 * [Domande frequenti](frequently-asked-questions.md)
-* [Gestore del token Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [Gestore del token Web JSON](/dotnet/framework/security/json-web-token-handler)

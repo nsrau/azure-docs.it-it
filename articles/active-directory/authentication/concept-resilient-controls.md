@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027615"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -220,7 +221,7 @@ Disabilitare l'estensione NPS:
 -   Determinare se l'autenticazione principale per la VPN è riuscita.
 
 Dopo che il servizio è stato recuperato e si è pronti per applicare l'autenticazione a più fattori sugli utenti, abilitare l'estensione NPS: 
--   Importante la chiave del registro di sistema da backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Importare la chiave del registro di sistema da backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -   Riavviare il servizio IAS (Network Policy Service) per rendere effettive le modifiche 
 -   Determinare se l'autenticazione principale e l'autenticazione secondaria per la VPN hanno esito positivo.
 -   Esaminare il server dei criteri di rete e il registro VPN per determinare gli utenti che hanno eseguito l'accesso durante la finestra di emergenza.

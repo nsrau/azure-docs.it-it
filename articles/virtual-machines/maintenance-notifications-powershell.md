@@ -7,17 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028586"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Gestione della manutenzione pianificata con PowerShell
 
 **Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.**
 
-È possibile usare Azure PowerShell per vedere quando le macchine virtuali sono pianificate per la [manutenzione](maintenance-notifications.md). Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), usando il parametro `-status`.
+È possibile usare Azure PowerShell per vedere quando le macchine virtuali sono pianificate per la [manutenzione](maintenance-notifications.md). Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm), usando il parametro `-status`.
   
 Le informazioni vengono restituite solo se è presente una manutenzione pianificata. Se non è presente alcuna manutenzione pianificata per la macchina virtuale, il cmdlet non restituisce informazioni. 
 
@@ -28,7 +29,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
 
-| valore | Descrizione   |
+| Valore | Descrizione   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM |
@@ -39,7 +40,7 @@ MaintenanceRedeployStatus restituisce le proprietà seguenti:
 
 
 
-È anche possibile ottenere lo stato di manutenzione per tutte le macchine virtuali in un gruppo di risorse tramite [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), senza specificare una macchina virtuale.
+È anche possibile ottenere lo stato di manutenzione per tutte le macchine virtuali in un gruppo di risorse tramite [Get-AzVM](/powershell/module/az.compute/get-azvm), senza specificare una macchina virtuale.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

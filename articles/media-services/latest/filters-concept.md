@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708298"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023229"
 ---
 # <a name="filters"></a>Filtri
 
@@ -38,8 +38,8 @@ Servizi multimediali consente di creare filtri per gli **account** e **filtri di
 
 Sono disponibili due tipi di filtri: 
 
-* [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) (globali): possono essere applicati a qualsiasi asset nell’account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell’account.
-* [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters) (locali): possono essere applicati solo a uno degli asset a cui è stato associato il filtro in fase di creazione e hanno una durata equivalente a quella dell’asset. 
+* [Filtri account](/rest/api/media/accountfilters) (globali): possono essere applicati a qualsiasi asset nell’account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell’account.
+* [Filtri asset](/rest/api/media/assetfilters) (locali): possono essere applicati solo a uno degli asset a cui è stato associato il filtro in fase di creazione e hanno una durata equivalente a quella dell’asset. 
 
 I **filtri di account** e i tipi di filtri di **Asset** hanno esattamente le stesse proprietà per la definizione o la descrizione del filtro. Tranne quando si crea il **filtro asset**, è necessario specificare il nome dell'asset a cui si desidera associare il filtro.
 
@@ -139,7 +139,7 @@ Nell'esempio seguente viene definito un filtro di streaming live:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Associazione di filtri con il localizzatore di streaming
 
-È possibile specificare un elenco di [filtri asset o account](filters-concept.md) nel [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Il [Packager dinamico](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. 
+È possibile specificare un elenco di [filtri asset o account](filters-concept.md) nel [localizzatore di streaming](/rest/api/media/streaminglocators/create#request-body). Il [Packager dinamico](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. 
 
 Vedere gli esempi seguenti:
 
@@ -161,4 +161,3 @@ Gli articoli seguenti spiegano come creare filtri in modo programmatico.
 - [Creare filtri con le API REST](filters-dynamic-manifest-rest-howto.md)
 - [Creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Creare filtri con l’interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
-

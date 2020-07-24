@@ -3,11 +3,12 @@ title: Monitoraggio con test Web in più passi - Azure Application Insights
 description: Configurare test Web in più passi per monitorare le applicazioni Web con Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024776"
 ---
 # <a name="multi-step-web-tests"></a>Test Web in più passaggi
 
@@ -16,7 +17,7 @@ ms.locfileid: "83873341"
 > [!NOTE]
 > I test Web in più passi dipendono dai file webtest di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con la funzionalità test Web. È importante comprendere che, anche se non vengono aggiunte nuove funzionalità, la funzionalità test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a esserlo durante il ciclo di vita del prodotto. Il team del prodotto Monitoraggio di Azure ha affrontato le domande relative al futuro dei test di disponibilità in più passi [qui](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 > </br>
-> I test Web in più passi **non sono supportati** nel cloud di [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/).
+> I test Web in più passi **non sono supportati** nel cloud di [Azure per enti pubblici](../../azure-government/index.yml).
 
 
 ## <a name="pre-requisites"></a>Prerequisiti
@@ -36,7 +37,7 @@ Per individuare il prerequisito degli strumenti di test. Avviare il **Programma 
 > [!WARNING]
 > Non è più consigliabile usare la registrazione in più passi. La registrazione è stata sviluppata per le pagine HTML statiche con interazioni di base e non fornisce un'esperienza funzionale per le pagine Web moderne.
 
-Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [documentazione ufficiale di Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [documentazione ufficiale di Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Caricare il test Web
 

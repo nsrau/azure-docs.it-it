@@ -7,17 +7,18 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dcba7da09cff3b7123521a4daf1028ab17e199a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029145"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dati personalizzati e cloud-init in Macchine virtuali di Azure
 
 Potrebbe essere necessario inserire uno script o altri metadati in una macchina virtuale Microsoft Azure in fase di provisioning.  In altri cloud, questo concetto viene spesso indicato con il termine dati utente.  In Microsoft Azure, è presente una funzionalità simile denominata dati personalizzati. 
 
-I dati personalizzati vengono resi disponibili alla macchina virtuale solo durante il primo avvio o la configurazione iniziale, vale a dire durante il "provisioning". Il provisioning è il processo in cui i parametri di creazione della VM (ad esempio nome host, nome utente, password, certificati, dati personalizzati, chiavi, ecc.) vengono resi disponibili alla VM ed elaborati da un agente di provisioning, ad esempio [Agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) e [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
+I dati personalizzati vengono resi disponibili alla macchina virtuale solo durante il primo avvio o la configurazione iniziale, vale a dire durante il "provisioning". Il provisioning è il processo in cui i parametri di creazione della VM (ad esempio nome host, nome utente, password, certificati, dati personalizzati, chiavi, ecc.) vengono resi disponibili alla VM ed elaborati da un agente di provisioning, ad esempio [Agente Linux](./extensions/agent-linux.md) e [cloud-init](./linux/using-cloud-init.md#troubleshooting-cloud-init). 
 
 
 ## <a name="passing-custom-data-to-the-vm"></a>Passaggio dei dati personalizzati alla VM
@@ -33,7 +34,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-In Azure Resource Manager (ARM) è presente una [funzione base64](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64).
+In Azure Resource Manager (ARM) è presente una [funzione base64](../azure-resource-manager/templates/template-functions-string.md#base64).
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -73,21 +74,21 @@ Quando si abilitano i dati personalizzati e si esegue uno script, la segnalazion
 
 Per risolvere i problemi di esecuzione dei dati personalizzati, esaminare il file */var/log/waagent.log*
 
-* cloud-init: elabora i dati personalizzati per impostazione predefinita. Cloud-init accetta [più formati](https://cloudinit.readthedocs.io/en/latest/topics/format.html) di dati personalizzati, ad esempio la configurazione di cloud-init, gli script e così via. Come avviene con l'agente Linux, quando cloud-init elabora i dati personalizzati. Se si verificano errori durante l'esecuzione dell'elaborazione o degli script di configurazione, non viene considerato un errore di provisioning irreversibile ed è necessario creare un percorso di notifica per ricevere un avviso per lo stato di completamento dello script. Tuttavia, a differenza dell'agente Linux, cloud-init non attende il completamento delle configurazioni dei dati personalizzati dell'utente prima di segnalare alla piattaforma che la macchina virtuale è pronta. Per altre informazioni su cloud-init in Azure, esaminare la [documentazione](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+* cloud-init: elabora i dati personalizzati per impostazione predefinita. Cloud-init accetta [più formati](https://cloudinit.readthedocs.io/en/latest/topics/format.html) di dati personalizzati, ad esempio la configurazione di cloud-init, gli script e così via. Come avviene con l'agente Linux, quando cloud-init elabora i dati personalizzati. Se si verificano errori durante l'esecuzione dell'elaborazione o degli script di configurazione, non viene considerato un errore di provisioning irreversibile ed è necessario creare un percorso di notifica per ricevere un avviso per lo stato di completamento dello script. Tuttavia, a differenza dell'agente Linux, cloud-init non attende il completamento delle configurazioni dei dati personalizzati dell'utente prima di segnalare alla piattaforma che la macchina virtuale è pronta. Per altre informazioni su cloud-init in Azure, esaminare la [documentazione](./linux/using-cloud-init.md).
 
 
-Per risolvere i problemi relativi all'esecuzione dei dati personalizzati, vedere la [documentazione](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init) relativa alla risoluzione dei problemi.
+Per risolvere i problemi relativi all'esecuzione dei dati personalizzati, vedere la [documentazione](./linux/using-cloud-init.md#troubleshooting-cloud-init) relativa alla risoluzione dei problemi.
 
 
 ## <a name="faq"></a>Domande frequenti
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>È possibile aggiornare i dati personalizzati dopo la creazione della macchina virtuale?
-Per le singole macchine virtuali, i dati personalizzati nel modello di macchina virtuale non possono essere aggiornati, ma, per il set di scalabilità di macchine virtuali di Microsoft Azure, è possibile aggiornare i dati personalizzati del set di scalabilità di macchine virtuali tramite [API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (non applicabile ai client PS o AZ CLI). Quando si aggiornano i dati personalizzati nel modello del set di scalabilità di macchine virtuali:
+Per le singole macchine virtuali, i dati personalizzati nel modello di macchina virtuale non possono essere aggiornati, ma, per il set di scalabilità di macchine virtuali di Microsoft Azure, è possibile aggiornare i dati personalizzati del set di scalabilità di macchine virtuali tramite [API REST](/rest/api/compute/virtualmachinescalesets/update) (non applicabile ai client PS o AZ CLI). Quando si aggiornano i dati personalizzati nel modello del set di scalabilità di macchine virtuali:
 * Le istanze esistenti nel set di scalabilità di macchine virtuali otterranno i dati personalizzati aggiornati solo quando ne verrà ricreata l'immagine.
 * Le istanze esistenti nel set di scalabilità di macchine virtuali che vengono sottoposte ad upgrade non otterranno i dati personalizzati aggiornati.
 * Le nuove istanze riceveranno i nuovi dati personalizzati.
 
 ### <a name="can-i-place-sensitive-values-in-custom-data"></a>È possibile inserire valori sensibili nei dati personalizzati?
-Si consiglia di **non** archiviare dati sensibili nei dati personalizzati. Per altre informazioni, vedere [Procedure consigliate per la sicurezza e la crittografia di Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
+Si consiglia di **non** archiviare dati sensibili nei dati personalizzati. Per altre informazioni, vedere [Procedure consigliate per la sicurezza e la crittografia di Azure](../security/fundamentals/data-encryption-best-practices.md).
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>I dati personalizzati sono resi disponibili in IMDS?

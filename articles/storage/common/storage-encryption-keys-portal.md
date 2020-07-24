@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029578"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando il portale di Azure
 
@@ -45,9 +45,26 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla
 
 ## <a name="specify-a-key"></a>Specificare una chiave
 
-Dopo aver abilitato le chiavi gestite dal cliente, si avrà la possibilità di specificare una chiave da associare all'account di archiviazione.
+Dopo aver abilitato le chiavi gestite dal cliente, si avrà la possibilità di specificare una chiave da associare all'account di archiviazione. È anche possibile indicare se l'archiviazione di Azure deve ruotare automaticamente la chiave gestita dal cliente o se la chiave verrà ruotata manualmente.
+
+### <a name="specify-a-key-from-a-key-vault"></a>Specificare una chiave da un insieme di credenziali delle chiavi
+
+Quando si seleziona una chiave gestita dal cliente da un insieme di credenziali delle chiavi, la rotazione automatica della chiave viene abilitata automaticamente. Per gestire manualmente la versione della chiave, specificare invece l'URI della chiave e includere la versione della chiave. Per altre informazioni, vedere [specificare una chiave come URI](#specify-a-key-as-a-uri).
+
+Per specificare una chiave da un insieme di credenziali delle chiavi, seguire questa procedura:
+
+1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
+1. Selezionare **selezionare un insieme di credenziali delle chiavi e una chiave**.
+1. Selezionare l'insieme di credenziali delle chiavi contenente la chiave che si vuole usare.
+1. Selezionare la chiave dall'insieme di credenziali delle chiavi.
+
+   ![Screenshot che illustra come selezionare Key Vault e Key](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+
+1. Salvare le modifiche.
 
 ### <a name="specify-a-key-as-a-uri"></a>Specificare una chiave da un URI
+
+Quando si specifica l'URI della chiave, omettere la versione della chiave per abilitare la rotazione automatica della chiave gestita dal cliente. Se si include la versione della chiave nell'URI della chiave, la rotazione automatica non è abilitata ed è necessario gestire manualmente la versione della chiave. Per ulteriori informazioni sull'aggiornamento della versione della chiave, vedere [aggiornamento manuale della versione della chiave](#manually-update-the-key-version).
 
 Per specificare una chiave come URI, attenersi alla procedura seguente:
 
@@ -56,35 +73,29 @@ Per specificare una chiave come URI, attenersi alla procedura seguente:
 
     ![Screenshot che mostra l'URI della chiave di Key Vault](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
-1. Nelle impostazioni di **crittografia** per l'account di archiviazione scegliere l'opzione **immettere l'URI del tasto** .
-1. Incollare l'URI copiato nel campo **URI chiave** .
+1. Nelle impostazioni della **chiave di crittografia** per l'account di archiviazione scegliere l'opzione immettere l'URI del **tasto** .
+1. Incollare l'URI copiato nel campo **URI chiave** . Omettere la versione della chiave dall'URI per abilitare la rotazione automatica.
 
    ![Screenshot che illustra come immettere l'URI della chiave](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Specificare la sottoscrizione che contiene l'insieme di credenziali delle chiavi.
 1. Salvare le modifiche.
 
-### <a name="specify-a-key-from-a-key-vault"></a>Specificare una chiave da un insieme di credenziali delle chiavi
+Dopo aver specificato la chiave, il portale di Azure indica se la rotazione automatica delle chiavi è abilitata e visualizza la versione della chiave attualmente in uso per la crittografia.
 
-Per specificare una chiave da un insieme di credenziali delle chiavi, assicurarsi innanzitutto di avere un insieme di credenziali delle chiavi contenente una chiave. Per specificare una chiave da un insieme di credenziali delle chiavi, seguire questa procedura:
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot che mostra la rotazione automatica delle chiavi gestite dal cliente abilitate":::
 
-1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
-1. Selezionare l'insieme di credenziali delle chiavi contenente la chiave che si vuole usare.
-1. Selezionare la chiave dall'insieme di credenziali delle chiavi.
+## <a name="manually-update-the-key-version"></a>Aggiornare manualmente la versione della chiave
 
-   ![Screenshot che mostra l'opzione della chiave gestita dal cliente](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+Per impostazione predefinita, archiviazione di Azure ruota automaticamente le chiavi gestite dal cliente, come descritto nelle sezioni precedenti. Se si sceglie di gestire manualmente la versione della chiave, è necessario aggiornare la versione della chiave specificata per l'account di archiviazione ogni volta che si crea una nuova versione della chiave.
 
-1. Salvare le modifiche.
-
-## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
-
-Quando si crea una nuova versione di una chiave, aggiornare l'account di archiviazione per usare la nuova versione. Attenersi ai passaggi descritti di seguito.
+Per aggiornare l'account di archiviazione per usare la nuova versione della chiave, seguire questa procedura:
 
 1. Passare all'account di archiviazione e visualizzare le impostazioni di **crittografia** .
 1. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
 1. Salvare le modifiche.
 
-## <a name="use-a-different-key"></a>Usare una chiave diversa
+## <a name="switch-to-a-different-key"></a>Passa a una chiave diversa
 
 Per modificare la chiave usata per la crittografia di archiviazione di Azure, seguire questa procedura:
 

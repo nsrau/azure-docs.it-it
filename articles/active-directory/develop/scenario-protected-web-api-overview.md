@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cf66757d28a3883664aaacd85baad9cc0dea6956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e530f76c8301dc74f73b675befa6f0710aedab7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026629"
 ---
 # <a name="scenario-protected-web-api"></a>Scenario: API Web protetta
 
@@ -32,10 +33,14 @@ Per usare l'API Web, è necessario abilitare gli utenti autenticati con account 
 
 Di seguito sono riportate informazioni specifiche che è necessario tenere presente per proteggere le API Web:
 
-- La registrazione dell'app deve esporre almeno un ambito. La versione del token accettata dall'API Web dipende dai destinatari dell'accesso.
+- La registrazione dell'app deve esporre almeno un *ambito* o un *ruolo applicazione*.
+  - Gli ambiti vengono esposti dalle API Web chiamate per conto di un utente.
+  - I ruoli applicazione vengono esposti dalle API Web chiamate dalle applicazioni daemon (che chiama l'API Web per proprio conto).
+- Se si crea una nuova registrazione dell'app per le API Web, scegliere la [versione del token di accesso](reference-app-manifest.md#accesstokenacceptedversion-attribute) accettata dall'API Web a `2` . Per le API Web legacy, la versione del token accettata può essere `null` , ma questo valore limita i destinatari di accesso solo alle organizzazioni e gli account Microsoft personali (MSA) non saranno supportati.
 - La configurazione del codice per l'API Web deve convalidare il token usato quando viene chiamata l'API Web.
+- Il codice nelle azioni del controller deve convalidare i ruoli o gli ambiti nel token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Registrazione dell'app](scenario-protected-web-api-app-registration.md)
+> [Registrazione delle app](scenario-protected-web-api-app-registration.md)

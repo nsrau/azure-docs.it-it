@@ -12,13 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890235"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030403"
 ---
-# <a name="peer-two-virtual-networks"></a>Eseguire il peering di due reti virtuali
+# <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Usare uno script di esempio dell'interfaccia della riga di comando di Azure per connettere due reti virtuali
 
 Questo script consente di creare e connettere due reti virtuali nella stessa area usando la rete di Azure. Dopo aver eseguito lo script, verrà creato un peering tra due reti virtuali.
 

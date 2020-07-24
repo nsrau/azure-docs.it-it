@@ -3,14 +3,14 @@ title: Panoramica dei ruoli di lavoro ibridi per runbook di Automazione di Azure
 description: Questo articolo fornisce una panoramica dei ruoli di lavoro ibridi per runbook, che è possibile usare per eseguire runbook su computer nel data center locale o nel provider di servizi cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024827"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -77,6 +77,17 @@ Il tag di servizio per il servizio automazione di Azure fornisce solo gli indiri
 >[!NOTE]
 >Il tag di servizio **GuestAndHybridManagement** attualmente non supporta l'esecuzione di processi Runbook in una sandbox di Azure, solo direttamente in un ruolo di lavoro ibrido per Runbook.
 
+## <a name="support-for-impact-level-5-il5"></a>Supporto per il livello di Impact 5 (IL5)
+
+Il ruolo di lavoro ibrido per Runbook di automazione di Azure può essere usato in Azure per enti pubblici per supportare carichi di lavoro di livello 5 di Impact in una delle due configurazioni seguenti:
+
+* [Macchina virtuale isolata](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Quando vengono distribuiti, utilizzano l'intero host fisico per tale macchina virtuale, fornendo il livello di isolamento necessario per supportare i carichi di lavoro IL5.
+
+* [Host dedicati di Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure.
+
+>[!NOTE]
+>L'isolamento di calcolo tramite il ruolo di lavoro ibrido per Runbook è disponibile per i cloud commerciali di Azure e per enti pubblici statunitensi. 
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Gestione aggiornamenti nei ruoli di lavoro ibridi per runbook
 
 Quando [Gestione aggiornamenti](automation-update-management.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono configurati automaticamente come ruolo di lavoro ibrido per Runbook. Ogni ruolo di lavoro può supportare runbook specifici per la gestione degli aggiornamenti.
@@ -85,13 +96,7 @@ Un computer configurato in questo modo non è registrato con nessun gruppo di la
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Indirizzi di Gestione aggiornamenti per i ruoli di lavoro ibridi per runbook
 
-Oltre agli indirizzi e alle porte standard che il ruolo di lavoro ibrido per runbook richiede, per Gestione aggiornamenti sono necessari gli indirizzi specificati nella tabella seguente. La comunicazione verso questi indirizzi avviene sulla porta 443.
-
-|Azure Public  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+Oltre agli indirizzi e alle porte standard richiesti per il ruolo di lavoro ibrido per Runbook, Gestione aggiornamenti dispone di requisiti di configurazione di rete aggiuntivi descritti nella sezione relativa alla [pianificazione della rete](automation-update-management.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration di Automazione di Azure in un ruolo di lavoro ibrido per runbook
 
@@ -114,4 +119,5 @@ Poiché accedono a risorse non di Azure, i runbook eseguiti in un ruolo di lavor
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud, vedere [Eseguire runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md).
+
 * Per informazioni su come risolvere i problemi relativi ai ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi dei ruoli di lavoro ibridi per runbook](troubleshoot/hybrid-runbook-worker.md#general).

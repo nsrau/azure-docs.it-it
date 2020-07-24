@@ -4,12 +4,12 @@ description: Creare e gestire un Data Manager blockchain per il servizio blockch
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023739"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurare Blockchain Data Manager con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +25,7 @@ Per configurare un'istanza di Data Manager blockchain, è necessario:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Installare la versione più recente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e accedere usando `az login` .
+* Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) e accedere usando `az login` .
 * [Guida introduttiva completa: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). Il livello *standard* del servizio Azure blockchain è consigliato quando si usa blockchain Data Manager.
 * Creare un [argomento di griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informazioni su [Gestori eventi di Griglia di eventi di Azure](../../event-grid/event-handlers.md)
@@ -36,11 +36,11 @@ Azure Cloud Shell è una shell interattiva gratuita che può essere usata per es
 
 Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
-Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida di avvio rapido è necessaria l'interfaccia della riga di comando di Azure versione 2.0.51 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida di avvio rapido è necessaria l'interfaccia della riga di comando di Azure versione 2.0.51 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -125,7 +125,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa di input. |
 | name | Nome dell'input. |
-| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un input di Data Manager **blockchain è input**. |
 | padre | Percorso al Watcher a cui è associato l'input. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa di input. |
@@ -197,7 +197,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa di output. |
 | name | Nome dell'output. |
-| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un output di blockchain **Data Manager è**Outputs. |
 | padre | Percorso al Watcher a cui è associato l'output. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa di output. |
@@ -274,7 +274,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa dell'applicazione. |
 | name | Nome dell'applicazione. |
-| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un'applicazione blockchain Data Manager è **artefatti**. |
 | padre | Percorso al Watcher a cui è associata l'applicazione. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa dell'applicazione. |
@@ -347,7 +347,7 @@ az resource invoke-action \
 
 | Parametro | Description |
 |-----------|-------------|
-| action | Usare **Start** per eseguire il Watcher. |
+| azione | Usare **Start** per eseguire il Watcher. |
 | ids | ID risorsa Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher.|
 
 ### <a name="start-instance-example"></a>Esempio di istanza di avvio
@@ -372,7 +372,7 @@ az resource invoke-action \
 
 | Parametro | Description |
 |-----------|-------------|
-| action | Utilizzare **Interrompi** per arrestare il Watcher. |
+| azione | Utilizzare **Interrompi** per arrestare il Watcher. |
 | ids | Nome del Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher. |
 
 ### <a name="stop-watcher-example"></a>Esempio di arresta Watcher

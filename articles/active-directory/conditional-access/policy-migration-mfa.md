@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dei criteri di accesso condizionale - Azure Active Directory
+title: Eseguire la migrazione dei criteri di accesso condizionale con l'autenticazione a più fattori-Azure Active Directory
 description: Questo articolo illustra come eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure.
 services: active-directory
 ms.service: active-directory
@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027394"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Eseguire la migrazione di un criterio classico nel portale di Azure
 
@@ -53,7 +54,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
    1. Fare clic su **Selezionare le app**.
    1. Fare clic su **Seleziona**.
    1. Nella pagina **Seleziona** scegliere l'app cloud e quindi fare clic su **Seleziona**.
-   1. Nella pagina **app Cloud** fare clic su **fine**.
+   1. Nella pagina **App cloud** fare clic su **Fatto**.
 1. Se è stato selezionato **Richiedi autenticazione a più fattori**:
    1. Nella sezione **Controlli di accesso** fare clic su **Concedi**.
    1. Nella pagina **Concedi**, fare clic su **Concedi accesso**e quindi su **Richiedi autenticazione a più fattori**.

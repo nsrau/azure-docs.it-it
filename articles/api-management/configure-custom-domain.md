@@ -12,14 +12,14 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024861"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
+# <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configurare un nome di dominio personalizzato per l'istanza di gestione API di Azure
 
 Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di `azure-api.net` (ad esempio, `apim-service-name.azure-api.net` ). Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
 
@@ -64,7 +64,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Selezionare l'endpoint che si vuole aggiornare.
 1. Nella finestra di destra fare clic su **Personalizzato**.
 
-    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`
+    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio: `api.contoso.com`.
     - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]

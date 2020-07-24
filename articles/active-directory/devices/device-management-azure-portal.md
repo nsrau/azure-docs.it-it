@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb9bc0adeaff8fa6e0f0298782d6f3fca35058cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253155"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025966"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -38,7 +39,7 @@ Il portale di Azure AD offre una posizione centralizzata per la gestione delle i
 La pagina **Dispositivi** consente di:
 
 - Configurare le impostazioni dei dispositivi
-- Individuare i dispositivi
+- Individuazione dei dispositivi
 - Eseguire attività di gestione delle identità del dispositivo
 - Esaminare i log di controllo relativi al dispositivo  
   
@@ -52,12 +53,12 @@ La pagina Impostazioni dispositivo consente di configurare le impostazioni relat
 
 - **Gli utenti possono aggiungere dispositivi a Azure ad** . questa impostazione consente di selezionare gli utenti che possono registrare i propri dispositivi come Azure ad dispositivi aggiunti. Il valore predefinito è **All**.
 
-> [!NOTE]
+> [!TIP]
 > **Gli utenti possono aggiungere dispositivi a Azure ad** impostazione è applicabile solo a Azure ad join in Windows 10.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Gli utenti aggiunti in questa posizione vengono aggiunti al ruolo *Amministratori di dispositivi* in Azure AD. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
-- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
+- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi Multi-Factor Authentication di Azure, vedere [Introduzione ad azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
@@ -70,7 +71,7 @@ La pagina Impostazioni dispositivo consente di configurare le impostazioni relat
 - **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**: per impostazione predefinita, il valore di questa opzione è **Nessuno**. Se si selezionano utenti o gruppi specifici oppure l'opzione TUTTI, si consente la sincronizzazione delle impostazioni dell'utente e dei dati delle app tra i dispositivi Windows 10. Leggere altre informazioni sul funzionamento della sincronizzazione in Windows 10.
 Questa opzione è una funzionalità Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
 
-## <a name="locate-devices"></a>Individuare i dispositivi
+## <a name="locate-devices"></a>Individuazione dei dispositivi
 
 Sono disponibili due opzioni per individuare i dispositivi registrati e aggiunti:
 
@@ -162,7 +163,7 @@ Per visualizzare o copiare le chiavi BitLocker, è necessario essere il propriet
 - Amministratore globale
 - Amministratore del supporto tecnico
 - Amministratore del servizio Intune
-- Amministratore della protezione
+- Amministratore della sicurezza
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
 > [!NOTE]
@@ -176,7 +177,7 @@ In precedenza era possibile filtrare l'elenco dei dispositivi solo per attività
 - Stato conforme
 - Tipo di join (Azure AD aggiunto, Azure AD ibrido aggiunto, Azure AD registrato)
 - Timestamp dell'attività
-- OS
+- Sistema operativo
 - Tipo di dispositivo (stampanti, VM sicure, dispositivi condivisi, dispositivi registrati)
 
 Per abilitare la funzionalità di filtro anteprima nella visualizzazione **tutti i dispositivi** :

@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025405"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -19,7 +19,7 @@ Usando automazione di Azure e manuali operativi di PowerShell, è possibile eseg
 
 L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  L'esempio in questo articolo usa un'entità servizio (SPN) per eseguire l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -64,7 +64,10 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
     ![Importare Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Individuare il file di **Refresh-Model.ps1** , specificare un **nome** e una **Descrizione**, quindi fare clic su **Crea**.
+4. Individuare il file di [Refresh-Model.ps1](#sample-powershell-runbook) , specificare un **nome** e una **Descrizione**, quindi fare clic su **Crea**.
+
+    > [!NOTE]
+    > Usare script da [esempio Runbook di PowerShell](#sample-powershell-runbook) nella parte inferiore di questo documento per creare un file denominato Refresh-Model.ps1 e salvarlo nel computer locale per l'importazione in Runbook.
 
     ![Importare Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -140,7 +143,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |

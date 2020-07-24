@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025697"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -92,12 +92,12 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestione dei dispositivi con Azure AD stato registrato
 Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](overview.md#getting-devices-in-azure-ad) nel tenant, è possibile che si verifichi il doppio stato del dispositivo Azure ad ibrido aggiunto e Azure ad registrato. È consigliabile eseguire l'aggiornamento a Windows 10 1803 (con KB4489894 applicato) o versione successiva per risolvere automaticamente questo scenario. Nelle versioni precedenti alla 1803 sarà necessario rimuovere manualmente lo stato Azure AD registrato prima di abilitare Azure AD ibrido join. Nelle versioni 1803 e successive sono state apportate le modifiche seguenti per evitare questo doppio stato:
 
-- Gli eventuali stati Azure AD registrati per un utente vengono rimossi automaticamente <i>dopo che il dispositivo è stato Azure ad ibrido aggiunto e lo stesso utente ha eseguito l'accesso</i>. Se, ad esempio, l'utente A dispone di un Azure AD stato registrato sul dispositivo, lo stato doppio per l'utente A viene pulito solo quando l'utente A accede al dispositivo. Se sono presenti più utenti nello stesso dispositivo, lo stato doppio viene pulito singolarmente quando tali utenti eseguono l'accesso.
+- Gli eventuali stati Azure AD registrati per un utente vengono rimossi automaticamente <i>dopo che il dispositivo è stato Azure ad ibrido aggiunto e lo stesso utente ha eseguito l'accesso</i>. Se, ad esempio, l'utente A dispone di un Azure AD stato registrato sul dispositivo, lo stato doppio per l'utente A viene pulito solo quando l'utente A accede al dispositivo. Se sono presenti più utenti nello stesso dispositivo, lo stato doppio viene pulito singolarmente quando tali utenti eseguono l'accesso. Oltre a rimuovere lo stato Azure AD registrato, Windows 10 Annulla la registrazione del dispositivo da Intune o da un'altra soluzione MDM, se la registrazione è avvenuta durante la registrazione del Azure AD tramite la registrazione automatica.
 - È possibile impedire che il dispositivo aggiunto al dominio venga registrato Azure AD aggiungendo il seguente valore del registro di sistema a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - In Windows 10 1803, se è configurato Windows Hello for business, l'utente deve reinstallare Windows Hello for business dopo la pulizia dello stato doppio. Questo problema è stato risolto con KB4512509
 
 > [!NOTE]
-> Il Azure AD dispositivo registrato non verrà rimosso automaticamente se è gestito da Intune.
+> Anche se Windows 10 rimuove automaticamente lo stato Azure AD registrato localmente, l'oggetto dispositivo in Azure AD non viene eliminato immediatamente se è gestito da Intune. È possibile convalidare la rimozione dello stato Azure AD registrato eseguendo dsregcmd/status e prendere in considerazione la mancata Azure AD registrazione del dispositivo in base a tale stato.
 
 ### <a name="additional-considerations"></a>Altre considerazioni
 - Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -163,8 +163,8 @@ La tabella seguente contiene informazioni sul supporto per questi nomi dell'enti
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestito | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestito | Non supportate | |
+| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestiti | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

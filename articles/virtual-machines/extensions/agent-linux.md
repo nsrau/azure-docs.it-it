@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029077"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -344,5 +344,4 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
   * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
-
+  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/tutorial-automate-vm-deployment.md)

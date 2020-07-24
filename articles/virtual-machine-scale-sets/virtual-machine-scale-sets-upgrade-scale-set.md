@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029298"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -319,13 +320,13 @@ Esiste un tipo di modifica alle proprietà globali del set di scalabilità che n
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell con [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Interfaccia della riga di comando di Azure con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
+- Interfaccia della riga di comando di Azure con [az vmss reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -368,12 +369,12 @@ Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
 ### <a name="os-updates"></a>Aggiornamenti del sistema operativo
-Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
 > Con le immagini della piattaforma si specifica solitamente "latest" come versione del riferimento all'immagine. Quando si crea, si aumenta il numero di istanze e si ricrea l'immagine, le macchine virtuali vengono create con l'ultima versione disponibile. **Non** significa però che l'immagine del sistema operativo viene aggiornata automaticamente nel tempo man mano che vengono rilasciate nuove versioni dell'immagine. È attualmente in anteprima una funzionalità separata che fornisce aggiornamenti automatici del sistema operativo. Per altre informazioni, consultare la [documentazione relativa agli aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="examples"></a>Esempi
 

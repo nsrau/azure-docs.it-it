@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478298"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027309"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -164,7 +164,7 @@ Per aggiungere una condizione per l'attestazione:
 
 1. In **Gestisci l'attestazione** espandere Condizioni dell'attestazione.
 2. Selezionare il tipo di utente.
-3. Selezionare il gruppo o i gruppi a cui l'utente deve appartenere. È possibile selezionare fino a 10 gruppi univoci tra tutte le attestazioni per una determinata applicazione. 
+3. Selezionare il gruppo o i gruppi a cui l'utente deve appartenere. È possibile selezionare fino a 50 gruppi univoci in tutte le attestazioni per una determinata applicazione. 
 4. Selezionare l'opzione di **Origine** da cui l'attestazione recupererà il valore. È possibile selezionare un attributo utente nell'elenco a discesa degli attributi di origine oppure applicare una trasformazione all'attributo utente prima di crearlo come attestazione.
 
 L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. 

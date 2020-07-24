@@ -12,13 +12,14 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026765"
 ---
-# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
 Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure Active Directory (Azure AD), consultare questo documento per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative consigliate.
 
@@ -202,7 +203,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS70012 | MsaServerError: si è verificato un errore del server durante l'autenticazione di un utente (consumer) dell'account del servizio gestito. Riprovare. Se l'errore persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending: errore del flusso del dispositivo OAuth 2.0. L'autorizzazione è in sospeso. Il dispositivo ritenterà il polling della richiesta. |
 | AADSTS70018 | BadVerificationCode: codice di verifica non valido a causa di un errore di digitazione del codice per il flusso del codice del dispositivo da parte dell'utente. L'autorizzazione non è stata approvata. |
-| AADSTS70019 | CodeExpired: il codice di verifica è scaduto. Chiedere all'utente di provare a ripetere l'accesso. |
+| AADSTS70019 | CodeExpired: il codice di verifica è scaduto. Chiedere all'utente di ripetere l'accesso. |
 | AADSTS75001 | BindingSerializationError: si è verificato un errore durante l'associazione di messaggi SAML. |
 | AADSTS75003 | UnsupportedBindingError: l'app ha restituito un errore relativo a un'associazione non supportata (la risposta del protocollo SAML non può essere inviata tramite associazioni diverse da HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid: Azure AD non supporta la richiesta di SAML inviata dall'app per SSO. |
@@ -263,6 +264,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS90093 | GraphUserUnauthorized: Graph ha restituito un codice di errore di richiesta non consentita. |
 | AADSTS90094 | AdminConsentRequired: è necessario il consenso dell'amministratore. |
 | AADSTS900382 | Il client riservato non è supportato nella richiesta tra cloud. |
+| AADSTS90099 | L'applicazione ' {appId}' ({appName}) non è stata autorizzata nel tenant ' {tenant}'. Le applicazioni devono essere autorizzate ad accedere al tenant del cliente prima di poterle usare dagli amministratori delegati del partner. Fornire il consenso preliminare o eseguire l'API del centro per i partner appropriata per autorizzare l'applicazione. |
 | AADSTS90100 | InvalidRequestParameter: il parametro è vuoto o non valido. |
 | AADSTS901002 | AADSTS901002: il parametro della richiesta ' Resource ' non è supportato. |
 | AADSTS90101 | InvalidEmailAddress: i dati forniti non sono un indirizzo di posta elettronica valido. L'indirizzo di posta elettronica deve avere questo formato: `someone@example.com`. |

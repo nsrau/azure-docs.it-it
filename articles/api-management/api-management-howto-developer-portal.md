@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025082"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di Gestione API
 
@@ -29,6 +29,9 @@ Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gest
 ![Portale per sviluppatori di Gestione API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a>Il nuovo portale per sviluppatori non è compatibile con il portale per sviluppatori Legacy e la migrazione automatica non è possibile. È necessario ricreare manualmente il contenuto (pagine, testo, file multimediali) e personalizzare l'aspetto del nuovo portale. Per istruzioni, vedere [l'esercitazione sul portale per sviluppatori](api-management-howto-developer-portal-customize.md) .
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versioni gestite e self-hosted
 
@@ -82,19 +85,13 @@ Se non si vuole reimpostare il contenuto del portale, è possibile prendere in c
 
 Se il provisioning del portale è stato eseguito dopo l'annuncio della disponibilità generale, dovrebbe già presentare il nuovo contenuto predefinito. Non è richiesta alcuna azione da parte dell'utente.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Come è possibile eseguire la migrazione dal portale per sviluppatori precedente al portale per sviluppatori?
-
-I portali sono incompatibili ed è necessario eseguire la migrazione manuale del contenuto.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Il portale dispone di tutte le funzionalità del vecchio portale?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Il portale ha tutte le funzionalità del portale legacy?
 
 Il portale per sviluppatori non supporta più *applicazioni* e *problemi*.
 
-L'autenticazione con OAuth nella console per sviluppatori interattiva non è ancora supportata. È possibile tenere traccia dello stato di avanzamento tramite [il problema di GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>Il portale legacy è stato deprecato?
 
-### <a name="has-the-old-portal-been-deprecated"></a>Il portale precedente è stato deprecato?
-
-I portali Developer e Publisher precedenti sono ora funzionalità *legacy* , che riceveranno solo gli aggiornamenti della sicurezza. Le nuove funzionalità verranno implementate solo nel nuovo portale per sviluppatori.
+I portali legacy per sviluppatori e Publisher sono ora funzionalità *legacy* , che riceveranno solo gli aggiornamenti della sicurezza. Le nuove funzionalità verranno implementate solo nel nuovo portale per sviluppatori.
 
 La deprecazione dei portali legacy verrà annunciata separatamente. In caso di domande, problemi o commenti, è possibile generarli [in un problema dedicato di GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -203,7 +200,7 @@ L'errore di chiamata può anche essere causato da un certificato TLS/SSL, che è
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
 
-| Browser                     | Supportato       |
+| Browser                     | Funzionalità supportata       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sì<sup>1</sup> |
 | Google Chrome               | Sì<sup>1</sup> |

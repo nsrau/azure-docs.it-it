@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658676"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027530"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gestire le impostazioni utente per Azure Multi-Factor Authentication
 
@@ -26,7 +27,7 @@ Per semplificare la gestione degli utenti di Azure Multi-Factor Authentication, 
 Se viene assegnato il ruolo di *amministratore dell'autenticazione* , è possibile richiedere agli utenti di reimpostare la password, ripetere la registrazione per l'autenticazione a più fattori o revocare le sessioni di autenticazione a più fattori esistenti dall'oggetto utente. Per gestire le impostazioni utente, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. A sinistra selezionare **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**.
+1. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 1. Scegliere l'utente su cui si vuole eseguire un'azione e selezionare **metodi di autenticazione**. Nella parte superiore della finestra, scegliere una delle opzioni seguenti per l'utente:
    - **Reset password Reimposta** la password dell'utente e assegna una password temporanea che deve essere modificata al successivo accesso.
    - È **necessario ripetere la registrazione** dell'autenticazione a più fattori, in modo che quando l'utente esegue l'accesso alla prossima volta, viene richiesto di configurare un nuovo metodo di autenticazione a più fattori.
@@ -53,6 +54,6 @@ Per eliminare le password dell'app di un utente, attenersi alla procedura seguen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha consentito di configurare le singole impostazioni utente. Per configurare le impostazioni del servizio Multi-Factor Authentication di Azure, vedere [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md)
+In questo articolo è stato illustrato come configurare le singole impostazioni utente. Per configurare le impostazioni complessive di Azure Multi-Factor Authentication Service, vedere [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md).
 
-Se gli utenti necessitano di assistenza, vedere il [manuale dell'utente per Azure multi-factor authentication](../user-help/multi-factor-authentication-end-user.md).
+Se gli utenti necessitano di assistenza, vedere il [manuale dell'utente per Azure multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

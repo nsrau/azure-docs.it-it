@@ -5,16 +5,17 @@ description: È possibile usare la propria chiave di crittografia per proteggere
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029791"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure
 
@@ -46,13 +47,13 @@ I dati nei servizi BLOB e file sono sempre protetti dalle chiavi gestite dal cli
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Abilitare le chiavi gestite dal cliente per un account di archiviazione
 
-Le chiavi gestite dal cliente possono essere abilitate solo sugli account di archiviazione esistenti. È necessario eseguire il provisioning dell'insieme di credenziali delle chiavi con i criteri di accesso che concedono le autorizzazioni chiave per l'identità gestita associata all'account di archiviazione. L'identità gestita è disponibile solo dopo la creazione dell'account di archiviazione.
-
 Quando si configura una chiave gestita dal cliente, archiviazione di Azure esegue il wrapping della chiave di crittografia dei dati radice per l'account con la chiave gestita dal cliente nell'insieme di credenziali delle chiavi associato. L'abilitazione delle chiavi gestite dal cliente non influisce sulle prestazioni e ha effetto immediato.
 
-Quando si modifica la chiave usata per la crittografia di archiviazione di Azure abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave radice viene modificata, ma non è necessario crittografare nuovamente i dati nell'account di archiviazione di Azure.
-
 Quando si abilitano o disabilitano le chiavi gestite dal cliente o quando si modifica la chiave o la versione della chiave, la protezione della chiave di crittografia radice viene modificata, ma non è necessario crittografare nuovamente i dati nell'account di archiviazione di Azure.
+
+Le chiavi gestite dal cliente possono essere abilitate solo sugli account di archiviazione esistenti. L'insieme di credenziali delle chiavi deve essere configurato con criteri di accesso che concedono le autorizzazioni per l'identità gestita associata all'account di archiviazione. L'identità gestita è disponibile solo dopo la creazione dell'account di archiviazione.
+
+È possibile passare in qualsiasi momento tra chiavi gestite dal cliente e chiavi gestite da Microsoft. Per ulteriori informazioni sulle chiavi gestite da Microsoft, vedere [informazioni sulla gestione delle chiavi di crittografia](storage-service-encryption.md#about-encryption-key-management).
 
 Per informazioni su come usare le chiavi gestite dal cliente con Azure Key Vault per la crittografia di archiviazione di Azure, vedere uno di questi articoli:
 
@@ -65,15 +66,22 @@ Per informazioni su come usare le chiavi gestite dal cliente con Azure Key Vault
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Archiviare chiavi gestite dal cliente in Azure Key Vault
 
-Per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un Azure Key Vault per archiviare le chiavi. È necessario abilitare l' **eliminazione** temporanea e non **ripulire** le proprietà nell'insieme di credenziali delle chiavi.
+Per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un insieme di credenziali delle chiavi di Azure per archiviare le chiavi. È necessario abilitare l' **eliminazione** temporanea e non **ripulire** le proprietà nell'insieme di credenziali delle chiavi.
 
 La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+L'uso di Azure Key Vault dispone di costi associati. Per ulteriori informazioni, vedere [Key Vault prezzi](/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Ruotare le chiavi gestite dal cliente
 
-È possibile ruotare una chiave gestita dal cliente in Azure Key Vault in base ai criteri di conformità. Quando la chiave viene ruotata, è necessario aggiornare l'account di archiviazione per usare il nuovo URI della versione della chiave. Per informazioni su come aggiornare l'account di archiviazione per usare una nuova versione della chiave nella portale di Azure, vedere la sezione intitolata **aggiornare la versione della chiave** in [configurare chiavi gestite dal cliente per archiviazione di Azure usando il portale di Azure](storage-encryption-keys-portal.md).
+È possibile ruotare una chiave gestita dal cliente in Azure Key Vault in base ai criteri di conformità. Per la rotazione di una chiave gestita dal cliente sono disponibili due opzioni:
 
-La rotazione della chiave non attiva la nuova crittografia dei dati nell'account di archiviazione. Non sono necessarie altre azioni da parte dell'utente.
+- **Rotazione automatica:** Per configurare la rotazione automatica delle chiavi gestite dal cliente, omettere la versione della chiave quando si Abilita la crittografia con chiavi gestite dal cliente per l'account di archiviazione. Se la versione della chiave viene omessa, Archiviazione di Azure verifica ogni giorno su Azure Key Vault la disponibilità di una nuova versione di una chiave gestita dal cliente. Se è disponibile una nuova versione della chiave, Archiviazione di Azure usa automaticamente la versione più recente della chiave.
+- **Rotazione manuale:** Per usare una particolare versione della chiave per la crittografia di archiviazione di Azure, specificare la versione della chiave quando si Abilita la crittografia con chiavi gestite dal cliente per l'account di archiviazione. Se si specifica la versione della chiave, archiviazione di Azure usa tale versione per la crittografia fino a quando non si aggiorna manualmente la versione della chiave.
+
+    Quando la chiave viene ruotata manualmente, è necessario aggiornare l'account di archiviazione per usare il nuovo URI della versione della chiave. Per informazioni su come aggiornare l'account di archiviazione per usare una nuova versione della chiave nella portale di Azure, vedere [aggiornare manualmente la versione della chiave](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+La rotazione di una chiave gestita dal cliente non attiva la nuova crittografia dei dati nell'account di archiviazione. Non sono necessarie altre azioni da parte dell'utente.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
 
@@ -87,7 +95,7 @@ La rotazione della chiave non attiva la nuova crittografia dei dati nell'account
 - [BLOB snapshot](/rest/api/storageservices/snapshot-blob), quando viene chiamato con l' `x-ms-meta-name` intestazione della richiesta
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 - [Copia BLOB da URL](/rest/api/storageservices/copy-blob-from-url)
-- [Impostare il livello di BLOB](/rest/api/storageservices/set-blob-tier)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 - [Put Block](/rest/api/storageservices/put-block)
 - [Inserisci blocco da URL](/rest/api/storageservices/put-block-from-url)
 - [Append Block](/rest/api/storageservices/append-block)

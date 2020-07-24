@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030301"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire Hub di notifica tramite PowerShell
 
@@ -159,8 +159,8 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Opzioni di acquisto]: https://azure.microsoft.com/pricing/purchase-options/
 [Offerte per i membri]: https://azure.microsoft.com/pricing/member-offers/
 [Versione di prova gratuita]: https://azure.microsoft.com/pricing/free-trial/
-[Installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Installare e configurare Azure PowerShell]: /powershell/azure/
 [API .NET per Hub di notifica]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

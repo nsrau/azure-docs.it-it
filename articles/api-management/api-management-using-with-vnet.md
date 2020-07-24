@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025014"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -119,7 +119,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 | * / 5671, 5672, 443          | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio [Registra a Hub eventi](api-management-howto-log-event-hubs.md) e l'agente di monitoraggio | Esterno e interno  |
 | * / 445                      | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per [GIT](api-management-configuration-repository-git.md)                      | Esterno e interno  |
 | * / 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Estensione Health and Monitoring         | Esterno e interno  |
-| */1886, 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare [log e metriche di diagnostica](api-management-howto-use-azure-monitor.md) e [integrità risorse](../service-health/resource-health-overview.md)                     | Esterno e interno  |
+| */1886, 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare [log e metriche di diagnostica](api-management-howto-use-azure-monitor.md), [integrità risorse](../service-health/resource-health-overview.md) e [Application Insights](api-management-howto-app-insights.md)                   | Esterno e interno  |
 | */25, 587, 25028                       | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
 | * / 6381 - 6383              | In ingresso e in uscita | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Accedere al servizio Redis per i criteri di [cache](api-management-caching-policies.md) tra computer         | Esterno e interno  |
 | */4290              | In ingresso e in uscita | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Contatori di sincronizzazione per i criteri relativi ai [limiti di frequenza](api-management-access-restriction-policies.md#LimitCallRateByKey) tra computer         | Esterno e interno  |
@@ -152,6 +152,8 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 + **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
 + **Azure Load Balancer**: consentire le richieste in ingresso dal tag di servizio `AZURE_LOAD_BALANCER` non è un requisito per lo SKU `Developer`, poiché viene distribuita solo un'unità di calcolo. Tuttavia, consentire le richieste in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa cruciale quando si passa a uno SKU superiore, ad esempio `Premium`, perché in caso di errore di un probe di integrità da Load Balancer, la distribuzione ha esito negativo.
+
++ **Application Insights**: se il monitoraggio di [applicazione Azure Insights](api-management-howto-app-insights.md) è abilitato in gestione API, è necessario consentire la connettività in uscita all' [endpoint di telemetria](/azure/azure-monitor/app/ip-addresses#outgoing-ports) dalla rete virtuale. 
 
 + **Forzare il tunneling del traffico al firewall locale usando ExpressRoute o un'appliance virtuale di rete**: Una configurazione comune dei clienti prevede la definizione di una route predefinita (0.0.0.0/0) personalizzata che forza tutto il traffico dalla subnet delegata di Gestione API a passare attraverso un firewall locale o a un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. Per la soluzione è necessario eseguire alcune operazioni:
 
@@ -250,10 +252,10 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si abilitano le r
 | Azure Public| Norvegia orientale| 51.120.2.185|
 | Azure Public| Norvegia occidentale| 51.120.130.134|
 | Azure Cina 21Vianet| Cina settentrionale (globale)| 139.217.51.16|
-| 21Vianet per Azure Cina| Cina orientale (globale)| 139.217.171.176|
-| 21Vianet per Azure Cina| Cina settentrionale| 40.125.137.220|
-| 21Vianet per Azure Cina| Cina orientale| 40.126.120.30|
-| 21Vianet per Azure Cina| Cina settentrionale 2| 40.73.41.178|
+| Azure Cina 21Vianet| Cina orientale (globale)| 139.217.171.176|
+| Azure Cina 21Vianet| Cina settentrionale| 40.125.137.220|
+| Azure Cina 21Vianet| Cina orientale| 40.126.120.30|
+| Azure Cina 21Vianet| Cina settentrionale 2| 40.73.41.178|
 | 21Vianet per Azure Cina| Cina orientale 2| 40.73.104.4|
 | Azure Government| US Gov Virginia (globale)| 52.127.42.160|
 | Azure Government| Governo degli Stati Uniti - Texas (globale)| 52.127.34.192|

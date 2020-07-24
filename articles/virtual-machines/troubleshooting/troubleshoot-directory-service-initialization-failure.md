@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028363"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Risolvere i problemi relativi a errori irreversibili - errore di inizializzazione del servizio directory
 
@@ -26,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui una macchi
 
 ## <a name="symptom"></a>Sintomo
 
-Lo screenshot della macchina virtuale visualizzato con lo strumento [Diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) mostra che la macchina virtuale deve essere riavviata a causa di un errore, visualizzando il codice di arresto **0xC00002E1** in Windows Server 2008 R2 o **0xC00002E2** in Windows Server 2012 o versioni successive.
+Lo screenshot della macchina virtuale visualizzato con lo strumento [Diagnostica di avvio](./boot-diagnostics.md) mostra che la macchina virtuale deve essere riavviata a causa di un errore, visualizzando il codice di arresto **0xC00002E1** in Windows Server 2008 R2 o **0xC00002E2** in Windows Server 2012 o versioni successive.
 
 ![La schermata iniziale di Windows Server 2012 indica "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -61,7 +62,7 @@ Questo errore può dipendere da una delle condizioni seguenti:
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per preparare una macchina virtuale di ripristino.
+1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="free-up-space-on-disk"></a>Liberare spazio sul disco
@@ -69,11 +70,11 @@ Questo errore può dipendere da una delle condizioni seguenti:
 Poiché il disco è ora collegato a una macchina virtuale di ripristino, verificare che il disco contenente il database interno di Active Directory disponga di spazio sufficiente per funzionare correttamente.
 
 1. Controllare se il disco è pieno facendo clic con il pulsante destro del mouse sull'unità e selezionando **Proprietà**.
-1. Se lo spazio disponibile sul disco è inferiore a 300 MB, [espanderlo fino a un massimo di 1 TB usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Se lo spazio disponibile sul disco è inferiore a 300 MB, [espanderlo fino a un massimo di 1 TB usando PowerShell](../windows/expand-os-disk.md).
 1. Se il disco ha raggiunto 1 TB di spazio usato, eseguire una pulitura del disco.
 
-   1. Usare PowerShell per [scollegare il disco dati](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) dalla macchina virtuale non funzionante.
-   1. Dopo averlo scollegato, [collegare il disco dati](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) a una macchina virtuale funzionante.
+   1. Usare PowerShell per [scollegare il disco dati](../windows/detach-disk.md#detach-a-data-disk-using-powershell) dalla macchina virtuale non funzionante.
+   1. Dopo averlo scollegato, [collegare il disco dati](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) a una macchina virtuale funzionante.
    1. Usare lo [strumento di pulitura disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) per liberare spazio aggiuntivo.
 
 1. **Facoltativo**: se è necessaria una quantità di spazio maggiore, aprire un'istanza CMD e immettere il comando `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` per eseguire una deframmentazione sull'unità:
@@ -182,7 +183,7 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-1. Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per riassemblare la macchina virtuale.
+1. Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per riassemblare la macchina virtuale.
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>Riconfigurare il criterio SAN
 

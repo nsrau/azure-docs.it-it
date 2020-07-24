@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028550"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -233,7 +233,7 @@ Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnosti
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 
-L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento di firma di accesso condiviso al file zip di output è disponibile all'interno di un file di testo denominato *zipfilename*_saslink.txt nella cartella **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
+L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-sas-overview.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento di firma di accesso condiviso al file zip di output è disponibile all'interno di un file di testo denominato *zipfilename*_saslink.txt nella cartella **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Per facilitare il lavoro del tecnico del supporto responsabile del ticket, Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica.
 

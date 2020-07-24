@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024194"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere Istanza gestita SQL a un gruppo di failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +47,7 @@ Per completare questa esercitazione, accertarsi di avere:
 Per completare l'esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 
@@ -428,7 +429,7 @@ Per creare una rete virtuale, seguire questa procedura:
     | **Campo** | valore |
     | --- | --- |
     | **Nome** |  Nome della rete virtuale che deve essere utilizzato dall'istanza gestita secondaria, ad esempio `vnet-sql-mi-secondary` . |
-    | **Spazio degli indirizzi** | Spazio degli indirizzi per la rete virtuale, ad esempio `10.128.0.0/16` . | 
+    | **Spazio indirizzi** | Spazio degli indirizzi per la rete virtuale, ad esempio `10.128.0.0/16` . | 
     | **Sottoscrizione** | Sottoscrizione in cui risiedono l'istanza gestita primaria e il gruppo di risorse. |
     | **Area** | Il percorso in cui si distribuirà l'istanza gestita secondaria. |
     | **Subnet** | Nome della subnet. `default`viene fornito per impostazione predefinita. |
@@ -769,7 +770,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il p
     | **Posizione**| Il percorso in cui si trovano l'istanza gestita primaria e la rete virtuale primaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-primary` . |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP` . |
+    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP` . |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -851,7 +852,7 @@ Usando il portale di Azure, ripetere i passaggi della sezione precedente per cre
    | **Posizione**| Il percorso in cui si trovano l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary` . |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP` . |
+   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](./media/failover-group-add-instance-tutorial/settings-for-secondary-gateway.png)
@@ -1079,7 +1080,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
 
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 Pulire le risorse eliminando prima di tutto le istanze gestite, il cluster virtuale, le eventuali risorse rimanenti e infine il gruppo di risorse. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)

@@ -4,15 +4,15 @@ description: includere file
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028797"
 ---
 L'uso delle macchine virtuali spot consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. Quando, in qualsiasi momento, Azure avrà di nuovo bisogno di quella capacità, l'infrastruttura di Azure rimuoverà le macchine virtuali spot. Le macchine virtuali spot sono pertanto ideali per i carichi di lavoro in grado di gestire le interruzioni, come i processi di elaborazione batch, gli ambienti di sviluppo/test, i carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
@@ -26,10 +26,6 @@ Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo
 Il criterio *deallocate* sposta la macchina virtuale in stato di arresto-deallocato, consentendo di ridistribuirla in un secondo momento. Tuttavia, non è garantito che l'allocazione avrà esito positivo. Le VM deallocate verranno conteggiate rispetto alla quota e verranno addebitati i costi di archiviazione per i dischi sottostanti. 
 
 Se si vuole che la macchina virtuale venga eliminata quando viene rimossa, è possibile impostare i criteri di rimozione da *eliminare*. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. 
-
-> [!NOTE]
->
-> Il portale non supporta attualmente `Delete` come opzione di rimozione. è possibile impostare solo usando PowerShell, l'interfaccia della riga di comando `Delete` e i modelli.
 
 È possibile acconsentire esplicitamente a ricevere notifiche in-VM tramite [Azure eventi pianificati](../articles/virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
 
@@ -54,19 +50,14 @@ Le seguenti dimensioni delle macchine virtuali non sono supportate per le macchi
 
 Le macchine virtuali spot possono essere distribuite in qualsiasi area, tranne Microsoft Azure Cina (21Vianet).
 
-Alcuni canali di sottoscrizione non sono supportati:
-
 <a name="channel"></a>
 
-| Canali di Azure               | Disponibilità di macchine virtuali spot di Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Sì                               |
-| Pagamento in base al consumo                | Sì                               |
-| Provider di servizi cloud | [Contattare il partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Vantaggi                     | Non disponibile                     |
-| Sponsorizzato                    | Sì                               |
-| Versione di valutazione gratuita                   | Non disponibile                     |
+Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/) seguenti:
 
+-   Enterprise Agreement
+-   Pagamento in base al consumo
+-   Sponsorizzato
+- Per il provider di servizi cloud (CSP), contattare il proprio partner
 
 
 ## <a name="pricing"></a>Prezzi

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029978"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -78,7 +78,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Sincronizzazione file di Azure | Sì | Sì |  |  |
 | Azure Managed Disks | Sì | N/D |  |  |
 | Servizi contenitore di Azure per Kubernetes | Sì | Sì |  |  |
-| Azure Active Directory Domain Services | Sì | No |  |  |
+| Servizi di dominio Azure Active Directory | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
 Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che non si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
@@ -145,7 +145,7 @@ Per completare questi passaggi, sarà necessario:
 
 ### <a name="save-custom-roles"></a>Salva ruoli personalizzati
 
-1. Usare l' [elenco AZ Role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) per elencare i ruoli personalizzati. Per altre informazioni, vedere [creare o aggiornare ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando di Azure](custom-roles-cli.md).
+1. Usare l' [elenco AZ Role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) per elencare i ruoli personalizzati. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
 ### <a name="list-key-vaults"></a>List key vaults
 
-Quando si crea un insieme di credenziali delle chiavi, questo viene automaticamente associato all'ID tenant predefinito Azure Active Directory per la sottoscrizione in cui viene creato. All'ID tenant vengono associate anche tutte le voci dei criteri di accesso. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/keyvault-move-subscription.md).
+Quando si crea un insieme di credenziali delle chiavi, questo viene automaticamente associato all'ID tenant predefinito Azure Active Directory per la sottoscrizione in cui viene creato. All'ID tenant vengono associate anche tutte le voci dei criteri di accesso. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che non si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
@@ -291,7 +291,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 ### <a name="create-custom-roles"></a>Creare ruoli personalizzati
         
-- Usare [AZ Role Definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) per creare ogni ruolo personalizzato dai file creati in precedenza. Per altre informazioni, vedere [creare o aggiornare ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando di Azure](custom-roles-cli.md).
+- Usare [AZ Role Definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) per creare ogni ruolo personalizzato dai file creati in precedenza. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -309,7 +309,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -325,7 +325,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
@@ -339,7 +339,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 ### <a name="update-key-vaults"></a>Aggiornare gli insiemi di credenziali delle chiavi
 
-Questa sezione descrive i passaggi di base per aggiornare gli insiemi di credenziali delle chiavi. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/keyvault-move-subscription.md).
+Questa sezione descrive i passaggi di base per aggiornare gli insiemi di credenziali delle chiavi. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/move-subscription.md).
 
 1. Aggiornare l'ID tenant associato a tutti gli insiemi di credenziali delle chiavi esistenti nella sottoscrizione alla directory di destinazione.
 

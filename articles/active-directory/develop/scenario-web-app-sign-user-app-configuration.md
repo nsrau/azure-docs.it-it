@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cc846d8d330459587745795edf21c5ac04f2291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026340"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -28,7 +29,7 @@ Le librerie usate per proteggere un'app Web (e un'API Web) sono:
 
 | Piattaforma | Libreria | Descrizione |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [Estensioni del modello di identità per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usato direttamente da ASP.NET e ASP.NET Core, Microsoft Identity Model Extensions per .NET propone un set di dll in esecuzione sia in .NET Framework che in .NET Core. Da un'app Web ASP.NET o ASP.NET Core è possibile controllare la convalida dei token usando la classe **TokenValidationParameters** (in particolare, in alcuni scenari partner). |
+| ![.NET](media/sample-v2-code/logo_NET.png) | [Estensioni del modello di identità per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usato direttamente da ASP.NET e ASP.NET Core, Microsoft Identity Model Extensions per .NET propone un set di dll in esecuzione sia in .NET Framework che in .NET Core. Da un'app Web ASP.NET o ASP.NET Core è possibile controllare la convalida dei token usando la classe **TokenValidationParameters** (in particolare, in alcuni scenari partner). In pratica, la complessità è incapsulata nella libreria [Microsoft. Identity. Web](https://aka.ms/ms-identity-web) |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Supporto per le applicazioni Web Java |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Supporto per le applicazioni Web Python |
 
@@ -62,7 +63,7 @@ I frammenti di codice in questo articolo e gli elementi seguenti sono estratti d
 
 ## <a name="configuration-files"></a>File di configurazione
 
-Le applicazioni Web che eseguono l'accesso agli utenti tramite la piattaforma di identità Microsoft vengono in genere configurate tramite i file di configurazione. Le impostazioni che è necessario compilare sono:
+Le applicazioni Web che eseguono l'accesso agli utenti tramite la piattaforma di identità Microsoft vengono configurate tramite i file di configurazione. Le impostazioni che è necessario compilare sono:
 
 - Istanza cloud ( `Instance` ) se si vuole che l'app venga eseguita nei cloud nazionali, ad esempio
 - Destinatari nell'ID tenant ( `TenantId` )
@@ -210,13 +211,21 @@ In ASP.NET Core app Web (e le API Web), l'applicazione è protetta perché è pr
 Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in precedenza Azure AD v 2.0), è necessario aggiungere il codice seguente. I commenti nel codice devono essere autoesplicativi.
 
 > [!NOTE]
-> Se si avvia il progetto con il progetto Web ASP.NET Core predefinito in Visual Studio o tramite `dotnet new mvc --auth SingleAuth` o `dotnet new webapp --auth SingleAuth` , verrà visualizzato un codice simile al seguente: `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));` .
-> 
+> Se si vuole iniziare direttamente con i nuovi modelli di ASP.NET Core per la piattaforma di identità Microsoft, che sfruttano Microsoft. Identity. Web, è possibile scaricare un pacchetto NuGet di anteprima contenente i modelli di progetto per .NET Core 3,1 e .NET 5,0. Quindi, una volta installato, è possibile creare direttamente un'istanza di ASP.NET Core applicazioni Web (MVC o blazer). Per informazioni dettagliate, vedere [modelli di progetto di app Web Microsoft. Identity. Web](https://aka.ms/ms-id-web/webapp-project-templates) . Questo è l'approccio più semplice in quanto eseguirà tutti i passaggi indicati di seguito.
+>
+> Se si preferisce avviare il progetto con l'impostazione predefinita corrente ASP.NET Core progetto Web in Visual Studio o tramite `dotnet new mvc --auth SingleAuth` o `dotnet new webapp --auth SingleAuth` , verrà visualizzato un codice simile al seguente:
+>
+>```c#
+>  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+>          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+> ```
+>
 > Questo codice usa il pacchetto NuGet **Microsoft. AspNetCore. Authentication. AzureAD. UI** legacy che viene usato per creare un'applicazione Azure ad versione 1.0. Questo articolo illustra come creare un'applicazione Microsoft Identity Platform (Azure AD v 2.0) che sostituisce tale codice.
+>
 
 1. Aggiungere i pacchetti NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) e [Microsoft. Identity. Web. UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) al progetto. Rimuovere il pacchetto NuGet Microsoft. AspNetCore. Authentication. AzureAD. UI se presente.
 
-2. Aggiornare il codice in in `ConfigureServices` modo che usi i `AddSignIn` `AddMicrosoftIdentityUI` metodi e.
+2. Aggiornare il codice in in `ConfigureServices` modo che usi i `AddMicrosoftWebAppAuthentication` `AddMicrosoftIdentityUI` metodi e.
 
    ```c#
    public class Startup
@@ -225,7 +234,7 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddSignIn(Configuration, "AzureAd");
+     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -250,18 +259,23 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
    ```
 
 Nel codice precedente:
-- Il `AddSignIn` metodo di estensione è definito in **Microsoft. Identity. Web**. È
+- Il `AddMicrosoftWebAppAuthentication` metodo di estensione è definito in **Microsoft. Identity. Web**. È
   - Aggiunge il servizio di autenticazione.
   - Configura le opzioni per la lettura del file di configurazione (qui dalla sezione "AzureAD")
   - Configura le opzioni di OpenID Connect in modo che l'autorità sia l'endpoint della piattaforma di identità Microsoft.
   - Convalida l'emittente del token.
   - Garantisce che le attestazioni corrispondenti al nome siano mappate dall' `preferred_username` attestazione nel token ID.
 
-- Oltre all'oggetto di configurazione, è possibile specificare il nome della sezione di configurazione quando si chiama `AddSignIn` . Per impostazione predefinita, è `AzureAd` .
+- Oltre all'oggetto di configurazione, è possibile specificare il nome della sezione di configurazione quando si chiama `AddMicrosoftWebAppAuthentication` . Per impostazione predefinita, è `AzureAd` .
 
-- `AddSignIn`dispone di altri parametri per gli scenari avanzati. Ad esempio, la traccia degli eventi del middleware OpenID Connect può aiutare a risolvere i problemi dell'applicazione Web se l'autenticazione non funziona. Impostando il parametro facoltativo `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` su verrà visualizzato il modo in cui le `true` informazioni vengono elaborate dal set di ASP.NET Core middleware durante l'avanzamento dalla risposta http all'identità dell'utente in `HttpContext.User` .
+- `AddMicrosoftWebAppAuthentication`dispone di altri parametri per gli scenari avanzati. Ad esempio, la traccia degli eventi del middleware OpenID Connect può aiutare a risolvere i problemi dell'applicazione Web se l'autenticazione non funziona. Impostando il parametro facoltativo `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` su verrà visualizzato il modo in cui le `true` informazioni vengono elaborate dal set di ASP.NET Core middleware durante l'avanzamento dalla risposta http all'identità dell'utente in `HttpContext.User` .
 
-- Il `AddMicrosoftIdentityUI` metodo di estensione è definito in **Microsoft. Identity. Web. UI**. Fornisce un controller predefinito per la gestione della disconnessione.
+- Il `AddMicrosoftIdentityUI` metodo di estensione è definito in **Microsoft. Identity. Web. UI**. Fornisce un controller predefinito per gestire l'accesso e la disconnessione.
+
+Per altre informazioni sul modo in cui Microsoft. Identity. Web consente di creare app Web in, vedere<https://aka.ms/ms-id-web/webapp>
+
+> [!WARNING]
+> Attualmente, Microsoft. Identity. Web non supporta lo scenario di **singoli account utente** (archiviando gli account utente in-app) quando si usa Azure ad come e provider di accesso esterno. Per informazioni dettagliate, vedere: [AzureAD/Microsoft-Identity-Web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

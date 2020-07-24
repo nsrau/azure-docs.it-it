@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024963"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 Hub di eventi di Azure è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo in modo che è possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Gli hub di eventi fungono da "porta principale" per una pipeline di eventi e una volta che i dati vengono raccolti in un hub di eventi, possono essere trasformati e archiviati con qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Gli hub di eventi separano la produzione di un flusso di eventi dal consumo di questi eventi, in modo che i consumer di eventi può accedere agli eventi in base a una pianificazione.
@@ -66,6 +66,9 @@ Sostituire `logger-id` con il valore usato per `{loggerId}` nell'URL della richi
 È possibile usare qualsiasi espressione che restituisce una stringa come valore dell'elemento `log-to-eventhub` . In questo esempio viene registrata una stringa in formato JSON che contiene la data e l'ora, il nome del servizio, l'ID della richiesta, l'indirizzo IP della richiesta e il nome dell'operazione.
 
 Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il criterio risulta attivo immediatamente dopo il salvataggio e gli eventi vengono registrati nell'hub eventi designato.
+
+> [!NOTE]
+> La dimensione massima supportata del messaggio che può essere inviata a un hub eventi da questo criterio di gestione API è 200 kilobyte (KB). Se un messaggio inviato a un hub eventi è superiore a 200 KB, verrà troncato automaticamente e il messaggio troncato verrà trasferito a hub eventi.
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Visualizzare in anteprima il log in hub eventi usando analisi di flusso di Azure
 

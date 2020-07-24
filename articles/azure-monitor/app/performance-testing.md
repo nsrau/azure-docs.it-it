@@ -4,16 +4,17 @@ description: Configurare test di carico e prestazioni con applicazione Azure Ins
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024351"
 ---
 # <a name="performance-testing"></a>Test delle prestazioni
 
 > [!NOTE]
-> Il servizio di test di carico basato sul cloud è stato deprecato. Altre informazioni sulla deprecazione, sulla disponibilità del servizio e sui servizi alternativi sono disponibili [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Il servizio di test di carico basato sul cloud è stato deprecato. Altre informazioni sulla deprecazione, sulla disponibilità del servizio e sui servizi alternativi sono disponibili [qui](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights consente di generare test di carico per i siti Web. Analogamente ai [test di disponibilità](monitor-web-app-availability.md), è possibile inviare richieste di base o richieste in più [passaggi](availability-multistep.md) dagli agenti di test di Azure in tutto il mondo. I test delle prestazioni consentono di simulare fino a 20.000 utenti simultanei per un massimo di 60 minuti.
 

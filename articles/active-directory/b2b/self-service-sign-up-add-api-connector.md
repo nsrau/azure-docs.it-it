@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027513"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Se un'attestazione da inviare non ha un valore nel momento in cui viene chiamato
 Gli attributi personalizzati possono essere creati per l'utente utilizzando il formato **extension_ \<extensions-app-id> _AttributeName** . L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. L'API può restituire attestazioni con o senza `<extensions-app-id>` . Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati per i flussi di iscrizione self-service](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> le [**identità ("identità")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e l' **indirizzo di posta elettronica ("email_address")** possono essere usate per identificare un utente prima di avere un account nel tenant. L'attestazione ' identitys ' viene inviata quando un utente esegue l'autenticazione con Google o Facebook è email_address ' viene sempre inviato.
+> per identificare un utente prima di avere un account nel tenant, è possibile usare le [**identità ("identità")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e l' **indirizzo di posta elettronica ("email")** . L'attestazione "identità" viene inviata quando un utente esegue l'autenticazione con Google o Facebook e viene sempre inviato un messaggio di posta elettronica.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Tipi di risposta previsti dall'API Web
 
@@ -136,15 +136,15 @@ Content-type: application/json
 | Parametro                                          | Type              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
-| action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
+| azione                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori possono essere archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e negli **attributi utente** per un flusso utente. I valori possono essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione restituita può facoltativamente non contenere `_<extensions-app-id>_` . I valori vengono archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e nell' **attributo utente** per un flusso utente. Gli attributi personalizzati non possono essere restituiti nel token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione restituita non deve contenere `_<extensions-app-id>_` . I valori vengono archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e nell' **attributo utente** per un flusso utente. Gli attributi personalizzati non possono essere restituiti nel token. |
 
 ### <a name="blocking-response"></a>Risposta di blocco
 
 Una risposta di blocco esce dal flusso utente. Può essere rilasciata intenzionalmente dall'API per arrestare la continuazione del flusso utente visualizzando una pagina di blocco per l'utente. Nella pagina blocco viene visualizzato l'oggetto `userMessage` fornito dall'API.
 
-Di seguito è riportato un esempio della risposta di blocco:
+Esempio di risposta di blocco:
 
 ```http
 HTTP/1.1 200 OK
@@ -162,9 +162,9 @@ Content-type: application/json
 | Parametro   | Type   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
-| action      | string | Sì      | Il valore deve essere`ShowBlockPage`                                              |
+| azione      | string | Sì      | Il valore deve essere`ShowBlockPage`                                              |
 | userMessage | string | Sì      | Messaggio da visualizzare all'utente.                                            |
-| codice        | string | No       | Codice di errore. Può essere usato a scopo di debug. Non viene visualizzato all'utente. |
+| codice        | Stringa | No       | Codice di errore. Può essere usato a scopo di debug. Non viene visualizzato all'utente. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Esperienza dell'utente finale con una risposta di blocco
 
@@ -192,10 +192,10 @@ Content-type: application/json
 | Parametro   | Type    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
-| action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
+| azione      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
 | status      | Integer | Sì      | Deve essere `400` un valore per una risposta ValidationError.                        |
 | userMessage | string  | Sì      | Messaggio da visualizzare all'utente.                                            |
-| codice        | string  | No       | Codice di errore. Può essere usato a scopo di debug. Non viene visualizzato all'utente. |
+| codice        | Stringa  | No       | Codice di errore. Può essere usato a scopo di debug. Non viene visualizzato all'utente. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Esperienza dell'utente finale con una risposta di errore di convalida
 

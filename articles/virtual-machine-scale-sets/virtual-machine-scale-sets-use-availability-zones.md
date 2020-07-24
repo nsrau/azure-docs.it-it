@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029315"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -57,7 +58,7 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-region.md). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Azure portal](#use-the-azure-portal)
+- [Portale di Azure](#use-the-azure-portal)
 - Interfaccia della riga di comando di Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
@@ -91,7 +92,7 @@ Per un esempio completo di un set di scalabilità a zona singola e delle relativ
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
-Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard*. Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
+Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard*. Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `--zones`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3*:
 
@@ -208,7 +209,7 @@ Per creare un set di scalabilità con ridondanza della zona, specificare più va
 }
 ```
 
-Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
+Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Per un esempio completo di un set di scalabilità con ridondanza della zona e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

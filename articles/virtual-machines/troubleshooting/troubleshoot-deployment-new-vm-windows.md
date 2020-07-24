@@ -15,11 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028397"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +37,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 [Visualizzare le operazioni di distribuzione](../../azure-resource-manager/templates/deployment-history.md)
 
-[Visualizzare i log attività per gestire le risorse di Azure](../../resource-group-audit.md)
+[Visualizzare i log attività per gestire le risorse di Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -52,7 +53,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **Risoluzione**
 
-Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido virtuale originale](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
+Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido virtuale originale](/powershell/module/az.compute/add-azvhd), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
 
 **Errori di acquisizione:**
 
@@ -89,5 +90,3 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](restart-resize-error-troubleshooting.md).
-
-

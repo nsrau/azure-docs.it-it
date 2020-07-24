@@ -3,11 +3,12 @@ title: Monitorare i servizi Node.js con Azure Application Insights | Microsoft D
 description: Monitorare le prestazioni e diagnosticare i problemi dei servizi Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024385"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -28,9 +29,9 @@ Completare le attività seguenti per configurare il monitoraggio per un'app o un
 Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [ottenerne una nuova gratuitamente][azure-free-offer]. Se l'organizzazione ha già una sottoscrizione di Azure, un amministratore può aggiungere l'utente alla sottoscrizione seguendo [queste istruzioni][add-aad-user].
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurare una risorsa di Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Configurare una risorsa Application Insights
 
 1. Accedere al [portale di Azure][portal].
 2. [Creare una risorsa di Application Insights](create-new-resource.md)
@@ -419,4 +420,4 @@ Queste proprietà sono specifiche del client, pertanto è possibile configurare 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md

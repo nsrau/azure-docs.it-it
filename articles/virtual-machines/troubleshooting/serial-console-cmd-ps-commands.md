@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028465"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandi di Windows - CMD e PowerShell
 
 Questa sezione include comandi di esempio per l'esecuzione di attività comuni all'interno di scenari in cui potrebbe essere necessario usare la console SAC per accedere alla macchina virtuale Windows, ad esempio quando è necessario risolvere errori di connessione Remote Desktop Protocol.
 
-SAC è stata inclusa in tutte le versioni di Windows, a partire da Windows Server 2003, ma è disabilitata per impostazione predefinita. SAC si basa sul driver del kernel `sacdrv.sys`, sul servizio `Special Administration Console Helper`(`sacsvr`) e sul processo `sacsess.exe`. Per altre informazioni, vedere [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Strumenti e impostazioni di Servizi di gestione emergenze).
+SAC è stata inclusa in tutte le versioni di Windows, a partire da Windows Server 2003, ma è disabilitata per impostazione predefinita. SAC si basa sul driver del kernel `sacdrv.sys`, sul servizio `Special Administration Console Helper`(`sacsvr`) e sul processo `sacsess.exe`. Per altre informazioni, vedere [Emergency Management Services Tools and Settings](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Strumenti e impostazioni di Servizi di gestione emergenze).
 
 SAC consente di connettersi al sistema operativo in esecuzione tramite la porta seriale. Quando si avvia CMD da SAC, `sacsess.exe` avvia `cmd.exe` nel sistema operativo in esecuzione. Si noterà che in Gestione attività, se si effettua una connessione RDP alla macchina virtuale, nello stesso momento si viene connessi a SAC tramite la funzionalità della console seriale. L'istanza di CMD a cui si accede tramite SAC è la stessa `cmd.exe` usata per la connessione tramite RDP. Gli stessi strumenti e comandi sono tutti disponibili, inclusa la possibilità di avviare PowerShell da tale istanza di CMD. Una delle principali differenze tra SAC e Ambiente ripristino Windows è che SAC consente di gestire il sistema operativo in esecuzione, mentre Ambiente ripristino Windows viene avviato in un altro sistema operativo minimo. Anche se le macchine virtuali di Azure non supportano la possibilità di accedere ad Ambiente ripristino Windows, con la funzionalità della console seriale, le macchine virtuali di Azure possono essere gestite tramite SAC.
 
@@ -69,13 +70,13 @@ Dopo il segno di uguale è necessario uno spazio.
 ### <a name="start-service"></a>Avviare il servizio
 `net start termservice`
 
-o
+oppure
 
 `sc start termservice`
 ### <a name="stop-service"></a>Arrestare il servizio
 `net stop termservice`
 
-o
+oppure
 
 `sc stop termservice`
 ## <a name="manage-networking-features"></a>Gestire le funzionalità di rete
@@ -90,7 +91,7 @@ o
 ### <a name="set-nic-to-use-dhcp"></a>Impostare la scheda di interfaccia di rete per usare DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-Per altre informazioni su `netsh`, [fare clic qui](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+Per altre informazioni su `netsh`, [fare clic qui](/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Le macchine virtuali di Azure devono essere sempre configurate nel sistema operativo guest per usare DHCP per poter ottenere un indirizzo IP. L'impostazione dell'IP statico di Azure usa tuttavia DHCP per assegnare l'IP statico alla VM.
 ### <a name="ping"></a>Ping
@@ -182,11 +183,11 @@ Questo esempio restituisce la versione file del driver della scheda di interfacc
 ### <a name="scan-for-system-file-corruption"></a>Cercare il danneggiamento del file system
 `sfc /scannow`
 
-Vedere anche [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
+Vedere anche [Repair a Windows Image](/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
 ### <a name="scan-for-system-file-corruption"></a>Cercare il danneggiamento del file system
 `dism /online /cleanup-image /scanhealth`
 
-Vedere anche [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
+Vedere anche [Repair a Windows Image](/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
 ### <a name="export-file-permissions-to-text-file"></a>Esportare le autorizzazioni del file in un file di testo
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>Salvare le autorizzazioni del file in un file ACL
@@ -209,11 +210,11 @@ Il percorso quando si usa `/restore` deve corrispondere alla cartella padre dell
 ### <a name="show-os-version"></a>Visualizzare la versione del sistema operativo
 `ver`
 
-o
+oppure
 
 `wmic os get caption,version,buildnumber /format:list`
 
-o
+oppure
 
 `systeminfo  find /i "os name"`
 
@@ -221,7 +222,7 @@ o
 ### <a name="view-os-install-date"></a>Visualizzare la data di installazione del sistema operativo
 `systeminfo | find /i "original"`
 
-o
+oppure
 
 `wmic os get installdate`
 ### <a name="view-last-boot-time"></a>Visualizzare l'ora dell'ultimo avvio
@@ -229,7 +230,7 @@ o
 ### <a name="view-time-zone"></a>Visualizzare il fuso orario
 `systeminfo | find /i "time zone"`
 
-o
+oppure
 
 `wmic timezone get caption,standardname /format:list`
 ### <a name="restart-windows"></a>Riavviare Windows
@@ -294,7 +295,7 @@ Quando si usa un account del servizio diverso da `NT AUTHORITY\LocalService`, `N
 ### <a name="show-nic-properties"></a>Visualizzare le proprietà della scheda di interfaccia di rete
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
-o
+oppure
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
@@ -304,7 +305,7 @@ o
 ### <a name="enable-nic"></a>Abilitare la scheda di interfaccia di rete
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
-o
+oppure
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
@@ -321,7 +322,7 @@ o
 > [!NOTE]
 > Il cmdlet Write-Progress potrebbe non funzionare con questo comando. Come mitigazione, è possibile eseguire `$ProgressPreference = "SilentlyContinue"` in PowerShell per disabilitare l'indicatore di stato.
 
-o
+oppure
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
@@ -329,7 +330,7 @@ o
 ### <a name="port-ping"></a>Ping della porta
 `test-netconnection -ComputerName bing.com -Port 80`
 
-o
+oppure
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
@@ -337,7 +338,7 @@ o
 ### <a name="test-dns-name-resolution"></a>Testare la risoluzione dei nomi DNS
 `resolve-dnsname bing.com`
 
-o
+oppure
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
@@ -347,7 +348,7 @@ o
 ### <a name="show-windows-firewall-rule-by-port"></a>Visualizzare la regola di Windows Firewall per porta
 `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
 
-o
+oppure
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
@@ -362,7 +363,7 @@ o
 ### <a name="verify-user-account-is-enabled"></a>Verificare che l'account utente sia abilitato
 `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
 
-o
+oppure
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
@@ -376,7 +377,7 @@ Questo esempio abilita l'account predefinito Administrator locale, che ha sempre
 ### <a name="view-user-account-properties"></a>Visualizzare le proprietà dell'account utente
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
-o
+oppure
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
@@ -435,7 +436,7 @@ Aggiungendo `-force`, verrà forzata la chiusura delle applicazioni in esecuzion
 
 Per eseguire query sui metadati dell'istanza, è necessario che la connettività di rete guest sia integra, perché effettua una chiamata REST tramite l'host di Azure al servizio metadati dell'istanza. Se quindi è possibile eseguire query sui metadati dell'istanza, significa che il guest riesce a comunicare tramite la rete con un servizio ospitato da Azure.
 
-Per altre informazioni, vedere [Servizio metadati dell'istanza di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+Per altre informazioni, vedere [Servizio metadati dell'istanza di Azure](../windows/instance-metadata-service.md).
 
 ### <a name="instance-metadata"></a>Metadati dell'istanza
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

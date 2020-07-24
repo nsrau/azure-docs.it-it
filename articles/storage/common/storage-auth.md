@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029536"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizzazione dell'accesso ai dati in archiviazione di Azure
 
@@ -23,12 +23,12 @@ Ogni volta che si accede ai dati nell'account di archiviazione, il client effett
 
 La tabella seguente descrive le opzioni offerte da archiviazione di Azure per autorizzare l'accesso alle risorse:
 
-|  |Chiave condivisa (chiave dell'account di archiviazione)  |Firma di accesso condiviso  |Azure Active Directory (Azure AD)  |Active Directory Domain Services locale (anteprima) |Accesso in lettura pubblico Anonimo  |
-|---------|---------|---------|---------|---------|---------|
+| Artefatto di Azure | Chiave condivisa (chiave dell'account di archiviazione) | Firma di accesso condiviso | Azure Active Directory (Azure AD) | Active Directory Domain Services locale (anteprima) | Accesso in lettura pubblico Anonimo |
+| -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |BLOB di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |[Supportato](storage-auth-aad.md)         |Non supportato|[Supportato](../blobs/storage-manage-access-to-resources.md)         |
 |File di Azure (SMB)     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |Non supportato         |[Supportato solo con servizi di dominio AAD](../files/storage-files-active-directory-overview.md)         |[Supportato, le credenziali devono essere sincronizzate con Azure AD](../files/storage-files-active-directory-overview.md)|Non supportato         |
 |File di Azure (REST)     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |Non supportato         |Non supportato |Non supportato         |
-|Code di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |[Supportato](storage-auth-aad.md)         |Non supportato | Non supportato         |
+|Code di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |[Supportato](storage-auth-aad.md)         |Non Supportato | Non supportato         |
 |Tabelle di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |Non supportato         |Non supportato| Non supportato         |
 
 Ogni opzione di autorizzazione viene descritta brevemente di seguito:

@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026459"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>API Web che chiama le API Web: acquisire un token per l'app
 
@@ -26,46 +27,38 @@ Dopo aver compilato un oggetto applicazione client, usarlo per acquisire un toke
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Di seguito è riportato un esempio di codice chiamato nelle azioni dei controller API. Chiama un'API downstream denominata *todo*.
+Di seguito è riportato un esempio di codice con Microsoft. Identity. Web chiamato nelle azioni dei controller API. Chiama un'API downstream denominata *todo*. Per ottenere un token per chiamare l'API downstream, inserire il `ITokenAcquisition` servizio tramite l'inserimento di dipendenze nel costruttore del controller (o nel costruttore della pagina se si usa Blazer) e usarlo nelle azioni del controller, ottenendo un token per l'utente ( `GetAccessTokenForUserAsync` ) o per l'applicazione stessa ( `GetAccessTokenForAppAsync` ) nel caso di uno scenario daemon.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+[Authorize]
+public class MyApiController : Controller
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+     static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
+
+    private readonly ITokenAcquisition _tokenAcquisition;
+
+    public MyApiController(ITokenAcquisition tokenAcquisition)
+    {
+        _tokenAcquisition = tokenAcquisition;
+    }
+
+    public IActionResult Index()
+    {
+        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+
+        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
+        return await callTodoListService(accessToken);
+    }
 }
 ```
 
-`BuildConfidentialClient()`è simile allo scenario in [un'API Web che chiama API Web: configurazione dell'app](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`Crea un'istanza `IConfidentialClientApplication` di con una cache che contiene informazioni per un solo account. L'account viene fornito dal `GetAccountIdentifier` metodo.
-
-Il `GetAccountIdentifier` metodo usa le attestazioni associate all'identità dell'utente per cui l'API Web ha ricevuto il token Web JSON (JWT):
-
-```csharp
-public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
-{
- string userObjectId = GetObjectId(claimsPrincipal);
- string tenantId = GetTenantId(claimsPrincipal);
-
- if (    !string.IsNullOrWhiteSpace(userObjectId)
-      && !string.IsNullOrWhiteSpace(tenantId))
- {
-  return $"{userObjectId}.{tenantId}";
- }
-
- return null;
-}
-```
+Per informazioni dettagliate sul `callTodoListService` metodo, vedere [un'API Web che chiama API Web: chiamare un'API](scenario-web-api-call-api-call-api.md).
 
 # <a name="java"></a>[Java](#tab/java)
 Di seguito è riportato un esempio di codice chiamato nelle azioni dei controller API. Chiama il Microsoft Graph API downstream.

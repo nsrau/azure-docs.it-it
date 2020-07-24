@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030080"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -32,7 +32,11 @@ Per i prezzi correnti di archiviazione di backup, vedere la [pagina dei prezzi](
 
 ## <a name="restore"></a>Restore
 
-Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabilità (CITUS) crea un nuovo cluster dai backup dei nodi originali.
+Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabilità (CITUS) crea un nuovo cluster dai backup dei nodi originali. 
+
+> [!IMPORTANT]
+>È possibile ripristinare solo il cluster con iperscalabilità all'interno della stessa sottoscrizione e del gruppo di risorse e con un nome di cluster diverso.
+
 
 > [!IMPORTANT]
 > Non è possibile ripristinare i cluster CITUS (overscale) eliminati. Se si elimina il cluster, tutti i nodi appartenenti al cluster vengono eliminati e non possono essere recuperati. Per proteggere le risorse del cluster, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i [blocchi di gestione](/azure/azure-resource-manager/management/lock-resources).

@@ -1,20 +1,20 @@
 ---
-title: Database di Azure per PostgreSQL-linea di base di sicurezza con iperscalabilità per il benchmark di sicurezza di Azure
+title: Baseline della sicurezza di Azure per database di Azure per PostgreSQL-scalabilità iperscalabile
 description: La linea di base di sicurezza con iperscalabilità di database di Azure per PostgreSQL fornisce linee guida procedurali e risorse per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca08ac30c5d8e925197a0df1d327bf9a0923b046
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030046"
 ---
-# <a name="azure-database-for-postgresql---hyperscale-security-baseline-for-azure-security-benchmark"></a>Database di Azure per PostgreSQL-linea di base di sicurezza con iperscalabilità per il benchmark di sicurezza di Azure
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-scalabilità iperscalabile
 
 La linea di base di sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 

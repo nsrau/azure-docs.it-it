@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029230"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurare LVM e RAID nei dispositivi crittografati
 
@@ -44,11 +45,11 @@ In modo analogo, il dispositivo RAID viene creato sopra il livello crittografato
 
 Si consiglia di usare LVM-on-crypt. RAID è un'opzione in cui non è possibile usare LVM a causa di limitazioni specifiche dell'applicazione o dell'ambiente.
 
-Usare l'opzione **EncryptFormatAll** . Per altre informazioni su questa opzione, vedere [usare la funzionalità EncryptFormatAll per i dischi dati nelle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Usare l'opzione **EncryptFormatAll** . Per altre informazioni su questa opzione, vedere [usare la funzionalità EncryptFormatAll per i dischi dati nelle macchine virtuali Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Anche se è possibile usare questo metodo quando si esegue la crittografia del sistema operativo, è sufficiente crittografare le unità dati qui.
 
-Nelle procedure si presuppone che siano già stati esaminati i prerequisiti negli [scenari di crittografia dischi di Azure nelle VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) e in [Guida introduttiva: creare e crittografare una VM Linux con l'interfaccia della](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart)riga di comando di Azure.
+Nelle procedure si presuppone che siano già stati esaminati i prerequisiti negli [scenari di crittografia dischi di Azure nelle VM Linux](./disk-encryption-linux.md) e in [Guida introduttiva: creare e crittografare una VM Linux con l'interfaccia della](./disk-encryption-cli-quickstart.md)riga di comando di Azure.
 
 La versione dual-pass di crittografia dischi di Azure si trova in un percorso di deprecazione e non deve più essere usata con nuove crittografie.
 
@@ -459,4 +460,3 @@ df -h
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Guida alla risoluzione dei problemi di crittografia dischi di Azure](disk-encryption-troubleshooting.md)
-
