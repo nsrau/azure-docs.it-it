@@ -3,11 +3,12 @@ title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsof
 description: Questo articolo illustra come è possibile rilevare i duplicati nei messaggi del bus di servizio di Azure. Il messaggio duplicato può essere ignorato e eliminato.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083889"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -32,7 +33,7 @@ Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al proce
 
 Nel portale la funzionalità si attiva durante la creazione di entità tramite la casella di controllo **Abilita rilevamento duplicati**, che per impostazione predefinita è deselezionata. L'impostazione per la creazione di nuovi argomenti è equivalente.
 
-![][1]
+![Screenshot della finestra di dialogo Crea coda con l'opzione Abilita rilevamento duplicati selezionata e delineata in rosso.][1]
 
 > [!IMPORTANT]
 > È possibile abilitare o disabilitare il rilevamento dei duplicati dopo la creazione della coda. È possibile farlo solo al momento della creazione della coda. 
@@ -41,7 +42,7 @@ A livello di codice, si imposta il flag con la proprietà [QueueDescription.requ
 
 Il valore predefinito per l'intervallo di tempo della cronologia di rilevamento duplicati è di 30 secondi per le code e gli argomenti, con un valore massimo di 7 giorni. È possibile modificare questa impostazione nella finestra delle proprietà di code e argomenti nel portale di Azure.
 
-![][2]
+![Screenshot della funzionalità del bus di servizio con l'impostazione delle proprietà evidenziata e l'opzione per la cronologia dei duplicati di rilevamento descritta in rosso.][2]
 
 A livello di codice, è possibile configurare le dimensioni della finestra temporale di rilevamento dei duplicati durante la quale vengono conservati gli ID di messaggio, usando la proprietà [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) con l'intera API .NET Framework. Con l'API di Azure Resource Manager, il valore viene impostato con la proprietà [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 

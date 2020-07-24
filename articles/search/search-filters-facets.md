@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084212"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Come compilare un filtro facet in Azure ricerca cognitiva 
 
@@ -28,7 +28,7 @@ L'esplorazione in base a facet viene usata per i filtri autoindirizzati nei risu
 
 I facet sono dinamici e vengono restituiti in seguito a una query. Le risposte alla ricerca includono le categorie di facet usate per esplorare i risultati. Se non si ha familiarità con i facet, l'esempio seguente illustra una struttura di esplorazione in base a facet.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![Immagine che mostra una finestra di dialogo di ricerca con i risultati di ricerca filtrati raggruppati per titolo aziendale. Una freccia indica che i risultati sono facet visualizzati in una struttura di navigazione con facet.](./media/search-filters-facets/facet-nav.png)
 
 Per altre informazioni sull'esplorazione in base a facet: Vedere [come implementare l'esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md).
 

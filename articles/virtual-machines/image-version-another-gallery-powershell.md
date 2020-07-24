@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082597"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiare un'immagine da un'altra raccolta usando PowerShell
 
@@ -100,7 +100,7 @@ L'output sarà simile al seguente:
 }
 ```
 
-Creare una nuova definizione di immagine nella raccolta di destinazione usando il cmdlet [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) e le informazioni dell'output precedente.
+Creare una nuova definizione di immagine nella raccolta di destinazione usando il cmdlet [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) e le informazioni dell'output precedente.
 
 
 In questo esempio, la definizione dell'immagine è denominata *myDestinationImgDef* nella raccolta denominata *myDestinationGallery*.
@@ -123,7 +123,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>Creare la versione di immagine
 
-Creare una versione dell'immagine usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). È necessario passare l'ID dell'immagine di origine nel `--managed-image` parametro per creare la versione dell'immagine nella raccolta di destinazione. 
+Creare una versione dell'immagine usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). È necessario passare l'ID dell'immagine di origine nel `--managed-image` parametro per creare la versione dell'immagine nella raccolta di destinazione. 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `-StorageAccountType Standard_ZRS`.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md), aggiungendo `-StorageAccountType Standard_ZRS`.
 >
 
 

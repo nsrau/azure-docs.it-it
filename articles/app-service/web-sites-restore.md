@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084858"
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
 Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](manage-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
@@ -28,14 +29,14 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
     ![Scegliere Ripristina][ChooseRestoreNow]
 2. Nella pagina **Ripristina**, selezionare l'origine di backup.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Screenshot che mostra dove selezionare l'origine di backup.](./media/web-sites-restore/021ChooseSource1.png)
    
     L'opzione **Backup dell'app** mostra tutti i backup esistenti dell'app corrente, che possono essere facilmente selezionati.
     L'opzione **Archiviazione** consente di selezionare qualsiasi file ZIP del backup da un account di archiviazione e un contenitore di Azure esistenti nella sottoscrizione.
     Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione** .
 3. Quindi, specificare la destinazione per il ripristino dell’app in **Destinazione di ripristino**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Screenshot che mostra dove specificare la destinazione per il ripristino dell'app.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Se si sceglie **Sovrascrivi**, tutti i dati esistenti nell'app corrente verranno cancellati e sovrascritti. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
@@ -76,7 +77,7 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibili corr
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
-È possibile automatizzare la gestione backup con gli script, usando l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
+È possibile automatizzare la gestione backup con gli script, usando l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/).
 
 Per qualche esempio vedere:
 

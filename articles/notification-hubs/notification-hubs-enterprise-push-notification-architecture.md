@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084314"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
 
@@ -35,7 +35,7 @@ Una soluzione migliore consiste nell'uso del modello Bus di servizio di Azure - 
 
 Di seguito è descritta l'architettura generale della soluzione, descritta con numerose app per dispositivi mobili ma ugualmente applicabile nel caso in cui ne venga usata una soltanto.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![Diagramma dell'architettura aziendale che mostra il flusso attraverso gli eventi, le sottoscrizioni e i messaggi push.][1]
 
@@ -289,8 +289,8 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 <!-- Links -->
 [esempi di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples
 [Servizio mobile di Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Bus di servizio di Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Come usare argomenti/sottoscrizioni del bus di servizio]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Bus di servizio di Azure]: ../service-bus-messaging/service-bus-messaging-overview.md
+[Come usare argomenti/sottoscrizioni del bus di servizio]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Processo Web di Azure]: ../app-service/webjobs-create.md
-[Introduzione ad Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Introduzione ad Hub di notifica]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Azure portal]: https://portal.azure.com/

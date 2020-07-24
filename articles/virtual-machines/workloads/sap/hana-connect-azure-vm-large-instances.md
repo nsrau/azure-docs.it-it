@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74224719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082172"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connessione di macchine virtuali di Azure a istanze Large di HANA
 
-L'articolo [Informazioni su SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) indica che la distribuzione minima di istanze Large di HANA con il livello dell'applicazione SAP in Azure ha un aspetto simile al seguente:
+L'articolo [Informazioni su SAP HANA in Azure (istanze Large)](./hana-overview-architecture.md) indica che la distribuzione minima di istanze Large di HANA con il livello dell'applicazione SAP in Azure ha un aspetto simile al seguente:
 
 ![Rete virtuale di Azure connessa a SAP HANA in Azure (istanze di grandi dimensioni) e in locale](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -93,13 +94,13 @@ Sono già stati introdotti alcuni degli intervalli di indirizzi IP necessari per
 
 Intervalli di indirizzi IP facoltativi che devono essere inviati a Microsoft:
 
-- Se si sceglie di usare [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
-- Se si sceglie di usare [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da un tenant di istanze large di Hana in un'area di Azure a un altro tenant di istanze large di Hana in un'altra area di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
+- Se si sceglie di usare [ExpressRoute copertura globale](../../../expressroute/expressroute-global-reach.md) per abilitare il routing diretto da unità locali a istanze large di Hana, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
+- Se si sceglie di usare [ExpressRoute copertura globale](../../../expressroute/expressroute-global-reach.md) per abilitare il routing diretto da un tenant di istanze large di Hana in un'area di Azure a un altro tenant di istanze large di Hana in un'altra area di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
 
 Per ulteriori informazioni su ExpressRoute Copertura globale e sull'utilizzo in istanze large di HANA, controllare i documenti:
 
-- [Architettura di rete di SAP HANA (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Collegare una rete virtuale alle istanze Large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [Architettura di rete di SAP HANA (istanze Large)](./hana-network-architecture.md)
+- [Collegare una rete virtuale alle istanze Large di HANA](./hana-connect-vnet-express-route.md)
  
 È necessario definire e pianificare gli intervalli di indirizzi IP descritti in precedenza. Tuttavia, non occorre trasmetterli tutti a Microsoft. Gli intervalli di indirizzi IP per cui è necessario assegnare un nome da trasmettere a Microsoft sono i seguenti:
 

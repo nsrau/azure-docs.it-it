@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081866"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
 
@@ -17,7 +18,7 @@ Durable Functions è un'estensione di [funzioni di Azure](../functions-overview.
 
 ## <a name="orchestrator-code-constraints"></a>Vincoli del codice dell'agente di orchestrazione
 
-Le funzioni dell'agente di orchestrazione usano l'origine [eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) per garantire un'esecuzione affidabile e mantenere lo stato delle variabili locali. Il [comportamento di riproduzione](durable-functions-orchestrations.md#reliability) del codice dell'agente di orchestrazione crea vincoli sul tipo di codice che è possibile scrivere in una funzione dell'agente di orchestrazione. Ad esempio, le funzioni dell'agente di orchestrazione devono essere *deterministiche*: una funzione dell'agente di orchestrazione verrà riprodotta più volte e deve produrre lo stesso risultato ogni volta.
+Le funzioni dell'agente di orchestrazione usano l'origine [eventi](/azure/architecture/patterns/event-sourcing) per garantire un'esecuzione affidabile e mantenere lo stato delle variabili locali. Il [comportamento di riproduzione](durable-functions-orchestrations.md#reliability) del codice dell'agente di orchestrazione crea vincoli sul tipo di codice che è possibile scrivere in una funzione dell'agente di orchestrazione. Ad esempio, le funzioni dell'agente di orchestrazione devono essere *deterministiche*: una funzione dell'agente di orchestrazione verrà riprodotta più volte e deve produrre lo stesso risultato ogni volta.
 
 ### <a name="using-deterministic-apis"></a>Uso di API deterministiche
 

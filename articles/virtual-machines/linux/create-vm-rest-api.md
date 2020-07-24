@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082563"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -45,7 +46,7 @@ Gli argomenti seguenti sono obbligatori:
 | Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
 | *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
-| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -121,13 +122,13 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 ## <a name="sending-the-request"></a>Invio della richiesta
 
-È possibile utilizzare il proprio client preferito per l'invio di questa richiesta HTTP. Si può anche usare uno [strumento integrato nel browser](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) facendo clic sul pulsante **Prova**.
+È possibile utilizzare il proprio client preferito per l'invio di questa richiesta HTTP. Si può anche usare uno [strumento integrato nel browser](/rest/api/compute/virtualmachines/createorupdate) facendo clic sul pulsante **Prova**.
 
 ### <a name="responses"></a>Risposte
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | Type                                                                              | Description |
+| Nome        | Tipo                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |
@@ -150,4 +151,4 @@ Per altre informazioni sulle API REST di Azure o su altri strumenti di gestione,
 - [API REST del provider Calcolo di Azure](/rest/api/compute/)
 - [Introduzione all'API REST di Azure](/rest/api/azure/)
 - [Interfaccia della riga di comando di Azure](/cli/azure/)
-- [Modulo di Azure PowerShell](/powershell/azure/overview)
+- [Modulo di Azure PowerShell](/powershell/azure/)

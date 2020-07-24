@@ -2,14 +2,14 @@
 title: Domande generali sul servizio Azure Site Recovery
 description: Questo articolo illustra le domande generali più frequenti su Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133662"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083736"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -116,6 +116,19 @@ Gli agenti di mobilità installati negli elementi replicati comunicano con il se
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Come è possibile applicare il protocollo TLS 1.2 in scenari Site Recovery da HyperV ad Azure?
 Tutte le comunicazioni tra i microservizi di Azure Site Recovery avvengono mediante il protocollo TLS 1.2. Site Recovery usa provider di sicurezza configurati nel sistema operativo e usa il protocollo TLS più recente disponibile. Sarà necessario abilitare in modo esplicito il protocollo TLS 1.2 nel registro perché Site Recovery inizi a usare TLS 1.2 per la comunicazione con i servizi. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Come è possibile applicare l'accesso limitato agli account di archiviazione, a cui si accede tramite Site Recovery servizio per la lettura e la scrittura dei dati di replica?
+È possibile attivare l'identità gestita dell'insieme di credenziali di servizi di ripristino passando all'impostazione *Identity* . Una volta che l'insieme di credenziali viene registrato con Azure Active Directory, è possibile accedere agli account di archiviazione e assegnare le seguenti assegnazioni di ruolo all'insieme di credenziali:
+
+- Account di archiviazione basati su Gestione risorse (tipo standard):
+  - [Collaboratore](../role-based-access-control/built-in-roles.md#contributor)
+  - [Collaboratore ai dati del BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Account di archiviazione basati su Gestione risorse (tipo Premium):
+  - [Collaboratore](../role-based-access-control/built-in-roles.md#contributor)
+  - [Proprietario dei dati del BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Account di archiviazione classici:
+  - [Collaboratore account di archiviazione classico](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>Ripristino di emergenza
 
 ### <a name="what-can-site-recovery-protect"></a>Quali elementi può proteggere Site Recovery?
@@ -142,7 +155,7 @@ Sì, Site Recovery supporta il ripristino di emergenza di macchine virtuali VMwa
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>Il ripristino di emergenza è supportato per le macchine virtuali Hyper-V?
 Sì, Site Recovery supporta il ripristino di emergenza di macchine virtuali Hyper-V locali. [Vedere le domande frequenti](hyper-v-azure-common-questions.md) sul ripristino di emergenza di macchine virtuali Hyper-V.
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>Il ripristino di emergenza è supportato per i server fisici?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>Il ripristino di emergenza è supportato per i server fisici?
 Sì, Site Recovery supporta il ripristino di emergenza di server fisici locali che eseguono Windows e Linux in Azure o in un sito secondario. Informazioni sui requisiti per il ripristino di emergenza in [Azure](vmware-physical-azure-support-matrix.md#replicated-machines) e in un [sito secondario](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Si noti che i server fisici vengono eseguiti come macchine virtuali in Azure dopo il failover. Il failback da Azure a un server fisico locale non è attualmente supportato. È possibile eseguire il failback solo in una macchina virtuale VMware.
 

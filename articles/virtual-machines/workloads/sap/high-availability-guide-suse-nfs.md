@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085164"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -136,14 +136,14 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
    SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere un disco dati per ogni sistema SAP a entrambe le macchine virtuali.
-1. Creare una Load Balancer (interna). Si consiglia di usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+1. Creare una Load Balancer (interna). Si consiglia di usare [Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).  
    1. Seguire queste istruzioni per creare un servizio di bilanciamento del carico standard:
       1. Creare gli indirizzi IP front-end
          1. Indirizzo IP 10.0.0.4 per NW1
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
             1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-frontend**
             1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.4**
-            1. Fare clic su OK.
+            1. Scegliere OK
          1. Indirizzo IP 10.0.0.5 per NW2
             * Ripetere i passaggi precedenti per NW2
       1. Creare i pool back-end
@@ -159,7 +159,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
             1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
             1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-            1. Fare clic su OK.
+            1. Scegliere OK
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
       1. Regole di bilanciamento del carico
@@ -177,7 +177,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
             1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-frontend**
             1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.4**
-            1. Fare clic su OK.
+            1. Scegliere OK
          1. Indirizzo IP 10.0.0.5 per NW2
             * Ripetere i passaggi precedenti per NW2
       1. Creare i pool back-end
@@ -193,7 +193,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
             1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
             1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-            1. Fare clic su OK.
+            1. Scegliere OK
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
       1. Regole di bilanciamento del carico
@@ -213,10 +213,10 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
 
 > [!Note]
-> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 

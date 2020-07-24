@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51d3d859bbd176a6e1fac92b75c6120301a5066f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084518"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Eseguire lo streaming live con codificatori locali usando portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST](/rest/api/media/operations/channel)
 > 
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through. 
 
@@ -110,7 +111,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
 2. Nella finestra **Impostazioni** fare clic su **Streaming live**. 
    
-    ![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    ![Guida introduttiva](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Verrà visualizzata la finestra **Streaming live** .
 3. Fare clic su **Creazione rapida** per creare un canale pass-through con il protocollo di inserimento RTMP.
@@ -124,7 +125,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Selezionare un canale a cui si vuole aggiungere un evento.
 2. Premere il pulsante **Evento live** .
 
-![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
@@ -158,4 +159,3 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77014998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082070"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gestire le macchine virtuali del cloud privato CloudSimple in Azure
 
@@ -22,15 +23,15 @@ Per gestire le macchine virtuali [create per il cloud privato CloudSimple](azure
 
 I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla macchina virtuale selezionata.
 
-| Controllo | Description |
+| Controllo | Descrizione |
 | ------------ | ------------- |
 | Connessione | Connettersi alla macchina virtuale specificata.  |
-| Avvia | Avviare la macchina virtuale specificata.  |
+| Avvio | Avviare la macchina virtuale specificata.  |
 | Riavvia | Arrestare e quindi accendere la macchina virtuale specificata.  |
 | Arresto | Arrestare la macchina virtuale specifica.  |
-| Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/classic/capture-image.md).   |
-| Sposta | Passare alla macchina virtuale specificata.  |
-| Elimina | Rimuovere la macchina virtuale specificata.  |
+| Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).   |
+| Spostamento | Passare alla macchina virtuale specificata.  |
+| Delete | Rimuovere la macchina virtuale specificata.  |
 | Aggiorna | Aggiornare i dati nella visualizzazione.  |
 
 ### <a name="view-performance-information"></a>Visualizzare le informazioni sulle prestazioni
@@ -53,7 +54,7 @@ Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per
    | Elemento | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare il disco.  |
-   | Dimensione | Selezionare una delle dimensioni disponibili.  |
+   | Dimensioni | Selezionare una delle dimensioni disponibili.  |
    | Controller SCSI | Selezionare un controller SCSI. I controller disponibili variano per i diversi sistemi operativi supportati.  |
    | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente, non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  Questa modalità consente di riavviare sempre la macchina virtuale nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
@@ -73,7 +74,7 @@ Per modificare la capacità della macchina virtuale, aprire la pagina **dimensio
 
 Per aggiungere un'interfaccia, fare clic su **Aggiungi interfaccia di rete**. Configurare ognuna delle impostazioni seguenti immettendo o selezionando un'opzione inline. Fare clic su **Salva**.
 
-   | Controllo | Description |
+   | Controllo | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare l'interfaccia.  |
    | Rete | Selezionare dall'elenco di reti configurate nel cloud privato vSphere.  |

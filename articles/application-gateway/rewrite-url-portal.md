@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083158"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure (anteprima)
 
 Questo articolo descrive come usare la portale di Azure per configurare un'istanza di [SKU del gateway applicazione V2](application-gateway-autoscaling-zone-redundant.md) per riscrivere l'URL.
+
+>[!NOTE]
+> La funzionalità di riscrittura URL è in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Non è consigliato per l'uso nell'ambiente di produzione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

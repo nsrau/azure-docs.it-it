@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72436055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082393"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
 
@@ -51,7 +51,7 @@ Altri componenti di OpenFrame necessari:
 - PROTRIEVE, una soluzione che esegue la lingua del mainframe CA-Easytrieve.
 - OFMiner, una soluzione che analizza gli asset mainframe e li esegue quindi la migrazione in Azure.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 La figura seguente fornisce una panoramica dei componenti dell'architettura OpenFrame 7,0 installati in questa esercitazione:
 
@@ -108,7 +108,7 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 - Ottenere una sottoscrizione di Azure, se non è già presente. È anche possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Facoltativa. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
+- facoltativo. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Configurare una macchina virtuale in Azure per OpenFrame e tibero
 
@@ -349,7 +349,7 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
      )
     ```
 
-7. Creare il database. Viene visualizzato l'output seguente:
+7. Creare il database. Compare l'output seguente:
 
     ```
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
@@ -1167,7 +1167,7 @@ OSC è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni OLTP a
      Al termine, viene visualizzato il messaggio "installazione completata".
 
 4. Verificare che il profilo bash venga aggiornato con le variabili OSC.
-5. Esaminare il \_ file OpenFrame OSC7 \_ 0 \_ fix2 \_ InstallLog. log. L'aspetto dell'anteprima dovrebbe essere simile al seguente:
+5. Esaminare il \_ file OpenFrame OSC7 \_ 0 \_ fix2 \_ InstallLog. log. L'output dovrebbe essere simile al seguente:
 
      ```
      Summary 
@@ -1476,6 +1476,6 @@ Questa operazione completa l'installazione dei componenti di OpenFrame.
 
 Se si sta prendendo in considerazione una migrazione del mainframe, l'ecosistema di partner in espansione è disponibile per aiutare l'utente. Per indicazioni dettagliate sulla scelta di una soluzione dei partner, vedere [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
--   [Inizia a usare Azure](https://docs.microsoft.com/azure/)
--   [Documentazione di Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
--   [Guida Lift-and-Shift del data center virtuale di Azure](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Inizia a usare Azure](../../../../index.yml)
+-   [Documentazione di Host Integration Server (HIS)](/host-integration-server/)
+-   [Guida Lift-and-Shift del data center virtuale di Azure](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide)

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084076"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurare una connessione a un account di Archiviazione di Azure usando un'identità gestita (anteprima)
 
@@ -53,17 +53,19 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
     ![Aggiungi assegnazione di ruolo](./media/search-managed-identities/add-role-assignment-storage.png "Aggiungi un'assegnazione di ruolo")
 
 4. Selezionare il ruolo o i ruoli appropriati in base al tipo di account di archiviazione da indicizzare:
-    1. Per Archiviazione BLOB di Azure è necessario aggiungere il servizio di ricerca ai ruoli **Lettore e accesso ai dati** e **Lettore dei dati del BLOB di archiviazione**.
-    1. Per Azure Data Lake Storage Gen2 è necessario aggiungere il servizio di ricerca ai ruoli **Lettore e accesso ai dati** e **Lettore dei dati del BLOB di archiviazione**.
-    1. Per Archiviazione tabelle di Azure è necessario aggiungere il servizio di ricerca solo al ruolo **Lettore e accesso ai dati**.
+    1. Per l'archiviazione BLOB di Azure è necessario aggiungere il servizio di ricerca al ruolo **lettore dati BLOB di archiviazione** .
+    1. Azure Data Lake Storage Gen2 necessario aggiungere il servizio di ricerca al ruolo **lettore dati BLOB di archiviazione** .
+    1. Per l'archiviazione tabelle di Azure è necessario aggiungere il servizio di ricerca al ruolo **lettura e accesso ai dati** .
 5.  Lasciare **Assegna accesso a** impostato su **Utente, gruppo o entità servizio di Azure AD**
 6.  Cercare il servizio di ricerca di proprio interesse, selezionarlo e quindi selezionare **Salva**
 
-    ![Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati")
+    Esempio per archiviazione BLOB di Azure e Azure Data Lake Storage Gen2:
 
-Si noti che per la connessione ad Archiviazione BLOB di Azure e Azure Data Lake Storage Gen2, è necessario aggiungere anche l'assegnazione di ruolo **Lettore dei dati del BLOB di archiviazione**.
+    ![Aggiungere l'assegnazione di ruolo Lettore dei dati del BLOB di archiviazione](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Aggiungere l'assegnazione di ruolo Lettore dei dati del BLOB di archiviazione")
 
-![Aggiungere l'assegnazione di ruolo Lettore dei dati del BLOB di archiviazione](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Aggiungere l'assegnazione di ruolo Lettore dei dati del BLOB di archiviazione")
+    Esempio per l'archiviazione tabelle di Azure:
+
+    ![Aggiunta dell'assegnazione di ruolo di lettura e di accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo di lettura e di accesso ai dati")
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 

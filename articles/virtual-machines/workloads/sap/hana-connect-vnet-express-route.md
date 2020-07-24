@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082155"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Collegare una rete virtuale alle istanze Large di HANA
 
@@ -95,7 +96,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> L'ultimo parametro nel comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** è un nuovo parametro che Abilita il percorso veloce ExpressRoute. Funzionalità che riduce la latenza di rete tra le unità di istanze large di HANA e le VM di Azure. La funzionalità è stata aggiunta nel 2019 maggio. Per altri dettagli, vedere l'articolo [SAP Hana architettura di rete (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Assicurarsi di eseguire la versione più recente dei cmdlet di PowerShell prima di eseguire i comandi.
+> L'ultimo parametro nel comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** è un nuovo parametro che Abilita il percorso veloce ExpressRoute. Funzionalità che riduce la latenza di rete tra le unità di istanze large di HANA e le VM di Azure. La funzionalità è stata aggiunta nel 2019 maggio. Per altri dettagli, vedere l'articolo [SAP Hana architettura di rete (istanze large)](./hana-network-architecture.md). Assicurarsi di eseguire la versione più recente dei cmdlet di PowerShell prima di eseguire i comandi.
 
 Se si vuole collegare il gateway a più circuiti ExpressRoute associati alla sottoscrizione, è possibile che sia necessario eseguire più volte questo passaggio. Ad esempio, sarà probabilmente necessario connettere lo stesso gateway di rete virtuale al circuito ExpressRoute che si connette alla rete virtuale locale.
 
@@ -138,7 +139,7 @@ Quando si desidera abilitare Copertura globale per uno o entrambi i due scenari:
 - Esiste una limitazione per il ASN (numero sistema autonomo) che può essere usato per annunciare le route locali alle istanze large di HANA. Il sito locale non deve annunciare alcuna route con ASN privato nell'intervallo 65000 – 65020 o 65515. 
 - Per lo scenario di connessione dell'accesso diretto locale alle istanze large di HANA, è necessario calcolare una tariffa per il circuito che connette ad Azure. Per i prezzi, verificare i prezzi per [copertura globale componente](https://azure.microsoft.com/pricing/details/expressroute/)aggiuntivo.
 
-Per ottenere uno o entrambi gli scenari applicati alla distribuzione, aprire un messaggio di supporto con Azure come descritto in [aprire una richiesta di supporto per le istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Per ottenere uno o entrambi gli scenari applicati alla distribuzione, aprire un messaggio di supporto con Azure come descritto in [aprire una richiesta di supporto per le istanze large di Hana](./hana-li-portal.md#open-a-support-request-for-hana-large-instances)
 
 I dati necessari e le parole chiave che è necessario usare per consentire a Microsoft di eseguire il routing e l'esecuzione sulla richiesta sono simili ai seguenti:
 

@@ -2,12 +2,13 @@
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083855"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -17,7 +18,7 @@ Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Micr
 
 ## <a name="general-questions-about-azure-service-bus"></a>Domande generali sul bus di servizio di Azure
 ### <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
-Il [bus di servizio di Azure](service-bus-messaging-overview.md) è una piattaforma cloud di messaggistica asincrona che consente di inviare dati tra sistemi disaccoppiati. Microsoft offre questa funzionalità come servizio. Non è pertanto necessario un hardware per poterla usare.
+Il [bus di servizio di Azure](service-bus-messaging-overview.md) è una piattaforma cloud di messaggistica asincrona che consente di inviare dati tra sistemi disaccoppiati. Microsoft offre questa funzionalità come servizio, il che significa che non è necessario ospitare l'hardware per usarlo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Cos'è uno spazio dei nomi del bus di servizio?
 Lo [spazio dei nomi](service-bus-create-namespace-portal.md) è un contenitore per le risorse del bus di servizio all'interno dell'applicazione. La creazione di uno spazio dei nomi è necessaria per usare il bus di servizio ed è uno dei primi passaggi delle attività iniziali.
@@ -29,9 +30,9 @@ La [coda del bus di servizio](service-bus-queues-topics-subscriptions.md) è un'
 Un argomento può essere visualizzato come coda e quando si usano più sottoscrizioni diventa un modello di messaggistica più completo. Si tratta essenzialmente di uno strumento di comunicazione uno-a-molti. Questo modello di pubblicazione/sottoscrizione, detto anche *Pub/Sub*, consente a un'applicazione che invia un messaggio a un argomento con più sottoscrizioni di garantire la ricezione di tale messaggio da parte di più applicazioni.
 
 ### <a name="what-is-a-partitioned-entity"></a>Cos'è un'entità partizionata?
-Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Supportati solo nei livelli di messaggistica Basic e Standard, le [code o gli argomenti partizionati](service-bus-partitioning.md) vengono gestiti da più broker dei messaggi e salvati in più archivi di messaggistica. Con questa funzionalità la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato.
+Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Supportato solo nei livelli di messaggistica Basic e standard, una [coda o un argomento partizionato](service-bus-partitioning.md) viene gestito da più broker di messaggi e archiviato in più archivi di messaggistica. Con questa funzionalità la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea di un archivio di messaggistica non rende disponibile una coda o un argomento partizionato.
 
-Se si usano entità partizionate, l'ordinamento non è garantito. Se una partizione non è disponibile è comunque possibile inviare e ricevere messaggi da altre partizioni.
+L'ordinamento non è garantito quando si usano entità partizionate. Se una partizione non è disponibile è comunque possibile inviare e ricevere messaggi da altre partizioni.
 
  Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
 
@@ -50,15 +51,15 @@ Vedere la tabella seguente per le porte in uscita da aprire per usare questi pro
 | SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP sono necessari per l'elenco elementi consentiti?
-Per trovare gli indirizzi IP corretti per inserire le connessioni nell'elenco elementi consentiti, seguire questa procedura:
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quali indirizzi IP è necessario aggiungere all'elenco Consenti?
+Per trovare gli indirizzi IP corretti da aggiungere all'elenco Consenti per le connessioni, seguire questa procedura:
 
 1. Al prompt dei comandi eseguire il comando seguente: 
 
     ```
     nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico caso che prevede una modifica è il ripristino dello spazio dei nomi in un cluster diverso.
 
 Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
@@ -76,13 +77,17 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
     ```
 3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Dove è possibile trovare l'indirizzo IP del client che invia o riceve messaggi da e verso uno spazio dei nomi? 
+Gli indirizzi IP dei client che inviano o ricevono messaggi da e verso lo spazio dei nomi non vengono registrati. Rigenerare le chiavi in modo che tutti i client esistenti non siano in grado di autenticare e rivedere le[RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)impostazioni di controllo degli accessi in base al ruolo per garantire che solo gli utenti o le applicazioni consentite abbiano accesso allo spazio dei nomi. 
+
+Se si usa uno spazio dei nomi **Premium** , usare il [filtro IP](service-bus-ip-filtering.md), gli [endpoint di servizio della rete virtuale](service-bus-service-endpoints.md)e gli [endpoint privati](private-link-service.md) per limitare l'accesso allo spazio dei nomi. 
 
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quali sono alcune procedure consigliate per il bus di servizio di Azure?
 Consultare [Procedure consigliate per il miglioramento delle prestazioni tramite il bus di servizio][Best practices for performance improvements using Service Bus]: questo articolo descrive come ottimizzare le prestazioni durante lo scambio di messaggi.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Cosa è necessario sapere prima di creare entità?
-Le proprietà seguenti di code e argomenti non sono modificabili. Tenere conto di questo limite quando si effettua il provisioning delle entità perché non è possibile apportare modifiche a queste proprietà senza creare una nuova entità sostitutiva.
+Le proprietà seguenti di code e argomenti non sono modificabili. Considerare questa limitazione quando si effettua il provisioning delle entità, in quanto queste proprietà non possono essere modificate senza creare una nuova entità sostitutiva.
 
 * Partizionamento
 * Sessioni
@@ -99,25 +104,25 @@ Per informazioni generali sui prezzi di Azure, vedere le [Domande frequenti sul 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quali sono le modalità di addebito per il bus di servizio?
 Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del Bus di servizio][Pricing overview]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati Cosa non è?
 Qualsiasi trasferimento di dati nell'ambito di una specifica area di Azure non è soggetto ad alcun addebito, come qualsiasi trasferimento di dati verso l'interno. Il trasferimento di dati all'esterno di un'area è soggetto alle spese di uscita indicate [qui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>Per il bus di servizio viene addebitato lo spazio di archiviazione?
-No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È tuttavia prevista una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda e argomento. Vedere la risposta alla domanda successiva.
+No. Il bus di servizio non viene addebitato per l'archiviazione. Tuttavia, esiste una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda/argomento. Vedere la risposta alla domanda successiva.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Ho uno spazio dei nomi standard del bus di servizio. Perché vengono visualizzati gli addebiti nel gruppo di risorse ' $system '?
-Il bus di servizio di Azure ha aggiornato di recente i componenti di fatturazione. A causa di questo, se si dispone di uno spazio dei nomi standard del bus di servizio, è possibile che vengano visualizzate voci per la risorsa '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' nel gruppo di risorse ' $system '.
+Il bus di servizio di Azure ha aggiornato di recente i componenti di fatturazione. A causa di questa modifica, se si dispone di uno spazio dei nomi standard del bus di servizio, è possibile che vengano visualizzate voci per la risorsa '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' nel gruppo di risorse ' $system '.
 
 Questi costi rappresentano il costo di base per ogni sottoscrizione di Azure per cui è stato effettuato il provisioning di uno spazio dei nomi standard del bus 
 
-È importante sottolineare che questi non sono nuovi costi, ovvero che erano già presenti nel modello di fatturazione precedente. L'unica modifica è che ora sono elencate in "$system". Questa operazione viene eseguita a causa dei consensi nel nuovo sistema di fatturazione, che raggruppa i costi del livello di sottoscrizione, non legati a una risorsa specifica, con l'ID di risorsa ' $system '.
+È importante notare che questi costi non sono nuovi, ovvero che erano già presenti nel modello di fatturazione precedente. L'unica modifica è che ora sono elencate in "$system". Questa operazione viene eseguita a causa di vincoli nel nuovo sistema di fatturazione che raggruppa le tariffe a livello di sottoscrizione, non legate a una risorsa specifica, in base all'ID risorsa ' $system '.
 
 ## <a name="quotas"></a>Quote
 
 Per un elenco di limiti e quote del bus di servizio, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Come gestire i messaggi di dimensioni superiori a 1 MB?
-I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se è necessario gestire messaggi di dimensioni superiori a 1 MB, usare il modello claim check descritto in [questo post di blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se si lavora con messaggi di dimensioni superiori a 1 MB, usare il modello di controllo delle attestazioni descritto in [questo post di Blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Come si crea uno spazio dei nomi dopo l'eliminazione da un'altra sottoscrizione? 

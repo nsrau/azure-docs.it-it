@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082104"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -34,7 +34,7 @@ Se non si dispone di un gateway di rete virtuale e non si vuole crearne uno, pre
 
 * Questa procedura presuppone che entrambe le reti virtuali siano già state create. Se si usa questo articolo come esercizio e non si dispone di reti virtuali, nei passaggi sono presenti dei collegamenti che consentono di crearli.
 * Verificare che gli intervalli di indirizzi per le reti virtuali non si sovrappongano tra loro o con gli intervalli di altre connessioni a cui i gateway potrebbero essere connessi.
-* Installare i cmdlet PowerShell più recenti per Resource Manager e Gestione dei servizi (classico). In questo articolo vengono usati sia il portale di Azure che PowerShell. PowerShell è necessario per creare la connessione dalla rete virtuale classica alla rete virtuale di Resource Manager. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview). 
+* Installare i cmdlet PowerShell più recenti per Resource Manager e Gestione dei servizi (classico). In questo articolo vengono usati sia il portale di Azure che PowerShell. PowerShell è necessario per creare la connessione dalla rete virtuale classica alla rete virtuale di Resource Manager. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/). 
 
 ### <a name="example-settings"></a><a name="values"></a>Impostazioni di esempio
 
@@ -75,7 +75,7 @@ Per questa configurazione si crea una connessione gateway VPN tramite un tunnel 
 
 La tabella seguente illustra un esempio di come sono definiti le reti virtuali e i siti locali:
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
@@ -170,7 +170,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 **Valori di esempio:** Gateway di rete locale = ClassicVNetLocal
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|

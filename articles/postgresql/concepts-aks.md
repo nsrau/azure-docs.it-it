@@ -4,13 +4,14 @@ description: Informazioni sulla connessione di Azure Kubernetes Service (AKS) co
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 5/6/2019
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74769881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084178"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connessione del servizio Azure Kubernetes e del database di Azure per PostgreSQL-server singolo
 
@@ -39,11 +40,6 @@ Come output verrà restituito il gruppo di risorse generato dal servizio Azure K
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
-
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) consente di effettuare il provisioning dei servizi di Azure direttamente da Kubernetes o Cloud Foundry. Si tratta di un'implementazione dell'[API di Open Service Broker](https://www.openservicebrokerapi.org/) per Azure.
-
-Con OSBA è possibile creare un server di Database di Azure per PostgreSQL e associarlo al cluster del servizio Azure Kubernetes usando il linguaggio nativo di Kubernetes. Per informazioni su come usare OSBA e Database di Azure per PostgreSQL insieme, vedere la [pagina GitHub per OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
 ## <a name="connection-pooling"></a>Pool di connessioni

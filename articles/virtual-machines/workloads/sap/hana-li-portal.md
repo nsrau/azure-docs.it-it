@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130871"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085266"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controllo di istanze Large di HANA in Azure tramite il portale di Azure
-Questo documento illustra il modo in cui vengono presentate le [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) in [portale di Azure](https://portal.azure.com) e quali attività possono essere eseguite tramite portale di Azure con le unità di istanze large di Hana distribuite per l'utente. La visibilità delle istanze large di HANA in portale di Azure viene fornita tramite un provider di risorse di Azure per istanze large di HANA, attualmente disponibile in anteprima pubblica
+Questo documento illustra il modo in cui vengono presentate le [istanze large di Hana](./hana-overview-architecture.md) in [portale di Azure](https://portal.azure.com) e quali attività possono essere eseguite tramite portale di Azure con le unità di istanze large di Hana distribuite per l'utente. La visibilità delle istanze large di HANA in portale di Azure viene fornita tramite un provider di risorse di Azure per istanze large di HANA, attualmente disponibile in anteprima pubblica
 
 ## <a name="register-hana-large-instance-resource-provider"></a>Registrare il provider di risorse per istanze large di HANA
 In genere la sottoscrizione di Azure usata per le distribuzioni di istanze large di HANA è registrata per il provider di risorse per istanze large di HANA. Tuttavia, se non è possibile visualizzare le unità di istanze large di HANA, è necessario registrare il provider di risorse nella sottoscrizione di Azure. Esistono due modi per registrare il provider di risorse per istanze large di HANA
@@ -35,7 +35,7 @@ In genere la sottoscrizione di Azure usata per le distribuzioni di istanze large
 az provider register --namespace Microsoft.HanaOnAzure
 ```
 
-Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
 
 ### <a name="register-through-azure-portal"></a>Eseguire la registrazione tramite portale di Azure
@@ -45,12 +45,12 @@ Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di ris
 
 Nella schermata mostrata, il provider di risorse è già stato registrato. Se il provider di risorse non è ancora registrato, premere "Re-register" o "Register".
 
-Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)
 
 
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Visualizzazione di unità di istanze large di HANA nel portale di Azure
 Quando si invia una richiesta di distribuzione di istanze large di HANA, viene richiesto di specificare la sottoscrizione di Azure da connettere anche alle istanze large di HANA. È consigliabile usare la stessa sottoscrizione usata per distribuire il livello dell'applicazione SAP che funziona nelle unità di istanze large di HANA.
-Quando vengono distribuite le prime istanze large di HANA, viene creato un nuovo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) nella sottoscrizione di Azure inviata nella richiesta di distribuzione per le istanze large di Hana.  Il nuovo gruppo di risorse elenca tutte le unità di istanze large di HANA distribuite nella sottoscrizione specifica.
+Quando vengono distribuite le prime istanze large di HANA, viene creato un nuovo [gruppo di risorse di Azure](../../../azure-resource-manager/management/manage-resources-portal.md) nella sottoscrizione di Azure inviata nella richiesta di distribuzione per le istanze large di Hana.  Il nuovo gruppo di risorse elenca tutte le unità di istanze large di HANA distribuite nella sottoscrizione specifica.
 
 Per trovare il nuovo gruppo di risorse di Azure, è possibile elencare il gruppo di risorse nella sottoscrizione navigando nel riquadro di spostamento a sinistra della portale di Azure
 
@@ -80,8 +80,8 @@ Nella schermata panoramica, dopo aver fatto clic su' Mostra più', si sta riceve
 
 Esaminando i diversi attributi mostrati, questi attributi hanno un aspetto poco diverso rispetto agli attributi delle macchine virtuali di Azure. Nell'intestazione del lato sinistro vengono visualizzati il gruppo di risorse, l'area di Azure, il nome della sottoscrizione e l'ID, oltre ad alcuni tag aggiunti. Per impostazione predefinita, alle unità di istanze large di HANA non è assegnato alcun tag. Sul lato destro dell'intestazione, il nome dell'unità viene elencato come assegnato al termine della distribuzione. Viene visualizzato il sistema operativo e l'indirizzo IP. Come per le macchine virtuali, viene visualizzato anche il tipo di unità di istanze large di HANA con il numero di thread CPU e di memoria. Altre informazioni sulle diverse unità di istanze large di HANA sono illustrate di seguito:
 
-- [SKU disponibili per HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Architettura di archiviazione di SAP HANA (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [SKU disponibili per HLI](./hana-available-skus.md)
+- [Architettura di archiviazione di SAP HANA (istanze Large)](./hana-storage-architecture.md) 
 
 I dati aggiuntivi sul lato inferiore destro sono la revisione del timbro di istanze large di HANA. I valori possibili sono:
 
@@ -89,7 +89,7 @@ I dati aggiuntivi sul lato inferiore destro sono la revisione del timbro di ista
 - Revisione 4
 
 Revisione 4 è l'architettura più recente rilasciata in istanze large di HANA con miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanze large di HANA distribuite in timbri o righe di Revisione
-Un'altra informazione molto importante si trova nell'angolo inferiore destro della panoramica con il nome del gruppo di posizionamento di prossimità di Azure creato automaticamente per ogni unità di istanze large di HANA distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello applicazione SAP, è necessario fare riferimento a questo gruppo di posizionamento di prossimità. Usando il [gruppo di posizionamento di prossimità di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) associato all'unità di istanze large di Hana, è necessario assicurarsi che le VM di Azure vengano distribuite in prossimità dell'unità di istanze large di Hana. Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+Un'altra informazione molto importante si trova nell'angolo inferiore destro della panoramica con il nome del gruppo di posizionamento di prossimità di Azure creato automaticamente per ogni unità di istanze large di HANA distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello applicazione SAP, è necessario fare riferimento a questo gruppo di posizionamento di prossimità. Usando il [gruppo di posizionamento di prossimità di Azure](../../linux/co-location.md) associato all'unità di istanze large di Hana, è necessario assicurarsi che le VM di Azure vengano distribuite in prossimità dell'unità di istanze large di Hana. Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
 
 Un campo aggiuntivo nella colonna a destra dell'intestazione informa lo stato di alimentazione dell'unità di istanze large di HANA.
 
@@ -97,7 +97,7 @@ Un campo aggiuntivo nella colonna a destra dell'intestazione informa lo stato di
 > Lo stato di alimentazione descrive se l'unità hardware è accesa o spenta. Non fornisce informazioni sul sistema operativo in esecuzione. Quando si riavvia un'unità di istanze large di HANA, si verificherà un piccolo periodo di tempo in cui lo stato dell'unità cambia per **iniziare** a spostarsi nello stato **avviato**. Quando si trova nello stato **Started** significa che il sistema operativo è in fase di avvio o che il sistema operativo è stato avviato completamente. Di conseguenza, dopo il riavvio dell'unità, non è possibile prevedere di accedere immediatamente all'unità non appena lo stato passa a **avviato**.
 > 
 
-Se si preme "Vedi altro", vengono visualizzate informazioni aggiuntive. Un'altra informazione è la visualizzazione della revisione del timbro per le istanze large di HANA, in cui è stata distribuita l'unità. Vedere l'articolo [che cos'è SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per le diverse revisioni dei timbri delle istanze large di Hana
+Se si preme "Vedi altro", vengono visualizzate informazioni aggiuntive. Un'altra informazione è la visualizzazione della revisione del timbro per le istanze large di HANA, in cui è stata distribuita l'unità. Vedere l'articolo [che cos'è SAP Hana in Azure (istanze large)](./hana-overview-architecture.md) per le diverse revisioni dei timbri delle istanze large di Hana
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Controllare le attività di una singola unità di istanze large di HANA 
 Oltre a fornire una panoramica delle unità di istanze large di HANA, è possibile controllare le attività dell'unità specifica. Un log attività potrebbe avere un aspetto simile al seguente:
@@ -109,7 +109,7 @@ Una delle attività principali registrate è il riavvio di un'unità. I dati ele
 Un'altra attività che viene registrata sono le modifiche apportate all'unità nei metadati di Azure. Oltre al riavvio avviato, è possibile visualizzare l'attività di **scrittura HANAInstances**. Questo tipo di attività non esegue alcuna modifica nell'unità di istanze large di HANA, ma documenta le modifiche apportate ai metadati dell'unità in Azure. Nel caso elencato, è stato aggiunto ed eliminato un tag (vedere la sezione successiva).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Aggiungere ed eliminare un tag di Azure a un'unità di istanze large di HANA
-Un'altra possibilità consiste nell'aggiungere un [tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) a un'unità di istanze large di Hana. Il modo in cui i tag vengono assegnati non è diverso dall'assegnazione dei tag alle macchine virtuali. Come per le macchine virtuali, i tag sono presenti nei metadati di Azure e, per le istanze large di HANA, presentano le stesse restrizioni dei tag per le macchine virtuali.
+Un'altra possibilità consiste nell'aggiungere un [tag](../../../azure-resource-manager/management/tag-resources.md) a un'unità di istanze large di Hana. Il modo in cui i tag vengono assegnati non è diverso dall'assegnazione dei tag alle macchine virtuali. Come per le macchine virtuali, i tag sono presenti nei metadati di Azure e, per le istanze large di HANA, presentano le stesse restrizioni dei tag per le macchine virtuali.
 
 L'eliminazione dei tag funziona allo stesso modo delle macchine virtuali. Entrambe le attività, l'applicazione e l'eliminazione di un tag verranno elencate nel log attività della specifica unità di istanze large di HANA.
 
@@ -119,7 +119,7 @@ Le **Proprietà** della sezione includono informazioni importanti che si ottengo
 
 ![parte superiore delle proprietà di HLI in portale di Azure](./media/hana-li-portal/portal-properties-top.png)
 
-I primi elementi di dati sono già stati visualizzati nella schermata panoramica. Tuttavia, una parte importante dei dati è l'ID del circuito ExpressRoute, ottenuto come le prime unità distribuite sono state passate. In alcuni casi di supporto, è possibile che vengano richiesti i dati. Una voce di dati importante viene visualizzata nella parte inferiore dello screenshot. I dati visualizzati sono l'indirizzo IP della testa di archiviazione NFS che consente di isolare l'archiviazione nel **tenant** nello stack di istanze large di Hana. Questo indirizzo IP è necessario anche quando si modifica il [file di configurazione per i backup degli snapshot di archiviazione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+I primi elementi di dati sono già stati visualizzati nella schermata panoramica. Tuttavia, una parte importante dei dati è l'ID del circuito ExpressRoute, ottenuto come le prime unità distribuite sono state passate. In alcuni casi di supporto, è possibile che vengano richiesti i dati. Una voce di dati importante viene visualizzata nella parte inferiore dello screenshot. I dati visualizzati sono l'indirizzo IP della testa di archiviazione NFS che consente di isolare l'archiviazione nel **tenant** nello stack di istanze large di Hana. Questo indirizzo IP è necessario anche quando si modifica il [file di configurazione per i backup degli snapshot di archiviazione](./hana-backup-restore.md#set-up-storage-snapshots). 
 
 Scorrendo verso il basso nel riquadro delle proprietà si ottengono dati aggiuntivi, ad esempio un ID di risorsa univoco per l'unità di istanze large di HANA o l'ID sottoscrizione assegnato alla distribuzione.
 
@@ -159,6 +159,5 @@ Con la risposta alle domande e sono stati forniti dettagli aggiuntivi, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Come monitorare SAP HANA (istanze di grandi dimensioni) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-- [Monitoraggio e risoluzione dei problemi dal lato HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
-
+- [Come monitorare SAP HANA (istanze di grandi dimensioni) in Azure](./troubleshooting-monitoring.md)
+- [Monitoraggio e risoluzione dei problemi dal lato HANA](./hana-monitor-troubleshoot.md)

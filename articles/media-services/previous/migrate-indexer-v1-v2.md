@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84e4e34ab7b9f0250ae7bc94248fa98cbf23cd6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513236"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084382"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Eseguire la migrazione da Media Indexer e Media Indexer 2 a Video Indexer
 
-Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) e i processori di [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md). [Video Indexer di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) e i processori di [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md). [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
 
 Servizi multimediali di Azure Video Indexer si basa su Analisi Servizi multimediali di Azure, ricerca cognitiva di Azure, servizi cognitivi, ad esempio il API Viso, Microsoft Translator, il API Visione artificiale e il servizio Riconoscimento vocale personalizzato. Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer. Per informazioni sugli scenari in cui è possibile usare Video Indexer, sulle funzionalità offerte e su come iniziare, vedere [video Indexer modelli video e audio](../video-indexer/video-indexer-overview.md). 
 
@@ -41,13 +42,13 @@ Questo articolo illustra i passaggi per eseguire la migrazione dal Azure Media I
 
 ## <a name="getting-started-with-video-indexer"></a>Introduzione a Video Indexer
 
-La sezione seguente illustra i collegamenti pertinenti: [come è possibile iniziare a usare video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+La sezione seguente illustra i collegamenti pertinenti: [come è possibile iniziare a usare video Indexer?](../video-indexer/video-indexer-overview.md#how-can-i-get-started-with-video-indexer) 
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Introduzione alle API di servizi multimediali V3
 
 L'API di servizi multimediali di Azure v3 consente di estrarre informazioni dettagliate dai file audio e video tramite i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyzing-video-audio-files-concept.md). 
 
-**AudioAnalyzerPreset** consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file VTT o TTML per la trascrizione audio e un file JSON (con tutte le informazioni aggiuntive sull'audio). Le informazioni dettagliate includono parole chiave, indicizzazione del parlante e analisi dei sentimenti vocali. AudioAnalyzerPreset supporta anche il rilevamento della lingua per lingue specifiche. Per informazioni dettagliate, vedere [trasformazioni](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+**AudioAnalyzerPreset** consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file VTT o TTML per la trascrizione audio e un file JSON (con tutte le informazioni aggiuntive sull'audio). Le informazioni dettagliate includono parole chiave, indicizzazione del parlante e analisi dei sentimenti vocali. AudioAnalyzerPreset supporta anche il rilevamento della lingua per lingue specifiche. Per informazioni dettagliate, vedere [trasformazioni](/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
 ### <a name="get-started"></a>Introduzione
 
@@ -59,12 +60,12 @@ Per un'introduzione, vedere:
 
 ## <a name="getting-started-with-cognitive-services-speech-services"></a>Introduzione ai servizi di riconoscimento vocale di servizi cognitivi
 
-[Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/) fornisce un servizio di sintesi vocale che consente di trascrivere flussi audio in testo in tempo reale che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare la sintesi vocale per [personalizzare il modello acustico, il modello di linguaggio o il modello di pronuncia](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). Per altre informazioni, vedere [riconoscimento vocale di servizi cognitivi](../../cognitive-services/speech-service/speech-to-text.md). 
+[Servizi cognitivi di Azure](../../cognitive-services/index.yml) fornisce un servizio di sintesi vocale che consente di trascrivere flussi audio in testo in tempo reale che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare la sintesi vocale per [personalizzare il modello acustico, il modello di linguaggio o il modello di pronuncia](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). Per altre informazioni, vedere [riconoscimento vocale di servizi cognitivi](../../cognitive-services/speech-service/speech-to-text.md). 
 
 > [!NOTE] 
-> Il servizio di riconoscimento vocale non accetta formati di file video e accetta solo [determinati formati audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
+> Il servizio di riconoscimento vocale non accetta formati di file video e accetta solo [determinati formati audio](../../cognitive-services/speech-service/rest-speech-to-text.md#audio-formats). 
 
-Per altre informazioni sul servizio di sintesi vocale e su come iniziare, vedere [che cos'è la sintesi vocale?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
+Per altre informazioni sul servizio di sintesi vocale e su come iniziare, vedere [che cos'è la sintesi vocale?](../../cognitive-services/speech-service/speech-to-text.md)
 
 ## <a name="known-differences-from-deprecated-services"></a>Differenze note da servizi deprecati 
 
@@ -82,5 +83,3 @@ Di seguito sono riportate alcune differenze note:
 
 * [Componenti legacy](legacy-components.md)
 * [Pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding)
-
-

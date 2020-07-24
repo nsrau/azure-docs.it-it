@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116282"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084195"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Come filtrare in base alla lingua in Azure ricerca cognitiva 
 
@@ -34,7 +34,7 @@ In ricerca cognitiva di Azure le query sono destinate a un singolo indice. Gli s
 
 L'esempio seguente è relativo all' [esempio Real-estate](search-get-started-portal.md) con diversi campi stringa che contengono contenuto in lingue diverse. Si notino le assegnazioni dell'analizzatore di linguaggio per i campi in questo indice. I campi che contengono stringhe hanno prestazioni migliori nella ricerca full-text se associati a un analizzatore progettato per gestire le regole linguistiche della lingua di destinazione.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Screenshot che mostra la schermata dei campi dell'esempio Real-immobiliare. Un gruppo di campi viene evidenziato per indicare il modo in cui le assegnazioni dell'analizzatore di linguaggio corrispondono alle lingue per i campi evidenziati.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [Definire un indice (REST)](search-create-index-rest-api.md).

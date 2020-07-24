@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082750"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
@@ -116,7 +117,7 @@ I passaggi del flusso di lavoro possono essere raggruppati in tre attività:
 
 - I lead di progetto eseguono la pianificazione dello sprint
 - I data scientist sviluppano gli artefatti nei `git` rami per indirizzare gli elementi di lavoro
-- I lead del progetto o altri membri del team eseguono revisioni del codice e uniscono rami di lavoro al ramo master
+- I lead del progetto o altri membri del team eseguono revisioni del codice e uniscono rami di lavoro al ramo primario
 
 Per istruzioni dettagliate sul flusso di lavoro di esecuzione del progetto, vedere [sviluppo agile di progetti Data Science](agile-development.md).
 

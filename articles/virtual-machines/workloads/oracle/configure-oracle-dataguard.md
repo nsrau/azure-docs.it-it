@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 2b0b85792fe1266d2ec6478561193ef0c80ac98f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224299"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083379"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo articolo spiega come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c da un'immagine di Azure Marketplace. In questo articolo viene anche illustrata la procedura per installare e configurare Data Guard su una macchina virtuale di Azure (VM).
 
-Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per ulteriori informazioni, vedere la [Guida all'installazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
+Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per ulteriori informazioni, vedere la [Guida all'installazione dell'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 ### <a name="assumptions"></a>Presupposti
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
-Creare un set di disponibilità è un'operazione facoltativa, ma consigliata. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Creare un set di disponibilità è un'operazione facoltativa, ma consigliata. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

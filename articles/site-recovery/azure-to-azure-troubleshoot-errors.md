@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083821"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -534,6 +534,44 @@ Questo problema può verificarsi se la macchina virtuale è stata precedentement
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
 Eliminare il disco di replica identificato nel messaggio di errore e ripetere il processo di protezione non riuscita.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>L'abilitazione della protezione non è riuscita perché il programma di installazione non è in grado di trovare il disco radice (codice errore 151137)
+
+Questo errore si verifica per i computer Linux in cui il disco del sistema operativo è crittografato usando crittografia dischi di Azure (ADE). Si tratta di un problema valido solo nella versione Agent 9,35.
+
+### <a name="possible-causes"></a>Possibili cause
+
+Il programma di installazione non è in grado di trovare il disco radice che ospita il file system radice.
+
+### <a name="fix-the-problem"></a>Risolvere il problema
+
+Per risolvere il problema, attenersi alla procedura seguente:
+
+1. Trovare i bit dell'agente nella directory _/var/lib/waagent_ nei computer RHEL e CentOS usando il comando seguente: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Output previsto:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Creare una nuova directory e modificare la directory in questa nuova directory.
+3. Estrarre il file dell'agente trovato nel primo passaggio, usando il comando seguente:
+
+    `tar -xf <Tar Ball File>`
+
+4. Aprire il file _prereq_check_installer.js_ ed eliminare le righe seguenti. Salvare il file.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Richiamare il programma di installazione usando il comando: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Se il programma di installazione ha esito positivo, ripetere il processo di abilitazione della replica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

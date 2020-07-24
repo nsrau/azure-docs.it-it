@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083770"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
@@ -102,12 +102,14 @@ La stringa di connessione specifica il database con cui comunica il sito Web. Se
 
 Se la stringa di connessione fa riferimento alla macchina virtuale del database usando un indirizzo IP, la stringa deve essere aggiornata dopo il failover. La stringa di connessione seguente, ad esempio, punta al database con l'indirizzo IP 127.0.1.2:
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <configuration>
-        <connectionStrings>
-        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-        </connectionStrings>
-        </configuration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<connectionStrings>
+<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+</connectionStrings>
+</configuration>
+```
 
 Per aggiornare la stringa di connessione nel livello Web, aggiungere uno [script di aggiornamento della connessione IIS](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) dopo il Gruppo 3 nel piano di ripristino.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 93be10c130c1ddbdd7bd4f0c236cddc01df4961d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 1fcb935a7a07629ba3d7424a39f6c8542628a842
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084620"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
 Servizi multimediali di Azure offre ora un servizio per la distribuzione delle licenze PlayReady. Quando il lettore, ad esempio Silverlight, cerca di riprodurre il contenuto protetto con PlayReady, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e verrà usata per decrittografare e riprodurre il contenuto specificato.
@@ -65,18 +65,18 @@ Per un esempio completo che usa le classi .NET per configurare il modello di lic
 ## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classi .NET di Servizi multimediali che vengono usate per configurare i modelli di licenza
 Le classi seguenti sono le classi .NET principali usate per configurare i modelli di licenza PlayReady di Servizi multimediali. Queste classi vengono mappate ai tipi definiti in [Schema XML del modello di licenza PlayReady](media-services-playready-license-template-overview.md#schema).
 
-La [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) viene usata per serializzare e deserializzare da e verso l'XML del modello di licenza di Servizi multimediali.
+La [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) viene usata per serializzare e deserializzare da e verso l'XML del modello di licenza di Servizi multimediali.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): questa classe rappresenta il modello per la risposta inviata all'utente. Contiene un campo per una stringa di dati personalizzata tra il server licenze e l'applicazione, che potrebbe essere utile per la logica dell'app personalizzata. Contiene anche un elenco di uno o più modelli di licenza.
+[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): questa classe rappresenta il modello per la risposta inviata all'utente. Contiene un campo per una stringa di dati personalizzata tra il server licenze e l'applicazione, che potrebbe essere utile per la logica dell'app personalizzata. Contiene anche un elenco di uno o più modelli di licenza.
 
 In quanto classe di "livello superiore" nella gerarchia dei modelli, il modello di risposta include un elenco di modelli di licenza. I modelli di licenza includono direttamente o indirettamente tutte le altre classi che costituiscono i dati del modello da serializzare.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): questa classe rappresenta un modello di licenza usato per creare licenze PlayReady da restituire agli utenti. Contiene i dati della chiave simmetrica nella licenza. Include anche eventuali diritti e restrizioni che il runtime DRM di PlayReady deve applicare quando viene usata la chiave simmetrica.
+[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): questa classe rappresenta un modello di licenza usato per creare licenze PlayReady da restituire agli utenti. Contiene i dati della chiave simmetrica nella licenza. Include anche eventuali diritti e restrizioni che il runtime DRM di PlayReady deve applicare quando viene usata la chiave simmetrica.
 
 ### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): questa classe rappresenta l'elemento PlayRight di una licenza PlayReady. Garantisce all'utente la possibilità di riprodurre il contenuto soggetto alle restrizioni configurate nella licenza e nell'elemento PlayRight stesso, per i criteri specifici di riproduzione. La maggior parte dei criteri in un elemento PlayRight riguarda le restrizioni di output che controllano i tipi di output su cui è possibile riprodurre il contenuto. Include anche eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consente di visualizzare il video solo su output digitali. Non è consentito riprodurre il contenuto su output video analogici.
+[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): questa classe rappresenta l'elemento PlayRight di una licenza PlayReady. Garantisce all'utente la possibilità di riprodurre il contenuto soggetto alle restrizioni configurate nella licenza e nell'elemento PlayRight stesso, per i criteri specifici di riproduzione. La maggior parte dei criteri in un elemento PlayRight riguarda le restrizioni di output che controllano i tipi di output su cui è possibile riprodurre il contenuto. Include anche eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consente di visualizzare il video solo su output digitali. Non è consentito riprodurre il contenuto su output video analogici.
 
 > [!IMPORTANT]
 > Questi tipi di restrizione possono essere potenti e sono in grado di influire anche sull'esperienza degli utenti. Se le protezioni dell'output sono eccessivamente restrittive, il contenuto potrebbe risultare non riproducibile in alcuni client. Per altre informazioni, vedere le [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
@@ -318,4 +318,3 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

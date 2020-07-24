@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083022"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
@@ -39,14 +40,14 @@ Per impostazione predefinita, la funzione trigger HTTP è configurata per accett
     | Campo | Valore di esempio | Descrizione |
     |---|---|---|
     | Modello di route | /hello | Determina quale route viene usata per chiamare questa funzione |
-    | Livello di autorizzazione | Anonima | Facoltativo: rende una funzione accessibile senza una chiave API |
+    | Livello di autorizzazione | Anonimo | Facoltativo: rende una funzione accessibile senza una chiave API |
     | Metodi HTTP selezionati | GET | Consente di usare solo i metodi HTTP selezionati per chiamare questa funzione |
 
     Il prefisso del percorso di base non è `/api` stato incluso nel modello di route, perché è gestito da un'impostazione globale.
 
 1. Selezionare **Salva**.
 
-Per altre informazioni sulla personalizzazione delle funzioni HTTP, vedere [binding HTTP di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
+Per altre informazioni sulla personalizzazione delle funzioni HTTP, vedere [binding HTTP di funzioni di Azure](./functions-bindings-http-webhook.md).
 
 ### <a name="test-your-api"></a>Testare l'API
 
@@ -73,8 +74,8 @@ Nella sezione successiva verrà illustrata la superficie dell'API tramite un pro
 
 Un proxy può puntare a qualsiasi risorsa HTTP, ad esempio:
 - Funzioni di Azure 
-- App per le API in [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/overview)
-- Contenitori docker in [Servizio App in Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
+- App per le API in [Servizio app di Azure](../app-service/overview.md)
+- Contenitori docker in [Servizio App in Linux](../app-service/containers/app-service-linux-intro.md)
 - Qualsiasi altra API in hosting
 
 Per altre informazioni sui proxy, vedere [Uso dei proxy di Funzioni di Azure].
@@ -85,7 +86,7 @@ In questa sezione viene creato un nuovo proxy, che funge da front-end per l'API 
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurazione dell'ambiente front-end
 
-Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app), creando una nuova app per le funzioni in cui verrà creato il proxy. Questo nuovo URL dell'app funge da front-end per l'API e l'app per le funzioni che in precedenza veniva modificata funge da back-end.
+Ripetere i passaggi per [creare un'app per le funzioni](./functions-create-first-azure-function.md#create-a-function-app), creando una nuova app per le funzioni in cui verrà creato il proxy. Questo nuovo URL dell'app funge da front-end per l'API e l'app per le funzioni che in precedenza veniva modificata funge da back-end.
 
 1. Passare alla nuova app per le funzioni front-end nel portale.
 1. Selezionare **Funzionalità della piattaforma** e scegliere **Impostazioni applicazione**.
@@ -125,7 +126,7 @@ Si userà quindi un proxy per creare un'API fittizia per la soluzione. Questo pr
 
 Per creare questa API fittizia, si creerà un nuovo proxy, questa volta usando il [Editor del servizio app](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Per iniziare passare all'app per le funzioni nel portale. Selezionare **funzionalità della piattaforma**e in **strumenti di sviluppo** trova **Editor del servizio app**. Il editor del servizio app viene aperto in una nuova scheda.
 
-Selezionare `proxies.json` nel riquadro di spostamento sinistro. Questo file archivia la configurazione per tutti i proxy. Se si usa uno dei [metodi di distribuzione delle funzioni](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), questo file viene mantenuto nel controllo del codice sorgente. Per altre informazioni su questo file, vedere [Configurazione avanzata](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
+Selezionare `proxies.json` nel riquadro di spostamento sinistro. Questo file archivia la configurazione per tutti i proxy. Se si usa uno dei [metodi di distribuzione delle funzioni](./functions-continuous-deployment.md), questo file viene mantenuto nel controllo del codice sorgente. Per altre informazioni su questo file, vedere [Configurazione avanzata](./functions-proxies.md#advanced-configuration).
 
 Se la procedura è stata eseguita fino a questo punto, il proxies.jssu dovrebbe avere un aspetto analogo al seguente:
 
@@ -179,7 +180,7 @@ Successivamente, si aggiungerà l'API fittizia. Sostituire il proxies.jsnel file
 }
 ```
 
-Questo codice aggiunge un nuovo proxy, `GetUserByName` , senza la `backendUri` Proprietà. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. Questa tecnica è particolarmente utile quando si esegue l'inoltro a un sistema legacy, in cui potrebbe essere necessario modificare intestazioni, parametri di query e così via. Per altre informazioni sugli override di richiesta e risposta, vedere [Modifica delle richieste e delle risposte](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Questo codice aggiunge un nuovo proxy, `GetUserByName` , senza la `backendUri` Proprietà. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. Questa tecnica è particolarmente utile quando si esegue l'inoltro a un sistema legacy, in cui potrebbe essere necessario modificare intestazioni, parametri di query e così via. Per altre informazioni sugli override di richiesta e risposta, vedere [Modifica delle richieste e delle risposte](./functions-proxies.md).
 
 Testare l'API fittizia chiamando l'endpoint `<YourProxyApp>.azurewebsites.net/api/users/{username}` mediante un browser o il client REST preferito. Assicurarsi di sostituire _{username}_ con un valore stringa che rappresenta un nome utente.
 
@@ -189,10 +190,10 @@ In questo articolo si è appreso come creare e personalizzare un'API in funzioni
 
 I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'API:
 
-- [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Binding HTTP di Funzioni di Azure](./functions-bindings-http-webhook.md)
 - [Uso dei proxy di Funzioni di Azure]
-- [Documentazione di un'API di Funzioni di Azure (anteprima)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
+- [Documentazione di un'API di Funzioni di Azure (anteprima)](./functions-openapi-definition.md)
 
 
-[Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Uso dei proxy di Funzioni di Azure]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Create your first function]: ./functions-create-first-azure-function.md
+[Uso dei proxy di Funzioni di Azure]: ./functions-proxies.md

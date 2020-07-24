@@ -21,6 +21,12 @@
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+- name: Concetti
+  items:
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza per Azure Security Benchmark
+          href: security-baseline.md
 - name: Procedure
   items:
     - name: Gestire Data Lake Analytics
@@ -87,7 +93,7 @@
               href: data-lake-analytics-data-lake-tools-develop-usql-database.md
             - name: Sfogliare e visualizzare processi
               href: data-lake-analytics-data-lake-tools-view-jobs.md
-            - name: 'Eseguire il debug di codice personalizzato in C#'
+            - name: Eseguire il debug di codice personalizzato in C#
               href: data-lake-analytics-debug-u-sql-jobs.md
             - name: Risolvere i problemi dei processi ricorrenti
               href: data-lake-analytics-data-lake-tools-debug-recurring-job.md

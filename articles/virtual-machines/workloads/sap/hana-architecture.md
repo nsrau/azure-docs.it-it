@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa059ec8159779969c7ef7a5f4c97f3e985993a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77614532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082189"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architettura di SAP HANA (istanze Large) in Azure
 
@@ -40,7 +41,7 @@ L'architettura illustrata è suddivisa in tre sezioni.
 
    Per le applicazioni e i database SAP NetWeaver che supportano l'esecuzione in Azure, vedere [SAP Support Note #1928533 - SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) (Nota di supporto SAP 1928533 - Applicazioni SAP in Azure: prodotti supportati e tipi di VM di Azure). Per informazioni su come distribuire soluzioni SAP in Azure, vedere:
 
-  -  [Usare SAP nelle macchine virtuali Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Usare SAP nelle macchine virtuali Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. Le unità di istanze large di HANA sono connesse alle reti virtuali della sottoscrizione di Azure usando la stessa tecnologia della connettività da locale ad Azure. Al 2019 maggio è stata introdotta un'ottimizzazione che consente di comunicare tra le unità di istanze large di HANA e le macchine virtuali di Azure senza coinvolgere il gateway ExpressRoute. Questa ottimizzazione denominata percorso rapido ExpressRoute viene visualizzata in questa architettura (linee rosse). 

@@ -6,17 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082716"
 ---
 # <a name="feature-list"></a>Elenco di funzionalità #
 Di seguito è riportato l'elenco delle funzionalità testate e delle funzionalità non supportate:
 
-|                                         | TESTATO | PARZIALMENTE TESTATO | NON testato | NON supportato | NOTE                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Funzionalità | TESTATO | PARZIALMENTE TESTATO | NON testato | NON supportato | NOTE |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Riproduzione                                |        |                  |          |             |                                                                                                                      |
 | Riproduzione su richiesta di base                | X      |                  |          |             | Supporta solo flussi da servizi multimediali di Azure                                                                      |
 | Riproduzione live di base                     | X      |                  |          |             | Supporta solo flussi da servizi multimediali di Azure                                                                      |
@@ -30,7 +31,7 @@ Di seguito è riportato l'elenco delle funzionalità testate e delle funzionalit
 | Fallback Flash (Flash)                | X      |                  |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia.                                                                         |
 | Silverlight fallback Silverlight      | X      |                  |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia.                                                                         |
 | Pass-through HLS nativo (HTML5)         |        | X                |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia a causa di restrizioni della piattaforma.                                            |
-| Funzionalità                                |        |                  |          |             |                                                                                                                      |
+| Caratteristiche                                |        |                  |          |             |                                                                                                                      |
 | Supporto dell'API                             | X      |                  |          |             | Vedere l'elenco dei problemi noti                                                                                                |
 | Interfaccia utente di base                                | X      |                  |          |                                                                                                                                    |
 | Inizializzazione tramite JavaScript       | X      |                  |          |             |                                                                                                                      |

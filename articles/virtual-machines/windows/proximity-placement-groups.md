@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083447"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Distribuire macchine virtuali in gruppi di posizionamento di prossimità usando PowerShell
 
@@ -24,7 +24,7 @@ Un gruppo di posizionamento di prossimità è un raggruppamento logico usato per
 
 
 ## <a name="create-a-proximity-placement-group"></a>Creare un gruppo di selezione host di prossimità
-Creare un gruppo di posizionamento di prossimità usando il cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Creare un gruppo di posizionamento di prossimità usando il cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Creare una macchina virtuale nel gruppo di posizionamento di prossimità usando `-ProximityPlacementGroup $ppg.Id` per fare riferimento all'ID del gruppo di posizionamento di prossimità quando si usa [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) per creare la macchina virtuale.
+Creare una macchina virtuale nel gruppo di posizionamento di prossimità usando `-ProximityPlacementGroup $ppg.Id` per fare riferimento all'ID del gruppo di posizionamento di prossimità quando si usa [New-AzVM](/powershell/module/az.compute/new-azvm) per creare la macchina virtuale.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Set di scalabilità
 
-È anche possibile creare un set di scalabilità nel gruppo di posizionamento di prossimità. Usare lo stesso `-ProximityPlacementGroup` parametro con [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) per creare un set di scalabilità e tutte le istanze verranno create nello stesso gruppo di posizionamento di prossimità.
+È anche possibile creare un set di scalabilità nel gruppo di posizionamento di prossimità. Usare lo stesso `-ProximityPlacementGroup` parametro con [New-AzVmss](/powershell/module/az.compute/new-azvmss) per creare un set di scalabilità e tutte le istanze verranno create nello stesso gruppo di posizionamento di prossimità.
 
 
 Per aggiungere o rimuovere un set di scalabilità esistente in un gruppo di posizionamento vicino, è necessario prima arrestare il set di scalabilità. 

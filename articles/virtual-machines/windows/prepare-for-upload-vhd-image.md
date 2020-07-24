@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083515"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -62,7 +62,7 @@ Usare uno dei metodi descritti in questa sezione per convertire e ridimensionare
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Usare PowerShell per convertire il disco
 
-È possibile convertire un disco virtuale usando il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, fare clic [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+È possibile convertire un disco virtuale usando il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, fare clic [qui](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 Nell'esempio seguente viene convertito il disco da VHDX a VHD. Converte inoltre il disco da un disco a espansione dinamica a un disco a dimensione fissa.
 
@@ -86,7 +86,7 @@ Se si dispone di un'immagine di macchina virtuale Windows nel [formato file VMDK
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Usare PowerShell per ridimensionare il disco
 
-È possibile ridimensionare un disco virtuale usando il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, fare clic [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+È possibile ridimensionare un disco virtuale usando il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, fare clic [qui](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 L'esempio seguente ridimensiona il disco da 100,5 MiB a 101 MiB per soddisfare il requisito di allineamento di Azure.
 
@@ -138,7 +138,7 @@ Al termine dell'analisi SFC, installare gli aggiornamenti di Windows e riavviare
    netsh.exe winhttp reset proxy
    ```
 
-    Se la macchina virtuale deve usare un proxy specifico, aggiungere un'eccezione proxy per l'indirizzo IP di Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) in modo che la macchina virtuale possa connettersi ad Azure:
+    Se la macchina virtuale deve usare un proxy specifico, aggiungere un'eccezione proxy per l'indirizzo IP di Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) in modo che la macchina virtuale possa connettersi ad Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -264,7 +264,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                  |                                                                            Policy                                                                            |                           valore                            |
+    |                 Obiettivo                  |                                                                            Policy                                                                            |                           Valore                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP è abilitato                        | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto    |
     | Criteri di gruppo NLA                      | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -308,7 +308,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                 |                                                                         Policy                                                                          |                  valore                  |
+    |                 Obiettivo                 |                                                                         Policy                                                                          |                  Valore                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -472,7 +472,7 @@ In genere si esegue `sysprep.exe` per creare un modello da cui è possibile dist
 Per creare una sola macchina virtuale da un disco, non è necessario usare Sysprep. È invece possibile creare la macchina virtuale da un' *immagine specializzata*. Per informazioni su come creare una macchina virtuale da un disco specializzato, vedere:
 
 - [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)
-- [Creare una macchina virtuale da un disco rigido virtuale specializzato](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Creare una macchina virtuale da un disco rigido virtuale specializzato](./create-vm-specialized-portal.md)
 
 Per creare un'immagine generalizzata, è necessario eseguire Sysprep. Per ulteriori informazioni, vedere [How to use Sysprep: An Introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -519,4 +519,4 @@ Le impostazioni seguenti non influiscono sul caricamento del disco rigido virtua
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)
-- [Risolvere i problemi di attivazione della macchina virtuale Windows di Azure](troubleshoot-activation-problems.md)
+- [Risolvere i problemi di attivazione della macchina virtuale Windows di Azure](../troubleshooting/troubleshoot-activation-problems.md)

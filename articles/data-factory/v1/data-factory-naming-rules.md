@@ -1,5 +1,5 @@
 ---
-title: Regole per la denominazione di entità Azure Data Factory
+title: Regole per la denominazione di entità Azure Data Factory-versione 1
 description: Descrive le regole di denominazione per le entità di Data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8fa1340b586434bf98d51437d4dc6b08594f0afa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b6dc5b89b8c5d691b19e9e3368d805eb59b1db1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74931896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082861"
 ---
-# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Regole di denominazione
+# <a name="rules-for-naming-azure-data-factory-entities"></a>Regole per la denominazione di entità Azure Data Factory
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere l'articolo relativo alle [regole di denominazione in Data Factory](../naming-rules.md).
 

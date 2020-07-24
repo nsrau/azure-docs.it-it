@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984626"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081985"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 
@@ -21,8 +22,8 @@ Questo articolo illustra la procedura per configurare un gateway VPN basato su r
 
 I dispositivi VPN *basati su* criteri e basati su Route variano a seconda della modalità di impostazione dei selettori di traffico IPSec in una connessione:
 
-* I dispositivi VPN **basati su criteri** usano le combinazioni di prefissi di entrambe le reti per definire come crittografare/decrittografare il traffico tramite i tunnel IPsec. Sono basati in genere su dispositivi firewall che eseguono il filtro dei pacchetti. La crittografia e la decrittografia dei tunnel IPsec vengono aggiunte al filtro dei pacchetti e al motore di elaborazione.
-* I dispositivi VPN **basati su route** usano selettori di traffico any-to-any (jolly) e consentono alle tabelle di routing/inoltro di indirizzare il traffico a tunnel IPsec diversi. Sono basati in genere su piattaforme router in cui ogni tunnel IPsec è modellato come interfaccia di rete o interfaccia di tunnel virtuale.
+* **Basato su criteri** I dispositivi VPN utilizzano le combinazioni di prefissi di entrambe le reti per definire il modo in cui il traffico viene crittografato/decrittografato tramite i tunnel IPsec. Sono basati in genere su dispositivi firewall che eseguono il filtro dei pacchetti. La crittografia e la decrittografia dei tunnel IPsec vengono aggiunte al filtro dei pacchetti e al motore di elaborazione.
+* **Basato su Route** I dispositivi VPN usano selettori di traffico any-to-any (Jolly) e consentono alle tabelle di routing/inoltro di indirizzare il traffico a diversi tunnel IPsec. Sono basati in genere su piattaforme router in cui ogni tunnel IPsec è modellato come interfaccia di rete o interfaccia di tunnel virtuale.
 
 I diagrammi seguenti evidenziano i due modelli:
 
@@ -35,8 +36,8 @@ I diagrammi seguenti evidenziano i due modelli:
 ### <a name="azure-support-for-policy-based-vpn"></a>Supporto di Azure per la VPN basata su criteri
 Azure supporta attualmente entrambe le modalità di gateway VPN: gateway VPN basati su route e gateway VPN basati su criteri. Sono basati su piattaforme interne diverse e quindi su specifiche diverse:
 
-|                          | **Gateway VPN basato su criteri** | **Gateway VPN RouteBased**       |**Gateway VPN RouteBased**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| Category | Gateway VPN basato su criteri | Gateway VPN RouteBased | Gateway VPN RouteBased |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **SKU del gateway di Azure**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versione IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
 | **Max. Connessioni S2S** | **1**                       | 10                               | 30                     |
@@ -204,6 +205,6 @@ La riga seguente indica se i selettori di traffico basati su criteri vengono usa
       ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/windows/quick-create-portal.md) .
 
 Vedere anche [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configurare i criteri IPsec/IKE per le connessioni da sito a sito o da rete virtuale a rete virtuale) per altre informazioni sui criteri IPsec/IKE personalizzati.

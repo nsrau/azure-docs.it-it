@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085147"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -29,13 +29,13 @@ Per lo sviluppo di funzioni sul computer locale e la relativa pubblicazione in A
 > * [Eseguire la funzione localmente.](#start)
 > * [Pubblicare il progetto in Azure.](#publish)
 
-## <a name="core-tools-versions"></a>Le versioni degli strumenti di base
+## <a name="core-tools-versions"></a>Versioni di Core Tools
 
 Sono disponibili tre versioni di Azure Functions Core Tools. La versione in uso dipende dall'ambiente di sviluppo locale, dalla [scelta del linguaggio](supported-languages.md)e dal livello di supporto necessari:
 
 + **Versione 1. x**: supporta la versione 1. x del runtime di funzioni di Azure. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Versione 3. x/2. x**](#v2): supporta [la versione 3. x o 2. x del runtime di funzioni di Azure](functions-versions.md). Queste versioni supportano [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) e usano i gestori di pacchetti specifici della piattaforma o NPM per l'installazione.
++ [**Versione 3. x/2. x**](#v2): supporta [la versione 3. x o 2. x del runtime di funzioni di Azure](functions-versions.md). Queste versioni supportano [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)e [Linux](?tabs=linux#v2) e usano i gestori di pacchetti specifici della piattaforma o NPM per l'installazione.
 
 Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
 
@@ -48,7 +48,7 @@ Se non specificato diversamente, gli esempi in questo articolo sono per la versi
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Versione 3. x e 2. x
 
-La versione 3. x/2. x degli strumenti usa il runtime di funzioni di Azure compilato in .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core, tra cui [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+La versione 3. x/2. x degli strumenti usa il runtime di funzioni di Azure compilato in .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core, tra cui [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)e [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > È possibile ignorare il requisito per l'installazione del .NET Core SDK usando i [bundle di estensione].
@@ -132,7 +132,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 1. Controllare il `/etc/apt/sources.list.d/dotnetdev.list` file per una delle stringhe di versione di Linux appropriate elencate di seguito:
 
-    | Distribuzione di Linux | Versione |
+    | Distribuzione di Linux | Version |
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
@@ -240,7 +240,7 @@ Quando non è impostata alcuna stringa di connessione di archiviazione valida pe
 
 ### <a name="get-your-storage-connection-strings"></a>Ottenere le stringhe di connessione di archiviazione
 
-Anche quando si usa la Emulatore di archiviazione di Microsoft Azure per lo sviluppo, è consigliabile eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-create-storage-account.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
+Anche quando si usa la Emulatore di archiviazione di Microsoft Azure per lo sviluppo, è consigliabile eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-account-create.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
 
 - Dalla [portale di Azure]cercare e selezionare **account di archiviazione**. 
   ![Selezionare gli account di archiviazione da portale di Azure](./media/functions-run-local/select-storage-accounts.png)
@@ -343,7 +343,7 @@ func start
 ```
 func start
 ```
-Questo comando deve essere [eseguito in un ambiente virtuale](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+Questo comando deve essere [eseguito in un ambiente virtuale](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -486,7 +486,7 @@ Ad esempio, per chiamare una funzione attivata da HTTP e passare il corpo del co
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## <a name="publish-to-azure"></a><a name="publish"></a>Pubblicare in Azure
+## <a name="publish-to-azure"></a><a name="publish"></a>Pubblicazione in Azure
 
 Il Azure Functions Core Tools supporta due tipi di distribuzione: la distribuzione di file di progetto di funzione direttamente nell'app per le funzioni tramite la distribuzione [zip](functions-deployment-technologies.md#zip-deploy) e [la distribuzione di un contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). È necessario avere già [creato un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create)in cui verrà distribuito il codice. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
 
@@ -574,7 +574,7 @@ Questo tipo di log di streaming richiede l'abilitazione dell'integrazione di App
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come sviluppare, testare e pubblicare funzioni di Azure usando Azure Functions Core Tools [modulo Microsoft learn](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools è [Open Source e ospitato su GitHub](https://github.com/azure/azure-functions-cli).  
+Scopri come sviluppare, testare e pubblicare funzioni di Azure usando Azure Functions Core Tools [modulo Microsoft learn](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools è [Open Source e ospitato su GitHub](https://github.com/azure/azure-functions-cli).  
 Per registrare una richiesta per un bug o una funzionalità [aprire un problema di GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->

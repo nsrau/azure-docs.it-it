@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083668"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Aggiungere un'API ad App Web statiche di Azure (anteprima) con Funzioni di Azure
 
@@ -133,7 +133,7 @@ Con le impostazioni precedenti, l'endpoint API è:
 
 ## <a name="run-the-api-locally"></a>Eseguire l'API localmente
 
-Visual Studio Code si integra con [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) per consentire l'esecuzione di questo progetto nel computer di sviluppo locale prima della pubblicazione in Azure.
+Visual Studio Code si integra con [Azure Functions Core Tools](../azure-functions/functions-run-local.md) per consentire l'esecuzione di questo progetto nel computer di sviluppo locale prima della pubblicazione in Azure.
 
 > [!TIP]
 > Assicurarsi di disporre di tutte le risorse elencate nella sezione [prerequisiti](#prerequisites) installata prima di procedere.
@@ -242,7 +242,7 @@ Aggiungere quindi i dettagli della build seguenti.
 1. Immettere **api** nella casella _Percorso API_.
 1. Cancellare il valore predefinito dal campo _Percorso artefatto app_ e lasciare vuota la casella.
 1. Fare clic su **Rivedi e crea**.
-1. Fare clic sul pulsante **Create** (Crea)
+1. Fare clic sul pulsante **Crea**
 
     Quando si fa clic sul pulsante _Create (crea_ ), Azure esegue due operazioni. In primo luogo, i servizi cloud sottostanti vengono creati per supportare l'app. Successivamente, un processo in background inizia a compilare e distribuire l'applicazione.
 

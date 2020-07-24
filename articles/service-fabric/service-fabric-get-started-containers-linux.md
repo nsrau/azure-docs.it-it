@@ -4,12 +4,12 @@ description: Creare la prima applicazione contenitore Linux in Azure Service Fab
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083838"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ Per eseguire un'applicazione esistente in un contenitore Linux in un cluster di 
   * [SDK e strumenti di Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE per Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
+
+* Un cluster Linux con tre o più nodi.
 
 * Un registro all'interno di Registro Azure Container. A questo scopo, [creare un registro contenitori](../container-registry/container-registry-get-started-portal.md) nella sottoscrizione di Azure. 
 

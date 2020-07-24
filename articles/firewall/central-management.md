@@ -5,28 +5,27 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 07/13/2020
 ms.author: victorh
-ms.openlocfilehash: 58f670f3f55a63f0c1823adc13c98f5863d4d650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77444550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084671"
 ---
 # <a name="azure-firewall-central-management"></a>Gestione centrale del firewall di Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
 Se si gestiscono più firewall, è noto che le regole del firewall che cambiano continuamente rendono difficile mantenerle sincronizzate. I team IT centrali necessitano di un modo per definire i criteri del firewall di base e applicarli tra più business unit. Allo stesso tempo, i team DevOps desiderano creare criteri firewall derivati locali per una maggiore agilità.
 
-Azure Firewall Manager Preview può aiutare a risolvere questi problemi.
+Gestione firewall di Azure può aiutare a risolvere questi problemi.
 
 
-## <a name="azure-firewall-manager-preview"></a>Anteprima di Azure Firewall Manager
+## <a name="azure-firewall-manager"></a>Gestione firewall di Azure
 
-Azure Firewall Manager Preview è un servizio di gestione della sicurezza di rete che fornisce criteri di sicurezza centralizzati e gestione delle route per i perimetri di sicurezza basati sul cloud. Consente ai team IT aziendali di definire in modo centralizzato le regole a livello di rete e di applicazione per il filtraggio del traffico tra più istanze del firewall di Azure. È possibile estendere diverse aree e sottoscrizioni di Azure nelle architetture Hub e spoke per la governance e la protezione del traffico. Offre anche una maggiore agilità DevOps con i criteri di sicurezza del firewall locali derivati implementati tra organizzazioni.
+Azure Firewall Manager è un servizio di gestione della sicurezza di rete che fornisce criteri di sicurezza centralizzati e la gestione delle route per i perimetri di sicurezza basati sul cloud. Consente ai team IT aziendali di definire in modo centralizzato le regole a livello di rete e di applicazione per il filtraggio del traffico tra più istanze del firewall di Azure. È possibile estendere diverse aree e sottoscrizioni di Azure nelle architetture Hub e spoke per la governance e la protezione del traffico. Offre anche una maggiore agilità DevOps con i criteri di sicurezza del firewall locali derivati implementati tra organizzazioni.
 
-### <a name="firewall-policy"></a>Criteri firewall
+### <a name="firewall-policy"></a>Criterio firewall
 
 Un criterio del firewall è una risorsa di Azure che contiene le raccolte di regole NAT, di rete e di applicazione e le impostazioni di intelligence per le minacce. Si tratta di una risorsa globale che può essere usata in più istanze del firewall di Azure in *Hub virtuali protetti* e *reti virtuali Hub*. I nuovi criteri possono essere creati da zero o essere ereditati da criteri esistenti. L'ereditarietà consente di creare in DevOps criteri firewall locali in aggiunta ai criteri di base imposti dall'organizzazione. I criteri funzionano in diverse aree e sottoscrizioni.
  
@@ -47,4 +46,4 @@ Le seguenti soluzioni di terze parti principali supportano la gestione centrale 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'anteprima di Azure Firewall Manager, vedere [che cos'è l'anteprima di Azure Firewall Manager?](../firewall-manager/overview.md)
+Per altre informazioni su gestione firewall di Azure, vedere [che cos'è Azure Firewall Manager?](../firewall-manager/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Ambiente desktop virtuale Windows-Azure
-description: Elementi di base di un ambiente desktop virtuale di Windows.
+title: Ambiente desktop virtuale Windows (rientri 2019)-Azure
+description: Informazioni sugli elementi di base di un ambiente desktop virtuale Windows (versione 2019), come tenant e pool host.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241676"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082648"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Ambiente di Desktop virtuale Windows
+# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Ambiente desktop virtuale Windows (versione 2019)
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../environment-setup.md).

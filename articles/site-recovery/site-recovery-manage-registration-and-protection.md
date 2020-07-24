@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77dc21b4a04ec5de440b1a17da4747a3dcc711f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083719"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Rimuovere server e disabilitare la protezione
 
@@ -168,11 +169,11 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
    - **Disabilita la replica e Rimuovi (scelta consigliata)** : questa opzione rimuove l'elemento replicato da Azure Site Recovery e la replica per il computer viene arrestata. La configurazione della replica nella macchina virtuale locale verrà rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
- > [!NOTE]
-     > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi il set di script seguente per la pulizia del server Hyper-V locale delle impostazioni di replica.
+    > [!NOTE]
+    > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi il set di script seguente per la pulizia del server Hyper-V locale delle impostazioni di replica.
 
-> [!NOTE]
-> Se è già stato eseguito il failover di una macchina virtuale ed è in esecuzione in Azure, tenere presente che la disabilitazione della protezione non rimuove o influisce sulla macchina virtuale sottoposta a failover.
+    > [!NOTE]
+    > Se è già stato eseguito il failover di una macchina virtuale ed è in esecuzione in Azure, tenere presente che la disabilitazione della protezione non rimuove o influisce sulla macchina virtuale sottoposta a failover.
 
 1. Nel server host Hyper-V di origine, rimuovere la replica per la macchina virtuale. Sostituire SQLVM1 con il nome della macchina virtuale ed eseguire lo script da un'istanza amministrativa di PowerShell.
 
@@ -195,8 +196,11 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
      > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi gli script seguenti per la pulizia del server VMM locale delle impostazioni di replica.
 3. Eseguire questo script nel server VMM di origine, usando PowerShell dalla console VMM. Sono necessari privilegi di amministratore. Sostituire il segnaposto **SQLVM1** con il nome della macchina virtuale.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. I passaggi sopra descritti cancellano le impostazioni di replica del server VMM. Per arrestare la replica per la macchina virtuale in esecuzione nel server host Hyper-V, eseguire questo script. Sostituire SQLVM1 con il nome della macchina virtuale e host01.contoso.com con il nome del server host Hyper-V.
 
 ```powershell
@@ -219,17 +223,21 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 
 3. Eseguire questo script nel server VMM di origine, usando PowerShell dalla console VMM. Sono necessari privilegi di amministratore. Sostituire il segnaposto **SQLVM1** con il nome della macchina virtuale.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. Nel server VMM secondario eseguire questo script per la pulizia delle impostazioni per la macchina virtuale secondaria:
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Remove-SCVirtualMachine -VM $vm -Force
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Remove-SCVirtualMachine -VM $vm -Force
+    ```
+
 5. Nel server VMM secondario aggiornare le macchine virtuali nel server host Hyper-V in modo che la VM secondaria venga rilevata di nuovo nella console VMM.
 6. I passaggi sopra descritti cancellano le impostazioni di replica nel server VMM. Se si vuole arrestare la replica per la macchina virtuale, eseguire lo script seguente nelle VM primarie e secondarie. Sostituire SQLVM1 con il nome della macchina virtuale.
 
-        Remove-VMReplication –VMName “SQLVM1”
-
-
-
-
+    ```powershell
+    Remove-VMReplication –VMName "SQLVM1"
+    ```

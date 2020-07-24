@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47fb242a82097a9fa5c9c41dac99f0a7f8ab2c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085436"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -127,11 +128,11 @@ In questo esempio il valore restituito è *ptp0* e può essere usato per verific
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Il valore restituito dovrebbe essere **hyperv**.
+Il valore restituito dovrebbe essere `hyperv`.
 
 ### <a name="chrony"></a>chrony
 
-In Ubuntu 19,10 e versioni successive, Red Hat Enterprise Linux e CentOS 7. x, [Chrony](https://chrony.tuxfamily.org/) è configurato per l'uso di un orologio di origine di PTP. Anziché Chrony, le versioni precedenti di Linux usano il daemon ntpd (Network Time Protocol daemon), che non supporta le origini PTP. Per abilitare PTP in tali versioni, è necessario installare e configurare manualmente CHRONY (in Chrony. conf) usando il codice seguente:
+In Ubuntu 19,10 e versioni successive, Red Hat Enterprise Linux e CentOS 8. x, [Chrony](https://chrony.tuxfamily.org/) è configurato per l'uso di un orologio di origine di PTP. Anziché Chrony, le versioni precedenti di Linux usano il daemon ntpd (Network Time Protocol daemon), che non supporta le origini PTP. Per abilitare PTP in tali versioni, è necessario installare e configurare manualmente CHRONY (in Chrony. conf) usando il codice seguente:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -143,9 +144,9 @@ Per ulteriori informazioni su Red Hat e NTP, vedere [configurare NTP](https://ac
 
 Per ulteriori informazioni su Chrony, vedere [utilizzo di Chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
-Se entrambe le origini Chrony e TimeSync sono abilitate simultaneamente, è possibile contrassegnarne una come **preferita**, impostando l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
+Se entrambe le origini Chrony e VMICTimeSync sono abilitate simultaneamente, è possibile contrassegnarne una come **preferita**, impostando l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
 
-Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riesce a correggere la tendenza. Per ovviare a questo problema, `makestep` è possibile modificare il parametro in **/etc/Chrony.conf** in modo da forzare un TimeSync se la deriva supera la soglia specificata.
+Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riesce a correggere la tendenza. Per ovviare a questo problema, `makestep` è possibile modificare il parametro in **/etc/Chrony.conf** per forzare una sincronizzazione temporale se la tendenza supera la soglia specificata.
 
  ```bash
 makestep 1.0 -1

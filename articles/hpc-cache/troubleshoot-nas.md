@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082767"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS
 
@@ -20,7 +20,7 @@ Questo articolo fornisce soluzioni per alcuni errori di configurazione comuni e 
 Questo articolo include informazioni dettagliate su come controllare le porte e come abilitare l'accesso radice a un sistema NAS. Include anche informazioni dettagliate sui problemi meno comuni che potrebbero causare un errore nella creazione della destinazione di archiviazione NFS.
 
 > [!TIP]
-> Prima di usare questa guida, leggere [prerequisiti per le destinazioni di archiviazione NFS](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Prima di usare questa guida, leggere [prerequisiti per le destinazioni di archiviazione NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Se la soluzione per il problema non è inclusa, [aprire un ticket di supporto](hpc-cache-support-ticket.md) in modo che il servizio Microsoft e il supporto tecnico possano collaborare con l'utente per analizzare e risolvere il problema.
 
@@ -32,7 +32,7 @@ Le porte sono diverse per i sistemi di archiviazione di fornitori diversi. Contr
 
 In generale, la cache deve accedere a queste porte:
 
-| Protocollo | Porta  | Servizio  |
+| Protocollo | Porta  | Service  |
 |----------|-------|----------|
 | TCP/UDP  | 111   | rpcbind  |
 | TCP/UDP  | 2049  | NFS      |

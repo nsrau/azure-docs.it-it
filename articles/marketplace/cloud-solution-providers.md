@@ -3,16 +3,16 @@ title: Cloud Solution Provider - Marketplace commerciale Microsoft
 description: Informazioni su come vendere le offerte tramite il canale dei partner del programma Microsoft Cloud Solution Provider (CSP) nel marketplace commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082807"
 ---
 # <a name="cloud-solution-provider-program"></a>Programma per provider di soluzioni cloud
 
@@ -30,31 +30,31 @@ Le offerte seguenti sono idonee per il consenso esplicito alla vendita da parte 
 - Applicazioni gestite
 
 > [!NOTE]
-> Per impostazione predefinita, i partner del programma CSP acconsentono esplicitamente alla vendita di contenitori e SKU di macchine virtuali BYOL (Bring Your Own License).
+> Per impostazione predefinita, i contenitori e i piani di VM Bring your own License (BYOL) vengono scelti per essere venduti dai partner del programma CSP.
 
-## <a name="how-to-configure-an-offering"></a>Come configurare un'offerta
+## <a name="how-to-configure-an-offer"></a>Come configurare un'offerta
 
-L'impostazione del consenso esplicito del programma CSP viene configurata nell'esperienza di creazione dell'offerta del portale Cloud Partner o del Centro per i partner. [Altre informazioni sulla modifica dell'esperienza di pubblicazione](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configurare l'impostazione di consenso esplicito del programma CSP quando si crea l'offerta nel centro per i partner. [Altre informazioni sulla modifica dell'esperienza di pubblicazione](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### <a name="partner-center-opt-in"></a>Consenso esplicito del Centro per i partner
 
-Nel Centro per i partner l'esperienza di consenso esplicito è disponibile nel modulo Destinatari rivenditori CSP.
+L'esperienza di consenso esplicito si trova nel modulo del pubblico del rivenditore CSP:
 
 ![Destinatari rivenditori CSP](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-Nel modulo Destinatari rivenditori CSP è possibile scegliere tra tre opzioni:
+Scegliere tra tre opzioni:
 
-- Opzione uno: Qualsiasi partner nel programma CSP
-- Opzione due: Partner specifici nel programma CSP selezionato
-- Opzione tre: Nessun partner nel programma CSP
+1. Qualsiasi partner nel programma CSP.
+2. Partner specifici nel programma CSP selezionato.
+3. Nessun partner nel programma CSP.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Opzione uno: Qualsiasi partner nel programma CSP
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Opzione 1: qualsiasi partner nel programma CSP
 
 ![Qualsiasi partner nel programma CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Se si sceglie questa opzione, tutti i partner del programma CSP saranno idonei a rivendere l'offerta ai clienti.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Opzione due: Partner specifici nel programma CSP selezionato
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Opzione 2: partner specifici nel programma CSP selezionato
 
 ![Partner specifici nel programma CSP selezionato](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Se si sta aggiornando l'elenco CSP di un'offerta già pubblicata, aggiungere gli
 
 Se si ha un'offerta che comprende già un elenco di partner autorizzati e si vuole usare lo stesso elenco per un'altra offerta, usare **Importazione/Esportazione**. Passare all'offerta con l'elenco CSP e selezionare **Esporta CSP**. La funzione sviluppa un file CSV che può essere importato in un'altra offerta.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Opzione tre: Nessun partner nel programma CSP
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Opzione 3: nessun partner nel programma CSP
 
 ![Nessun partner nel programma CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Scegliendo questa opzione, si rifiuta esplicitamente l'offerta per il programma CSP. È possibile modificare questa selezione in qualsiasi momento.
-
-### <a name="cloud-partner-portal-opt-in"></a>Consenso esplicito nel portale Cloud Partner
-
-Nel portale Cloud Partner il consenso esplicito viene impostato nella scheda Marketplace o Vetrina. È possibile scegliere partner specifici nel programma CSP solo nel Centro per i partner.
-
-![Esperienza di consenso esplicito CSP nel Centro per i partner](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Annullare l'autorizzazione per i partner nel programma CSP
 
@@ -115,9 +109,6 @@ Se un partner del programma CSP non ha venduto il prodotto ai clienti e si vuole
 4. Per **Select a problem that best describes the issue** (Seleziona un problema che descrive meglio l'errore) selezionare **Update existing offer** (Aggiorna offerta esistente).
 5. Selezionare **Avanti** per passare alla pagina **Dettagli del problema** dove è possibile immettere altri dettagli sul problema.
 6. Usare **Deauthorize CSP** come titolo del problema e compilare la altre sezioni obbligatorie.
-
-
-
 
 ## <a name="navigate-between-options"></a>Passare da un'opzione all'altra
 
@@ -175,19 +166,13 @@ Se l'offerta attuale è **Opzione 3: Nessun partner nel programma CSP**, è poss
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Condivisione di materiali di vendita e supporto con i partner del programma CSP
 
-Per consentire ai partner del programma Cloud Solution Provider di rappresentare nel modo più efficace l'offerta e di interagire con l'organizzazione, è necessario inviare i materiali di vendita e supporto che saranno disponibili per i rivenditori. Queste risorse non verranno esposte ai clienti nelle vetrine del marketplace.
+Per consentire ai partner del programma Cloud Solution Provider di rappresentare in modo più efficace l'offerta e di interagire con l'organizzazione, è necessario inviare i materiali di vendita e supporto che saranno disponibili per i rivenditori. Queste risorse non verranno esposte ai clienti nelle vetrine del marketplace.
 
 ### <a name="partner-center-csp-channel"></a>Canale CSP del Centro per i partner
 
 Se si è dato il consenso esplicitamente per il canale CSP nel Centro per i partner, gli editori devono immettere un URL che ospita i materiali di marketing pertinenti e le informazioni di contatto del canale nel modulo di inserzione dell'offerta del canale CSP:
 
 ![Informazioni aggiuntive sui partner CSP nel Centro per i partner](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>Canale CSP nel portale Cloud Partner
-
-Se si è dato il consenso esplicitamente per il canale CSP nel portale Cloud Partner, gli editori devono immettere un URL che ospita i materiali di marketing pertinenti e le informazioni di contatto del canale nel canale CSP:
-
-![Informazioni aggiuntive sui partner CSP nel portale Cloud Partner](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 52a52f6f7bca99d662a68ae48276062969b194f0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082529"
 ---
 # <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>INTERFACCIA della riga di comando di Azure-abilitare la crittografia doppia sui dischi gestiti
 
@@ -27,7 +27,7 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-az-cli2) e accedere a un account Azure con [AZ login](/cli/azure/reference-index).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
 
@@ -73,5 +73,5 @@ Installare la versione più recente dell'interfaccia della riga di comando di [A
 
 Ora che sono state create e configurate queste risorse, è possibile usarle per proteggere i dischi gestiti. I collegamenti seguenti contengono script di esempio, ognuno con un rispettivo scenario, che è possibile usare per proteggere i dischi gestiti.
 
-Esempi di modelli di [Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption) 
- [Abilitare le chiavi gestite dal cliente con la crittografia lato server-esempi](disks-enable-customer-managed-keys-cli.md#examples)
+- [Esempi di modelli di Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Abilitare le chiavi gestite dal cliente con la crittografia lato server-esempi](disks-enable-customer-managed-keys-cli.md#examples)

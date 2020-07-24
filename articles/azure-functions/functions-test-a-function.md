@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832560"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085079"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -31,7 +31,7 @@ Il seguente esempio illustra come creare un'app della funzione C# in Visual Stud
 
 ![Test di Funzioni di Azure con C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Configurazione
+### <a name="setup"></a>Installazione
 
 Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi seguenti consentono di creare le app e le funzioni necessarie per supportare i test:
 
@@ -40,13 +40,13 @@ Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi segu
 3. [Creare una funzione timer dal modello](./functions-create-scheduled-function.md) e denominarla **MyTimerTrigger**.
 4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) nella soluzione e denominarla **Functions. tests**.
 5. Usare NuGet per aggiungere un riferimento dall'app di test a [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Fare riferimento all'app *funzioni* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions. tests* .
+6. [Fare riferimento all'app *funzioni* ](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions. tests* .
 
 ### <a name="create-test-classes"></a>Crea classi di test
 
 Ora che i progetti sono stati creati, è possibile creare le classi usate per eseguire i test automatizzati.
 
-Ogni funzione accetta un'istanza di [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) per gestire la registrazione dei messaggi. Alcuni test non registrano messaggi oppure non hanno alcun problema per la modalità di implementazione della registrazione. Altri test devono valutare i messaggi registrati per determinare se si sta passando un test.
+Ogni funzione accetta un'istanza di [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) per gestire la registrazione dei messaggi. Alcuni test non registrano messaggi oppure non hanno alcun problema per la modalità di implementazione della registrazione. Altri test devono valutare i messaggi registrati per determinare se si sta passando un test.
 
 Verrà creata una nuova classe denominata `ListLogger` che include un elenco interno di messaggi da valutare durante un test. Per implementare l' `ILogger` interfaccia richiesta, la classe richiede un ambito. La classe seguente simula un ambito per i test case da passare alla `ListLogger` classe.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 La classe `TestFactory` implementa i seguenti membri:
 
-- **Data**: questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) . Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
+- **Data**: questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](/dotnet/api/system.collections.ienumerable) . Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
 
 - **CreateDictionary**: questo metodo accetta una coppia chiave/valore come argomenti e restituisce un nuovo oggetto `Dictionary` usato per creare `QueryCollection` per rappresentare i valori della stringa di query.
 
@@ -268,7 +268,7 @@ Il seguente esempio illustra come creare un'app della funzione di JavaScript in 
 
 ![Eseguire il test delle Funzioni di Azure con JavaScript in Visual Studio Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Configurazione
+### <a name="setup"></a>Installazione
 
 Per configurare l'ambiente, inizializzare una nuova app Node.js in una cartella vuota eseguendo `npm init`.
 

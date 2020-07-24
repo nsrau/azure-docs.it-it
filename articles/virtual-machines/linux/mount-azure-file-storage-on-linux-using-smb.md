@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085487"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -62,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Creare la condivisione File di archiviazione usando [az storage share create](/cli/azure/storage/share). 
 
-I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trattini singoli, ma non possono iniziare con un trattino. Per dettagli su come denominare condivisioni e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trattini singoli, ma non possono iniziare con un trattino. Per dettagli su come denominare condivisioni e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
 
 Questo esempio crea una condivisione denominata *myshare* con una quota di 10 GiB. 
 
@@ -110,4 +111,3 @@ Per aumentare la sicurezza negli ambienti di produzione, è consigliabile archiv
 - [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md)
 - [Aggiungere un disco a una VM Linux](add-disk.md)
 - [Crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md)
-

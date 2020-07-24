@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084050"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -63,9 +64,9 @@ Il concetto dei contenitori di tenant è profondamente radicato nel servizio dir
 
 Anche quando i metadati di più tenant di Azure Active Directory vengono archiviati nello stesso disco fisico, non esistono relazioni tra i contenitori tranne quelle definite dal servizio directory, a sua volta determinato dall'amministratore tenant.
 
-### <a name="azure-role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo di Azure
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC)](../../role-based-access-control/overview.md) consente di condividere i vari componenti disponibili all'interno di una sottoscrizione di Azure fornendo la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo di Azure consente di separare i compiti all'interno dell'organizzazione e di concedere l'accesso in base alle attività che i singoli utenti devono svolgere. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) consente di condividere i vari componenti disponibili all'interno di una sottoscrizione di Azure fornendo una gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo di Azure consente di separare i compiti all'interno dell'organizzazione e di concedere l'accesso in base alle attività che i singoli utenti devono svolgere. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
 
 Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di base che si applicano a tutti i tipi di risorsa:
 
@@ -144,7 +145,7 @@ Il controller di infrastruttura di Azure è responsabile dell'allocazione delle 
 
 L'hypervisor di Azure impone la separazione di memoria e processi tra le macchine virtuali e instrada in modo sicuro il traffico di rete ai tenant del sistema operativo guest. Si elimina così la possibilità di un attacco side channel a livello di VM.
 
-In Azure, la macchina virtuale radice è particolare: esegue un sistema operativo con protezione avanzata denominato "sistema operativo radice" che ospita un agente dell'infrastruttura. Gli agenti dell'infrastruttura vengono usati loro volta per gestire gli agenti guest all'interno dei sistemi operativi guest nelle macchine virtuali dei clienti. Gestiscono anche i nodi di archiviazione.
+In Azure, la macchina virtuale radice è particolare: esegue un sistema operativo con protezione avanzata denominato "sistema operativo radice" che ospita un agente dell'infrastruttura. Gli SCA vengono usati a loro volta per gestire gli agenti Guest (GA) nei sistemi operativi guest nelle macchine virtuali dei clienti. Gestiscono anche i nodi di archiviazione.
 
 L'insieme costituito da hypervisor di Azure, sistema operativo radice/agente dell'infrastruttura e VM del cliente/agenti guest comprende un nodo di calcolo. Gli agenti dell'infrastruttura sono gestiti da un controller di infrastruttura (FC) esterno ai nodi di calcolo e di archiviazione: i cluster di calcolo e di archiviazione vengono gestiti da controller di infrastruttura separati. Se un cliente aggiorna il file di configurazione dell'applicazione mentre questa è in esecuzione, il controller di infrastruttura comunica con l'agente dell'infrastruttura, il quale contatta gli agenti guest che a loro volta segnalano la modifica della configurazione all'applicazione. In caso di errore hardware, il controller di infrastruttura troverà automaticamente hardware disponibile nel quale riavvierà la macchina virtuale.
 
@@ -207,7 +208,7 @@ I dati di archiviazione IP possono essere protetti da utenti non autorizzati tra
 
 Azure offre i tipi di crittografia seguenti per proteggere i dati:
 
-- Crittografia in transito
+- Crittografia di dati in transito
 - Crittografia di dati inattivi
 
 #### <a name="encryption-in-transit"></a>Crittografia in transito
@@ -312,10 +313,10 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 **Isolamento del traffico**: una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
-La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
+La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze di macchine virtuali in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di macchine virtuali nella subnet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle [Opzioni di isolamento rete per i computer nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
 
-- Informazioni sull' [isolamento delle macchine virtuali in Azure](../../virtual-machines/windows/isolation.md). Calcolo di Azure offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente.
+- Informazioni sull' [isolamento delle macchine virtuali in Azure](../../virtual-machines/isolation.md). Calcolo di Azure offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente.

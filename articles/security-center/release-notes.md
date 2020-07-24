@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083974"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -33,8 +33,8 @@ Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarl
 
 Gli aggiornamenti di luglio includono:
 - [Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Miglioramenti della sicurezza del contenitore: analisi più veloce del registro di sistema e documentazione aggiornata](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Sono stati deprecati sei criteri per la sicurezza dei dati avanzata SQL](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)
@@ -44,6 +44,25 @@ La protezione dalle minacce per archiviazione di Azure rileva attività potenzia
 I dati possono essere protetti indipendentemente dal fatto che vengano archiviati come contenitori BLOB, condivisioni file o data Lake. 
 
 Altre informazioni sulla [protezione dalle minacce per archiviazione di Azure](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Miglioramenti della sicurezza del contenitore: analisi più veloce del registro di sistema e documentazione aggiornata
+
+Nell'ambito degli investimenti continui nel dominio di sicurezza del contenitore, siamo lieti di condividere un miglioramento significativo delle prestazioni delle analisi dinamiche del Centro sicurezza delle immagini del contenitore archiviate in Azure Container Registry. Le analisi vengono in genere completate in circa due minuti. In alcuni casi, potrebbero essere necessari fino a 15 minuti.
+
+Per migliorare la chiarezza e le linee guida relative alle funzionalità di sicurezza del contenitore del Centro sicurezza di Azure, sono state aggiornate anche le pagine della documentazione sulla sicurezza dei contenitori. 
+
+Altre informazioni sulla sicurezza del contenitore del Centro sicurezza sono disponibili negli articoli seguenti:
+
+- [Panoramica delle funzionalità di sicurezza del contenitore del Centro sicurezza](https://docs.microsoft.com/azure/security-center/container-security)
+- [Dettagli dell'integrazione con Container Registry di Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Dettagli dell'integrazione con il servizio Azure Kubernetes](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [Procedura: analizzare i registri e rafforzare gli host Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per i cluster del servizio Kubernetes di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per gli host del servizio Kubernetes di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Raccomandazioni sulla sicurezza per i contenitori](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Sono stati deprecati sei criteri per la sicurezza dei dati avanzata SQL
@@ -132,7 +151,7 @@ I criteri si trovano in criteri di Azure:
 |Obiettivo  |Policy  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Esportazione continua in Log Analytics area di lavoro|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |Automazione del flusso di lavoro per gli avvisi di sicurezza|[Distribuisci automazione del flusso di lavoro per gli avvisi del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Automazione del flusso di lavoro per raccomandazioni sulla sicurezza|[Distribuisci automazione del flusso di lavoro per le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
 ||||
@@ -230,14 +249,14 @@ Questo aggiornamento apporta le seguenti modifiche a questa funzionalità:
 
 - La raccomandazione che consiglia di abilitare JIT in una macchina virtuale è stata rinominata. "Il controllo di accesso alla rete JIT deve essere applicato alle macchine virtuali" è ora diventato: "Le porte di gestione delle macchine virtuali devono essere protette tramite un controllo di accesso alla rete JIT".
 
-- La raccomandazione è stata impostata per attivarsi solo se sono presenti porte di gestione aperte.
+- La raccomandazione viene attivata solo se sono presenti porte di gestione aperte.
 
 Sono disponibili altre informazioni sulla [funzionalità di accesso JIT](security-center-just-in-time.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Le raccomandazioni personalizzate sono state spostate in un controllo di sicurezza distinto
 
-Uno dei controlli di sicurezza introdotti con il punteggio di sicurezza migliorato è "Implement security best practices" (Implementa procedure consigliate per la sicurezza). Eventuali raccomandazioni personalizzate create per le sottoscrizioni sono state inserite automaticamente nel controllo. 
+Un controllo di sicurezza introdotto con il Punteggio sicuro migliorato è stato "implementare le procedure consigliate per la sicurezza". Eventuali raccomandazioni personalizzate create per le sottoscrizioni sono state inserite automaticamente nel controllo. 
 
 Per semplificare l'individuazione delle raccomandazioni personalizzate, sono state spostate in un controllo di sicurezza dedicato, "Custom Recommendations" (Raccomandazioni personalizzate). Questo controllo non ha alcun effetto sul punteggio di sicurezza.
 
@@ -250,7 +269,7 @@ I controlli di sicurezza sono gruppi logici di raccomandazioni correlate alla si
 
 Per verificare immediatamente in che modo l'organizzazione protegge ogni singola superficie di attacco, esaminare i punteggi per ogni controllo di sicurezza.
 
-Per impostazione predefinita, le raccomandazioni vengono visualizzate nei controlli di sicurezza. Da questo aggiornamento è inoltre possibile visualizzarle come elenco. Per visualizzarle come semplici elenchi ordinati in base allo stato di integrità delle risorse interessate, usare il nuovo interruttore di raggruppamento per controlli. L'interruttore è in cima all'elenco nel portale.
+Per impostazione predefinita, le raccomandazioni vengono visualizzate nei controlli di sicurezza. Da questo aggiornamento è inoltre possibile visualizzarli come elenco. Per visualizzarle come semplici elenchi ordinati in base allo stato di integrità delle risorse interessate, usare il nuovo interruttore di raggruppamento per controlli. L'interruttore è in cima all'elenco nel portale.
 
 I controlli di sicurezza, e questo interruttore, fanno parte della nuova esperienza di assegnazione dei punteggi di sicurezza. Ricordarsi di inviare feedback dall'interno del portale.
 
@@ -260,7 +279,7 @@ Altre informazioni sui controlli di sicurezza sono disponibili in [Enhanced secu
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controllo di sicurezza espanso "Implement security best practices" (Implementa procedure consigliate per la sicurezza) 
 
-Uno dei controlli di sicurezza introdotti con il punteggio di sicurezza migliorato è "Implement security best practices" (Implementa procedure consigliate per la sicurezza). Quando una raccomandazione si trova in questo controllo, non ha alcun effetto sul punteggio di sicurezza. 
+Un controllo di sicurezza introdotto con il Punteggio sicuro migliorato è "implementare le procedure consigliate per la sicurezza". Quando una raccomandazione si trova in questo controllo, non ha alcun effetto sul punteggio di sicurezza. 
 
 Con questo aggiornamento, tre raccomandazioni sono state spostate dai controlli in cui erano originariamente posizionate e inserite in questo controllo di procedure consigliate. Ciò è dovuto al fatto che il rischio di queste tre raccomandazioni è risultato inferiore a quello inizialmente previsto.
 

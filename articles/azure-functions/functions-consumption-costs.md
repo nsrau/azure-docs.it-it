@@ -3,11 +3,12 @@ title: Stima dei costi del piano di consumo in funzioni di Azure
 description: Informazioni su come stimare meglio i costi che possono verificarsi quando si esegue l'app per le funzioni in un piano a consumo in Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083039"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
@@ -60,7 +61,7 @@ I comportamenti seguenti delle funzioni possono avere un effetto sul tempo di es
 
 ## <a name="view-execution-data"></a>Visualizza dati di esecuzione
 
-Nella [fattura](/azure/billing/billing-download-azure-invoice)è possibile visualizzare i dati relativi ai costi delle **esecuzioni totali, funzioni** e tempi di **esecuzione**, oltre ai costi effettivi fatturati. Tuttavia, i dati della fattura sono aggregati mensili per un periodo di fatturazione precedente. 
+Nella [fattura](../cost-management-billing/understand/download-azure-invoice.md)è possibile visualizzare i dati relativi ai costi delle **esecuzioni totali, funzioni** e tempi di **esecuzione**, oltre ai costi effettivi fatturati. Tuttavia, i dati della fattura sono aggregati mensili per un periodo di fatturazione precedente. 
 
 Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare monitoraggio di Azure per visualizzare le metriche relative ai costi attualmente generate dalle app per le funzioni. Per ottenere questi dati, è possibile usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) nella [portale di Azure] o nelle API REST.
 
@@ -78,9 +79,9 @@ Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metr
     |Impostazione  |Valore consigliato  |Descrizione  |
     |---------|---------|---------|
     | Subscription    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
-    | Resource group     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
+    | Gruppo di risorse     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
     | Tipo di risorsa     |  Servizi app | Le app per le funzioni vengono visualizzate come istanze di servizi app in monitoraggio. |
-    | Risorsa     |  App per le funzioni  | App per le funzioni da monitorare.        |
+    | Resource     |  App per le funzioni  | App per le funzioni da monitorare.        |
 
 1. Selezionare **applica** per scegliere l'app per le funzioni come risorsa da monitorare.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082053"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
 
@@ -37,7 +37,7 @@ I passaggi seguenti illustrano le impostazioni necessarie per configurare un gat
 
 * Entrambe le reti virtuali sono già state create. Se è necessario creare una rete virtuale di Resource Manager, vedere [Creare un gruppo di risorse e una rete virtuale](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Per creare una rete virtuale classica, vedere [Creare una rete virtuale classica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Gli intervalli di indirizzi per le reti virtuali non si sovrappongono l'uno con l'altro o non si sovrappongano con gli intervalli delle eventuali altre connessioni a cui i gateway potrebbero essere collegati.
-* Sono stati installati i cmdlet di PowerShell più recenti. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
+* Sono stati installati i cmdlet di PowerShell più recenti. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Impostazioni di esempio
 

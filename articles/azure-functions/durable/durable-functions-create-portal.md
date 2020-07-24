@@ -4,12 +4,12 @@ description: Informazioni su come installare l'estensione Durable Functions per 
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081917"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
@@ -58,8 +58,6 @@ Se si stanno creando funzioni Durable Functions in JavaScript, è necessario ins
 
    ![Esecuzione npm install in Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. Infine, [abilitare la modalità di compatibilità](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) aggiungendo un'impostazione dell'app con il `FUNCTIONS_V2_COMPATIBILITY_MODE` valore `true` .
-
 ## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
 
 1. Nell'app per le funzioni selezionare **Funzioni** nel riquadro a sinistra e quindi **Aggiungi** nel menu superiore. 

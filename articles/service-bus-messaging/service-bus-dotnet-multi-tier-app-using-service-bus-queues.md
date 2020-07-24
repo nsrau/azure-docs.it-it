@@ -4,11 +4,12 @@ description: Un'esercitazione .NET che consente di sviluppare un'applicazione mu
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340297"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083940"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
 
@@ -27,7 +28,7 @@ In questa esercitazione verrà creata ed eseguita un'applicazione multilivello i
 
 Nella schermata seguente viene illustrata l'applicazione completata.
 
-![][0]
+![Screenshot della pagina di invio dell'applicazione.][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Informazioni generali sullo scenario: comunicazione tra ruoli
 Per inviare un ordine per l'elaborazione, è necessario che il componente dell'interfaccia utente front-end, in esecuzione nel ruolo Web, interagisca con la logica di livello intermedio in esecuzione nel ruolo di lavoro. Questo esempio usa la messaggistica del bus di servizio per la comunicazione tra i livelli.
@@ -36,7 +37,7 @@ L'uso della messaggistica del bus di servizio tra il livello Web e il livello in
 
 Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È anche possibile configurare le sottoscrizioni specificando regole di filtro per limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. Nel seguente esempio vengono usate le code del bus di servizio.
 
-![][1]
+![Diagramma che illustra la comunicazione tra il ruolo Web, il bus di servizio e il ruolo di lavoro.][1]
 
 Questo meccanismo di comunicazione presenta alcuni vantaggi rispetto alla messaggistica diretta:
 
@@ -44,7 +45,7 @@ Questo meccanismo di comunicazione presenta alcuni vantaggi rispetto alla messag
 * **Livellamento del carico.** In molte applicazioni il carico del sistema varia in base al momento, mentre il tempo di elaborazione richiesto per ogni unità di lavoro è in genere costante. L'interposizione di una coda tra producer e consumer di messaggi implica che è necessario solo eseguire il provisioning dell'applicazione consumer (il ruolo di lavoro) per consentire a quest'ultima di gestire un carico medio anziché il carico massimo. In base alla variazione del carico in ingresso, si verificherà un incremento o una riduzione della profondità della coda, con un risparmio diretto in termini economici rispetto alle risorse infrastrutturali richieste per gestire il carico dell'applicazione.
 * **Bilanciamento del carico.** Con l'aumento del carico, è possibile aggiungere altri processi di lavoro per la lettura della coda. Ciascun messaggio viene elaborato da un solo processo di lavoro. Inoltre, il bilanciamento del carico di tipo pull consente un uso ottimale delle macchine di lavoro anche quando queste presentano una potenza di elaborazione diversa. Ogni macchina effettuerà infatti il pull dei messaggi alla propria velocità massima. Questo modello è spesso definito modello del *consumer concorrente*.
   
-  ![][2]
+  ![Diagramma che illustra la comunicazione tra il ruolo Web, il bus di servizio e due ruoli di lavoro.][2]
 
 Il codice che consente di implementare questa architettura viene illustrato nelle sezioni seguenti.
 
@@ -63,27 +64,27 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
 
 1. Avviare Visual Studio con privilegi di amministratore: fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
    
-   In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
-2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
+   In Visual Studio scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
+2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Quindi fare clic su **OK**.
    
-   ![][9]
+   ![Screenshot della finestra di dialogo nuovo progetto con il cloud selezionato e il servizio cloud di Azure Visual C# evidenziato e descritto in rosso.][9]
 3. Nel riquadro **Ruoli** fare doppio clic su **Ruolo Web ASP.NET**.
    
-   ![][10]
-4. Passare il puntatore su **WebRole1** in **Soluzione servizio cloud di Microsoft Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Fare quindi clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
+   ![Screenshot della finestra di dialogo nuovo servizio cloud di Microsoft Azure con il ruolo Web ASP.NET selezionato ed è stata selezionata anche l'opzione WebRole1.][10]
+4. Passare il puntatore su **WebRole1** in **Soluzione servizio cloud di Microsoft Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Quindi fare clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
    
-   ![][11]
+   ![Screenshot della finestra di dialogo nuovo servizio cloud Microsoft Azure con la soluzione rinominata FrontendWebRole.][11]
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **MVC** in **Seleziona modello**.
    
-   ![][12]
+   ![Screenshotof la finestra di dialogo nuovo progetto ASP.NET con MVC evidenziato e delineato in rosso e l'opzione Modifica autenticazione descritta in rosso.][12]
 6. Sempre nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** assicurarsi che sia selezionato **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
    
-    ![][16]
+    ![Screenshot della finestra di dialogo Cambia autenticazione con l'opzione Nessuna autenticazione selezionata e delineata in rosso.][16]
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK** per creare il progetto.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti** nel progetto **FrontendWebRole** e quindi scegliere **Gestisci pacchetti NuGet**.
 9. Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Selezionare il pacchetto **WindowsAzure.ServiceBus**, fare clic su **Installa** e quindi accettare le condizioni per l'utilizzo.
    
-   ![][13]
+   ![Screenshot della finestra di dialogo Gestisci pacchetti NuGet con WindowsAzure. ServiceBus evidenziato e l'opzione di installazione descritta in rosso.][13]
    
    Sono ora disponibili riferimenti agli assembly client necessari e sono stati aggiunti nuovi file di codice.
 10. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi** e infine **Classe**. Nella casella **Nome** digitare il nome **OnlineOrder.cs**. Fare quindi clic su **Aggiungi**.
@@ -165,16 +166,16 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 4. Scegliere **Compila soluzione** dal menu **Compila** per verificare la correttezza del lavoro svolto finora.
 5. Creare quindi la visualizzazione per il metodo `Submit()` creato in precedenza. Fare clic con il pulsante destro del mouse all'interno del metodo `Submit()`, ovvero l'overload del metodo `Submit()` che non accetta parametri, e quindi scegliere **Aggiungi visualizzazione**.
    
-   ![][14]
+   ![Screenshot del codice con lo stato attivo sul metodo Submit e un elenco a discesa con l'opzione Aggiungi visualizzazione evidenziata.][14]
 6. Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** selezionare la classe **OnlineOrder**.
    
-   ![][15]
+   ![Screenshot della finestra di dialogo Aggiungi visualizzazione con gli elenchi a discesa modello e classe modello delineati in rosso.][15]
 7. Scegliere **Aggiungi**.
 8. Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\Shared\\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
 9. Sostituire tutte le occorrenze di **My ASP.NET Application** con **Northwind Traders Products**.
 10. Rimuovere i collegamenti **Home**, **About** e **Contact**. Eliminare il codice evidenziato:
     
-    ![][28]
+    ![Screenshot del codice con tre righe di H T M L codice di collegamento dell'azione evidenziato.][28]
 11. Modificare infine la pagina di invio in modo da includere informazioni sulla coda. In **Esplora soluzioni** fare doppio clic sul file **Views\Home\Submit.cshtml** per aprirlo nell'editor di Visual Studio. Aggiungere la riga seguente dopo `<h2>Submit</h2>`. Per ora `ViewBag.MessageCount` non contiene valori. Il valore verrà inserito successivamente.
     
     ```html
@@ -182,7 +183,7 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
     ```
 12. L'interfaccia utente è stata implementata. È possibile premere **F5** per eseguire l'applicazione e confermare che abbia l'aspetto previsto.
     
-    ![][17]
+    ![Screenshot della pagina di invio dell'applicazione.][17]
 
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Scrivere codice per l'invio di elementi a una coda del bus di servizio
 Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di tutto una classe contenente le informazioni di connessione della coda del bus di servizio. Inizializzare quindi la connessione da Global.aspx.cs. Aggiornare infine il codice di invio creato in precedenza in HomeController.cs in modo da inviare effettivamente elementi alla coda del bus di servizio.
@@ -289,13 +290,13 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
        }
        else
        {
-           return View(order);
+           return View(order); 
        }
    }
    ```
 9. È ora possibile eseguire di nuovo l'applicazione. Ogni volta che si invia un ordine, il conteggio dei messaggi aumenta.
    
-   ![][18]
+   ![Screenshot della pagina di invio dell'applicazione con il numero di messaggi incrementato a 1.][18]
 
 ## <a name="create-the-worker-role"></a>Creare il ruolo di lavoro
 Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo esempio viene usato il modello di progetto **Worker Role with Service Bus Queue** di Visual Studio. Le credenziali necessarie sono già state ottenute dal portale.
@@ -304,16 +305,16 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 2. In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sulla cartella **Roles** nel progetto **MultiTierApp**.
 3. Fare clic su **Aggiungi**, quindi su **Nuovo progetto di ruolo di lavoro**. Viene visualizzata la finestra di dialogo **Aggiungi nuovo progetto di ruolo**.
    
-   ![][26]
+   ![Screenshot del riquadro soultion Explorer con l'opzione nuovo progetto di ruolo di lavoro e Aggiungi opzione evidenziata.][26]
 4. Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** fare clic su **Worker Role with Service Bus Queue**.
    
-   ![][23]
+   ![Screenshot della finestra di dialogo nuovo progetto di ruolo di Active Directory con l'opzione ruolo di lavoro con coda del bus di servizio evidenziata e delineata in rosso.][23]
 5. Nella casella **Nome** assegnare il nome **OrderProcessingRole** al progetto. Fare quindi clic su **Aggiungi**.
 6. Copiare negli Appunti la stringa di connessione ottenuta nel passaggio 9 della sezione "Creare uno spazio dei nomi del bus di servizio".
 7. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul ruolo **OrderProcessingRole** creato nel passaggio 5. Assicurarsi di fare clic con il pulsante destro del mouse su **OrderProcessingRole** in **Ruoli** e non sulla classe. Scegliere quindi **Proprietà**.
 8. Nella scheda **Impostazioni** della finestra di dialogo **Proprietà** posizionare il cursore all'interno della casella **Valore** per **Microsoft.ServiceBus.ConnectionString**, quindi incollare il valore dell'endpoint copiato al passaggio 6.
    
-   ![][25]
+   ![Screenshot della finestra di dialogo Proprietà con la scheda Impostazioni selezionata e la riga della tabella Microsoft. ServiceBus. ConnectionString delineata in rosso.][25]
 9. Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla classe **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sull'icona della classe, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
 10. Selezionare la sottocartella per **FrontendWebRole\Models**e fare doppio clic su **OnlineOrder.cs** per aggiungerlo al progetto corrente.
 11. In **WorkerRole.cs** modificare il valore della variabile **QueueName** da `"ProcessingQueue"` in `"OrdersQueue"` come illustrato nel codice seguente.
@@ -338,9 +339,9 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
     ```
 14. L'applicazione è stata completata. È possibile testare l'applicazione completa facendo clic con il pulsante destro del mouse sul progetto MultiTierApp in Esplora soluzioni. Selezionare quindi **Imposta come progetto di avvio** e premere F5. Il numero totale dei messaggi non aumenta perché il ruolo di lavoro elabora gli elementi dalla coda e li contrassegna come completati. È possibile verificare l'output di traccia del ruolo di lavoro visualizzando l'interfaccia utente dell'emulatore di calcolo di Azure. Per eseguire questa operazione, fare clic con il pulsante destro del mouse sull'icona dell'emulatore nell'area di notifica della barra delle applicazioni, quindi scegliere **Show Compute Emulator UI** (Mostra interfaccia utente dell'emulatore di calcolo).
     
-    ![][19]
+    ![Screenshot di ciò che viene visualizzato quando si fa clic sull'icona dell'emulatore. Mostra l'interfaccia utente dell'emulatore di calcolo nell'elenco di opzioni.][19]
     
-    ![][20]
+    ![Screenshot della finestra di dialogo Microsoft Azure emulatore di calcolo (Express).][20]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:  
