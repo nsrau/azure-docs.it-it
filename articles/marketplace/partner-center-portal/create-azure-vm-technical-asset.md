@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107156"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053575"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creare risorse tecniche della macchina virtuale di Azure
 
@@ -43,7 +43,7 @@ La progettazione, la compilazione e il test di queste risorse richiedono tempo e
 
 Per la gestione di macchine virtuali e dischi rigidi virtuali, prendere in considerazione l'uso di uno degli ambienti di scripting seguenti:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Interfaccia della riga di comando di Azure](https://code.visualstudio.com/)
 
 Inoltre, è consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo in uso:
