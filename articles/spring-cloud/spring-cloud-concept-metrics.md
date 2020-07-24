@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 7ef7614b32dd88e804b1a74749ee87504f9cea40
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-java
+ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037730"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -88,13 +89,13 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 
 ### <a name="error"></a>Errore
 >[!div class="mx-tdCol2BreakAll"]
->| Name (Nome) | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
 >| Tomcat. Global. Error | Tomcat. Global. Error | Conteggio | Numero di errori che si sono verificati nelle richieste elaborate |
 
 ### <a name="performance"></a>Prestazioni
 >[!div class="mx-tdCol2BreakAll"]
->| Name (Nome) | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
 >| Process. CPU. Usage | App CPU Usage Percentage (Percentuale di utilizzo CPU app) | Percentuale | Utilizzo di CPU recente per il processo Java Virtual Machine. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
@@ -110,16 +111,16 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 
 ### <a name="request"></a>Richiesta
 >[!div class="mx-tdCol2BreakAll"]
->| Name (Nome) | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
 >| Tomcat. Global. Sent | Tomcat. Global. Sent | Byte | Quantità di dati inviati dal server Web Tomcat |
 >| Tomcat. Global. received | Tomcat. Global. received | Byte | Quantità di dati ricevuti dal server Web Tomcat |
 >| Tomcat. Global. Request. Total. Count | Tomcat. Global. Request (Totale-conteggio) | Conteggio | Numero totale di richieste elaborate dal server Web Tomcat |
 >| Tomcat. Global. Request. max | Tomcat. Global. Request. max | Millisecondi | Tempo massimo di elaborazione di una richiesta da server Web Tomcat |
 
-### <a name="session"></a>Sessione
+### <a name="session"></a>sessione
 >[!div class="mx-tdCol2BreakAll"]
->| Name (Nome) | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
 >| Tomcat. Sessions. Active. max | Tomcat. Sessions. Active. max | Conteggio | Numero massimo di sessioni attive allo stesso tempo |
 >| Tomcat. Sessions. Alive. max | Tomcat. Sessions. Alive. max | Millisecondi | Tempo più lungo (in secondi) durante il quale una sessione scaduta è stata attiva |

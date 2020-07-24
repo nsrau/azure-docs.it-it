@@ -3,12 +3,12 @@ title: Modello per la creazione di avvisi Integrità risorse
 description: Creare avvisi a livello di codice che inviano una notifica quando le risorse di Azure non sono disponibili.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 399c37f123d06e251514d0cafc3c1c4918ce3edd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037934"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -25,7 +25,7 @@ Integrità risorse di Azure comunica lo stato di integrità attuale e cronologic
 
 Per seguire le istruzioni riportate in questa pagina, è necessario configurare in anticipo alcuni aspetti:
 
-1. È necessario installare il [modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+1. È necessario installare il [modulo Azure PowerShell](/powershell/azure/install-az-ps)
 2. È necessario [creare o riutilizzare un gruppo di azioni](../azure-monitor/platform/action-groups.md) configurato per ricevere una notifica
 
 ## <a name="instructions"></a>Istruzioni
@@ -454,5 +454,5 @@ Altre informazioni su Integrità risorse:
 
 
 Creare avviso di integrità dei servizi di Azure:
--  [Configurare gli avvisi per Integrità dei servizi di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurare gli avvisi per Integrità dei servizi di Azure](./alerts-activity-log-service-notifications-portal.md) 
 -  [Schema degli eventi del log attività di Azure](../azure-monitor/platform/activity-log-schema.md)

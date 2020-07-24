@@ -9,17 +9,20 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/14/2020
+ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031219"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning (anteprima)
 
-In questo documento si apprenderà come usare il collegamento privato di Azure con l'area di lavoro Azure Machine Learning. Questa funzionalità è attualmente in anteprima ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali. 
+In questo documento si apprenderà come usare il collegamento privato di Azure con l'area di lavoro Azure Machine Learning. 
+
+> [!IMPORTANT]
+> L'uso del collegamento privato di Azure con Azure Machine Learning area di lavoro è attualmente disponibile in anteprima pubblica. Questa funzionalità è disponibile solo nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali 2**e **Stati Uniti centro-meridionali** . Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il collegamento privato di Azure consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro solo per gli indirizzi IP privati. Il collegamento privato consente di ridurre il rischio di exfiltration dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo [Collegamento privato di Azure](/azure/private-link/private-link-overview).
 
@@ -52,7 +55,7 @@ Quando si distribuisce un modello, è necessario fornire le seguenti informazion
 Una volta che un modello è stato inviato e il provisioning è stato completato, il gruppo di risorse che contiene l'area di lavoro conterrà tre nuovi tipi di artefatto correlati al collegamento privato:
 
 * Endpoint privato
-* interfaccia di rete
+* Interfaccia di rete
 * Zona DNS privato
 
 L'area di lavoro contiene anche una rete virtuale di Azure in grado di comunicare con l'area di lavoro sull'endpoint privato.
@@ -112,6 +115,9 @@ Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione rel
 Per proteggere l'account di archiviazione di Azure usato dall'area di lavoro, inserirlo all'interno della rete virtuale.
 
 Per informazioni sull'inserimento dell'account di archiviazione nella rete virtuale, vedere [usare un account di archiviazione per l'area di lavoro](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+
+> [!WARNING]
+> Azure Machine Learning non supporta l'uso di un account di archiviazione di Azure con collegamento privato abilitato.
 
 ## <a name="using-azure-key-vault"></a>Uso di Azure Key Vault
 

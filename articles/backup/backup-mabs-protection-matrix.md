@@ -3,12 +3,12 @@ title: Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032596"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 
@@ -54,7 +54,7 @@ Le sezioni seguenti illustrano in dettaglio la matrice di supporto per la protez
 
 | **Carico di lavoro** | **Version**                               | **Installazione server di Backup di Azure**                      | **server di Backup di Azure supportati** | **Protezione e ripristino**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux in esecuzione come guest Hyper-V o VMware | Server fisico, macchina virtuale Hyper-V locale, VM Windows in VMWare | UR1 V3                             | Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Proteggi: intera macchina virtuale   <br><br>   Ripristino: intera macchina virtuale   <br><br>    Sono supportati solo snapshot coerenti a livello di file.    <br><br>   Per un elenco completo delle distribuzioni e delle versioni di Linux supportate, vedere l'articolo [relativo alle distribuzioni di Linux approvate da Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux in esecuzione come guest Hyper-V o VMware | Server fisico, macchina virtuale Hyper-V locale, VM Windows in VMWare | UR1 V3                             | Hyper-V deve essere in esecuzione in Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019. Proteggi: intera macchina virtuale   <br><br>   Ripristino: intera macchina virtuale   <br><br>    Sono supportati solo snapshot coerenti a livello di file.    <br><br>   Per un elenco completo delle distribuzioni e delle versioni di Linux supportate, vedere l'articolo [relativo alle distribuzioni di Linux approvate da Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
 

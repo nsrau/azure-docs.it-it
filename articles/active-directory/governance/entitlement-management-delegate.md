@@ -3,7 +3,7 @@ title: Delega e ruoli nella gestione dei diritti-Azure AD
 description: Informazioni su come delegare la governance degli accessi dagli amministratori IT ai responsabili del reparto e ai responsabili di progetto in modo che possano gestire l'accesso.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034384"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -90,7 +91,7 @@ Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
-| Attività | Amministratore | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
+| Attività | Amministrativi | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
 | --- | :---: | :---: | :---: | :---: |
 | [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |

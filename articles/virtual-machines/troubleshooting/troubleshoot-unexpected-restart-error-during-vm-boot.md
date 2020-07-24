@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: daefaca45adb061295928c64b6a0e328a12d8a3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036183"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Avvio del sistema operativo: il computer è stato riavviato in modo imprevisto o ha rilevato un errore imprevisto
 
@@ -27,7 +27,7 @@ Questo articolo illustra i passaggi per risolvere i problemi in cui si verifica 
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che la schermata Visualizza l'installazione di Windows non riuscita con l'errore seguente:
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che la schermata Visualizza l'installazione di Windows non riuscita con l'errore seguente:
 
 **Il computer è stato riavviato in modo imprevisto o ha rilevato un errore imprevisto. Impossibile continuare l'installazione di Windows. Per installare Windows, fare clic su "OK" per riavviare il computer, quindi riavviare l'installazione.**
 
@@ -37,7 +37,7 @@ Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual
 
 ## <a name="cause"></a>Causa
 
-Il computer sta provando a eseguire un avvio iniziale di un' [immagine generalizzata](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), ma incontra problemi a causa di un file di risposte personalizzato (unattend.xml) in fase di elaborazione. I file di risposte personalizzati non sono supportati in Azure. 
+Il computer sta provando a eseguire un avvio iniziale di un' [immagine generalizzata](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), ma incontra problemi a causa di un file di risposte personalizzato (unattend.xml) in fase di elaborazione. I file di risposte personalizzati non sono supportati in Azure. 
 
 Il file di risposte è costituito da un file XML speciale che contiene le definizioni e i valori delle impostazioni di configurazione che si desidera automatizzare durante l'installazione di un'installazione del sistema operativo Windows Server. Le opzioni di configurazione includono le istruzioni su come partizionare i dischi, dove trovare l'immagine di Windows da installare, i codici Product Key da applicare e gli altri comandi che si desidera eseguire.
 
@@ -47,7 +47,7 @@ In Azure, usare l'opzione di immissione di un **sistema (configurazione guidata)
 
 Questo problema viene spesso creato quando si usa **Sysprep.exe** con una macchina virtuale locale per caricare una macchina virtuale generalizzata in Azure. In questa situazione potrebbe essere interessante anche il modo in cui caricare correttamente una macchina virtuale generalizzata.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 ### <a name="replace-unattended-answer-file-option"></a>Opzione Sostituisci file di risposte automatico
 
@@ -57,7 +57,7 @@ Questa situazione si verifica quando un'immagine è stata preparata per l'uso in
 
 - Nel comando precedente sostituire `<NameOfYourAnswerFile.XML>` con il nome del file.
 
-Per risolvere questo problema, seguire [le istruzioni di Azure per preparare/acquisire un'immagine](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) e preparare una nuova immagine generalizzata. Durante Sysprep, non usare `/unattend:<answerfile>` flag. Usare invece solo i flag seguenti:
+Per risolvere questo problema, seguire [le istruzioni di Azure per preparare/acquisire un'immagine](../windows/upload-generalized-managed.md) e preparare una nuova immagine generalizzata. Durante Sysprep, non usare `/unattend:<answerfile>` flag. Usare invece solo i flag seguenti:
 
 `sysprep /oobe /generalize /shutdown`
 

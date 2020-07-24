@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036149"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure
 
@@ -25,7 +25,7 @@ Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segre
 La creazione e la configurazione di un insieme di credenziali delle chiavi per l'uso con Crittografia dischi di Azure prevede tre passaggi:
 
 > [!Note]
-> È necessario selezionare l'opzione nelle impostazioni dei criteri di accesso Azure Key Vault per abilitare l'accesso a crittografia dischi di Azure per la crittografia del volume.
+> È necessario selezionare l'opzione nelle impostazioni dei criteri di accesso Azure Key Vault per abilitare l'accesso a crittografia dischi di Azure per la crittografia del volume. Se il firewall è stato abilitato nell'insieme di credenziali delle chiavi, è necessario passare alla scheda rete nell'insieme di credenziali delle chiavi e abilitare l'accesso a servizi attendibili Microsoft. 
 
 1. Creazione di un gruppo di risorse, se necessario.
 2. Creazione di un insieme di credenziali delle chiavi. 
@@ -43,7 +43,7 @@ Se si preferisce, è anche possibile generare o importare una chiave di crittogr
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installare gli strumenti e connettersi ad Azure
 
-Per completare i passaggi descritti in questo articolo, è possibile usare l'[interfaccia della riga di comando di Azure](/cli/azure/), il [modulo Az di Azure PowerShell](/powershell/azure/overview) oppure il [portale di Azure](https://portal.azure.com).
+Per completare i passaggi descritti in questo articolo, è possibile usare l'[interfaccia della riga di comando di Azure](/cli/azure/), il [modulo Az di Azure PowerShell](/powershell/azure/) oppure il [portale di Azure](https://portal.azure.com).
 
 Mentre il portale è accessibile tramite il browser, l'interfaccia della riga di comando di Azure e Azure PowerShell richiedono l'installazione locale; vedere [Crittografia dischi di Azure per Windows: Per informazioni dettagliate, installare gli strumenti](disk-encryption-windows.md#install-tools-and-connect-to-azure).
 

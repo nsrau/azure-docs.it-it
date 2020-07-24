@@ -4,11 +4,12 @@ description: Informazioni sulle API e gli strumenti disponibili per lo sviluppo 
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a3b2bb080e80e5ddc5ac12413f312dcd930d03f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c7484e59391be8f4853c2394bff20c6d9676dec9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032193"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -64,7 +65,7 @@ Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di cod
 
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
 
-- [Cmdlet di PowerShell per Batch](/powershell/module/az.batch/): i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
+- [Cmdlet di PowerShell per Batch](/powershell/module/az.batch/): i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/) consentono di gestire le risorse di Batch con PowerShell.
 - [Interfaccia della riga di comando di Azure](/cli/azure): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, inclusi il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Altri strumenti per lo sviluppo di applicazioni

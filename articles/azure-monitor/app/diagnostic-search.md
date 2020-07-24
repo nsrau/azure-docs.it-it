@@ -3,11 +3,12 @@ title: Utilizzo della funzionalità Ricerca in Azure Application Insights | Micr
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033616"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 
@@ -91,7 +92,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| string | *Non* trovato | Trovato |
+| Stringa | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -147,4 +148,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Scrivere query complesse in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [Risoluzione dei problemi](../faq.md)

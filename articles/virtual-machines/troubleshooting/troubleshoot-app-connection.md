@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036438"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Risolvere i problemi di connettività delle applicazioni in macchine virtuali in Azure
 
@@ -117,7 +117,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
   
   * Verificare che la configurazione dell'endpoint per la VM consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
   * Verificare che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in ingresso da Internet.
-  * Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../windows/classic/setup-endpoints.md).
+  * Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 * Per le VM create con il modello di distribuzione di Resource Manager:
   
   * Verificare che la configurazione della regola NAT in ingresso consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
@@ -138,11 +138,9 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Passaggio 4 Se non è possibile accedere all'applicazione, usare la verifica IP per controllare le impostazioni. 
 
-Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](troubleshoot-ssh-connection.md)
-
-

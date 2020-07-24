@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-java
+ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037577"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controlli di sicurezza per il servizio Azure Spring Cloud
 I controlli di sicurezza sono incorporati nel servizio cloud Spring di Azure.
@@ -30,4 +31,4 @@ Un controllo di sicurezza è una qualità o una funzionalità di un servizio di 
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Tag del servizio | Sì | Usare il tag del servizio **AzureSpringCloud** per definire i controlli di accesso alla rete in uscita nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o nel firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags)per consentire il traffico verso le applicazioni cloud Spring di Azure.<br><br>*Nota:* Attualmente solo la nuova istanza del servizio cloud Spring di Azure creata dopo 2020/07/07 supporta il tag del servizio **AzureSpringCloud** . | [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+| Tag del servizio | Sì | Usare il tag del servizio **AzureSpringCloud** per definire i controlli di accesso alla rete in uscita nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o nel firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags)per consentire il traffico verso le applicazioni cloud Spring di Azure.<br><br>*Nota:* Attualmente solo la nuova istanza del servizio cloud Spring di Azure creata dopo 2020/07/14 supporta il tag del servizio **AzureSpringCloud** . | [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

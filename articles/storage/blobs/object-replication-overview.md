@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036982"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -63,6 +63,8 @@ La replica di oggetti è supportata solo per gli account di archiviazione per us
 - Francia centrale
 - Canada orientale
 - Canada centrale
+- Stati Uniti orientali 2
+- Stati Uniti centrali
 
 Sia gli account di origine che di destinazione devono trovarsi in una di queste aree per poter usare la replica di oggetti. Gli account possono trovarsi in due aree diverse.
 

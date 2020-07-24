@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036829"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurare chiavi gestite dal cliente con Azure Key Vault tramite PowerShell
 
@@ -39,15 +39,16 @@ Per altre informazioni sulla configurazione di identità gestite assegnate dal s
 
 ## <a name="create-a-new-key-vault"></a>Creare un nuovo insieme di credenziali delle chiavi
 
-Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**.
+Per creare un nuovo insieme di credenziali delle chiavi con PowerShell, installare la versione 2.0.0 o successiva del modulo [AZ. Key Vault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell. Chiamare quindi [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) per creare un nuovo insieme di credenziali delle chiavi.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. Nella versione 2.0.0 e successive del modulo AZ. Key Vault, l'eliminazione temporanea è abilitata per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi.
+
+Nell'esempio seguente viene creato un nuovo insieme di credenziali delle chiavi con l' **eliminazione** temporanea e **non vengono rieliminate** le proprietà abilitate. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimen
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurare la crittografia con chiavi gestite dal cliente
 
-Per impostazione predefinita, la crittografia di archiviazione di Azure usa chiavi gestite da Microsoft. In questo passaggio configurare l'account di archiviazione di Azure per l'uso delle chiavi gestite dal cliente e specificare la chiave da associare all'account di archiviazione.
+Per impostazione predefinita, la crittografia di archiviazione di Azure usa chiavi gestite da Microsoft. In questo passaggio, configurare l'account di archiviazione di Azure per usare le chiavi gestite dal cliente con Azure Key Vault, quindi specificare la chiave da associare all'account di archiviazione.
 
-Chiamare [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente. Includere l'opzione **-KeyvaultEncryption** per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+Quando si configura la crittografia con chiavi gestite dal cliente, è possibile scegliere di ruotare automaticamente la chiave usata per la crittografia quando la versione viene modificata nell'insieme di credenziali delle chiavi associato. In alternativa, è possibile specificare in modo esplicito una versione della chiave da usare per la crittografia finché la versione della chiave non viene aggiornata manualmente.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente
+
+Per configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente, installare il modulo [AZ. storage](https://www.powershellgallery.com/packages/Az.Storage) , versione 2.0.0 o successiva.
+
+Per ruotare automaticamente le chiavi gestite dal cliente, omettere la versione della chiave quando si configurano le chiavi gestite dal cliente per l'account di archiviazione. Chiamare [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente, e includere l'opzione **-KeyvaultEncryption** per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configurare la crittografia per la rotazione manuale delle versioni delle chiavi
+
+Per specificare in modo esplicito una versione della chiave da usare per la crittografia, fornire la versione della chiave quando si configura la crittografia con chiavi gestite dal cliente per l'account di archiviazione. Chiamare [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente, e includere l'opzione **-KeyvaultEncryption** per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
-
-Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. Prima di tutto, chiamare [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) per ottenere la versione più recente della chiave. Chiamare quindi [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
+Quando si ruota manualmente la versione della chiave, è necessario aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione. Prima di tutto, chiamare [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) per ottenere la versione più recente della chiave. Chiamare quindi [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nell'esempio precedente.
 
 ## <a name="use-a-different-key"></a>Usare una chiave diversa
 
@@ -101,7 +118,7 @@ Per modificare la chiave usata per la crittografia di archiviazione di Azure, ch
 
 ## <a name="revoke-customer-managed-keys"></a>Revocare le chiavi gestite dal cliente
 
-Se si ritiene che una chiave possa essere stata compromessa, è possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+È possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

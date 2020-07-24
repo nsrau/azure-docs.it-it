@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80548663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038274"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
 
@@ -27,9 +27,8 @@ Eseguire sempre un rilevamento delle vulnerabilità di sicurezza sull'immagine p
 
 ## <a name="open-source-based-images"></a>Immagini basate su open source
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Categoria**                                                 | **Controllo**                                                                                                                                                                                                                                                                              |
+| Category | Controllo |
+| -------- | ----- |
 | Sicurezza                                                     | Installare tutte le patch di sicurezza più recenti per la distribuzione di Linux.                                                                                                                                                                                                              |
 | Sicurezza                                                     | Seguire le linee guida di settore per proteggere l'immagine di macchina virtuale per la distribuzione Linux specifica.                                                                                                                                                                                     |
 | Sicurezza                                                     | Limitare la superficie di attacco mantenendo un footprint minimo soltanto con ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                                                                                                                                               |
@@ -50,9 +49,8 @@ Eseguire sempre un rilevamento delle vulnerabilità di sicurezza sull'immagine p
 
 ## <a name="windows-server-based-images"></a>Immagini basate su Windows Server
 
-|||
-|-------------| -------------------------|
-| **Categoria**                                                     | **Controllo**                                                                                                                                                                |
+| Category | Controllo |
+|--------- | ----- |
 | Sicurezza                                                         | Usare un'immagine base del sistema operativo protetta. Il disco rigido virtuale usato per l'origine di un'immagine basata su Windows Server deve provenire da immagini del sistema operativo Windows Server fornite tramite Microsoft Azure. |
 | Sicurezza                                                         | Installare tutti gli aggiornamenti della sicurezza più recenti.                                                                                                                                     |
 | Sicurezza                                                         | Le applicazioni non devono dipendere da nomi utente limitati come amministratore, radice o amministratore.                                                                |

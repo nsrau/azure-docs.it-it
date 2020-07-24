@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463404"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038443"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Set di impostazioni di esempio per Media Encoder Standard (MES)
 
@@ -29,7 +29,7 @@ ms.locfileid: "61463404"
 Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Se è necessario personalizzare un set di impostazioni di codifica, iniziare con uno dei set di impostazioni di sistema seguenti, forniti in questa sezione come modello per la configurazione personalizzata. Per informazioni sul significato di ogni elemento in questi set di impostazioni e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Quando si usa un set di impostazioni per codifiche 4K, si dovrebbe ottenere il tipo di unità riservata `S3`. Per altre informazioni, vedere [Come scalare la codifica](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Quando si usa un set di impostazioni per codifiche 4K, si dovrebbe ottenere il tipo di unità riservata `S3`. Per altre informazioni, vedere [Come scalare la codifica](./media-services-scale-media-processing-overview.md).  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Impostazione predefinita di rotazione del video nei set di impostazioni:
 Quando si usa Media Encoder Standard, la rotazione del video è abilitata per impostazione predefinita. Se il video è stato registrato in un dispositivo mobile in modalità verticale, questi set di impostazioni lo ruotano in modalità orizzontale prima della codifica.
@@ -86,4 +86,4 @@ Quando si usa Media Encoder Standard, la rotazione del video è abilitata per im
   
  [Codec video H.264 a bitrate singolo con risoluzione SD di bassa qualità per Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) genera un file MP4 con audio AAC stereo e una velocità in bit di 56 kbps.  
   
- Per altre informazioni sui codificatori di servizi multimediali, vedere [Codifica su richiesta con i servizi multimediali di Azure](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Per altre informazioni sui codificatori di servizi multimediali, vedere [Codifica su richiesta con i servizi multimediali di Azure](./media-services-encode-asset.md).

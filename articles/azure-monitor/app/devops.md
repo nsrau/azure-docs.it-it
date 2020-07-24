@@ -3,11 +3,12 @@ title: Monitoraggio delle prestazioni delle app Web-applicazione Azure Insights
 description: Funzione di Application Insights nel ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033683"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -46,7 +47,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 * Qual è la causa radice? L'errore si è verificato al livello di un componente o di una dipendenza? Si tratta di un problema di comunicazione?
 * Quanti sono gli utenti interessati? Se i più problemi da affrontare sono più di uno, qual è il più importante?
 
-## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
+## <a name="what-is-application-insights"></a>Informazioni su Application Insights
 ![Flusso di lavoro di base di Application Insights](./media/devops/020.png)
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.
@@ -109,7 +110,7 @@ La mappa delle applicazioni individua automaticamente la topologia dell'applicaz
 ![Mappa delle applicazioni](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Analytics in Application Insights
-Con [Analytics](../../azure-monitor/app/analytics.md)è possibile scrivere query arbitrarie in un efficace linguaggio simile a SQL.  Effettuare la diagnosi nell'intero stack diventa facile, perché il confluire di diverse prospettive permette di porre le domande corrette per correlare le prestazioni del servizio alle metriche aziendali e all'esperienza del cliente. 
+Con [Analytics](../log-query/log-query-overview.md)è possibile scrivere query arbitrarie in un efficace linguaggio simile a SQL.  Effettuare la diagnosi nell'intero stack diventa facile, perché il confluire di diverse prospettive permette di porre le domande corrette per correlare le prestazioni del servizio alle metriche aziendali e all'esperienza del cliente. 
 
 È possibile eseguire query di tutte le istanze di telemetria e dei dati non elaborati archiviati nel portale. Il linguaggio include filtri, join, aggregazioni e altre operazioni. È possibile calcolare i campi ed eseguire analisi statistiche e sono disponibili visualizzazioni grafiche e tabulari.
 
@@ -159,4 +160,3 @@ Iniziare a usare Application Insights è semplice. Le opzioni principali sono le
 * [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)e anche per [app Azure servizio](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentare il progetto in fase di sviluppo, cosa possibile per le app [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), nonché per [Node. js](../../azure-monitor/app/nodejs.md) e una serie di [altri tipi](../../azure-monitor/app/platforms.md). 
 * Instrumentare [qualsiasi pagina Web](../../azure-monitor/app/javascript.md) aggiungendo un breve frammento di codice.
-

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27adde84f62f8c8d79389e1de4e867439d5a3be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603741"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034738"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -3323,7 +3323,7 @@ Per altre informazioni, vedere [Skype for Business topologies supported with mod
 
 **Tipo:** Funzionalità modificata **Categoria di servizio:** Privileged Identity Management **Funzionalità del prodotto:** Privileged Identity Management
 
-Con l'aggiornamento dell'anteprima pubblica di Azure AD Privileged Identity Management (PIM) per Controllo degli accessi in base al ruolo di Azure, è ora possibile:
+Con l'aggiornamento dell'anteprima pubblica di Azure AD Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è ora possibile:
 
 * Usare Just Enough Administration.
 * Richiedere l'approvazione per l'attivazione dei ruoli delle risorse.

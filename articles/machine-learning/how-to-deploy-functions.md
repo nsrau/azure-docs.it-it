@@ -11,11 +11,12 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f42729b97f4a02e549766dc816db8361b3b8e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030930"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,6 +56,7 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
     >
     > Per impostazione predefinita, quando si esegue il packaging per le funzioni, l'input viene considerato come testo. Se si è interessati a utilizzare i byte non elaborati dell'input (ad esempio per i trigger BLOB), è necessario utilizzare [AMLRequest per accettare dati non elaborati](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+Per altre informazioni sullo script di immissione, vedere [definire il codice](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script) di assegnazione dei punteggi
 
 * **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 

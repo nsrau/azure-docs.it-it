@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033565"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
@@ -59,7 +60,7 @@ Ecco la funzione:
 
 Tutte le funzioni di orchestrazione JavaScript devono includere il [ `durable-functions` modulo](https://www.npmjs.com/package/durable-functions). Si tratta di una libreria che consente di scrivere Durable Functions in JavaScript. Esistono tre differenze significative tra una funzione di orchestrazione e altre funzioni JavaScript:
 
-1. La funzione è una [funzione del generatore.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. La funzione è una [funzione del generatore.](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. Per la funzione viene eseguito il wrapping in una chiamata al metodo `durable-functions` del modulo `orchestrator` (qui `df`).
 3. La funzione deve essere sincrona. Poiché il metodo 'orchestrator' gestisce la chiamata a 'context.done', la funzione deve semplicemente restituire.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033582"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -22,13 +22,13 @@ Per comprendere i comportamento in termini di scalabilità, è necessario conosc
 
 La tabella **Cronologia** di Archiviazione di Azure contiene gli eventi di cronologia per tutte le istanza di orchestrazione in un hub attività. Il nome della tabella è nel formato *NomeHubAttività*History. Durante l'esecuzione di istanze vengono aggiunte nuove righe alla tabella. La chiave di partizione della tabella deriva dall'ID di istanza dell'orchestrazione. Nella maggior parte dei casi un ID di istanza è casuale, garantendo in tal modo la distribuzione ottimale delle partizioni interne in Archiviazione di Azure.
 
-Quando è necessario eseguire un'istanza di orchestrazione, le righe appropriate della tabella Cronologia vengono caricate in memoria. Tali *eventi di cronologia* vengono riprodotti nel codice di funzione dell'agente di orchestrazione per riportarlo allo stato precedente all'ultimo checkpoint. L'utilizzo della cronologia di esecuzione per ricompilare lo stato in questo modo è influenzato dal [modello di origine evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
+Quando è necessario eseguire un'istanza di orchestrazione, le righe appropriate della tabella Cronologia vengono caricate in memoria. Tali *eventi di cronologia* vengono riprodotti nel codice di funzione dell'agente di orchestrazione per riportarlo allo stato precedente all'ultimo checkpoint. L'utilizzo della cronologia di esecuzione per ricompilare lo stato in questo modo è influenzato dal [modello di origine evento](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabella delle istanze
 
 La tabella **instances** è un'altra tabella di archiviazione di Azure che contiene gli Stati di tutte le istanze di orchestrazione e di entità all'interno di un hub attività. In seguito alla creazione di istanze, nuove righe vengono aggiunte alla tabella. La chiave di partizione di questa tabella è l'ID dell'istanza di orchestrazione o la chiave di entità e la chiave di riga è una costante fissa. È presente una riga per ogni orchestrazione o istanza di entità.
 
-Questa tabella viene usata per soddisfare le richieste di query di istanza dalle `GetStatusAsync` API (.NET) e `getStatus` (JavaScript), nonché dall' [API HTTP di query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Questa tabella viene usata per soddisfare le richieste di query di istanza dalle `GetStatusAsync` API (.NET) e `getStatus` (JavaScript), nonché dall' [API HTTP di query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Trigger di code interne
 

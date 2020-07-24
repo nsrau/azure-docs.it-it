@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
-ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: efe2a8825e1817a934db7d36edae6feaf820ab79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76276830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037186"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Avviare, arrestare ed eliminare l'applicazione Azure Spring cloud
 
@@ -25,7 +27,7 @@ Dopo aver distribuito un'applicazione, è possibile avviarla, arrestarla ed elim
 1. Selezionare l'applicazione di cui cambiare lo stato.
 1. Nella pagina **Panoramica** relativa a tale applicazione selezionare **Start/Stop**, **Restart**o **Delete**.
 
-## <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+## <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 > [!NOTE]
 > È possibile usare parametri facoltativi e configurare le impostazioni predefinite con l'interfaccia della riga di comando di Azure. Per altre informazioni sull'interfaccia della riga di comando di Azure, leggere la [documentazione di riferimento](spring-cloud-cli-reference.md).  

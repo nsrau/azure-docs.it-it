@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, V2, Kinect di Azure, confronto, SDK, differenze, hardware, software
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67452514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031576"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Confronto tra Kinect e Kinect per Windows V2 di Azure
 
@@ -22,17 +22,17 @@ L'hardware e il Software Development Kit di Azure Kinect DK presentano differenz
 
 Nella tabella seguente sono elencate le differenze di alto livello tra il kit di sviluppo Kinect di Azure e Kinect per Windows V2.
 
-|    |      | Azure Kinect DK |  Kinect per Windows V2 |
-|----------|---------------|--------| ------------|
+| Funzionalità | Type | Azure Kinect DK | Kinect per Windows V2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Audio** | Dettagli  | 7-matrice circolare MIC | matrice a fasi lineare da 4 Mic |
 | **Sensore di movimento** | Dettagli | 3-asse accelerometro 3-giroscopio asse | accelerometro a 3 assi |
 | **Fotocamera RGB**    | Dettagli | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
 | **Fotocamera di profondità**  | Metodo   | Ora del volo | Ora del volo |
-|                   | Soluzione | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
+|                   | Risoluzione | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
 |                   |            | 512 x 512 px @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
 | **Connettività** | Data | USB 3.1 gen 1 con tipo USB-C  | USB 3,1 gen 1|
-|  | Potenza | ALIMENTATORE esterno o USB-C | PSU esterno |
+|  | Elettricità | ALIMENTATORE esterno o USB-C | PSU esterno |
 |  | Sincronizzazione | Profondità & RGB interna, dispositivo esterno a dispositivo| RGB & Depth solo interno |
 | **Meccanico** | Dimensioni | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
 |  | Massa | 440 g | 970 g |
@@ -44,7 +44,7 @@ Ulteriori dettagli sono disponibili nel documento [hardware di Azure Kinect dk](
 
 La tabella seguente fornisce un confronto delle funzionalità di accesso ai sensori di dispositivo di basso livello.
 
-| **Funzionalità**| **Kinect di Azure** | **Kinect per Windows** | **Note** |
+| **Funzionalità**| **Azure Kinect** | **Kinect per Windows** | **Note** |
 |---------|---------|------------|---------|
 | **Depth** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
@@ -57,7 +57,7 @@ La tabella seguente fornisce un confronto delle funzionalità di accesso ai sens
 | **Condividere l'accesso con più client** | | ✔️ | Azure Kinect Sensor SDK si basa su WinUSB/libUSB per accedere al dispositivo e non dispone di un servizio implementato per consentire la condivisione dell'accesso ai dispositivi con più processi |
 | **Strumento di registrazione/riproduzione del flusso** | ✔️ | ✔️ | Azure Kinect DK usa un'implementazione basata su contenitori Matroska Open Source |
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
 Il set di funzionalità di Azure Kinect SDK è diverso da Kinect per Windows V2, come descritto di seguito:
 

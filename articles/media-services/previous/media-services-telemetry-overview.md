@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52b737e88e13c59d260da73c6fa37a1088cb91d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74895786"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038464"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria per le entità Live **Channel**, **StreamingEndpoint**e Live **Archive** . 
 
@@ -50,7 +51,7 @@ I dati di telemetria vengono scritti in una tabella di archiviazione di Azure ne
 
 I dati di telemetria possono essere usati in uno dei modi seguenti:
 
-- Leggere i dati direttamente da Archiviazione tabelle di Azure tramite, ad esempio, Storage SDK. Per la descrizione delle tabelle di archiviazione di dati di telemetria, vedere **Uso delle informazioni di telemetria** in [questo](https://msdn.microsoft.com/library/mt742089.aspx) argomento.
+- Leggere i dati direttamente da Archiviazione tabelle di Azure tramite, ad esempio, Storage SDK. Per la descrizione delle tabelle di archiviazione di dati di telemetria, vedere **Uso delle informazioni di telemetria** in [questo](/previous-versions/azure/mt742089(v=azure.100)) argomento.
 
 Oppure
 
@@ -73,12 +74,12 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|{ID account}_{ID entità}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L'ID dell'account viene incluso nella chiave di partizione per semplificare i flussi di lavoro in quei casi in cui nello stesso account di archiviazione scrivono più account di Servizi multimediali.
 RowKey|{secondi a mezzanotte}_{valore casuale}|01688_00199<br/><br/>La chiave di riga inizia con il numero di secondi che mancano alla mezzanotte per consentire le principali query di stile all'interno di una partizione. Per altre informazioni, vedere [questo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) articolo. 
 Timestamp|Data/ora|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
+Tipo|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
 Nome|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L'ora (UTC) in cui si è verificato l'evento di telemetria|2016-09-09T22:42:36.924Z<br/><br/>L'ora osservata è fornita dall'entità che invia i dati di telemetria (ad esempio un canale). Poiché possono esserci problemi di sincronizzazione tra i componenti, questo valore è approssimativo
 ServiceID|{ID servizio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -94,12 +95,12 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 
 **Endpoint di streaming**
 
-Proprietà|valore|Esempi
+Proprietà|Valore|Esempi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|StreamingEndpoint
+Tipo|Tipo|StreamingEndpoint
 Nome|Nome|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -113,12 +114,12 @@ E2ELatency|Latenza end-to-end media|250
 
 **Canale live**
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Channel
+Tipo|Tipo|Canale
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -131,19 +132,19 @@ OverlapCount|Sovrapposizione nell'inserimento|0
 DiscontinuityCount|Discontinuità di traccia|0
 LastTimestamp|Timestamp degli ultimi dati inseriti|1800488800
 NonincreasingCount|Numero di frammenti scartati a causa del timestamp invariato|2
-UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |True
-UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|True
-UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
-Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |Vero
+UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|Vero
+UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |Vero
+Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|Vero<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Archivio Live**
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Archiviazione
+Tipo|Tipo|Archiviazione
 Nome|Nome|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

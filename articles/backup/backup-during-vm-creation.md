@@ -3,11 +3,12 @@ title: Abilitare il backup quando si crea una macchina virtuale di Azure
 description: Viene descritto come abilitare il backup quando si crea una macchina virtuale di Azure con backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032851"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -29,7 +30,7 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
 
 2. In Azure Marketplace fare clic su **calcolo**e quindi selezionare un'immagine di macchina virtuale.
 
-3. Configurare la VM in base alle istruzioni di [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) o [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) .
+3. Configurare la VM in base alle istruzioni di [Windows](../virtual-machines/windows/quick-create-portal.md) o [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
 4. Nella scheda **gestione** , in **Abilita backup**, fare clic **su attiva**.
 5. Backup di backup di Azure in un insieme di credenziali di servizi di ripristino. Se non si dispone di un insieme di credenziali esistente, fare clic su **Crea nuovo** .

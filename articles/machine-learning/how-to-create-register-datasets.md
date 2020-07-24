@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031168"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -33,6 +33,7 @@ Con Azure Machine Learning set di impostazioni è possibile:
 * Condividere i dati e collaborare con altri utenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per creare e usare i set di impostazioni, è necessario:
 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
@@ -42,13 +43,13 @@ Per creare e usare i set di impostazioni, è necessario:
 * [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
 
 > [!NOTE]
-> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , che è compatibile solo con Python a 64 bit. Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , che è compatibile solo con Python a 64 bit. Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="compute-size-guidance"></a>Linee guida per le dimensioni di calcolo
 
 Quando si crea un set di dati, verificare la potenza di elaborazione del calcolo e le dimensioni dei dati in memoria. Le dimensioni dei dati nell'archiviazione non corrispondono alle dimensioni dei dati in un frame di dati. Ad esempio, i dati nei file CSV possono espandersi fino a 10 volte in un frame di dati, quindi un file CSV da 1 GB può diventare 10 GB in un frame di dati. 
 
-Il fattore principale è la dimensione del set di dati in memoria, ad esempio un frame di dati. È consigliabile che le dimensioni di calcolo e la potenza di elaborazione includano 2x le dimensioni della RAM. Quindi, se il frame di dataframe è 10 GB, è necessario disporre di una destinazione di calcolo con più di 20 GB di RAM per garantire che il frame di frame possa adattarsi alla memoria ed essere elaborato. Se i dati sono compressi, possono espandersi ulteriormente; 20 GB di dati relativamente sparsi archiviati in formato parquet compresso possono espandersi fino a circa 800 GB di memoria. Poiché i file parquet archiviano i dati in un formato a colonne, se è necessaria solo la metà delle colonne, è sufficiente caricare circa 400 GB di memoria.
+Il fattore principale è la dimensione del set di dati in memoria, ad esempio un frame di dati. È consigliabile che le dimensioni di calcolo e la potenza di elaborazione includano 2x le dimensioni della RAM. Quindi, se il dataframe è 10 GB, si vuole una destinazione di calcolo con 20 GB di RAM per garantire che il frame di frame possa adattarsi alla memoria ed essere elaborato. Se i dati sono compressi, possono espandersi ulteriormente; 20 GB di dati relativamente sparsi archiviati in formato parquet compresso possono espandersi fino a circa 800 GB di memoria. Poiché i file parquet archiviano i dati in un formato a colonne, se è necessaria solo la metà delle colonne, è sufficiente caricare circa 400 GB di memoria.
  
 Se si usano Pandas, non c'è alcun motivo per avere più di 1 vCPU, perché questo è tutto ciò che verrà usato. È possibile parallelizzare facilmente a molti vCPU in un singolo Azure Machine Learning istanza/nodo di calcolo tramite Modin e Dask/Ray e scalabilità orizzontale in un cluster di grandi dimensioni, se necessario, semplicemente passando `import pandas as pd` a `import modin.pandas as pd` . 
  
@@ -121,11 +122,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|Nome|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+|Indice|PassengerId|Survived|Pclass|Nome|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+0|1|Falso|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
+1|2|Vero|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un volume CSV, e creare il set di dati da tale file. Il codice seguente illustra questo flusso di lavoro.
 
@@ -158,7 +159,7 @@ Usare il [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core
 
 from azureml.core import Dataset, Datastore
 
-# create tabular dataset from a SQL database in datastore
+# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
@@ -186,7 +187,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
 
-Utilizzare il [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) Metodo sulla `FileDatasetFactory` classe per caricare file in qualsiasi formato e per creare un oggetto filedataset non registrato. Se lo spazio di archiviazione è dietro una rete virtuale o un firewall, impostare il parametro `validate =False` nel `from_files()` metodo. In questo modo viene ignorato il passaggio di convalida iniziale e si garantisce che sia possibile creare il set di dati da questi file protetti.
+Utilizzare il [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) Metodo sulla `FileDatasetFactory` classe per caricare file in qualsiasi formato e per creare un oggetto filedataset non registrato. Se lo spazio di archiviazione è dietro una rete virtuale o un firewall, impostare il parametro `validate=False` nel `from_files()` metodo. In questo modo viene ignorato il passaggio di convalida iniziale e si garantisce che sia possibile creare il set di dati da questi file protetti.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -210,6 +211,7 @@ Per creare un set di dati in studio:
 1. Selezionare **Crea set di dati** per scegliere l'origine del set di dati. Questa origine può essere costituita da file locali, da un archivio dati o da URL pubblici.
 1. Selezionare **tabulare** o **file** per tipo di set di dati.
 1. Selezionare **Avanti** per aprire il modulo **archivio dati e selezione file** . In questo modulo è possibile selezionare la posizione in cui salvare il set di dati dopo la creazione, nonché selezionare i file di dati da usare per il set di dati. 
+    1. Abilitare Ignora convalida se i dati si trova in una rete virtuale. Scopri di più sull' [isolamento e sulla privacy della rete virtuale](how-to-enable-virtual-network.md#machine-learning-studio).
 1. Selezionare **Avanti** per popolare i moduli **Impostazioni e anteprima** e **schema** ; vengono popolate in modo intelligente in base al tipo di file ed è possibile configurare ulteriormente il set di dati prima della creazione in questi moduli. 
 1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selezionare **Crea** per completare la creazione del set di dati.

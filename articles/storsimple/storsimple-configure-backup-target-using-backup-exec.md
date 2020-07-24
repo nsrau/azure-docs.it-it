@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 699df6ab44a08645c9f46e95cd2ad279de75ea70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036931"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
 
@@ -255,7 +255,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |
@@ -310,10 +310,10 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Completo | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Mensile  | Sabato  |   |
+| Ogni mese  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -381,13 +381,13 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: rotazione GFS settimanale, mensile e annuale
 
-| Settimana | Completo | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Settimana | Full | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Mensile | StorSimple Mensile |   |   |   |   |   |
+| Ogni mese | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 
@@ -448,7 +448,7 @@ La sezione seguente descrive come creare un breve script per avviare ed eliminar
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Per avviare o eliminare uno snapshot cloud
 
-1. [Installare Azure PowerShell](/powershell/azure/overview).
+1. [Installare Azure PowerShell](/powershell/azure/).
 2. Scaricare e installare lo script di PowerShell [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1).
 3. Nel server che esegue lo script eseguire PowerShell come amministratore. Assicurarsi di eseguire lo script con `-WhatIf $true` per visualizzare le modifiche apportate dallo script. Al termine della convalida, passare `-WhatIf $false`. Eseguire questo comando:
    ```powershell

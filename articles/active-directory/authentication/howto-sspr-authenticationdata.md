@@ -1,44 +1,47 @@
 ---
-title: Requisiti dei dati di SSPR Azure AD-Azure Active Directory
-description: Requisiti dei dati per la Reimpostazione self-service delle password e informazioni su come soddisfarli
+title: Informazioni preliminari sul contatto per la reimpostazione della password self-service-Azure Active Directory
+description: Informazioni su come pre-popolare le informazioni di contatto per gli utenti di Azure Active Directory la reimpostazione della password self-service (SSPR) in modo da poter usare la funzionalità senza completare un processo di registrazione.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 07/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42f7e120745357d3bd5735cca568bdd6971ea061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035384"
 ---
-# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
+# <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Popolamento preliminare delle informazioni di contatto per l'autenticazione utente per Azure Active Directory reimpostazione della password self-service (SSPR)
 
-Per distribuire la funzionalità di reimpostazione password self-service di Azure Active Directory (Azure AD) devono essere presenti i dati di autenticazione. Alcune organizzazioni richiedono agli utenti di immettere personalmente i dati di autenticazione. Altre organizzazioni preferiscono eseguire la sincronizzazione con i dati già esistenti nel Active Directory. Questi dati sincronizzati vengono resi disponibili per Azure AD e SSPR senza richiedere l'intervento dell'utente se si soddisfano i requisiti seguenti:
+Per utilizzare Azure Active Directory (Azure AD) la reimpostazione della password self-service (SSPR), devono essere presenti le informazioni di contatto per l'autenticazione di un utente. Alcune organizzazioni dispongono di utenti che registrano i propri dati di autenticazione. Altre organizzazioni preferiscono sincronizzare i dati di autenticazione già esistenti nel Active Directory Domain Services (AD DS). Questi dati sincronizzati vengono resi disponibili per Azure AD e SSPR senza che sia necessaria l'interazione dell'utente. Se gli utenti devono modificare o reimpostare la password, possono farlo anche se non hanno registrato in precedenza le informazioni di contatto.
 
-* I dati sono formattati correttamente nella directory locale dell'utente.
-* È stata eseguita la configurazione di [Azure AD Connect usando le impostazioni rapide](../hybrid/how-to-connect-install-express.md).
+È possibile pre-popolare le informazioni di contatto per l'autenticazione se si soddisfano i requisiti seguenti:
 
-Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico*, ad esempio +1 4255551234.
+* I dati sono stati formattati correttamente nella directory locale.
+* Sono stati configurati [Azure ad Connect](../hybrid/how-to-connect-install-express.md) per il tenant di Azure ad.
+
+I numeri di telefono devono essere nel formato *+ CountryCode PhoneNumber*, ad esempio *+ 1 4251234567*.
 
 > [!NOTE]
-> È necessario uno spazio tra il prefisso internazionale e il numero di telefono.
+> Deve esserci uno spazio tra il codice paese e il numero di telefono.
 >
-> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato +1 4255551234X12345, le estensioni vengono rimosse prima della chiamata.
+> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato *+1 4251234567X12345*, le estensioni vengono rimosse prima della chiamata.
 
 ## <a name="fields-populated"></a>Campi popolati
 
-Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i mapping seguenti:
+Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i mapping seguenti per popolare le informazioni di contatto per l'autenticazione per SSPR:
 
-| Active Directory locale | Azure AD |
-| --- | --- |
-| telephoneNumber | Telefono ufficio |
-| mobile | Cellulare |
+| Active Directory locale | Azure AD     |
+|------------------------------|--------------|
+| telephoneNumber              | Telefono ufficio |
+| mobile                       | Cellulare |
 
 Quando un utente verifica il numero di telefono cellulare, il campo *telefonico* in **informazioni di contatto per l'autenticazione** in Azure ad viene popolato anche con tale numero.
 
@@ -48,10 +51,12 @@ Nella pagina **metodi di autenticazione** per un utente Azure AD nel portale di 
 
 ![Informazioni di contatto per l'autenticazione di un utente in Azure AD][Contact]
 
-* Se il campo **telefono** è popolato e il **telefono cellulare** è abilitato nel criterio SSPR, l'utente visualizza tale numero nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Il campo **telefono alternativo** non viene usato per la reimpostazione della password.
-* Se il campo **posta elettronica** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente visualizza tale messaggio nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Se il campo **indirizzo di posta elettronica alternativo** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente **non** visualizzerà il messaggio di posta elettronica nella pagina di registrazione per la reimpostazione della password, ma lo visualizzerà durante il flusso di lavoro
+Le considerazioni seguenti riguardano le informazioni di contatto per l'autenticazione:
+
+* Se il campo *telefono* è popolato e il *telefono cellulare* è abilitato nel criterio SSPR, l'utente visualizza tale numero nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Il campo *telefono alternativo* non viene usato per la reimpostazione della password.
+* Se il campo *posta elettronica* è popolato e il *messaggio di posta elettronica* è abilitato nel criterio SSPR, l'utente visualizza tale messaggio nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Se il campo *indirizzo di posta elettronica alternativo* è popolato e il *messaggio di posta elettronica* è abilitato nel criterio SSPR, l'utente non visualizzerà il messaggio di posta elettronica nella pagina di registrazione per la reimpostazione della password, ma lo visualizzerà durante il flusso di lavoro
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
@@ -65,19 +70,25 @@ Quando un utente si registra, i campi seguenti vengono impostati nella pagina di
 * **Indirizzo di posta elettronica per l'autenticazione**
 * **Domande di sicurezza e risposte**
 
-Se è stato specificato un **valore per cellulare** o **indirizzo di posta elettronica alternativo**, gli utenti possono usare immediatamente questi valori per reimpostare le password, anche se non hanno eseguito la registrazione per il servizio. Gli utenti visualizzano e possono modificare tali valori quando si registrano per la prima volta. Una volta eseguita la registrazione, questi valori vengono salvati in permanenza rispettivamente nei campi telefono per l' **autenticazione** e **indirizzo di posta elettronica di autenticazione** .
+Se è stato specificato un valore *per cellulare* o *indirizzo di posta elettronica alternativo*, gli utenti possono usare immediatamente questi valori per reimpostare le password, anche se non hanno eseguito la registrazione per il servizio.
+
+Gli utenti visualizzano anche questi valori quando si registrano per la prima volta e possono modificarli se desiderano. Dopo la corretta registrazione, questi valori vengono salvati in permanenza rispettivamente nei campi telefono per l' *autenticazione* e *indirizzo di posta elettronica* per l'autenticazione.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Impostare e leggere i dati di autenticazione tramite PowerShell
 
 I campi seguenti possono essere impostati tramite PowerShell:
 
-* **Indirizzo di posta elettronica alternativo**
-* **Cellulare**
-* **Telefono ufficio**: può essere impostato solo se non in sincronizzazione con una directory locale
+* *Indirizzo di posta elettronica alternativo*
+* *Cellulare*
+* *Telefono ufficio*
+    * Può essere impostato solo se non si esegue la sincronizzazione con una directory locale.
+
+> [!IMPORTANT]
+> Nelle funzionalità del comando tra PowerShell V1 e PowerShell V2 esiste una mancanza di parità Nota. L' [API REST di Microsoft Graph (beta) per i metodi di autenticazione](/graph/api/resources/authenticationmethods-overview) è lo stato di progettazione corrente per offrire interazione moderna.
 
 ### <a name="use-powershell-version-1"></a>Usare PowerShell versione 1
 
-Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione, è possibile seguire la procedura seguente per configurare tutti i campi.
+Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione, attenersi alla procedura seguente per configurare ogni campo.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Impostare i dati di autenticazione con PowerShell versione 1
 
@@ -85,10 +96,10 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
-Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
-Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 4251234567"
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 4252345678"
 
-Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 4251234567" -PhoneNumber "+1 4252345678"
 ```
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Leggere i dati di autenticazione con PowerShell versione 1
@@ -115,9 +126,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usare PowerShell versione 2
 
-Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Al termine dell'installazione, è possibile seguire la procedura seguente per configurare tutti i campi.
+Per iniziare, [scaricare e installare il modulo di PowerShell Azure ad versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
 
-Per eseguire l'installazione rapida da versioni recenti di PowerShell che supportano Install-Module, eseguire i comandi seguenti. La prima riga controlla se il modulo è già installato.
+Per eseguire rapidamente l'installazione da versioni recenti di PowerShell che supportano `Install-Module` , eseguire i comandi seguenti. La prima riga verifica se il modulo è già installato:
 
 ```PowerShell
 Get-Module AzureADPreview
@@ -125,16 +136,18 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
+Dopo aver installato il modulo, attenersi alla procedura seguente per configurare ogni campo.
+
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Impostare i dati di autenticazione con PowerShell versione 2
 
 ```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
-Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 2345678901"
-Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 4251234567"
+Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 4252345678"
 
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 4251234567" -TelephoneNumber "+1 4252345678"
 ```
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Leggere i dati di autenticazione con PowerShell versione 2
@@ -151,16 +164,9 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Domande sulle licenze](concept-sspr-licensing.md)
-* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
-* [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
-* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
-* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+Una volta che le informazioni di contatto per l'autenticazione sono già popolate per gli utenti, completare l'esercitazione seguente per abilitare la reimpostazione self-service della password:
+
+> [!div class="nextstepaction"]
+> [Abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Gli amministratori globali possono modificare informazioni di contatto per l'autenticazione di un utente"

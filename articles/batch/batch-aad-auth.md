@@ -4,12 +4,12 @@ description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. In
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032460"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -193,7 +193,7 @@ Ecco un esempio di definizione di un ruolo personalizzato:
 }
 ```
 
-Per informazioni generali sulla creazione di un ruolo personalizzato, vedere [Ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
+Per informazioni generali sulla creazione di un ruolo personalizzato, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Ottenere l'ID tenant per Azure Active Directory
 

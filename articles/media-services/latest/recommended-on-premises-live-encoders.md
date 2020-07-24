@@ -9,16 +9,16 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030666"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificatori di streaming live locali verificati
 
-In Servizi multimediali di Azure, un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) (canale) rappresenta una pipeline per l'elaborazione di contenuti in streaming live. L'evento live riceve i flussi di input live in uno dei due modi seguenti.
+In Servizi multimediali di Azure, un [evento live](/rest/api/media/liveevents) (canale) rappresenta una pipeline per l'elaborazione di contenuti in streaming live. L'evento live riceve i flussi di input live in uno dei due modi seguenti.
 
 * Un codificatore live locale invia un flusso RTMP o Smooth Streaming (MP4 frammentato) a bitrate multipli all'evento live che non è abilitato per eseguire la codifica live con Servizi multimediali. I flussi inseriti passano attraverso gli eventi live senza altri processi di elaborazione. Questo metodo viene chiamato **pass-through**. È consigliabile che il codificatore Live invii flussi a bitrate multipli anziché un flusso a bitrate singolo a un evento Live pass-through per consentire lo streaming a bitrate adattivo per il client. 
 

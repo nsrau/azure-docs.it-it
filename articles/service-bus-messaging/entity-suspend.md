@@ -3,12 +3,12 @@ title: Bus di servizio di Azure-sospendere le entità di messaggistica
 description: Questo articolo illustra come sospendere temporaneamente e riattivare le entità messaggio del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038138"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
 
@@ -20,7 +20,7 @@ Una sospensione o una riattivazione può essere eseguita dall'utente o dal siste
 
 Nel portale la sezione **Properties** per la rispettiva entità consente di modificare lo stato; lo screenshot seguente mostra l'interruttore per una coda:
 
-![][1]
+![Screenshot della funzionalità del bus di servizio con l'impostazione delle proprietà evidenziata e l'opzione di stato della coda impostata su attivo e in rosso.][1]
 
 Il portale consente solo la disabilitazione completa delle code. È anche possibile disabilitare separatamente le operazioni di invio e di ricezione usando le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) per il bus di servizio in .NET Framework SDK oppure con un modello di Azure Resource Manager, tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70883921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036472"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la console seriale per accedere a GRUB e alla modalità utente singolo
 È probabile che il GRand Unified Bootloader (GRUB) sia il primo elemento visualizzato quando si avvia una macchina virtuale (VM). Poiché viene visualizzato prima dell'avvio del sistema operativo, GRUB non è accessibile tramite SSH. In GRUB è possibile modificare la configurazione di avvio per l'avvio in modalità utente singolo, tra le altre cose.
@@ -36,7 +37,7 @@ Per attivare la modalità utente singolo, immettere GRUB quando si avvia la macc
 ## <a name="general-grub-access"></a>Informazioni generali sull'accesso a GRUB
 Per accedere a GRUB, riavviare la macchina virtuale mentre il riquadro della console seriale è aperto. Per alcune distribuzioni è necessario l'input da tastiera per visualizzare GRUB, mentre altre vengono automaticamente visualizzate per alcuni secondi per consentire l'input da tastiera utente per annullare il timeout.
 
-Per poter accedere alla modalità utente singolo, è necessario assicurarsi che GRUB sia abilitato nella macchina virtuale. A seconda della distribuzione, potrebbe essere necessario eseguire alcune operazioni di installazione per assicurarsi che GRUB sia abilitato. Per informazioni specifiche della distribuzione, vedere la sezione successiva e la pagina relativa al [supporto per Linux in Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) .
+Per poter accedere alla modalità utente singolo, è necessario assicurarsi che GRUB sia abilitato nella macchina virtuale. A seconda della distribuzione, potrebbe essere necessario eseguire alcune operazioni di installazione per assicurarsi che GRUB sia abilitato. Per informazioni specifiche della distribuzione, vedere la sezione successiva.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Riavviare la macchina virtuale per accedere a GRUB nella console seriale
 È possibile riavviare la macchina virtuale all'interno della console seriale passando il puntatore del mouse sul pulsante **Riavvia** e selezionando **Riavvia macchina virtuale**. Nella parte inferiore del riquadro viene visualizzata una notifica relativa al riavvio.
@@ -112,7 +113,7 @@ Se è stato configurato l'accesso a GRUB e alla radice usando le istruzioni prec
 
    Prima di poter accedere alla modalità utente singolo verrà richiesta la password dell'amministratore. Questa password è quella creata nelle istruzioni precedenti.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Immagine animata che mostra un'interfaccia della riga di comando. L'utente seleziona un server, individua la fine della riga del kernel, quindi immette il testo specificato.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Immettere la modalità utente singolo senza account radice abilitato in RHEL
 Se l'utente root non è stato abilitato seguendo le istruzioni precedenti, è comunque possibile reimpostare la password radice attenendosi alla seguente procedura:
@@ -136,7 +137,7 @@ Se l'utente root non è stato abilitato seguendo le istruzioni precedenti, è co
 1. A questo punto si è alla radice. È possibile reimpostare la password radice immettendo `passwd` e quindi usare le istruzioni precedenti per attivare la modalità utente singolo. 
 1. Al termine, immettere `reboot -f` per riavviare il computer.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Immagine animata che mostra un'interfaccia della riga di comando. L'utente seleziona un server, individua la fine della riga del kernel e immette i comandi specificati.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > L'esecuzione delle istruzioni precedenti consente di passare alla shell di emergenza, in modo da poter eseguire anche attività quali la modifica `fstab` . Tuttavia, in genere è consigliabile reimpostare la password radice e usarla per attivare la modalità utente singolo.
@@ -240,7 +241,7 @@ Per abilitare la modalità utente singolo in Oracle Linux, seguire le istruzioni
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla console seriale, vedere:
 * [Documentazione sulla console seriale Linux](serial-console-linux.md)
-* [Usare la console seriale per abilitare GRUB in diverse distribuzioni](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Usare la console seriale per abilitare GRUB in diverse distribuzioni](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
 * [Usare la console seriale per le chiamate a NMI e SysRq](serial-console-nmi-sysrq.md)
 * [Console seriale per macchine virtuali Windows](serial-console-windows.md)
 * [Diagnostica di avvio](boot-diagnostics.md)

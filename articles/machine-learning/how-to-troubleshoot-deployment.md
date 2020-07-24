@@ -11,11 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68c328bde853bbf4e48ab7ab1a6e2c7b51198f59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030692"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
 
@@ -100,6 +101,8 @@ Una volta suddiviso il processo di distribuzione in singole attività, è possib
 
 Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
 
+Per esplorare un esempio eseguibile, è possibile trovare un [notebook di distribuzione locale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) di esempio nel repository [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) .
+
 > [!WARNING]
 > Le distribuzioni di servizi Web locali non sono supportate per gli scenari di produzione.
 
@@ -181,6 +184,7 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+
 ## <a name="container-cannot-be-scheduled"></a>Non è possibile pianificare il contenitore
 
 Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se dopo 5 minuti non sono disponibili nodi nel cluster con la quantità appropriata di risorse disponibili, la distribuzione avrà esito negativo con il messaggio `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 

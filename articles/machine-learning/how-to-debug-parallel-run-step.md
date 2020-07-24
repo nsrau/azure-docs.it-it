@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
+ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/06/2020
-ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/16/2020
+ms.openlocfilehash: a6a3e9a7a914711f6b7c923ac2249ebf3285c877
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031015"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ A causa della natura distribuita dei processi ParallelRunStep, sono presenti log
 
 - `~/logs/overview.txt`: questo file offre informazioni di alto livello sul numero di mini-batch (chiamati anche attività) creati e il numero di mini-batch elaborati. A questo scopo, mostra il risultato del processo. Se il processo non è riuscito, verrà visualizzato il messaggio di errore e il punto in cui avviare la risoluzione dei problemi.
 
-- `~/logs/sys/master.txt`: questo file fornisce la visualizzazione del nodo master (chiamato anche agente di orchestrazione) del processo in esecuzione. Include la creazione di attività, il monitoraggio dello stato di avanzamento e il risultato dell'esecuzione.
+- `~/logs/sys/master.txt`: Questo file fornisce la visualizzazione del nodo principale, nota anche come agente di orchestrazione, del processo in esecuzione. Include la creazione di attività, il monitoraggio dello stato di avanzamento e il risultato dell'esecuzione.
 
 I log generati dallo script di immissione usando l'helper EntryScript e le istruzioni print sono disponibili nei file seguenti:
 
@@ -61,11 +61,11 @@ Quando è necessaria una conoscenza completa del modo in cui ogni nodo ha esegui
 È anche possibile trovare informazioni sull'utilizzo delle risorse dei processi per ogni ruolo di lavoro. Queste informazioni sono in formato CSV e si trovano in `~/logs/sys/perf/overview.csv`. Le informazioni su ogni processo sono disponibili in `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Come registrare dallo script utente personale da un contesto remoto?
-È possibile ottenere un logger da EntryScript, come illustrato nel codice di esempio seguente, per fare in modo che i log vengano visualizzati nella cartella **logs/user** nel portale.
+ParallelRunStep può eseguire più processi in un nodo basato su process_count_per_node. Per organizzare i log da ogni processo nel nodo e combinare l'istruzione Print and log, è consigliabile usare ParallelRunStep logger, come illustrato di seguito. Si ottiene un logger da EntryScript e si fa in modo che i log vengano visualizzati nella cartella **logs/utente** nel portale.
 
 **Script di immissione di esempio che usa il logger:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""
@@ -87,7 +87,9 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Come passare un input laterale, ad esempio uno o più file contenenti una tabella di ricerca, a tutti i ruoli di lavoro?
 
-Costruire un [set di dati](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contenente l'input laterale e registrarlo con l'area di lavoro. Passarlo al parametro `side_input` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
+L'utente può passare i dati di riferimento allo script usando side_inputs parametro di ParalleRunStep. Tutti i set di impostazioni specificati come side_inputs verranno montati in ogni nodo di lavoro. L'utente può ottenere la posizione del montaggio passando un argomento.
+
+Costruire un [set](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) di dati contenente i dati di riferimento e registrarli con l'area di lavoro. Passarlo al parametro `side_inputs` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")

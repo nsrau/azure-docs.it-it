@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038223"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Connetti i rilevamenti di AI Vectra ad Azure Sentinel
+
+> [!IMPORTANT]
+> Il connettore di dati rilevati da AI Vectra di Azure è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra come connettere l'appliance di rilevamento delle informazioni per la [rilevanza di ai Vectra](https://www.vectra.ai/product/cognito-detect) ad Azure Sentinel. Il connettore di rilevamento dei dati di i/o rilevati da AI Vectra consente di riportare facilmente i dati in Azure Sentinel, in modo che sia possibile visualizzarli nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi.
 

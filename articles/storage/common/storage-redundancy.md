@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036727"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -59,11 +59,11 @@ Una richiesta di scrittura in un account di archiviazione che usa l'archiviazion
 
 La tabella seguente illustra i tipi di account di archiviazione che supportano l'archiviazione con ridondanza della zona e le relative aree:
 
-|    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
+| Tipo di account di archiviazione | Aree supportate | Servizi supportati |
+|--|--|--|
+| Utilizzo generico v2<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2 | BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
+| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali | Solo BLOB in blocchi Premium |
+| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali | Solo condivisioni file Premium |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -122,6 +122,9 @@ Per informazioni sui prezzi, vedere i dettagli sui prezzi per i [BLOB](https://a
 
 L'archiviazione con ridondanza geografica, con GRS o GZRS, consente di replicare i dati in un'altra posizione fisica dell'area secondaria per proteggerli da interruzioni a livello di area. Tuttavia, i dati possono essere letti solo se il cliente o Microsoft avvia un failover dall'area primaria a quella secondaria. Quando si Abilita l'accesso in lettura all'area secondaria, i dati sono disponibili per la lettura in qualsiasi momento, anche in una situazione in cui l'area primaria diventa non disponibile. Per l'accesso in lettura all'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
 
+> [!NOTE]
+> File di Azure non supporta l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Progettare le applicazioni per l'accesso in lettura all'area secondaria
 
 Se l'account di archiviazione è configurato per l'accesso in lettura all'area secondaria, è possibile progettare le applicazioni in modo da passare facilmente alla lettura dei dati dell'area secondaria se l'area primaria, per un qualsiasi motivo, non è più disponibile. 
@@ -146,11 +149,11 @@ Le tabelle nelle sezioni seguenti riepilogano le opzioni di ridondanza disponibi
 
 La tabella seguente descrive i principali parametri per ogni opzione di ridondanza:
 
-| Parametro                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Percentuale di durabilità degli oggetti nel corso di un determinato anno<sup>1</sup>                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
-| Contratto di servizio relativo alla disponibilità per le richieste di lettura<sup>1</sup>  | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) per GRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GRS | Almeno 99,9% (99% per livello di accesso sporadico) per GZRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GZRS |
-| Contratto di servizio relativo alla disponibilità per le richieste di scrittura<sup>1</sup>  | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
+| Parametro | Archiviazione con ridondanza locale | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Percentuale di durabilità degli oggetti nel corso di un determinato anno<sup>1</sup> | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
+| Contratto di servizio relativo alla disponibilità per le richieste di lettura<sup>1</sup> | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) per GRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GRS | Almeno 99,9% (99% per livello di accesso sporadico) per GZRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GZRS |
+| Contratto di servizio relativo alla disponibilità per le richieste di scrittura<sup>1</sup> | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
 
 [1](https://azure.microsoft.com/support/legal/sla/storage/)Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure, vedere il <sup>Contratto di servizio di Archiviazione di Azure</sup>.
 
@@ -158,12 +161,12 @@ La tabella seguente descrive i principali parametri per ogni opzione di ridondan
 
 La tabella seguente indica se viene garantita la durabilità e la disponibilità dei dati in un determinato scenario, a seconda del tipo di ridondanza attivo per l'account di archiviazione:
 
-| Scenario di interruzione                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Un nodo all'interno di un data center non è più disponibile                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                 |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Sì                              | Sì<sup>1</sup>                                  | Sì                                  |
-| Nell'area primaria si verifica un'interruzione a livello di area                                                                                     | No                              | No                               | Sì<sup>1</sup>                                  | Sì<sup>1</sup>                                  |
-| L'accesso in lettura all'area secondaria è disponibile se l'area primaria non è più disponibile | No                              | No                               | Sì (con RA-GRS)                                   | Sì (con RA-GZRS)                                 |
+| Scenario di interruzione | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Un nodo all'interno di un data center non è più disponibile | Sì | Sì | Sì | Sì |
+| Mancata disponibilità di un intero data center (di zona o non di zona) | No | Sì | Sì<sup>1</sup> | Sì |
+| Nell'area primaria si verifica un'interruzione a livello di area | No | No | Sì<sup>1</sup> | Sì<sup>1</sup> |
+| L'accesso in lettura all'area secondaria è disponibile se l'area primaria non è più disponibile | No | No | Sì (con RA-GRS) | Sì (con RA-GZRS) |
 
 <sup>1</sup> Il failover dell'account è necessario per ripristinare la disponibilità di scrittura se l'area primaria non è più disponibile. Per altre informazioni, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
 
@@ -171,9 +174,9 @@ La tabella seguente indica se viene garantita la durabilità e la disponibilità
 
 La tabella seguente illustra le opzioni di ridondanza supportate per ogni tipo di account di archiviazione. Per informazioni sui tipi di account di archiviazione, vedere la [panoramica degli account di archiviazione](storage-account-overview.md).
 
-| Archiviazione con ridondanza locale                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB in blocchi<br /> Archiviazione BLOB<br /> Archiviazione file                | Utilizzo generico v2<br /> Archiviazione BLOB in blocchi<br /> Archiviazione file                             | Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB                     | Utilizzo generico v2                     |
+| Archiviazione con ridondanza locale | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB in blocchi<br /> Archiviazione BLOB<br /> Archiviazione file | Utilizzo generico v2<br /> Archiviazione BLOB in blocchi<br /> Archiviazione file | Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB | Utilizzo generico v2 |
 
 Tutti i dati per gli account di archiviazione vengono copiati in base all'opzione di ridondanza per l'account di archiviazione. Vengono copiati gli oggetti tra cui BLOB in blocchi, BLOB di aggiunta, BLOB di pagine, code, tabelle e file. Vengono copiati i dati in tutti i livelli, tra cui il livello di archiviazione. Per altre informazioni sui livelli di BLOB, vedere [Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 

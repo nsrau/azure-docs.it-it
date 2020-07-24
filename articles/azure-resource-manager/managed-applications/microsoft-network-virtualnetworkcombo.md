@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033207"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente
 
@@ -19,11 +20,11 @@ Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
 
 Quando l'utente seleziona una nuova rete virtuale, può personalizzare il nome di ogni subnet e il prefisso dell'indirizzo. La configurazione delle subnet è facoltativa.
 
-![Nuovo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Nuovo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-new.png)
 
 Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping di ogni subnet richiesta dal modello di distribuzione a una subnet esistente. In questo caso la configurazione delle subnet è obbligatoria.
 
-![Microsoft.Network.VirtualNetworkCombo esistente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Microsoft.Network.VirtualNetworkCombo esistente](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>SCHEMA
 

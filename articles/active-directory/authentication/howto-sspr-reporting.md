@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035299"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -50,9 +51,9 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 6. Dal menu **filtro** nella parte superiore del riquadro selezionare l'elenco a discesa **servizio** e modificarlo nel tipo di servizio di gestione delle **password self-service** .
 7. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
 
-### <a name="converged-registration-preview"></a>Registrazione convergente (anteprima)
+### <a name="combined-registration"></a>Registrazione combinata
 
-Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
+Se è stata abilitata la [registrazione combinata](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 

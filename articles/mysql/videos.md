@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: c18604a9f4b95f4b586efaf3201dd0a679d8d316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b306bc55c97b977d0f06fa3e7a56f734f2f9db9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60342611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030641"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Video su Database di Azure per MySQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "60342611"
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
-I servizi Database di Azure per PostgreSQL e Database di Azure per MySQL combinano i motori di database e le funzionalità di tipo Community Edition di un servizio completamente gestito in modo da consentire di concentrarsi sulla creazione di app anziché sulla gestione del database. In questo video viene presentata una panoramica dei vantaggi derivanti dall'uso del sevizio e delle principali funzionalità disponibili.
+I servizi Database di Azure per PostgreSQL e Database di Azure per MySQL combinano i motori di database e le funzionalità di tipo Community Edition di un servizio completamente gestito in modo da consentire di concentrarsi sulla creazione di app anziché sulla gestione del database. In questo video viene presentata una panoramica dei vantaggi derivanti dall'uso del sevizio e delle principali funzionalità disponibili. Vedere come creare un [database di Azure per PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal) e [database di Azure per MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal).
 
 [Deep dive on managed service capabilities for MySQL and PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148) (Approfondimento sulle funzionalità dei servizi gestiti per MySQL e PostgreSQL)
 

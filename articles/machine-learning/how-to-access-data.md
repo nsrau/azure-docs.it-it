@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031508"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,8 +92,9 @@ Dopo la creazione dell'archivio dati, questa convalida viene eseguita solo per i
 ### <a name="python-sdk"></a>Python SDK
 
 Tutti i metodi di registrazione si trovano nella classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e hanno il formato `register_azure_*`.
+
 > [!IMPORTANT]
-> Se si prevede di creare un archivio dati per gli account di archiviazione che si trovano in una rete virtuale, vedere la sezione accedere ai dati in una rete virtuale.
+> Se si prevede di creare un archivio dati per gli account di archiviazione che si trovano in una rete virtuale, vedere la sezione [accedere ai dati in una rete virtuale](#access-data-in-a-virtual-network) .
 
 È possibile trovare le informazioni necessarie per popolare il metodo `register_azure_*()` nel [portale di Azure](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Creare un nuovo archivio dati in pochi passaggi in Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Se l'account di archiviazione dati si trova in una rete virtuale, sono necessari passaggi di configurazione aggiuntivi per garantire che lo studio abbia accesso ai dati. Vedere [isolamento rete & privacy] (How-to-Enable-Virtual-Network. MD # Machine-Learning-Studio) per assicurarsi che vengano applicati i passaggi di configurazione appropriati. 
+> Se l'account di archiviazione dati si trova in una rete virtuale, sono necessari passaggi di configurazione aggiuntivi per garantire che lo studio abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-virtual-network.md#machine-learning-studio) per assicurarsi che vengano applicati i passaggi di configurazione appropriati. 
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **Archivi dati** nel riquadro sinistro in **Gestisci**.

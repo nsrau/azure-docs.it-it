@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036795"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -360,7 +360,7 @@ Se si ha un file server Windows esistente, è possibile installare Sincronizzazi
 Un errore comune dei clienti quando eseguono la migrazione dei dati nella nuova distribuzione di Sincronizzazione file di Azure è copiare i dati direttamente nella condivisione file di Azure, anziché nei file server Windows. Anche se Sincronizzazione file di Azure identificherà tutti i nuovi file nella condivisione file di Azure e li sincronizzerà con le condivisioni file di Windows, questa operazione è in genere molto più lenta rispetto al caricamento dei dati tramite il file server Windows. Quando si usano gli strumenti di copia di Azure, ad esempio AzCopy, è importante usare la versione più recente. Controllare la [tabella strumenti copia file](storage-files-migration-overview.md#file-copy-tools) per ottenere una panoramica degli strumenti di copia di Azure per assicurarsi che sia possibile copiare tutti i metadati importanti di un file, ad esempio timestamp e ACL.
 
 ## <a name="antivirus"></a>Antivirus
-Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente). 
+Poiché l'antivirus funziona analizzando i file per il codice dannoso noto, un prodotto antivirus potrebbe causare il richiamo di file a più livelli, ottenendo così un elevato costo in uscita. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente). 
 
 Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Protection (SCEP), escludono automaticamente dalla lettura i file con questo attributo. Un test su entrambe le soluzioni ha identificato un problema secondario: quando si aggiunge un server a un gruppo di sincronizzazione esistente, i file di dimensioni inferiori a 800 byte vengono richiamati (scaricati) nel nuovo server. Questi file rimangono nel nuovo server e non vengono suddivisi in livelli, poiché non soddisfano il requisito relativo alle dimensioni della suddivisione in livelli (> 64 KB).
 
@@ -368,9 +368,9 @@ Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Prot
 > I fornitori di software antivirus possono controllare la compatibilità tra il prodotto e Sincronizzazione file di Azure usando [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), disponibile nell'Area download Microsoft.
 
 ## <a name="backup"></a>Backup 
-Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
+Se è abilitata la suddivisione in livelli nel cloud, le soluzioni che eseguono direttamente il backup dell'endpoint server o di una macchina virtuale in cui si trova l'endpoint server non devono essere usate. La suddivisione in livelli nel cloud fa sì che solo un subset dei dati sia archiviato nell'endpoint server, con il set di dati completo che risiede nella condivisione file di Azure. A seconda della soluzione di backup utilizzata, i file a livelli verranno ignorati e non vengono sottoposti a backup (poiché hanno il FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set di attributi) o verranno richiamati su disco, ottenendo un elevato costo in uscita. È consigliabile usare una soluzione di backup cloud per eseguire il backup diretto della condivisione file di Azure. Per altre informazioni, vedere [informazioni sul backup di condivisioni file di Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) o contattare il provider di backup per verificare se supporta il backup di condivisioni file di Azure.
 
-Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con il cloud a livelli disabilitato. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
+Se si preferisce usare una soluzione di backup locale, è necessario eseguire i backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
 
 > [!Note]  
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.

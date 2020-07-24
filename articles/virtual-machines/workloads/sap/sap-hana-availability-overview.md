@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71266065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035639"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Disponibilità elevata di SAP HANA per macchine virtuali di Azure
 
@@ -37,9 +37,9 @@ L'articolo presuppone anche che l'utente abbia familiarità con l'installazione,
 
 Questi articoli forniscono una buona panoramica dell'uso di SAP HANA in Azure:
 
-- [Installazione manuale di SAP HANA a istanza singola nelle VM di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Installazione manuale di SAP HANA a istanza singola nelle VM di Azure](./hana-get-started.md)
 - [Configurare la replica di sistema SAP HANA nelle macchine virtuali di Azure](sap-hana-high-availability.md)
-- [Eseguire il backup di SAP HANA in VM di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Eseguire il backup di SAP HANA in VM di Azure](./sap-hana-backup-guide.md)
 
 È anche consigliabile avere familiarità con il contenuto di questi articoli su SAP HANA:
 
@@ -52,7 +52,7 @@ Questi articoli forniscono una buona panoramica dell'uso di SAP HANA in Azure:
 - [Riavvio automatico del servizio SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html) (Configurare la replica di sistema SAP HANA)
 
-Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, prima di definire l'architettura di disponibilità in Azure, è consigliabile vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, prima di definire l'architettura di disponibilità in Azure, è consigliabile vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../windows/manage-availability.md).
 
 ## <a name="service-level-agreements-for-azure-components"></a>Contratti di servizio per componenti di Azure
 
@@ -60,16 +60,16 @@ Azure offre contratti di servizio di disponibilità differenti per i diversi com
 
 Il [contratto di contratto per le macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) descrive tre diversi contratti di Service per tre diverse configurazioni:
 
-- Una macchina virtuale singola che usa [dischi SSD Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
-- Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Questa opzione offre un tempo di attività mensile del 99,95%.
-- Più macchine virtuali (almeno due) organizzate in una [zona disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Questa opzione ha fornito un tempo di indisponibilità mensile del 99,99%.
+- Una macchina virtuale singola che usa [dischi SSD Premium di Azure](../../windows/managed-disks-overview.md) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
+- Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](../../windows/tutorial-availability-sets.md). Questa opzione offre un tempo di attività mensile del 99,95%.
+- Più macchine virtuali (almeno due) organizzate in una [zona disponibilità](../../../availability-zones/az-overview.md). Questa opzione ha fornito un tempo di indisponibilità mensile del 99,99%.
 
 Confrontare il requisito di disponibilità con i contratti di servizio che i componenti di Azure possono fornire. Scegliere quindi gli scenari per SAP HANA per ottenere il livello di disponibilità necessario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [disponibilità di SAP HANA in un'area di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
-- Informazioni sulla [disponibilità di SAP HANA tra aree di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
+- Informazioni sulla [disponibilità di SAP HANA in un'area di Azure](./sap-hana-availability-one-region.md).
+- Informazioni sulla [disponibilità di SAP HANA tra aree di Azure](./sap-hana-availability-across-regions.md). 
 
 
 
@@ -86,5 +86,3 @@ Confrontare il requisito di disponibilità con i contratti di servizio che i com
 
 
   
-
-

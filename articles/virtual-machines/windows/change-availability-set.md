@@ -6,19 +6,19 @@ author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cf0d6639f215cd0fce8dc4bbc50b4e37f48d3f7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036248"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Modificare il set di disponibilità per una macchina virtuale
 I passaggi seguenti descrivono come modificare il set di disponibilità di una VM tramite Azure PowerShell. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per modificare il set di disponibilità, è necessario eliminare e quindi ricreare la macchina virtuale. 
 
 Questo articolo si applica alle macchine virtuali Linux e Windows.
 
-Questo articolo è stato testato l'ultima volta il 12/02/2019 tramite [Azure Cloud Shell](https://shell.azure.com/powershell) e il [modulo PowerShell di Azure](https://docs.microsoft.com/powershell/azure/install-az-ps) versione 1.2.0.
+Questo articolo è stato testato l'ultima volta il 12/02/2019 tramite [Azure Cloud Shell](https://shell.azure.com/powershell) e il [modulo PowerShell di Azure](/powershell/azure/install-az-ps) versione 1.2.0.
 
 Questo esempio non verifica se la macchina virtuale è collegata a un servizio di bilanciamento del carico. Se la macchina virtuale è collegata a un servizio di bilanciamento del carico, sarà necessario aggiornare lo script per gestire tale caso. 
 
@@ -107,4 +107,3 @@ Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed
 ## <a name="next-steps"></a>Passaggi successivi
 
 Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

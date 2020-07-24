@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4815e51d22501d6110f3bc26a878513d6d700ce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031287"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -212,26 +212,26 @@ Quando si configurano gli esperimenti nell' `AutoMLConfig` oggetto, è possibile
 L'attività `forecasting` della serie temporale richiede parametri aggiuntivi nell'oggetto di configurazione:
 
 1. `time_column_name`: parametro obbligatorio che definisce il nome della colonna nei dati di training contenenti una serie temporale valida.
-1. `max_horizon`: definisce l'intervallo di tempo di cui eseguire la stima in base alla periodicità dei dati di training. Ad esempio, se sono presenti dati di training con intervalli di tempo giornalieri, si definisce l'intervallo di tempo in giorni per cui eseguire il training del modello.
-1. `grain_column_names`: definisce il nome delle colonne che contengono i dati delle singole serie temporali nei dati di training. Ad esempio, se si esegue la stima delle vendite di un particolare marchio per negozio, è necessario definire le colonne del negozio e del marchio come colonne di granularità. Verranno create serie temporali e previsioni separate per ogni granularità o raggruppamento. 
+1. `forecast_horizon`: Definisce il numero di periodi in cui si vuole prevedere la previsione. L'orizzonte Integer è in unità della frequenza timeseries. Se, ad esempio, si dispone di dati di training con frequenza giornaliera, è possibile definire il periodo di tempo in cui si desidera eseguire il training del modello.
+1. `time_series_id_column_names`: Definisce le colonne che identificano in modo univoco la serie temporale nei dati che hanno più righe con lo stesso timestamp. Se, ad esempio, si prevede di prevedere le vendite di un particolare marchio per negozio, è necessario definire le colonne Store e brand come identificatori di serie temporali. Verranno create previsioni separate per ogni raggruppamento. Se gli identificatori delle serie temporali non sono definiti, si presuppone che il set di dati sia una serie temporale.
 
 Per esempi delle impostazioni usate di seguito, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',

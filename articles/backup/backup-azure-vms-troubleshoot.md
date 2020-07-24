@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032834"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -21,13 +21,13 @@ Questa sezione descrive l'errore relativo all'operazione di backup della macchin
 
 ### <a name="basic-troubleshooting"></a>Risoluzione dei problemi di base
 
-* Verificare di disporre dell'[ultima versione](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent) dell'agente di macchine virtuali (WA Agent).
-* Verificare che la versione del sistema operativo per le macchine virtuali Windows o Linux sia supportata. Fare riferimento a [Matrice di supporto per il backup di macchine virtuali IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Verificare di disporre dell'[ultima versione](./backup-azure-arm-vms-prepare.md#install-the-vm-agent) dell'agente di macchine virtuali (WA Agent).
+* Verificare che la versione del sistema operativo per le macchine virtuali Windows o Linux sia supportata. Fare riferimento a [Matrice di supporto per il backup di macchine virtuali IaaS](./backup-support-matrix-iaas.md).
 * Verificare che non sia in esecuzione un altro servizio di backup.
-  * Per assicurarsi che non siano presenti problemi di estensione degli snapshot, [disinstallare le estensioni per forzare il ricaricamento e riprovare a eseguire il backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
+  * Per assicurarsi che non siano presenti problemi di estensione degli snapshot, [disinstallare le estensioni per forzare il ricaricamento e riprovare a eseguire il backup](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verificare che la macchina virtuale disponga della connettività Internet.
   * Assicurarsi che non sia in esecuzione un altro servizio di backup.
-* In `Services.msc` assicurarsi che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Microsoft Azure** manca, installarlo da [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* In `Services.msc` assicurarsi che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Microsoft Azure** manca, installarlo da [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * Il **registro eventi** potrebbe mostrare errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server Backup, e che non sono dovuti al backup di Azure. Seguire questa procedura per determinare se il problema è correlato a Backup di Azure:
   * Se si verifica un errore con una voce **Backup** nell'origine o nel messaggio dell'evento, controllare se i backup delle macchine virtuali IaaS di Azure sono stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
   * Se Backup di Azure è in funzione, il problema è probabilmente correlato a un'altra soluzione di backup.
@@ -133,7 +133,7 @@ Se nella directory **MachineKeys** vengono visualizzate autorizzazioni diverse d
    * Autorizzazioni di lettura
 2. Eliminare tutti i certificati in cui **Rilasciato a** è il modello di distribuzione classica o **Windows Azure CRP Certificate Generator**:
 
-   * [Aprire i certificati in una console del computer locale](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
+   * [Aprire i certificati in una console del computer locale](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * In **Personale** > **Certificati** eliminare tutti i certificati in cui **Rilasciato a** o **Windows Azure CRP Certificate Generator** è il modello di distribuzione classica.
 3. Attivare un processo di backup della macchina virtuale.
 
@@ -193,7 +193,7 @@ Codice errore: 320001, ResourceNotFound <br/> Messaggio di errore: Impossibile e
 La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
-- Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
+- Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
 - Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ## <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione
@@ -237,7 +237,7 @@ Codice errore: ExtensionVCRedistInstallationFailure <br/> Messaggio di errore: L
 ## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy: nella macchina virtuale è configurato un criterio non valido che impedisce l'operazione di snapshot
 Codice errore:  UserErrorRequestDisallowedByPolicy <BR> Messaggio di errore: Nella macchina virtuale che impedisce l'operazione di Snapshot vengono configurati criteri non validi.
 
-Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno dell'ambiente](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considerare di modificare i criteri dall'[effetto Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) all'[effetto Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) oppure creare manualmente il gruppo di risorse in base allo [schema di denominazione richiesto da Backup di Azure](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno dell'ambiente](../governance/policy/tutorials/govern-tags.md), considerare di modificare i criteri dall'[effetto Deny](../governance/policy/concepts/effects.md#deny) all'[effetto Modify](../governance/policy/concepts/effects.md#modify) oppure creare manualmente il gruppo di risorse in base allo [schema di denominazione richiesto da Backup di Azure](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Processi
 
@@ -254,13 +254,13 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 | --- | --- |
 | Ripristino non riuscito con errore interno del cloud. |<ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se è presente un **indirizzo** configurato, significa che le impostazioni DNS sono configurate.<br> <li>Il servizio cloud che si sta tentando di ripristinare è configurato con **ReservedIP** e le macchine virtuali esistenti nel servizio cloud sono in stato di arresto. È possibile controllare che il servizio cloud abbia un IP riservato usando i cmdlet di PowerShell seguenti: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>Si sta tentando di ripristinare una macchina virtuale con le configurazioni di rete speciali seguenti nello stesso servizio cloud: <ul><li>Macchine virtuali con configurazione del servizio di bilanciamento del carico, interno ed esterno.<li>Macchine virtuali con più indirizzi IP riservati. <li>Macchine virtuali con più schede di rete. </ul><li>Selezionare un nuovo servizio cloud nell'interfaccia utente o vedere le [considerazioni sul ripristino](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) per le macchine virtuali con configurazioni di rete speciali.</ol> |
 | Il nome DNS selezionato è già utilizzato. <br>Specificare un nome DNS diverso e riprovare. |Il nome DNS fa riferimento al nome del servizio cloud, che in genere termina con **.cloudapp.net**. Questo nome deve essere univoco. Se si verifica questo errore, è necessario scegliere un altro nome di macchina virtuale durante il ripristino. <br><br> Questo errore viene visualizzato solo dagli utenti del portale di Azure. L'operazione di ripristino tramite PowerShell riesce perché ripristina solo i dischi e non crea la macchina virtuale. L'errore viene restituito quando la macchina virtuale viene creata in modo esplicito dall'utente dopo l'operazione di ripristino dei dischi. |
-| La configurazione della rete virtuale specificata non è corretta. <br>Specificare una configurazione della rete virtuale diversa e riprovare. |Nessuno |
-| Il servizio cloud specificato usa un IP riservato che non corrisponde alla configurazione della macchina virtuale da ripristinare. <br>Specificare un servizio cloud diverso che non usa un IP riservato o scegliere un altro punto di ripristino da cui eseguire il ripristino. |Nessuno |
-| Il servizio cloud ha raggiunto il limite per il numero di endpoint di input. <br>Ripetere l'operazione specificando un servizio cloud diverso o usando un endpoint esistente. |Nessuno |
-| L'insieme di credenziali di Servizi di ripristino e l'account di archiviazione di destinazione si trovano in due aree diverse. <br>Verificare che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino. |Nessuno |
-| L'account di archiviazione specificato per l'operazione di ripristino non è supportato. <br>Sono supportati solo account di archiviazione Basic/Standard con impostazioni di replica con ridondanza locale o con ridondanza geografica. Selezionare un account di archiviazione supportato. |Nessuno |
+| La configurazione della rete virtuale specificata non è corretta. <br>Specificare una configurazione della rete virtuale diversa e riprovare. |Nessuna |
+| Il servizio cloud specificato usa un IP riservato che non corrisponde alla configurazione della macchina virtuale da ripristinare. <br>Specificare un servizio cloud diverso che non usa un IP riservato o scegliere un altro punto di ripristino da cui eseguire il ripristino. |Nessuna |
+| Il servizio cloud ha raggiunto il limite per il numero di endpoint di input. <br>Ripetere l'operazione specificando un servizio cloud diverso o usando un endpoint esistente. |Nessuna |
+| L'insieme di credenziali di Servizi di ripristino e l'account di archiviazione di destinazione si trovano in due aree diverse. <br>Verificare che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino. |Nessuna |
+| L'account di archiviazione specificato per l'operazione di ripristino non è supportato. <br>Sono supportati solo account di archiviazione Basic/Standard con impostazioni di replica con ridondanza locale o con ridondanza geografica. Selezionare un account di archiviazione supportato. |Nessuna |
 | Il tipo di account di archiviazione specificato per l'operazione di ripristino non è online. <br>Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino sia online. |Questo problema può essere provocato da un errore temporaneo in Archiviazione di Azure o da un'interruzione del servizio. Scegliere un altro account di archiviazione. |
-| È stata raggiunta la quota di gruppi di risorse. <br>Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per aumentare i limiti. |Nessuno |
+| È stata raggiunta la quota di gruppi di risorse. <br>Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per aumentare i limiti. |Nessuna |
 | La subnet selezionata non esiste. <br>Selezionare una subnet esistente. |nessuno |
 | Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Per risolvere questo errore, ripristinare prima di tutto i dischi seguendo la procedura illustrata in [Ripristinare i dischi di cui è stato eseguito il backup](backup-azure-arm-restore-vms.md#restore-disks). Seguire quindi la procedura di PowerShell descritta in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
@@ -277,12 +277,12 @@ L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azur
 #### <a name="windows-vms"></a>Macchine virtuali di Windows
 
 * Scaricare e installare il file [MSI per l'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione è necessario disporre dei privilegi di amministratore.
-* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) per indicare che l'agente è stato installato. Questo passaggio non è necessario per le macchine virtuali di Azure Resource Manager.
+* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) per indicare che l'agente è stato installato. Questo passaggio non è necessario per le macchine virtuali di Azure Resource Manager.
 
 #### <a name="linux-vms"></a>Macchine virtuali di Linux
 
 * Installare la versione più recente dell'agente dal repository di distribuzione. Per informazioni dettagliate sul nome del pacchetto, vedere il [repository dell'agente Linux](https://github.com/Azure/WALinuxAgent).
-* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verificare che l'agente sia installato. Questo passaggio non è necessario per le macchine virtuali di Resource Manager.
+* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verificare che l'agente sia installato. Questo passaggio non è necessario per le macchine virtuali di Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Aggiornare l'agente di macchine virtuali
 
@@ -292,7 +292,7 @@ L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azur
 
 #### <a name="linux-vms"></a>Macchine virtuali di Linux
 
-* Per aggiornare l'agente di macchine virtuali Linux, seguire le istruzioni nell'articolo [Aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Per aggiornare l'agente di macchine virtuali Linux, seguire le istruzioni nell'articolo [Aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Usare sempre il repository di distribuzione per aggiornare l'agente.
@@ -326,5 +326,5 @@ Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapsho
 DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle macchine virtuali IaaS. Se è necessario un indirizzo IP privato statico, configurarlo tramite il portale di Azure o PowerShell. Assicurarsi che l'opzione DHCP all'interno della macchina virtuale sia abilitata.
 Per altre informazioni su come configurare un indirizzo IP statico tramite PowerShell, vedere:
 
-* [Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Modificare il metodo di allocazione per un indirizzo IP privato assegnato a un'interfaccia di rete](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)

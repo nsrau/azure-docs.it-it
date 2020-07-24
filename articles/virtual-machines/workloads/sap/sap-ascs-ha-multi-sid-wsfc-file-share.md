@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035979"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Disponibilità elevata multi-SID dell'istanza ASCS/SCS di SAP con Windows Server Failover Clustering e condivisione file in Azure
 
@@ -41,10 +42,10 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 >
 >Il numero massimo di istanze di SAP ASCS/SCS in un cluster WSFC è uguale al numero massimo di indirizzi IP front-end privati per ogni servizio di bilanciamento del carico interno di Azure.
 >
-> La configurazione introdotta in questa documentazione non è ancora supportata per l'uso per le [zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+> La configurazione introdotta in questa documentazione non è ancora supportata per l'uso per le [zone di disponibilità di Azure](../../../availability-zones/az-overview.md).
 > 
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager]. Considerare inoltre la possibilità di usare lo [SKU Load Balancer Standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) anziché lo SKU Basic del servizio di bilanciamento del carico di Azure.
+Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager]. Considerare inoltre la possibilità di usare lo [SKU Load Balancer Standard di Azure](../../../load-balancer/load-balancer-standard-availability-zones.md) anziché lo SKU Basic del servizio di bilanciamento del carico di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -4,15 +4,16 @@ description: Usare il controllo degli accessi in base al ruolo per gestire l'acc
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd6930a0228829f376140d515a3035afebad0f27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79273202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032426"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 
-Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
 
 > [!IMPORTANT]
 > I ruoli forniti da backup di Azure sono limitati alle azioni che possono essere eseguite in portale di Azure o tramite l'API REST o i cmdlet di PowerShell per l'insieme di credenziali di servizi di ripristino. Non rientrano sotto il controllo di questi ruoli le azioni eseguite nell'interfaccia utente client di Azure Backup Agent, nell'interfaccia utente di System Center Data Protection Manager o nell'interfaccia utente del server di Backup di Azure.
@@ -36,7 +37,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | | Collaboratore macchine virtuali | Risorsa della VM |
 | Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore | Gruppo di risorse in cui verrà distribuita la VM |
+| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
@@ -44,7 +45,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |
-| | Collaboratore | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
+| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
 | Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |

@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035078"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -55,6 +56,8 @@ I campi facoltativi possono essere configurati nel server Multi-Factor Authentic
 
 Il risultato della verifica (esito positivo o rifiuto) e il motivo di eventuali rifiuti vengono archiviati insieme con i dati di autenticazione. Questi dati sono disponibili nei report di autenticazione e uso.
 
+Per altre informazioni, vedere Data [Residency e Customer data per Azure multi-factor authentication](concept-mfa-data-residency.md).
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Quali codici brevi SMS vengono usati per inviare i messaggi SMS agli utenti?
 
 Nella Stati Uniti vengono usati i seguenti codici brevi SMS:
@@ -69,7 +72,9 @@ In Canada vengono usati i codici brevi SMS seguenti:
 * *759731*
 * *673801*
 
-Non vi sono garanzie di recapito di messaggi di richiesta di SMS o Multi-Factor Authentication basati su voce coerenti con lo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS. Non sono supportati i codici brevi per i paesi o le aree oltre il Stati Uniti e il Canada.
+Non vi sono garanzie di recapito di messaggi di richiesta di SMS o Multi-Factor Authentication basati su voce coerenti con lo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS.
+
+Non sono supportati i codici brevi per i paesi o le aree oltre il Stati Uniti e il Canada.
 
 ## <a name="billing"></a>Fatturazione
 

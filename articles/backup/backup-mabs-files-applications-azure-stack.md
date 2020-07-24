@@ -3,11 +3,12 @@ title: Eseguire il backup di file in Azure Stack macchine virtuali
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032766"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
 
@@ -43,7 +44,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](/system-center/dpm/create-dpm-protection-groups).
 
 4. Nella schermata **Seleziona metodo protezione dati** digitare un nome per il gruppo protezione dati. Selezionare la casella di controllo per la **protezione dati a breve termine** e la **protezione dati online**. Fare clic su **Avanti**.
 
@@ -132,5 +133,5 @@ Per visualizzare server di Backup di Azure entità nell'portale di Azure, attene
 
 Per informazioni sull'uso del server di Backup di Azure per proteggere altri carichi di lavoro, vedere uno degli articoli seguenti:
 
-* [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Eseguire il backup di SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Eseguire il backup di una farm di SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+* [Eseguire il backup di SQL Server](./backup-mabs-sql-azure-stack.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036132"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -238,7 +238,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 - Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md))
 - VM serie M con dischi acceleratore di scrittura.
-- Applicazione della [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) a una VM crittografata da Ade e viceversa.
+- Applicazione di ADE a una macchina virtuale con un disco dati crittografato con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK) o applicazione di SSE + CMK a un disco dati in una VM crittografata con Ade.
 - Migrazione di una macchina virtuale crittografata con ADE alla [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).
 
 

@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037764"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Informazioni sullo stato delle app in Azure Spring Cloud
 
@@ -40,8 +41,8 @@ Per visualizzare lo stato generale di un tipo di applicazione, selezionare **app
 |:--:|:----------------:|
 | Creating | La risorsa sta creando. |
 | Aggiornamento | Aggiornamento della risorsa in corso. |
-| Operazione riuscita | Le risorse sono state fornite e la distribuzione del file binario è stata completata. |
-| Operazione non riuscita | Non è stato possibile raggiungere l'obiettivo *riuscito* . |
+| Completato | Le risorse sono state fornite e la distribuzione del file binario è stata completata. |
+| Non riuscito | Non è stato possibile raggiungere l'obiettivo *riuscito* . |
 | Deleting | È in corso l'eliminazione della risorsa. Questa operazione impedisce l'operazione e la risorsa non è disponibile in questo stato. |
 
 ## <a name="app-instances-status"></a>Stato delle istanze dell'app
@@ -58,7 +59,7 @@ Per visualizzare lo stato di un'istanza specifica di un'app distribuita, fare cl
 |:--:|:----------------:|
 | Avvio in corso | Il file binario è stato distribuito correttamente nell'istanza specificata. L'avvio dell'istanza del file jar potrebbe non riuscire perché non è possibile eseguire correttamente il file jar. |
 | In esecuzione | L'istanza funziona. |
-| Operazione non riuscita | L'istanza dell'app non è riuscita a avviare il file binario dell'utente dopo diversi tentativi. |
+| Non riuscito | L'istanza dell'app non è riuscita a avviare il file binario dell'utente dopo diversi tentativi. |
 | Terminazione | L'istanza dell'app verrà arrestata. |
 
 **Lo stato di individuazione dell'istanza viene segnalato come uno dei valori seguenti:**

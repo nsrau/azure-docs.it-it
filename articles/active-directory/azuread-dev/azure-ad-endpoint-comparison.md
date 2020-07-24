@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034908"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?
 
@@ -141,34 +141,7 @@ Le Registrazioni app che supportano gli account aziendali e dell'istituto di ist
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrizioni relative agli URL di reindirizzamento
 
-Le app registrate per la piattaforma di identità Microsoft sono limitate a un set limitato di valori di URL di reindirizzamento. L'URL di reindirizzamento per i servizi e le app Web deve iniziare con lo schema `https` e tutti i valori degli URL di reindirizzamento devono condividere un singolo dominio DNS.  Il sistema di registrazione confronta l'intero nome DNS dell'URL di reindirizzamento esistente con il nome DNS dell'URL di reindirizzamento da aggiungere. Come URL di reindirizzamento è supportato anche `http://localhost`.  
-
-La richiesta di aggiungere il nome DNS non viene soddisfatta se si verificano le condizioni seguenti:  
-
-* L'intero nome DNS del nuovo URL di reindirizzamento non corrisponde al nome DNS dell'URL di reindirizzamento esistente.
-* L'intero nome DNS del nuovo URL di reindirizzamento non è un sottodominio dell'URL di reindirizzamento esistente.
-
-#### <a name="example-1"></a>Esempio 1
-
-Se l'app ha `https://login.contoso.com` come URL di reindirizzamento, è possibile aggiungere un URL di reindirizzamento in cui il nome DNS corrisponde esattamente, come illustrato nell'esempio seguente:
-
-`https://login.contoso.com/new`
-
-In alternativa si può fare riferimento al sottodominio DNS login.contoso.com, come illustrato nell'esempio seguente:
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>Esempio 2
-
-Se si vuole un'app con gli URL di reindirizzamento `login-east.contoso.com` e `login-west.contoso.com`, è necessario aggiungere tali URL nell'ordine seguente:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-È possibile aggiungere gli ultimi due perché si tratta di sottodomini del primo URL di reindirizzamento, contoso.com.
-
-È possibile avere solo 20 URL di risposta per una particolare applicazione. questo limite si applica a tutti i tipi di app supportati dalla registrazione (applicazione a pagina singola (SPA), client nativo, app Web e servizio).  
+Per le informazioni più aggiornate sulle restrizioni relative agli URL di reindirizzamento per le app registrate per la piattaforma di identità Microsoft, vedere [reindirizzare restrizioni e limitazioni degli URL di risposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url) nella documentazione della piattaforma Microsoft Identity.
 
 Per informazioni su come registrare un'app per l'uso con la piattaforma di identità Microsoft, vedere [registrare un'app con la nuova esperienza registrazioni app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

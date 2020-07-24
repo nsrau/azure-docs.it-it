@@ -3,12 +3,12 @@ title: Autenticazione e autorizzazione di Inoltro di Azure | Documentazione Micr
 description: Questo articolo fornisce una panoramica dell'autenticazione con firma di accesso condiviso (SAS) con il servizio di inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033378"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
 
@@ -20,7 +20,7 @@ L'[autenticazione SAS](../service-bus-messaging/service-bus-sas.md) garantisce l
 
 È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi di Inoltro. A differenza della messaggistica del bus di servizio, le [connessioni ibride di inoltro](relay-hybrid-connections-protocol.md) supportano mittenti non autorizzati o anonimi. È possibile abilitare l'accesso anonimo per l'entità durante la creazione, come illustrato nella schermata seguente del portale:
 
-![][0]
+![Una finestra di dialogo intitolata "Crea connessione ibrida" ha una casella di testo "nome" e una casella di controllo denominata "richiede l'autenticazione client", che è selezionata.][0]
 
 Per usare SAS, è possibile configurare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi costituito dai parametri seguenti:
 

@@ -9,17 +9,18 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219638f70797fc5ea413e4db72e528262df2fa87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82853492"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037050"
 ---
-# <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
+# <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
-In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), l' [interfaccia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), l' [interfaccia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,12 +48,12 @@ Per installare o aggiornare Azure PowerShell, vedere [install Azure PowerShell M
 
 È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti:
 
-- È possibile eseguire i comandi dell'interfaccia della riga di comando dall'interno del portale di Azure, Azure Cloud Shell.
-- È possibile installare l'interfaccia della riga di comando ed eseguire i comandi CLI localmente.
+- È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell.
+- È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale.
 
 ### <a name="use-azure-cloud-shell"></a>Usare Azure Cloud Shell
 
-Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. L'interfaccia della riga di comando di Azure è preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **cloud Shell** nel menu nella sezione in alto a destra del portale di Azure:
+Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. L'interfaccia della riga di comando di Azure è preinstallata e configurata per l'uso con l'account corrente. Fare clic sul pulsante **cloud Shell** nel menu nella sezione in alto a destra del portale di Azure:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -148,7 +149,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Opzione di replica  |Parametro SkuName  |
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
-|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza della zona (ZRS)     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |
@@ -191,7 +192,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Opzione di replica  |Parametro sku  |
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
-|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza della zona (ZRS)     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |

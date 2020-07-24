@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0f4e02a76044268946a4a482eaeccf5d622b8a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036265"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
 Questo articolo illustra come trovare e correggere i problemi dovuti a errori Secure Shell (SSH), a errori di connessione SSH o al rifiuto della connessione SSH durante il tentativo di connessione a una macchina virtuale Linux. È possibile usare il portale di Azure, l'interfaccia della riga di comando Azure o l'estensione dell'accesso alle VM per Linux per risolvere i problemi di connessione.
@@ -34,7 +34,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 3. Verificare che le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) consentano il traffico SSH.
    * Assicurarsi che esista una [regola del gruppo di sicurezza di rete](#security-rules) per consentire il traffico SSH (per impostazione predefinita, la porta TCP 22).
    * Non è possibile usare il reindirizzamento o mapping delle porte senza usare Azure Load Balancer.
-4. Verificare l' [integrità delle risorse della macchina virtuale](../../resource-health/resource-health-overview.md).
+4. Verificare l' [integrità delle risorse della macchina virtuale](../../service-health/resource-health-overview.md).
    * Assicurarsi che la macchina virtuale venga segnalata come integra.
    * Se la [diagnostica di avvio è abilitata](boot-diagnostics.md), verificare che la macchina virtuale non segnali errori di avvio nei log.
 5. [Riavviare la macchina virtuale](#restart-vm).
@@ -69,11 +69,11 @@ Da questo menu è possibile anche creare un utente con privilegi sudo nella macc
 
 ### <a name="check-security-rules"></a><a id="security-rules" />Controllare le regole di sicurezza
 
-Usare la [Verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare se una regola in un gruppo di sicurezza di rete blocca il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola del gruppo di sicurezza di rete che consente il traffico in ingresso sia presente e abbia la priorità per la porta SSH, ovvero la porta 22 predefinita. Per altre informazioni, vedere [uso di regole di sicurezza effettive per risolvere i problemi relativi al flusso del traffico VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Usare la [Verifica del flusso IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) per verificare se una regola in un gruppo di sicurezza di rete blocca il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola del gruppo di sicurezza di rete che consente il traffico in ingresso sia presente e abbia la priorità per la porta SSH, ovvero la porta 22 predefinita. Per altre informazioni, vedere [uso di regole di sicurezza effettive per risolvere i problemi relativi al flusso del traffico VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ### <a name="check-routing"></a>Controllare il routing
 
-Usare la funzionalità [Hop successivo](../../network-watcher/network-watcher-check-next-hop-portal.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
+Usare la funzionalità [Hop successivo](../../network-watcher/diagnose-vm-network-routing-problem.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-vm-serial-console"></a>Usare la console seriale della VM di Azure
 La [console seriale di VM di Azure](./serial-console-linux.md) fornisce l'accesso a una console basata su testo per le macchine virtuali Linux. È possibile usare la console di per risolvere i problemi relativi alla connessione SSH in una shell interattiva. Assicurarsi di aver soddisfatto i [prerequisiti](./serial-console-linux.md#prerequisites) per l'uso della console seriale e provare i comandi seguenti per risolvere ulteriormente i problemi di connettività SSH.
@@ -137,7 +137,7 @@ Creare un file denominato `settings.json` con il contenuto seguente:
 
 ```json
 {
-    "reset_ssh":"True"
+    "reset_ssh":True
 }
 ```
 
@@ -173,7 +173,7 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Usare l'interfaccia della riga di comando classica di Azure
-Se necessario, [installare l'interfaccia della riga di comando classica di Azure e connettersi alla sottoscrizione di Azure](../../cli-install-nodejs.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
+Se necessario, [installare l'interfaccia della riga di comando classica di Azure e connettersi alla sottoscrizione di Azure](/cli/azure/install-classic-cli). Verificare di usare la modalità di Resource Manager come indicato di seguito:
 
 ```azurecli
 azure config mode arm
@@ -232,7 +232,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="redeploy-a-vm"></a><a id="redeploy-vm" />Ridistribuire una macchina virtuale
-È possibile ridistribuire una VM in un altro nodo all'interno di Azure, correggendo eventuali problemi di rete sottostanti. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+È possibile ridistribuire una VM in un altro nodo all'interno di Azure, correggendo eventuali problemi di rete sottostanti. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](./redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json).
 
 > [!NOTE]
 > Al termine di questa operazione i dati temporanei del disco vanno persi e gli indirizzi IP dinamici associati alla macchina virtuale vengono aggiornati.
@@ -268,10 +268,10 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 * Reimpostare l'accesso remoto dal [portale di Azure](https://portal.azure.com). Nel portale di Azure, selezionare la macchina virtuale e quindi selezionare **Reimposta accesso remoto...**.
 * Riavviare la VM. Nel [portale di Azure](https://portal.azure.com) selezionare la macchina virtuale e selezionare **Riavvia**.
 
-* Ridistribuire la VM su un nuovo nodo di Azure. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Ridistribuire la VM su un nuovo nodo di Azure. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](./redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json).
 
     Al termine di questa operazione i dati temporanei del disco andranno persi e gli indirizzi IP dinamici associati alla macchina virtuale saranno aggiornati.
-* Seguire le istruzioni in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](../linux/classic/reset-access-classic.md) per:
+* Seguire le istruzioni in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic) per:
 
   * Reimpostare la password o la chiave SSH.
   * Creare un account utente *sudo*.
@@ -281,5 +281,5 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * Se non si riesce ancora a eseguire la configurazione SSH sulla macchina virtuale dopo aver eseguito la relativa procedura, usare i [passaggi dettagliati per la risoluzione dei problemi](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per esaminare altre procedure per la risoluzione del problema.
-* Per altre informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Per altre informazioni sulla risoluzione dei problemi di macchine virtuali create con il modello di distribuzione classica, vedere l'articolo su come [reimpostare una password o SSH per macchine virtuali basate su Linux](../linux/classic/reset-access-classic.md).
+* Per altre informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)
+* Per altre informazioni sulla risoluzione dei problemi di macchine virtuali create con il modello di distribuzione classica, vedere l'articolo su come [reimpostare una password o SSH per macchine virtuali basate su Linux](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).

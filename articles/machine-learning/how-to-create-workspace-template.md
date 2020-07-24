@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031117"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -30,7 +30,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Modello di Gestione risorse dell'area di lavoro
 
@@ -154,6 +154,9 @@ Il modello di esempio seguente mostra come creare un'area di lavoro con tre impo
 * Abilitare le impostazioni di riservatezza elevata per l'area di lavoro
 * Abilitare la crittografia per l'area di lavoro
 * Usare insiemi delle credenziali delle chiavi esistenti per recuperare le chiavi gestite dal cliente
+
+> [!IMPORTANT]
+> Dopo aver creato un'area di lavoro, non è possibile modificare le impostazioni relative ai dati riservati, la crittografia, l'ID dell'insieme di credenziali delle chiavi o gli identificatori di chiave. Per modificare questi valori, è necessario creare una nuova area di lavoro usando altri valori.
 
 Per altre informazioni, vedere [Crittografia di dati inattivi](concept-enterprise-security.md#encryption-at-rest).
 
@@ -353,6 +356,9 @@ Una configurazione aggiuntiva che è possibile fornire ai dati consiste nell'imp
 * Pulisce il disco scratch locale tra le esecuzioni.
 * Passa in modo sicuro le credenziali per l'account di archiviazione, il registro contenitori e l'account SSH dal livello di esecuzione ai cluster di calcolo usando Key Vault.
 * Abilita il filtro IP per assicurarsi che i pool di batch sottostanti non possano essere chiamati da servizi esterni diversi da AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > Dopo aver creato un'area di lavoro, non è possibile modificare le impostazioni relative ai dati riservati, la crittografia, l'ID dell'insieme di credenziali delle chiavi o gli identificatori di chiave. Per modificare questi valori, è necessario creare una nuova area di lavoro usando altri valori.
 
   Per altre informazioni, vedere [crittografia](concept-enterprise-security.md#encryption-at-rest)dei dati inattivi.
 

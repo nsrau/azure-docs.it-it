@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 8600971ffd23b1c253e8de807d365c46409b37bc
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081452"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036387"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
@@ -41,7 +41,7 @@ Questo problema può verificarsi a causa dei motivi seguenti:
 - Il protocollo TLS è disabilitato.
 - Il certificato è danneggiato o scaduto.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -55,8 +55,7 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
 #### <a name="step-1-check-the-rdp-port"></a>Passaggio: 1 Verificare la porta RDP
 
-1. In un'istanza di PowerShell, usare il [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) per verificare se la porta 8080 è usata da altre applicazioni:
+1. In un'istanza di PowerShell, usare il [NETSTAT](/windows-server/administration/windows-commands/netstat) per verificare se la porta 8080 è usata da altre applicazioni:
 
     ```powershell
     Netstat -anob |more
@@ -186,7 +185,7 @@ Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può esser
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
@@ -299,4 +298,4 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md), quindi controllare se il problema è risolto.
+5. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](./troubleshoot-recovery-disks-portal-windows.md), quindi controllare se il problema è risolto.

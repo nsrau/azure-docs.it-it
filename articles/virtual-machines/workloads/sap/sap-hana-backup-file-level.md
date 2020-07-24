@@ -12,19 +12,20 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 93b67936166eb73db5e9a15db42c2c6135794108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78271392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035741"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
 
 ## <a name="introduction"></a>Introduzione
 
-Questo articolo è un articolo correlato alla [Guida al backup per SAP Hana in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), che offre una panoramica e informazioni introduttive e altri dettagli sul servizio backup di Azure e sugli snapshot di archiviazione. 
+Questo articolo è un articolo correlato alla [Guida al backup per SAP Hana in macchine virtuali di Azure](./sap-hana-backup-guide.md), che offre una panoramica e informazioni introduttive e altri dettagli sul servizio backup di Azure e sugli snapshot di archiviazione. 
 
-Diversi tipi di VM in Azure consentono un numero diverso di dischi rigidi virtuali associati. I dettagli esatti sono documentati in [Dimensioni delle macchine virtuali Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes). Per i test a cui si fa riferimento in questa documentazione è stata usata una VM GS5 di Azure, che consente 64 dischi dati collegati. Per sistemi SAP HANA di grandi dimensioni, un numero significativo di dischi potrebbe essere già usato per i file di log e di dati, possibilmente in combinazione con striping di software per la velocità effettiva IO ottimale dei dischi. Per informazioni dettagliate sulle configurazioni del disco suggerite per SAP HANA le distribuzioni in macchine virtuali di Azure, vedere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Gli elementi consigliati includono le raccomandazioni di spazio su disco per i backup locali.
+Diversi tipi di VM in Azure consentono un numero diverso di dischi rigidi virtuali associati. I dettagli esatti sono documentati in [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md). Per i test a cui si fa riferimento in questa documentazione è stata usata una VM GS5 di Azure, che consente 64 dischi dati collegati. Per sistemi SAP HANA di grandi dimensioni, un numero significativo di dischi potrebbe essere già usato per i file di log e di dati, possibilmente in combinazione con striping di software per la velocità effettiva IO ottimale dei dischi. Per informazioni dettagliate sulle configurazioni del disco suggerite per SAP HANA le distribuzioni in macchine virtuali di Azure, vedere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md). Gli elementi consigliati includono le raccomandazioni di spazio su disco per i backup locali.
 
 Il metodo standard per gestire il backup e il ripristino a livello di file è attraverso un backup basato su file, usando SAP HANA Studio o le istruzioni SQL SAP HANA. Per ulteriori informazioni, leggere l'articolo [SAP Hana riferimento alle viste di sistema e SQL](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 
@@ -34,15 +35,15 @@ Nella figura viene mostrata la finestra di dialogo della voce di menu del backup
 
 Sebbene questa scelta sia semplice e diretta, è opportuno presentare alcune considerazioni. Una macchina virtuale di Azure presenta una limitazione del numero di dischi dati che possono essere collegati. Potrebbe non essere disponibile spazio per archiviare i file di backup di SAP HANA nei file system della macchina virtuale, a seconda delle dimensioni del database e dei requisiti di velocità effettiva del disco, che potrebbe comportare lo striping di software su più dischi di dati. Più avanti in questo articolo vengono fornite varie opzioni per lo spostamento di questi file di backup e per la gestione delle limitazioni relative alle dimensioni dei file e delle prestazioni durante la gestione di terabyte di dati.
 
-Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Per informazioni dettagliate sull'archiviazione BLOB ad accesso sporadico [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal) .
+Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Per informazioni dettagliate sull'archiviazione BLOB ad accesso sporadico [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, sporadico e archivio](../../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal) .
 
-Per una maggiore sicurezza, usare un account di archiviazione con replica geografica per archiviare i backup di SAP HANA. Per informazioni dettagliate sulla ridondanza di archiviazione e la replica di archiviazione, vedere [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) di archiviazione di Azure.
+Per una maggiore sicurezza, usare un account di archiviazione con replica geografica per archiviare i backup di SAP HANA. Per informazioni dettagliate sulla ridondanza di archiviazione e la replica di archiviazione, vedere [ridondanza](../../../storage/common/storage-redundancy.md) di archiviazione di Azure.
 
 È possibile posizionare dischi rigidi virtuali dedicati per i backup di SAP HANA in un account di archiviazione di backup apposito con replica geografica. È anche possibile copiare i dischi rigidi virtuali che mantengono i backup di SAP HANA in un account di archiviazione con replica geografica o in un account di archiviazione in un'area diversa.
 
 ## <a name="azure-blobxfer-utility-details"></a>Dettagli sull'utilità di blobxfer di Azure
 
-Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). Per la copia dei dati in archiviazione di Azure è disponibile anche un'utilità pronta per l'uso, AzCopy. (vedere [trasferire dati con l'utilità della riga di comando AzCopy](../../../storage/common/storage-use-azcopy.md)).
+Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). Per la copia dei dati in archiviazione di Azure è disponibile anche un'utilità pronta per l'uso, AzCopy. (vedere [trasferire dati con l'utilità della riga di comando AzCopy](../../../storage/common/storage-use-azcopy-v10.md)).
 
 Perciò, Blobxfer è stato pertanto usato per la copia dei file di backup di SAP HANA. Si tratta di una risorsa open source, usata da molti clienti negli ambienti di produzione e disponibile su [GitHub](https://github.com/Azure/blobxfer). Questo strumento consente di copiare i dati direttamente nell'archiviazione BLOB di Azure o nella condivisione file di Azure. Offre inoltre una gamma di funzionalità utili, ad esempio hash MD5 o parallelismo automatico quando si copia una directory con più file.
 
@@ -64,7 +65,7 @@ Ripetere lo stesso RAID software di backup con striping in cinque dischi di dati
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiare i file di backup di SAP HANA in Archiviazione BLOB di Azure
 I numeri di prestazioni, i numeri di durata del backup e i numeri di durata della copia indicati potrebbero non rappresentare lo stato più recente della tecnologia Azure. Microsoft sta migliorando costantemente l'archiviazione di Azure per offrire maggiore velocità effettiva e latenze più basse. Pertanto, i numeri sono solo a scopo dimostrativo. Per essere in grado di giudicare con il metodo, è consigliabile eseguire test per le esigenze individuali nell'area di Azure di propria scelta.
 
-Un'altra opzione per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un singolo contenitore BLOB ha un limite di circa 500 TB, sufficiente per i sistemi di SAP HANA, usando i tipi di VM M32ts, M32ls, M64ls e GS5 di Azure, per contenere backup SAP HANA sufficienti. I clienti hanno la possibilità di scegliere tra &quot; &quot; archiviazione BLOB ad accesso frequente e a &quot; freddo &quot; (vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)).
+Un'altra opzione per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un singolo contenitore BLOB ha un limite di circa 500 TB, sufficiente per i sistemi di SAP HANA, usando i tipi di VM M32ts, M32ls, M64ls e GS5 di Azure, per contenere backup SAP HANA sufficienti. I clienti hanno la possibilità di scegliere tra &quot; &quot; archiviazione BLOB ad accesso frequente e a &quot; freddo &quot; (vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, sporadico e archivio](../../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal)).
 
 Con lo strumento blobxfer, è semplice copiare i file di backup di SAP HANA direttamente nell'Archiviazione BLOB di Azure.
 
@@ -89,12 +90,12 @@ Quando si Esplora la copia dei backup eseguiti sui dischi locali in altre posizi
 
 ## <a name="copy-sap-hana-backup-files-to-nfs-share"></a>Copiare i file di backup di SAP HANA in condivisione NFS
 
-Microsoft Azure offrire condivisioni NFS native tramite [Azure NetApp files](https://azure.microsoft.com/services/netapp/). È possibile creare volumi diversi di dozzine di TBs in capacità per archiviare e gestire i backup. È anche possibile eseguire lo snapshot di questi volumi in base alla tecnologia NetApp. Azure NetApp Files (e) è disponibile in tre diversi livelli di servizio che offrono una velocità effettiva di archiviazione diversa. Per informazioni dettagliate, leggere l'articolo [livelli di servizio per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). È possibile creare e montare un volume NFS da e, come descritto nell'articolo [Guida introduttiva: configurare Azure NetApp files e creare un volume NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal).
+Microsoft Azure offrire condivisioni NFS native tramite [Azure NetApp files](https://azure.microsoft.com/services/netapp/). È possibile creare volumi diversi di dozzine di TBs in capacità per archiviare e gestire i backup. È anche possibile eseguire lo snapshot di questi volumi in base alla tecnologia NetApp. Azure NetApp Files (e) è disponibile in tre diversi livelli di servizio che offrono una velocità effettiva di archiviazione diversa. Per informazioni dettagliate, leggere l'articolo [livelli di servizio per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). È possibile creare e montare un volume NFS da e, come descritto nell'articolo [Guida introduttiva: configurare Azure NetApp files e creare un volume NFS](../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal).
 
 Oltre a usare i volumi NFS nativi di Azure tramite e, esistono diverse possibilità di creare distribuzioni personalizzate che forniscono condivisioni NFS in Azure. Tutti gli svantaggi necessari per la distribuzione e la gestione di tali soluzioni. Alcune di queste possibilità sono documentate in questi articoli:
 
-- [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-- [GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+- [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md)
+- [GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md)
 
 Le condivisioni NFS create per mezzo di quelle descritte in precedenza possono essere usate per eseguire direttamente backup HANA in o per copiare i backup eseguiti sui dischi locali in tali condivisioni NFS.
 
@@ -103,7 +104,7 @@ Le condivisioni NFS create per mezzo di quelle descritte in precedenza possono e
 
 ## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Copiare i file di backup di SAP HANA nei File di Azure
 
-È possibile montare una condivisione di File di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [come usare archiviazione file di Azure con Linux](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux) fornisce informazioni dettagliate su come eseguire la configurazione. Per le limitazioni dei file File di Azure o Azure Premium, vedere l'articolo [file di Azure obiettivi di scalabilità e prestazioni](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets).
+È possibile montare una condivisione di File di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [come usare archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md) fornisce informazioni dettagliate su come eseguire la configurazione. Per le limitazioni dei file File di Azure o Azure Premium, vedere l'articolo [file di Azure obiettivi di scalabilità e prestazioni](../../../storage/files/storage-files-scale-targets.md).
 
 > [!NOTE]
 > SMB con file system CIFS non è supportato da SAP HANA per la scrittura di backup HANA. Vedere anche la [Nota di supporto SAP #1820529](https://launchpad.support.sap.com/#/notes/1820529). Di conseguenza, è possibile usare questa soluzione solo come destinazione finale di un backup del database HANA eseguito direttamente su dischi collegati locali
