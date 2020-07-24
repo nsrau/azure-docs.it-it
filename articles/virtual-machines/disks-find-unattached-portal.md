@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085759"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite il portale di Azure
 
@@ -60,4 +61,4 @@ Il processo illustrato di seguito spiega come usare il portale di Azure per elim
 
 Per un modo automatizzato che consenta di trovare ed eliminare gli account di archiviazione non collegati, vedere gli articoli relativi all'[interfaccia della riga di comando](linux/find-unattached-disks.md) o a [PowerShell](windows/find-unattached-disks.md).
 
-Per altre informazioni, vedere [Eliminare l'account di archiviazione](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificare i dischi orfani con PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+Per altre informazioni, vedere [Eliminare l'account di archiviazione](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificare i dischi orfani con PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)

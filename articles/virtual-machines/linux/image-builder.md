@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: b0df0fc43fcd125c6fc96fd2abbe3857d0d23afa
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9bd5e9075d15d0f559f674694fc867cd661450d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085538"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirla a una Raccolta immagini condivise 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Anteprima: creare un'immagine Linux e distribuirla in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
+Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](../windows/shared-image-galleries.md), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Per configurare l'immagine si userà un modello di esempio con estensione json. Il file con estensione json usato è il seguente: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -92,7 +93,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare autorizzazioni per il gruppo di risorse
-Image Builder userà l'[identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) specificata per inserire l'immagine nella Raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure che include azioni granulari per eseguire la distribuzione dell'immagine a SIG. La definizione del ruolo verrà quindi assegnata all'identità utente.
+Image Builder userà l'[identità utente](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) specificata per inserire l'immagine nella Raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure che include azioni granulari per eseguire la distribuzione dell'immagine a SIG. La definizione del ruolo verrà quindi assegnata all'identità utente.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located

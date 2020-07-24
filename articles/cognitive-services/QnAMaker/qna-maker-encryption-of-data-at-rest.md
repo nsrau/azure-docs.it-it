@@ -1,20 +1,20 @@
 ---
 title: QnA Maker la crittografia dei dati inattivi
 titleSuffix: Azure Cognitive Services
-description: QnA Maker la crittografia dei dati inattivi.
+description: Microsoft offre chiavi di crittografia gestite da Microsoft e consente inoltre di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per QnA Maker e come abilitare e gestire CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 07/10/2020
 ms.author: egeaney
-ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1ca0dda046329e95c649540fd42f96ca43838c85
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086706"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker la crittografia dei dati inattivi
 
@@ -29,7 +29,7 @@ QnA Maker usa il supporto CMK da ricerca di Azure. È necessario creare [CMK in 
 > [!IMPORTANT]
 > La risorsa del servizio ricerca di Azure deve essere stata creata dopo il 2019 gennaio e non può trovarsi nel livello gratuito (condiviso). Non è disponibile alcun supporto per la configurazione delle chiavi gestite dal cliente nel portale di Azure.
 
-## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
+## <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 
 Il servizio QnA Maker USA CMK dal servizio ricerca di Azure. Per abilitare CMK, attenersi alla procedura seguente:
 

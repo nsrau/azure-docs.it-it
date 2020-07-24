@@ -7,17 +7,18 @@ ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79349f9da45a623581c40276c8e69d490c1dd253
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085555"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creare un'immagine e usare un'identità gestita assegnata dall'utente per accedere ai file in archiviazione di Azure 
 
 Il generatore di immagini di Azure supporta l'uso di script o la copia di file da più posizioni, ad esempio GitHub e archiviazione di Azure e così via. Per usarli, è necessario che siano accessibili esternamente ad Azure Image Builder, ma è possibile proteggere i BLOB di archiviazione di Azure usando i token SAS.
 
-Questo articolo illustra come creare un'immagine personalizzata usando il generatore di immagini di VM di Azure, in cui il servizio userà un' [identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per accedere ai file in archiviazione di Azure per la personalizzazione delle immagini, senza che sia necessario rendere i file accessibili pubblicamente o configurare token SAS.
+Questo articolo illustra come creare un'immagine personalizzata usando il generatore di immagini di VM di Azure, in cui il servizio userà un' [identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/overview.md) per accedere ai file in archiviazione di Azure per la personalizzazione delle immagini, senza che sia necessario rendere i file accessibili pubblicamente o configurare token SAS.
 
 Nell'esempio seguente vengono creati due gruppi di risorse, uno per l'immagine personalizzata e l'altro ospita un account di archiviazione di Azure, che contiene un file di script. Questa operazione simula uno scenario reale, in cui è possibile avere artefatti di compilazione o file di immagine in account di archiviazione diversi, al di fuori di Image Builder. Si creerà un'identità assegnata dall'utente e quindi si concederanno le autorizzazioni di lettura per il file di script, ma non verrà impostato alcun accesso pubblico al file. Si userà quindi la shell verbi per scaricare ed eseguire lo script dall'account di archiviazione.
 
@@ -94,7 +95,7 @@ az group create -n $strResourceGroup -l $location
 
 Creare un'identità assegnata dall'utente e impostare le autorizzazioni per il gruppo di risorse.
 
-Il generatore di immagini userà l' [identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) specificata per inserire l'immagine nel gruppo di risorse. In questo esempio verrà creata una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine. La definizione del ruolo verrà quindi assegnata all'identità utente.
+Il generatore di immagini userà l' [identità utente](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) specificata per inserire l'immagine nel gruppo di risorse. In questo esempio verrà creata una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine. La definizione del ruolo verrà quindi assegnata all'identità utente.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located

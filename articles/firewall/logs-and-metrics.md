@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315032"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086592"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
@@ -98,9 +99,13 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
 
     Unità: conteggio
 
-- **Dati elaborati** : quantità di dati attraversando il firewall.
+- **Dati elaborati** : somma dei dati attraversando il firewall in un intervallo di tempo specificato.
 
     Unità: byte
+
+- Velocità **effettiva** -velocità dei dati attraversando il firewall al secondo.
+
+    Unità: bit al secondo
 
 - **Stato di integrità del firewall** : indica lo stato di integrità del firewall in base alla disponibilità della porta SNAT.
 

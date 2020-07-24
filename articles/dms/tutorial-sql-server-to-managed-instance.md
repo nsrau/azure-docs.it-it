@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di SQL Server a SQL Istanza gestit
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione da SQL Server a un Istanza gestita SQL di Azure usando il servizio migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 79bfb0510aba3a77b720748aaafd83e837500e87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086728"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure offline con DMS
 
@@ -28,7 +28,7 @@ In questa esercitazione si esegue la migrazione del database **AdventureWorks201
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
-> - Creare un'istanza del Servizio Migrazione del database di Azure.
+> - Creare un'istanza del servizio Migrazione del database di Azure.
 > - Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > - Eseguire la migrazione.
 > - Monitorare la migrazione.

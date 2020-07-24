@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086014"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
@@ -30,6 +30,7 @@ Per abilitare le chiavi gestite dal cliente per l'account di archiviazione, asse
 Per assegnare un'identità gestita usando l'interfaccia della riga di comando di Azure, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -90,9 +91,33 @@ La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimen
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurare la crittografia con chiavi gestite dal cliente
 
-Per impostazione predefinita, la crittografia di archiviazione di Azure usa chiavi gestite da Microsoft. Configurare l'account di archiviazione di Azure per le chiavi gestite dal cliente e specificare la chiave da associare all'account di archiviazione.
+Per impostazione predefinita, la crittografia di archiviazione di Azure usa chiavi gestite da Microsoft. In questo passaggio, configurare l'account di archiviazione di Azure per usare le chiavi gestite dal cliente con Azure Key Vault, quindi specificare la chiave da associare all'account di archiviazione.
 
-Per aggiornare le impostazioni di crittografia dell'account di archiviazione, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update), come illustrato nell'esempio seguente. Includere il `--encryption-key-source` parametro e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Nell'esempio viene anche eseguita una query per l'URI dell'insieme di credenziali delle chiavi e la versione più recente della chiave, entrambi i quali sono necessari per associare la chiave all'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Quando si configura la crittografia con chiavi gestite dal cliente, è possibile scegliere di ruotare automaticamente la chiave usata per la crittografia quando la versione viene modificata nell'insieme di credenziali delle chiavi associato. In alternativa, è possibile specificare in modo esplicito una versione della chiave da usare per la crittografia finché la versione della chiave non viene aggiornata manualmente.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente
+
+Per configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente, installare l'interfaccia della riga di comando di [Azure versione 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) o successiva. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/azure/install-azure-cli).
+
+Per ruotare automaticamente le chiavi gestite dal cliente, omettere la versione della chiave quando si configurano le chiavi gestite dal cliente per l'account di archiviazione. Chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente. Includere il `--encryption-key-source` parametro e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configurare la crittografia per la rotazione manuale delle versioni delle chiavi
+
+Per specificare in modo esplicito una versione della chiave da usare per la crittografia, fornire la versione della chiave quando si configura la crittografia con chiavi gestite dal cliente per l'account di archiviazione. Chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente. Includere il `--encryption-key-source` parametro e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
-
-Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. Per prima cosa, eseguire una query per l'URI dell'insieme di credenziali delle chiavi chiamando [AZ Key Vault Show](/cli/azure/keyvault#az-keyvault-show)e per la versione della chiave chiamando [AZ Key Vault Key List-Versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Chiamare quindi il comando [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
+Quando si ruota manualmente la versione della chiave, è necessario aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione. Per prima cosa, eseguire una query per l'URI dell'insieme di credenziali delle chiavi chiamando [AZ Key Vault Show](/cli/azure/keyvault#az-keyvault-show)e per la versione della chiave chiamando [AZ Key Vault Key List-Versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Chiamare quindi il comando [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione in modo da usare la nuova versione della chiave, come illustrato nell'esempio precedente.
 
 ## <a name="use-a-different-key"></a>Usare una chiave diversa
 
@@ -124,7 +147,7 @@ Per modificare la chiave usata per la crittografia di archiviazione di Azure, ch
 
 ## <a name="revoke-customer-managed-keys"></a>Revocare le chiavi gestite dal cliente
 
-Se si ritiene che una chiave possa essere stata compromessa, è possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [AZ Key Vault Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+È possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [AZ Key Vault Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```azurecli-interactive
 az keyvault delete-policy \

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9c4b133ae74438def30f4fcd9e49a5ca5e6f9cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1153b58063f85b57fba99da495d6842a75a819
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086286"
 ---
 # <a name="h264-single-bitrate-4k-audio-51"></a>Codec video H.264 a bitrate singolo con risoluzione 4K e audio 5.1
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
@@ -29,7 +29,7 @@ ms.locfileid: "61463566"
  Il set di impostazioni genera un unico file MP4 con una velocità in bit di 18.000 kbps e audio AAC 5.1. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  È necessario ottenere il tipo di unità riservata Premium con codifica 4K. Per altre informazioni, vedere [Come scalare la codifica](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  È necessario ottenere il tipo di unità riservata Premium con codifica 4K. Per altre informazioni, vedere [Come scalare la codifica](./media-services-scale-media-processing-overview.md).  
   
  XML  
   

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 292d80f7fad796b2ee4f80478c55099148d7f855
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086694"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 
@@ -42,7 +42,7 @@ In particolare, il connettore Salesforce supporta:
 - Le edizioni Developer, Professional, Enterprise o Unlimited di Salesforce.
 - La copia di dati da e nell'ambiente di produzione, nella sandbox e nel dominio personalizzato di Salesforce.
 
-Il connettore Salesforce è basato sull'API REST/bulk di Salesforce. il connettore ne sceglie automaticamente uno per ottenere prestazioni migliori. Per impostazione predefinita, il connettore USA [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e USA [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. È anche possibile impostare in modo esplicito la versione dell'API usata per leggere/scrivere dati tramite la [ `apiVersion` Proprietà](#linked-service-properties) nel servizio collegato.
+Il connettore Salesforce è basato sull'API REST/bulk di Salesforce. Per impostazione predefinita, il connettore USA [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e USA [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. È anche possibile impostare in modo esplicito la versione dell'API usata per leggere/scrivere dati tramite la [ `apiVersion` Proprietà](#linked-service-properties) nel servizio collegato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,7 +55,7 @@ Salesforce presenta limiti per le richieste API totali e per le richieste API si
 - Se il numero di richieste simultanee supera il limite, si verifica una limitazione e vengono visualizzati errori casuali.
 - Se il numero totale di richieste supera il limite, l'account di Salesforce viene bloccato per 24 ore.
 
-In entrambi gli scenari è anche possibile che venga visualizzato il messaggio di errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per altre informazioni, vedere la sezione "API Request Limits" (Limiti delle richieste API) in [Salesforce developer limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti per sviluppatori di Salesforce).
+In entrambi gli scenari è anche possibile che venga visualizzato il messaggio di errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per altre informazioni, vedere la sezione "API Request Limits" (Limiti delle richieste API) in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) (Limiti per sviluppatori di Salesforce).
 
 ## <a name="get-started"></a>Introduzione
 
@@ -245,7 +245,7 @@ Per copiare dati in Salesforce, impostare il tipo di sink nell'attività di copi
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **SalesforceSink**. | Sì |
 | writeBehavior | Comportamento dell'azione di scrittura per l'operazione.<br/>I valori consentiti sono: **Insert** e **Upsert**. | No (il valore predefinito è Insert) |
-| externalIdFieldName | Nome del campo ID esterno per l'operazione upsert. Il campo specificato deve essere definito come "External Id Field" (Campo ID esterno) nell'oggetto di Salesforce. Non può includere valori NULL nei dati di input corrispondenti. | Sì per "Upsert" |
+| externalIdFieldName | Nome del campo ID esterno per l'operazione upsert. Il campo specificato deve essere definito come "campo ID esterno" nell'oggetto Salesforce. Non può includere valori NULL nei dati di input corrispondenti. | Sì per "Upsert" |
 | writeBatchSize | Conteggio delle righe di dati scritti da Salesforce in ogni batch. | No (il valore predefinito è 5.000) |
 | ignoreNullValues | Indica se ignorare i valori NULL dai dati di input durante un'operazione di scrittura.<br/>I valori consentiti sono **true** e **false**.<br>- **True**: i dati nell'oggetto di destinazione rimangono invariati quando si esegue un'operazione di upsert o aggiornamento. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.<br/>- **False**: i dati nell'oggetto di destinazione vengono aggiornati a NULL quando si esegue un'operazione di upsert o aggiornamento. Inserire un valore NULL quando si esegue un'operazione di inserimento. | No (il valore predefinito è false) |
 
@@ -296,7 +296,7 @@ Per recuperare i record eliminati temporaneamente dal Cestino di Salesforce, è 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Differenza tra la sintassi di query SOQL e SQL
 
-Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. Si noti che queste due query hanno una sintassi e un supporto di funzionalità diversi. Non mischiarli. È consigliabile usare la query SOQL, supportata in modo nativo da Salesforce. Nella tabella seguente sono elencate le differenze principali:
+Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. Si noti che queste due query hanno una sintassi e un supporto di funzionalità diversi. Non mischiarli. Si consiglia di usare la query SOQL, supportata in modo nativo da Salesforce. Nella tabella seguente sono elencate le differenze principali:
 
 | Sintassi | Modalità SOQL | Modalità SQL |
 |:--- |:--- |:--- |
@@ -304,8 +304,8 @@ Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. S
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
-| Ridenominazione delle colonne | Non supportata. | Supportata, ad es. `SELECT a AS b FROM …`. |
-| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportata. |
+| Ridenominazione delle colonne | Non supportato. | Supportata, ad es. `SELECT a AS b FROM …`. |
+| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportato. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
@@ -314,7 +314,7 @@ Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di 
 * **Esempio SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Esempio SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Errore di MALFORMED_QUERY: troncato
+### <a name="error-of-malformed_query-truncated"></a>Errore di MALFORMED_QUERY: troncato
 
 Se si è verificato un errore di "MALFORMED_QUERY: troncato", in genere è dovuto a una colonna di tipo JunctionIdList nei dati e a Salesforce è possibile limitare il supporto di tali dati con un numero elevato di righe. Per attenuare, provare a escludere la colonna JunctionIdList o a limitare il numero di righe da copiare (è possibile partizionare in più esecuzioni di attività di copia).
 
@@ -324,25 +324,25 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 
 | Tipo di dati di Salesforce | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
-| Numero automatico |string |
+| Numero automatico |Stringa |
 | Casella di controllo |Boolean |
 | Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
-| Posta elettronica |string |
-| ID |string |
-| Relazione di ricerca |string |
-| Elenco a discesa seleziona multipla |string |
+| E-mail |Stringa |
+| ID |Stringa |
+| Relazione di ricerca |Stringa |
+| Elenco a discesa seleziona multipla |Stringa |
 | Number |Decimal |
 | Percentuale |Decimal |
-| Telefono |string |
-| Elenco a discesa |string |
-| Text |string |
-| Area di testo |string |
-| Area di testo (Long) |string |
-| Area di testo (Rich) |string |
-| Testo (Crittografato) |string |
-| URL |string |
+| Telefono |Stringa |
+| Elenco a discesa |Stringa |
+| Testo |Stringa |
+| Area di testo |Stringa |
+| Area di testo (Long) |Stringa |
+| Area di testo (Rich) |Stringa |
+| Testo (Crittografato) |Stringa |
+| URL |Stringa |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

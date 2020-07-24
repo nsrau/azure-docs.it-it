@@ -4,18 +4,20 @@ description: API per pubblicare l'offerta specificata.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: e3bc420a60c514e704a6caa38acee155b4981552
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086405"
 ---
 # <a name="publish-an-offer"></a>Pubblicare un'offerta
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti gi√† integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√≤ richiedere molto tempo.
 
@@ -26,12 +28,12 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 |  **Nome**      |    **Descrizione**                               |  **Tipo di dati** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   string       |
-|  offerId       | Identificatore dell'offerta                                 |   string       |
+|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   Stringa       |
+|  offerId       | Identificatore dell'offerta                                 |   Stringa       |
 |  api-version   | Versione pi√π recente dell'API                        |   Data         |
 |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Intestazione
 ------
 
 |  **Nome**        |    **Valore**          |
@@ -62,7 +64,6 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  notifiche tramite posta elettronica    | Elenco delimitato da virgole degli indirizzi e-mail a cui inviare una notifica relativa allo stato di avanzamento dell'operazione di pubblicazione. |
 |  |  |
 
-
 ### <a name="response"></a>Risposta
 
 #### <a name="migrated-offers"></a>Offerte migrate
@@ -73,14 +74,12 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### <a name="response-header"></a>Intestazione di risposta
 
 |  **Nome**             |    **Valore**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Location    | Percorso relativo per recuperare lo stato di questa operazione     |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta
 

@@ -6,14 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086048"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Abilitare e gestire il controllo delle versioni dei BLOB
 
@@ -21,7 +22,7 @@ ms.locfileid: "82884345"
 
 ## <a name="enable-blob-versioning"></a>Abilitare il controllo delle versioni dei BLOB
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per abilitare il controllo delle versioni dei BLOB nel portale di Azure:
 
@@ -67,7 +68,7 @@ Per altre informazioni sulla distribuzione di risorse con i modelli nel portale 
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificare un BLOB per attivare una nuova versione
 
-L'esempio di codice seguente illustra come attivare la creazione di una nuova versione con la libreria client di archiviazione di Azure per .NET versione 12. Prima di eseguire questo esempio, verificare di aver abilitato il controllo delle versioni per l'account di archiviazione.
+L'esempio di codice seguente illustra come attivare la creazione di una nuova versione con la libreria client di archiviazione di Azure per .NET, versione [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) o versioni successive. Prima di eseguire questo esempio, verificare di aver abilitato il controllo delle versioni per l'account di archiviazione.
 
 Nell'esempio viene creato un BLOB in blocchi, quindi vengono aggiornati i metadati del BLOB. Se si aggiornano i metadati del BLOB, viene attivata la creazione di una nuova versione. Nell'esempio vengono recuperate la versione iniziale e la versione corrente e viene indicato che solo la versione corrente include i metadati.
 

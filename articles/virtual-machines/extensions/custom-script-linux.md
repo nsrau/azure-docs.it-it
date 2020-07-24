@@ -1,5 +1,5 @@
 ---
-title: Eseguire script personalizzati nelle macchine virtuali Linux in Azure
+title: Eseguire un'estensione di script personalizzata in macchine virtuali Linux in Azure
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085725"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -38,14 +38,14 @@ Modificare le distribuzioni nuove ed esistenti per usare la nuova versione 2. La
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione dello script personalizzata per Linux verrà eseguita nell'estensione del sistema operativo di estensione supportata. per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+L'estensione dello script personalizzata per Linux verrà eseguita nell'estensione del sistema operativo di estensione supportata. per ulteriori informazioni, vedere questo [articolo](../linux/endorsed-distros.md).
 
 ### <a name="script-location"></a>Percorso dello script
 
 È possibile servirsi dell'estensione per usare le credenziali di Archiviazione BLOB di Azure, in modo da accedere alle risorse di archiviazione BLOB di Azure. In alternativa, lo script può trovarsi in qualsiasi posizione, purché la macchina virtuale possa eseguire il routing a tale endpoint, ad esempio GitHub, il file server interno e così via.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](../../virtual-network/security-overview.md#service-tags).
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
@@ -56,7 +56,8 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
 * Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
-* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
+* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](../linux/using-cloud-init.md) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
+* È possibile applicare una sola versione di un'estensione alla macchina virtuale. Per eseguire un secondo script personalizzato, è necessario rimuovere l'estensione dello script personalizzata e riapplicarla con lo script aggiornato. 
 * Se si vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un processo Cron. 
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
 * L'estensione dello script personalizzata non supporta i server proxy in modo nativo, tuttavia è possibile usare uno strumento di trasferimento di file che supporta i server proxy all'interno dello script, ad esempio *curl*. 
@@ -134,7 +135,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 * `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
-* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download dei file
+* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per il download dei file
   * `clientId`: (facoltativo, stringa) ID client dell'identità gestita
   * `objectId`: (facoltativo, stringa) ID oggetto dell'identità gestita
 
@@ -212,9 +213,9 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
 > [!NOTE]
 > Questa proprietà **deve** essere specificata solo nelle impostazioni protette.
 
-CustomScript (versione 2,1 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di Archiviazione di Azure senza che l'utente debba passare segreti come i token di firma di accesso condiviso o le chiavi dell'account di archiviazione.
+CustomScript (versione 2,1 in poi) supporta l' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di Archiviazione di Azure senza che l'utente debba passare segreti come i token di firma di accesso condiviso o le chiavi dell'account di archiviazione.
 
-Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o al set di scalabilità di macchine virtuali in cui verrà eseguito CustomScript e [concedere al contenitore o al BLOB di Archiviazione di Azure l'accesso all'identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o al set di scalabilità di macchine virtuali in cui verrà eseguito CustomScript e [concedere al contenitore o al BLOB di Archiviazione di Azure l'accesso all'identità gestita](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Per usare l'identità assegnata dal sistema nella macchina virtuale o nel set di scalabilità di macchine virtuali di destinazione, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
 

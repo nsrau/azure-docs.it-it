@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087012"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -59,7 +60,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 > In caso di uso di ruoli Web e di lavoro basati su servizi cloud, è possibile accedere anche gli indirizzi IP interni delle istanze del ruolo con l'API REST di gestione del servizio Azure. Per altre informazioni, vedere [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx). L'indirizzo si basa sul nome del ruolo e sul numero di istanza. 
 >
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 La risoluzione dei nomi fornita da Azure presenta le caratteristiche seguenti:
 * Semplicità d'uso. Non è richiesta alcuna configurazione.
@@ -176,7 +177,7 @@ Quando si usa la risoluzione dei nomi fornita da Azure, il protocollo DHCP (Dyna
 Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
 
 * Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite l' [API REST dell'interfaccia di rete](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), il cmdlet di PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) e il comando [AZ Network NIC Show](/cli/azure/network/nic#az-network-nic-show) Azure cli.
-* Nei modelli di distribuzione classica il suffisso è disponibile tramite la chiamata all'[API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
+* Nei modelli di distribuzione classica il suffisso è disponibile tramite la chiamata all'[API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà necessario offrire una soluzione DNS personalizzata. La soluzione DNS deve:
 
@@ -214,7 +215,7 @@ Quando si usa il modello di distribuzione Azure Resource Manager, è possibile s
 > [!NOTE]
 > Se si opta per il server DNS personalizzato per la rete virtuale, è necessario specificare almeno un indirizzo IP del server DNS. In caso contrario, la rete virtuale ignorerà la configurazione e userà invece il server DNS fornito da Azure.
 
-Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale già distribuita, per rendere effettive le nuove impostazioni DNS è necessario eseguire un rinnovo del lease DHCP in tutte le VM interessate nella rete virtuale. Per le macchine virtuali che eseguono il sistema operativo Windows, è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. La procedura varia a seconda del sistema operativo. Vedere la documentazione pertinente per il tipo di sistema operativo.

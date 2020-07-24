@@ -1,5 +1,5 @@
 ---
-title: Distribuire Windows 7 macchina virtuale desktop virtuale Windows-Azure
+title: Distribuire la macchina virtuale Windows 7 macchina virtuale Windows 2019-Azure
 description: Come configurare e distribuire una macchina virtuale Windows 7 su desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 92ab8e006ab7fef3c7e856cc34467b4510055174
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3d8ce67f129844c09a93b29c8100fe28096c520c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085878"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop---fall-2019"></a>Distribuire una macchina virtuale Windows 7 in un desktop virtuale Windows-calo 2019
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../deploy-windows-7-virtual-machine.md).

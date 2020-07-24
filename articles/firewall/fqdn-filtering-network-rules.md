@@ -7,14 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: aef6fb52aaad3dd20db63f1d9023745169e84fcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a30238250c9fcb86f1cc01226d44ab385c61843
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086626"
 ---
-# <a name="fqdn-filtering-in-network-rules-preview"></a>Filtro FQDN nelle regole di rete (anteprima)
+# <a name="use-fqdn-filtering-in-network-rules-preview"></a>Usare il filtro FQDN nelle regole di rete (anteprima)
 
 > [!IMPORTANT]
 > Il filtro FQDN nelle regole di rete è attualmente disponibile in anteprima pubblica.

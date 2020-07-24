@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086218"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
 
@@ -47,8 +47,8 @@ Preparare Virtual Machine Manager come segue:
 
 Assicurarsi che Azure PowerShell sia pronto all'uso:
 
-- Se si usa già PowerShell, eseguire l'aggiornamento alla versione 0.8.10 o versione successiva. [Altre informazioni](/powershell/azureps-cmdlets-docs) su come configurare PowerShell.
-- Dopo aver impostato e configurato PowerShell, visualizzare i [cmdlet dei servizi](/powershell/azure/overview).
+- Se si usa già PowerShell, eseguire l'aggiornamento alla versione 0.8.10 o versione successiva. [Altre informazioni](/powershell/azure/) su come configurare PowerShell.
+- Dopo aver impostato e configurato PowerShell, visualizzare i [cmdlet dei servizi](/powershell/azure/).
 - Per altre informazioni su come usare i valori dei parametri, gli input e gli output in Azure PowerShell, leggere la guida [Introduzione](/powershell/azure/get-started-azureps).
 
 ## <a name="set-up-a-subscription"></a>Configurare una sottoscrizione

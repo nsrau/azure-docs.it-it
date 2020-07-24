@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 8390f3273c7c8b5ca3b97d5da5184ab784b15c4b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085657"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
@@ -76,7 +76,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 | apiVersion | 2015-06-15 | Data |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.3 | INT |
 
 
 ## <a name="deployment"></a>Distribuzione
@@ -154,7 +154,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 L'output dell'esecuzione dell'estensione viene registrato nella directory seguente:
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\
 ```
 
 ### <a name="error-codes"></a>Codici di errore

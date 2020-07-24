@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085691"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
 Questo documento descrive la versione 3.0 e successive dell'estensione Diagnostica per Linux.
 
 > [!IMPORTANT]
-> Per informazioni sulla versione 2.3 e precedenti, vedere [questo documento](../linux/classic/diagnostic-extension-v2.md).
+> Per informazioni sulla versione 2.3 e precedenti, vedere [questo documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -67,8 +67,8 @@ Distribuzioni e versioni supportate:
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
+* **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
+* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget, se non è già disponibile: Eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione al suo interno per l'archiviazione dei dati.
 
@@ -243,7 +243,7 @@ Se è stata creata una firma di accesso condiviso valida fino alla mezzanotte UT
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Per altre informazioni sulla generazione e il recupero di informazioni sui token di firma di accesso condiviso per Hub eventi, vedere [questa pagina Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Per altre informazioni sulla generazione e il recupero di informazioni sui token di firma di accesso condiviso per Hub eventi, vedere [questa pagina Web](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>Sink JsonBlob
 
@@ -580,7 +580,7 @@ Supponendo che le impostazioni protette si trovino nel file ProtectedSettings.js
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-Il comando presuppone che si stia usando la modalità Azure Resource Manager (ARM) dell'interfaccia della riga di comando di Azure. Per configurare LAD per le macchine virtuali che usano il modello di distribuzione classico (ASM), passare alla modalità "asm" (`azure config mode asm`) e omettere il nome del gruppo di risorse nel comando. Per altre informazioni, vedere la [documentazione sull'interfaccia della riga di comando multipiattaforma](https://docs.microsoft.com/azure/xplat-cli-connect).
+Il comando presuppone che si stia usando la modalità Azure Resource Manager (ARM) dell'interfaccia della riga di comando di Azure. Per configurare LAD per le macchine virtuali che usano il modello di distribuzione classico (ASM), passare alla modalità "asm" (`azure config mode asm`) e omettere il nome del gruppo di risorse nel comando. Per altre informazioni, vedere la [documentazione sull'interfaccia della riga di comando multipiattaforma](/azure/xplat-cli-connect).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le ta
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
-Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) per avere informazioni su come usare i messaggi pubblicati in un endpoint EventHubs.
+Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-about.md) per avere informazioni su come usare i messaggi pubblicati in un endpoint EventHubs.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare avvisi sulle metriche in [Monitoraggio di Azure](../../monitoring-and-diagnostics/insights-alerts-portal.md) per le metriche raccolte.
-* Creare [grafici di monitoraggio](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per le metriche.
+* Creare avvisi sulle metriche in [Monitoraggio di Azure](../../azure-monitor/platform/alerts-classic-portal.md) per le metriche raccolte.
+* Creare [grafici di monitoraggio](../../azure-monitor/platform/data-platform.md) per le metriche.
 * Informazioni su come [creare un set di scalabilità di macchine virtuali](../linux/tutorial-create-vmss.md) con le metriche per controllare la scalabilità automatica.

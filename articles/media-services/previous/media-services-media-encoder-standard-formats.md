@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086354"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 
@@ -29,7 +30,7 @@ ms.locfileid: "84712293"
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
-| Formato di file (estensioni di file) | Supportato |
+| Formato di file (estensioni di file) | Funzionalità supportata |
 | --- | --- |
 | FLV (con codec H. 264 e AAC) (.flv) |Sì |
 | MXF    (.mxf) |Sì |
@@ -38,7 +39,7 @@ Questo documento contiene un elenco dei formati di file di importazione ed espor
 | Windows Media Video (WMV) (.wmv) |Sì |
 | AVI (non compresso 8 bit/10 bit) (.avi) |Sì |
 | MP4 (MP4, M4A,. m4v) / ISMV (ISMA, con estensione .ismv) |Sì |
-| [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sì |
+| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Sì |
 | Matroska/WebM (.mkv) |Sì |
 | WAVE/WAV (.wav) |Sì |
 | QuickTime (.mov) |Sì |
@@ -53,12 +54,12 @@ Il Codificatore multimedia standard supporta i seguenti formati audio nei conten
 
 * file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
 
-o
+oppure
 
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
 ## <a name="input-video-codecs"></a>Codec video di input
-| Codec video di input | Supportato |
+| Codec video di input | Funzionalità supportata |
 | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |
 | Avid DNxHD (in MXF) |Sì |
@@ -81,7 +82,7 @@ o
 | HEVC/H.265| Main Profile e Main 10 Profile (&#42;)<br/>Il supporto Main 10 Profile è destinato a contenuti 4:2:0 a 8 bit. |
 
 ## <a name="input-audio-codecs"></a>Codec audio di input
-| Codec audio di input | Supportato |
+| Codec audio di input | Funzionalità supportata |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |
 | MPEG Layer 2 |Sì |
@@ -115,4 +116,3 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-

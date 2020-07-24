@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JnHs
 ms.author: jenhayes
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086388"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -177,7 +177,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Ogni offerta deve avere uno o più piani, detti anche SKU. È possibile aggiungere più piani per supportare set di funzionalità diversi a prezzi diversi o per personalizzare un piano specifico per un numero limitato di clienti specifici. I clienti possono visualizzare i piani disponibili nell'offerta padre.
+Ogni offerta deve avere uno o più piani, chiamati in precedenza SKU. È possibile aggiungere più piani per supportare set di funzionalità diversi a prezzi diversi o per personalizzare un piano specifico per un numero limitato di clienti specifici. I clienti possono visualizzare i piani disponibili nell'offerta padre.
 
 Nella pagina **Panoramica del piano** selezionare **+ Crea nuovo piano**. Immettere quindi un **ID piano** e un **Nome del piano**. Entrambi questi valori possono contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Questi valori possono essere visibili ai clienti e non possono essere modificati dopo la pubblicazione dell'offerta.
 

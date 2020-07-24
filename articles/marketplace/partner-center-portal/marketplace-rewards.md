@@ -5,29 +5,31 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/18/2019
-ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: MaggiePucciEvans
+ms.author: evansma
+ms.date: 07/14/2020
+ms.openlocfilehash: 853aeb03dc1a19c1960709aedf09e71164ed62d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086371"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marketplace Rewards è pensato per supportare gli utenti in ogni fase della crescita, a partire dalle attività volte a promuovere la consapevolezza per assicurarsi i primi clienti. Man mano che si cresce nel marketplace, è possibile usufruire di nuovi vantaggi pensati per conquistare clienti e concludere operazioni commerciali. 
+Il ricompense del Marketplace ti aiuta in una fase specifica di crescita, a partire dalle attività di sensibilizzazione per ottenere i primi clienti. Man mano che si aumenta il mercato commerciale, si sbloccano i nuovi vantaggi progettati per convertire i clienti e chiudere le offerte.
 
-Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita sono pensati per agevolare il passaggio alla fase successiva, consentendo di far crescere il proprio business verso i clienti Microsoft, con il supporto di Microsoft e tramite il canale di Microsoft, sfruttando il marketplace commerciale come piattaforma. 
+Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita consentono di passare alla fase successiva, consentendo di far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale di Microsoft sfruttando il Marketplace commerciale come piattaforma.
 
 I vantaggi si differenziano in base al fatto che l'offerta sia di [elenco, di valutazione o di transazione](../determine-your-listing-type.md#choose-a-publishing-option).
 
-Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, in base all'idoneità. 
+Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, in base all'idoneità.
 
-I partner delle offerte Transazione, aumentando le vendite fatturate nella piattaforma del marketplace, usufruiranno di vantaggi maggiori a ogni livello. 
+I partner delle offerte Transazione, aumentando le vendite fatturate nella piattaforma del marketplace, usufruiranno di vantaggi maggiori a ogni livello.
 
-Il requisito minimo per la pubblicazione nelle vetrine è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner può sfruttare il marketplace come piattaforma per far crescere il proprio business. 
+Il requisito minimo per la pubblicazione nelle vetrine è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner può sfruttare il marketplace come piattaforma per far crescere il proprio business.
 
-Sarà possibile ricevere supporto per conoscere le risorse disponibili e implementare le procedura consigliate, che è anche possibile [consultare personalmente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
+Sarà possibile ricevere supporto per conoscere le risorse disponibili e implementare le procedura consigliate, che è anche possibile [consultare personalmente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Verificare la propria idoneità per il programma Marketplace Rewards [qui](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
@@ -43,15 +45,12 @@ La procedura per iniziare è semplice:
     1. Indicare il telefono di contatto e la lingua preferita per questo contatto di marketing. Al termine dell'immissione di queste informazioni, selezionare **Assegna utente**.
     1. Dopo avere aggiornato il contatto marketing, selezionare **Attiva** per il vantaggio che si vuole iniziare a usare. Una volta attivato un vantaggio, il contatto di marketing sarà contattato da un membro del team Rewards entro una settimana.
 
-**Vantaggi tecnici**
+## <a name="technical-benefits"></a>Vantaggi tecnici
 
-1. È possibile usare il vantaggio tecnico per richiedere assistenza tecnica durante le fasi di pre-vendita, progettazione, distribuzione e sviluppo di app del cloud e soluzioni ibride. Per richiedere assistenza, compilare il modulo di richiesta e quindi selezionare **Invia richiesta**.
+1. Puoi usare il tuo vantaggio tecnico per richiedere assistenza tecnica durante le fasi di pre-vendita, progettazione, distribuzione e sviluppo di app delle tue soluzioni cloud e ibride. Per richiedere assistenza, compilare il modulo di richiesta e quindi selezionare **Invia richiesta**.
 2. Quando i vantaggi di Azure Sponsorship vengono sbloccati, si riceve un messaggio di posta elettronica che illustra come usarli.
 
->[!Note]
->Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, verificare all'interno dell'organizzazione il proprietario dell'offerta in questione, cercando in portale Cloud Partner o nel centro per i partner. che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.
-
->[!Note] 
->Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto all'indirizzo https://aka.ms/marketplacepublishersupport .
+>[!NOTE]
+>Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, rivolgersi al centro per trovare il proprietario dell'offerta nell'organizzazione. che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi. Se non è possibile determinare il proprietario o se il proprietario ha lasciato la società, aprire un ticket di supporto all'indirizzo https://aka.ms/marketplacepublishersupport .
 
 L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Per tutte le inserzioni viene inviato un messaggio di posta elettronica self-service relativo alle risorse e alle procedure consigliate con un livello di base di promozione e raccomandazioni per l'ottimizzazione.

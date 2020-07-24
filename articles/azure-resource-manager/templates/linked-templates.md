@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086813"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -315,6 +315,11 @@ Quando si fa riferimento a un modello collegato, il valore di `uri` non deve ess
 > È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, ad esempio, usando il `_artifactsLocation` parametro come segue:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
+
+Le [specifiche del modello](./template-specs.md) , attualmente in anteprima privata, consentono di condividere i modelli ARM con altri utenti nell'organizzazione. Le specifiche dei modelli possono anche essere usate per creare un pacchetto di un modello principale e dei relativi modelli collegati. Per altre informazioni, vedere:
+
+- [Esercitazione: creare una specifica di modello con i modelli collegati](./template-specs-create-linked.md).
+- [Esercitazione: distribuire una specifica di modello come modello collegato](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parametri per il modello collegato
 

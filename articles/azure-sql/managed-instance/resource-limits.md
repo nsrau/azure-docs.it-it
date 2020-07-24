@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086830"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ SQL Istanza gestita supporta attualmente la distribuzione solo sui seguenti tipi
 ## <a name="regional-resource-limitations"></a>Limiti delle risorse a livello di area
 
 > [!Note]
-> Per le informazioni più aggiornate sulla disponibilità delle aree per le sottoscrizioni, vedere il [post di Blog ufficiale COVID-19](https://aka.ms/sqlcapacity).
+> Per le informazioni più aggiornate sulla disponibilità delle aree per le sottoscrizioni, selezionare prima di tutto [selezionare un'area](https://aka.ms/sqlcapacity).
 
 I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. SQL Istanza gestita prevede due limiti predefiniti per ogni area di Azure, che possono essere aumentati su richiesta creando una [richiesta di supporto speciale nell'portale di Azure](../database/quota-increase-request.md) a seconda del tipo di sottoscrizione:
 

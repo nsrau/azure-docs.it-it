@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: a5a9ace105e56d9db61470c35f665954812c3825
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92543383ad530242eab59387e658e7b9d137f328
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085504"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](../classic-vm-deprecation.md#how-does-this-affect-me).
 
-Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md). Poiché l'interfaccia della riga di comando di Azure è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.
+Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando classica di Azure](/cli/azure/install-classic-cli). Poiché l'interfaccia della riga di comando di Azure è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.
 
 > [!NOTE]
 > Tutte le operazioni descritte di seguito sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, è consigliabile provare a ripetere l'operazione di preparazione, interruzione o commit. La piattaforma proverà di nuovo a eseguire l'azione.
@@ -46,7 +46,7 @@ Ecco alcune procedure consigliate per valutare la migrazione delle risorse IaaS 
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Passaggio 2: Impostare la sottoscrizione e registrare il provider
-Per gli scenari di migrazione è necessario configurare l'ambiente per il modello classico e di Resource Manager. [Installare l'interfaccia della riga di comando di Azure](../../cli-install-nodejs.md) e [selezionare la sottoscrizione](/cli/azure/authenticate-azure-cli).
+Per gli scenari di migrazione è necessario configurare l'ambiente per il modello classico e di Resource Manager. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-classic-cli) e [selezionare la sottoscrizione](/cli/azure/authenticate-azure-cli).
 
 Accedere al proprio account.
 
@@ -164,7 +164,7 @@ Ottenere tutte le reti virtuali nella sottoscrizione con il comando seguente.
 azure network vnet list
 ```
 
-Verrà visualizzato un risultato simile al seguente:
+L'output sarà simile al seguente:
 
 ![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 

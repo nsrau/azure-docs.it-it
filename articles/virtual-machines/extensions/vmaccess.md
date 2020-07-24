@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3b6c9d5835f6d81ab8641d8a43fb7228b6b53ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085640"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
 ## <a name="overview"></a>Panoramica
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. In passato, quando nel data center si verificava questa situazione, era necessario accedere all'unità e quindi aprire il KVM per raggiungere la console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
 
-Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account di utenti amministrativi o aggiornare la configurazione SSH in Linux se in esecuzione come macchine virtuali di Azure Resource Manager. Se è necessario gestire macchine virtuali classiche, è possibile seguire le istruzioni disponibili nella [documentazione sulla VM classica](../linux/classic/reset-access-classic.md). 
+Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account di utenti amministrativi o aggiornare la configurazione SSH in Linux se in esecuzione come macchine virtuali di Azure Resource Manager. Se è necessario gestire macchine virtuali classiche, è possibile seguire le istruzioni disponibili nella [documentazione sulla VM classica](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic). 
  
 > [!NOTE]
 > Se si usa l'estensione VMAccess per reimpostare la password della macchina virtuale dopo l'installazione dell'estensione di accesso ad AAD, è necessario eseguire di nuovo quest'ultima estensione per riabilitare l'accesso ad AAD per la macchina virtuale.

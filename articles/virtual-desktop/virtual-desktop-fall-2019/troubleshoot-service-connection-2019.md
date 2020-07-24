@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di connessione al servizio Desktop virtuale Windows - Azure
+title: Risolvere i problemi relativi alla connessione al servizio desktop virtuale Windows 2019-Azure
 description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085793"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Connessioni al servizio Desktop virtuale Windows
+# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Risolvere i problemi relativi alle connessioni al servizio desktop virtuale Windows
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-service-connection.md).

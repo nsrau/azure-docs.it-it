@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c6246af59172b303cebd2d3344469f88ce1966
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085742"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 con ottimizzazione per la memoria e serie Dsv2
 
@@ -26,6 +27,10 @@ ACU: 210 - 250
 Archiviazione Premium: non supportata
 
 Caching archiviazione Premium: non supportato
+
+Live Migration: Supportato
+
+Manutenzione con mantenimento della memoria: Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | Numero massimo di dischi dati/velocità effettiva: IOPS | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|
@@ -47,6 +52,10 @@ ACU: 210 - 250 <sup>1</sup>
 Archiviazione Premium:  Supportato
 
 Memorizzazione nella cache Archiviazione Premium:  Supportato
+
+Live Migration: Supportato
+
+Manutenzione con mantenimento della memoria: Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

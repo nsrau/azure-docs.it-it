@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086440"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gestire i problemi di limitazione (429-"numero eccessivo di richieste") nelle app per la logica di Azure
 
@@ -76,7 +77,7 @@ Per gestire la limitazione a questo livello, sono disponibili le opzioni seguent
 
 ## <a name="connector-throttling"></a>Limitazione del connettore
 
-Ogni connettore ha limiti di limitazione, che è possibile trovare nella pagina di riferimento tecnico del connettore. Il [connettore del bus di servizio di Azure](https://docs.microsoft.com/connectors/servicebus/) , ad esempio, ha un limite di limitazione che consente fino a 6.000 chiamate al minuto, mentre il connettore SQL Server presenta limiti di [limitazione che variano in base al tipo di operazione](https://docs.microsoft.com/connectors/sql/).
+Ogni connettore ha limiti di limitazione, che è possibile trovare nella pagina di riferimento tecnico del connettore. Il [connettore del bus di servizio di Azure](/connectors/servicebus/) , ad esempio, ha un limite di limitazione che consente fino a 6.000 chiamate al minuto, mentre il connettore SQL Server presenta limiti di [limitazione che variano in base al tipo di operazione](/connectors/sql/).
 
 Alcuni trigger e azioni, ad esempio HTTP, hanno un ["criterio di ripetizione"](../logic-apps/logic-apps-exception-handling.md#retry-policies) che è possibile personalizzare in base ai [limiti dei criteri di ripetizione](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) per implementare la gestione delle eccezioni. Questo criterio specifica se e con quale frequenza un trigger o un'azione Ritenta una richiesta quando la richiesta originale ha esito negativo o scade e restituisce una risposta 408, 429 o 5xx. Quindi, quando viene avviata la limitazione e viene restituito un errore 429, app per la logica segue i criteri di ripetizione dei tentativi, laddove supportati.
 
@@ -163,7 +164,7 @@ Per gestire la limitazione a questo livello, sono disponibili le opzioni seguent
 
 * Usare le versioni webhook per trigger e azioni anziché per le versioni di polling.
 
-  Perché? Un trigger di polling continua a controllare il servizio o il sistema di destinazione a intervalli specifici. Un intervallo molto frequente, ad esempio ogni secondo, può creare problemi di limitazione delle richieste. Tuttavia, un trigger o un'azione webhook, ad esempio [webhook http](../connectors/connectors-native-webhook.md), crea solo una singola chiamata al servizio o al sistema di destinazione, che si verifica al momento della sottoscrizione e richiede che la destinazione comunichi il trigger o l'azione solo quando si verifica un evento. In questo modo, il trigger o l'azione non deve controllare continuamente la destinazione.
+  Questo problema dipende Un trigger di polling continua a controllare il servizio o il sistema di destinazione a intervalli specifici. Un intervallo molto frequente, ad esempio ogni secondo, può creare problemi di limitazione delle richieste. Tuttavia, un trigger o un'azione webhook, ad esempio [webhook http](../connectors/connectors-native-webhook.md), crea solo una singola chiamata al servizio o al sistema di destinazione, che si verifica al momento della sottoscrizione e richiede che la destinazione comunichi il trigger o l'azione solo quando si verifica un evento. In questo modo, il trigger o l'azione non deve controllare continuamente la destinazione.
   
   Quindi, se il servizio o il sistema di destinazione supporta i webhook o fornisce un connettore con una versione di Webhook, questa opzione è migliore rispetto all'uso della versione di polling. Per identificare i trigger e le azioni del webhook, verificare che abbiano il `ApiConnectionWebhook` tipo o che non sia necessario specificare una ricorrenza. Per altre informazioni, vedere [trigger APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e [azione APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 

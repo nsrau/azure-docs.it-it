@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086473"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta di contenitore di Azure in Azure Marketplace
 
@@ -250,13 +250,13 @@ Prima di continuare, selezionare **Salva bozza**.
 
 ### <a name="plan-overview"></a>Panoramica del piano
 
-Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta. Questi piani sono stati indicati in precedenza come SKU o codice di riferimento del prodotto. I piani possono variare in base ai cloud disponibili, ad esempio cloud globali, cloud per enti pubblici e all'immagine a cui si fa riferimento nel piano. Per presentare l'offerta nel marketplace commerciale, è necessario configurare almeno un piano.
+Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace commerciale, è necessario configurare almeno un piano.
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
 - Nomi dei piani
 - Modello di prezzi
-- Disponibilità cloud (globale o per enti pubblici)
+- Aree di Azure (globale o per enti pubblici)
 - Stato attuale di pubblicazione
 - Eventuali azioni disponibili
 
@@ -293,7 +293,7 @@ Prima della [pubblicazione](../../azure-government/documentation-government-mana
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione può essere visualizzata solo se **Azure per enti pubblici** è selezionato in **disponibilità cloud**.
+Questa opzione può essere visualizzata solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 

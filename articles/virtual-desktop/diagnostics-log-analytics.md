@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085912"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
@@ -133,52 +133,16 @@ Log Analytics solo i report in questi stati intermedi per le attività di connes
 
 ## <a name="example-queries"></a>Query di esempio
 
-Le query di esempio seguenti mostrano come la funzionalità di diagnostica genera un report per le attività più frequenti nel sistema.
+Accedere a query di esempio tramite il monitoraggio di Azure Log Analytics interfaccia utente:
+1. Passare all'area di lavoro Log Analytics, quindi selezionare **log**. L'interfaccia utente di query di esempio viene mostrata automaticamente.
+1. Modificare il filtro in **Category**.
+1. Selezionare **desktop virtuale Windows** per esaminare le query disponibili.
+1. Selezionare **Esegui** per eseguire la query selezionata. 
 
-Per ottenere un elenco delle connessioni effettuate dagli utenti, eseguire questo cmdlet:
+Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+L'elenco di query seguente consente di esaminare le informazioni di connessione o i problemi per un singolo utente. È possibile eseguire queste query nell' [editor di query log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
 
-Per visualizzare l'attività del feed degli utenti:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Per trovare tutte le connessioni per un singolo utente:
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Per trovare la durata della sessione in base all'utente:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-Per determinare se si è verificato un errore specifico:
+Per determinare se si è verificato un errore specifico per altri utenti:
 
 ```kusto
 WVDErrors
@@ -232,27 +195,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Per trovare l'occorrenza di un errore in tutti gli utenti:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Per eseguire query sulle app aperte dagli utenti, eseguire questa query:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- Quando un utente apre desktop completo, l'utilizzo dell'app nella sessione non viene rilevata come Checkpoint nella tabella WVDCheckpoints.
 >- La colonna ResourcesAlias nella tabella WVDConnections indica se un utente si è connesso a un desktop completo o a un'app pubblicata. La colonna Mostra solo la prima app aperta durante la connessione. Tutte le app pubblicate aperte dall'utente vengono rilevate in WVDCheckpoints.
