@@ -3,19 +3,26 @@ title: Creare un cluster privato del servizio Azure Kubernetes
 description: Informazioni su come creare un cluster privato del servizio Azure Kubernetes
 services: container-service
 ms.topic: article
-ms.date: 6/18/2020
-ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/17/2020
+ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015650"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
-In un cluster privato, il piano di controllo o il server API dispongono di indirizzi IP interni definiti nel documento [RFC1918 - Indirizzo di allocazione per Internet privati](https://tools.ietf.org/html/rfc1918). Usando un cluster privato è possibile garantire che il traffico di rete tra il server API e i pool di nodi rimanga solo sulla rete privata.
+In un cluster privato, il piano di controllo o il server API dispongono di indirizzi IP interni definiti nel documento [RFC1918 - Indirizzo di allocazione per Internet privati](https://tools.ietf.org/html/rfc1918). Usando un cluster privato, è possibile verificare che il traffico di rete tra il server API e i pool di nodi rimanga solo sulla rete privata.
 
 Il piano di controllo o il server API si trova in una sottoscrizione di Azure gestita dal servizio Azure Kubernetes. Un cluster o un pool di nodi del cliente si trova nella sottoscrizione del cliente. Il server e il cluster o il pool di nodi possono comunicare tra loro tramite il [servizio di collegamento privato di Azure][private-link-service] nella rete virtuale del server API e un endpoint privato esposto nella subnet del cluster AKS del cliente.
+
+## <a name="region-availability"></a>Aree di disponibilità
+
+Il cluster privato è disponibile nelle aree pubbliche in cui [è supportato AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Cina 21Vianet attualmente non è supportato.
+* US Gov Texas attualmente non è supportato a causa del supporto del collegamento privato mancante.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,13 +76,13 @@ La creazione di una macchina virtuale nella stessa VNET del cluster AKS è l'opz
 
 ## <a name="virtual-network-peering"></a>Peering di rete virtuale
 
-Come indicato in precedenza, il peering di VNet è un modo per accedere al cluster privato. Per usare il peering VNet è necessario configurare un collegamento tra la rete virtuale e la zona DNS privata.
+Come indicato in precedenza, il peering di rete virtuale è un modo per accedere al cluster privato. Per usare il peering di rete virtuale, è necessario configurare un collegamento tra la rete virtuale e la zona DNS privata.
     
 1. Passare al gruppo di risorse del nodo nel portale di Azure.  
 2. Selezionare la zona DNS privato.   
 3. Nel riquadro di sinistra selezionare il collegamento **Rete virtuale**.  
 4. Creare un nuovo collegamento per aggiungere la rete virtuale della macchina virtuale alla zona DNS privata. Sono necessari alcuni minuti per rendere disponibile il collegamento per la zona DNS.  
-5. Nella portale di Azure passare al gruppo di risorse che contiene il VNet del cluster.  
+5. Nella portale di Azure passare al gruppo di risorse che contiene la rete virtuale del cluster.  
 6. Nel riquadro a destra, selezionare la rete virtuale. Il nome della rete virtuale è nel modulo *aks-vnet-\** .  
 7. Nel riquadro a sinistra selezionare **Peering**.  
 8. Selezionare **Aggiungi**, aggiungere la rete virtuale della macchina virtuale, quindi creare il peering.  
@@ -89,7 +96,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 
 1. Per impostazione predefinita, quando viene eseguito il provisioning di un cluster privato, nel gruppo di risorse gestite del cluster vengono creati un endpoint privato (1) e una zona DNS privata (2). Il cluster usa un record A nella zona privata per risolvere l'indirizzo IP dell'endpoint privato per la comunicazione con il server API.
 
-2. La zona DNS privata è collegata solo alla VNet a cui sono collegati i nodi del cluster (3). Ciò significa che l'endpoint privato può essere risolto solo dagli host in tale VNet collegata. Negli scenari in cui non è configurato alcun DNS personalizzato nella VNet (impostazione predefinita), funziona senza problemi in quanto gli host puntano a 168.63.129.16 per DNS, che può risolvere i record nella zona DNS privata a causa del collegamento.
+2. La zona DNS privata è collegata solo alla VNet a cui sono collegati i nodi del cluster (3). Ciò significa che l'endpoint privato può essere risolto solo dagli host in tale VNet collegata. Negli scenari in cui non è configurato alcun DNS personalizzato in VNet (impostazione predefinita), funziona senza problemi come host Point in 168.63.129.16 per DNS, che può risolvere i record nella zona DNS privata a causa del collegamento.
 
 3. Negli scenari in cui la VNet che contiene il cluster dispone di impostazioni DNS personalizzate (4), la distribuzione del cluster ha esito negativo a meno che la zona DNS privata non sia collegata alla VNet che contiene i resolver DNS personalizzati (5). Questo collegamento può essere creato manualmente dopo la creazione della zona privata durante il provisioning del cluster o tramite automazione al rilevamento della creazione della zona usando i meccanismi di distribuzione basati su eventi, ad esempio griglia di eventi di Azure e funzioni di Azure.
 
@@ -99,7 +106,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 * Per usare un server DNS personalizzato, aggiungere l'IP DNS di Azure 168.63.129.16 come server DNS upstream nel server DNS personalizzato.
 
 ## <a name="limitations"></a>Limitazioni 
-* Gli intervalli autorizzati IP non possono essere applicati all'endpoint server dell'API privata, ma si applicano solo al server dell'API pubblica
+* Gli intervalli autorizzati IP non possono essere applicati all'endpoint server dell'API privata, ma si applicano solo al server API pubblico
 * [Zone di disponibilità][availability-zones] sono attualmente supportate per determinate aree geografiche. 
 * [Le limitazioni del servizio Collegamento privato di Azure][private-link-service] si applicano ai cluster privati.
 * Nessun supporto per gli agenti ospitati da Microsoft di Azure DevOps con cluster privati. Si consiglia di usare gli [agenti self-hosted][devops-agents]. 

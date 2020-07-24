@@ -1,15 +1,15 @@
 ---
-title: Creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS)
+title: Creare un contenitore di Windows Server in un cluster AKS usando l'interfaccia della riga di comando di Azure
 description: Informazioni su come creare rapidamente un cluster Kubernetes, distribuire un'applicazione in un contenitore di Windows Server in Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015630"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creare un contenitore di Windows Server in un cluster di Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -70,7 +70,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 Per eseguire un cluster del servizio Azure Kubernetes che supporti i pool di nodi per i contenitori di Windows Server, il cluster deve usare un criterio di rete che usi il plug-in di rete [Azure CNI][azure-cni-about] (avanzato). Per informazioni più dettagliate sulla pianificazione degli intervalli di subnet richiesti e sulle considerazioni sulla rete, vedere [Configurare le funzionalità di rete dell'interfaccia di rete dei contenitori di Azure][use-advanced-networking]. Usare il comando [AZ AKS create][az-aks-create] per creare un cluster AKS denominato *myAKSCluster*. Questo comando creerà le risorse di rete necessarie se non esistono.
 
 * Il cluster è configurato con due nodi
-* I parametri *Windows-admin-password* e *Windows-admin-username* impostano le credenziali di amministratore per tutti i contenitori di Windows Server creati nel cluster.
+* I parametri *Windows-admin-password* e *Windows-admin-username* impostano le credenziali di amministratore per tutti i contenitori di Windows Server creati nel cluster e devono soddisfare i [requisiti delle password di Windows Server][windows-server-password].
 * Il pool di nodi USA`VirtualMachineScaleSets`
 
 > [!NOTE]
@@ -294,3 +294,4 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
