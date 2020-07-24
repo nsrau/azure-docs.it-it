@@ -1,5 +1,5 @@
 ---
-title: macchine virtuali Linux Baseline della sicurezza per il benchmark di sicurezza di Azure
+title: Baseline della sicurezza di Azure per macchine virtuali Linux
 description: La linea di base di sicurezza macchine virtuali Linux fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531506"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124715"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>macchine virtuali Linux Baseline della sicurezza per il benchmark di sicurezza di Azure
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
 La linea di base di sicurezza di Azure per macchine virtuali Linux contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
@@ -568,7 +568,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Controllo degli accessi in base al ruolo per le risorse di Azure](../../role-based-access-control/overview.md)
 
-* [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 

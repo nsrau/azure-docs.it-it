@@ -3,19 +3,17 @@ title: Metadati con l'API GenerateAnswer - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave/valore, alle coppie di domande e risposte. È possibile filtrare i risultati per le query utente e archiviare informazioni aggiuntive che possono essere usate nelle conversazioni di completamento.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: diberry
-ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 863143cb2ec1085bf03b070c225f2be5e8e4393d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993508"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126177"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -146,7 +144,7 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteggio di soglia.
 
-## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usare QnA Maker con un bot in node. js
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usare QnA Maker con un bot in Node.js
 
 Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
@@ -184,13 +182,40 @@ Poiché i risultati sono necessari solo per il ristorante "Paradise", è possibi
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### <a name="logical-and-by-default"></a>Logical e per impostazione predefinita
+
+Per combinare più filtri di metadati nella query, aggiungere i filtri di metadati aggiuntivi alla matrice della `strictFilters` Proprietà. Per impostazione predefinita, i valori vengono combinati in modo logico (e). Una combinazione logica richiede che tutti i filtri corrispondano alle coppie QnA in modo che la coppia venga restituita nella risposta.
+
+Equivale all'utilizzo della `strictFiltersCompoundOperationType` proprietà con il valore di `AND` .
+
+### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>OR logico con la proprietà strictFiltersCompoundOperationType
+
+Quando si combinano diversi filtri di metadati, se si è interessati solo a uno o alcuni dei filtri corrispondenti, utilizzare la `strictFiltersCompoundOperationType` proprietà con il valore di `OR` .
+
+Ciò consente alla Knowledge base di restituire le risposte quando qualsiasi filtro corrisponde, ma non restituirà risposte senza metadati.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### <a name="metadata-examples-in-quickstarts"></a>Esempi di metadati nelle guide introduttive
+
+Altre informazioni sui metadati sono disponibili nella Guida introduttiva del portale QnA Maker per i metadati:
+* [Creazione e modifica-aggiungere metadati alla coppia QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Query PREDICTION-Filtra risposte per metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

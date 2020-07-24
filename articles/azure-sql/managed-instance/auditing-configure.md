@@ -13,18 +13,19 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 6599963b216409103f72b4e46a30961c6d60e32c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 213a4fdb0e064e1c36a04f7190f14fab80cb4daa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117358"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introduzione al controllo Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Il controllo [istanza gestita SQL di Azure](sql-managed-instance-paas-overview.md) tiene traccia degli eventi di database e li scrive in un log di controllo nell'account di archiviazione di Azure. Inoltre, il servizio di controllo:
 
-- Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
+- Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che possono indicare problemi aziendali o possibili violazioni della sicurezza.
 - Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure
@@ -113,7 +114,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
-        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        TO URL ( PATH ='<container_url>' , RETENTION_DAYS =  integer )
         GO
         ```
 

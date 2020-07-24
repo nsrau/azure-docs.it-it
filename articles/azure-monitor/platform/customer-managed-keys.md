@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117363"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -194,7 +194,7 @@ Queste impostazioni possono essere aggiornate tramite l'interfaccia della riga d
 
 Questa risorsa viene usata come connessione di identità intermedia tra Key Vault e aree di lavoro Log Analytics. Dopo aver ricevuto la conferma che le sottoscrizioni sono state consentite, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano le aree di lavoro.
 
-Quando si crea una risorsa *Cluster* è necessario specificare il livello (sku) di *prenotazione della capacità*. Il livello di *prenotazione della capacità* può essere compreso tra 1.000 e 2.000 GB al giorno ed è possibile aggiornarlo di 100 in volta in un secondo momento. Se è necessario un livello di prenotazione della capacità superiore a 2.000 GB al giorno, contattare LAIngestionRate@microsoft.com. [Altre informazioni](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Quando si crea una risorsa *Cluster* è necessario specificare il livello (sku) di *prenotazione della capacità*. Il livello di *prenotazione della capacità* può essere compreso tra 1000 e 3000 GB al giorno ed è possibile aggiornarlo nei passaggi di 100. Se è necessario un livello di prenotazione di capacità superiore a 3000 GB al giorno, contattare Microsoft all'indirizzo LAIngestionRate@microsoft.com . [Altre informazioni](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 La proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *Cluster* e i relativi dati:
 - *Cluster* (impostazione predefinita): i costi di prenotazione della capacità per il cluster sono attribuiti alla risorsa *cluster* .
@@ -467,9 +467,9 @@ Tutti i dati rimarranno accessibili dopo l'operazione di rotazione della chiave 
 Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette nell'ambito dei criteri CMK ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query salvate e per le *ricerche* con *avvisi di log* crittografate con la chiave nel proprio account di archiviazione quando si è connessi all'area di lavoro. 
 
 > [!NOTE]
-> CMK per le query utilizzate nelle cartelle di lavoro e nei dashboard di Azure non è ancora supportato. Queste query rimangono crittografate con la chiave Microsoft.  
+> Log Analytics le query possono essere salvate in diversi archivi a seconda dello scenario utilizzato. Le query rimangono crittografate con la chiave Microsoft (MMK) negli scenari seguenti indipendentemente dalla configurazione di CMK: cartelle di lavoro in monitoraggio di Azure, dashboard di Azure, app per la logica di Azure, Azure Notebooks e automazione manuali operativi.
 
-Quando si [porta la propria](./private-storage.md) risorsa di archiviazione (BYOS) e la si associa all'area di lavoro, il servizio carica le query *salvate* e gli *avvisi di log* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/encryption-customer-managed-keys.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
+Quando si porta la propria risorsa di archiviazione (BYOS) e la si associa all'area di lavoro, il servizio carica le query *salvate* e gli *avvisi di log* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/encryption-customer-managed-keys.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
 
 **Considerazioni prima di impostare CMK per le query**
 * È necessario disporre delle autorizzazioni di scrittura per l'area di lavoro e l'account di archiviazione
@@ -599,7 +599,7 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
 
 - **Aggiornare la *prenotazione della capacità* nella risorsa *Cluster***
 
-  Quando il volume di dati per le aree di lavoro associate cambia nel tempo e si vuole aggiornare il livello di prenotazione della capacità in modo appropriato. Seguire il passaggio di [aggiornamento della risorsa *Cluster*](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Questo valore può essere compreso tra 1.000 e 2.000 GB al giorno e modificato di 100 alla volta. Per un livello superiore a 2.000 GB al giorno, contattare Microsoft. Si noti che non è necessario fornire il corpo completo della richiesta REST ed è necessario includere lo SKU:
+  Quando il volume di dati per le aree di lavoro associate cambia nel tempo e si vuole aggiornare il livello di prenotazione della capacità in modo appropriato. Seguire il passaggio di [aggiornamento della risorsa *Cluster*](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Può essere compreso tra 1000 e 3000 GB al giorno e nei passaggi di 100. Per un livello superiore a 3000 GB al giorno, raggiungi il contatto Microsoft per abilitarlo. Si noti che non è necessario fornire il corpo della richiesta REST completo, ma deve includere lo SKU:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"

@@ -1,19 +1,19 @@
 ---
 title: Operazioni di i/o Core | Mappe Microsoft Azure
 description: Informazioni su come leggere e scrivere in modo efficiente i dati XML e delimitati usando le librerie di base del modulo IO spaziale.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e142fe348a339e4903d692cad569015edb69f75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371448"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124477"
 ---
 # <a name="core-io-operations"></a>Operazioni di i/o Core
 
@@ -30,7 +30,7 @@ La `atlas.io.core.CsvReader` classe legge le stringhe che contengono set di dati
 
 Per impostazione predefinita, il lettore utilizzerà il carattere virgola come delimitatore. Tuttavia, il delimitatore può essere modificato in qualsiasi carattere singolo o impostato su `'auto'` . Se impostato su `'auto'` , il lettore analizzerà la prima riga di testo nella stringa. Quindi seleziona il carattere più comune della tabella seguente da usare come delimitatore.
 
-| | |
+| Delimitatore | Carattere |
 | :-- | :-- |
 | Virgola | `,` |
 | Scheda | `\t` |

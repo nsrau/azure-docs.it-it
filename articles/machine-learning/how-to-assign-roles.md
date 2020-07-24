@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609249"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125174"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,18 +25,18 @@ Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machin
 
 ## <a name="default-roles"></a>Ruoli predefiniti
 
-Un'area di lavoro Azure Machine Learning è una risorsa di Azure. Analogamente ad altre risorse di Azure, quando viene creata una nuova area di lavoro Azure Machine Learning, viene fornita con tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
+Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogamente ad altre risorse di Azure, quando viene creata una nuova area di lavoro di Azure Machine Learning, essa presenta tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
 
 | Ruolo | Livello di accesso |
 | --- | --- |
 | **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset (incluse le credenziali dell' [archivio dati](how-to-access-data.md) ) in un'area di lavoro, ma non possono creare o aggiornare tali asset. |
-| **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono ad esempio creare un esperimento, creare o alleghire un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
+| **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono, ad esempio, creare un esperimento, creare o allegare un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
 | **Proprietario** | Accesso completo all'area di lavoro, inclusa la possibilità di visualizzare, creare, modificare o eliminare le risorse (ove applicabile) in un'area di lavoro. Inoltre, è possibile modificare le assegnazioni di ruolo. |
 
 > [!IMPORTANT]
 > L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per ulteriori informazioni [, vedere funzionamento](/azure/role-based-access-control/overview#how-rbac-works)del controllo degli accessi in base al ruolo.
 
-Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti per Azure](/azure/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Gestisci l'accesso all'area di lavoro
 
@@ -117,7 +117,7 @@ Dopo la distribuzione, questo ruolo diventa disponibile nell'area di lavoro spec
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](/azure/role-based-access-control/custom-roles).
+Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -176,7 +176,7 @@ Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Enterprise Security Package](concept-enterprise-security.md)
+- [Panoramica sulla sicurezza aziendale](concept-enterprise-security.md)
 - [Eseguire in modo sicuro gli esperimenti e l'inferenza e il Punteggio all'interno di una rete virtuale](how-to-enable-virtual-network.md)
 - [Esercitazione: Eseguire il training dei modelli](tutorial-train-models-with-aml.md)
 - [Operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

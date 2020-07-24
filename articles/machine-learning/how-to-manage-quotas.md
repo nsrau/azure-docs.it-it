@@ -11,11 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430457"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125089"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +72,7 @@ Risorse disponibili:
 | Numero massimo di nodi in una singola risorsa dell'ambiente di calcolo di Azure Machine Learning (AmlCompute) | 100 nodi |
 | Processi MPI GPU massimi per nodo | 1-4 |
 | Numero massimo di ruoli di lavoro GPU per nodo | 1-4 |
-| Durata massima del processo | 90 giorni<sup>1</sup> |
+| Durata massima del processo | 21 giorni<sup>1</sup> |
 | Durata massima del processo in un nodo a priorità bassa | 7 giorni<sup>2</sup> |
 | Parametri massimi dei server per nodo | 1 |
 

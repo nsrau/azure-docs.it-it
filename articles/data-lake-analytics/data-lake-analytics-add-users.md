@@ -3,18 +3,16 @@ title: Aggiungere utenti a un account di Azure Data Lake Analytics
 description: Informazioni su come aggiungere correttamente gli utenti all'account Data Lake Analytics usando la procedura guidata Aggiungi utente e Azure PowerShell.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 16ec54bb2a41927a92d953586af59ae3653a29c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117458"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126075"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Aggiunta di un utente nel portale di Azure
 
@@ -42,7 +40,7 @@ Concedere "R-X" o "RWX", in base alle esigenze, alle cartelle che contengono dat
 
 ## <a name="adding-a-user-using-powershell"></a>Aggiunta di un utente tramite PowerShell
 
-1. Seguire le istruzioni in questa guida: [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Seguire le istruzioni in questa guida: [Come installare e configurare Azure PowerShell](/powershell/azure/).
 2. Scaricare lo script di PowerShell [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1).
 3. Eseguire lo script di PowerShell. 
 

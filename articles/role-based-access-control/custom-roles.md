@@ -15,12 +15,12 @@ ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511603"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124154"
 ---
 # <a name="azure-custom-roles"></a>Ruoli personalizzati di Azure
 
@@ -115,7 +115,7 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
 La tabella seguente descrive le proprietà del ruolo personalizzato.
 
-| Proprietà | Obbligatoria | Type | Descrizione |
+| Proprietà | Obbligatoria | Tipo | Descrizione |
 | --- | --- | --- | --- |
 | `Name`</br>`roleName` | Sì | Stringa | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è un gruppo di gestione o una risorsa a livello di sottoscrizione, è possibile utilizzare una definizione di ruolo in più sottoscrizioni che condividono la stessa directory Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
 | `Id`</br>`name` | Sì | Stringa | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
@@ -192,7 +192,7 @@ Nell'elenco seguente vengono descritti i limiti per i ruoli personalizzati.
 - I ruoli personalizzati con `DataActions` non possono essere assegnati all'ambito del gruppo di gestione.
 - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione di ruolo.
 
-Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="input-and-output-formats"></a>Formati di input e output
 

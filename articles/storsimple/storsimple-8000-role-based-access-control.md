@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514647"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124103"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
 
-Questo articolo fornisce una breve descrizione di come è possibile usare il controllo degli accessi in base al ruolo di Azure per un dispositivo StorSimple. Il controllo degli accessi in base al ruolo consente la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo consente di concedere agli utenti di StorSimple il livello di accesso appropriato in base al tipo di attività che devono svolgere, anziché concedere loro un accesso illimitato. Per le nozioni di base sulla gestione degli accessi in Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
+Questo articolo fornisce una breve descrizione del modo in cui il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) può essere usato per il dispositivo StorSimple. Il controllo degli accessi in base al ruolo consente la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo consente di concedere agli utenti di StorSimple il livello di accesso appropriato in base al tipo di attività che devono svolgere, anziché concedere loro un accesso illimitato. Per le nozioni di base sulla gestione degli accessi in Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
 Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o successivo in esecuzione nel portale di Azure.
 
@@ -34,7 +35,7 @@ Il controllo degli accessi in base al ruolo può essere assegnato in funzione de
 
 * **Ruoli predefiniti**: possono essere i ruoli di proprietario, collaboratore, lettore o amministratore Accesso utenti. Per altre informazioni, vedere [ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
 
-* **Ruoli personalizzati**: se i ruoli predefiniti non soddisfano le esigenze correnti, è possibile creare ruoli di controllo degli accessi in base al ruolo personalizzati per StorSimple. Per creare un ruolo di controllo degli accessi in base al ruolo personalizzato, usare un ruolo predefinito, modificarlo e quindi importarlo di nuovo nell'ambiente. Il download e l'upload del ruolo vengono gestiti tramite Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
+* **Ruoli personalizzati** : se i ruoli predefiniti non soddisfano le proprie esigenze, è possibile creare ruoli personalizzati di Azure per StorSimple. Per creare un ruolo personalizzato di Azure, iniziare con un ruolo predefinito, modificarlo e quindi importarlo di nuovo nell'ambiente. Il download e l'upload del ruolo vengono gestiti tramite Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
 
 Per visualizzare i diversi ruoli disponibili per un utente di un dispositivo StorSimple nel portale di Azure, passare al servizio Gestione dispositivi StorSimple e quindi selezionare **Controllo di accesso (IAM) > Ruoli**.
 
@@ -101,7 +102,7 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
     }
     ```
 
-6. Reimportare nell'ambiente il ruolo di controllo degli accessi in base al ruolo personalizzato.
+6. Importare di nuovo il ruolo personalizzato di Azure nell'ambiente.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 

@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725903"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124307"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -77,7 +78,7 @@ Si tratta della funzione di base di Azure.
 
 È ora possibile compilare ed eseguire la funzione. Mentre le funzioni di Azure sono destinate all'esecuzione nel cloud, è anche possibile eseguire ed eseguire il debug di funzioni di Azure in locale.
 
-Per altre informazioni, vedere [trigger griglia di eventi di debug in locale](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Per altre informazioni, vedere [*trigger griglia di eventi di debug in locale*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Aggiungere Azure Digital Twins SDK all'app per le funzioni di Azure
 
@@ -162,9 +163,9 @@ Usare il valore di *principalId* nel comando seguente per assegnare l'identità 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Per altre informazioni sull'identità gestita, vedere [come usare le identità gestite per il servizio app e funzioni di Azure](../app-service/overview-managed-identity.md).
+Per altre informazioni sull'identità gestita, vedere [*come usare le identità gestite per il servizio app e funzioni di Azure*](../app-service/overview-managed-identity.md).
 
-Infine, è possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per altre informazioni, vedere variabili di [ambiente](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Infine, è possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per altre informazioni, vedere variabili di [*ambiente*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > L'URL dell'istanza di Azure Digital gemelli viene creato aggiungendo *https://* all'inizio del *nome host*dell'istanza di Azure Digital gemelli. Per visualizzare il nome host, insieme a tutte le proprietà dell'istanza, è possibile eseguire `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -208,7 +209,7 @@ Si noti anche l' **ID oggetto** illustrato in questa pagina, che verrà usato ne
 
 ### <a name="assign-access-roles"></a>Assegnare i ruoli di accesso
 
-Poiché i dispositivi gemelli digitali di Azure usano il controllo degli accessi in base al ruolo per gestire l'accesso (vedere [concetti: sicurezza per le soluzioni di dispositivi gemelli digitali di Azure](concepts-security.md) per altre informazioni), è anche necessario aggiungere un ruolo per ogni app per le funzioni che si vuole consentire di accedere ai dispositivi gemelli digitali di Azure.
+Poiché i dispositivi gemelli digitali di Azure usano il controllo degli accessi in base al ruolo per gestire l'accesso (vedere [*concetti: sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*](concepts-security.md) per altre informazioni), è anche necessario aggiungere un ruolo per ogni app per le funzioni che si vuole consentire di accedere ai dispositivi gemelli digitali di Azure.
 
 Per assegnare un ruolo, è necessario l' **ID risorsa** dell'istanza di Azure Digital Twins creata. Se non è stato registrato in precedenza durante la creazione dell'istanza, è possibile recuperarla utilizzando questo comando:
 
@@ -231,4 +232,4 @@ In questo articolo sono stati seguiti i passaggi per configurare una funzione di
 * Un endpoint di griglia di eventi che riceve messaggi da altri servizi
 
 Vedere quindi come compilare la funzione di base di Azure per inserire i dati dell'hub Internet in dispositivi gemelli digitali di Azure:
-* [Procedura: inserire dati di telemetria dall'hub Internet](how-to-ingest-iot-hub-data.md)
+* [*Procedura: inserire dati di telemetria dall'hub Internet*](how-to-ingest-iot-hub-data.md)

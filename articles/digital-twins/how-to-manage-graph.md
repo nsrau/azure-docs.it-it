@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258116"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125533"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
 Il cuore di Azure Digital gemelli è il [grafo gemello](concepts-twins-graph.md) che rappresenta l'intero ambiente. Il grafico gemello è costituito da singoli gemelli digitali connessi tramite **relazioni**.
 
-Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance.md) funzionante e si è configurata [l'autenticazione](how-to-authenticate-client.md) per l'app client, è possibile usare le [**API DigitalTwins**](how-to-use-apis-sdks.md) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital Twins. È anche possibile usare [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance-scripted.md) funzionante e si è configurato il codice di [autenticazione](how-to-authenticate-client.md) nell'app client, è possibile usare le [**API DigitalTwins**](how-to-use-apis-sdks.md) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital gemelli. È anche possibile usare [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
-Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo complesso; per lavorare con singoli dispositivi gemelli digitali, vedere [How-to: Manage Digital gemells](how-to-manage-twin.md).
+Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo complesso; per lavorare con singoli dispositivi gemelli digitali, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Per altre informazioni sulla classe helper `BasicRelationship` , vedere [How-to: Use the Azure Digital Twins API and SDKs](how-to-use-apis-sdks.md).
+Per altre informazioni sulla classe helper `BasicRelationship` , vedere [*How-to: Use the Azure Digital Twins API and SDKs*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>Elencare le relazioni
 
@@ -108,7 +108,7 @@ I dispositivi gemelli digitali di Azure hanno anche un'API che consente di trova
 
 L'esempio di codice precedente è stato incentrato sulla ricerca di relazioni in uscita. L'esempio seguente è simile, ma trova invece le relazioni in ingresso. Li elimina anche dopo che sono stati trovati.
 
-Si noti che le chiamate IncomingRelationship non restituiscono la versione completa
+Si noti che le `IncomingRelationship` chiamate non restituiscono il corpo completo della relazione.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Gestire relazioni con l'interfaccia della riga di comando
 
-I dispositivi gemelli e le relative relazioni possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli](how-to-use-cli.md).
+I dispositivi gemelli e le relative relazioni possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sull'esecuzione di query su un grafo gemelli di Azure Digital gemello:
-* [Concetti: linguaggio di query](concepts-query-language.md)
-* [Procedura: eseguire una query sul grafico gemello](how-to-query-graph.md)
+* [*Concetti: linguaggio di query*](concepts-query-language.md)
+* [*Procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md)

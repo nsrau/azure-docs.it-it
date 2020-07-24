@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117198"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -65,6 +65,9 @@ L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile n
 
 
 ## <a name="set-up-and-configure"></a>Installare e configurare
+
+> [!NOTE]
+> È anche possibile che l'agente di Log Analytics sia denominato Microsoft Monitoring Agent (MMA) o agente di OMS per Linux.
 
 ### <a name="install-and-configure-agents"></a>Installare e configurare agenti 
 

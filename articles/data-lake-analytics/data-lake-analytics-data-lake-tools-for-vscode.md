@@ -3,18 +3,16 @@ title: Usare gli Strumenti Azure Data Lake per Visual Studio Code
 description: Informazioni su come usare gli Strumenti Azure Data Lake per Visual Studio Code per creare, testare ed eseguire gli script U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: Jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117662"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126483"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usare gli Strumenti Azure Data Lake per Visual Studio Code
 
@@ -355,7 +353,7 @@ Un altro modo per visualizzare l'anteprima del file è attraverso il menu di sce
 ### <a name="upload-a-file-or-folder"></a>Caricare un file o una cartella
 
 1. Fare clic con il pulsante destro del mouse sull'editor di script e scegliere **Upload File** (Carica file) o **Upload Folder** (Carica cartella).
-2. Scegliere uno o più file se è stata selezionata l'opzione **Carica file** oppure scegliere l'intera cartella se è stata selezionata l'opzione **Upload Folder** (Carica cartella). Selezionare quindi **Carica**.
+2. Scegliere uno o più file se è stata selezionata l'opzione **Carica file** oppure scegliere l'intera cartella se è stata selezionata l'opzione **Upload Folder** (Carica cartella). Selezionare quindi **Upload** (Carica).
 3. Scegliere la cartella di archiviazione nell'elenco o selezionare **Enter Path** (Immetti un percorso) o su **Browse from Root** (Sfoglia da radice). Questo passaggio usa **Enter a path** (Immetti un percorso) come esempio.
 4. Selezionare l'account di Data Lake Analytics.
 5. Andare al percorso della cartella di archiviazione o immetterlo manualmente, ad esempio /output/.

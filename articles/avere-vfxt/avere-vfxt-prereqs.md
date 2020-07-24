@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505342"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124732"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -38,7 +38,7 @@ Esistono alcune soluzioni alternative per consentire a un utente non proprietari
 |----------|--------|-------|
 | L'amministratore del gruppo di risorse crea il vFXT | La rete virtuale, il controller cluster e i nodi del cluster devono essere creati all'interno del gruppo di risorse. | Ruoli [collaboratore](../role-based-access-control/built-in-roles.md#contributor) e [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) , entrambi limitati al gruppo di risorse di destinazione. |
 | Usa una rete virtuale esterna esistente | Il controller del cluster e i nodi del cluster vengono creati all'interno del gruppo di risorse di vFXT, ma usano una rete virtuale esistente in un gruppo di risorse diverso. | (1) i ruoli [amministratore accesso utente](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) hanno come ambito il gruppo di risorse vFXT. e (2) [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator)e ruoli di [collaboratore](../role-based-access-control/built-in-roles.md#avere-contributor) di avere nell'ambito del gruppo di risorse della rete virtuale. |
-| Ruolo personalizzato per gli autori del cluster | Nessuna restrizione sulla posizione delle risorse. Questo metodo fornisce privilegi significativi non proprietari. | Il proprietario della sottoscrizione crea un ruolo personalizzato RBAC come descritto in [questo articolo](avere-vfxt-non-owner.md). |
+| Ruolo personalizzato per gli autori del cluster | Nessuna restrizione sulla posizione delle risorse. Questo metodo fornisce privilegi significativi non proprietari. | Il proprietario della sottoscrizione crea un ruolo personalizzato di Azure come illustrato in [questo articolo](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota per il cluster vFXT
 

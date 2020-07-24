@@ -3,8 +3,8 @@ title: Creare ruoli Web e di lavoro di Azure per PHP
 description: Guida alla creazione di ruoli Web e di lavoro PHP in un servizio cloud di Azure e configurazione del runtime PHP.
 services: ''
 documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
+manager: gwallace
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 70d48ba9519c627addf58939866633cdcc43049e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: fd04c6315a5a6915159c0cbb6a9640ae0695ed73
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117238"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creare ruoli Web e di lavoro PHP
 
@@ -32,7 +32,7 @@ Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo 
 
 ## <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
 
-[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview).
+[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 ## <a name="create-a-cloud-services-project"></a>Creare un progetto di servizi cloud
 
@@ -182,7 +182,7 @@ PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Pubblicare l'applicazione
 
-Per pubblicare l'applicazione, è necessario prima importare le impostazioni di pubblicazione usando il cmdlet [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) . Pubblicare quindi l'applicazione usando il cmdlet [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) . Per informazioni sull'accesso, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Per pubblicare l'applicazione, è necessario prima importare le impostazioni di pubblicazione usando il cmdlet [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) . Pubblicare quindi l'applicazione usando il cmdlet [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) . Per informazioni sull'accesso, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,19 +2,19 @@
 title: Come proteggere un'applicazione a pagina singola con accesso non interattivo
 titleSuffix: Azure Maps
 description: Come configurare un'applicazione a pagina singola con il controllo degli accessi in base al ruolo Azure AD non interattivo e Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d33fbdf2e95faaa82c13b4fc0d52ea3f188c3f86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96dd1cf6a5d6cea69899bf920c86018384ebbc3c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988445"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126458"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Come proteggere un'applicazione a pagina singola con accesso non interattivo
 
