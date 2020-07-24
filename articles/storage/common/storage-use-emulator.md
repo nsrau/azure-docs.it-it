@@ -1,21 +1,25 @@
 ---
-title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
+title: Usare l'emulatore di archiviazione di Azure per sviluppo e test
 description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070547"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
 Il Microsoft Azure emulatore di archiviazione è uno strumento che emula i servizi BLOB, di Accodamento e tabelle di Azure per scopi di sviluppo locale. È possibile testare l'applicazione nei servizi di archiviazione in locale senza creare una sottoscrizione di Azure o sostenere costi. Quando si è soddisfatti del funzionamento dell'applicazione nell'emulatore, passare a usando un account di archiviazione di Azure nel cloud.
+
+> [!IMPORTANT]
+> L'emulatore di archiviazione di Azure non è più attivamente sviluppato. [**Azzurrite**](storage-use-azurite.md) è la piattaforma dell'emulatore di archiviazione in futuro. Azzurrite sostituisce l'emulatore di archiviazione di Azure. Azzurrite continuerà a essere aggiornato per supportare le versioni più recenti delle API di archiviazione di Azure. Per altre informazioni, vedere [**usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Ottenere l'emulatore di archiviazione
 
@@ -74,7 +78,7 @@ Per impostazione predefinita, l'emulatore di archiviazione viene installato in `
 
    `AzureStorageEmulator.exe init /server .`
 
-   In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
+   In alternativa, è possibile utilizzare il comando seguente, che consente di inizializzare il database nell'istanza predefinita del database locale:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -178,7 +182,7 @@ A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene
 
 Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
-| Opzione | Descrizione | Comando | Arguments |
+| Opzione | Descrizione | Comando | Argomenti |
 | --- | --- | --- | --- |
 | **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare*: avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
@@ -327,3 +331,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 * Valutare l'emulatore di archiviazione open source gestito dalla community multipiattaforma [azzurrite](https://github.com/azure/azurite). 
 * L'articolo [Esempi di Archiviazione di Azure che usano .NET](../storage-samples-dotnet.md) contiene collegamenti a diversi esempi di codice che è possibile usare durante lo sviluppo dell'applicazione.
 * È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse nell'account di archiviazione cloud e nell'emulatore di archiviazione.
+
+## <a name="see-also"></a>Vedere anche
+
+* [Sviluppo locale di archiviazione di Azure con azzurrite, Azure SDK e Azure Storage Explorer](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)
