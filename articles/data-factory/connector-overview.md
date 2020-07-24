@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f22b4bec17abe95be2a17d3e0e3c41fab3483fe0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007445"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Panoramica di Azure Data Factory Connector
 
@@ -34,11 +34,12 @@ Azure Data Factory supporta i formati di file seguenti. Vedere ogni articolo per
 - [Formato binario](format-binary.md)
 - [Formato Common Data Model](format-common-data-model.md)
 - [Formato di testo delimitato](format-delimited-text.md)
-- [Formato Delta](format-delta.md)
+- [Formato delta](format-delta.md)
 - [Formato Excel](format-excel.md)
 - [Formato JSON](format-json.md)
 - [Formato ORC](format-orc.md)
 - [Formato Parquet](format-parquet.md)
+- [Formato XML](format-xml.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

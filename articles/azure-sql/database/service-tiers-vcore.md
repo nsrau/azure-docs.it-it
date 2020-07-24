@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007742"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Il modello di acquisto Virtual Core (vCore) usato dal database SQL di Azure e da
 - Limiti di calcolo, memoria, I/O e archiviazione più elevati.
 - Controllare la generazione dell'hardware per meglio soddisfare i requisiti di calcolo e memoria del carico di lavoro.
 - Sconti sui prezzi per [vantaggio Azure Hybrid (vantaggio Azure Hybrid)](../azure-hybrid-benefit.md) e l' [istanza riservata (ri)](reserved-capacity-overview.md).
-- Maggiore trasparenza nei dettagli dell'hardware che alimentano il calcolo; semplifica la pianificazione delle migrazioni dalle distribuzioni locali.
+- Maggiore trasparenza nei dettagli hardware per il calcolo, che facilita la pianificazione delle migrazioni dalle distribuzioni locali.
 
 ## <a name="service-tiers"></a>Livelli di servizio
 
@@ -69,7 +69,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) consente di ri
 
 ## <a name="hardware-generations"></a>Generazioni hardware
 
-Le opzioni di generazione hardware nel modello vCore includono gen 4/5, serie M (anteprima) e serie Fsv2 (anteprima). La generazione hardware definisce in genere i limiti di calcolo e memoria e altre caratteristiche che influiscano sulle prestazioni del carico di lavoro.
+Le opzioni di generazione hardware nel modello vCore includono gen 4/5, serie M e serie Fsv2. La generazione hardware definisce in genere i limiti di calcolo e memoria e altre caratteristiche che influiscano sulle prestazioni del carico di lavoro.
 
 ### <a name="gen4gen5"></a>Gen4/quinta generazione
 
@@ -77,21 +77,21 @@ Le opzioni di generazione hardware nel modello vCore includono gen 4/5, serie M 
 
 Per le aree in cui è disponibile Gen4/quinta generazione, vedere [disponibilità di Gen4/quinta generazione](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Serie Fsv2 (anteprima)
+### <a name="fsv2-series"></a>Serie Fsv2
 
 - La serie Fsv2 è un'opzione hardware ottimizzata per il calcolo che offre bassa latenza della CPU e velocità di clock elevata per la maggior parte dei carichi di lavoro che richiedono CPU.
 - A seconda del carico di lavoro, la serie Fsv2 è in grado di fornire più prestazioni della CPU per ogni vCore rispetto a Quinta generazione e le dimensioni 72 vCore possono fornire più prestazioni della CPU per un costo inferiore rispetto a 80 Vcore in quinta generazione. 
 - Fsv2 fornisce meno memoria e tempdb per vCore rispetto ad altri componenti hardware, quindi i carichi di lavoro sensibili a tali limiti possono invece considerare la serie quinta generazione o M.  
 
-La serie Fsv2 è supportata solo nel livello per utilizzo generico.  Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della serie Fsv2](#fsv2-series).
+La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della serie Fsv2](#fsv2-series).
 
 
-### <a name="m-seriespreview"></a>Serie M (anteprima)
+### <a name="m-series"></a>Serie M
 
 - La serie M è un'opzione hardware con ottimizzazione per la memoria per carichi di lavoro che richiedono più memoria e limiti di calcolo superiori rispetto a quelli forniti da Quinta generazione.
-- La serie M offre 29 GB per vCore e 128 Vcore, che aumenta il limite di memoria rispetto a Quinta generazione da 8x a circa 4 TB.
+- La serie M offre 29 GB per vCore e fino a 128 Vcore, che aumenta il limite di memoria rispetto a Quinta generazione da 8x a circa 4 TB.
 
-La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA).  Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
+La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA). Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -104,8 +104,8 @@ To enable M-series hardware for a subscription and region, a support request mus
 |:---------|:---------|:---------|
 |Quarta generazione     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
 |Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
-|Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (SkyLake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Provisioning di 136 GB|
-|Serie M     |-Intel Xeon E7-8890 V3 2,5 GHz e processori Intel Xeon Platinum 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
+|Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (Skylake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning fino a 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Effettuare il provisioning fino a 136 GB|
+|Serie M     |-Intel Xeon E7-8890 V3 2,5 GHz e processori Intel Xeon Platinum 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning fino a 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Effettuare il provisioning fino a 3,7 TB|
 
 \*Nella vista a gestione dinamica [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione hardware per i database quinta generazione con processori Intel SP-8160 (Skylake) viene visualizzata come Gen6. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell o Skylake).
 
@@ -154,7 +154,7 @@ Nella pagina SQL Istanza gestita selezionare il collegamento piano **tariffario*
 
 ![modificare l'hardware Istanza gestita SQL](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-Nella pagina piano **tariffario** sarà possibile modificare la generazione dell'hardware come descritto nei passaggi precedenti.
+Nella pagina piano tariffario sarà possibile modificare la generazione dell'hardware come descritto nei passaggi precedenti.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -164,7 +164,7 @@ Usare lo script di PowerShell seguente:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Per altri dettagli, vedere il comando [set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+Per ulteriori informazioni, vedere il comando [set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
