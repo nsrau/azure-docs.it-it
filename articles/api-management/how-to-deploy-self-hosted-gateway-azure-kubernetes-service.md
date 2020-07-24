@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015222"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Distribuire nel servizio Azure Kubernetes
 
@@ -29,7 +29,7 @@ Questo articolo illustra la procedura per la distribuzione del componente gatewa
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Distribuire il gateway self-hosted in AKS
 
-1. Selezionare **gateway** in **Impostazioni**.
+1. Selezionare **gateway** da **distribuzione e infrastruttura**.
 2. Selezionare la risorsa del gateway self-hosted che si intende distribuire.
 3. Selezionare **distribuzione**.
 4. Si noti che per l'utente è stato generato automaticamente un nuovo token nella casella di testo **token** usando i valori predefiniti per la **scadenza** e la **chiave privata** . Se lo si desidera, modificare uno o entrambi gli elementi e selezionare **genera** per creare un nuovo token.

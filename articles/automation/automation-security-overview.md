@@ -6,11 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 61aec3936ffef488b989f54894568d206c759b12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014984"
 ---
 # <a name="automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account di Automazione
 
@@ -47,5 +48,5 @@ I runbook eseguiti in un ruolo di lavoro ibrido per runbook nel data center o in
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per creare un account di Automazione dal portale di Azure, vedere [Creare un account di Automazione di Azure autonomo](automation-create-standalone-account.md).
-* Se si preferisce creare l'account usando un modello, vedere [Creare un account di Automazione usando un modello di Azure Resource Manager](automation-create-account-template.md).
+* Se si preferisce creare l'account usando un modello, vedere [Creare un account di Automazione usando un modello di Azure Resource Manager](quickstart-create-automation-account-template.md).
 * Per l'autenticazione con Amazon Web Services, vedere [Autenticare runbook con Amazon Web Services](automation-config-aws-account.md).

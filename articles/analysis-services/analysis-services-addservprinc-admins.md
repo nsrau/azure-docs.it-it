@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015409"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -44,7 +44,7 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
 
 ## <a name="using-a-resource-manager-template"></a>Uso di un modello di Resource Manager
 
-È anche possibile configurare gli amministratori del server distribuendo il server Analysis Services usando un modello di Azure Resource Manager. L'identità che esegue la distribuzione deve appartenere al ruolo **Collaboratore** per la risorsa in [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md).
+È anche possibile configurare gli amministratori del server distribuendo il server Analysis Services usando un modello di Azure Resource Manager. L'identità che esegue la distribuzione deve appartenere al ruolo **collaboratore** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > L'entità servizio deve essere aggiunta usando il formato `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
@@ -119,5 +119,3 @@ In alternativa, è possibile usare PowerShell:
 
 * [Scaricare il modulo PowerShell di SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Scaricare SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

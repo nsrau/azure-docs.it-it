@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014491"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
@@ -171,7 +172,7 @@ Fare clic su un tipo di richiesta specifico per visualizzare le singole istanze.
 ![Esaminare una visualizzazione di esempio specifica](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics: linguaggio di query avanzato
-Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole.  [Analisi](../../azure-monitor/app/analytics.md) è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole.  [Analisi](../log-query/log-query-overview.md) è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
 ![Esempio di Analytics](./media/java-get-started/0025.png)
 
@@ -263,7 +264,7 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
   * `tabular`: i dati del contatore delle prestazioni sono nel formato della riga di una tabella
 
 #### <a name="windows-performance-counters"></a>Contatori delle prestazioni di Windows
-Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) è un membro di una categoria (nello stesso modo in cui un campo è un membro di una classe). Le categorie possono essere globali o possono disporre di istanze numerate o denominate.
+Ogni [contatore delle prestazioni Windows](/windows/win32/perfctrs/performance-counters-portal) è un membro di una categoria (nello stesso modo in cui un campo è un membro di una classe). Le categorie possono essere globali o possono disporre di istanze numerate o denominate.
 
 ```XML
     <PerformanceCounters>
@@ -307,7 +308,7 @@ Application Insights può testare il sito Web a intervalli regolari per verifica
 * [Monitorare contatori delle prestazioni Unix](java-collectd.md)
 * Aggiungere il [monitoraggio alle pagine Web](javascript.md) per monitorare i tempi di caricamento delle pagine, le chiamate AJAX e le eccezioni del browser.
 * Scrivere [dati di telemetria personalizzati](../../azure-monitor/app/api-custom-events-metrics.md) per tenere traccia dell'uso nel browser o nel server.
-* Usare [Analytics](../../azure-monitor/app/analytics.md) per eseguire query avanzate sui dati di telemetria dall'app
+* Usare [Analytics](../log-query/log-query-overview.md) per eseguire query avanzate sui dati di telemetria dall'app
 * Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 <!--Link references-->

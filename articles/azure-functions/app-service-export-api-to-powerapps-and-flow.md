@@ -4,11 +4,12 @@ description: Panoramica su come esporre un'API ospitata nel servizio app in Powe
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115822"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015086"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Esportazione di un'API ospitata in Azure in PowerApps e Microsoft Flow
 
@@ -145,9 +146,9 @@ Quando si usa Azure AD, sono necessarie due registrazioni per l'applicazione Azu
 
 - Per configurare la registrazione per l'API, usare la funzionalità di [autenticazione/autorizzazione del servizio app](../app-service/configure-authentication-provider-aad.md).
 
-- Per configurare la registrazione per il connettore, seguire i passaggi riportati in [Aggiunta di un'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). La registrazione deve avere accesso delegato all'API e un URL di risposta `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Per configurare la registrazione per il connettore, seguire i passaggi riportati in [Aggiunta di un'applicazione Azure AD](../active-directory/develop/quickstart-register-app.md). La registrazione deve avere accesso delegato all'API e un URL di risposta `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-Per altre informazioni, vedere gli esempi di registrazione in Azure AD per [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Questi esempi usano Azure Resource Manager come API. Usare la propria API se si seguono questi passaggi.
+Per altre informazioni, vedere gli esempi di registrazione in Azure AD per [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication). Questi esempi usano Azure Resource Manager come API. Usare la propria API se si seguono questi passaggi.
 
 Sono richiesti i valori di configurazione seguenti:
 - **ID client** - L'ID client della registrazione in Azure AD del connettore
@@ -168,5 +169,3 @@ Sono richiesti i valori di configurazione seguenti:
 - **URL dell'autorizzazione** - L'URL dell'autorizzazione OAuth 2.0
 - **URL del token** - L'URL del token OAuth 2.0
 - **Aggiorna URL** - L'URL di aggiornamento OAuth 2.0
-
-

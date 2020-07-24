@@ -3,12 +3,12 @@ title: Esplorare i log di traccia .NET in Application Insights
 description: Eseguire ricerche nei log generati da Trace, NLog o Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014576"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET/.NET Core e Python in Application Insights
 
@@ -84,7 +84,7 @@ Se si preferisce log4net o NLog, usare:
 ```
 
 ## <a name="use-eventsource-events"></a>Usare gli eventi di EventSource
-È possibile configurare eventi [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) da inviare ad Application Insights come tracce. Installare innanzitutto il pacchetto NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Quindi modificare la sezione `TelemetryModules` del file [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
+È possibile configurare eventi [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) da inviare ad Application Insights come tracce. Installare innanzitutto il pacchetto NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Quindi modificare la sezione `TelemetryModules` del file [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -190,7 +190,7 @@ Ad esempio, è possibile:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="how-do-i-do-this-for-java"></a>Come procedere per Java?
-Nella strumentazione Java senza codice (scelta consigliata) i log vengono raccolti per impostazione predefinita. Usare l'[agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+Nella strumentazione Java senza codice (scelta consigliata) i log vengono raccolti per impostazione predefinita. Usare l'[agente Java 3.0](./java-in-process-agent.md).
 
 Se si usa Java SDK, usare gli [adattatori di log Java](../../azure-monitor/app/java-trace-logs.md).
 
@@ -200,7 +200,7 @@ Se si usa Java SDK, usare gli [adattatori di log Java](../../azure-monitor/app/j
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Nello strumento di configurazione non è presente alcuna opzione per l'adattatore di log
 * Installare prima il framework di registrazione.
-* Se si usa System.Diagnostics.Trace, verificare di averlo [configurato in *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Se si usa System.Diagnostics.Trace, verificare di averlo [configurato in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Assicurarsi di avere la versione più recente di Application Insights. In Visual Studio passare a **Strumenti** > **Estensioni e aggiornamenti** e aprire la scheda **Aggiornamenti**. Se **Developer Analytics Tools** è presente, selezionarlo per eseguire l'aggiornamento.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Viene visualizzato il messaggio di errore indicante che la chiave di strumentazione non può essere vuota
@@ -228,5 +228,5 @@ Se l'applicazione invia notevoli quantità di dati e si sta usando l'SDK di Appl
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

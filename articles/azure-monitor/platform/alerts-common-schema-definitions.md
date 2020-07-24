@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013964"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
@@ -149,7 +149,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 ### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> Per gli avvisi di log con un oggetto del messaggio di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto del messaggio di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 kB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare ciò selezionando il flag `IncludeSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme ad [API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> Per gli avvisi di log con un oggetto del messaggio di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto del messaggio di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 kB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare ciò selezionando il flag `IncludeSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme ad [API Log Analytics](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni, vedere [Schema di avviso comune](https://aka.ms/commonAlertSchemaDocs).
-- Informazioni su [come creare un'app per la logica che usa lo schema di avviso comune per gestire tutti gli avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Informazioni su [come creare un'app per la logica che usa lo schema di avviso comune per gestire tutti gli avvisi](./alerts-common-schema-integrations.md). 

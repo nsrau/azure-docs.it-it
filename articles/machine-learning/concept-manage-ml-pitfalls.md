@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012723"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Impedire l'overfitting e lo sbilanciamento dei dati con Machine learning automatizzato
 
@@ -101,7 +101,7 @@ Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati
 
 - Ricampionamento per equilibrare lo sbilanciamento delle classi, eseguendo il campionamento verso l'alto delle classi più piccole o quello verso il basso delle classi più grandi. Tali metodi richiedono competenze per eseguire l'elaborazione e l'analisi.
 
-- Esaminare le metriche delle prestazioni per i dati sbilanciati. Il punteggio F1, ad esempio, è una media ponderata delle curve di precisione e richiamo. Le curve di precisione misura l'esattezza di un classificatore e la precisione bassa indica un numero elevato di falsi positivi, mentre le curve di richiamo misura la completezza di un classificatore e un richiamo minimo indica un numero elevato di falsi negativi.
+- Esaminare le metriche delle prestazioni per i dati sbilanciati. Il Punteggio F1, ad esempio, è la media armonica di precisione e richiamo. La precisione misura l'esattezza di un classificatore, in cui la precisione più elevata indica un minor numero di falsi positivi, mentre il richiamo misura la completezza di un classificatore, dove il richiamo superiore indica un minor numero di falsi negativi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

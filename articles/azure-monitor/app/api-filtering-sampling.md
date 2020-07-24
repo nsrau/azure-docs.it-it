@@ -3,12 +3,12 @@ title: Filtro e pre-elaborazione in Application Insights SDK | Microsoft Docs
 description: Scrivere processori di telemetria e inizializzatori di telemetria per l'SDK per filtrare o aggiungere proprietà ai dati prima di inviare i dati di telemetria al portale di Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075791"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014627"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrare e pre-elaborare i dati di telemetria in Application Insights SDK
 
@@ -498,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Aggiungere informazioni da HttpContext
 
-L'inizializzatore di esempio seguente legge i dati da [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) e li aggiunge a un' `RequestTelemetry` istanza di. `IHttpContextAccessor`Viene fornito automaticamente tramite l'inserimento di dipendenze del costruttore.
+L'inizializzatore di esempio seguente legge i dati da [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) e li aggiunge a un' `RequestTelemetry` istanza di. `IHttpContextAccessor`Viene fornito automaticamente tramite l'inserimento di dipendenze del costruttore.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -542,8 +542,8 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Panoramica dell'API](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Panoramica delle API](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Riferimento ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Codice SDK
 
@@ -554,4 +554,4 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 * [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md)
 * [Campionamento](../../azure-monitor/app/sampling.md)
-* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [Risoluzione dei problemi](../faq.md)

@@ -3,12 +3,12 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014338"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
@@ -20,7 +20,7 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 lo registrerà e lo correla insieme a tutti i dati di telemetria di raccolta automatica.
 
-## <a name="quickstart"></a>Guida introduttiva
+## <a name="quickstart"></a>Avvio rapido
 
 **1. scaricare l'agente**
 
@@ -32,11 +32,11 @@ Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` ag
 
 Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
 
-Per ulteriori informazioni sulla configurazione degli argomenti JVM dell'applicazione, vedere la pagina relativa all' [anteprima 3,0: suggerimenti per l'aggiornamento degli argomenti JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+Per ulteriori informazioni sulla configurazione degli argomenti JVM dell'applicazione, vedere la pagina relativa all' [anteprima 3,0: suggerimenti per l'aggiornamento degli argomenti JVM](./java-standalone-arguments.md).
 
 **3. puntare l'agente alla risorsa Application Insights**
 
-Se non si ha già una risorsa Application Insights, è possibile crearne una nuova attenendosi alla procedura descritta nella [Guida alla creazione di risorse](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Se non si ha già una risorsa Application Insights, è possibile crearne una nuova attenendosi alla procedura descritta nella [Guida alla creazione di risorse](./create-new-resource.md).
 
 Puntare l'agente alla risorsa Application Insights impostando una variabile di ambiente:
 
@@ -80,7 +80,7 @@ Nel `ApplicationInsights.json` file è inoltre possibile configurare:
 * Proxy HTTP
 * Diagnostica automatica
 
-Vedere i dettagli all' [anteprima pubblica 3,0: opzioni di configurazione](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+Vedere i dettagli all' [anteprima pubblica 3,0: opzioni di configurazione](./java-standalone-config.md).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Richieste, dipendenze, log e metriche per la raccolta di dati
 
@@ -170,7 +170,7 @@ In alternativa, è anche possibile usare Application Insights Java SDK 2. x:
   telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 ```java
   boolean success = false;

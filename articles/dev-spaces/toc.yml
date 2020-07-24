@@ -73,8 +73,6 @@
               href: how-dev-spaces-works-routing.md
             - name: Debug remoto
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Processo locale con Kubernetes
-              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Funzionamento di VS Code con Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configurazione delle impostazioni di rete in topologie diverse
@@ -111,10 +109,6 @@
           href: how-to/ingress-https-traefik.md
         - name: Usare NGINX per HTTPS e il traffico in ingresso personalizzato
           href: how-to/ingress-https-nginx.md
-        - name: Usare Processo locale con Kubernetes con Visual Studio Code (anteprima)
-          href: how-to/local-process-kubernetes-vs-code.md
-        - name: Usare Processo locale con Kubernetes con Visual Studio (anteprima)
-          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Risoluzione dei problemi
       href: troubleshooting.md
     - name: Domande frequenti

@@ -3,28 +3,28 @@ title: Esportazione continua dei dati di telemetria da Application Insights | Mi
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110216"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014525"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
 
 > [!NOTE]
-> L'esportazione continua è supportata solo per le risorse classiche di Application Insights. Le [risorse di Application Insights basate sull'area di lavoro](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) devono usare [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+> L'esportazione continua è supportata solo per le risorse classiche di Application Insights. Le [risorse di Application Insights basate sull'area di lavoro](./create-workspace-resource.md) devono usare [impostazioni di diagnostica](./create-workspace-resource.md#export-telemetry).
 >
 
 Prima di configurare l'esportazione continua, è necessario prendere in considerazione alcune alternative:
 
 * Il pulsante Esporta nella parte superiore di una scheda di metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 
-* [Dati di analisi](../../azure-monitor/app/analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
+* [Dati di analisi](../log-query/log-query-overview.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
-* È anche possibile accedere [all'esportazione continua](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.
+* È anche possibile accedere [all'esportazione continua](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](../../azure-monitor/app/data-retention-privacy.md) usuale.
 
@@ -32,9 +32,9 @@ Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazion
 
 L'esportazione continua **non supporta** le funzionalità/configurazioni di archiviazione di Azure seguenti:
 
-* Uso di [firewall di Archiviazione di Azure o di rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con l'archiviazione BLOB di Azure.
+* Uso di [firewall di Archiviazione di Azure o di rete virtuale](../../storage/common/storage-network-security.md) in combinazione con l'archiviazione BLOB di Azure.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Creare un'esportazione continua
 

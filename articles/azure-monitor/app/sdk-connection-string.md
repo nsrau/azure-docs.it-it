@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014139"
 ---
 # <a name="connection-strings"></a>Stringhe di connessione
 
@@ -31,15 +31,15 @@ Scenari per i clienti in cui viene visualizzato questo comportamento con maggior
 
 - Eccezioni del firewall o reindirizzamenti proxy 
 
-    Nei casi in cui è richiesto il monitoraggio per il server Web Intranet, la soluzione precedente ha richiesto ai clienti di aggiungere singoli endpoint di servizio alla configurazione. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Nei casi in cui è richiesto il monitoraggio per il server Web Intranet, la soluzione precedente ha richiesto ai clienti di aggiungere singoli endpoint di servizio alla configurazione. Per altre informazioni, vedere [qui](../faq.md#can-i-monitor-an-intranet-web-server). 
     Le stringhe di connessione offrono un'alternativa migliore riducendo questo impegno a una singola impostazione. Un prefisso semplice, la modifica del suffisso consente il popolamento automatico e il reindirizzamento di tutti gli endpoint ai servizi corretti. 
 
 - Ambienti cloud sovrani o ibridi
 
-    Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definita.
+    Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights)definita.
     Le stringhe di connessione consentono di definire le impostazioni degli endpoint per i server Intranet o le impostazioni del cloud ibrido. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 ### <a name="finding-my-connection-string"></a>Trovare la stringa di connessione?
 

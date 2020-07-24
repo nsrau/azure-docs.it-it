@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015018"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -173,7 +173,7 @@ Nei risultati della ricerca verranno visualizzati i record heartbeat per il comp
 
 2. Per confermare la versione del ruolo di lavoro ibrido per Runbook, individuare `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e prendere nota della sottocartella **Version** .
 
-### <a name="step-3---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passaggio 3: installare l'ambiente Runbook e connettersi ad automazione di Azure
+### <a name="step-2---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passaggio 2: installare l'ambiente Runbook e connettersi ad automazione di Azure
 
 Quando si configura un agente per la segnalazione a un'area di lavoro Log Analytics, la funzionalità di Automazione di Azure esegue il push del modulo PowerShell `HybridRegistration`, che contiene il cmdlet `Add-HybridRunbookWorker`. Usare questo cmdlet per installare l'ambiente Runbook nel computer e registrarlo in automazione di Azure.
 
@@ -202,7 +202,7 @@ Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 
 * Se necessario, impostare il parametro `Verbose` per ricevere i dettagli sull'installazione.
 
-### <a name="step-4----install-powershell-modules"></a>Passaggio 4: installare i moduli di PowerShell
+### <a name="step-3----install-powershell-modules"></a>Passaggio 3: installare i moduli di PowerShell
 
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure. Poiché questi moduli non vengono distribuiti automaticamente nei computer locali, è necessario installarli manualmente. Il modulo di Azure è l'eccezione. Tale modulo viene installato per impostazione predefinita e fornisce l'accesso ai cmdlet per tutti i servizi e le attività di Azure per Automazione di Azure.
 
