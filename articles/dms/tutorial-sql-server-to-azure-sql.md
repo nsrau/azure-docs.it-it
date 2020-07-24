@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di SQL Server offline a un databas
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione da SQL Server al database SQL di Azure offline usando il servizio migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d2353364767dfb1fd73d517926d0fa63c11a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087714"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server al database SQL di Azure offline con il Servizio Migrazione del database
 
@@ -28,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 >
 > - Valutare il database locale usando Data Migration Assistant.
 > - Eseguire la migrazione dello schema di esempio con Data Migration Assistant.
-> - Creare un'istanza del Servizio Migrazione del database di Azure.
+> - Creare un'istanza del servizio Migrazione del database di Azure.
 > - Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > - Eseguire la migrazione.
 > - Monitorare la migrazione.
@@ -193,7 +193,7 @@ Per eseguire la migrazione dello schema di **AdventureWorks2012** a un database 
 
 Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e creare un nuovo progetto di migrazione.
 
-1. Scegliere **tutti i servizi**dal menu portale di Azure. Cercare e selezionare **Servizi migrazione del database di Azure**.
+1. Nel menu del portale di Azure selezionare **Tutti i servizi**. Cercare e selezionare **Servizi migrazione del database di Azure**.
 
      ![Individuare tutte le istanze di Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 

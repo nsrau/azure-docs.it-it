@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 025d41724a88b4060d2dd22308641283992a68fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088887"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 e Esv4
 
@@ -82,7 +82,7 @@ Manutenzione con mantenimento della memoria: Supportato
 | Standard_E48s_v4 | 48 | 384 | Solo archiviazione remota | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Solo archiviazione remota | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> [dimensioni core vincolate disponibili](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+<sup>1</sup> [dimensioni core vincolate disponibili](./windows/constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

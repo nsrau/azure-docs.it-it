@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087680"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server ad Azure SQL Istanza gestita migrazioni online
 
@@ -83,7 +83,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 
 Il codice JSON precedente deve essere archiviato in tre file di testo ed è possibile usare i cmdlet AzureRM, AZ PowerShell o l'interfaccia della riga di comando di Azure per creare i ruoli usando **New-AzureRmRoleDefinition (AzureRM)** o **New-AzRoleDefinition (AZ)**.
 
-Per altre informazioni, vedere l'articolo [ruoli personalizzati per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Per altre informazioni, vedere l'articolo [ruoli personalizzati di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Dopo aver creato questi ruoli personalizzati, è necessario aggiungere assegnazioni di ruolo a utenti e ID APP alle risorse o ai gruppi di risorse appropriati:
 
@@ -138,7 +138,7 @@ Se il numero di ruoli personalizzati nell'Azure Active Directory non costituisce
 }
 ```
 
-## <a name="role-assignment"></a>Assegnazione di ruolo
+## <a name="role-assignment"></a>Assegnazione del ruolo
 
 Per assegnare un ruolo a utenti/ID APP, aprire il portale di Azure, seguire questa procedura:
 

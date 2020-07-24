@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088309"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
 
@@ -171,7 +172,7 @@ Il file di configurazione **corosync** deve essere corretto in ogni nodo del clu
 
 Un esempio è offerto dal contenuto di **corosync.conf** del sistema di test.
 
-La prima sezione è **totem**, come descritto nel passaggio 11 della procedura di [installazione del cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation). È possibile ignorare il valore per **mcastaddr**. È sufficiente mantenere la voce esistente. Le voci relative a **token** e **consensus** devono essere impostate in base alla [documentazione di SAP HANA in Microsoft Azure][sles-pacemaker-ha-guide].
+La prima sezione è **totem**, come descritto nel passaggio 11 della procedura di [installazione del cluster](./high-availability-guide-suse-pacemaker.md#cluster-installation). È possibile ignorare il valore per **mcastaddr**. È sufficiente mantenere la voce esistente. Le voci relative a **token** e **consensus** devono essere impostate in base alla [documentazione di SAP HANA in Microsoft Azure][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -278,7 +279,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Dispositivo SBD
 
-Le istruzioni per configurare un dispositivo SBD su una macchina virtuale di Azure sono riportate nella sezione [Isolamento tramite SBD](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Le istruzioni per configurare un dispositivo SBD su una macchina virtuale di Azure sono riportate nella sezione [Isolamento tramite SBD](./high-availability-guide-suse-pacemaker.md#sbd-fencing).
 
 Per prima cosa, verificare se sulla macchina virtuale del server SBD sono presenti voci ACL per ogni nodo del cluster. Eseguire il seguente comando sulla macchina virtuale del server SBD:
 
@@ -421,7 +422,7 @@ Sul lato della macchina virtuale di destinazione, che in questo esempio è **hso
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Verificare che le voci in **/etc/sysconfig/sbd** corrispondano alla descrizione in [Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verificare che l'impostazione di avvio in **/etc/iscsi/iscsid.conf** sia impostata su automatico.
+Verificare che le voci in **/etc/sysconfig/sbd** corrispondano alla descrizione in [Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md#sbd-fencing). Verificare che l'impostazione di avvio in **/etc/iscsi/iscsid.conf** sia impostata su automatico.
 
 Le voci seguenti sono importanti in **/etc/sysconfig/sbd**. Adattare il valore di **id**, se necessario:
 
@@ -978,4 +979,3 @@ Questo screenshot finale mostra la sezione **Details** (Dettagli) relativa a una
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa guida alla risoluzione dei problemi ha illustrato la disponibilità elevata per SAP HANA in una configurazione di tipo scale-out. Oltre ai database, un componente importante in un panorama applicativo SAP è costituito dallo stack SAP NetWeaver. Per altre informazioni, vedere l'articolo [Disponibilità elevata per SAP NetWeaver su macchine virtuali di Azure in SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
-

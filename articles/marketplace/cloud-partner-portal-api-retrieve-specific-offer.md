@@ -4,19 +4,20 @@ description: API per recuperare l'offerta specificata nello spazio dei nomi del 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087408"
 ---
-<a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
-=========================
+# <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti già integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 Recupera l'offerta specificata all'interno dello spazio dei nomi del server di pubblicazione.  
 
@@ -34,23 +35,18 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 
 ```
 
-
-<a name="uri-parameters"></a>Parametri URI
---------------
-
+## <a name="uri-parameters"></a>Parametri URI
 
 | **Nome**    | **Descrizione**                                                                          | **Tipo di dati** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherid. Ad esempio, Contoso                                                        | string        |
-| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | string        |
+| publisherId | publisherid. Ad esempio, Contoso                                                        | Stringa        |
+| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | Stringa        |
 | version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
 | api-version | Ultima versione dell'API                                                                    | Data          |
 |  |  |  |
 
-
-<a name="header"></a>Header
-------
+## <a name="header"></a>Intestazione
 
 |  **Nome**          |   **Valore**            |
 |  ---------------   |  --------------        |
@@ -58,9 +54,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  Autorizzazione     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-<a name="body-example"></a>Esempio di corpo
-------------
+## <a name="body-example"></a>Esempio di corpo
 
 ### <a name="response"></a>Risposta
 
@@ -175,7 +169,6 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 }
 ```
 
-
 ### <a name="response-body-properties"></a>Proprietà del corpo della risposta
 
 |  **Nome**       |   **Descrizione**                                                                                                               |
@@ -189,7 +182,6 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                                   |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Codici di stato della risposta
 
 | **Codice**  | **Descrizione**                                                                                                                 |
@@ -200,7 +192,6 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  404      | `Not found` - L'entità specificata è inesistente. Il client deve verificare publisherId, offerId e versione (se specificato).      |
 |  |  |
 
-
 ### <a name="offer-status"></a>Stato dell'offerta
 
 |  **Nome**                   |   **Descrizione**                             |
@@ -209,7 +200,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Operazione riuscita                  | Invio dell'offerta completato.    |
+|  Completato                  | Invio dell'offerta completato.    |
 |  Cancellati                   | Invio dell'offerta annullato.                |
-|  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
+|  Non riuscito                     | Invio dell'offerta non riuscito.                      |
 |  |  |

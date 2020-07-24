@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088666"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Risolvere l'errore di Windows Boot Manager: 0xC0000225 "Stato non trovato"
  
@@ -26,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui si verific
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot mostra l'errore Avvio di Windows non riuscito con il codice di stato *0xc0000225*.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot mostra l'errore Avvio di Windows non riuscito con il codice di stato *0xc0000225*.
 
 Il file associato a questo codice errore indicherà i passaggi da eseguire per risolvere il problema. Individuare il testo della sezione **File:** per determinare la linea di azione appropriata.
 
@@ -89,7 +90,7 @@ Il danneggiamento dell'hive del Registro di sistema potrebbe essere dovuto a uno
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="select-a-solution"></a>Selezionare una soluzione
@@ -177,7 +178,7 @@ Se la raccolta di queste informazioni restituisce un errore in cui non è presen
          sel disk <DISK #>
          ```
 
-         La figura seguente mostra i risultati della visualizzazione dell'elenco e della selezione di un disco. Vengono elencati Disco 0 (127 GB | Online), Disco 1 (32 GB | Online) e Disco 2 (127 GB | Online), con la selezione del Disco 2 usando il comando `sel disk 2`.
+         La figura seguente mostra i risultati della visualizzazione dell'elenco e della selezione di un disco. Sono elencati il disco 0 (127 GB/online), il disco 1 (32 GB/online) e il disco 2 (127 GB/online), con il disco 2 selezionato tramite il comando `sel disk 2` .
 
          ![I risultati della visualizzazione dell'elenco e quindi della selezione di un disco. Vengono elencati Disco 0 (127 GB | Online), Disco 1 (32 GB | Online) e Disco 2 (127 GB | Online), con la selezione del Disco 2.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ Se la raccolta di queste informazioni restituisce un errore in cui non è presen
          sel partition <PARTITION #>
          ```
 
-         La figura seguente mostra i risultati della visualizzazione dell'elenco e della selezione di una partizione. Vengono elencate Partizione 1 (Riservata | 16 MB), Partizione 2 (Sistema | 100 MB) e Partizione 3 (Primaria | 126 GB), con la Partizione 2 selezionata usando il comando `sel part 2`.
+         La figura seguente mostra i risultati della visualizzazione dell'elenco e della selezione di una partizione. Sono elencate la partizione 1 (riservata/16 MB), la partizione 2 (System/100MB) e la partizione 3 (primaria/126 GB), con la partizione 2 da selezionare tramite il comando `sel part 2` .
 
          ![I risultati della visualizzazione dell'elenco e quindi della selezione di una partizione. Vengono elencate Partizione 1 (Riservata | 16 MB), Partizione 2 (Sistema | 100 MB) e Partizione 3 (Primaria | 126 GB), con la Partizione 2 selezionata.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ L'errore del **file di Registro di sistema** ha una soluzione, ma è necessario 
    
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.

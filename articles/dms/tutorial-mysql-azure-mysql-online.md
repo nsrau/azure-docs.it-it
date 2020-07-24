@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di MySQL online al database di Azu
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da MySQL locale in Database di Azure per MySQL con Servizio Migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087748"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database
 
@@ -26,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio con l'utilità mysqldump.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query per eliminare la chiave esterna.
+
+> [!NOTE]
+> Azure DMS non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga corrispondente nella tabella figlio quando una riga viene eliminata o aggiornata nella tabella padre. Per ulteriori informazioni, vedere la sezione azioni referenziali dell'articolo [vincoli di chiave esterna](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)nella documentazione di MySQL.
+> Per il servizio DMS di Azure è necessario eliminare i vincoli di chiave esterna nel server di database di destinazione durante il caricamento iniziale dei dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un [dump e un ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) . 
+
 
 > [!IMPORTANT]
 > Se vengono importati dati tramite backup, rimuovere i comandi CREATE DEFINER manualmente o tramite il comando skip-definer quando si esegue mysqldump. DEFINER richiede privilegi avanzati per la creazione ed è limitato nel Database di Azure per MySQL.

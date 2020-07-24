@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di Servizi Desktop remoto MySQL on
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da RDS MySQL in Database di Azure per MySQL con il Servizio Migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
-ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c62cf28c9e9368e80982fa7c5badeb79d40ae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087731"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: eseguire la migrazione di Servizi Desktop remoto MySQL a database di Azure per MySQL online con DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di Servizi Desktop remoto MySQL a Database di Azure per MySQL online con il Servizio Migrazione del database
 
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione di database da un'istanza di RDS MySQL a [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/), mantenendo al tempo stesso online il database di origine durante la migrazione. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **Employees** da un'istanza di RDS MySQL a Database di Azure per MySQL usando l'attività di migrazione online nel Servizio Migrazione del database di Azure.
 
@@ -26,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio usando le utilità mysqldump e mysql.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.
@@ -121,6 +122,10 @@ Per completare questa esercitazione, è necessario:
     ```
 
 4. Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query per eliminare la chiave esterna.
+
+> [!NOTE]
+> Azure DMS non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga corrispondente nella tabella figlio quando una riga viene eliminata o aggiornata nella tabella padre. Per ulteriori informazioni, vedere la sezione azioni referenziali dell'articolo [vincoli di chiave esterna](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)nella documentazione di MySQL.
+> Per il servizio DMS di Azure è necessario eliminare i vincoli di chiave esterna nel server di database di destinazione durante il caricamento iniziale dei dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un [dump e un ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) . 
 
 5. Se nei dati sono presenti trigger (di inserimento o di aggiornamento), prima di replicare i dati dall'origine nel database di destinazione verrà applicata l'integrità dei dati. È consigliabile disabilitare i trigger in tutte le tabelle *del database di destinazione* durante la migrazione e quindi riabilitarli al termine della migrazione.
 

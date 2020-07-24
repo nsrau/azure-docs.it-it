@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire una migrazione in linea da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite il portale di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ccbd22a44f0dfb05e425bff45cdc18803391812
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087646"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Esercitazione: eseguire la migrazione di PostgreSQL nel database di Azure per PostgreSQL online con DMS tramite il portale di Azure
 
@@ -26,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio utilizzando l'utilità pg_dump.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione nel servizio migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.

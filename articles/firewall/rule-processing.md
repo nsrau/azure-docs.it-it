@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087544"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Logica di elaborazione delle regole del Firewall di Azure
+# <a name="configure-azure-firewall-rules"></a>Configurare le regole del firewall di Azure
 È possibile configurare le regole NAT, le regole di rete e le regole delle applicazioni nel firewall di Azure. Le raccolte di regole vengono elaborate in base al tipo di regola in ordine di priorità, con numeri più alti da 100 a 65.000. Il nome di una raccolta di regole può includere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero e terminare con una lettera, un numero o un carattere di sottolineatura. La lunghezza massima del nome è di 80 caratteri.
 
 È preferibile spaziare inizialmente i numeri di priorità della raccolta regole in incrementi di 100 (100, 200, 300 e così via), in modo da avere spazio per aggiungere altre raccolte di regole, se necessario.
@@ -54,7 +55,7 @@ La connessione a google.com è consentita a causa di una regola di rete corrispo
 
 **Regola applicazione**
 
-- Azione: nega
+- Azione: Nega
 
 |name  |Tipo di origine  |Source (Sorgente)  |Protocollo: porta|FQDN di destinazione|
 |---------|---------|---------|---------|----------|----------|
@@ -82,7 +83,7 @@ Il traffico SSH viene negato perché una raccolta di regole di rete *Deny* con p
 
 - Nome: Deny-Collection
 - Priorità: 100
-- Azione: nega
+- Azione: Nega
 
 |name  |Protocollo  |Tipo di origine  |Source (Sorgente)  |Tipo destinazione  |Indirizzo di destinazione  |Porte di destinazione|
 |---------|---------|---------|---------|----------|----------|--------|

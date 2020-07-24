@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5613453667e3bb278f4da22ebed4502def70235b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087272"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di Analisi archiviazione di Azure (versione classica)
 
@@ -145,18 +146,16 @@ Nella sezione **Monitoraggio (versione classica)** del riquadro del menu dell'ac
 
 Se si desidera scaricare le metriche per l'archiviazione a lungo termine o per analizzarle in locale, è necessario usare uno strumento o scrivere il codice per leggere le tabelle. È necessario scaricare le metriche al minuto per l'analisi. Se si elencano tutte le tabelle nell'account di archiviazione, le tabelle non vengono visualizzate, ma è possibile accedervi direttamente mediante il nome. Molti strumenti di esplorazione dell'archivio sono compatibili con queste tabelle e consentono di visualizzarle direttamente. Vedere [Strumenti client di Archiviazione di Azure](/azure/storage/storage-explorers) per un elenco di strumenti disponibili.
 
-||||  
+|Metriche|Nomi tabella|Note| 
 |-|-|-|  
-|**Metriche**|**Nomi di tabella**|**Note**|  
 |Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti al 15 agosto 2013, queste tabelle sono note come:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione del 5 aprile 2015.|  
 |Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitata solo a livello di codice o usando PowerShell.<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione del 5 aprile 2015.|  
 |Capacità|$MetricsCapacityBlob|Solo servizio BLOB.|  
 
 I dettagli completi sugli schemi di queste tabelle sono disponibili in [Schema di tabella della metrica di Analisi archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema). Le righe di esempio seguenti mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui le metriche di archiviazione salvano queste metriche:  
 
-||||||||||||  
+|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|Disponibilità|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilità**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

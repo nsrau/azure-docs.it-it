@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di Oracle online al database di Az
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da Oracle in locale o su macchine virtuali in Database di Azure per PostgreSQL con il Servizio Migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087765"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: eseguire la migrazione di Oracle al database di Azure per PostgreSQL online con DMS (anteprima)
 
@@ -27,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 >
 > * Valutare il lavoro richiesto per la migrazione usando lo strumento ora2pg.
 > * Eseguire la migrazione dello schema di esempio con lo strumento ora2pg.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.

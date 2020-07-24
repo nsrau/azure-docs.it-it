@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7e59ee029b1705f6f789812b870de96bbb74a6e5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 23556d6c0d64c6b6351d09ac1a658da0e5a4dd68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088836"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Eseguire la migrazione da un'immagine gestita a un'immagine della raccolta immagini condivisa
 
@@ -54,9 +54,9 @@ Le definizioni di immagini creano un raggruppamento logico per le immagini. Veng
 
 Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. Poiché le immagini gestite sono sempre generalizzate, è necessario impostare `-OsState generalized` . 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./windows/shared-image-galleries.md#image-definitions).
 
-Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un sistema operativo Windows generalizzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un sistema operativo Windows generalizzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -73,7 +73,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="get-the-managed-image"></a>Ottenere l'immagine gestita
 
-È possibile visualizzare un elenco delle immagini disponibili in un gruppo di risorse usando [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Quando si conosce il nome dell'immagine e in quale gruppo di risorse si trova, è possibile usare nuovamente `Get-AzImage` per ottenere l'oggetto immagine e archiviarlo in una variabile da usare in un secondo momento. Questo esempio mostra come ottenere un'immagine denominata *myImage* dal gruppo di risorse "myResourceGroup" che lo assegna alla variabile *$managedImage*. 
+È possibile visualizzare un elenco delle immagini disponibili in un gruppo di risorse usando [Get-AzImage](/powershell/module/az.compute/get-azimage). Quando si conosce il nome dell'immagine e in quale gruppo di risorse si trova, è possibile usare nuovamente `Get-AzImage` per ottenere l'oggetto immagine e archiviarlo in una variabile da usare in un secondo momento. Questo esempio mostra come ottenere un'immagine denominata *myImage* dal gruppo di risorse "myResourceGroup" che lo assegna alla variabile *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -84,7 +84,7 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
-Creare una versione dell'immagine dall'immagine gestita usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Creare una versione dell'immagine dall'immagine gestita usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine. 
 >
-> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `-StorageAccountType Standard_ZRS`.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md), aggiungendo `-StorageAccountType Standard_ZRS`.
 >
 
 ## <a name="delete-the-managed-image"></a>Eliminare l'immagine gestita

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088531"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132949"
 
 ## <a name="symptom"></a>Sintomo
 
- La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot nella finestra [Diagnostica di avvio](../windows/boot-diagnostics.md), viene visualizzato uno dei messaggi di errore seguenti:
+ La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot nella finestra [Diagnostica di avvio](./boot-diagnostics.md), viene visualizzato uno dei messaggi di errore seguenti:
 
 - Collegare l'unità USB contenente la chiave BitLocker
 
@@ -41,14 +41,14 @@ ms.locfileid: "86132949"
 
 Questo problema può verificarsi se la macchina virtuale non riesce a individuare il file della chiave di ripristino di BitLocker (BEK) per decrittografare il disco crittografato.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Per risolvere questo problema, arrestare e deallocare la macchina virtuale e quindi riavviarla. Questa operazione forza la macchina virtuale a recuperare il file con estensione BEK da Azure Key Vault e quindi lo inserisce nel disco crittografato. 
 
 Se questo metodo non risolve il problema, seguire questa procedura per ripristinare manualmente il file con estensione BEK:
 
 1. Creare uno snapshot del disco di sistema della macchina virtuale in questione come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md). Per eseguire il comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) nel passaggio 7, è necessario abilitare la funzionalità **crittografia unità BitLocker** nella macchina virtuale di ripristino.
+2. [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md). Per eseguire il comando [Manage-bde](/windows-server/administration/windows-commands/manage-bde) nel passaggio 7, è necessario abilitare la funzionalità **crittografia unità BitLocker** nella macchina virtuale di ripristino.
 
     Quando si collega un disco gestito, potrebbe essere visualizzato un messaggio di errore che indica la presenza di impostazioni di crittografia e l'impossibilità di usare il disco come disco dati. In questo caso, eseguire lo script seguente per provare nuovamente a collegare il disco:
 
@@ -70,7 +70,7 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
     ```
      Non è possibile collegare un disco gestito a una macchina virtuale che è stata ripristinata dall'immagine di un BLOB.
 
-3. Dopo aver collegato il disco, creare una connessione desktop remota alla macchina virtuale di ripristino in modo da poter eseguire alcuni script di Azure PowerShell. Verificare di aver installato la [versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nella macchina virtuale di ripristino.
+3. Dopo aver collegato il disco, creare una connessione desktop remota alla macchina virtuale di ripristino in modo da poter eseguire alcuni script di Azure PowerShell. Verificare di aver installato la [versione più recente di Azure PowerShell](/powershell/azure/) nella macchina virtuale di ripristino.
 
 4. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti per accedere alla sottoscrizione di Azure:
 

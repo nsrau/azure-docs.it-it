@@ -4,10 +4,11 @@ description: Informazioni sul failover e sui problemi in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281808"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089533"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informazioni sul failover/failback del ripristino di emergenza locale
 
@@ -53,7 +54,7 @@ Per connettersi alle macchine virtuali di Azure create dopo il failover tramite 
 
 Site Recovery offre diverse opzioni di failover.
 
-**Failover** | **Dettagli** | **Ripristino** | **Flusso di lavoro**
+**Failover** | **Dettagli** | **Ripristino** | **Workflow**.
 --- | --- | --- | ---
 **Failover di test** | Usato per eseguire un'esercitazione che convalida la strategia di BCDR, senza perdita di dati o tempi di inattività.| Crea una copia della macchina virtuale in Azure, senza alcun impatto sulla replica in corso o sull'ambiente di produzione. | 1. eseguire un failover di test in una singola macchina virtuale o in più macchine virtuali in un piano di ripristino.<br/><br/> 2. Selezionare un punto di ripristino da usare per il failover di test.<br/><br/> 3. Selezionare una rete di Azure in cui verrà posizionata la macchina virtuale di Azure quando viene creata dopo il failover. La rete viene utilizzata solo per il failover di test.<br/><br/> 4. Verificare che il drill abbia funzionato come previsto. Site Recovery pulisce automaticamente le macchine virtuali create in Azure durante il drill-through.
 **Failover pianificato-Hyper-V**  | Usato in genere per i tempi di inattività pianificati.<br/><br/> Le macchine virtuali di origine vengono arrestate. I dati più recenti vengono sincronizzati prima di avviare il failover. | Nessuna perdita di dati per il flusso di lavoro pianificato. | 1. pianificare una finestra di manutenzione del tempo di inattività e inviare notifiche agli utenti.<br/><br/> 2. portare offline le app per gli utenti.<br/><br/> 3. avviare un failover pianificato con il punto di ripristino più recente. Il failover non viene eseguito se il computer non viene arrestato o se vengono rilevati errori.<br/><br/> 4. dopo il failover, verificare che la macchina virtuale di Azure di replica sia attiva in Azure.<br/><br/> 5. eseguire il commit del failover per completare la configurazione. L'azione di commit Elimina tutti i punti di ripristino.
@@ -82,7 +83,7 @@ Durante il failover, è possibile selezionare diverse opzioni per i punti di rip
 **Coerente con l'app più recente** |  Questa opzione esegue il failover delle macchine virtuali nel punto di ripristino coerente con l'applicazione più recente elaborato da Site Recovery, se sono abilitati punti di ripristino coerenti con l'app. Controllare il punto di ripristino più recente nelle impostazioni della macchina virtuale.
 **Elaborato più recente per più macchine virtuali** | questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Tutte le altre macchine virtuali nel piano vengono sottoposti a failover al punto di ripristino elaborato più recente.
 **Coerente con l'app più recente per più macchine virtuali** |  questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
-**Personalizzato** | Usare questa opzione per eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino nel tempo. Questa opzione non è disponibile per i piani di ripristino.
+**Impostazione personalizzata** | Usare questa opzione per eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino nel tempo. Questa opzione non è disponibile per i piani di ripristino.
 
 > [!NOTE]
 > Non è possibile migrare i punti di ripristino in un altro insieme di credenziali di servizi di ripristino

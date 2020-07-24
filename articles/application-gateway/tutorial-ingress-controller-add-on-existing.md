@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 6cbfac4794a685e5858e689c20d6603807edcedf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42952e379b9f68008de23ee3b1717280d8dd6cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088122"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Esercitazione: abilitare il componente aggiuntivo del controller di ingresso del gateway applicazione per un cluster AKS esistente con un gateway applicazione esistente tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -28,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Distribuire un'applicazione di esempio usando AGIC per il traffico in ingresso nel cluster AKS
 > * Verificare che l'applicazione sia raggiungibile tramite il gateway applicazione
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -41,7 +42,7 @@ az feature register --name AKS-IngressApplicationGatewayAddon --namespace micros
 
 Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato registrato. È possibile controllare lo stato di registrazione usando il comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):

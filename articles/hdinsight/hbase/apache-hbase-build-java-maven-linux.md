@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b0d1476a6386569a09ee4b14d31403408d741ef7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087459"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -31,7 +31,7 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/).
 
 * Un editor di testo. Questo articolo usa il blocco note di Microsoft.
 
@@ -175,7 +175,7 @@ Usare il comando seguente per copiare la configurazione di HBase dal cluster HBa
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 ```
 
-## <a name="create-the-application"></a>Creazione dell'applicazione
+## <a name="create-the-application"></a>Creare l'applicazione
 
 ### <a name="implement-a-createtable-class"></a>Implementare una classe CreateTable
 

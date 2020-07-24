@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088107"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -148,7 +148,7 @@ La creazione di una nuova istanza, tuttavia, può richiedere sei o sette minuti.
 
 La tabella seguente confronta le funzionalità disponibili con ogni SKU.
 
-|                                                   | SKU v1   | SKU v2   |
+| Funzionalità                                           | SKU v1   | SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Scalabilità automatica                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |

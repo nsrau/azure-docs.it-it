@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e9d995a69a4fc54d6f001ced7503a9138d737dbc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089040"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -38,7 +38,7 @@ Ogni profilo di Gestione traffico è rappresentato da una risorsa di tipo "Traff
 
 In queste istruzioni viene usato Microsoft Azure PowerShell. L'articolo seguente illustra come installare e configurare Azure PowerShell.
 
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/)
 
 Negli esempi inclusi in questo articolo si presuppone che esista un gruppo di risorse. È possibile creare un gruppo di risorse usando il comando seguente:
 

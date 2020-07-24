@@ -3,12 +3,12 @@ title: Panoramica di integrità dei servizi di Azure | Microsoft Docs
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089601"
 ---
 # <a name="service-health-overview"></a>Panoramica sull'integrità del servizio
 
@@ -68,7 +68,7 @@ Filtrare Integrità dei servizi in modo da visualizzare le sottoscrizioni, le ar
 
 ## <a name="configure-service-health-alerts"></a>Configurare gli avvisi di integrità del servizio
 
-L’Integrità del servizio si integra con il Monitoraggio di Azure per l'invio di avvisi via posta elettronica, messaggi di testo e notifiche webhook nel caso in cui siano coinvolte risorse aziendali cruciali. Impostare un avviso di attività di log per l'evento di Integrità dei servizi appropriato. Indirizzare tale avviso alle persone appropriate nell'organizzazione usando i gruppi di azioni. Per altre informazioni, vedere [configurare gli avvisi per l'integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+L’Integrità del servizio si integra con il Monitoraggio di Azure per l'invio di avvisi via posta elettronica, messaggi di testo e notifiche webhook nel caso in cui siano coinvolte risorse aziendali cruciali. Impostare un avviso di attività di log per l'evento di Integrità dei servizi appropriato. Indirizzare tale avviso alle persone appropriate nell'organizzazione usando i gruppi di azioni. Per altre informazioni, vedere [configurare gli avvisi per l'integrità dei servizi](./alerts-activity-log-service-notifications-portal.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 

@@ -1,22 +1,22 @@
 ---
 title: Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
-description: L'emulatore open source azzurrite (anteprima) fornisce un ambiente locale gratuito per il test delle applicazioni di archiviazione di Azure.
+description: L'emulatore open source di azzurrite offre un ambiente locale gratuito per il test delle applicazioni di archiviazione di Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089414"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usare l'emulatore di azzurrite per lo sviluppo e il testing di archiviazione di Azure locale (anteprima)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
 
-L'emulatore open source azzurrite versione 3,2 (anteprima) fornisce un ambiente locale gratuito per il test delle applicazioni di archiviazione BLOB e di Accodamento di Azure. Quando si è soddisfatti del funzionamento dell'applicazione in locale, passare a usare un account di archiviazione di Azure nel cloud. L'emulatore fornisce supporto multipiattaforma in Windows, Linux e macOS. Azzurrite V3 supporta le API implementate dal servizio BLOB di Azure.
+L'emulatore open source di azzurrite offre un ambiente locale gratuito per il test delle applicazioni di archiviazione BLOB e di Accodamento di Azure. Quando si è soddisfatti del funzionamento dell'applicazione in locale, passare a usare un account di archiviazione di Azure nel cloud. L'emulatore fornisce supporto multipiattaforma in Windows, Linux e macOS.
 
 Azzurrite è la piattaforma dell'emulatore di archiviazione futura. Azzurrite sostituisce l' [emulatore di archiviazione di Azure](storage-use-emulator.md). Azzurrite continuerà a essere aggiornato per supportare le versioni più recenti delle API di archiviazione di Azure.
 
@@ -34,8 +34,6 @@ In Visual Studio Code selezionare il riquadro **estensioni** e cercare *azzurrit
 ![Marketplace di Visual Studio Code Extensions](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 È anche possibile passare a [Visual Studio Code Market Extension](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) nel browser. Selezionare il pulsante **Install (installa** ) per aprire Visual Studio Code e passare direttamente alla pagina di estensione azzurrite.
-
-È possibile avviare o chiudere rapidamente azzurrite nella barra di stato Visual Studio Code. Fare clic su **[servizio BLOB azzurrite]** o **[servizio di Accodamento azzurrite]**.
 
 L'estensione supporta i comandi di Visual Studio Code seguenti. Per aprire il riquadro comandi, premere F1 in Visual Studio Code. 
 
@@ -67,6 +65,7 @@ Sono supportate le impostazioni seguenti:
    - **Azzurrite: host della coda:** l'endpoint di ascolto servizio di Accodamento. L'impostazione predefinita è 127.0.0.1.
    - **Azzurrite: porta di coda** -la porta di attesa servizio di Accodamento. La porta predefinita è 10001.
    - **Azzurrite:** la modalità invisibile all'utente disabilita il log di accesso. Il valore predefinito è **false**.
+   - **Azzurrite: Ignora controllo versione API** -ignora il controllo della versione dell'API di richiesta. Il valore predefinito è **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installare ed eseguire azzurrite usando NPM
 
@@ -148,7 +147,7 @@ Questo comando indica a azzurrite di archiviare tutti i dati in una directory sp
 
 Questa sezione illustra in dettaglio le opzioni della riga di comando disponibili all'avvio di azzurrite.
 
-### <a name="help"></a>Help
+### <a name="help"></a>Guida
 
 **Facoltativo** : ottenere la guida della riga di comando usando `-h` l' `--help` opzione o.
 
@@ -271,7 +270,7 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
-### <a name="version"></a>Versione
+### <a name="version"></a>Version
 
 **Facoltativo** : consente di visualizzare il numero di versione di azzurrite installato utilizzando l' `-v` `--version` opzione o.
 
@@ -310,6 +309,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > OAuth richiede un endpoint HTTPS. Verificare che HTTPS sia abilitato fornendo `--cert` Switch insieme all' `--oauth` opzione.
 
 Azzurrite supporta l'autenticazione di base specificando il `basic` parametro per l' `--oauth` opzione. Azzurrite eseguirà l'autenticazione di base, ad esempio convalidando il bearer token in ingresso, controllando l'autorità emittente, il pubblico e la scadenza. Azzurrite non verificherà la firma del token o le autorizzazioni.
+
+### <a name="skip-api-version-check"></a>Ignora controllo versione API
+
+**Facoltativo** : all'avvio, azzurrite verifica che la versione dell'API richiesta sia valida. Il comando seguente ignora il controllo della versione dell'API:
+
+```console
+azurite --skipApiVersionCheck
+```
+
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorizzazione per strumenti e SDK
 

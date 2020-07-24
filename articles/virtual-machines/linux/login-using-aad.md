@@ -1,18 +1,18 @@
 ---
 title: Accedere a una VM Linux con Azure Active Directory credenziali
 description: Informazioni su come creare e configurare una macchina virtuale Linux per accedere usando l'autenticazione Azure Active Directory.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088768"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -113,7 +113,7 @@ Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione �
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
-I criteri del controllo degli accessi in base al ruolo determinano chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
+I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) determinano chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
 
 - **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente ROOT di Windows o Linux.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.

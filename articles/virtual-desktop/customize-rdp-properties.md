@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087221"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizzare le proprietà di Remote Desktop Protocol (RDP) per un pool host
 
@@ -30,18 +30,6 @@ Per un elenco completo delle proprietà supportate e dei relativi valori predefi
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, seguire le istruzioni riportate in [Configurare il modulo PowerShell di Desktop virtuale Windows](powershell-module.md) per configurare il modulo PowerShell e accedere ad Azure.
-
-## <a name="default-rdp-properties"></a>Proprietà RDP predefinite
-
-Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seguenti:
-
-|Proprietà di RDP | Desktop | RemoteApps |
-|---|---| --- |
-| Modalità multimonitor | Attivato | N/D |
-| Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
-| Modalità audio remoto | Riproduci localmente | Riproduci localmente |
-
-Le proprietà personalizzate definite per il pool host sostituiranno queste impostazioni predefinite.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configurare le proprietà RDP nel portale di Azure
 

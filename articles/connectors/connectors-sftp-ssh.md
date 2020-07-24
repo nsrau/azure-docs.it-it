@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087884"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -23,6 +23,7 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 > Il connettore SFTP-SSH attualmente non supporta questi server SFTP:
 > 
 > * IBM DataPower
+> * MessageWay
 > * OpenText Secure MFT
 > * Serie GXS OpenText
 
@@ -49,7 +50,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
   Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
-  | Action | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  | Operazione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
@@ -112,7 +113,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
-| Client SFTP | Action |
+| Client SFTP | Operazione |
 |-------------|--------|
 | Winscp | Vai a **Opzioni**  >  **Preferenze**  >  **trasferimento**  >  **modifica**  >  **Mantieni timestamp**  >  **Disabilita** |
 | FileZilla | Vai al **trasferimento**  >  **Mantieni i timestamp dei file trasferiti**  >  **Disabilita** |

@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087986"
 ---
 # <a name="dependency-auto-collection"></a>Raccolta automatica delle dipendenze
 
-Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente supportate che vengono rilevate automaticamente come dipendenze senza richiedere alcun'altra modifica al codice dell'applicazione. Queste dipendenze sono visualizzate nelle viste [Mappa delle applicazioni](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) di Application Insights. Se la dipendenza non è presente nell'elenco seguente, è possibile comunque tenerne traccia manualmente con una [chiamata di dipendenza per il tracciamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente supportate che vengono rilevate automaticamente come dipendenze senza richiedere alcun'altra modifica al codice dell'applicazione. Queste dipendenze sono visualizzate nelle viste [Mappa delle applicazioni](./app-map.md) e [Diagnostica delle transazioni](./transaction-diagnostics.md) di Application Insights. Se la dipendenza non è presente nell'elenco seguente, è possibile comunque tenerne traccia manualmente con una [chiamata di dipendenza per il tracciamento](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -22,7 +23,7 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | Web Form ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | WebAPI ASP.NET | 4.5+ |
-| ASP.NET Core | 1.1+ |
+| Risultato dell'azione di | 1.1+ |
 | <b>Librerie di comunicazione</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -61,7 +62,7 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 
 > [!NOTE]
 > *Ad eccezione del supporto di programmazione reattiva.
-> <br>†Richiede l'installazione dell'[agente JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Richiede l'installazione dell'[agente JVM](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 

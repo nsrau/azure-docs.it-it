@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di SQL Server online a SQL Istanza
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire una migrazione in linea da SQL Server a un Istanza gestita SQL di Azure tramite il servizio migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087663"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure in linea con DMS
 
@@ -28,7 +28,7 @@ In questa esercitazione si esegue la migrazione del database **AdventureWorks201
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione e avviare la migrazione online usando Servizio Migrazione del database di Azure.
 > * Monitorare la migrazione.
 > * Eseguire il cutover della migrazione quando si è pronti.
@@ -88,6 +88,9 @@ Per completare questa esercitazione, è necessario:
   > Servizio Migrazione del database di Azure richiede l'autorizzazione di collaboratore nella sottoscrizione per l'ID applicazione specificato. In alternativa, è possibile creare ruoli personalizzati che concedono le autorizzazioni specifiche richieste da Servizio Migrazione del database di Azure. Per istruzioni dettagliate sull'uso dei ruoli personalizzati, vedere l'articolo [ruoli personalizzati per SQL Server a SQL istanza gestita migrazioni online](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Creare o annotare un account di archiviazione di Azure con **livello di prestazioni Standard** che possa essere usato da Servizio Migrazione del database per caricare i file di backup di database e per la migrazione di database.  Assicurarsi di creare l'account di archiviazione di Azure nella stessa area in cui viene creata l'istanza di Servizio Migrazione del database di Azure.
+
+  > [!NOTE]
+  > Quando si esegue la migrazione di un database protetto da [Transparent Data Encryption](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) a un'istanza gestita usando la migrazione online, è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o della macchina virtuale di Azure SQL Server prima del ripristino del database. Per la procedura dettagliata, vedere [eseguire la migrazione di un certificato Transparent Data Encryption a un'istanza gestita](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
 

@@ -3,16 +3,16 @@ title: Creare un hub eventi con la funzionalità di acquisizione abilitata - Hub
 description: Creare uno spazio dei nomi di Hub eventi di Azure con un hub eventi e abilitare l'acquisizione con un modello di Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087595"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
-Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi di [Hub eventi](event-hubs-what-is-event-hubs.md) con un'istanza di hub eventi e Abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi di [Hub eventi](./event-hubs-about.md) con un'istanza di hub eventi e Abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Questo articolo illustra anche come specificare l'acquisizione degli eventi in BLOB del servizio di archiviazione di Azure o in un'istanza di Azure Data Lake Store, in base alla destinazione scelta.
 
@@ -418,7 +418,7 @@ az group deployment create \<my-resource-group\> \<my-deployment-name\> --templa
 
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Panoramica di Hub eventi](./event-hubs-about.md)
 * [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 

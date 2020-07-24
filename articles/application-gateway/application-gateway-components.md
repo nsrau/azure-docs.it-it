@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088088"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -69,13 +69,13 @@ Esistono due tipi di listener:
 
 - **Basic**. Questo tipo di listener è in ascolto su un singolo sito di dominio, in cui è presente un singolo mapping DNS all'indirizzo IP del gateway applicazione. Questa configurazione del listener è necessaria quando si ospita un sito singolo dietro un gateway applicazione.
 
-- **Multisito**. Questa configurazione del listener è necessaria quando si configura più di un'applicazione Web nella stessa istanza del gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre sottodomini, abc.contoso.com, xyz.contoso.com e pqr.contoso.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo.
+- **Multisito**. Questa configurazione del listener è necessaria quando si desidera configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre [listener multisito](multiple-site-overview.md) e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
 
-    Per ulteriori informazioni, vedere [hosting su più siti](application-gateway-web-app-overview.md).
+    È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a 5 nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-Dopo aver creato un listener, associarlo a una regola di routing delle richieste. Questa regola determina il modo in cui la richiesta ricevuta sul listener deve essere indirizzata al back-end.
+    Per altre informazioni su come configurare un listener multisito, vedere [hosting di più siti nel gateway applicazione con portale di Azure](create-multiple-sites-portal.md).
 
-Il gateway applicazione elabora i listener nell' [ordine indicato](configuration-overview.md#order-of-processing-listeners).
+Dopo aver creato un listener, associarlo a una regola di routing delle richieste. Questa regola determina il modo in cui la richiesta ricevuta sul listener deve essere indirizzata al back-end. La regola di routing delle richieste contiene anche il pool back-end a cui indirizzare e l'impostazione HTTP in cui vengono citate la porta back-end, il protocollo e così via.
 
 ## <a name="request-routing-rules"></a>Regole di routing richieste
 
@@ -99,13 +99,13 @@ La regola di routing delle richieste consente anche di reindirizzare il traffico
 
 Per altre informazioni, vedere [reindirizzare il traffico sul gateway applicazione](redirect-overview.md).
 
-### <a name="rewrite-http-headers"></a>Riscrivere le intestazioni HTTP
+### <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
 
-Con le regole di routing delle richieste è possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP (S) quando i pacchetti di richiesta e risposta passano tra il client e i pool back-end tramite il gateway applicazione.
+Con le regole di riscrittura è possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP (S), nonché il percorso URL e i parametri della stringa di query, perché i pacchetti di richiesta e risposta passano tra il client e i pool back-end tramite il gateway applicazione.
 
-Le intestazioni possono essere impostate su valori statici o su altre intestazioni e variabili del server. Questo consente di utilizzare casi di utilizzo importanti, ad esempio l'estrazione di indirizzi IP del client, la rimozione di informazioni riservate sul back-end, l'aggiunta di ulteriore sicurezza e così via.
+I parametri Header e URL possono essere impostati su valori statici o ad altre intestazioni e variabili server. Questo consente di utilizzare casi di utilizzo importanti, ad esempio l'estrazione di indirizzi IP del client, la rimozione di informazioni riservate sul back-end, l'aggiunta di ulteriore sicurezza e così via.
 
-Per altre informazioni, vedere [riscrivere le intestazioni HTTP nel gateway applicazione](rewrite-http-headers.md).
+Per altre informazioni, vedere [riscrivere le intestazioni HTTP e l'URL nel gateway applicazione](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>Impostazioni HTTP
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088326"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 
@@ -31,7 +32,7 @@ L'esecuzione di questi passaggi richiede circa 20 minuti.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
-1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo Python** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Python 3 a 64 bit (3.6.0)** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro Python usando l'utilità di avvio di Visual Studio.
+1. Se non è già installato, installare [Visual Studio](/visualstudio/install/install-visual-studio). Selezionare **Sviluppo Python** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Python 3 a 64 bit (3.6.0)** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro Python usando l'utilità di avvio di Visual Studio.
 2. Dopo aver installato e avviato Visual Studio, fare clic su **File** > **Nuovo** > **Progetto**.
 3. Fare clic su **Modelli** > **Python** > **Applicazione Python**, immettere *myPythonProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
@@ -565,6 +566,5 @@ Dal momento che le risorse usate in Azure vengono addebitate, è sempre consigli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, è consigliabile vedere come [risolvere i problemi della distribuzione di gruppi di risorse con il portale di Azure](../../resource-manager-troubleshoot-deployments-portal.md)
-- Altre informazioni sulla [libreria Python di Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Se si sono verificati problemi con la distribuzione, è consigliabile vedere come [risolvere i problemi della distribuzione di gruppi di risorse con il portale di Azure](../../azure-resource-manager/templates/deployment-history.md)
+- Altre informazioni sulla [libreria Python di Azure](/python/api/overview/azure/?view=azure-python)

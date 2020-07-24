@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089550"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -167,16 +167,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Valute supportate
 Site Recovery Deployment Planner può generare il report dei costi con una qualsiasi delle valute seguenti.
 
-|Valuta|Nome||Valuta|Nome||Valuta|Nome|
+|Valuta|Nome|Valuta|Nome|Valuta|Nome|
 |---|---|---|---|---|---|---|---|
-|ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
-|CAD|Dollaro canadese ($)||CHF|Franco svizzero (chf)||DKK|Corona danese (kr)|
-|EUR|Euro (€)||GBP|Sterlina britannica (£)||HKD|Dollaro della RAS di Hong Kong (HK$)|
-|IDR|Rupia indonesiana (Rp)||INR|Rupia indiana (₹)||JPY|Yen giapponese (¥)|
-|KRW|Won coreano (₩)||MXN|Peso messicano (MXN$)||MYR|Ringgit malese (RM$)|
+|ARS|Peso argentino ($)|AUD|Dollaro australiano ($)|BRL|Real brasiliano (R$)|
+|CAD|Dollaro canadese ($)|CHF|Franco svizzero (chf)|DKK|Corona danese (kr)|
+|EUR|Euro (€)|GBP|Sterlina britannica (£)|HKD|Dollaro della RAS di Hong Kong (HK$)|
+|IDR|Rupia indonesiana (Rp)|INR|Rupia indiana (₹)|JPY|Yen giapponese (¥)|
+|KRW|Won coreano (₩)|MXN|Peso messicano (MXN$)|MYR|Ringgit malese (RM$)|
 |NOK|Corona norvegese (kr)||NZD|Dollaro neozelandese ($)||RUB|Rublo russo (руб)|
-|SAR|Riyal saudita (SR)||SEK|Corona svedese (kr)||TWD|Dollaro taiwanese (NT$)|
-|TRY|Lira turca (TL)||USD| Dollaro USA ($)||ZAR|Rand sudafricano (R)|
+|SAR|Riyal saudita (SR)|SEK|Corona svedese (kr)|TWD|Dollaro taiwanese (NT$)|
+|TRY|Lira turca (TL)|USD| Dollaro USA ($)|ZAR|Rand sudafricano (R)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla protezione di [VM Hyper-V in Azure con Site Recovery](hyper-v-azure-tutorial.md).

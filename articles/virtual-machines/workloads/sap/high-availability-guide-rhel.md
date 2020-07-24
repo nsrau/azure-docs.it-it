@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df8e4ab3b6e61b8cdc00a46512ea6e7ccc79189f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80351094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088275"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -84,7 +84,7 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede l'archiviazione c
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer Standard](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -174,7 +174,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-ascs-frontend**
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
-         1. Fare clic su OK.
+         1. Scegliere OK
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
          * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **NW1-AERS-frontend.**
    1. Creare il pool back-end
@@ -189,7 +189,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK.
+         1. Scegliere OK
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -200,7 +200,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. Selezionare **Porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK.
+         1. Scegliere OK
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **NW1-lb-ERS**
 1. In alternativa, se lo scenario richiede Load Balancer Basic (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -208,7 +208,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-ascs-frontend**
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
-         1. Fare clic su OK.
+         1. Scegliere OK
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
          * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **NW1-AERS-frontend.**
    1. Creare il pool back-end
@@ -223,7 +223,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK.
+         1. Scegliere OK
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -241,10 +241,10 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          * Ripetere i passaggi precedenti per le porte 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP per ASCS ERS
 
 > [!Note]
-> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net.ipv4.tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -1043,7 +1043,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida al multi-SID per la disponibilità elevata per SAP NW in macchine virtuali di Azure su RHEL per applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Guida al multi-SID per la disponibilità elevata per SAP NW in macchine virtuali di Azure su RHEL per applicazioni SAP](./high-availability-guide-rhel-multi-sid.md)
 * [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]

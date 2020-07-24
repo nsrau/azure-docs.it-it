@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e82e2c9c319696bc34f73ce24ee6ed12951ac77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087816"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -114,7 +115,7 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 ### <a name="1164"></a><a name="1.16.4"></a>1.16.4
 * Risolto un bug negli intervalli di chiavi di partizione di lettura per una query.
 
-### <a name="1163"></a><a name="1.16.3"/>1.16.3
+### <a name="1163"></a><a name="1.16.3"></a>1.16.3
 * Risolto un bug nell'impostazione delle dimensioni dell'intestazione dei token di continuazione in modalità DirectHttps.
 
 ### <a name="1162"></a><a name="1.16.2"></a>1.16.2

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088546"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visualizza una schermata blu di errore durante l'avvio di una macchina virtuale di Azure
 Questo articolo descrive gli errori con schermata blu che possono verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto. 
@@ -47,7 +47,7 @@ Per risolvere questo problema, è innanzitutto necessario raccogliere il file du
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md). 
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Connettersi tramite Desktop remoto alla macchina virtuale di ripristino.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Individuare il file dump e inviare un ticket di supporto
@@ -100,9 +100,6 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](./troubleshoot-recovery-disks-portal-windows.md).
 4. Avviare la macchina virtuale per riprodurre il problema. Verrà generato un file dump.
 5. Collegare il disco del sistema operativo a una macchina virtuale di ripristino, raccogliere il file dump e quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con il file dump.
-
-
-

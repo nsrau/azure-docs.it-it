@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088598"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
 
@@ -112,7 +113,7 @@ Questo problema si verifica perché le chiavi di crittografia RSA locali nella c
 
 2. Chiave RSA danneggiata o mancante.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per risolvere il problema, è necessario configurare le autorizzazioni corrette per il certificato RDP seguendo questa procedura.
 
@@ -230,7 +231,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 Questo problema è causato dai criteri di sicurezza. Quando le versioni precedenti di TLS (ad esempio, la versione 1.0) sono disabilitate, l'accesso RDP non riesce.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, il protocollo può essere sostituito con TLS 1.1, che è il nuovo standard.
 
@@ -283,19 +284,18 @@ Questo problema è dovuto al fatto che viene modificato il nome host del server 
 
 Il nome host ha voci e dipendenze in Database interno di Windows, che è necessario per il funzionamento di servizi Desktop Remoto. La modifica del nome host dopo che la farm è già stata compilata comporta molti errori e può impedire il funzionamento del server gestore.
 
-### <a name="resolution"></a>Soluzione 
+### <a name="resolution"></a>Risoluzione 
 
 Per risolvere questo problema, è necessario reinstallare il ruolo Gestore connessione Desktop remoto e Database interno di Windows.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Schannel Events (Eventi di Schannel)](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Schannel Events (Eventi di Schannel)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786445(v=ws.11))
 
-[Panoramica tecnica di SSP Schannel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Panoramica tecnica di SSP Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11))
 
-[RDP Fails with Event ID 1058 & Event 36870 with Remote Desktop Session Host Certificate & SSL Communication (RDP ha esito negativo con l'ID evento 1058 e l'evento 36870 con il certificato host sessione Desktop remoto e la comunicazione SSL)](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[RDP Fails with Event ID 1058 & Event 36870 with Remote Desktop Session Host Certificate & SSL Communication (RDP ha esito negativo con l'ID evento 1058 e l'evento 36870 con il certificato host sessione Desktop remoto e la comunicazione SSL)](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 
-[Schannel 36872 or Schannel 36870 on a Domain Controller (Evento Schannel 36872 o Schannel 36870 in un controller di dominio)](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
+[Schannel 36872 or Schannel 36870 on a Domain Controller (Evento Schannel 36872 o Schannel 36870 in un controller di dominio)](/archive/blogs/instan/schannel-36872-or-schannel-36870-on-a-domain-controller)
 
-[Event ID 1058 — Remote Desktop Services Authentication and Encryption (ID evento 1058 - Autenticazione e crittografia di Servizi Desktop remoto)](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
-
+[Event ID 1058 — Remote Desktop Services Authentication and Encryption (ID evento 1058 - Autenticazione e crittografia di Servizi Desktop remoto)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee890862(v=ws.10))

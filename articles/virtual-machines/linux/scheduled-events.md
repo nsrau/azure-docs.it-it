@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088734"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -39,7 +39,7 @@ Grazie agli eventi pianificati, l'applicazione è in grado di sapere quando verr
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
-- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (ad esempio, riavvio di macchine virtuali, migrazione in tempo reale o aggiornamenti con manutenzione della memoria per l'host)
+- [Manutenzione avviata dalla piattaforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (ad esempio, riavvio di macchine virtuali, migrazione in tempo reale o aggiornamenti con manutenzione della memoria per l'host)
 - Macchina virtuale in esecuzione in [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) ed è possibile un guasto imminente
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
 - Eliminazione di istanze di [macchina virtuale Spot](spot-vms.md) e [set di scalabilità Spot](../../virtual-machine-scale-sets/use-spot.md).
@@ -148,7 +148,7 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 | - | - |
 | Freeze| 15 minuti |
 | Reboot | 15 minuti |
-| Redeploy | 10 minuti |
+| Ripetere la distribuzione | 10 minuti |
 | Preempt | 30 secondi |
 | Terminate | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |
 
@@ -189,7 +189,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -233,4 +233,4 @@ if __name__ == '__main__':
 - È disponibile una demo sugli [eventi pianificati in Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance). 
 - È possibile esaminare gli esempi di codice di Eventi pianificati nel [repository GitHub di Eventi pianificati del servizio metadati dell'istanza di Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Altre informazioni sulle API disponibili nel [servizio metadati dell'istanza](instance-metadata-service.md).
-- Informazioni sulla [manutenzione pianificata per le macchine virtuali Linux in Azure](planned-maintenance.md).
+- Informazioni sulla [manutenzione pianificata per le macchine virtuali Linux in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json).

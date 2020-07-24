@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088207"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Assegnare più indirizzi IP alle macchine virtuali usando il portale di Azure
 
@@ -29,7 +30,7 @@ ms.locfileid: "84687974"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
 
-Se si vuole creare una macchina virtuale con più indirizzi IP, o un indirizzo IP privato statico, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure. Per informazioni su come procedere, fare clic sulle opzioni relative a PowerShell o all'interfaccia della riga di comando nella parte superiore di questo articolo. È possibile creare una macchina virtuale con un singolo indirizzo IP privato dinamico e (facoltativamente) un singolo indirizzo IP pubblico. Usare il portale seguendo i passaggi riportati negli articoli [Creare una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [creare una macchina virtuale Linux](../virtual-machines/linux/quick-create-portal.md). Dopo aver creato la VM, è possibile cambiare il tipo di indirizzo IP da dinamico a statico e aggiungere altri indirizzi IP tramite il portale seguendo i passaggi indicati nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#add) di questo articolo.
+Se si vuole creare una macchina virtuale con più indirizzi IP, o un indirizzo IP privato statico, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure. Per informazioni su come procedere, fare clic sulle opzioni relative a PowerShell o all'interfaccia della riga di comando nella parte superiore di questo articolo. È possibile creare una macchina virtuale con un singolo indirizzo IP privato dinamico e (facoltativamente) un singolo indirizzo IP pubblico. Usare il portale seguendo i passaggi riportati negli articoli [Creare una macchina virtuale Windows](../virtual-machines/windows/quick-create-portal.md) o [creare una macchina virtuale Linux](../virtual-machines/linux/quick-create-portal.md). Dopo aver creato la VM, è possibile cambiare il tipo di indirizzo IP da dinamico a statico e aggiungere altri indirizzi IP tramite il portale seguendo i passaggi indicati nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#add) di questo articolo.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 

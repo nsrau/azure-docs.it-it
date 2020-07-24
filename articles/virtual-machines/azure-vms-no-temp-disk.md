@@ -7,15 +7,15 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 502883a0c4eb36be9e89ba8693f4d32ba7f16ebd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088870"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale 
-Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni delle macchine virtuali di Azure che non dispongono di un disco temporaneo locale (ovvero senza una scrivania temporanea locale). Per altre informazioni su queste dimensioni delle macchine virtuali, vedere [specifiche per DV4 e serie Dsv4 (carichi di lavoro per utilizzo generico)](dv4-dsv4-series.md) o [specifiche per Ev4 e serie Esv4 (carichi di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md).
+Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni delle macchine virtuali di Azure che non dispongono di un disco temporaneo locale (ovvero senza disco temporaneo locale). Per altre informazioni su queste dimensioni delle macchine virtuali, vedere [specifiche per DV4 e serie Dsv4 (carichi di lavoro per utilizzo generico)](dv4-dsv4-series.md) o [specifiche per Ev4 e serie Esv4 (carichi di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Le dimensioni delle VM DV4, Dsv4, Ev4 e Esv4 sono ora disponibili in anteprima pubblica. Per iscriversi all'anteprima pubblica, compilare questo [modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 

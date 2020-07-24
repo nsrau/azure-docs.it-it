@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027334"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087255"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
 Una stringa di connessione include le informazioni di autorizzazione necessarie all'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione tramite l'autorizzazione della chiave condivisa. Le stringhe di connessione possono essere configurate per:
 
-* Connettersi all'emulatore di archiviazione di Azure.
+* Connettersi all'emulatore di archiviazione azzurrite.
 * Accedere a un account di archiviazione in Azure.
 * Accedere alle risorse specificate in Azure tramite una firma di accesso condiviso (SAS).
 
@@ -37,15 +37,15 @@ L'applicazione deve accedere alla stringa di connessione in fase di runtime per 
 * Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
 * Un'applicazione in esecuzione in un servizio cloud di Azure può archiviare la stringa di connessione nel [file dello schema di configurazione dei servizi di Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Aggiungere la stringa di connessione alla sezione **ConfigurationSettings** del file di configurazione del servizio.
 
-L'archiviazione della stringa di connessione in un file di configurazione renderà più semplice aggiornare la stringa per alternare tra l'emulatore di archiviazione e un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che faccia riferimento all'ambiente di destinazione.
+Archiviando la stringa di connessione in un file di configurazione è possibile aggiornare facilmente la stringa di connessione per passare dall' [emulatore di archiviazione di azzurrite](../common/storage-use-azurite.md) a un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che faccia riferimento all'ambiente di destinazione.
 
 È possibile usare [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) per accedere alla stringa di connessione in fase di runtime indipendentemente dall'ambiente in cui viene eseguita l'applicazione.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurare una stringa di connessione per l'emulatore di archiviazione
+## <a name="configure-a-connection-string-for-azurite"></a>Configurare una stringa di connessione per azzurrite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Per altre informazioni sull'emulatore di archiviazione, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md).
+Per altre informazioni su azzurrite, vedere [usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configurare una stringa di connessione per un account di archiviazione di Azure
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
+* [Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure](../common/storage-use-azurite.md)
 * [Strumenti di esplorazione di Archiviazione di Azure](storage-explorers.md)
 * [Uso delle firme di accesso condiviso](storage-sas-overview.md)

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509847"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089346"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
 
 Il modo consigliato per montare una condivisione file di Azure in Linux è l'uso di SMB 3,0. Per impostazione predefinita, File di Azure richiede la crittografia in transito, supportata solo da SMB 3,0. File di Azure supporta anche SMB 2,1, che non supporta la crittografia in transito, ma non è possibile montare condivisioni file di Azure con SMB 2,1 da un'altra area di Azure o in locale per motivi di sicurezza. A meno che l'applicazione non richieda specificamente SMB 2,1, non è necessario usarla perché le distribuzioni di Linux più diffuse e di recente supportano SMB 3,0:  
 
-| | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
+| Distribuzione di Linux | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |

@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di RDS PostgreSQL online al databa
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da RDS PostgreSQL a Database di Azure per PostgreSQL con il Servizio Migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b466a42e1e232d35bd7bd70c8943a254b026f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087697"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Esercitazione: eseguire la migrazione di RDS PostgreSQL ad Azure DB per PostgreSQL online con DMS
 
@@ -26,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio con l'utilità pg_dump.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.

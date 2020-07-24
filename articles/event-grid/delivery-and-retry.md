@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e565bbc8592dc2818e3573672e6e3035c3c8983a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087612"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -78,8 +78,12 @@ Quando si verificano errori di recapito di un endpoint, griglia di eventi inizia
 Lo scopo funzionale del recapito ritardato consiste nel proteggere gli endpoint non integri e il sistema di griglia di eventi. Senza il ritardi e il ritardo del recapito a endpoint non integri, i criteri di ripetizione dei tentativi e le funzionalità del volume di griglia di eventi possono sovraccaricare facilmente un sistema.
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
+Quando griglia di eventi non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**. Griglia di eventi non recapitabili un evento quando viene soddisfatta **una delle condizioni seguenti** . 
 
-Quando Griglia di eventi non riesce a eseguire un'operazione di recapito, l'evento non recapitato può essere inviato a un account di archiviazione. Questo processo è noto come inserimento nella coda di eventi non recapitabili. Per impostazione predefinita, Griglia di eventi non attiva l'inserimento nella coda di eventi non recapitabili. Per abilitarlo, è necessario specificare che un account di archiviazione deve contenere gli eventi non recapitati durante la sottoscrizione di eventi. Per risolvere le operazioni di recapito, viene eseguito il pull degli eventi da questo account di archiviazione.
+- L'evento non viene recapitato entro la durata (TTL)
+- Il numero di tentativi di recapitare l'evento ha superato il limite
+
+Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapitabile.  Per impostazione predefinita, Griglia di eventi non attiva l'inserimento nella coda di eventi non recapitabili. Per abilitarlo, è necessario specificare che un account di archiviazione deve contenere gli eventi non recapitati durante la sottoscrizione di eventi. Per risolvere le operazioni di recapito, viene eseguito il pull degli eventi da questo account di archiviazione.
 
 Griglia di eventi invia un evento nel percorso dell'evento non recapitato quando ha eseguito tutti i tentativi di ripetizione. Se Griglia di eventi riceve un codice di risposta 400 (Richiesta non valida) o 413 (Entità richiesta troppo grande), invia immediatamente l'evento per l'endpoint di messaggi non recapitabili. Questi codici di risposta indicano che recapito dell'evento non avrà mai esito positivo.
 

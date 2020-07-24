@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087962"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurare Always Encrypted tramite Azure Key Vault 
 
@@ -45,7 +45,7 @@ Seguire la procedura descritta in questo articolo per informazioni su come confi
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) o [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure
+- [Azure PowerShell](/powershell/azure/) o [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure
 
 ## <a name="enable-client-application-access"></a>Abilitare l'accesso alle applicazioni client
 
@@ -179,11 +179,11 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Summary](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Riepilogo](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 

@@ -9,13 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087842"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -239,6 +240,22 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>Creazione automatica di tabelle di sink
+
+Quando si copiano dati in un database SQL/Azure sinapsi Analytics, se la tabella di destinazione non esiste, l'attività di copia supporta la creazione automatica in base ai dati di origine. Mira a aiutarti a iniziare rapidamente a caricare i dati e a valutare il database SQL o l'analisi delle sinapsi di Azure. Dopo l'inserimento dei dati, è possibile esaminare e modificare lo schema della tabella di sink in base alle esigenze.
+
+Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei seguenti archivi dati sink. È possibile trovare l'opzione nell' *interfaccia utente di authoring di ADF* -> opzione *sink attività di copia* -> *tabella* -> *creazione automatica tabella*o `tableOption` Proprietà via nel payload del sink dell'attività di copia.
+
+- [Database SQL di Azure](connector-azure-sql-database.md)
+- [Istanza gestita di database SQL di Azure](connector-azure-sql-managed-instance.md)
+- [Analisi delle sinapsi di Azure (in precedenza Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Creazione di tabelle di sink](media/copy-activity-overview/create-sink-table.png)
+
+> [!NOTE]
+> La creazione di tabelle automatiche attualmente non è supportata quando è abilitata la copia di gestione [temporanea](copy-activity-performance-features.md#staged-copy) .
 
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 

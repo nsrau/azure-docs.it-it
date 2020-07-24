@@ -3,8 +3,8 @@ title: "Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire una migrazione in linea da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite l'interfaccia della riga di comando.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087629"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online con DMS tramite l'interfaccia della riga di comando
 
@@ -181,7 +182,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
        ```azurecli
        az extension list -otable
        ```
-       Dovrebbe venire visualizzato l'output seguente.
+       Viene visualizzato l'output seguente:
 
        ```output
        ExtensionType    Name
@@ -360,7 +361,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OPPURE
+   O
 
     ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

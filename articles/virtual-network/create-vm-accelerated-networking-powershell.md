@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088190"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una VM Windows con rete accelerata usando Azure PowerShell
 
@@ -63,7 +63,7 @@ Le distribuzioni seguenti sono supportate direttamente dalla raccolta di Azure:
 
 La funzionalità rete accelerata è supportata per la maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con due o più CPU virtuali (vCPU).  Queste serie supportate sono: dv2/DSv2 e F/FS.
 
-Nelle istanze che supportano l'Hyper-Threading, la rete accelerata è supportata nelle istanze di VM con quattro o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
+Nelle istanze che supportano l'Hyper-Threading, la rete accelerata è supportata nelle istanze di VM con quattro o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

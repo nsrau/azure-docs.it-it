@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970808"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089703"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -59,8 +59,9 @@ Dopo averla configurata, non è possibile modificare la posizione in cui vengono
 
 Per caricare i server nel centro sicurezza, fare clic su **Vai al centro sicurezza di Azure per** caricare i server dall'onboarding del server Microsoft Defender ATP.
 
-1. Nell'area **onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati. <br>
-2. Se non è possibile visualizzare tutte le aree di lavoro, il problema potrebbe essere dovuto alla mancanza di autorizzazioni, assicurarsi che l'area di lavoro sia impostata sul livello standard di sicurezza di Azure. Per altre informazioni, vedere [eseguire l'aggiornamento al livello standard del Centro sicurezza per una maggiore sicurezza](security-center-pricing.md).
+1. Nell'area **onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati.
+
+2. Se non è possibile visualizzare tutte le aree di lavoro, il problema potrebbe essere dovuto a una mancanza di autorizzazioni, assicurarsi che l'area di lavoro sia impostata sul piano tariffario standard di sicurezza di Azure. Per altre informazioni, vedere [eseguire l'aggiornamento al livello standard del Centro sicurezza per una maggiore sicurezza](security-center-pricing.md).
     
 3. Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare l'agente di log Analytics. 
 

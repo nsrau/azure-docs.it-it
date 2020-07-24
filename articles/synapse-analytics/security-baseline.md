@@ -1,19 +1,20 @@
 ---
-title: Linea di base di sicurezza di sinapsi Analytics per il benchmark di sicurezza di Azure
+title: Baseline della sicurezza di Azure per l'analisi delle sinapsi
 description: La linea di base di sicurezza di sinapsi Analytics fornisce le informazioni e le procedure per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089329"
 ---
-# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Linea di base di sicurezza di sinapsi Analytics per il benchmark di sicurezza di Azure
+# <a name="azure-security-baseline-for-synapse-analytics"></a>Baseline della sicurezza di Azure per l'analisi delle sinapsi
 
 La linea di base di sicurezza di Azure per sinapsi Analytics contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
@@ -27,9 +28,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
-**Linee guida**: proteggere il database SQL di Azure in una rete virtuale tramite un collegamento privato. Il collegamento privato di Azure consente di accedere ai servizi PaaS di Azure tramite un endpoint privato nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete del backbone Microsoft.
+**Linee guida**: proteggere il SQL Server di Azure in una rete virtuale tramite un collegamento privato. Il collegamento privato di Azure consente di accedere ai servizi PaaS di Azure tramite un endpoint privato nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete del backbone Microsoft.
 
-In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito della connessione in uscita al database SQL usando un gruppo di sicurezza di rete. Disabilitare tutto il traffico dei servizi di Azure verso il database SQL tramite l'endpoint pubblico disattivando l'opzione Consenti ai servizi di Azure di accedere al server. Assicurarsi che non siano consentiti indirizzi IP pubblici nelle regole del firewall.
+In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito della connessione in uscita al database SQL usando un gruppo di sicurezza di rete. Disabilitare tutto il traffico del servizio di Azure nel database SQL tramite l'endpoint pubblico impostando Consenti i servizi di Azure su disattivato. Assicurarsi che non siano consentiti indirizzi IP pubblici nelle regole del firewall.
 
 * [Informazioni sul collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -43,7 +44,7 @@ In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito del
 
 **Responsabilità**: Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e NIC
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e interfacce di rete
 
 **Linee guida**: quando ci si connette al pool SQL sinapsi di Azure e sono stati abilitati i log dei flussi del gruppo di sicurezza di rete (NSG), inviare i log in un account di archiviazione di Azure per il controllo del traffico.
 
@@ -69,7 +70,7 @@ In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito del
 
 **Responsabilità**: Non applicabile
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: negare le comunicazioni con indirizzi IP dannosi noti
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: negare le comunicazioni con indirizzi IP dannosi noti
 
 **Indicazioni**: usare Advanced Threat Protection (ATP) per SQL sinapsi di Azure. ATP rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare diversi avvisi, ad esempio "potenziale attacco SQL injection" e "accesso da una posizione insolita". ATP fa parte dell'offerta Advanced Data Security (ADS) ed è possibile accedervi e gestirlo tramite il portale SQL ADS centrale.
 
@@ -243,7 +244,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 **Responsabilità**: Customer
 
-### <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
+### <a name="26-monitor-and-review-logs"></a>2,6: monitorare ed esaminare i log
 
 **Linee guida**: analizzare e monitorare i log per i comportamenti anomali ed esaminare periodicamente i risultati. Usare Advanced Threat Protection per il database SQL di Azure insieme al centro sicurezza di Azure per segnalare attività insolite correlate al database SQL. In alternativa, configurare gli avvisi in base ai valori delle metriche o alle voci del log attività di Azure correlate al database SQL.
 
@@ -359,7 +360,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usare Azure Active Directory Single Sign-On (SSO)
 
 **Indicazioni**: usare una registrazione di app di Azure (entità servizio) per recuperare un token che può essere usato per interagire con il data warehouse nel piano di controllo (portale di Azure) tramite chiamate API.
 
@@ -373,7 +374,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: usare l'autenticazione a più fattori per tutti gli accessi in base al Azure Active Directory
 
 **Indicazioni**: abilitare Azure Active Directory (AD) Multi-Factor Authentication (MFA) e seguire le raccomandazioni sulla gestione delle identità e degli accessi nel Centro sicurezza di Azure.
 
@@ -387,7 +388,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: usare workstation sicure gestite da Azure per le attività amministrative
 
 **Indicazioni**: usare una workstation con accesso con privilegi (Paw) con multi-factor authentication (multi-factor authentication) configurato per accedere e configurare le risorse di Azure.
 
@@ -475,7 +476,7 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Responsabilità**: Customer
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: deviazione dell'avviso sulla deviazione del comportamento di accesso dell'account
 
 **Indicazioni**: usare le funzionalità di protezione delle identità Azure Active Directory (Azure ad) e di rilevamento del rischio per configurare risposte automatiche per le azioni sospette rilevate correlate alle identità utente. Inoltre, è possibile caricare e inserire i dati in Sentinel di Azure per un'analisi più approfondita.
 
@@ -583,9 +584,9 @@ Inoltre, è possibile configurare un criterio di maschera dati dinamica (DDM) ne
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
-**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso al database SQL di Azure nel pool di SQL sinapsi.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso ai database SQL di Azure nel pool di SQL sinapsi.
 
-L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e dalle autorizzazioni a livello di oggetto dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari.
+L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e dalle autorizzazioni a livello di oggetto dell'account utente. È consigliabile concedere agli utenti i privilegi minimi necessari.
 
 * [Come integrare SQL Server di Azure con Azure Active Directory per l'autenticazione](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 
@@ -641,9 +642,9 @@ Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
-**Linee guida**: abilitare la sicurezza dei dati avanzata e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nel database SQL.
+**Linee guida**: abilitare la sicurezza dei dati avanzata e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nei database SQL di Azure.
 
-* [Come eseguire valutazioni delle vulnerabilità nel database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Come eseguire valutazioni delle vulnerabilità nei database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Come abilitare la sicurezza avanzata dei dati](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -737,7 +738,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 **Responsabilità**: Customer
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definire e gestire un inventario delle risorse di Azure approvate
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definire e gestire l'inventario delle risorse di Azure approvate
 
 **Linee guida**: definire un elenco di risorse di Azure approvate correlate al pool SQL sinapsi.
 
@@ -845,8 +846,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
-**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. SQL" per creare criteri personalizzati per controllare o applicare la configurazione delle risorse correlate al pool SQL sinapsi. È anche possibile usare le definizioni di criteri predefinite per i database di Azure, ad esempio:
-
+**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. SQL" per creare criteri personalizzati per controllare o applicare la configurazione delle risorse correlate al pool SQL sinapsi. È anche possibile usare le definizioni di criteri predefinite per database/server di Azure, ad esempio:
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
 - I server SQL devono usare un endpoint servizio di rete virtuale
 
@@ -978,7 +978,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 *Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usare software antimalware gestito in modo centralizzato
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usare il software antimalware gestito centralmente
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo. Microsoft gestisce l'anti-malware per la piattaforma sottostante.
 
@@ -1010,7 +1010,7 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 *Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire il backup automatico regolare
 
 **Linee guida**: gli snapshot del pool SQL sinapsi vengono eseguiti automaticamente durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni. Si noti che, se necessario, è anche possibile attivare manualmente gli snapshot.
 

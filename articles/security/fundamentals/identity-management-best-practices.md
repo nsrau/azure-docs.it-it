@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089669"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -216,7 +216,7 @@ Il team di sicurezza deve avere visibilità sulle risorse di Azure per valutare 
 * **Gruppo di gestione segmenti** per i team con ambito limitato (in genere a causa di normative o altri limiti dell'organizzazione)
 
 **Procedura consigliata**: concedere le autorizzazioni appropriate ai team di sicurezza che hanno responsabilità operative dirette.
-**Dettagli**: esaminare i ruoli predefiniti Controllo degli accessi in base al ruolo per l'assegnazione di ruolo appropriata. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati per le risorse di Azure](/azure/role-based-access-control/custom-roles). Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio negli ambiti di sottoscrizione, gruppo di risorse e risorsa.
+**Dettagli**: esaminare i ruoli predefiniti Controllo degli accessi in base al ruolo per l'assegnazione di ruolo appropriata. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](/azure/role-based-access-control/custom-roles). Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio negli ambiti di sottoscrizione, gruppo di risorse e risorsa.
 
 **Procedure consigliate**: concedere al Centro sicurezza di Azure l'accesso ai ruoli di sicurezza che lo richiedono. Il Centro sicurezza consente ai team di sicurezza di identificare e correggere rapidamente i rischi.
 **Dettagli**: aggiungere team di sicurezza con queste esigenze al ruolo Controllo degli accessi in base al ruolo [Amministratore della sicurezza](/azure/role-based-access-control/built-in-roles#security-admin) in modo che possano visualizzare i criteri e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, nonché ignorare gli avvisi e le raccomandazioni. A tale scopo, è possibile usare il gruppo di gestione radice o il gruppo di gestione segmenti, a seconda dell'ambito di responsabilità.
