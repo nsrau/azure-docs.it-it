@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e78634001c5ef1b11d6add8f02208cfa9cacf07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012298"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Monitorare le metriche del modello e distribuire modelli di Machine Learning con MLflow e Azure Machine Learning (anteprima)
 
@@ -47,7 +47,7 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
  Rilevamento di MLflow offre funzionalità di registrazione delle metriche e di archiviazione degli artefatti disponibili in caso contrario solo tramite l'[SDK Python di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow &nbsp; rilevamento & distribuzione | Python SDK di Azure Machine Learning |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
+| Funzionalità | MLflow &nbsp; rilevamento & distribuzione | Python SDK di Azure Machine Learning |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | Gestire l'area di lavoro |   | ✓ | ✓ | ✓ |
 | Usare archivi dati  |   | ✓ | ✓ | |
@@ -347,7 +347,7 @@ webservice.wait_for_deployment()
 
 La distribuzione del servizio può richiedere diversi minuti.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Se non si prevede di usare le metriche registrate e gli artefatti nell'area di lavoro, la possibilità di eliminarli singolarmente non è attualmente disponibile. Eliminare invece il gruppo di risorse che contiene l'account di archiviazione e l'area di lavoro, in modo che non vengano addebitati costi:
 

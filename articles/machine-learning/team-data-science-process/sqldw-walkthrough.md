@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a748b9284407b5ecd8cc8f6225c6762e7017d4d9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d5a332acbf6550fcc3a4256e1bc0531b31dd6c6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026118"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012256"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processo di analisi scientifica dei dati per i team in azione: uso di Azure sinapsi Analytics
 Questa esercitazione illustra la creazione e la distribuzione di un modello di apprendimento automatico usando Azure sinapsi Analytics per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . Il modello di classificazione binaria costruito prevede se viene o meno pagata una mancia per una corsa.  I modelli includono la classificazione multiclasse (indipendentemente dalla presenza di un suggerimento) e la regressione (la distribuzione per gli importi delle mance a pagamento).
@@ -602,7 +602,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **Output:** questa query genera una tabella (con 2.803.538 righe) con la latitudine e la longitudine del prelievo e dello scarico e le corrispondenti distanze dirette in miglia. Ecco i risultati per le prime tre righe:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+| (Numero di riga) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |
@@ -1006,7 +1006,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza

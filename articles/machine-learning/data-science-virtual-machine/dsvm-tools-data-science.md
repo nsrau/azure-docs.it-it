@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012407"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Strumenti di machine learning e data science sulle macchine virtuali di Data Science di Azure
 Le macchine virtuali di Data Science di Azure (Dsvm) hanno un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, come Python, R e Julia.
@@ -26,7 +26,7 @@ Ecco alcuni strumenti e librerie di apprendimento automatico in Dsvm.
 
 Vedere le informazioni di riferimento complete per [Azure Machine Learning SDK per Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   |   Azure Machine Learning è un servizio cloud che è possibile usare per sviluppare e distribuire modelli di machine learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
 | Edizioni supportate     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
@@ -38,7 +38,7 @@ Vedere le informazioni di riferimento complete per [Azure Machine Learning SDK p
 
 ## <a name="h2o"></a>H2O
 
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   | Piattaforma di intelligenza artificiale open source che supporta Machine Learning in memoria, distribuita, veloce e scalabile.  |
 | Versioni supportate      | Linux   |
@@ -52,7 +52,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 
 ## <a name="lightgbm"></a>LightGBM
 
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   | Un Framework rapido, distribuito e ad alte prestazioni (Gradient, boosting, GBM o MART) basato su algoritmi di albero delle decisioni. Viene usato per il ranking, la classificazione e molte altre attività di machine learning.    |
 | Versioni supportate      | Windows, Linux    |
@@ -62,7 +62,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Strumenti correlati      | MXNet, XgBoost  |
 
 ## <a name="rattle"></a>Rattle
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   |   Interfaccia utente grafica per data mining usando R.   |
 | Edizioni supportate     | Windows, Linux     |
@@ -72,7 +72,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Strumenti correlati      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   |   Una libreria di sistema di formazione rapida, open source e out-of-core    |
 | Edizioni supportate     | Windows, Linux     |
@@ -84,7 +84,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 
 
 ## <a name="weka"></a>Weka
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   |  Raccolta di algoritmi di machine learning per le attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
 | Edizioni supportate     | Windows, Linux     |
@@ -94,7 +94,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Strumenti correlati      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="xgboost"></a>XGBoost 
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   |   Una libreria Fast, Portable e Distributed Gradient boosting (Gradient, boosting o GBM) per Python, R, Java, scala, C++ e altro ancora. Viene eseguito in un singolo computer e in Apache Hadoop e Spark.    |
 | Edizioni supportate     | Windows, Linux     |
@@ -105,7 +105,7 @@ Sono disponibili diverse altre librerie di Machine Learning in Dsvm, ad esempio 
 | Strumenti correlati      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
-|    |           |
+| Category | Valore |
 | ------------- | ------------- |
 | Che cos'è?   | Motore di query SQL Open Source su Big Data    |
 | Versioni di DSVM supportate      | Windows 2019, Linux  |

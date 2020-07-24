@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa55285a2447f9baadfc74782a46bcd6c68b545e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012281"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Le informazioni contenute in questa sezione presuppongono che si usi un Containe
 
     * Ubuntu 16,04 o versione successiva.
     * Conda 4.5. # o successiva.
-    * Python 3.5. # o 3.6. #.
+    * Python 3.5. #, 3.6. # o 3.7. #.
 
 <a id="getname"></a>
 
@@ -191,7 +191,7 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
 Microsoft fornisce diverse immagini Docker in un repository accessibile pubblicamente, che può essere usato con i passaggi descritti in questa sezione:
 
-| Image | Descrizione |
+| Immagine | Descrizione |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Immagine di base per Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene il runtime ONNX per l'inferenza della CPU |
