@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974841"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093018"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per la cache di Azure per le risorse di calcolo Redis con capacità riservata
 
@@ -32,7 +32,7 @@ Per informazioni dettagliate sul modo in cui i clienti aziendali e i clienti con
 
 Le dimensioni della prenotazione devono essere basate sulla quantità totale di memoria utilizzata dalla cache esistente o presto distribuita in un'area specifica e utilizzando lo stesso livello di servizio.
 
-Si supponga, ad esempio, di eseguire due cache, una a 13 GB e l'altra a 26 GB. Sono necessari entrambi per almeno un anno. Si supponga inoltre di voler pianificare la scalabilità delle cache da 13 GB esistenti a 26 GB per un mese per soddisfare la richiesta stagionale, quindi eseguire il ridimensionamento. In questo caso, è possibile acquistare una cache P1 e una cache P2 o 3 P1 in una prenotazione di un anno per ottimizzare il risparmio. Si riceverà uno sconto sulla quantità totale di memoria cache riservata, indipendentemente dal modo in cui tale quantità viene allocata tra le cache.
+Si supponga, ad esempio, di eseguire due cache, una a 13 GB e l'altra a 26 GB. Sono necessari entrambi per almeno un anno. Si supponga inoltre di voler pianificare la scalabilità delle cache da 13 GB esistenti a 26 GB per un mese per soddisfare la richiesta stagionale, quindi eseguire il ridimensionamento. In questo caso, è possibile acquistare una cache P2 e una cache di 1 P3 o 3 P2 in una prenotazione di un anno per ottimizzare il risparmio. Si riceverà uno sconto sulla quantità totale di memoria cache riservata, indipendentemente dal modo in cui tale quantità viene allocata tra le cache.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Acquistare la cache di Azure per la capacità riservata di redis
@@ -50,12 +50,12 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 | Campo | Descrizione |
 | :------------ | :------- |
-| Subscription   | Sottoscrizione usata per pagare la riserva della capacità riservata di Azure per Redis. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione della capacità riservata di cache di Azure per Redis. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Sottoscrizione   | Sottoscrizione usata per pagare la riserva della capacità riservata di Azure per Redis. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione della capacità riservata di cache di Azure per Redis. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
 | Scope | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.
-| Region | Area di Azure coperta dalla cache di Azure per la prenotazione di capacità riservata di Redis.
+| Area | Area di Azure coperta dalla cache di Azure per la prenotazione di capacità riservata di Redis.
 | Piano tariffario | Livello di servizio per la cache di Azure per i server Redis.
 | Termine | Un anno o tre anni
-| Quantità | Quantità di risorse di calcolo acquistate nella cache di Azure per la prenotazione di capacità riservata di Redis. La quantità è un numero di cache nell'area di Azure selezionata e il livello di servizio che vengono riservati e otterranno lo sconto per la fatturazione. Se ad esempio si esegue o si prevede di eseguire una cache di Azure per i server Redis con la capacità totale della cache di 26 GB nell'area Stati Uniti orientali, è necessario specificare la quantità come 26 per ottimizzare il vantaggio per tutte le cache.
+| Quantità | Quantità di risorse di calcolo acquistate nella cache di Azure per la prenotazione di capacità riservata di Redis. La quantità è un numero di cache nell'area di Azure selezionata e il livello di servizio che vengono riservati e otterranno lo sconto per la fatturazione. Se ad esempio si esegue o si prevede di eseguire una cache di Azure per i server Redis con la capacità totale della cache di 26 GB nell'area Stati Uniti orientali, è necessario specificare la quantità che offre l'equivalente di 26 GB per massimizzare il vantaggio per tutte le cache. Potrebbe trattarsi di una cache di 1 P3 o 2 P2.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 

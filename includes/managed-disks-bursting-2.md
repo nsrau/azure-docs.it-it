@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102753"
 ---
 ## <a name="common-scenarios"></a>Scenari comuni
 Gli scenari seguenti possono trarre molto vantaggio dall'espansione:
@@ -27,7 +28,7 @@ Il sistema di credito in espansione si applica allo stesso modo a livello di mac
 
 ![Diagramma di bucket in sequenza](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Fino a quando si desidera utilizzare i 30 minuti di incrementi. È possibile usarlo per 30 minuti consecutivamente o sporadicamente nel corso della giornata. Quando si distribuisce il prodotto, è possibile ottenere crediti completi e, quando si esauriscono i crediti, è necessario meno di un giorno per ottenere una disponibilità completa dei crediti. È possibile accumulare e spendere i crediti di espansione a propria discrezione e non è necessario che il bucket di 30 minuti venga nuovamente esaurito. Un aspetto da considerare sull'accumulo di picchi è che è diverso per ogni risorsa, perché si basa sulle operazioni di i/o al secondo e di MB/s al di sotto degli importi delle prestazioni. Ciò significa che i prodotti per le prestazioni di base più elevati possono accumulare i propri importi di espansione più velocemente rispetto ai prodotti di base più bassi. Ad esempio, un disco P1 di minimo senza attività accumulerà 120 IOPS al secondo, mentre un disco P20 accumula 2.300 IOPS al secondo mentre è inattivo senza attività.
+Fino a quando si desidera utilizzare i 30 minuti di incrementi. È possibile usarlo per 30 minuti consecutivamente o sporadicamente nel corso della giornata. Quando il prodotto viene distribuito, è pronto con crediti completi e, quando esaurisce i crediti, è necessario meno di un giorno per ottenere una disponibilità completa dei crediti. È possibile accumulare e spendere i crediti di espansione a propria discrezione e non è necessario che il bucket di 30 minuti venga nuovamente esaurito. Un aspetto da considerare sull'accumulo di picchi è che è diverso per ogni risorsa, perché si basa sulle operazioni di i/o al secondo e di MB/s al di sotto degli importi delle prestazioni. Ciò significa che i prodotti per le prestazioni di base più elevati possono accumulare i propri importi di espansione più velocemente rispetto ai prodotti di base più bassi. Ad esempio, un disco P1 di minimo senza attività accumulerà 120 IOPS al secondo, mentre un disco P20 accumula 2.300 IOPS al secondo mentre è inattivo senza attività.
 
 ## <a name="bursting-states"></a>Stati con picchi
 È possibile che la risorsa si trovi in tre stati con la funzionalità di espansione abilitata:

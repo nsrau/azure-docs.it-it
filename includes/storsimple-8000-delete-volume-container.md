@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67180194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102748"
 ---
 Per eliminare un contenitore di volumi, è necessario
  - eliminare i volumi nel contenitore di volumi. Se il contenitore del volume ha volumi associati, portarli prima offline. Seguire la procedura illustrata in [Portare un volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Quando i volumi sono offline, è possibile eliminarli. 
@@ -36,6 +36,6 @@ Quando al contenitore di volumi non sono associati volumi, criteri di backup e s
 
 L'elenco di contenitori dei volumi viene aggiornato per rispecchiare l'eliminazione del contenitore del volume.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Screenshot della pagina del contenitore del volume. L'elenco tabulare di contenitori di volumi non contiene più il contenitore eliminato.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

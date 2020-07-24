@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093069"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
 
-Il [modello di esecuzione affidabile](durable-functions-checkpointing-and-replay.md) di Durable Functions richiede che le orchestrazioni siano deterministiche, il che crea una sfida aggiuntiva da considerare quando si distribuiscono gli aggiornamenti. Quando una distribuzione contiene modifiche alle firme delle funzioni attività o alla logica dell'agente di orchestrazione, le istanze di orchestrazione in corso hanno esito negativo Questa situazione è soprattutto un problema per le istanze di orchestrazioni a esecuzione prolungata, che potrebbero rappresentare ore o giorni di lavoro.
+Il [modello di esecuzione affidabile](./durable-functions-orchestrations.md) di Durable Functions richiede che le orchestrazioni siano deterministiche, il che crea una sfida aggiuntiva da considerare quando si distribuiscono gli aggiornamenti. Quando una distribuzione contiene modifiche alle firme delle funzioni attività o alla logica dell'agente di orchestrazione, le istanze di orchestrazione in corso hanno esito negativo Questa situazione è soprattutto un problema per le istanze di orchestrazioni a esecuzione prolungata, che potrebbero rappresentare ore o giorni di lavoro.
 
 Per evitare che si verifichino questi errori, sono disponibili due opzioni: 
 - Ritarda la distribuzione finché tutte le istanze di orchestrazione in esecuzione non sono state completate.
@@ -52,7 +52,7 @@ Per configurare questo scenario, attenersi alla procedura riportata di seguito.
 
 1. Per ogni slot, impostare l' [impostazione dell'applicazione AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) sulla stringa di connessione di un account di archiviazione condiviso. Questa stringa di connessione dell'account di archiviazione viene usata dal runtime di funzioni di Azure. Questo account viene usato dal runtime di funzioni di Azure e gestisce le chiavi della funzione.
 
-1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage` . Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](durable-functions-checkpointing-and-replay.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
+1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage` . Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](./durable-functions-orchestrations.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
 
 1. Nella [sezione durableTask dell'host.jsapp per](durable-functions-bindings.md#hostjson-settings)le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
 
@@ -172,4 +172,3 @@ Per altre informazioni, vedere [gestire le istanze in Durable Functions in Azure
 
 > [!div class="nextstepaction"]
 > [Controllo delle versioni Durable Functions](durable-functions-versioning.md)
-

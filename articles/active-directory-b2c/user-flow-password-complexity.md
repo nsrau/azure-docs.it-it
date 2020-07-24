@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/11/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 165529697949bba0233567b89c5a8a077d48a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4574870ad8c0bfd945e49f129b82177b3138a1
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115701"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -61,7 +62,7 @@ Consente di accettare solo cifre (PIN) o l'intero set di caratteri.
 - **Solo numeri** consente di immettere solo cifre (0-9) durante la configurazione di una password.
 - **Tutti** consente qualsiasi lettera, numero o simbolo.
 
-### <a name="length"></a>Length
+### <a name="length"></a>Lunghezza
 
 Consente di controllare i requisiti di lunghezza della password.
 

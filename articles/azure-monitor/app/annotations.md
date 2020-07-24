@@ -3,15 +3,16 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010723"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093035"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
-Le annotazioni mostrano dove è stata distribuita una nuova compilazione o altri eventi significativi. Le annotazioni consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere creati automaticamente dal sistema di compilazione [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) . È anche possibile creare annotazioni da PowerShell per contrassegnare qualsiasi evento.
+Le annotazioni mostrano dove è stata distribuita una nuova compilazione o altri eventi significativi. Le annotazioni consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere creati automaticamente dal sistema di compilazione [Azure Pipelines](/azure/devops/pipelines/tasks/) . È anche possibile creare annotazioni da PowerShell per contrassegnare qualsiasi evento.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Annotazioni sulla versione con Azure Pipelines compilazione
 

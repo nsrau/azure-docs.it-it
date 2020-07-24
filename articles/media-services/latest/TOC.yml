@@ -52,7 +52,7 @@
   items:
     - name: Esempi di Servizi multimediali v3
       displayName: '.NET, Java'
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
+      href: /samples/browse/?products=azure-media-services
     - name: Esempi REST di Servizi multimediali v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Concetti
@@ -197,9 +197,6 @@
         - name: Video on demand
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
-        - name: Streaming
-          displayName: 'failover, bcdr, HA, high availability'
-          href: media-services-high-availability-streaming.md
     - name: Risoluzione dei problemi
       items:
         - name: Domande frequenti
@@ -376,7 +373,7 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
+          href: /javascript/api/overview/azure/mediaservices/management
         - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modello di Resource Manager
