@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971114"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116991"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -186,7 +186,7 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 ### <a name="strongtype"></a>strongType
 
-Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio: `Microsoft.Network/virtualNetworks/subnets`.
 
 Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Essi sono:
 
@@ -513,37 +513,7 @@ Esempio 4: Verificare che tutti i membri della matrice di oggetti soddisfino l'e
 }
 ```
 
-Esempio 5: Verificare che tutti i membri della matrice di stringhe soddisfino l'espressione della condizione
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-            "like": "*@contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Esempio 6: Usare **field** all'interno di **value** per verificare che tutti i membri della matrice soddisfino l'espressione della condizione
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
-            "equals": "contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Esempio 7: Verificare che almeno un membro della matrice corrisponda a più proprietà nell'espressione della condizione
+Esempio 5: verificare che almeno un membro della matrice corrisponda a più proprietà nell'espressione della condizione
 
 ```json
 {

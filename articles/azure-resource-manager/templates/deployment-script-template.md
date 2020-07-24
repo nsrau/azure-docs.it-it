@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117053"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -138,7 +138,7 @@ Dettagli sui valori delle proprietà:
 - **Identità**: Il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
 - **kind**: specificare il tipo di script. Attualmente gli script di Azure PowerShell e dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid() o utcNow() che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
-- **containerSettings**: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non è specificato, il nome del gruppo verrà generato automaticamente.
+- **containerSettings**: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non specificato, il nome del gruppo viene generato automaticamente.
 - **storageAccountSettings**: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
@@ -600,6 +600,34 @@ L'esecuzione dello script di distribuzione è un'operazione idempotente. Se ness
     ![Script di distribuzione del modello di Resource Manager docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 Una volta testato correttamente lo script, è possibile utilizzarlo come script di distribuzione nei modelli.
+
+## <a name="deployment-script-error-codes"></a>Codici di errore dello script di distribuzione
+
+| Codice di errore | Descrizione |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | La definizione di risorsa dello script di distribuzione nel modello contiene nomi di proprietà non validi. |
+| DeploymentScriptResourceConflict | Non è possibile eliminare una risorsa dello script di distribuzione che si trova nello stato non terminale e l'esecuzione non ha superato 1 ora. In alternativa, non è possibile eseguire di nuovo lo stesso script di distribuzione con lo stesso identificatore di risorsa (stessa sottoscrizione, nome del gruppo di risorse e nome della risorsa) ma contenuto del corpo dello script diverso nello stesso momento. |
+| DeploymentScriptOperationFailed | Operazione script di distribuzione non riuscita internamente. Contattare il supporto tecnico Microsoft. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | La chiave di accesso non è stata specificata per l'account di archiviazione esistente.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | Un gruppo di contenitori creato dal servizio script di distribuzione è stato modificato esternamente e sono stati aggiunti contenitori non validi. |
+| DeploymentScriptContainerGroupInNonterminalState | Due o più risorse dello script di distribuzione usano lo stesso nome dell'istanza di contenitore di Azure nello stesso gruppo di risorse e una di esse non ha ancora completato l'esecuzione. |
+| DeploymentScriptStorageAccountInvalidKind | L'account di archiviazione esistente del tipo BlobBlobStorage o BlobStorage non supporta le condivisioni file e non può essere usato. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | L'account di archiviazione esistente non supporta le condivisioni file. Per un elenco dei tipi di account di archiviazione supportati, vedere [usare l'account di archiviazione esistente](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | L'account di archiviazione non esiste o è stato eliminato da un processo o da uno strumento esterno. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | L'account di archiviazione specificato dispone di un endpoint del servizio. Un account di archiviazione con un endpoint di servizio non è supportato. |
+| DeploymentScriptStorageAccountInvalidAccessKey | Chiave di accesso non valida specificata per l'account di archiviazione esistente. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Formato della chiave dell'account di archiviazione non valido. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | Il tempo di esecuzione dello script di distribuzione ha superato il valore di timeout specificato nella definizione della risorsa dello script di distribuzione. |
+| DeploymentScriptInvalidOutputs | L'output dello script di distribuzione non è un oggetto JSON valido. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | L'identità gestita assegnata dall'utente non è stata in grado di eseguire l'accesso dopo 10 tentativi con intervallo di 1 minuto. |
+| DeploymentScriptContainerGroupNotFound | Un gruppo di contenitori creato dal servizio script di distribuzione è stato eliminato da uno strumento o processo esterno. |
+| DeploymentScriptDownloadFailure | Non è stato possibile scaricare uno script di supporto. Vedere [usare uno script di supporto](#use-supporting-scripts).|
+| DeploymentScriptError | Lo script dell'utente ha generato un errore. |
+| DeploymentScriptBootstrapScriptExecutionFailed | Lo script di bootstrap ha generato un errore. Lo script bootstrap è lo script di sistema che orchestra l'esecuzione dello script di distribuzione. |
+| DeploymentScriptExecutionFailed | Errore sconosciuto durante l'esecuzione dello script di distribuzione. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Quando si crea l'istanza di contenitore di Azure (ACI), ACI ha generato un errore di servizio non disponibile. |
+| DeploymentScriptContainerGroupInNonterminalState | Quando si crea l'istanza di contenitore di Azure (ACI), un altro script di distribuzione usa lo stesso nome ACI nello stesso ambito, ovvero la stessa sottoscrizione, il nome del gruppo di risorse e il nome della risorsa. |
+| DeploymentScriptContainerGroupNameInvalid | Il nome dell'istanza di contenitore di Azure (ACI) specificato non soddisfa i requisiti di ACI. Vedere [risolvere i problemi comuni nelle istanze di contenitore di Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

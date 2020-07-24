@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115930"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare il portale per creare l'entità servizio nel
 > Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta identità gestite e accede a risorse che supportano l'autenticazione Azure AD, le identità gestite rappresentano un'opzione migliore. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registrazione dell'app, oggetti app ed entità servizio
-Non è possibile creare direttamente un'entità servizio usando il portale di Azure.  Quando si registra un'applicazione tramite il portale di Azure, un oggetto applicazione e un'entità servizio vengono automaticamente creati la home directory o il tenant.  Per altre informazioni sulla relazione tra la registrazione dell'app, gli oggetti applicazione e le entità servizio, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
+Non è possibile creare direttamente un'entità servizio usando il portale di Azure.  Quando si registra un'applicazione tramite la portale di Azure, un oggetto applicazione e un'entità servizio vengono creati automaticamente nella home directory o nel tenant.  Per altre informazioni sulla relazione tra la registrazione dell'app, gli oggetti applicazione e le entità servizio, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Autorizzazioni necessarie per la registrazione di un'app
 
@@ -55,7 +55,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 1. Cercare e selezionare le **sottoscrizioni**oppure selezionare **sottoscrizioni** nella **Home** page.
 
-   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Cerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selezionare la sottoscrizione in cui si desidera creare l'entità servizio.
 
@@ -102,7 +102,7 @@ Per accedere alle risorse nella sottoscrizione, è necessario assegnare un ruolo
    Se la sottoscrizione che si sta cercando non viene visualizzata, selezionare il **filtro per le sottoscrizioni globali**. Assicurarsi che la sottoscrizione desiderata sia selezionata per il portale.
 
 1. Selezionare **Controllo di accesso (IAM)** .
-1. Selezionare **Aggiungi assegnazione ruolo**.
+1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. Selezionare il ruolo che si desidera assegnare all'applicazione. Ad esempio, per consentire all'applicazione di eseguire azioni come il **riavvio**, l' **avvio** e l' **arresto** delle istanze, selezionare il ruolo **collaboratore** .  Per altre informazioni sui [ruoli disponibili](../../role-based-access-control/built-in-roles.md) , vedere Azure ad le applicazioni non vengono visualizzate nelle opzioni disponibili. Per trovare l'applicazione, cercare il nome e selezionarlo.
 
    ![Selezionare il ruolo da assegnare all'applicazione](./media/howto-create-service-principal-portal/select-role.png)

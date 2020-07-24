@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/26/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5879d745de85fe702267dce109e26ebcb07195ce
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549481"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116265"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -46,8 +47,8 @@ Per usare un account Facebook come [provider di identità](authorization-code-fl
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
-1. Selezionare **provider di identità**e quindi fare clic su **Facebook**.
+1. Selezionare **Provider di identità** e quindi selezionare **Facebook**.
 1. Immettere un **Nome**. Ad esempio, *Facebook*.
 1. Per **ID client**, immettere l'ID app dell'applicazione Facebook creata in precedenza.
-1. Per **Segreto client** immettere il valore di Chiave segreta annotato in precedenza.
+1. Per **Segreto client** immettere il Segreto app annotato in precedenza.
 1. Selezionare **Salva**.

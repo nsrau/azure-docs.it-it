@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117065"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Windows 
 
@@ -37,8 +37,9 @@ Verificare che il firewall o il proxy sia configurato per consentire le porte e 
 |*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
+|*. agentsvc.azure-automation.net |Porta 443 |In uscita|Sì |  
 
-Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook o le soluzioni di gestione nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook o le soluzioni di gestione nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Esistono diversi modi per verificare se l'agente è in grado di comunicare correttamente con monitoraggio di Azure.
 
@@ -103,4 +104,3 @@ Se la query restituisce risultati, è necessario determinare se un particolare t
     |8000 |Servizio integrità |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, interruzione della rete o il firewall/proxy di rete non consente il traffico TCP dal computer al servizio.| 
     |10102 e 10103 |Moduli del servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se l'istanza o il contatore delle prestazioni specificato non esiste nel computer o non è definito correttamente nelle impostazioni dei dati dell'area di lavoro. Se si tratta di un [contatore delle prestazioni](data-sources-performance-counters.md#configuring-performance-counters)specificato dall'utente, verificare che le informazioni specificate siano successive al formato corretto e che esista nei computer di destinazione. |
     |26002 |Moduli del servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se il registro eventi di Windows specificato non esiste nel computer. Questo errore può essere ignorato se nel computer non è previsto che il registro eventi sia registrato. in caso contrario, se si tratta di un [registro eventi](data-sources-windows-events.md#configuring-windows-event-logs)specificato dall'utente, verificare che le informazioni specificate siano corrette. |
-

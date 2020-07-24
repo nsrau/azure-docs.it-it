@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117023"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -340,29 +340,55 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Fsv2-serie di calcolo con provisioning per utilizzo generico
 
-### <a name="fsv2-series-compute-generation-preview"></a>Generazione di calcolo della serie Fsv2 (anteprima)
+### <a name="fsv2-series-compute-generation-part-1"></a>Generazione di calcolo della serie Fsv2 (parte 1)
 
-|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_72|
-|:--- | --: |
-|Generazione di calcolo|Serie Fsv2|
-|vCore|72|
-|Memoria (GB)|136,2|
-|Supporto per columnstore|Sì|
-|Archiviazione OLTP in memoria (GB)|N/A|
-|Dimensioni massime dei dati (GB)|4096|
-|Dimensioni massime del log (GB)|1024|
-|Dimensioni massime dati TempDB (GB)|333|
-|Tipo di archiviazione|Unità SSD remota|
-|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Numero massimo di IOPS dati *|12.800|
-|Velocità massima log (MBps)|30|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|3600|
-|Numero massimo di accessi simultanei|3600|
-|Numero massimo di sessioni simultanee|30.000|
-|Numero di repliche|1|
-|Zone di disponibilità multiple|N/A|
-|Scalabilità orizzontale in lettura|N/A|
-|Archivio di backup incluso|Dimensioni del database 1X|
+|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|vCore|8|10|12|14|16|
+|Memoria (GB)|15.1|18,9|22,7|26,5|30,2|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1536|
+|Dimensioni massime del log (GB)|336|336|336|336|512|
+|Dimensioni massime dati TempDB (GB)|333|333|333|333|333|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Numero massimo di IOPS dati *|2560|3200|3840|4480|5120|
+|Velocità massima log (MBps)|30|30|30|30|30|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|400|500|600|700|800|
+|Numero massimo di accessi simultanei|800|1000|1200|1400|1600|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
+|Numero di repliche|1|1|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Generazione di calcolo della serie Fsv2 (parte 2)
+
+|Dimensioni di calcolo (obiettivo di servizio)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|vCore|18|20|24|32|36|72|
+|Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|1536|1536|1536|3072|3072|4096|
+|Dimensioni massime del log (GB)|512|512|512|1024|1024|1024|
+|Dimensioni massime dati TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Numero massimo di IOPS dati *|5760|6400|7680|10240|11520|23040|
+|Velocità massima log (MBps)|30|30|30|30|30|30|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|900|1000|1200|1600|1800|3600|
+|Numero massimo di accessi simultanei|1800|2000|2400|3200|3600|7200|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
+|Numero di repliche|1|1|1|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
@@ -479,34 +505,65 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Business critical-serie di calcolo con provisioning-M
 
-### <a name="m-series-compute-generation-preview"></a>Generazione di calcolo della serie M (anteprima)
+### <a name="m-series-compute-generation-part-1"></a>Generazione di calcolo della serie M (parte 1)
 
-|Dimensioni di calcolo (obiettivo di servizio)|BC_M_128|
-|:--- | --: |
-|Generazione di calcolo|Serie M|
-|vCore|128|
-|Memoria (GB)|3767,1|
-|Supporto per columnstore|Sì|
-|Archiviazione OLTP in memoria (GB)|1768|
-|Dimensioni massime dei dati (GB)|4096|
-|Dimensioni massime del log (GB)|2048|
-|Dimensioni massime dati TempDB (GB)|4096|
-|Tipo di archiviazione|SSD locale|
-|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Numero massimo di IOPS dati *|160.000|
-|Velocità massima log (MBps)|264|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|12.800|
-|Numero massimo di accessi simultanei|12.800|
-|Numero massimo di sessioni simultanee|30000|
-|Numero di repliche|4|
-|Zone di disponibilità multiple|Sì|
-|Scalabilità orizzontale in lettura|Sì|
-|Archivio di backup incluso|Dimensioni del database 1X|
+|Dimensioni di calcolo (obiettivo di servizio)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie M|Serie M|Serie M|Serie M|Serie M|Serie M|
+|vCore|8|10|12|14|16|18|
+|Memoria (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|64|80|96|112|128|150|
+|Dimensioni massime dei dati (GB)|512|640|768|896|1024|1152|
+|Dimensioni massime del log (GB)|171|213|256|299|341|384|
+|Dimensioni massime dati TempDB (GB)|256|320|384|448|512|576|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Numero massimo di IOPS dati *|12.499|15.624|18.748|21.873|24.998|28.123|
+|Velocità massima log (MBps)|48|60|72|84|96|108|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|800|1\.000|1.200|1.400|1.600|1.800|
+|Numero massimo di accessi simultanei|800|1\.000|1.200|1.400|1.600|1.800|
+|Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|30000|
+|Numero di repliche|4|4|4|4|4|4|
+|Zone di disponibilità multiple|No|No|No|No|No|No|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Generazione di calcolo della serie M (parte 2)
+
+|Dimensioni di calcolo (obiettivo di servizio)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Generazione di calcolo|Serie M|Serie M|Serie M|Serie M|Serie M|
+|vCore|20|24|32|64|128|
+|Memoria (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|172|216|304|704|1768|
+|Dimensioni massime dei dati (GB)|1280|1536|2048|4096|4096|
+|Dimensioni massime del log (GB)|427|512|683|1024|1024|
+|Dimensioni massime dati TempDB (GB)|4096|2048|1024|768|640|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Numero massimo di IOPS dati *|31.248|37.497|49.996|99.993|160.000|
+|Velocità massima log (MBps)|120|144|192|264|264|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di accessi simultanei|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|
+|Numero di repliche|4|4|4|4|4|
+|Zone di disponibilità multiple|No|No|No|No|No|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

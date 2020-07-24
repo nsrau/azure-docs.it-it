@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d2864fa272a2f5504c0274655b0f12abdd494e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116292"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -215,7 +215,7 @@ Aggiornare il file di relying party (RP) che avvia il percorso utente creato:
 1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio: `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del percorso utente creato in precedenza. Ad esempio, *SignUpSignInContoso*.
 1. Salvare le modifiche e caricare il file.
-1. In **criteri personalizzati**selezionare il nuovo criterio nell'elenco.
+1. Dai **criteri personalizzati**caricati selezionare il criterio appena creato dall'elenco.
 1. Nell'elenco a discesa **Seleziona applicazione** selezionare l'applicazione Azure ad B2C creata in precedenza. Ad esempio, *testapp1*.
 1. Copiare l' **endpoint Run Now** e aprirlo in una finestra del browser privata, ad esempio in modalità in incognito in Google Chrome o in una finestra InPrivate in Microsoft Edge. L'apertura in una finestra del browser privata consente di testare il percorso utente completo senza usare le credenziali Azure AD attualmente memorizzate nella cache.
 1. Selezionare il pulsante Azure AD accedi, ad esempio *Contoso Employee*, quindi immettere le credenziali per un utente in uno dei tenant dell'organizzazione Azure ad. Viene richiesto di autorizzare l'applicazione, quindi immettere le informazioni per il profilo.

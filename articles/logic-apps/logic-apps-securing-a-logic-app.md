@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117014"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
-App per la logica di Azure si basa su [archiviazione di Azure](https://docs.microsoft.com/azure/storage/) per archiviare e [crittografare automaticamente i dati](../security/fundamentals/encryption-atrest.md)inattivi. Questa crittografia protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, archiviazione di Azure usa chiavi gestite da Microsoft per crittografare i dati. Per altre informazioni, vedere [Crittografia di Archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
+App per la logica di Azure si basa su [archiviazione di Azure](../storage/index.yml) per archiviare e [crittografare automaticamente i dati](../security/fundamentals/encryption-atrest.md)inattivi. Questa crittografia protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, archiviazione di Azure usa chiavi gestite da Microsoft per crittografare i dati. Per altre informazioni, vedere [Crittografia di Archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
 
 Per controllare ulteriormente l'accesso e proteggere i dati sensibili in app per la logica di Azure, è possibile configurare una sicurezza aggiuntiva in queste aree:
 
@@ -51,7 +51,7 @@ Di seguito sono riportate alcune opzioni che consentono di proteggere l'accesso 
 
 ### <a name="generate-shared-access-signatures-sas"></a>Generare firme di accesso condiviso (SAS)
 
-Ogni endpoint di richiesta a un'app per la logica ha una [firma di accesso condiviso (Shared Access Signature - SAS)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) come parte dell'URL, che segue il formato seguente:
+Ogni endpoint di richiesta a un'app per la logica ha una [firma di accesso condiviso (Shared Access Signature - SAS)](/rest/api/storageservices/constructing-a-service-sas) come parte dell'URL, che segue il formato seguente:
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -86,7 +86,7 @@ Per altre informazioni sulla protezione dell'accesso con SAS, vedere le sezioni 
 
 #### <a name="create-expiring-callback-urls"></a>Creare URL di callback in scadenza
 
-Se si condivide l'URL dell'endpoint per un trigger di richiesta con altre parti è possibile generare gli URL di callback che usano chiavi specifiche e hanno delle date di scadenza. In questo modo è possibile aggiornare le chiavi senza problemi o limitare l'accesso per attivare l'app per la logica sulla base di un determinato lasso di tempo. Per specificare una data di scadenza per un URL usare l'[API REST delle app per la logica](https://docs.microsoft.com/rest/api/logic/workflowtriggers), ad esempio:
+Se si condivide l'URL dell'endpoint per un trigger di richiesta con altre parti è possibile generare gli URL di callback che usano chiavi specifiche e hanno delle date di scadenza. In questo modo è possibile aggiornare le chiavi senza problemi o limitare l'accesso per attivare l'app per la logica sulla base di un determinato lasso di tempo. Per specificare una data di scadenza per un URL usare l'[API REST delle app per la logica](/rest/api/logic/workflowtriggers), ad esempio:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -98,7 +98,7 @@ Nel corpo includere la `NotAfter`proprietà usando una stringa di data JSON. Que
 
 #### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Creare URL con una chiave privata primaria o secondaria
 
-Quando si generano URL di callback per i trigger basati su richieste, è possibile specificare la chiave da usare per firmare l'URL. Per generare un URL firmato da una chiave specifica usare l'[API REST delle app per la logica](https://docs.microsoft.com/rest/api/logic/workflowtriggers), ad esempio:
+Quando si generano URL di callback per i trigger basati su richieste, è possibile specificare la chiave da usare per firmare l'URL. Per generare un URL firmato da una chiave specifica usare l'[API REST delle app per la logica](/rest/api/logic/workflowtriggers), ad esempio:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -110,7 +110,7 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="enable-azure-active-directory-oauth"></a>Abilitare Azure Active Directory OAuth
 
-Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure ad OAuth) creando un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Prima di abilitare questa autenticazione, considerare quanto segue:
+Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure ad OAuth) creando un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Prima di abilitare questa autenticazione, considerare quanto segue:
 
 * Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
 
@@ -212,7 +212,7 @@ Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia lim
 Se si vuole che l'app per la logica venga attivata solo come app per la logica annidata, dall'elenco **Indirizzi IP in ingresso consentiti**, selezionare **Solo altre app per la logica**. Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica. In questo modo, solo le chiamate del servizio app per la logica (app per la logica padre) possono attivare l'app per la logica nidificata.
 
 > [!NOTE]
-> Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta usando l' [API REST di app per la logica: trigger del flusso di lavoro-](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) richiesta di esecuzione o tramite gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-scenarios.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
+> Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta usando l' [API REST di app per la logica: trigger del flusso di lavoro-](/rest/api/logic/workflowtriggers/run) richiesta di esecuzione o tramite gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager
 
@@ -263,13 +263,13 @@ Se si [automatizza la distribuzione per le app per la logica usando i modelli di
 
 ### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Aggiungere Azure Active Directory Open Authentication o altri elementi di sicurezza
 
-Per aggiungere altri protocolli di [autenticazione](../active-directory/develop/authentication-scenarios.md) all'app per la logica, considerare l'uso del servizio di [Gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio consente di esporre l'app per la logica come API e offre monitoraggio avanzato, sicurezza, criteri e documentazione per ogni endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), il [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a Gestione API di attivare l'app per la logica, è possibile usare le impostazioni dell'intervallo IP in ingresso dell'app per la logica.
+Per aggiungere altri protocolli di [autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'app per la logica, considerare l'uso del servizio di [Gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio consente di esporre l'app per la logica come API e offre monitoraggio avanzato, sicurezza, criteri e documentazione per ogni endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), il [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a Gestione API di attivare l'app per la logica, è possibile usare le impostazioni dell'intervallo IP in ingresso dell'app per la logica.
 
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Accesso alle operazioni di app per la logica
 
-È possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il [controllo degli accessi in base al ruolo (RBAC) di Azure](../role-based-access-control/role-assignments-portal.md) in modo da poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
+È possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md) in modo da poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
 
 * [Collaboratore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-contributor): consente di gestire le app per la logica, ma non di modificarne l'accesso.
 
@@ -427,7 +427,7 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
 
 * Quando si oscurano gli input o gli output in un trigger o un'azione, le app per la logica non inviano i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a tale trigger o azione per il monitoraggio.
 
-* [L'API app per la logica per la gestione della cronologia del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/) non restituisce output protetti.
+* [L'API app per la logica per la gestione della cronologia del flusso di lavoro](/rest/api/logic/) non restituisce output protetti.
 
 * Per proteggere gli output da un'azione che nasconde gli input o nasconde in modo esplicito gli output, attivare manualmente **gli output protetti** in tale azione.
 
@@ -613,7 +613,7 @@ Questo modello di esempio ha più definizioni di parametro protette che usano il
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -816,7 +816,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) per autenticare le chiamate in ingresso dopo aver [configurato i criteri di autorizzazione di Azure AD](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
+Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) per autenticare le chiamate in ingresso dopo aver [configurato i criteri di autorizzazione di Azure AD](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
 
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
@@ -953,7 +953,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
   * [Piani di servizio app Azure](../app-service/overview-hosting-plans.md)
   * [Opzioni di rete di Funzioni di Azure](../azure-functions/functions-networking-options.md)
   * [Host dedicati di Azure per le macchine virtuali](../virtual-machines/windows/dedicated-hosts.md)
-  * [Isolamento della macchina virtuale in Azure](../virtual-machines/windows/isolation.md)
+  * [Isolamento della macchina virtuale in Azure](../virtual-machines/isolation.md)
   * [Distribuire servizi di Azure dedicati in reti virtuali](../virtual-network/virtual-network-for-azure-services.md)
 
 * Per creare app per la logica che vengono eseguite su risorse dedicate e possono accedere alle risorse protette da una rete virtuale di Azure, è possibile creare un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
@@ -965,7 +965,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Isolamento nel cloud pubblico di Azure](../security/fundamentals/isolation-choices.md)
-* [Sicurezza per app IaaS altamente riservate in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+* [Sicurezza per app IaaS altamente riservate in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

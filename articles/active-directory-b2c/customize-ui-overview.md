@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/04/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116427"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -154,7 +155,7 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 | Iscrizione dell'account locale | Contiene un modulo per eseguire l'iscrizione dell'account locale in base a un indirizzo di posta elettronica o a un nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
 | Iscrizione dell'account di social networking | Può essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google. Viene usato quando è necessario raccogliere informazioni aggiuntive dal cliente usando un modulo di iscrizione. |
 | Unificata per l'iscrizione o l'accesso | Gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google, o account locali. |
-| Autenticazione a più fattori | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
+| Multi-Factor Authentication | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
 | Errore | Fornisce informazioni sugli errori al cliente. |
 
 ## <a name="company-branding-preview"></a>Informazioni personalizzate distintive dell'azienda (anteprima)

@@ -3,14 +3,14 @@ title: Eseguire la replica geografica di un registro
 description: Introduzione alla creazione e alla gestione di un registro contenitori di Azure con replica geografica, che consente di usare il registro per più aree con repliche a livello di area multimaster. La replica geografica è una funzionalità del livello di servizio Premium.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116800"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -95,7 +95,7 @@ Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le r
 * Quando si esegue il push o il pull di immagini da un registro con replica geografica, Gestione traffico di Azure invia in background la richiesta al registro che si trova nell'area più vicina in termini di latenza di rete.
 * Una volta eseguito il push dell'aggiornamento di un'immagine o un tag nell'area più vicina, il Registro Azure Container impiega del tempo per replicare i livelli e i manifesti nelle rimanenti aree scelte. La replica delle immagini di grandi dimensioni richiede più tempo rispetto alla replica delle immagini più piccole. Immagini e tag vengono sincronizzati tra le aree di replica con un modello di coerenza finale.
 * Per gestire i flussi di lavoro che dipendono da aggiornamenti push a un registro con replica geografica, è consigliabile configurare [webhook](container-registry-webhook.md) per rispondere agli eventi push. È possibile configurare webhook regionali all'interno di un registro con replica geografica per tenere traccia degli eventi push man mano che vengono completati tra le aree con replica geografica.
-* Per gestire i BLOB che rappresentano i livelli di contenuto, Azure Container Registry usa gli endpoint di dati. È possibile abilitare gli [endpoint dei dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) per il registro in ognuna delle aree con replica geografica del registro. Questi endpoint consentono la configurazione di regole di accesso del firewall con ambito molto rigorose.
+* Per gestire i BLOB che rappresentano i livelli di contenuto, Azure Container Registry usa gli endpoint di dati. È possibile abilitare gli [endpoint dei dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) per il registro in ognuna delle aree con replica geografica del registro. Questi endpoint consentono la configurazione di regole di accesso del firewall con ambito molto rigorose. Ai fini della risoluzione dei problemi, è possibile [disabilitare facoltativamente il routing a una replica](#temporarily-disable-routing-to-replication) mantenendo i dati replicati.
 * Se si configura un [collegamento privato](container-registry-private-link.md) per il registro usando endpoint privati in una rete virtuale, gli endpoint di dati dedicati in ognuna delle aree con replica geografica sono abilitati per impostazione predefinita. 
 
 ## <a name="delete-a-replica"></a>Eliminare una replica
@@ -127,9 +127,36 @@ Se il problema si verifica, una soluzione consiste nell'applicare una cache DNS 
 
 Per ottimizzare la risoluzione DNS nella replica più vicina quando si esegue il push di immagini, configurare un registro con replica geografica nelle stesse aree di Azure dell'origine delle operazioni push oppure nell'area più vicina se si lavora all'esterno di Azure.
 
+### <a name="temporarily-disable-routing-to-replication"></a>Disabilitare temporaneamente il routing alla replica
+
+Per risolvere i problemi relativi alle operazioni con un registro con replica geografica, potrebbe essere necessario disabilitare temporaneamente il routing di gestione traffico a una o più repliche. A partire dall'interfaccia della riga di comando di Azure versione 2,8, è possibile configurare un' `--region-endpoint-enabled` opzione (anteprima) quando si crea o si aggiorna un'area replicata. Quando si imposta l' `--region-endpoint-enabled` opzione di replica su `false` , gestione traffico non instrada più le richieste push o pull di Docker a tale area. Per impostazione predefinita, il routing a tutte le repliche è abilitato e la sincronizzazione dei dati tra tutte le repliche si verifica se il routing è abilitato o disabilitato.
+
+Per disabilitare il routing a una replica esistente, eseguire prima di tutto [AZ ACR Replication list][az-acr-replication-list] per elencare le repliche nel registro di sistema. Eseguire quindi [AZ ACR Replication Update][az-acr-replication-update] e impostare `--region-endpoint-enabled false` per una replica specifica. Ad esempio, per configurare l'impostazione per la replica *westus* in *Registro di sistema*:
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+Per ripristinare il routing a una replica:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Fare riferimento alla serie di esercitazioni in tre parti relativa alla [replica geografica in Registro Azure Container](container-registry-tutorial-prepare-registry.md). Eseguire la procedura dettagliata relativa alla creazione di un registro con replica geografica, alla compilazione di un contenitore e alla sua distribuzione mediante un unico comando `docker push` in più istanze regionali delle app Web per contenitori.
 
 > [!div class="nextstepaction"]
 > [Replica geografica nel servizio Registro Azure Container](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update

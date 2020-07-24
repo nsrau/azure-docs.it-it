@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0c30d5c072c66e04b97cae2f88e4c8ef96b32779
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116220"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del provider di identità SAML in un Azure Active Directory B2C criteri personalizzati
 
@@ -144,7 +144,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | PartnerEntity | Sì | URL dei metadati del provider di identità SAML. Copiare i metadati del provider di identità e aggiungerli nell'elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Indica se il profilo tecnico richiede che tutte le richieste di autenticazione in uscita siano firmate. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Quando il valore è impostato su `true`, la chiave di crittografia **SamlMessageSigning** deve essere specificata e tutte le richieste di autenticazione in uscita sono firmate. Se il valore è impostato su `false`, i parametri **SigAlg** e **Signature** (stringa di query o parametro Post) vengono omessi dalla richiesta. Questi metadati controllano anche l'attributo **AuthnRequestsSigned**, emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Azure AD B2C non firma la richiesta se il valore di **WantsSignedRequests** nei metadati del profilo tecnico è impostato su `false` e i metadati del provider di identità **WantAuthnRequestsSigned** sono impostati su `false` o non specificati. |
@@ -164,11 +164,43 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'elemento **CryptographicKeys** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Descrizione |
+| Attributo |Obbligatoria | Descrizione |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sì | Certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare le richieste e inviarle al provider di identità. |
 | SamlAssertionDecryption |Sì | Certificato X509 (set di chiavi RSA) da usare per decrittografare i messaggi SAML. Questo certificato deve essere fornito dal provider di identità. Azure AD B2C usa questo certificato per decrittografare i dati inviati dal provider di identità. |
 | MetadataSigning |No | Certificato X509 (set di chiavi RSA) da usare per firmare i metadati SAML. Azure AD B2C usa questa chiave per firmare i metadati.  |
+
+## <a name="saml-entityid-customization"></a>Personalizzazione entityID SAML
+
+Se si dispone di più applicazioni SAML che dipendono da valori entityID diversi, è possibile eseguire l'override del `issueruri` valore nel file di relying party. A tale scopo, copiare il profilo tecnico con l'ID "Saml2AssertionIssuer" dal file di base ed eseguire l'override del `issueruri` valore.
+
+> [!TIP]
+> Copiare la `<ClaimsProviders>` sezione dalla base e conservarne gli elementi all'interno del provider di attestazioni: `<DisplayName>Token Issuer</DisplayName>` , `<TechnicalProfile Id="Saml2AssertionIssuer">` e `<DisplayName>Token Issuer</DisplayName>` .
+ 
+Esempio:
+
+```xml
+   <ClaimsProviders>   
+    <ClaimsProvider>
+      <DisplayName>Token Issuer</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Saml2AssertionIssuer">
+          <DisplayName>Token Issuer</DisplayName>
+          <Metadata>
+            <Item Key="IssuerUri">customURI</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpInSAML" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
+      <Metadata>
+     …
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
