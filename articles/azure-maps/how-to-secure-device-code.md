@@ -2,19 +2,19 @@
 title: Come proteggere il dispositivo vincolato di input con Azure AD e le API REST di Azure Maps
 titleSuffix: Azure Maps
 description: Come configurare un'applicazione senza browser che supporta l'accesso a Azure AD e chiama le API REST di Azure maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b9e75a25237a76c7fa6d300e01bb4d42db75fe08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d73ad14cac77e4b00e90ec11791ef141436b7e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988466"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126746"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteggere un dispositivo vincolato di input con Azure AD e le API REST di Azure Maps
 
