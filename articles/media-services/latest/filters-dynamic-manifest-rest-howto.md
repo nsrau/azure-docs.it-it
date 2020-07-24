@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ef342ecee9bb9e2f32400655db0cacc01835c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75780335"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023110"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
@@ -25,7 +26,7 @@ Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di vi
 
 Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md)dinamici.
 
-Questo argomento illustra come definire un filtro per un asset Video on demand e usare le API REST per creare [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) e [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters). 
+Questo argomento illustra come definire un filtro per un asset Video on demand e usare le API REST per creare [Filtri account](/rest/api/media/accountfilters) e [Filtri asset](/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Assicurarsi di esaminare [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -96,7 +97,7 @@ Selezionare **Send** (Invia).
 
 Il filtro è stato creato.
 
-Per altre informazioni, vedere [Creare o aggiornare](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Per altre informazioni, vedere [Creare o aggiornare](/rest/api/media/accountfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Creare filtri asset  
 
@@ -114,13 +115,13 @@ Selezionare **Send** (Invia).
 
 Il filtro asset è stato creato.
 
-Per informazioni dettagliate su come creare o aggiornare i filtri asset, vedere [Crea o aggiorna](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+Per informazioni dettagliate su come creare o aggiornare i filtri asset, vedere [Crea o aggiorna](/rest/api/media/assetfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associare filtri a un localizzatore di streaming
 
 È possibile specificare un elenco di filtri asset o account applicabili al localizzatore di streaming. Il [Packager dinamico (endpoint di streaming)](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
 
-Per creare e associare filtri a un localizzatore di streaming usando REST, usare i [localizzatori di streaming-create](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API e specificare `properties.filters` nel [corpo della richiesta](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Per creare e associare filtri a un localizzatore di streaming usando REST, usare i [localizzatori di streaming-create](/rest/api/media/streaminglocators/create) API e specificare `properties.filters` nel [corpo della richiesta](/rest/api/media/streaminglocators/create#request-body).
                                 
 ## <a name="stream-using-filters"></a>Flusso con filtri
 

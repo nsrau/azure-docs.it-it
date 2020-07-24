@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 723419b97dc024a700d860dd3fe61ff48073a587
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019999"
 ---
 # <a name="optimization-for-linux"></a>Ottimizzazione per Linux
 
@@ -77,4 +77,4 @@ sudo systemctl disable cpupower
 
 * Altre informazioni su come [abilitare InfiniBand](enable-infiniband.md) e ottimizzare le immagini del sistema operativo.
 
-* Scopri di più su [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+* Scopri di più su [HPC](/azure/architecture/topics/high-performance-computing/) in Azure.

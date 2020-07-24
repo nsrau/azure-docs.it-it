@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 01d41b20c543262280e215cf4e31fd0cccce877f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6de717f0ed9a2e27e15199b6f0ea566e0fdcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021631"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Connettere il Pulse Connect sicuro ad Azure Sentinel
+
+> [!IMPORTANT]
+> Il connettore dati protetti con Pulse Connect in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra come connettere il dispositivo [Secure Pulse Connect](https://www.pulsesecure.net/products/pulse-connect-secure/) ad Azure Sentinel. Il connettore di dati protetti con Pulse Connect consente di connettere facilmente i log protetti con Pulse Connect con Azure Sentinel, visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. L'integrazione tra Pulse Connect Secure e Azure Sentinel usa syslog.
 

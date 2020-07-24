@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732651"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015885"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -31,7 +32,7 @@ Durante il processo di acquisizione della proprietà da parte di un amministrato
 
 * Quando si esegue un' [acquisizione dell'amministrazione "esterna"](#external-admin-takeover) di una directory di Azure non gestita, si aggiunge il nome di dominio DNS della directory non gestita alla directory di Azure gestita. Quando si aggiunge il nome di dominio, viene creato un mapping tra utenti e risorse nella directory di Azure gestita in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. 
 
-## <a name="internal-admin-takeover"></a>Acquisizione interna della proprietà da parte dell'amministratore
+## <a name="internal-admin-takeover"></a>Acquisizione di amministrazione interna
 
 Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non supportano l'acquisizione esterna della proprietà. Se si tratta di uno scenario specifico o se si è un amministratore e si desidera acquisire la proprietà di un'organizzazione Azure AD non gestita o "Shadow" creata dagli utenti che hanno usato l'iscrizione self-service, è possibile eseguire questa operazione con un'acquisizione di amministratore interna.
 
@@ -73,7 +74,7 @@ Quando si completano i passaggi precedenti, si è ora l'amministratore globale d
 > [!NOTE]
 > Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione di Office 365 devono salvare i dashboard. Devono accedere con un nome utente come *user \@ fourthcoffeexyz.onmicrosoft.com* anziché *User \@ fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Acquisizione esterna della proprietà da parte dell'amministratore
+## <a name="external-admin-takeover"></a>Acquisizione di amministrazione esterna
 
 Se si gestisce già un'organizzazione con i servizi di Azure o Office 365, non è possibile aggiungere un nome di dominio personalizzato se è già verificato in un'altra organizzazione Azure AD. Tuttavia, dall'organizzazione gestita in Azure AD è possibile acquisire la proprietà di un'organizzazione non gestita come acquisizione di un amministratore esterno. La procedura generale segue l'articolo [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md).
 
@@ -170,8 +171,8 @@ Una richiesta di verifica riporta al prompt senza errori.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

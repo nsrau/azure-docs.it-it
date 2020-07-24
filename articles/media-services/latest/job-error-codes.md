@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec057d86ea39afb7eabd4e8227646eaec11c5655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023008"
 ---
 # <a name="media-services-job-error-codes"></a>Codici di errore del processo di servizi multimediali
 
@@ -26,7 +26,7 @@ Questo argomento contiene collegamenti a un documento di riferimento REST per un
 
 ## <a name="job-error-codes"></a>Codici di errore dei processi
 
-Il documento REST seguente fornisce spiegazioni dettagliate sui [codici di errore dei processi](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Il documento REST seguente fornisce spiegazioni dettagliate sui [codici di errore dei processi](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

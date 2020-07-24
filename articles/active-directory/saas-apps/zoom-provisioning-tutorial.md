@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016264"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
 
@@ -121,11 +121,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
+   |userName|Stringa|
    |active|Boolean|
-   |name.givenName|string|
-   |name.familyName|string|
-   |messaggi di posta elettronica [digitare EQ "Work"]|string|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |messaggi di posta elettronica [digitare EQ "Work"]|Stringa|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -153,6 +153,9 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 * Zoom consente solo un massimo di 9.999 utenti di base oggi.
+
+## <a name="change-log"></a>Registro delle modifiche
+* 05/14/2020-supporto per le operazioni di aggiornamento aggiunte per i messaggi di posta elettronica [tipo EQ "Work"].
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

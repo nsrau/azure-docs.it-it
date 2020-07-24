@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019064"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -55,9 +55,12 @@ Le identità gestite non hanno un oggetto applicazione nella directory, ovvero c
 
 No, non sono previste iniziative per supportare le identità gestite per le risorse di Azure nei Servizi cloud di Azure.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Le identità gestite per le risorse di Azure funzionano con Active Directory Authentication Library (ADAL) o con Microsoft Authentication Library (MSAL)?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>Quali sono le credenziali associate a un'identità gestita? Quanto tempo è valido e con quale frequenza viene ruotato?
 
-No, le identità gestite per le risorse di Azure non sono ancora integrate con ADAL o MSAL. Per informazioni dettagliate su come acquisire un token per le identità gestite per le risorse di Azure usando l'endpoint REST, vedere [Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](how-to-use-vm-token.md).
+> [!NOTE]
+> Il modo in cui le identità gestite si autenticano è un dettaglio di implementazione interno soggetto a modifiche senza preavviso.
+
+Le identità gestite usano l'autenticazione basata su certificati. Le credenziali di ogni identità gestita hanno una scadenza di 90 giorni ed è stato eseguito il rollback dopo 45 giorni.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Cosa si intende per limite di sicurezza delle identità gestite per le risorse di Azure?
 
@@ -133,7 +136,7 @@ Soluzione alternativa per le identità gestite in una sottoscrizione che è stat
  - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
  - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
 
-Per altre informazioni, vedere [trasferire una sottoscrizione di Azure a un'altra directory di Azure ad (anteprima)](../../role-based-access-control/transfer-subscription.md).
+Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Spostamento di un'identità gestita assegnata dall'utente in un'altra sottoscrizione o in un gruppo di risorse diverso
 

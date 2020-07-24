@@ -8,11 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020747"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Modelli di query comuni in Analisi di flusso di Azure
 
@@ -83,7 +84,7 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>Aggregazione dei dati nel tempo
 
-Per calcolare le informazioni in un intervallo di tempo, è possibile aggregare insieme i dati. In questo esempio viene calcolato un conteggio sugli ultimi 10 minuti di tempo per ogni marca di automobile specifica.
+Per calcolare le informazioni in un intervallo di tempo, è possibile aggregare insieme i dati. In questo esempio un conteggio viene calcolato negli ultimi 10 secondi di tempo per ogni marca di automobile specifica.
 
 **Input**:
 

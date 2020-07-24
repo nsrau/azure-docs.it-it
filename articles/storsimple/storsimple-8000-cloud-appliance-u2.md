@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021376"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -67,7 +67,7 @@ La tabella seguente illustra alcune differenze chiave tra l'appliance cloud Stor
 | **Posizione** |Si trova nel data center. |Viene eseguito in Azure. |
 | **Interfacce di rete** |Ha sei interfacce di rete: da DATA 0 a DATA 5. |Ha una sola interfaccia di rete: DATA 0. |
 | **Registrazione** |La registrazione viene eseguita durante il passaggio della configurazione iniziale. |La registrazione è un'attività separata. |
-| **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |
+| **Chiave di crittografia dei dati del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |
 | **Tipi di volume supportati** |Supporta volumi sia aggiunti in locale che a livelli. |Supporta solo volumi a livelli. |
 
 ## <a name="prerequisites-for-the-cloud-appliance"></a>Prerequisiti per l'appliance cloud
@@ -84,7 +84,7 @@ Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire
 * Per l'appliance cloud, [configurare una rete virtuale in Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree di archiviazione Premium sono aree che corrispondono alla riga relativa all'archiviazione su disco nell' [elenco dei servizi di Azure in base all'area](https://azure.microsoft.com/regions/services/).
 * È consigliabile usare il server DNS predefinito fornito da Azure anziché specificare il nome di un proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare l'appliance cloud.
 * Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
-* È possibile creare nella rete virtuale [macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (server host) che possono usare i volumi esposti dall'appliance cloud. Tali server devono soddisfare i seguenti requisiti:
+* È possibile creare nella rete virtuale [macchine virtuali di Azure](../virtual-machines/windows/quick-create-portal.md) (server host) che possono usare i volumi esposti dall'appliance cloud. Tali server devono soddisfare i seguenti requisiti:
 
   * Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
   * Essere eseguiti nella stessa rete virtuale dell'appliance cloud
@@ -195,7 +195,7 @@ Per la connessione dell'appliance cloud al server host nella stessa rete virtual
 
      ![Selezionare la macchina virtuale per l'appliance cloud](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
 
-2. Passare a **Impostazioni > Rete**. Nel riquadro destro verrà visualizzato l'indirizzo IP privato dell'appliance cloud. Prenderne nota.
+2. Passare a **Impostazioni > Rete**. Nel riquadro destro verrà visualizzato l'indirizzo IP privato dell'appliance cloud. e prenderne nota.
 
     ![Ottenere l'indirizzo IP privato per l'appliance cloud](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 

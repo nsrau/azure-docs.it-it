@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020203"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
-Questo articolo descrive gli aspetti di un modello di Azure Resource Manager che si applicano alle macchine virtuali. L'articolo descrive un modello completo per la creazione di una macchina virtuale; a tale scopo sono necessarie definizioni di risorse per gli account di archiviazione, le interfacce di rete, gli indirizzi IP pubblici e le reti virtuali. Per altre informazioni su come queste risorse possono essere definite insieme, vedere [Procedura dettagliata per un modello di Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Questo articolo descrive gli aspetti di un modello di Azure Resource Manager che si applicano alle macchine virtuali. L'articolo descrive un modello completo per la creazione di una macchina virtuale; a tale scopo sono necessarie definizioni di risorse per gli account di archiviazione, le interfacce di rete, gli indirizzi IP pubblici e le reti virtuali. Per altre informazioni su come queste risorse possono essere definite insieme, vedere [Procedura dettagliata per un modello di Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Sono disponibili numerosi [modelli nella raccolta](https://azure.microsoft.com/documentation/templates/?term=VM) che includono la risorsa di VM. Di seguito sono descritti solo alcuni elementi che possono essere inclusi in un modello.
 
@@ -156,14 +156,14 @@ La versione dell'API specificata nel modello influisce sulle proprietà che è p
 
 Per ottenere le versioni dell'API più aggiornate:
 
-- API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Interfaccia della riga di comando di Azure: [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- API REST: [Elencare tutti i provider di risorse](/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Interfaccia della riga di comando di Azure: [az provider show](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parametri e variabili
 
-I [parametri](../../resource-group-authoring-templates.md) semplificano la specifica di valori per il modello quando viene eseguito. Nell'esempio viene usata questa sezione dei parametri:
+I [parametri](../../azure-resource-manager/templates/template-syntax.md) semplificano la specifica di valori per il modello quando viene eseguito. Nell'esempio viene usata questa sezione dei parametri:
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ I [parametri](../../resource-group-authoring-templates.md) semplificano la speci
 
 Quando si distribuisce il modello di esempio, si immettono valori per il nome e la password dell'account amministratore in ogni VM e il numero di VM da creare. È possibile scegliere di specificare i valori di parametri in un file separato gestito con il modello o fornire i valori quando viene richiesto.
 
-Le [variabili](../../resource-group-authoring-templates.md) semplificano la configurazione di valori nel modello usati ripetutamente o che possono cambiare nel tempo. L'esempio usa questa sezione delle variabili:
+Le [variabili](../../azure-resource-manager/templates/template-syntax.md) semplificano la configurazione di valori nel modello usati ripetutamente o che possono cambiare nel tempo. L'esempio usa questa sezione delle variabili:
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ Le [variabili](../../resource-group-authoring-templates.md) semplificano la conf
 }, 
 ```
 
-Quando si distribuisce il modello di esempio, vengono usati valori di variabili per il nome e l'identificatore dell'account di archiviazione creato in precedenza. Le variabili consentono anche di fornire le impostazioni per l'estensione di diagnostica. Usare le [procedure consigliate per la creazione di Azure Resource Manager](../../resource-manager-template-best-practices.md) per decidere come si vuole organizzare i parametri e le variabili del modello.
+Quando si distribuisce il modello di esempio, vengono usati valori di variabili per il nome e l'identificatore dell'account di archiviazione creato in precedenza. Le variabili consentono anche di fornire le impostazioni per l'estensione di diagnostica. Usare le [procedure consigliate per la creazione di Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md) per decidere come si vuole organizzare i parametri e le variabili del modello.
 
 ## <a name="resource-loops"></a>cicli di risorse
 
@@ -245,9 +245,9 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
-Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../resource-group-define-dependencies.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
+Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
 ```json
 "dependsOn": [
@@ -277,7 +277,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 - [size](sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenziali
 - disco e [impostazioni del sistema operativo](cli-ps-findimage.md)
-- [interfaccia di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [interfaccia di rete](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - diagnostica di avvio
 
 ## <a name="disks-and-images"></a>Dischi e immagini
@@ -369,7 +369,7 @@ Se si vuole creare una macchina virtuale da un'immagine gestita, cambiare l'elem
 
 ## <a name="extensions"></a>Estensioni
 
-Sebbene siano una risorsa separata, le [estensioni](extensions-features.md) sono strettamente legate alle macchine virtuali. Le estensioni possono essere aggiunte come risorsa figlio della VM o come risorsa separata. L'esempio illustra l'aggiunta dell'[estensione Diagnostica](extensions-diagnostics-template.md) alle VM:
+Sebbene siano una risorsa separata, le [estensioni](../extensions/features-windows.md) sono strettamente legate alle macchine virtuali. Le estensioni possono essere aggiunte come risorsa figlio della VM o come risorsa separata. L'esempio illustra l'aggiunta dell'[estensione Diagnostica](../extensions/diagnostics-template.md) alle VM:
 
 ```json
 { 
@@ -404,7 +404,7 @@ Sebbene siano una risorsa separata, le [estensioni](extensions-features.md) sono
 
 Questa risorsa di estensione usa la variabile storageName e le variabili di diagnostica per fornire i valori. Se si vuole modificare i dati raccolti da questa estensione, è possibile aggiungere altri contatori delle prestazioni alla variabile wadperfcounters. È possibile anche scegliere di inserire i dati di diagnostica in un account di archiviazione diverso rispetto a quello in cui sono archiviati i dischi della VM.
 
-Sono disponibili numerose estensioni che è possibile installare in una VM, ma la più utile è probabilmente l'[estensione dello script personalizzata](extensions-customscript.md). Nell'esempio, al primo avvio in ogni VM viene eseguito uno script PowerShell denominato start.ps1:
+Sono disponibili numerose estensioni che è possibile installare in una VM, ma la più utile è probabilmente l'[estensione dello script personalizzata](../extensions/custom-script-windows.md). Nell'esempio, al primo avvio in ogni VM viene eseguito uno script PowerShell denominato start.ps1:
 
 ```json
 {
@@ -439,7 +439,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 
@@ -447,11 +447,11 @@ Per conoscere lo stato delle risorse nella distribuzione, visualizzare il gruppo
 
 ![Ottenere informazioni sulla distribuzione](./media/template-description/virtual-machines-deployment-info.png)
     
-Non è un problema usare lo stesso modello per creare risorse o per aggiornare le risorse esistenti. Quando si usano comandi per distribuire i modelli, si ha la possibilità di indicare la [modalità](../../resource-group-template-deploy.md) da usare. La modalità può essere impostata su **Completa** o **Incrementale**. Gli aggiornamenti incrementali sono il valore predefinito. Prestare attenzione quando si usa la modalità **Completa** perché è possibile eliminare accidentalmente le risorse. Quando si imposta la modalità su **Completa**, Resource Manager elimina tutte le risorse nel gruppo di risorse che non sono presenti nel modello.
+Non è un problema usare lo stesso modello per creare risorse o per aggiornare le risorse esistenti. Quando si usano comandi per distribuire i modelli, si ha la possibilità di indicare la [modalità](../../azure-resource-manager/templates/deploy-powershell.md) da usare. La modalità può essere impostata su **Completa** o **Incrementale**. Gli aggiornamenti incrementali sono il valore predefinito. Prestare attenzione quando si usa la modalità **Completa** perché è possibile eliminare accidentalmente le risorse. Quando si imposta la modalità su **Completa**, Resource Manager elimina tutte le risorse nel gruppo di risorse che non sono presenti nel modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
+- È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 - Distribuire il modello creato usando [Creare una macchina virtuale Windows con un modello di Resource Manager](ps-template.md).
 - Per informazioni su come gestire le macchine virtuali create, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Per la sintassi JSON e le proprietà dei tipi di risorsa nei modelli, vedere le [informazioni di riferimento sui modelli di Azure Resource Manager](/azure/templates/).

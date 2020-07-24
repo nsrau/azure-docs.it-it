@@ -1,5 +1,5 @@
 ---
-title: Usare le tabelle temporanee con sinapsi SQL
+title: Usare le tabelle temporanee in sinapsi SQL
 description: Linee guida essenziali per l'uso di tabelle temporanee in sinapsi SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020561"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelle temporanee in sinapsi SQL
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019387"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy dell'applicazione Azure AD: cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del proxy di applicazione Azure Active Directory (Azure AD) rilasciate. Il team di Azure AD aggiorna regolarmente il proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del proxy di applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione. 
@@ -30,11 +30,36 @@ Si consiglia di verificare che gli aggiornamenti automatici siano abilitati per 
 
 Di seguito è riportato un elenco di risorse correlate:
 
-Risorsa |  Dettagli
+Resource |  Dettagli
 --------- | --------- |
 Come abilitare il proxy di applicazione | In questa [esercitazione](application-proxy-add-on-premises-application.md)vengono descritti i prerequisiti per l'abilitazione del proxy di applicazione e l'installazione e la registrazione di un connettore.
 Comprendere i connettori del proxy applicazione Azure AD | Scopri di più sulla [gestione dei](application-proxy-connectors.md) connettori e sull' [aggiornamento automatico](application-proxy-connectors.md#automatic-updates)dei connettori.
 Download del connettore del proxy di applicazione Azure AD |  [Scaricare il connettore più recente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>Stato della versione
+
+22 luglio 2020: rilasciata per il download questa versione è disponibile solo per l'installazione tramite la pagina di download. Una versione di aggiornamento automatico di questa versione verrà rilasciata in un secondo momento.
+
+### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+-   Supporto migliorato per gli ambienti cloud di Azure per enti pubblici. Per la procedura di installazione corretta del connettore per il cloud di Azure per enti pubblici, vedere i [prerequisiti](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e le [procedure di installazione](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Supporto per l'uso del client Web di Servizi Desktop remoto con il proxy di applicazione. Per altri dettagli, vedere [pubblicare desktop remoto con Azure ad proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md) .
+- Negoziazione migliorata dell'estensione WebSocket. 
+
+### <a name="fixed-issues"></a>Problemi risolti
+- Correzione di un problema WebSocket che forzava le stringhe minuscole.
+- È stato risolto un problema che causava un occasionale mancato risposta ai connettori.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>Stato della versione
+
+17 luglio 2020: rilasciato per il download. Questa versione è disponibile solo per l'installazione tramite la pagina di download. Una versione di aggiornamento automatico di questa versione verrà rilasciata in un secondo momento.
+
+### <a name="fixed-issues"></a>Problemi risolti
+- Problema di perdita di memoria risolto presente nella versione precedente
+- Miglioramenti generali per il supporto di WebSocket
 
 ## <a name="1515260"></a>1.5.1526.0
 

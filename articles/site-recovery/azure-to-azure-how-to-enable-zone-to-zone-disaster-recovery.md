@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021648"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
 
@@ -20,7 +20,6 @@ Questo articolo descrive come eseguire la replica, il failover e il failback di 
 
 >[!NOTE]
 >
->- Site Recovery attualmente non supporta i piani di ripristino per il ripristino di emergenza da zona a zona tramite il portale. Usare PowerShell o l'API REST per sfruttare i piani di ripristino per il ripristino di emergenza da zona a zona. 
 >- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a due aree: Asia sudorientale e Regno Unito meridionale.  
 >- Site Recovery non sposta o archivia i dati dei clienti all'interno dell'area in cui viene distribuito quando il cliente usa il ripristino di emergenza da zona a zona. I clienti possono selezionare un insieme di credenziali dei servizi di ripristino da un'area diversa se lo scelgono. L'insieme di credenziali di servizi di ripristino contiene metadati ma non dati effettivi del cliente.
 
@@ -69,13 +68,13 @@ Prima di distribuire il ripristino di emergenza da zona a zona per le macchine v
 |Funzionalità  | Informativa sul supporto  |
 |---------|---------|
 |Macchine virtuali classiche   |     Non supportato    |
-|VM ARM    |    Supportato    |
-|Crittografia dischi di Azure V1 (doppio passaggio, con AAD)     |     Supportato |
-|Crittografia dischi di Azure V2 (Single Pass, senza AAD)    |    Supportato    |
+|VM ARM    |    Funzionalità supportata    |
+|Crittografia dischi di Azure V1 (doppio passaggio, con AAD)     |     Funzionalità supportata |
+|Crittografia dischi di Azure V2 (Single Pass, senza AAD)    |    Funzionalità supportata    |
 |Dischi non gestiti    |    Non supportato    |
-|Dischi gestiti    |    Supportato    |
-|Chiavi gestite dal cliente    |    Supportato    |
-|Gruppi di selezione host di prossimità    |    Supportato    |
+|Dischi gestiti    |    Funzionalità supportata    |
+|Chiavi gestite dal cliente    |    Funzionalità supportata    |
+|Gruppi di selezione host di prossimità    |    Funzionalità supportata    |
 |Interoperabilità di backup    |    Il backup e il ripristino a livello di file sono supportati. Backup e ripristino a livello di disco e VM e non supportati.    |
 |Aggiunta/rimozione a caldo    |    È possibile aggiungere dischi dopo aver abilitato la replica da zona a zona. La rimozione dei dischi dopo l'abilitazione della replica da zona a zona non è supportata.    | 
 

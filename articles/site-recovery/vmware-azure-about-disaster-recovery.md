@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132112"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021461"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
 
@@ -23,6 +23,9 @@ Una strategia di continuità aziendale e ripristino di emergenza (BCDR, Business
 
 - [Backup di Azure](../backup/backup-overview.md), che esegue il backup di un'istanza locale e dei dati della macchina virtuale di Azure. È possibile eseguire il backup di un file e di cartelle,di carichi di lavoro specifici o di un'intera macchina virtuale. 
 - [Azure Site Recovery](site-recovery-overview.md), che offre resilienza e ripristino di emergenza per le app e carichi di lavoro in esecuzione in computer locali oppure in macchine virtuali IaaS di Azure. Site Recovery orchestra la replica, gestisce i failover in Azure quando si verificano interruzioni e gestisce anche il ripristino da Azure nel sito primario. 
+
+> [!NOTE]
+> Site Recovery non sposta o archivia i dati del cliente all'esterno dell'area di destinazione, in cui è stato configurato il ripristino di emergenza per le macchine di origine. I clienti possono selezionare un insieme di credenziali dei servizi di ripristino da un'area diversa se lo scelgono. L'insieme di credenziali di servizi di ripristino contiene metadati ma non dati effettivi del cliente.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>In che modo Site Recovery esegue il ripristino di emergenza?
 

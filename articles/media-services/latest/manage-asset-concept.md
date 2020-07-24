@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6accd303ba11c4c1406c7a157fa8176972fc7a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022908"
 ---
 # <a name="manage-assets"></a>Gestire le risorse
 
-In servizi multimediali di Azure, un [Asset](https://docs.microsoft.com/rest/api/media/assets) è il punto in cui 
+In servizi multimediali di Azure, un [Asset](/rest/api/media/assets) è il punto in cui 
 
 * caricare i file multimediali in un asset,
 * inserire e archiviare i flussi live in un asset,
@@ -56,13 +56,13 @@ Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un
     ```
 2. Ottenere un URL di firma di accesso condiviso con autorizzazioni di lettura/scrittura che verranno usate per caricare i file digitali nel contenitore di asset.
 
-    È possibile usare l'API Servizi multimediali per [elencare gli URL dei contenitori di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+    È possibile usare l'API Servizi multimediali per [elencare gli URL dei contenitori di asset](/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** accetta un parametro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) su cui è stato impostato `expiryTime` . Il tempo deve essere impostato su < 24 ore.
+    **AssetContainerSas. listContainerSas** accetta un parametro [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) su cui è stato impostato `expiryTime` . Il tempo deve essere impostato su < 24 ore.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) restituisce più URL SAS perché sono disponibili due chiavi dell'account di archiviazione per ogni account di archiviazione. Un account di archiviazione ha due chiavi perché consente il failover e la rotazione trasparente delle chiavi dell'account di archiviazione. Il primo URL di firma di accesso condiviso rappresenta la prima chiave dell'account di archiviazione e il secondo URL SAS rappresenta la seconda chiave.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) restituisce più URL SAS perché sono disponibili due chiavi dell'account di archiviazione per ogni account di archiviazione. Un account di archiviazione ha due chiavi perché consente il failover e la rotazione trasparente delle chiavi dell'account di archiviazione. Il primo URL di firma di accesso condiviso rappresenta la prima chiave dell'account di archiviazione e il secondo URL SAS rappresenta la seconda chiave.
 3. Usare le API di archiviazione di Azure o gli SDK (ad esempio, l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) per caricare i file nel contenitore di asset.
-4. Usare le API di Servizi multimediali v3 per creare una trasformazione e un processo per elaborare l'asset "input". Per altre informazioni, vedere [Trasformazioni e processi](transform-concept.md).
+4. Usare le API di Servizi multimediali v3 per creare una trasformazione e un processo per elaborare l'asset "input". Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md).
 5. Trasmettere il contenuto dall'asset "output".
 
 ### <a name="create-a-new-asset"></a>Creare un nuovo asset
@@ -76,7 +76,7 @@ Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Per un esempio REST, vedere l'esempio [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) (Creare un asset con REST).
+Per un esempio REST, vedere l'esempio [Create an Asset with REST](/rest/api/media/assets/createorupdate#examples) (Creare un asset con REST).
 
 Nell'esempio viene illustrato come creare il **corpo della richiesta** in cui è possibile specificare la descrizione, il nome del contenitore, l'account di archiviazione e altre informazioni utili.
 
@@ -107,7 +107,7 @@ curl -X PUT \
 
 ## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Inserire e archiviare flussi live in un asset
 
-In servizi multimediali un oggetto di [output attivo](https://docs.microsoft.com/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](https://docs.microsoft.com/rest/api/media/assets) .
+In servizi multimediali un oggetto di [output attivo](/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](/rest/api/media/assets) .
 
 Per altre informazioni, vedere:
 
@@ -129,7 +129,7 @@ Per pubblicare un asset per lo streaming, è necessario creare un [localizzatore
 
 Per altre informazioni, vedere:
 
-[Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3](stream-files-tutorial-with-api.md)
+[Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>Scaricare i risultati di un processo da un asset di output
 
@@ -145,6 +145,6 @@ Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle 
 
 Vedere gli esempi di codice completo che illustrano come caricare, codificare, analizzare, trasmettere in diretta e su richiesta: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.NET](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [Rest](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.NET](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [Rest](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

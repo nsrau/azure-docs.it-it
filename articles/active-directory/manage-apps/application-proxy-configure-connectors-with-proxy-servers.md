@@ -12,11 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019540"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -116,7 +117,7 @@ Consentire l'accesso agli URL seguenti:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Il connettore usa questi URL per verificare i certificati |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
@@ -152,6 +153,9 @@ Per abilitare questa opzione, procedere come segue:
 4.  Configurazione delle impostazioni del proxy necessarie. 
 
 Queste impostazioni consentono al connettore di usare lo stesso proxy di inoltro per la comunicazione con Azure e l'applicazione back-end. Se il connettore per la comunicazione di Azure non richiede un proxy di inoltro o un proxy di inoltro diverso, è possibile configurarlo modificando il file ApplicationProxyConnectorService.exe.config, come descritto nelle sezioni Ignorare i proxy in uscita o Usare il server proxy in uscita.
+
+> [!NOTE]
+> Esistono diversi modi per configurare il proxy Internet nel sistema operativo. Le impostazioni proxy configurate tramite NETSH WINHTTP (Run `NETSH WINHTTP SHOW PROXY` to Verify) eseguono l'override delle impostazioni proxy configurate nel passaggio 2. 
 
 Il servizio di aggiornamento del connettore userà anche il proxy del computer. Questo comportamento può essere cambiato modificando il file ApplicationProxyConnectorUpdaterService.exe.config.
 

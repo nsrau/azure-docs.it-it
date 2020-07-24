@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389862"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016319"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurare Slack per il provisioning utenti automatico
 
@@ -108,34 +108,34 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |externalId|string|
-   |displayName|string|
+   |externalId|Stringa|
+   |displayName|Stringa|
    |name.familyName|string|
-   |name.givenName|string|
-   |title|string|
-   |emails[type eq "work"].value|string|
-   |userName|string|
-   |nickName|string|
-   |indirizzi [tipo EQ "non tipizzato"]. streetAddress|string|
-   |indirizzi [tipo EQ "non tipizzato"]. località|string|
-   |indirizzi [tipo EQ "non tipizzato"]. Region|string|
-   |indirizzi [tipo EQ "non tipizzato"]. postalCode|string|
+   |name.givenName|Stringa|
+   |title|Stringa|
+   |emails[type eq "work"].value|Stringa|
+   |userName|Stringa|
+   |nickName|Stringa|
+   |indirizzi [tipo EQ "non tipizzato"]. streetAddress|Stringa|
+   |indirizzi [tipo EQ "non tipizzato"]. località|Stringa|
+   |indirizzi [tipo EQ "non tipizzato"]. Region|Stringa|
+   |indirizzi [tipo EQ "non tipizzato"]. postalCode|Stringa|
    |indirizzi [tipo EQ "non tipizzato"]. Country|string|
-   |phoneNumbers[type eq "mobile"].value|string|
-   |phoneNumbers[type eq "work"].value|string|
-   |ruoli [Primary EQ "true"]. Value|string|
+   |phoneNumbers[type eq "mobile"].value|Stringa|
+   |phoneNumbers[type eq "work"].value|Stringa|
+   |ruoli [Primary EQ "true"]. Value|Stringa|
    |locale|string|
-   |nome. honorificPrefix|string|
-   |Foto [digitare EQ "Photo"]. valore|string|
-   |profileUrl|string|
-   |timezone|string|
-   |userType|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|Informazioni di riferimento|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|string|
-   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|string|
+   |nome. honorificPrefix|Stringa|
+   |Foto [digitare EQ "Photo"]. valore|Stringa|
+   |profileUrl|Stringa|
+   |timezone|Stringa|
+   |userType|Stringa|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|Stringa|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|Riferimento|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|Stringa|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|Stringa|
+   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|Stringa|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|Stringa|
 
 12. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Slack**.
 
@@ -169,7 +169,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Limitazioni dei connettori
+## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
 * Durante la configurazione dell'attributo **displayName** di Slack, tenere presente i seguenti comportamenti:
 
@@ -179,11 +179,15 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
   
   * I segni di punteggiature consentiti sono punti, caratteri di sottolineatura, trattini, apostrofi, parentesi (ad esempio **( [ { } ] )**) e separatori (ad esempio **,/;**).
   
+  * la proprietà displayName non può contenere un carattere ' @'. Se è incluso ' @', potrebbe essere presente un evento ignorato nei log di provisioning con la descrizione "AttributeValidationFailed".
+
   * Si aggiorna solo se queste due impostazioni sono configurate nell'area di lavoro/organizzazione di Slack: **è abilitata la sincronizzazione del profilo** e **gli utenti non possono modificare il nome visualizzato**.
-  
+
 * L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco.
 
 * Slack consente solo la corrispondenza con gli attributi **username** e **email**.  
+  
+* I codici erorr comuni sono documentati nella documentazione ufficiale di Slack-https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Registro delle modifiche
 

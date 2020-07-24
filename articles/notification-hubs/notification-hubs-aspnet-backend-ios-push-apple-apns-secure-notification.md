@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022124"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push sicuro degli hub di notifica di Azure
 
@@ -121,7 +122,7 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 4. A questo punto, è necessario gestire la notifica in arrivo e usare il metodo sopra citato per recuperare il contenuto da visualizzare. In primo luogo, è necessario abilitare l'esecuzione dell'app per iOS in background quando riceve una notifica push. In **XCode** selezionare il progetto dell'app nel riquadro a sinistra, fare clic sull'app di destinazione principale nella sezione **Targets** (Destinazioni) nel riquadro centrale.
 5. Fare quindi clic sulla scheda **Capabilities** (Funzionalità) nella parte superiore del riquadro centrale e selezionare la casella di controllo **Remote Notifications** (Notifiche remote).
 
-    ![][IOS1]
+    ![Screenshot di XCode, con il progetto dell'app selezionato e la scheda funzionalità aperta. La casella di controllo notifiche remote è selezionata.][IOS1]
 
 6. In `AppDelegate.m` aggiungere il metodo seguente per gestire le notifiche push:
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019732"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -102,6 +102,10 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    >L'account amministratore di dominio usato non deve essere un membro del gruppo Utenti protetti, in caso contrario l'operazione non riesce.
 
    2. Chiamare `Update-AzureADSSOForest -OnPremCredentials $creds`. Questo comando aggiorna la chiave di decrittografia di Kerberos per l'account computer `AZUREADSSO` in questa foresta di AD specifica e la aggiorna in Azure AD.
+   
+   >[!NOTE]
+   >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
 
    >[!IMPORTANT]

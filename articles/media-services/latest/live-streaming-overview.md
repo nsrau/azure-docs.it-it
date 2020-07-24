@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd592469a4435504f1eecf1f24e50faf23fad17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022974"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -34,7 +35,7 @@ Per i clienti che desiderano distribuire contenuti a destinatari Internet di gra
 Questo articolo fornisce una panoramica e informazioni aggiuntive sullo streaming live con servizi multimediali e collegamenti ad altri articoli pertinenti.
  
 > [!NOTE]
-> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="dynamic-packaging-and-delivery"></a>Creazione dinamica dei pacchetti e distribuzione
 
@@ -53,7 +54,7 @@ Il filtro dinamico viene usato per controllare il numero di tracce, formati, vel
 
 ## <a name="live-event-types"></a>Tipi di evento live
 
-[Gli eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Un evento live può essere impostato su un *pass-through* (un codificatore live locale invia un flusso a bitrate multiplo) o sulla *codifica live* (un codificatore live locale invia un flusso a bitrate singolo). Per informazioni dettagliate sullo streaming live in servizi multimediali V3, vedere [eventi live e output Live](live-events-outputs-concept.md).
+[Gli eventi live](/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Un evento live può essere impostato su un *pass-through* (un codificatore live locale invia un flusso a bitrate multiplo) o sulla *codifica live* (un codificatore live locale invia un flusso a bitrate singolo). Per informazioni dettagliate sullo streaming live in servizi multimediali V3, vedere [eventi live e output Live](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -107,7 +108,7 @@ Per comprendere il flusso di lavoro di streaming live in servizi multimediali V3
     * Arrestare l'evento live. Una volta arrestato, l'evento Live non comporterà alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
     * È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento Live si trova nello stato interrotto, non verrà addebitato alcun addebito.
 
-L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset su richiesta quando viene eliminato l'output in tempo reale. È necessario eliminare tutti gli output Live prima che un evento live possa essere arrestato. È possibile usare un flag facoltativo [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) per rimuovere automaticamente gli output Live all'arresto. 
+L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset su richiesta quando viene eliminato l'output in tempo reale. È necessario eliminare tutti gli output Live prima che un evento live possa essere arrestato. È possibile usare un flag facoltativo [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) per rimuovere automaticamente gli output Live all'arresto. 
 
 > [!TIP]
 > Vedere l' [esercitazione su Live streaming](stream-live-tutorial-with-api.md). l'articolo esamina il codice che implementa i passaggi descritti in precedenza.

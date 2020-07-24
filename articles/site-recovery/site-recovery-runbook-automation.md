@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021580"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 
@@ -199,7 +199,7 @@ In alcuni scenari potrebbe non essere possibile creare variabili separate per og
 - Ad esempio, un ripristino di SharePoint ha due front-end. Un'applicazione line-of-business (LOB) semplice ha un solo front-end.
 - In questo scenario non è possibile creare variabili separate per ogni piano di ripristino.
 
-Nell'esempio seguente viene creata una [variabile complessa](/powershell/module/servicemanagement/azure/set-azureautomationvariable) nell'account di automazione di Azure.
+Nell'esempio seguente viene creata una [variabile complessa](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) nell'account di automazione di Azure.
 
 Questa operazione viene eseguita specificando più valori, usando Azure PowerShell.
 

@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5b53ae811786b1712ccd833ff155c408010d4fa4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022736"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -41,7 +41,7 @@ La tabella riepiloga i requisiti di hypervisor VMware.
 --- | ---
 **server VMware vCenter** | Versione 5,5, 6,0, 6,5 o 6,7.
 **VMware vSphere Host ESXI** | Versione 5,5, 6,0, 6,5 o 6,7.
-**autorizzazioni server vCenter** | La migrazione senza agenti usa l' [appliance di migrazione](migrate-appliance.md). Il dispositivo richiede queste autorizzazioni in server vCenter:<br/><br/> - **Archivio dati. browse**: consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **Datastore. LowLevelFileOperations**: consente operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **VirtualMachine.Configuration. DiskChangeTracking**: consente di abilitare o disabilitare il rilevamento delle modifiche dei dischi delle macchine virtuali per eseguire il pull dei blocchi di dati modificati tra gli snapshot.<br/><br/> - **VirtualMachine.Configuration. DiskLease**: consente operazioni di lease del disco per una macchina virtuale, per leggere il disco usando il VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **Virtualmachine. provisioning. AllowDiskAccess**: (in particolare per vSphere 6,0 e versioni successive) consentire l'apertura di un disco in una macchina virtuale per l'accesso in lettura casuale al disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. AllowReadOnlyDiskAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. AllowDiskRandomAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. AllowVirtualMachineDownload**: consente operazioni di lettura nei file associati a una VM, per scaricare i log e risolvere eventuali errori.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: consente la creazione e la gestione di snapshot VM per la replica.<br/><br/> - **Virtual Machine. Interaction.** spegnimento: consente di spegnere la macchina virtuale durante la migrazione ad Azure.
+**autorizzazioni server vCenter** | La migrazione senza agenti usa l' [appliance di migrazione](migrate-appliance.md). Il dispositivo richiede queste autorizzazioni in server vCenter:<br/><br/> - **Archivio dati. browse**: consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **Datastore. LowLevelFileOperations**: consente operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **VirtualMachine.Configuration. DiskChangeTracking**: consente di abilitare o disabilitare il rilevamento delle modifiche dei dischi delle macchine virtuali per eseguire il pull dei blocchi di dati modificati tra gli snapshot.<br/><br/> - **VirtualMachine.Configuration. DiskLease**: consente operazioni di lease del disco per una macchina virtuale, per leggere il disco usando il VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **Virtualmachine. provisioning. DiskAccess**: (in particolare per vSphere 6,0 e versioni successive) consentire l'apertura di un disco in una macchina virtuale per l'accesso in lettura casuale al disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. ReadOnlyDiskAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. DiskRandomAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. VirtualMachineDownload**: consente operazioni di lettura nei file associati a una VM, per scaricare i log e risolvere eventuali errori.<br/><br/> - **Virtualmachine. SnapshotManagement. \* **: consente la creazione e la gestione di snapshot VM per la replica.<br/><br/> - **Virtual Machine. Interaction.** spegnimento: consente di spegnere la macchina virtuale durante la migrazione ad Azure.
 
 
 
@@ -127,7 +127,7 @@ La tabella riepiloga il supporto delle VM VMware per le macchine virtuali VMware
 **NFS** | I volumi NFS montati come volumi nelle macchine virtuali non verranno replicati.
 **destinazioni iSCSI** | Le macchine virtuali con destinazioni iSCSI non sono supportate per la migrazione senza agenti.
 **I/o a percorsi multipli** | Non supportato.
-**Storage vMotion** | Supportato
+**Storage vMotion** | Funzionalità supportata
 **NIC raggruppate** | Non supportato.
 **IPv6** | Non supportato.
 
@@ -155,7 +155,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
 
 Tutte le macchine virtuali locali replicate in Azure, con migrazione senza agenti o basate su agenti, devono soddisfare i requisiti delle macchine virtuali di Azure riepilogati in questa tabella. 
 
-**Componente** | **Requisiti** 
+**Componente** | **Requirements** 
 --- | --- | ---
 Sistema operativo guest | Verifica i sistemi operativi della macchina virtuale VMware supportati per la migrazione.<br/> È possibile eseguire la migrazione di qualsiasi carico di lavoro in esecuzione in un sistema operativo supportato. 
 Architettura del sistema operativo guest | 64 bit. 
@@ -168,7 +168,7 @@ VHD condiviso | Non supportato.
 Disco FC | Non supportato. 
 BitLocker | Non supportato.<br/><br/> Prima di eseguire la migrazione della macchina virtuale, è necessario disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. 
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md).
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md)
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/><br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/><br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa.<br/><br/> Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale.  
 
 

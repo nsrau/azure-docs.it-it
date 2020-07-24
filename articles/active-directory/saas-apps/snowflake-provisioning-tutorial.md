@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016317"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
 
@@ -120,13 +120,13 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |displayName|string|
-   |emails[type eq "work"].value|string|
-   |userName|string|
+   |displayName|Stringa|
+   |emails[type eq "work"].value|Stringa|
+   |userName|Stringa|
    |name.givenName|string|
    |name.familyName|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|string|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|Stringa|
 
 11. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi a fiocco di neve**.
 
@@ -163,6 +163,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
 * I token SCIM generati a fiocco di neve scadono entro 6 mesi. Tenere presente che questi elementi devono essere aggiornati prima che scadano per consentire il provisioning delle sincronizzazioni per continuare a funzionare. 
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 07/21/2020: l'eliminazione temporanea è abilitata per tutti gli utenti (tramite l'attributo attivo).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

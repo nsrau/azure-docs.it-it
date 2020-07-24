@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961435"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021665"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurare l'indirizzo IP per la connessione a un sito secondario locale dopo il failover
 
@@ -78,12 +79,12 @@ Dopo il failover, Site Recovery alloca un indirizzo IP per ogni interfaccia di r
 
 Dopo aver abilitato la protezione per una macchina virtuale, è possibile usare i seguenti script di esempio per verificare l'indirizzo assegnato alla macchina virtuale. Lo stesso indirizzo IP viene impostato come indirizzo IP di failover e assegnato alla macchina vituale al momento del failover:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Usare un indirizzo IP diverso
 
@@ -92,7 +93,7 @@ In questo scenario, vengono modificati gli indirizzi IP delle macchine virtuali 
 - Usare valori TTL bassi per le applicazioni Intranet.
 - Usare lo script seguente in un piano di ripristino Site Recovery per un aggiornamento tempestivo del server DNS. Se si usa la registrazione DNS dinamica non è necessario lo script.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,

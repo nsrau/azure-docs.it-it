@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a13236294f74bbe4bdaf8c1a30408afad09d9796
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a94d356cb3c0345f575b4b5a44aa7f228535e66d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019880"
 ---
 # <a name="importing-and-exporting-azure-ad-connect-configuration-settings-public-preview"></a>Importazione ed esportazione delle impostazioni di configurazione Azure AD Connect (anteprima pubblica) 
 
@@ -24,7 +24,7 @@ Azure AD Connect le distribuzioni variano da un'installazione in modalità Expre
 
 Ogni volta che la configurazione viene modificata dalla procedura guidata Azure AD Connect, un nuovo file di impostazioni JSON timestamp viene esportato automaticamente in **%ProgramData%\AADConnect**. Il formato del nome del file delle impostazioni è **Applied-SynchronizationPolicy-*. JSON** in cui l'ultima parte del nome file è un timestamp. 
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Vengono esportate automaticamente solo le modifiche apportate da Azure AD Connect. Tutte le modifiche apportate tramite PowerShell, il Synchronization Service Manager o l'editor delle regole di sincronizzazione devono essere esportate su richiesta, in base alle esigenze, per mantenere una copia aggiornata. L'esportazione su richiesta può essere usata anche per inserire una copia delle impostazioni in un luogo sicuro a scopo di ripristino di emergenza. 
 
 ## <a name="exporting-azure-ad-connect-settings"></a>Esportazione delle impostazioni di Azure AD Connect 
@@ -37,10 +37,10 @@ Per impostazione predefinita, le impostazioni verranno esportate in **%ProgramDa
 
 Per importare le impostazioni esportate in precedenza, eseguire le operazioni seguenti:
  
-1. installare **Azure ad Connect** in un nuovo server. 
+1. Installare **Azure ad Connect** in un nuovo server. 
 2. Selezionare **Personalizza** opzione dopo la pagina **iniziale** . 
 3. Fare clic su **Importa impostazioni di sincronizzazione**. Cercare il file di impostazioni JSON esportato in precedenza.  
-4. Fare clic su **Install** (Installa).
+4. Fare clic su **Installa**.
 
 ![Installazione dei componenti](media/how-to-connect-import-export-config/import1.png)
 
@@ -59,8 +59,8 @@ Ecco le uniche modifiche che possono essere apportate durante l'esperienza di in
 
 ![Connessione delle directory](media/how-to-connect-import-export-config/import2.png)
 
->[!NOTE]
->Solo un server di sincronizzazione può trovarsi nel ruolo primario ed esportare attivamente le modifiche di configurazione in Azure. Tutti gli altri server devono essere posizionati in modalità di staging. 
+> [!NOTE]
+> Solo un server di sincronizzazione può trovarsi nel ruolo primario ed esportare attivamente le modifiche di configurazione in Azure. Tutti gli altri server devono essere posizionati in modalità di staging. 
 
 ## <a name="migrating-settings-from-an-existing-server"></a>Migrazione delle impostazioni da un server esistente 
 
@@ -71,21 +71,21 @@ Per la migrazione è necessario eseguire uno script di PowerShell che estrae le 
 ### <a name="migration-process"></a>Processo di migrazione 
 Per eseguire la migrazione delle impostazioni, eseguire le operazioni seguenti:
 
-1. Aprire cmd come amministratore nel nuovo server di gestione temporanea.
-2. Estrarre **AzureADConnect.msi** eseguendo il comando seguente: `msiexec /a msifile/qb TARGETDIR=targetpath` dove **msifile** è l'indirizzo dell'identità del servizio gestito e **targetPath** è la directory in cui si desidera estrarre i file.
-   
-   Esempio: `msiexec /a "C:\Holding\AzureADConnect.msi" TARGETDIR="C:\extractedfiles"`
-3. Copiare **MigrateSettings.ps1** dalla directory Microsoft Azure ad Connect\Tools in un percorso nel server esistente.  Ad esempio, C:\setup.  Dove il programma di installazione è una directory creata nel server esistente. 
-![Connessione delle directory](media/how-to-connect-import-export-config/migrate1.png)
+1. Avviare **AzureADConnect.msi** nel nuovo server di staging e arrestare la pagina iniziale di Azure ad Connect.
 
-4. Eseguire lo script come illustrato di seguito e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. Si noti che è necessario copiare l'intera cartella **esportata-ServerConfiguration-*** nel nuovo server. 
- ![Connessione delle directory](media/how-to-connect-import-export-config/migrate2.png)
+2. Copiare **MigrateSettings.ps1** dalla directory Microsoft Azure ad Connect\Tools in un percorso nel server esistente.  Ad esempio, C:\setup.  Dove il programma di installazione è una directory creata nel server esistente.
 
- ![Connessione delle directory](media/how-to-connect-import-export-config/migrate3.png)
+   ![Connessione delle directory](media/how-to-connect-import-export-config/migrate1.png)
+
+3. Eseguire lo script come illustrato di seguito e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. Si noti che è necessario copiare l'intera cartella **esportata-ServerConfiguration-*** nel nuovo server.
+
+   ![](media/how-to-connect-import-export-config/migrate2.png)
+   Directory Connect directory Connect ![](media/how-to-connect-import-export-config/migrate3.png)
 
 5. Avviare **Azure ad Connect** facendo doppio clic sull'icona sul desktop. Accettare il contratto di licenza, nella pagina successiva fare clic sul pulsante **Personalizza** . 
 6. Selezionare la casella di controllo **Importa impostazioni di sincronizzazione** e fare clic sul pulsante **Sfoglia** per visualizzare la cartella copiato over esportated-ServerConfiguration-* e selezionare il MigratedPolicy.jsin per importare le impostazioni migrate.
- ![Connessione delle directory](media/how-to-connect-import-export-config/migrate4.png)
+
+   ![Connessione delle directory](media/how-to-connect-import-export-config/migrate4.png)
 
 7. Per confrontare le impostazioni migrate con quelle delle impostazioni applicate, cercare la versione più recente di **migrated-SynchronizationPolicy-*. JSON** e **Applied-SynchronizationPolicy-*. JSON** (* è il timestamp) in **%ProgramData%\AADConnect**. Usare lo strumento di confronto dei file preferito per confrontare la parità. 
 
@@ -94,11 +94,13 @@ Per eseguire la migrazione delle impostazioni, eseguire le operazioni seguenti:
 Il confronto tra il file di impostazioni originariamente importato, con il file di impostazioni esportato, del server appena distribuito è un passaggio essenziale per comprendere le differenze tra il previsto, rispetto alla distribuzione risultante. L'uso dell'applicazione di confronto di testo affiancata preferita produce una visualizzazione immediata che evidenzia rapidamente eventuali modifiche desiderate o accidentali. Sebbene molti passaggi di configurazione precedentemente manuali vengano eliminati, è comunque necessario seguire il processo di certificazione dell'organizzazione per assicurarsi che non siano necessarie configurazioni aggiuntive. Questa configurazione può verificarsi se si sfruttano le impostazioni avanzate, che non sono attualmente acquisite nella versione di anteprima pubblica di gestione impostazioni. 
 
 Le limitazioni note includono quanto segue: 
-- **Regole**   di sincronizzazione -la precedenza per una regola personalizzata deve essere compresa nell'intervallo riservato di 0-99 per evitare conflitti con le regole standard di Microsoft. Quando si inserisce una regola personalizzata al di fuori dell'intervallo riservato, è possibile che la regola personalizzata venga spostata in base alle regole standard aggiunte alla configurazione. Se la configurazione contiene regole standard modificate, si verificherà un problema simile. La modifica di una regola standard è fortemente sconsigliata e il posizionamento delle regole potrebbe non essere corretto. Writeback dei dispositivi: queste impostazioni sono catalogate, ma non sono attualmente applicate durante la configurazione. Se il writeback dei dispositivi è stato abilitato per il server originale, è necessario configurare manualmente la funzionalità nel server appena distribuito. 
+- **Regole**   di sincronizzazione -la precedenza per una regola personalizzata deve essere compresa nell'intervallo riservato di 0-99 per evitare conflitti con le regole standard di Microsoft. Quando si inserisce una regola personalizzata al di fuori dell'intervallo riservato, è possibile che la regola personalizzata venga spostata in base alle regole standard aggiunte alla configurazione. Se la configurazione contiene regole standard modificate, si verificherà un problema simile. La modifica di una regola standard è fortemente sconsigliata e il posizionamento delle regole potrebbe non essere corretto. 
+- **Writeback**   dei dispositivi : queste impostazioni sono catalogate, ma non sono attualmente applicate durante la configurazione. Se il writeback dei dispositivi è stato abilitato per il server originale, è necessario configurare manualmente la funzionalità nel server appena distribuito. 
 - Tipi di oggetti **sincronizzati**   -Sebbene sia possibile vincolare l'elenco di tipi di oggetti sincronizzati (utenti, contatti, gruppi e così via) usando il Synchronization Service Manager, questa funzionalità non è attualmente supportata tramite le impostazioni di sincronizzazione. Al termine dell'installazione, è necessario riapplicare manualmente la configurazione avanzata. 
 - Profili di esecuzione **personalizzati**   -Sebbene sia possibile modificare il set predefinito di profili di esecuzione usando il Synchronization Service Manager, questa funzionalità non è attualmente supportata tramite le impostazioni di sincronizzazione. Al termine dell'installazione, è necessario riapplicare manualmente la configurazione avanzata. 
 - **Configurazione della gerarchia**   di provisioning : questa funzionalità avanzata del Synchronization Service Manager non è supportata tramite le impostazioni di sincronizzazione e deve essere riconfigurata manualmente dopo aver completato la distribuzione iniziale. 
 - Autenticazione AD FS e **PingFederate**   -i metodi di accesso associati a queste funzionalità di autenticazione verranno automaticamente preselezionati, tuttavia è necessario fornire in modo interattivo tutti gli altri parametri di configurazione necessari. 
+- **Una regola di sincronizzazione personalizzata disabilitata verrà importata come abilitata** Una regola di sincronizzazione personalizzata disabilitata verrà importata come abilitata. Assicurarsi di disabilitarlo anche nel nuovo server.
 
  ## <a name="next-steps"></a>Passaggi successivi
 

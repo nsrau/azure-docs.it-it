@@ -2,14 +2,14 @@
 title: Matrice di supporto di Azure Migrate
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108754"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022719"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure Migrate
 
@@ -21,14 +21,16 @@ Nella tabella sono riepilogati gli scenari di individuazione, valutazione e migr
 
 **Distribuzione** | **Dettagli** 
 --- | --- 
-**Individuazione specifica di app** | È possibile individuare app, ruoli e funzionalità in esecuzione in macchine virtuali VMware. Questa funzionalità è attualmente limitata solo alla fase di individuazione, poiché la valutazione deve essere ancora eseguita a livello di computer. Non è ancora disponibile un'opzione di valutazione specifica di un'app, un ruolo o una funzionalità. 
-**Valutazione locale** | È possibile valutare carichi di lavoro e dati locali in esecuzione su macchine virtuali VMware, macchine virtuali Hyper-V e server fisici. È possibile eseguire la valutazione tramite Valutazione server di Azure Migrate e Microsoft Data Migration Assistant (DMA), nonché con altri strumenti e offerte ISV.
-**Migrazione locale ad Azure** | È possibile eseguire la migrazione in Azure di carichi di lavoro e dati in esecuzione su server fisici, macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e macchine virtuali basate su cloud. È possibile eseguire la migrazione tramite Valutazione server di Azure Migrate e Servizio Migrazione del database di Azure (DMS), nonché con altri strumenti e offerte ISV.
+**Individuazione** | È possibile individuare i metadati del computer e i dati dinamici delle prestazioni.
+**App-individuazione** | È possibile individuare app, ruoli e funzionalità in esecuzione in macchine virtuali VMware. Questa funzionalità è attualmente limitata solo alla fase di individuazione, poiché la valutazione deve essere ancora eseguita a livello di computer. Non sono ancora disponibili valutazioni basate su app, ruoli o funzionalità. 
+**Valutazione** | È possibile valutare carichi di lavoro e dati locali in esecuzione su macchine virtuali VMware, macchine virtuali Hyper-V e server fisici. Valutare l'utilizzo di Azure Migrate server Assessment, Microsoft Data Migration Assistant (DMA), nonché altri strumenti e offerte ISV.
+**Migrazione** | È possibile eseguire la migrazione in Azure di carichi di lavoro e dati in esecuzione su server fisici, macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e macchine virtuali basate su cloud. È possibile eseguire la migrazione tramite Valutazione server di Azure Migrate e Servizio Migrazione del database di Azure (DMS), nonché con altri strumenti e offerte ISV.
 
 > [!NOTE]
 > Attualmente, gli strumenti ISV non possono inviare dati ad Azure Migrate in Azure per enti pubblici. È possibile usufruire degli strumenti Microsoft integrati oppure usare strumenti partner in modo indipendente.
 
 ## <a name="supported-tools"></a>Strumenti supportati
+
 
 Nella tabella seguente è riepilogato il supporto di strumenti specifici.
 
@@ -73,7 +75,11 @@ Creare un insieme di credenziali delle chiavi per la migrazione senza agente VMw
 
 ## <a name="supported-geographies-public-cloud"></a>Aree geografiche supportate (cloud pubblico)
 
-È possibile creare un progetto Azure Migrate in diverse aree geografiche nel cloud pubblico. Sebbene sia possibile creare progetti solo in queste aree geografiche, è possibile valutare o migrare computer anche in altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+È possibile creare un progetto Azure Migrate in diverse aree geografiche nel cloud pubblico.
+
+- Sebbene sia possibile creare progetti solo in queste aree geografiche, è possibile valutare o migrare computer anche in altri percorsi di destinazione.
+- L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+- Quando si crea un progetto, si seleziona un'area geografica. Il progetto e le risorse correlate vengono creati in una delle aree geografiche. L'area viene allocata dal servizio Azure Migrate.
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---

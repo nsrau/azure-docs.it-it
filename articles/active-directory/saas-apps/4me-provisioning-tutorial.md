@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018690"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Esercitazione: configurare 4me per il provisioning utenti automatico
 
@@ -127,7 +128,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Mapping utente 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Esaminare gli attributi utente sincronizzati da Azure AD a 4me nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in 4me per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi utente sincronizzati da Azure AD a 4me nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in 4me per le operazioni di aggiornamento. Assicurarsi che [4me supporti](https://developer.4me.com/v1/scim/users/) l'applicazione di filtri per l'attributo corrispondente scelto. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
     ![Mapping utente 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
