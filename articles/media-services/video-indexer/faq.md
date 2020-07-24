@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046971"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Domande frequenti su Video Indexer
 
@@ -58,13 +59,13 @@ No, Video Indexer offre l'integrazione di più modelli di Machine Learning in un
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Quali formati multimediali sono supportati da Video Indexer?
 
-Video Indexer supporta i formati multimediali più comuni. Per altre informazioni, vedere l'elenco dei [formati standard di Azure Media Encoder](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats).
+Video Indexer supporta i formati multimediali più comuni. Per altre informazioni, vedere l'elenco dei [formati standard di Azure Media Encoder](../latest/media-encoder-standard-formats.md).
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Come si carica un file multimediale in Video Indexer e quali sono le limitazioni?
 
 Nel portale basato sul Web di Video Indexer è possibile caricare un file multimediale tramite la finestra di dialogo per il caricamento dei file oppure facendo riferimento a un URL che ospita direttamente il file di origine. Vedere l'[esempio](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4). Gli URL che ospitano il contenuto multimediale usando un codice di incorporamento o iFrame non funzioneranno. Vedere l'[esempio](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11). 
 
-Per altre informazioni, vedere questa [guida pratica](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+Per altre informazioni, vedere questa [guida pratica](./upload-index-videos.md).
 
 #### <a name="limitations"></a>Limitazioni
 
@@ -75,7 +76,7 @@ Per l'elenco completo, vedere [Considerazioni e limitazioni relative al caricame
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo occorre a Video Indexer per estrarre informazioni dettagliate dai file multimediali?
 
-Il tempo necessario per l'indicizzazione di un file audio o video, sia tramite l'API Video Indexer che usando l'interfaccia basata sul Web di Video Indexer, dipende da più parametri, come la lunghezza e la qualità del file, il numero di informazioni dettagliate contenute nel file, il numero di [unità riservate](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibili e il fatto che l'[endpoint di streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) sia abilitato o meno. Per avere un'idea migliore, è consigliabile eseguire alcuni file di test con il proprio contenuto e calcolare il tempo medio.
+Il tempo necessario per l'indicizzazione di un file audio o video, sia tramite l'API Video Indexer che usando l'interfaccia basata sul Web di Video Indexer, dipende da più parametri, come la lunghezza e la qualità del file, il numero di informazioni dettagliate contenute nel file, il numero di [unità riservate](../previous/media-services-scale-media-processing-overview.md) disponibili e il fatto che l'[endpoint di streaming](../previous/media-services-streaming-endpoints-overview.md) sia abilitato o meno. Per avere un'idea migliore, è consigliabile eseguire alcuni file di test con il proprio contenuto e calcolare il tempo medio.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>È possibile creare flussi di lavoro personalizzati per automatizzare i processi con Video Indexer?
 
@@ -216,4 +217,4 @@ Sì, è disponibile una versione di valutazione gratuita di Video Indexer che co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](video-indexer-overview.md)
+[Panoramica](video-indexer-overview.md)

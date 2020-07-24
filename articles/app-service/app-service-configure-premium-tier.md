@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9ef246079fc95b79a2dc7a3d33eba79da70c55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170021"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050379"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
@@ -87,7 +87,7 @@ Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV2
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
-È possibile automatizzare la creazione dell'app nel livello **PremiumV2** con script usando l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
+È possibile automatizzare la creazione dell'app nel livello **PremiumV2** con script usando l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

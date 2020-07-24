@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Scenari comuni di gestione delle app
       href: common-scenarios.md
-    - name: App cloud e Single Sign-On
+    - name: Pianificazione dell'integrazione di app cloud
       items:
-        - name: Pianificazione dell'integrazione di app cloud
-          items:
-            - name: Introduzione all'integrazione di app
-              href: plan-an-application-integration.md
-            - name: Pianificare una distribuzione del pannello di accesso
-              href: access-panel-deployment-plan.md
-            - name: Linee guida per gli sviluppatori
-              href: developer-guidance-for-integrating-applications.md
-        - name: Single sign-on
-          items:
-            - name: Abilitare l'accesso SSO per l'applicazione multi-tenant
-              href: isv-sso-content.md
-            - name: Creazione di un tenant di Azure per l'applicazione multi-tenant
-              href: isv-tenant-multi-tenant-app.md
-            - name: Scegliere la federazione multi-tenant
-              href: isv-choose-multi-tenant-federation.md
-            - name: Creare la documentazione per l'applicazione multi-tenant
-              href: isv-create-sso-documentation.md
-            - name: Pianificare una distribuzione di Single Sign-On
-              href: plan-sso-deployment.md
+        - name: Introduzione all'integrazione di app
+          href: plan-an-application-integration.md
+        - name: Pianificare una distribuzione del pannello di accesso
+          href: access-panel-deployment-plan.md
+        - name: Linee guida per gli sviluppatori
+          href: developer-guidance-for-integrating-applications.md
+    - name: Single sign-on
+      items:
+        - name: Abilitare l'accesso SSO per l'applicazione multi-tenant
+          href: isv-sso-content.md
+        - name: Creazione di un tenant di Azure per l'applicazione multi-tenant
+          href: isv-tenant-multi-tenant-app.md
+        - name: Scegliere la federazione multi-tenant
+          href: isv-choose-multi-tenant-federation.md
+        - name: Creare la documentazione per l'applicazione multi-tenant
+          href: isv-create-sso-documentation.md
+        - name: Pianificare una distribuzione di Single Sign-On
+          href: plan-sso-deployment.md
         - name: Accesso SSO con un clic
-          items:
-            - name: Cos'è l'accesso SSO con un clic
-              href: one-click-sso-tutorial.md
-        - name: Sicurezza dell'applicazione
-          items:
-            - name: Opzioni di accesso alle app
-              href: what-is-access-management.md
-            - name: Opzioni di firma del certificato
-              href: certificate-signing-options.md
-            - name: Gestire i certificati
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Restrizioni relative ai tenant
-              href: tenant-restrictions.md
-            - name: Configurare la crittografia dei token SAML
-              href: howto-saml-token-encryption.md
-            - name: Portali degli utenti finali
-              href: end-user-experiences.md
-    - name: Visibilità e controllo delle app cloud
-      href: cloud-app-security.md
+          href: one-click-sso-tutorial.md
+    - name: Sicurezza dell'applicazione
+      items:
+        - name: Opzioni di accesso alle app
+          href: what-is-access-management.md
+        - name: Opzioni di firma del certificato
+          href: certificate-signing-options.md
+        - name: Gestire i certificati
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Restrizioni relative ai tenant
+          href: tenant-restrictions.md
+        - name: Configurare la crittografia dei token SAML
+          href: howto-saml-token-encryption.md
+        - name: Portali degli utenti finali
+          href: end-user-experiences.md
+        - name: Visibilità e controllo delle app cloud
+          href: cloud-app-security.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Proxy dell'applicazione

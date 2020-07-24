@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65761805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053327"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata-REST
 
@@ -32,7 +32,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). <br/>Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). <br/>Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
 - [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).<br/>Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottenere Token in Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-custom-preset"></a>Definire un set di impostazioni personalizzato
@@ -133,7 +133,7 @@ In questo esempio viene innanzitutto aggiunto un livello l'elemento aacaudio per
 
 ## <a name="create-a-new-transform"></a>Crea una nuova trasformazione  
 
-In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario innanzitutto usare [Get](https://docs.microsoft.com/rest/api/media/transforms/get) per verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. 
+In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario innanzitutto usare [Get](/rest/api/media/transforms/get) per verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. 
 
 Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi** -> **Crea o aggiorna trasformazione**.
 
@@ -151,4 +151,4 @@ Per fare in modo che servizi multimediali applichi la trasformazione al video o 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [altre operazioni REST](https://docs.microsoft.com/rest/api/media/)
+Vedere [altre operazioni REST](/rest/api/media/)

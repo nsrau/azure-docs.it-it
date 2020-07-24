@@ -2,16 +2,15 @@
 title: Usare identità gestite in Azure Kubernetes Service
 description: Informazioni su come usare le identità gestite in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
 ms.topic: article
-ms.date: 07/10/2020
-ms.author: mlearned
-ms.openlocfilehash: 95a303a4b6a83901560b26679bca920b9de4d3f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.author: thomasge
+ms.openlocfilehash: e96126d1516e8a1e20e6f6db9b3a448b94c71cd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050601"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -27,10 +26,10 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 
 ## <a name="limitations"></a>Limitazioni
 
-* L'uso delle identità gestite non è attualmente supportato.
 * I cluster AKS con identità gestite possono essere abilitati solo durante la creazione del cluster.
-* Non è possibile aggiornare o aggiornare i cluster AKS esistenti per abilitare le identità gestite.
+* Non è possibile eseguire la migrazione dei cluster AKS esistenti alle identità gestite.
 * Durante le operazioni di **aggiornamento** del cluster, l'identità gestita è temporaneamente non disponibile.
+* Lo spostamento/migrazione dei tenant di cluster abilitati per identità gestite non è supportato.
 
 ## <a name="summary-of-managed-identities"></a>Riepilogo delle identità gestite
 
@@ -38,7 +37,7 @@ AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predef
 
 | Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
-| Piano di controllo | non visibile | Usato da AKS per gestire le risorse di rete, ad esempio creare un servizio di bilanciamento del carico per il traffico in ingresso, l'indirizzo IP pubblico e così via.| Ruolo Collaboratore per il gruppo di risorse nodo | Attualmente non supportato
+| Piano di controllo | non visibile | Usato da AKS per le risorse di rete gestite, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | Ruolo lettore per il gruppo di risorse nodo | Attualmente non supportato
 | Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | ND | No
 | Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | ND | No
@@ -71,7 +70,7 @@ az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 
 La creazione di un cluster con identità gestite contiene le informazioni sul profilo dell'entità servizio seguenti:
 
-```json
+```output
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
@@ -80,18 +79,20 @@ La creazione di un cluster con identità gestite contiene le informazioni sul pr
 Usare il comando seguente per eseguire una query su ObjectID dell'identità gestita del piano di controllo:
 
 ```azurecli-interactive
-az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```
 
 Il risultato dovrebbe essere simile al seguente:
 
-```json
+```output
 {
   "principalId": "<object_id>",   
   "tenantId": "<tenant_id>",      
   "type": "SystemAssigned"                                 
 }
 ```
+
+Una volta creato il cluster, è possibile distribuire i carichi di lavoro dell'applicazione nel nuovo cluster e interagire con esso come è stato fatto con i cluster AKS basati su entità servizio.
 
 > [!NOTE]
 > Per creare e usare il proprio VNet, un indirizzo IP statico o un disco di Azure collegato dove le risorse si trovano all'esterno del gruppo di risorse del nodo di lavoro, usare il PrincipalID dell'identità gestita assegnata dal sistema cluster per eseguire un'assegnazione di ruolo. Per altre informazioni sull'assegnazione di ruolo, vedere [delegare l'accesso ad altre risorse di Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
@@ -101,13 +102,115 @@ Il risultato dovrebbe essere simile al seguente:
 Ottenere infine le credenziali per accedere al cluster:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-Il cluster verrà creato in pochi minuti. È quindi possibile distribuire i carichi di lavoro dell'applicazione nel nuovo cluster e interagire con esso esattamente come è stato fatto con i cluster AKS basati su entità servizio.
+## <a name="bring-your-own-control-plane-mi-preview"></a>Usa il tuo piano di controllo (anteprima)
+Un'identità del piano di controllo personalizzato consente di concedere l'accesso all'identità esistente prima della creazione del cluster. Questo consente scenari come l'uso di un VNET personalizzato o outboundType di UDR con un'identità gestita.
+
+> [!IMPORTANT]
+> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti:
+>
+> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
+> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
+
+Devono essere installate le risorse seguenti:
+- INTERFACCIA della riga di comando di Azure, versione 2.9.0 o successiva
+- Estensione 0.4.57 AKS-Preview
+
+Limitazioni per il piano di controllo Bring Your Own (anteprima):
+* Azure Government attualmente non è supportato.
+* Azure Cina 21Vianet attualmente non è supportato.
+
+```azurecli-interactive
+az extension add --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az extension update --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
+```
+
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Se non si ha ancora un'identità gestita, è necessario crearne una, ad esempio usando [AZ Identity CLI][az-identity-create].
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+Il risultato dovrebbe essere simile al seguente:
+
+```output
+{                                                                                                                                                                                 
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Se l'identità gestita fa parte della sottoscrizione, è possibile usare il [comando AZ Identity CLI][az-identity-list] per eseguire una query su di essa.  
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+A questo punto è possibile usare il comando seguente per creare il cluster con l'identità esistente:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+```
+
+La creazione di un cluster con le proprie identità gestite contiene le informazioni sul profilo userAssignedIdentities:
+
+```output
+ "identity": {
+   "principalId": null,
+   "tenantId": null,
+   "type": "UserAssigned",
+   "userAssignedIdentities": {
+     "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+       "clientId": "<client-id>",
+       "principalId": "<principal-id>"
+     }
+   }
+ },
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare i [modelli di Azure Resource Manager (ARM)][aks-arm-template] per creare cluster abilitati per l'identità gestita.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list

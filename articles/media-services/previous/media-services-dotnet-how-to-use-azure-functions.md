@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712497"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052832"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
@@ -337,7 +338,7 @@ Per testare la funzione, è necessario caricare un file MP4 nel contenitore **in
 4. Premere **Carica** e passare al file MP4 che si desidera caricare.
 
 >[!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -349,4 +350,3 @@ Vedere anche [Usare i webhook di Azure per monitorare le notifiche dei processi 
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

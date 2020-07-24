@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052928"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizzazione dei set di impostazioni di Media Encoder Standard  
 
@@ -30,7 +30,7 @@ Questo articolo illustra come eseguire le attività di codifica avanzata con Med
 L'articolo illustra come personalizzare un set di impostazioni partendo dal set di impostazioni [Codec video H.264 a bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e riducendo il numero di livelli. L'articolo [Personalizzazione dei set di impostazioni di Media Encoder Standard](media-services-advanced-encoding-with-mes.md) illustra i set di impostazioni personalizzati che è possibile usare per eseguire attività di codifica avanzata.
 
 > [!NOTE]
-> I set di impostazioni personalizzati descritti in questo articolo non possono essere usati nelle trasformazioni di [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/) o nei comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere le [linee guida per la migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md) .
+> I set di impostazioni personalizzati descritti in questo articolo non possono essere usati nelle trasformazioni di [servizi multimediali V3](../latest/index.yml) o nei comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere le [linee guida per la migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md) .
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizzazione di un set di impostazioni di Media Encoder Standard
 

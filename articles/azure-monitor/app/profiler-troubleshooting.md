@@ -6,17 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84148345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049778"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
-## <a name="active-issues"></a>Problemi attivi
-
-* La profilatura per le applicazioni ASP.NET Core 3. x è ora supportata su app Azure Services.
+> [!CAUTION]
+> È presente un bug che esegue Profiler per le app ASP.NET Core in app Azure servizio. È stata rilevata una correzione, ma la distribuzione a livello mondiale sarà necessaria alcune settimane. Per risolvere il problema, è possibile aggiungere l'SDK Application Insights all'applicazione con le istruzioni riportate [qui](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Risoluzione dei problemi generali
 
@@ -67,7 +67,7 @@ Per il corretto funzionamento di Profiler:
 * Application Insights deve essere abilitato per l'app Web.
 * L'app Web deve avere le impostazioni dell'app seguenti:
 
-    |Impostazione app    | valore    |
+    |Impostazione app    | Valore    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -75,7 +75,7 @@ Per il corretto funzionamento di Profiler:
 
 
 * Il processo Web **ApplicationInsightsProfiler3** deve essere in esecuzione. Per controllare il processo Web:
-   1. Passare a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. Passare a [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret).
    1. Scegliere **WebJobs Dashboard** (Dashboard processi Web) dal menu **Tools** (Strumenti).  
       Verrà visualizzato il riquadro **WebJobs** (Processi Web). 
    
@@ -99,7 +99,7 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Attivare **** Always On****.
 1. Creare le impostazioni dell'app:
 
-    |Impostazione app    | valore    |
+    |Impostazione app    | Valore    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -193,11 +193,3 @@ Se l'applicazione si connette a Internet tramite un proxy o un firewall, potrebb
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-

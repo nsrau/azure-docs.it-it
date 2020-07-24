@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052141"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -107,12 +107,12 @@ Azure NetApp Files è stato progettato per soddisfare i requisiti di base per l'
 - Disponibilità elevata, durabilità elevata e gestibilità su larga scala, in genere richiesta da carichi di lavoro aziendali cruciali, come SAP e Oracle
 - Backup e ripristino rapidi ed efficienti per ottenere i contratti di servizio RTO e RPO più aggressivi possibili
 
-Queste funzionalità sono possibili perché Azure NetApp Files si basa sui sistemi All-Flash NetApp® ONTAP® eseguiti nell'ambiente data center di Azure, come un servizio nativo di Azure. Il risultato è una tecnologia di archiviazione di database ideale di cui è possibile eseguire il provisioning e che è usabile come altre opzioni di archiviazione di Azure. Per altre informazioni su come distribuire e accedere ai volumi NFS Azure NetApp Files, vedere [Documentazione di Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/). Per informazioni sulle procedure consigliate per l'uso di un database Oracle in Azure NetApp Files, vedere [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) (Guida alle procedure consigliate per la distribuzione di Oracle in Azure con Azure NetApp Files).
+Queste funzionalità sono possibili perché Azure NetApp Files si basa sui sistemi All-Flash NetApp® ONTAP® eseguiti nell'ambiente data center di Azure, come un servizio nativo di Azure. Il risultato è una tecnologia di archiviazione di database ideale di cui è possibile eseguire il provisioning e che è usabile come altre opzioni di archiviazione di Azure. Per altre informazioni su come distribuire e accedere ai volumi NFS Azure NetApp Files, vedere [Documentazione di Azure NetApp Files](../../../azure-netapp-files/index.yml). Per informazioni sulle procedure consigliate per l'uso di un database Oracle in Azure NetApp Files, vedere [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) (Guida alle procedure consigliate per la distribuzione di Oracle in Azure con Azure NetApp Files).
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenze Oracle Database e software in Azure
 
 Microsoft Azure è un ambiente cloud autorizzato per l'esecuzione di Oracle Database. La tabella Core Factor di Oracle non è applicabile alle licenze di database Oracle nel cloud. Al contrario, quando si usano macchine virtuali con tecnologia Hyper-Threading abilitata per i database Enterprise Edition, se la tecnologia è abilitata due vCPU equivalgono a una licenza del processore Oracle (come indicato nel documento dei criteri). Le informazioni dettagliate relative al criterio sono disponibili [qui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-I database Oracle richiedono in genere una maggiore quantità di memoria e I/O. Per questo motivo, per questi carichi di lavoro sono consigliabili [macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory). Per ottimizzare ulteriormente i carichi di lavoro, sono consigliabili [vCPU core vincolate](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) per carichi di lavoro Oracle Database che richiedono memoria, archiviazione e larghezza di banda I/O elevate, ma non un numero elevato di core.
+I database Oracle richiedono in genere una maggiore quantità di memoria e I/O. Per questo motivo, per questi carichi di lavoro sono consigliabili [macchine virtuali ottimizzate per la memoria](../../sizes-memory.md). Per ottimizzare ulteriormente i carichi di lavoro, sono consigliabili [vCPU core vincolate](../../linux/constrained-vcpu.md) per carichi di lavoro Oracle Database che richiedono memoria, archiviazione e larghezza di banda I/O elevate, ma non un numero elevato di core.
 
 Quando si esegue la migrazione di carichi di lavoro e software Oracle dall'ambiente locale a Microsoft Azure, Oracle fornisce la mobilità delle licenze come indicato nelle [Domande frequenti su Oracle in Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051515"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -60,7 +60,7 @@ Ogni applicazione richiede attributi diversi per la creazione di un utente o un 
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (valore calcolato non archiviato per l'utente)|
 
-Lo schema definito sopra verrà rappresentato con il payload JSON riportato di seguito. Si noti che, oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include gli attributi "id", "externalId" e "meta" obbligatori.
+Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON riportato di seguito. Si noti che, oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include gli `id` attributi, `externalId` e richiesti `meta` .
 
 ```json
 {
@@ -134,7 +134,7 @@ Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l'end
 |/Group|Eseguire operazioni CRUD su un oggetto gruppo.|
 |/ServiceProviderConfig|Offre informazioni dettagliate sulle funzionalità dello standard SCIM supportate, ad esempio sulle risorse supportate e sul metodo di autenticazione.|
 |/ResourceTypes|Specifica i metadati relativi a ogni risorsa.|
-|/Schemas|Il set di attributi supportato da ogni client e provider di servizi può variare. Un provider di servizi potrebbe includere "name", "title" e "emails", mentre un altro usa "name", "title" e "phoneNumbers". L'endpoint degli schemi consente l'individuazione degli attributi supportati.|
+|/Schemas|Il set di attributi supportato da ogni client e provider di servizi può variare. Un provider di servizi può includere `name` , `title` e `emails` , mentre un altro provider di servizi utilizza `name` , `title` e `phoneNumbers` . L'endpoint degli schemi consente l'individuazione degli attributi supportati.|
 |/Bulk|Le operazioni in blocco consentono di eseguire azioni su una grande raccolta di oggetti risorsa in un'unica operazione, come ad esempio aggiornare le appartenenze per un gruppo di grandi dimensioni.|
 
 
@@ -149,7 +149,7 @@ Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.inf
 * Supportare la creazione di utenti e facoltativamente anche di gruppi, come indicato nella [sezione 3.3 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Supportare la modifica di utenti o gruppi con richieste PATCH, come indicato nella [sezione 3.5.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Supportare il recupero di una risorsa nota per un utente o un gruppo creato in precedenza, come indicato nella [sezione 3.4.1 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Supportare l'esecuzione di query su utenti o gruppi, come indicato nella [sezione 3.4.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalid` per gli utenti e in base a `displayName` per i gruppi.  
+* Supportare l'esecuzione di query su utenti o gruppi, come indicato nella [sezione 3.4.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalId` per gli utenti e in base a `displayName` per i gruppi.  
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Supportare query sui gruppi in base all'ID e ai membri, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Accettare un singolo token di connessione per l'autenticazione e l'autorizzazione di Azure AD per l'applicazione.
@@ -745,7 +745,7 @@ Livello minimo dei pacchetti di crittografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalli IP
-Il servizio Azure AD provisioning può attualmente opperate in qualsiasi intervallo IP di Azure. Il lavoro è in corso per consolidare il set di intervalli IP su cui opera il servizio. Questo documento verrà aggiornato una volta consolidato l'elenco di intervalli di indirizzi IP. 
+Il servizio di provisioning Azure AD può attualmente funzionare con qualsiasi intervallo IP di Azure. Il lavoro è in corso per consolidare il set di intervalli IP su cui opera il servizio. Questo documento verrà aggiornato una volta consolidato l'elenco di intervalli di indirizzi IP. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: Creare un endpoint SCIM
 
@@ -915,10 +915,10 @@ Inviare una richiesta GET al controller dei token per ottenere un token di conne
 
 ***Esempio 1. Eseguire query sul servizio per trovare un utente corrispondente***
 
-Azure Active Directory esegue query nel servizio per trovare un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure AD. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) come in questo esempio, in cui jyoung è un esempio di mailNickname di un utente in Azure Active Directory.
+Azure Active Directory esegue una query sul servizio per un utente con un `externalId` valore di attributo che corrisponde al valore dell'attributo mailNickname di un utente in Azure ad. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) come in questo esempio, in cui jyoung è un esempio di mailNickname di un utente in Azure Active Directory.
 
 >[!NOTE]
-> Questo è solo un esempio. Non tutti gli utenti avranno un attributo mailNickname e il valore di un utente potrebbe non essere univoco nella directory. L'attributo usato per la corrispondenza (che in questo caso è externalId), inoltre, è configurabile nei [mapping degli attributi di Azure AD](customize-application-attributes.md).
+> Questo è solo un esempio. Non tutti gli utenti avranno un attributo mailNickname e il valore di un utente potrebbe non essere univoco nella directory. Inoltre, l'attributo usato per la corrispondenza (che in questo caso è `externalId` ) è configurabile nei [mapping degli attributi Azure ad](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo Q
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-Nella query di esempio, per un utente con un determinato valore dell'attributo externalId, i valori degli argomenti passati al metodo QueryAsync sono i seguenti:
+Nella query di esempio, per un utente con un determinato valore per l' `externalId` attributo, i valori degli argomenti passati al metodo QueryAsync sono:
 
 * parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
@@ -948,7 +948,7 @@ Nella query di esempio, per un utente con un determinato valore dell'attributo e
 
 ***Esempio 2. Effettuare il provisioning di un utente***
 
-Se la risposta a una query sul servizio Web per trovare un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente non restituisce alcun utente, Azure Active Directory richiede che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory.  Ecco un esempio di questa richiesta: 
+Se la risposta a una query al servizio Web per un utente con un `externalId` valore di attributo che corrisponde al valore dell'attributo mailNickname di un utente non restituisce alcun utente, Azure Active Directory richieste al servizio di effettuare il provisioning di un utente corrispondente a quello Azure Active Directory.  Ecco un esempio di questa richiesta: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1191,7 +1191,7 @@ La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazion
 |--|--|--|--|
 |Nome utente e password (non consigliato o supportato da Azure AD)|Facile da implementare|Non sicuro. [La pa$$word è irrilevante](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984).|Supportato caso per caso per le app della raccolta. Non supportato per le app non nella raccolta.|
 |Token di connessione di lunga durata|I token di lunga durata non richiedono che sia presente un utente. Possono essere usati facilmente dagli amministratori durante la configurazione del provisioning.|I token di lunga durata possono essere difficili da condividere con un amministratore senza usare metodi non sicuri come la posta elettronica. |Supportato sia per le app della raccolta che per quelle non nella raccolta. |
-|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta. È in corso di implementazione il supporto per le app non nella raccolta.|
+|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta, ma non per le app non della raccolta. Il supporto per la raccolta non è nel backlog.|
 |Concessione di credenziali client OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza interazione dell'utente. ||Non supportato sia per le app della raccolta che per quelle non nella raccolta. Il supporto è incluso nel backlog di Microsoft.|
 
 > [!NOTE]
@@ -1209,7 +1209,7 @@ Procedure consigliate (ma non obbligatorie):
 * Supportare più URL di reindirizzamento. Gli amministratori possono configurare il provisioning sia da "portal.azure.com" che da "aad.portal.azure.com". Il supporto di più URL di reindirizzamento garantirà agli utenti la possibilità di ottenere l'autorizzazione dell'accesso da uno dei due portali.
 * Supportare più segreti per garantirne un rinnovo ottimale, senza tempi di inattività. 
 
-**Token di connessione OAuth di lunga durata:** se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un token di connessione OAuth di lunga durata che potrà essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token. Il token deve essere di dimensioni inferiori a 1 KB.  
+**Token di porta OAuth di lunga durata:** Se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un bearer token OAuth di lunga durata che può essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token. Il token deve essere di dimensioni inferiori a 1 KB.  
 
 Per altri metodi di autenticazione e autorizzazione, comunicare questa esigenza in [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

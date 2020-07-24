@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: 5d49173a9c06e35c5af3831e504fc6f55a8dfc50
-  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+  ms.openlocfilehash: da549a54773365d39e3a19179acd6495a6ac1ce5
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/01/2020
-  ms.locfileid: "84259542"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87023365"
 highlightedContent:
   items:
   - title: Informazioni su Servizi multimediali di Azure v3
@@ -52,7 +52,7 @@ conceptualContent:
     - url: ./latest/media-services-apis-overview.md
       itemType: concept
       text: Sviluppare con Servizi multimediali v3
-    - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+    - url: /samples/browse/?products=azure-media-services
       itemType: sample
       text: Esempi di codice
     - url: ./latest/release-notes.md
@@ -132,4 +132,4 @@ additionalContent:
       url: https://docs.microsoft.com/azure/cdn
     - title: Griglia di eventi
       summary: Informazioni su come usare Griglia di eventi di Azure per rispondere a eventi rilevanti
-      url: https://docs.microsoft.com/azure/event-grid/
+      url: ../event-grid/index.yml

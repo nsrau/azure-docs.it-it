@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297529"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051595"
 ---
 # <a name="on-demand-provisioning"></a>Provisioning su richiesta
 Il provisioning su richiesta consente di effettuare il provisioning di un utente in un'applicazione in pochi secondi. È possibile utilizzare la funzionalità per risolvere rapidamente i problemi di configurazione, convalidare le espressioni definite, testare i filtri di ambito e molto altro ancora. 
@@ -30,6 +30,8 @@ Il provisioning su richiesta consente di effettuare il provisioning di un utente
 5. Fare clic **su provisioning su richiesta**.
 6. Cercare un utente per nome, cognome, nome visualizzato, nome dell'entità utente o indirizzo di posta elettronica.
 7. Selezionare Provision (provisioning) nella parte inferiore della pagina.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Provisioning su richiesta di un utente.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>Informazioni sui passaggi del provisioning
 La funzionalità di provisioning su richiesta tenta di visualizzare i passaggi eseguiti dal servizio di provisioning quando si effettua il provisioning di un utente. Per eseguire il provisioning di un utente sono in genere disponibili cinque passaggi e una o più delle procedure riportate di seguito saranno visualizzate nell'esperienza di provisioning su richiesta.
@@ -88,6 +90,8 @@ Nelle pagine Visualizza dettagli vengono visualizzate le proprietà degli utenti
 ### <a name="step-5-perform-action"></a>Passaggio 5: eseguire l'azione
 Infine, il servizio di provisioning esegue un'azione, ad esempio la creazione, l'aggiornamento, l'eliminazione o l'omissione dell'utente. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Il provisioning dell'utente è riuscito.":::
+
 **Visualizzare i dettagli**
 
 La sezione Visualizza dettagli Visualizza gli attributi che sono stati modificati nell'applicazione di destinazione. Rappresenta l'output finale dell'attività del servizio di provisioning e gli attributi che sono stati esportati. Se questo passaggio ha esito negativo, gli attributi visualizzati rappresentano gli attributi che il servizio di provisioning ha tentato di modificare.  
@@ -102,11 +106,11 @@ La sezione Visualizza dettagli Visualizza gli attributi che sono stati modificat
 **Quanto tempo richiede il provisioning su richiesta?** Richiede in genere meno di 30 secondi. 
 
 ## <a name="known-limitations"></a>Limitazioni note
-Attualmente esistono alcune limitazioni note. Pubblicare un post su [UserVoice](https://aka.ms/appprovisioningfeaturerequest) per poter assegnare una priorità migliore ai miglioramenti da apportare. Si noti che queste limitazioni sono specifiche per la funzionalità di provisioning su richiesta. per informazioni specifiche sul fatto che un'applicazione supporti il provisioning di gruppi, eliminazioni e così via, vedere l'esercitazione sull'applicazione. 
+Attualmente esistono alcune limitazioni note. Invia un post sulla [voce utente](https://aka.ms/appprovisioningfeaturerequest) per poter assegnare una priorità migliore ai miglioramenti da apportare. Si noti che queste limitazioni sono specifiche per la funzionalità di provisioning su richiesta. per informazioni specifiche sul fatto che un'applicazione supporti il provisioning di gruppi, eliminazioni e così via, vedere l'esercitazione sull'applicazione. 
 
 * Le applicazioni lavorative, AWS e SuccessFactors non supportano il provisioning su richiesta.
 * I gruppi e i ruoli di provisioning su richiesta non sono supportati.
-* La disabilitazione o l'eliminazione di utenti e gruppi non è supportata.
+* Il provisioning su richiesta supporta la disabilitazione degli utenti che non sono stati assegnati dall'applicazione, ma non supporta la disabilitazione o l'eliminazione di utenti che sono stati disabilitati o eliminati da Azure Active Directory (tali utenti non verranno visualizzati durante la ricerca di un utente).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

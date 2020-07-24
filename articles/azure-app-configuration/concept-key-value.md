@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050137"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
@@ -77,7 +77,7 @@ Nelle etichette è possibile usare qualsiasi carattere Unicode, ad eccezione di 
 
 Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da un'etichetta che può essere `null`. Per eseguire una query su un archivio di Configurazione app e trovare le coppie chiave-valore, si specifica un criterio. L'archivio di Configurazione app restituisce tutte le coppie chiave-valore che corrispondono al criterio, oltre ai relativi valori e attributi. Usare i criteri delle chiavi seguenti nelle chiamate dell'API REST a Configurazione app:
 
-| Chiave | |
+| Chiave | Descrizione |
 |---|---|
 | `key` è omesso oppure `key=*` | Corrisponde a tutte le chiavi |
 | `key=abc` | Corrisponde esattamente al nome della chiave **abc** |
@@ -86,7 +86,7 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 
 È anche possibile includere i criteri delle etichette seguenti:
 
-| Label | |
+| Etichetta | Descrizione |
 |---|---|
 | `label` è omesso oppure `label=*` | Corrisponde a qualsiasi etichetta, incluso `null` |
 | `label=%00` | Corrisponde all'etichetta `null` |

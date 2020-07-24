@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051665"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Eseguire la migrazione Azure Active Directory Domain Services dal modello di rete virtuale classica a Gestione risorse
 
@@ -145,11 +145,11 @@ La migrazione al modello di distribuzione Gestione risorse e alla rete virtuale 
 
 | Passaggio    | Eseguito tramite  | Tempo stimato  | Tempo di inattività  | Eseguire il rollback o il ripristino? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Passaggio 1: aggiornare e individuare la nuova rete virtuale](#update-and-verify-virtual-network-settings) | Portale di Azure | 15 minuti | Nessun tempo di inattività necessario | N/A |
+| [Passaggio 1: aggiornare e individuare la nuova rete virtuale](#update-and-verify-virtual-network-settings) | Portale di Azure | 15 minuti | Nessun tempo di inattività necessario | N/D |
 | [Passaggio 2: preparare il dominio gestito per la migrazione](#prepare-the-managed-domain-for-migration) | PowerShell | 15-30 minuti in media | Il tempo di inattività di Azure AD DS viene avviato dopo il completamento di questo comando. | Rollback e ripristino disponibili. |
 | [Passaggio 3: spostare il dominio gestito in una rete virtuale esistente](#migrate-the-managed-domain) | PowerShell | da 1 a 3 ore in media | Un controller di dominio è disponibile al termine del comando. il tempo di inattività termina. | In caso di errore, sono disponibili sia il rollback (self-service) che il ripristino. |
 | [Passaggio 4: testare e attendere il controller di dominio di replica](#test-and-verify-connectivity-after-the-migration)| PowerShell e portale di Azure | 1 ora o più, a seconda del numero di test | Entrambi i controller di dominio sono disponibili e funzionano normalmente. | N/D. Una volta eseguita la migrazione della prima VM, non è possibile eseguire il rollback o il ripristino. |
-| [Passaggio 5-procedura di configurazione facoltativa](#optional-post-migration-configuration-steps) | portale di Azure e macchine virtuali | N/A | Nessun tempo di inattività necessario | N/A |
+| [Passaggio 5-procedura di configurazione facoltativa](#optional-post-migration-configuration-steps) | portale di Azure e macchine virtuali | N/D | Nessun tempo di inattività necessario | N/D |
 
 > [!IMPORTANT]
 > Per evitare tempi di inattività aggiuntivi, prima di avviare il processo di migrazione leggere tutti gli articoli e le linee guida per la migrazione. Il processo di migrazione influiscono sulla disponibilità dei controller di dominio Azure AD DS per un certo periodo di tempo. Utenti, servizi e applicazioni non possono eseguire l'autenticazione nel dominio gestito durante il processo di migrazione.
@@ -335,7 +335,7 @@ Con il dominio gestito migrato al modello di distribuzione Gestione risorse, [cr
 <!-- INTERNAL LINKS -->
 [azure-bastion]: ../bastion/bastion-overview.md
 [network-considerations]: network-considerations.md
-[azure-powershell]: /powershell/azure/overview
+[azure-powershell]: /powershell/azure/
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Set-AzContext]: /powershell/module/az.accounts/set-azcontext

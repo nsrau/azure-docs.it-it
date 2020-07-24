@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047724"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 
@@ -144,7 +145,7 @@ Sono disponibili numerose opzioni relative a linguaggi, ambienti di sviluppo e s
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Quali strumenti è necessario usare per l'analisi dei dati?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) -un linguaggio di script usato per amministrare le risorse di Azure in un linguaggio di script
+* [Microsoft Azure PowerShell](/powershell/azure/) -un linguaggio di script usato per amministrare le risorse di Azure in un linguaggio di script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)

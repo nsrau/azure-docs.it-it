@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987608"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048661"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Inviare messaggi correlati in ordine usando una serie di istruzioni sequenziali in app per la logica di Azure con il bus di servizio di Azure
 
-Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile seguire il modello di serie di istruzioni [ *sequenziali* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) quando si usa app per la [logica di Azure](../logic-apps/logic-apps-overview.md) usando il connettore del bus di [servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
+Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile seguire il modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy) quando si usa app per la [logica di Azure](../logic-apps/logic-apps-overview.md) usando il connettore del bus di [servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
 
 Si supponga, ad esempio, di disporre di 10 messaggi per una sessione denominata "sessione 1" e di 5 messaggi per una sessione denominata "sessione 2" che vengono tutti inviati alla stessa [coda del bus di servizio](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). È possibile creare un'app per la logica che elabora i messaggi dalla coda in modo che tutti i messaggi della "sessione 1" siano gestiti da un'unica esecuzione del trigger e che tutti i messaggi della "sessione 2" siano gestiti dall'esecuzione del trigger successiva.
 
@@ -28,7 +29,7 @@ Questo articolo illustra come creare un'app per la logica che implementa questo 
 
 Per esaminare il file JSON del modello, vedere [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Per altre informazioni, vedere [modello di serie di istruzioni sequenziali-modelli di progettazione cloud di architettura di Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Per altre informazioni, vedere [modello di serie di istruzioni sequenziali-modelli di progettazione cloud di architettura di Azure](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -192,7 +193,7 @@ Per specificare i valori per il trigger e le azioni del modello di **recapito co
   > [!NOTE]
   > Inizialmente, l'intervallo di polling è impostato su tre minuti, in modo che l'app per la logica non venga eseguita più frequentemente di quanto previsto e provochi costi di fatturazione imprevisti. Idealmente, impostare l'intervallo e la frequenza su 30 secondi in modo che l'app per la logica venga attivata immediatamente quando arriva un messaggio.
 
-  | Proprietà | Obbligatorio per questo scenario | valore | Description |
+  | Proprietà | Obbligatorio per questo scenario | Valore | Description |
   |----------|----------------------------|-------|-------------|
   | **Nome coda** | Sì | <*nome coda*> | Nome della coda del bus di servizio creata in precedenza. Questo esempio USA "Fabrikam-Service-Bus-Queue". |
   | **Tipo di coda** | Sì | **Principale** | Coda del bus di servizio principale |
@@ -201,7 +202,7 @@ Per specificare i valori per il trigger e le azioni del modello di **recapito co
   | **Frequenza** | Sì | **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** | Unità di tempo per la ricorrenza da utilizzare durante la verifica di un messaggio. <p>**Suggerimento**: per aggiungere un **fuso orario** o un' **ora di inizio**, selezionare queste proprietà dall'elenco **Aggiungi nuovo parametro** . |
   |||||
 
-  Per altre informazioni sui trigger, vedere [bus di servizio-quando un messaggio viene ricevuto in una coda (blocco di visualizzazione)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Il trigger restituisce un [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Per altre informazioni sui trigger, vedere [bus di servizio-quando un messaggio viene ricevuto in una coda (blocco di visualizzazione)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Il trigger restituisce un [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Dopo l'inizializzazione della sessione, il flusso di lavoro usa l'azione **Inizializza variabile** per creare una variabile booleana inizialmente impostata su `false` e indica quando le condizioni seguenti sono vere: 
 
@@ -421,4 +422,4 @@ Per testare l'app per la logica, inviare messaggi alla coda del bus di servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sui [trigger e sulle azioni del connettore del bus di servizio](https://docs.microsoft.com/connectors/servicebus/)
+* Altre informazioni sui [trigger e sulle azioni del connettore del bus di servizio](/connectors/servicebus/)

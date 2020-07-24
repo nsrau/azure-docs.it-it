@@ -1,6 +1,6 @@
 ---
-title: Come monitorare le applicazioni Apache Spark
-description: Usare Azure sinapsi Studio per monitorare le applicazioni Apache Spark.
+title: Come monitorare le applicazioni Apache Spark in sinapsi Studio
+description: Usare sinapsi Studio per monitorare le applicazioni Apache Spark.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: e646f1bc1a25f58dd54437cbd77750479ac9ae99
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a4dc2604dbd62da1baa4278ff3463f41337886bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052512"
 ---
-# <a name="use-the-azure-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Usare Azure sinapsi Studio (anteprima) per monitorare le applicazioni di Apache Spark
+# <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Usare sinapsi Studio (anteprima) per monitorare le applicazioni di Apache Spark
 
 Con l'analisi delle sinapsi di Azure, è possibile usare Spark per eseguire notebook, processi e altri tipi di applicazioni nei pool Spark nell'area di lavoro.
 
@@ -24,7 +24,7 @@ Questo articolo illustra come monitorare le applicazioni Apache Spark, consenten
 
 ## <a name="accessing-the-list-of-apache-spark-applications"></a>Accesso all'elenco di applicazioni di Apache Spark
 
-Per visualizzare l'elenco delle applicazioni Apache Spark nell'area di lavoro, aprire prima di tutto [Azure sinapsi Studio](https://web.azuresynapse.net/) e selezionare l'area di lavoro.
+Per visualizzare l'elenco delle applicazioni di Apache Spark nell'area di lavoro, aprire prima di tutto [il sistema sinapsi Studio](https://web.azuresynapse.net/) e selezionare l'area di lavoro.
 
 ![Accedi all'area di lavoro](./media/common/login-workspace.png)
 
@@ -52,6 +52,6 @@ Per visualizzare i dettagli relativi a una delle applicazioni Apache Spark, sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul monitoraggio delle esecuzioni di pipeline, vedere l'articolo [monitorare la pipeline di esecuzione di Azure sinapsi Studio](how-to-monitor-pipeline-runs.md) . 
+Per altre informazioni sul monitoraggio delle esecuzioni di pipeline, vedere l'articolo [monitorare le esecuzioni](how-to-monitor-pipeline-runs.md) della pipeline di sinapsi Studio. 
 
-Per altre informazioni sul debug di Apache Spark applicazione, vedere l'articolo [monitorare le applicazioni di Apache Spark in Azure sinapsi Studio](apache-spark-applications.md) .
+Per altre informazioni sul debug di Apache Spark applicazione, vedere l'articolo [monitorare le applicazioni di Apache Spark in sinapsi Studio](apache-spark-applications.md) .

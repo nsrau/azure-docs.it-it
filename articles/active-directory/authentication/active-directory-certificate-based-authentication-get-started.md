@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051341"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -93,7 +93,7 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
     }
 ```
 
-Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Avviare Windows PowerShell con privilegi amministrativi.
 2. Installare il modulo Azure AD [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o versione successiva.
@@ -122,7 +122,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
 
 ### <a name="add"></a>Aggiunta
 
-Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
+Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

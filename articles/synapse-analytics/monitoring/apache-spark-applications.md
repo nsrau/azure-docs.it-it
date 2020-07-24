@@ -1,6 +1,6 @@
 ---
-title: Monitorare applicazioni Apache Spark
-description: Usare Azure sinapsi Studio per monitorare le applicazioni Apache Spark.
+title: Monitorare Apache Spark applicazioni con sinapsi Studio
+description: Usare sinapsi Studio per monitorare le applicazioni Apache Spark.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 20c4216e7af0cb4100204ebae1b484a53e3c50a6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: ecc34b84e5be2d0470cc5a58a71a70e9ffcab1b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052559"
 ---
-# <a name="use-the-azure-synapse-studio-to-monitor-your-apache-spark-applications"></a>Usare Azure sinapsi Studio per monitorare le applicazioni di Apache Spark
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Usare sinapsi Studio per monitorare le applicazioni di Apache Spark
 
 Con l'analisi delle sinapsi di Azure, è possibile usare Apache Spark per eseguire notebook, processi e altri tipi di applicazioni nei pool di Apache Spark nell'area di lavoro.
 
@@ -33,7 +33,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti seguenti:
 
-- Un'area di lavoro di Azure sinapsi Studio. Per istruzioni, vedere [creare un'area di lavoro di Azure sinapsi Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Un'area di lavoro di sinapsi Studio. Per istruzioni, vedere [creare un'area di lavoro di sinapsi Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
 - Un pool di Apache Spark.
 
@@ -147,4 +147,4 @@ Aprire **monitoraggio**, quindi selezionare **Apache Spark applicazioni**. Per v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul monitoraggio delle esecuzioni di pipeline, vedere l'articolo [monitorare la pipeline di esecuzione di Azure sinapsi Studio](how-to-monitor-pipeline-runs.md) .  
+Per altre informazioni sul monitoraggio delle esecuzioni di pipeline, vedere l'articolo [monitorare le esecuzioni di pipeline con sinapsi Studio](how-to-monitor-pipeline-runs.md) .  

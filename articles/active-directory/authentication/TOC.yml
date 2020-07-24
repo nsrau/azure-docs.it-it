@@ -224,7 +224,7 @@
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Cmdlet di Azure PowerShell
-      href: /powershell/azure/overview
+      href: /powershell/azure/
     - name: API REST Microsoft Graph beta
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Limiti e restrizioni del servizio

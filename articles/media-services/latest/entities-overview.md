@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584523"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053247"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
 
@@ -158,34 +158,34 @@ La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a
 
 |Nome dell'entità|Nome proprietà|Filtra|JSON|
 |---|---|---|---|
-|[Asset](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
+|[Asset](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` e `desc`|
-|[Criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Criteri chiave simmetrica](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Processi](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
+|[Processi](/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
-|[Localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Localizzatori di streaming](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` e `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Criteri di streaming](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Trasformazioni](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` e `desc`|
+|[Trasformazioni](/rest/api/media/transforms)| name | `eq`            | `asc` e `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Elenca asset](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Elenca criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Elencare i processi](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Elencare i criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Elencare i localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Elenca asset](/rest/api/media/assets/list)
+* [Elenca criteri chiave simmetrica](/rest/api/media/contentkeypolicies/list)
+* [Elencare i processi](/rest/api/media/jobs/list)
+* [Elencare i criteri di streaming](/rest/api/media/streamingpolicies/list)
+* [Elencare i localizzatori di streaming](/rest/api/media/streaminglocators/list)
 * [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
 * [Quote e limiti](limits-quotas-constraints.md)

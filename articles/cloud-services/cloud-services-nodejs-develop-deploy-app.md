@@ -9,11 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 25cde21d72de49c5a4f51121f2aa4295319899ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049211"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -85,7 +86,7 @@ http.createServer(function (req, res) {
 
 Questo codice è essenzialmente lo stesso dell'esempio "Hello World" nel sito Web [nodejs.org] , si differenzia solo perché usa il numero di porta assegnato dall'ambiente cloud.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
+## <a name="deploy-the-application-to-azure"></a>Distribuire l'applicazione in Azure
 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. È possibile [attivare i benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
@@ -177,9 +178,9 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 
 [Confronto tra siti Web, servizi cloud e macchine virtuali]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usare un'app Web leggera]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azure/
 [Azure SDK per .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connettere PowerShell]: /powershell/azureps-cmdlets-docs
+[Connettere PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Creazione di un servizio ospitato per Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro per sviluppatori di Node. js]: https://azure.microsoft.com/develop/nodejs/

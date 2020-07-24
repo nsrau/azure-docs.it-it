@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052172"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 
@@ -68,7 +69,7 @@ Il resto di questo documento è incentrato sul metodo dell'interfaccia della rig
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Usare le immagini Red Hat Gold dall'interfaccia della riga di comando di Azure
 
-Le istruzioni seguenti illustrano il processo di distribuzione iniziale per una macchina virtuale RHEL usando l'interfaccia della riga di comando di Azure. Queste istruzioni presuppongono che sia [installata l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
+Le istruzioni seguenti illustrano il processo di distribuzione iniziale per una macchina virtuale RHEL usando l'interfaccia della riga di comando di Azure. Queste istruzioni presuppongono che sia [installata l'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
 
 >[!IMPORTANT]
 >Assicurarsi di usare tutte le lettere minuscole nei riferimenti al server di pubblicazione, all'offerta, al piano e all'immagine per tutti i comandi seguenti.
@@ -199,7 +200,7 @@ Per i passaggi per l'applicazione di crittografia dischi di Azure, vedere [scena
 
     In questo caso, contattare Microsoft o Red Hat per abilitare la sottoscrizione.
 
-- Se si modifica uno snapshot da un'immagine RHEL BYOS e si tenta di pubblicare l'immagine personalizzata nella [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), è necessario fornire informazioni sul piano corrispondenti all'origine dello snapshot. Ad esempio, il comando potrebbe essere simile al seguente:
+- Se si modifica uno snapshot da un'immagine RHEL BYOS e si tenta di pubblicare l'immagine personalizzata nella [raccolta di immagini condivise](../../linux/shared-image-galleries.md), è necessario fornire informazioni sul piano corrispondenti all'origine dello snapshot. Ad esempio, il comando potrebbe essere simile al seguente:
 
     ```azurecli
     az vm create –image \

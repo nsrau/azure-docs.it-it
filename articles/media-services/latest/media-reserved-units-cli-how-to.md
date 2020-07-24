@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053227"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
 
@@ -49,7 +49,7 @@ Il resto dell'articolo illustra come usare l'interfaccia della riga di comando d
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ Il resto dell'articolo illustra come usare l'interfaccia della riga di comando d
 
 Eseguire il comando `mru`.
 
-Il comando [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) seguente imposta le Media Reserved Unit sull'account "amsaccount" usando i parametri **count** e **type**.
+Il comando [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) seguente imposta le Media Reserved Unit sull'account "amsaccount" usando i parametri **count** e **type**.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -74,4 +74,4 @@ L'addebito è basato sul numero di minuti per cui viene effettuato il provisioni
 ## <a name="see-also"></a>Vedere anche
 
 * [Quote e limiti](limits-quotas-constraints.md)
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Interfaccia della riga di comando di Azure](/cli/azure/ams?view=azure-cli-latest)

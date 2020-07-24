@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051294"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
-Di seguito sono riportate alcune domande frequenti su tutti gli aspetti riguardanti la reimpostazione della password.
+Di seguito sono riportate alcune domande frequenti per tutti gli aspetti correlati alla reimpostazione della password self-service.
 
 Per domande generali su Azure Active Directory (Azure AD) e sulla reimpostazione della password self-service per cui non è disponibile una risposta in questo articolo, è possibile richiedere assistenza nella [pagina di domande e risposte Microsoft per Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La community è composta da ingegneri, responsabili di prodotto, MVP e informatici.
 
@@ -37,7 +38,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
   > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (https://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (https://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
   >
-  >
+  > Se si Abilita la [registrazione combinata](concept-registration-mfa-sspr-combined.md), gli utenti possono registrarsi sia per SSPR che per Azure multi-factor authentication nello stesso momento.
 * **D:  Se si abilita la reimpostazione della password per un gruppo e quindi si decide di abilitare questa funzionalità per tutti gli utenti, è necessario che gli utenti ripetano la registrazione?**
 
   > **R:** No. Gli utenti che hanno inserito i dati di autenticazione non devono ripetere la registrazione.

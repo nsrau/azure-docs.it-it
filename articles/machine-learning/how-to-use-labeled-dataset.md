@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9aec584271975982e1d58cc3525faee0d403e1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048079"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Creare ed esplorare Azure Machine Learning set di dati con etichette (anteprima)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creare ed esplorare il set di dati di Azure Machine Learning con etichette
 
 In questo articolo si apprenderà come esportare le etichette dati da un progetto di etichettatura dei data di Azure Machine Learning e come caricarle in formati comuni come un dataframe Pandas per l'esplorazione dei dati o un set di dati di Torchvision per la trasformazione delle immagini. 
 

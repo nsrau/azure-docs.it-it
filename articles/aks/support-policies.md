@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243852"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050681"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
 
@@ -137,7 +137,7 @@ Sebbene i clienti possano accedere e modificare i nodi di lavoro, questa operazi
 
 ## <a name="network-ports-access-and-nsgs"></a>Porte di rete, accesso e gruppi di sicurezza di rete
 
-Come servizio gestito, Azure Kubernetes presenta specifici requisiti di connettività, meno flessibili rispetto ai requisiti dei normali componenti IaaS. Nel servizio Azure Kubernetes, operazioni come la personalizzazione delle regole dei gruppi di sicurezza di rete, il blocco di una porta specifica (ad esempio, l'uso di regole del firewall che bloccano la porta in uscita 443) e l'inserimento di URL nell'elenco degli elementi consentiti possono rendere il cluster non supportato.
+Come servizio gestito, Azure Kubernetes presenta specifici requisiti di connettività, meno flessibili rispetto ai requisiti dei normali componenti IaaS. In AKS, operazioni come la personalizzazione delle regole di NSG, il blocco di una porta specifica (ad esempio, l'uso di regole firewall che bloccano la porta in uscita 443) e l'aggiunta di URL a un elenco di accesso consentito possono rendere il cluster non supportato.
 
 > [!NOTE]
 > Attualmente, il servizio Azure Kubernetes non consente di bloccare completamente il traffico in uscita dal cluster. Per controllare l'elenco di URL e porte che il cluster può usare per il traffico in uscita, vedere l'argomento su come [limitare il traffico in uscita](limit-egress-traffic.md).

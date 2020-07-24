@@ -5,11 +5,12 @@ description: Informazioni su come proteggere il traffico in ingresso e in uscita
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050483"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -157,13 +158,13 @@ kubectl label namespace/development purpose=development
 Creare un pod back-end di esempio che esegue NGINX. Questo pod back-end può essere usato per simulare un'applicazione back-end di esempio basata sul Web. Creare il pod nello spazio dei nomi *development* e aprire la porta *80* per gestire il traffico Web. Assegnare al pod l'etichetta *app=webapp,role=backend* in modo che sia possibile usarlo come destinazione con un criterio di rete nella sezione successiva:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
+kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Per verificare che si possa raggiungere correttamente la pagina Web di NGINX predefinita, creare un altro pod e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
@@ -219,7 +220,7 @@ kubectl apply -f backend-policy.yaml
 È il momento di verificare se è possibile usare nuovamente la pagina Web di NGINX nel pod back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. Questa volta impostare un valore di timeout di *2* secondi. I criteri di rete ora bloccano tutto il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
@@ -276,7 +277,7 @@ kubectl apply -f backend-policy.yaml
 Pianificare un pod etichettato *app=webapp,role=frontend* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita:
@@ -306,7 +307,7 @@ exit
 I criteri di rete consentono il traffico dai pod etichettati *app: webapp,role: frontend*, ma dovrebbero rifiutare tutto il resto del traffico. A questo punto è possibile verificare se un altro pod privo di queste etichette sia in grado di accedere al pod NGINX back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. I criteri di rete bloccano il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
@@ -339,7 +340,7 @@ kubectl label namespace/production purpose=production
 Pianificare un pod di test nello spazio dei nomi *production* con l'etichetta *app=webapp,role=frontend*. Collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
@@ -403,7 +404,7 @@ kubectl apply -f backend-policy.yaml
 Pianificare un altro pod nello spazio dei nomi *production* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 Nel prompt della shell usare `wget` per vedere che i criteri di rete ora rifiutano il traffico:
@@ -425,7 +426,7 @@ exit
 Con il traffico rifiutato dallo spazio dei nomi *production*, pianificare nuovamente un pod di test nello spazio dei nomi *development* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 Nel prompt della shell usare `wget` per vedere che i criteri di rete consentono il traffico:

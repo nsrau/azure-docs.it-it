@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048145"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
@@ -27,6 +28,7 @@ Questo modulo supporta l'esportazione dei dati nei servizi cloud data seguenti:
 - Condivisione file di Azure
 - Azure Data Lake
 - Azure Data Lake Gen2
+- Database SQL di Azure
 
 Prima di esportare i dati, è necessario prima registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per altre informazioni, vedere [accedere ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
 

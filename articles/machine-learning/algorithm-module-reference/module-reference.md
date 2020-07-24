@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048102"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informazioni di riferimento su algoritmi e moduli della finestra di progettazione di Azure Machine Learning (anteprima)
 
@@ -43,7 +43,7 @@ Per assistenza nella scelta degli algoritmi, vedere:
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> |
+| Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> [Poisson Regression](poisson-regression.md)  <br/>|
 | Clustering | Raggruppa i dati.| [Clustering K-Means](k-means-clustering.md)
 | Classificazione | Prevedono una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Uno contro tutti multiclasse) <br/> [Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Macchina a vettori di supporto a due classi) | 
 
@@ -51,7 +51,7 @@ Per assistenza nella scelta degli algoritmi, vedere:
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Training del modello | Eseguono i dati tramite l'algoritmo. |  [Train Clustering Model](train-clustering-model.md) (Training del modello di clustering) <br/> [Eseguire il training del modello](train-model.md) <br/> [Train Pytorch Model](train-pytorch-model.md) <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Ottimizza iperparametri del modello) |
+| Training del modello | Eseguono i dati tramite l'algoritmo. |  [Train Clustering Model](train-clustering-model.md) (Training del modello di clustering) <br/> [Eseguire il training del modello](train-model.md) <br/> [Training del modello Pytorch](train-pytorch-model.md) <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Ottimizza iperparametri del modello) |
 | Valutazione e assegnazione di punteggi al modello | Misurano l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (Assegna dati ai cluster) <br/> [Cross Validate Model](cross-validate-model.md) (Convalida incrociata modello) <br/> [Evaluate Model](evaluate-model.md) (Valuta modello) <br/> [Score Image Model](score-image-model.md) <br/> [Score Model](score-model.md) (Punteggio modello) |
 | Linguaggio di Python | Scrivono codice e lo incorporano in un modulo per integrare Python con la pipeline. | [Create Python Model](create-python-model.md) (Crea modello Python) <br/> [Execute Python Script](execute-python-script.md) (Esegui script Python) |
 | Linguaggio di R | Scrivono codice e lo incorporano in un modulo per integrare R con la pipeline. | [Execute R Script](execute-r-script.md) (Esegui script R) |

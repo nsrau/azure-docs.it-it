@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964754"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052839"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
 
@@ -282,7 +282,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
 
 ### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
-Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
+Per informazioni sullo schema, vedere [questo](/azure/media-services/previous/media-services-mes-schema) articolo.
 
 ```json
     {
@@ -347,7 +347,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Set di impostazioni XML
-Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
+Per informazioni sullo schema, vedere [questo](/azure/media-services/previous/media-services-mes-schema) articolo.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -576,4 +576,3 @@ Mentre è in corso il processo di codifica, è possibile controllarne lo [stato 
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
-

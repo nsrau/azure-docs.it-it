@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047589"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Panoramica del portale del Marketplace commerciale nel Centro per i partner
 
@@ -28,9 +28,9 @@ Il Centro per i partner è l'hub di un'esperienza partner Microsoft. Per le orga
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migrazione dal portale Cloud Partner
 
-Il Centro per i partner è in continua evoluzione per integrare meglio tutti gli aspetti della relazione con gli editori di software. Come parte di questa evoluzione, è stata eseguita la migrazione di tutte le attività di gestione delle offerte del marketplace commerciale dal [portale Cloud Partner](https://cloudpartner.azure.com/) al Centro per i partner.
+Il Centro per i partner è in continua evoluzione per integrare meglio tutti gli aspetti della relazione con gli editori di software. Come parte di questa evoluzione, è stata eseguita la migrazione di tutte le attività di gestione delle offerte di Marketplace commerciali dal portale Cloud Partner (CPP) al centro per i partner.
 
-Gli editori esistenti che in precedenza usavano il portale Cloud Partner troveranno un'esperienza utente familiare ma migliorata e intuitiva con il Centro per i partner. Gli utenti verranno indirizzati direttamente al percorso appropriato. I clienti non saranno interessati dall'aggiornamento dell'esperienza partner.
+Gli autori esistenti che in precedenza usavano CPP troveranno un'esperienza utente familiare ma migliorata e intuitiva con il centro per i partner. Gli utenti verranno indirizzati direttamente al percorso appropriato. I clienti non saranno interessati dall'aggiornamento dell'esperienza partner.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Miglioramenti alla pubblicazione e all'esperienza utente di gestione delle offerte
 

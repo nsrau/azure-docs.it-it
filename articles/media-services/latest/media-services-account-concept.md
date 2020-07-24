@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053110"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gestire gli account di servizi multimediali di Azure V3
 
@@ -36,10 +37,10 @@ Se è necessario spostare un account di servizi multimediali in una nuova sottos
 > [!IMPORTANT]
 > Non avviare l'endpoint di streaming finché il passaggio non viene completato correttamente.
 
-### <a name="troubleshoot"></a>Risolvere problemi 
+### <a name="troubleshoot"></a>Risoluzione dei problemi 
 
 Se un account di servizi multimediali o un account di archiviazione di Azure associato diventa "disconnesso" dopo lo spostamento del gruppo di risorse, provare a ruotare le chiavi dell'account di archiviazione. Se la rotazione delle chiavi dell'account di archiviazione non risolve lo stato "disconnesso" dell'account di servizi multimediali, inserire una nuova richiesta di supporto dal menu "supporto e risoluzione dei problemi" nell'account di servizi multimediali.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un account](create-account-cli-quickstart.md)
+[Creare un account](./create-account-howto.md)

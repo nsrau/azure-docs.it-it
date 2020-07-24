@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77468763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052481"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -22,31 +23,31 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 
 * caricare il video da un URL (scelta consigliata),
 * inviare il file video come matrice di byte nel corpo della richiesta,
-* Usare l'asset di servizi multimediali di Azure esistente fornendo l' [ID asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportato solo negli account a pagamento).
+* usare l'asset di Servizi multimediali di Azure esistente indicando l'[ID asset](../latest/assets-concept.md) (supportato solo negli account a pagamento).
 
 Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
 Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
-* [Il sito Web Video Indexer](#website) 
-* [API Video Indexer](#apis)
+* [Sito Web di Video Indexer](#website) 
+* [API di Video Indexer](#apis)
 
-## <a name="uploading-considerations-and-limitations"></a>Caricamento di considerazioni e limitazioni
+## <a name="uploading-considerations-and-limitations"></a>Considerazioni e limiti sul caricamento
  
 - Il nome del video non può contenere più di 80 caratteri.
-- Quando si carica il video in base all'URL (scelta consigliata), l'endpoint deve essere protetto con TLS 1,2 (o versione successiva).
+- Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 o una versione successiva.
 - Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB.
 - La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
-- Le dimensioni di caricamento con l'opzione di matrice di byte sono limitate a 2 GB.
-- L'opzione della matrice di byte scade dopo 30 minuti.
+- Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB.
+- L'opzione di matrice di byte raggiunge il timeout dopo 30 minuti.
 - L'URL specificato nel `videoURL` parametro deve essere codificato.
-- L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
+- L'indicizzazione degli asset di Servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
 - Video Indexer ha un limite di durata massima di 4 ore per un singolo file.
 - L'URL deve essere accessibile, ad esempio un URL pubblico. 
 
     Se è un URL privato, il token di accesso deve essere specificato nella richiesta.
 - L'URL deve puntare a un file multimediale valido e non a una pagina Web, ad esempio un collegamento alla `www.youtube.com` pagina.
-- In un account a pagamento puoi caricare fino a 50 film al minuto e in un account di valutazione fino a 5 film al minuto.
+- In un account a pagamento è possibile caricare fino a 50 film al minuto e in un account di prova gratuito fino a 5 film al minuto.
 
 > [!Tip]
 > È consigliabile usare .NET framework versione 4.6.2. o versione successiva perché le versioni precedenti di .NET Framework non usano per impostazione predefinita TLS 1.2.
@@ -57,7 +58,7 @@ Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
 Per un elenco dei formati di file che è possibile usare con Video Indexer, vedere l'articolo [Contenitore di input/formati di file](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Caricare e indicizzare un video tramite il sito Web Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Caricare e indicizzare un video tramite il sito Web Video Indexer
 
 > [!NOTE]
 > Il nome del video non può contenere più di 80 caratteri.
@@ -73,7 +74,7 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 
     Al termine dell'analisi si riceverà una notifica con un collegamento al video e una breve descrizione di ciò che è stato trovato nel video. Ad esempio: persone, argomenti, OCR.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>Caricare e indicizzare con l'API
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>Caricare e indicizzare con l'API
 
 Usare l'API di [caricamento video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice seguente include il codice commentato che Mostra come caricare la matrice di byte. 
 
@@ -141,7 +142,7 @@ Una volta caricato il video, facoltativamente Video Indexer lo codifica. Procede
 
 Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPreset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
 
-Per poter eseguire i processi di indicizzazione e codifica, l'[account di Servizi multimediali di Microsoft Azure connesso al proprio account di Video Indexer](connect-to-azure.md) richiede unità riservate. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Poiché si tratta di processi a elevato utilizzo di calcolo, è consigliabile il tipo di unità S3. Il numero di unità riservate definisce il numero massimo di processi che è possibile eseguire in parallelo. In linea generale è consigliabile usare 10 unità riservate S3. 
+Per poter eseguire i processi di indicizzazione e codifica, l'[account di Servizi multimediali di Microsoft Azure connesso al proprio account di Video Indexer](connect-to-azure.md) richiede unità riservate. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). Poiché si tratta di processi a elevato utilizzo di calcolo, è consigliabile il tipo di unità S3. Il numero di unità riservate definisce il numero massimo di processi che è possibile eseguire in parallelo. In linea generale è consigliabile usare 10 unità riservate S3. 
 
 Se si vuole solo indicizzare il video, ma non codificarlo, impostare `streamingPreset` su `NoStreaming`.
 
@@ -164,7 +165,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
     Per ottenere la chiave API, passare a questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/
-    * Accedi
+    * Login
     * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.

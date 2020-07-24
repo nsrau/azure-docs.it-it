@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699431"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050362"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Spostare Analysis Services in un'area diversa
 
@@ -52,7 +54,7 @@ Prima di trasferire un server in un'area diversa, è consigliabile creare un pia
 - **SQL Server Management Studio (SSMS)**: obbligatorio per il backup e il ripristino dei database modello.
 - **Azure PowerShell**. Obbligatorio solo se si sceglie di completare questa attività usando PowerShell.
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 ### <a name="backup-model-databases"></a>Database modello di backup
 
@@ -181,7 +183,7 @@ Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microso
    Get-AzLocation | format-table 
 ```
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 Per distribuire una nuova risorsa server in un'area diversa, si userà il **template.js** nel file esportato e modificato nelle sezioni precedenti.
 
@@ -195,7 +197,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
 4. Selezionare **Crea**.
 
-5. Selezionare **Compila un modello personalizzato nell'editor**.
+5. Selezionare **Creare un modello personalizzato nell'editor**.
 
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.jsnel** file esportato e modificato.
 
@@ -278,7 +280,7 @@ Facoltativo: [Alm Toolkit](http://alm-toolkit.com/) è uno strumento *Open Sourc
 
 :::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Dopo la verifica, le applicazioni client possono connettersi al nuovo server e gli script di automazione sono in esecuzione correttamente, eliminare il server di origine. 
 

@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: Problemi noti- Internet Explorer e Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Problemi noti- Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: Gestire errori ed eccezioni
               href: msal-handling-exceptions.md?tabs=javascript
             - name: Registrazione

@@ -40,8 +40,6 @@
               href: quickstarts/python-layout.md
 - name: Esercitazioni
   items:
-    - name: Usare Riconoscimento modulo con App per la logica
-      href: tutorial-form-recognizer-with-logic-apps.md
     - name: Usare Riconoscimento modulo con Ricerca cognitiva
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Guide pratiche
@@ -66,8 +64,6 @@
   items:
     - name: API Riconoscimento modulo v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-    - name: API Riconoscimento modulo v1.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET
@@ -75,9 +71,9 @@
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre'
         - name: JavaScript
-          href: 'https://docs.microsoft.com/azure/cognitive-services/form-recognizer/'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre'
 - name: Risorse
   items:
     - name: Prezzi e limiti

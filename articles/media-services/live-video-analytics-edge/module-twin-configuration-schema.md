@@ -3,15 +3,16 @@ title: Schema JSON del modulo gemello-Azure
 description: Questo argomento descrive lo schema JSON del modulo gemello di analisi video in tempo reale su IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053059"
 ---
 # <a name="module-twin-json-schema"></a>Schema JSON del modulo gemello
 
-I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. Per una spiegazione dettagliata, vedere [comprendere e usare i moduli gemelli nell'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) Internet
+I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. L'hub IoT di Azure gestisce un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. Per una spiegazione dettagliata, vedere [comprendere e usare i moduli gemelli nell'hub](../../iot-hub/iot-hub-devguide-module-twins.md) Internet
 
 Questo argomento descrive lo schema JSON del modulo gemello di analisi video in tempo reale su IoT Edge.
 
@@ -42,7 +43,7 @@ Analisi video in tempo reale su IoT Edge espone le proprietà gemelle del modulo
 
 <sup>*</sup>È necessario fornire un certificato o una password dell'entità servizio. 
 
-È possibile aggiornare le proprietà dinamiche senza riavviare il modulo. È possibile ottenere i valori per molte di queste proprietà seguendo le istruzioni riportate nell'articolo [ottenere l'accesso all'API di servizi multimediali](../latest/access-api-cli-how-to.md) . 
+È possibile aggiornare le proprietà dinamiche senza riavviare il modulo. È possibile ottenere i valori per molte di queste proprietà seguendo le istruzioni riportate nell'articolo [ottenere l'accesso all'API di servizi multimediali](../latest/access-api-howto.md) . 
 
 Per ulteriori informazioni sul ruolo delle impostazioni di diagnostica facoltative, vedere l'articolo relativo al [monitoraggio e alla registrazione](monitoring-logging.md) .
 

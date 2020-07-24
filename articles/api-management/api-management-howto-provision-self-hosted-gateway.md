@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050339"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Effettuare il provisioning di un gateway self-hosted in gestione API di Azure
 
@@ -31,7 +31,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 
 ## <a name="provision-a-self-hosted-gateway"></a>Effettuare il provisioning di un gateway self-hosted
 
-1. Selezionare i **gateway** in **Impostazioni**.
+1. Selezionare i **gateway** in **distribuzione e infrastruttura**.
 2. Fare clic su **+ Aggiungi**.
 3. Immettere il **nome** e l' **area** del gateway.
 > [!TIP]

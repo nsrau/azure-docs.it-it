@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111270"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050043"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala (anteprima)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111270"
 Usare i criteri di Azure per applicare che a ogni `Microsoft.Kubernetes/connectedclusters` risorsa o risorsa abilitata per git-Ops `Microsoft.ContainerService/managedClusters` è stata applicata una specifica `Microsoft.KubernetesConfiguration/sourceControlConfigurations` applicazione. Per usare Criteri di Azure, selezionare una definizione dei criteri esistente e creare un'assegnazione di criteri. Quando si crea l'assegnazione dei criteri, si imposta l'ambito per l'assegnazione: si tratterà di un gruppo di risorse o una sottoscrizione di Azure. È anche possibile impostare i parametri per la `sourceControlConfiguration` da creare. Una volta creata l'assegnazione, il motore dei criteri identificherà tutte le risorse `connectedCluster` o `managedCluster` che si trovano all'interno dell'ambito e applicherà `sourceControlConfiguration` a ciascuna di esse.
 
 Se si usano più repository Git come origini di verità per ogni cluster (ad esempio, un repository per l'operatore IT centrale/cluster e altri repository per i team di applicazioni), è possibile abilitare questa impostazione usando più assegnazioni di criteri, con ciascuna assegnazione di criteri che sarà configurata per l'uso di un repository Git diverso.
+
+## <a name="prerequisite"></a>Prerequisito
+
+Assicurarsi `Microsoft.Authorization/policyAssignments/write` di disporre delle autorizzazioni per l'ambito (sottoscrizione o gruppo di risorse) in cui si desidera creare l'assegnazione dei criteri.
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
@@ -42,7 +46,7 @@ Dopo aver creato l'assegnazione dei criteri, per qualsiasi nuova risorsa `connec
 
 ## <a name="verify-a-policy-assignment"></a>Verificare un'assegnazione di criteri
 
-1. Nel portale di Azure passare a una delle risorse di `connectedCluster` e nella sezione **Impostazioni** della barra laterale selezionare **Criteri**. L'esperienza utente per il cluster gestito dal servizio Azure Kubernetes non è ancora implementata, ma lo sarà presto.
+1. Nel portale di Azure passare a una delle risorse di `connectedCluster` e nella sezione **Impostazioni** della barra laterale selezionare **Criteri**. L'esperienza utente per il cluster AKS non è ancora implementata, ma è in arrivo.
 2. Nell'elenco dovrebbe essere visualizzata l'assegnazione di criteri creata in precedenza e lo **stato di conformità** sarà *Conforme*.
 3. Nella sezione **Impostazioni** della barra laterale selezionare **Configurazioni**.
 4. Nell'elenco verranno visualizzato il valore `sourceControlConfiguration` creato dall'assegnazione dei criteri.

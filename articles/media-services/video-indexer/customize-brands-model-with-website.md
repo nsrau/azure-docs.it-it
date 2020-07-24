@@ -9,13 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: 81df3897dff13823e4b97e10bc91d3a22b0e1b0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047268"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizzare un modello di Marchi con il sito Web di Video Indexer
 
@@ -33,7 +33,7 @@ Per una panoramica dettagliata, vedere questa [Panoramica](customize-brands-mode
 
 ## <a name="edit-brands-model-settings"></a>Modificare le impostazioni del modello di marchi
 
-È possibile scegliere se rilevare o meno i marchi dal database dei marchi di Bing. Per impostare questa opzione, è necessario modificare le impostazioni del modello di marchi. A tale scopo, seguire questa procedura:
+È possibile scegliere se rilevare o meno i marchi dal database dei marchi di Bing. Per impostare questa opzione, è necessario modificare le impostazioni del modello di marchi. Seguire questa procedura:
 
 1. Accedere al sito Web di [video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 2. Per personalizzare un modello nell'account, selezionare il pulsante **personalizzazione modello di contenuto** nell'angolo superiore destro della pagina.
