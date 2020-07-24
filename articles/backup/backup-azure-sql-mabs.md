@@ -3,11 +3,12 @@ title: Eseguire il backup di SQL Server tramite server di Backup di Azure
 description: Questo articolo illustra la configurazione per eseguire il backup dei database SQL Server usando Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 2bb172ca36f3f932fdaaf5b71e8fa183c04d1510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d682e63424ca247161e9784a8a05b91186da54b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003645"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure usando server di Backup di Azure
 
@@ -18,6 +19,34 @@ Per eseguire il backup di un database di SQL Server e ripristinarlo da Azure:
 1. Creare un criterio di backup per proteggere i database di SQL Server in Azure.
 1. Creare copie di backup su richiesta in Azure.
 1. Ripristinare il database in Azure.
+
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
+
+* Se un database con file è ubicato in una condivisione di file remota, la protezione fallirà con Errore ID 104. MAB non supporta la protezione per i dati SQL Server in una condivisione file remota.
+* MAB non è in grado di proteggere i database archiviati nelle condivisioni SMB remote.
+* Verificare che le [repliche del gruppo di disponibilità siano configurate in sola lettura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* È necessario aggiungere in modo esplicito l'account di sistema **NTAuthority\System** al gruppo Sysadmin in SQL Server.
+* Quando si esegue un ripristino del percorso alternativo per un database parzialmente indipendente, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità [database indipendenti](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) .
+* Quando si esegue un ripristino in un percorso alternativo per un database di un flusso di file, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità di [database del flusso di file](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) .
+* Protezione per SQL Server AlwaysOn:
+  * MAB rileva i gruppi di disponibilità durante l'esecuzione di una richiesta di verifica nella creazione del gruppo protezione
+  * MAB rileva un failover e continua la protezione del database.
+  * MAB supporta le configurazioni di cluster multisito per un'istanza di SQL Server.
+* Quando si proteggono i database che utilizzano la funzionalità AlwaysOn, MAB presenta le limitazioni seguenti:
+  * MAB rispetterà i criteri di backup per i gruppi di disponibilità impostati in SQL Server in base alle preferenze di backup, come indicato di seguito:
+    * Preferisco secondario: i backup devono essere eseguiti in una replica secondaria tranne quando la replica primaria è l'unica replica online. Se sono disponibili più repliche secondarie, verrà selezionato per il backup il nodo con la priorità di backup più elevata. Se è disponibile solo la replica primaria, il backup deve essere eseguito nella replica primaria.
+    * Solo secondario: il backup non deve essere eseguito nella replica primaria. Se la replica primaria è l'unica online, il backup non deve essere eseguito.
+    * Primario: i backup devono essere sempre eseguiti nella replica primaria.
+    * Qualsiasi replica: i backup possono essere eseguiti in qualsiasi replica nel gruppo di disponibilità. Il nodo da cui eseguire il backup sarà basato sulle priorità di backup per ciascuno dei nodi.
+  * Tenere presente quanto segue:
+    * I backup possono essere eseguiti da qualsiasi replica leggibile, ovvero primario, secondario sincrono, secondario asincrono.
+    * Se una replica viene esclusa dal backup, ad esempio se **Escludi replica** è abilitato o è contrassegnato come non leggibile, la replica non verrà selezionata per il backup in alcuna opzione.
+    * Se sono disponibili e leggibili più repliche, per il backup verrà selezionato il nodo con la priorità di backup più elevata.
+    * Se il backup non riesce nel nodo selezionato, l'operazione di backup avrà esito negativo.
+    * Il ripristino nel percorso originale non è supportato.
+* Problemi di backup SQL Server 2014 o versioni successive:
+  * SQL Server 2014 ha aggiunto una nuova funzionalità per creare un [database per SQL Server locale nell'archivio BLOB di Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Non è possibile usare MAB per proteggere questa configurazione.
+  * Esistono alcuni problemi noti relativi alla preferenza di backup "preferisci secondario" per l'opzione SQL AlwaysOn. MAB accetta sempre un backup dal database secondario. Se non viene trovato alcun database secondario, il backup ha esito negativo.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -90,7 +119,7 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
 
     ![Scegliere un criterio di conservazione in MAB](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    Esempio:
+    In questo esempio:
 
     * I backup vengono eseguiti ogni giorno alle ore 12:00 e 8:00. Sono conservati per 180 giorni.
     * Il backup di sabato alle 12:00 PM viene mantenuto per 104 settimane.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 37e6b2986f76529b5f3b2edc69f50259485df0b4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006518"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster di Azure HDInsight tramite il firewall
 
@@ -75,7 +75,7 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
 
     **Sezione FQDN di destinazione**
 
-    | Nome | Indirizzi di origine | `Protocol:Port` | FQDN di destinazione | Note |
+    | Nome | Indirizzi di origine | Protocollo: porta | FQDN di destinazione | Note |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Consente l'attività di accesso di Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Consente l'attività di accesso di Windows |
@@ -95,9 +95,9 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
     **Sezione superiore**
 
-    | Proprietà|  valore|
+    | Proprietà|  Valore|
     |---|---|
-    |Nome| FwNetRule|
+    |Name (Nome)| FwNetRule|
     |Priorità|200|
     |Azione|Allow|
 

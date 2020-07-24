@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004767"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -54,7 +54,7 @@ Per modificare le impostazioni:
 
 Nella tabella seguente viene fornito un riepilogo dei costi associati e delle implicazioni di ogni opzione.
 
-|     | Utilizzo | Commento |
+| Opzione | Utilizzo | Commento |
 | --- | --- | --- |
 | **Archiviazione Log Analytics** |  |
 | Suggerimenti e avvisi del dispositivo| Avvisi e avvisi di sicurezza generati dal servizio | Non facoltativo |

@@ -13,19 +13,19 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004104"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'assegnazione di etichette e la segnalazione dei dati sensibili nei database.
 
-I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Possono costituire l'infrastruttura per:
+I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Supporto per soddisfare gli standard per la privacy dei dati e i requisiti per la conformità alle normative.
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
@@ -117,7 +117,7 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Controllare l'accesso ai dati sensibili
 
-Un aspetto importante del paradigma di protezione delle informazioni è la possibilità di monitorare l'accesso ai dati sensibili. Il [controllo SQL di Azure](../../azure-sql/database/auditing-overview.md) è stato migliorato per includere un nuovo campo nel log di controllo denominato `data_sensitivity_information` . Questo campo registra le classificazioni di riservatezza (etichette) dei dati restituiti da una query. Ad esempio:
+Un aspetto importante del paradigma di protezione delle informazioni è la possibilità di monitorare l'accesso ai dati sensibili. Il [controllo SQL di Azure](../../azure-sql/database/auditing-overview.md) è stato migliorato per includere un nuovo campo nel log di controllo denominato `data_sensitivity_information` . Questo campo registra le classificazioni di riservatezza (etichette) dei dati restituiti da una query. Ecco un esempio:
 
 ![Log di controllo](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -126,10 +126,10 @@ Un aspetto importante del paradigma di protezione delle informazioni è la possi
 Questi ruoli predefiniti possono leggere la classificazione dei dati di un database:
 
 - Proprietario
-- Reader
+- Lettore
 - Autore di contributi
 - Gestione della sicurezza SQL
-- Amministratore accessi utente
+- Amministratore Accesso utenti
 
 Questi ruoli predefiniti possono modificare la classificazione dei dati di un database:
 
@@ -137,7 +137,7 @@ Questi ruoli predefiniti possono modificare la classificazione dei dati di un da
 - Collaboratore
 - Gestione della sicurezza SQL
 
-Altre informazioni sulle autorizzazioni basate sui ruoli in [RBAC per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Altre informazioni sulle autorizzazioni basate sui ruoli in [RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Gestire le classificazioni
 

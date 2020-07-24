@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003628"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -157,7 +157,7 @@ Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni s
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
 1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
 1. Selezionare **Avanti**.
-1. In **selezione test**selezionare tutti i test *eccetto* **spazi di archiviazione diretta**.
+1. In **selezione test**selezionare tutti i test *eccetto* **archiviazione**
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
 
@@ -181,9 +181,7 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
-   Le directory di dati dell'istanza del cluster di failover devono trovarsi nelle risorse di archiviazione del cluster. Con Spazi di archiviazione diretta non si tratterà di un disco condiviso, ma di un punto di montaggio per un volume in ogni server. Spazi di archiviazione diretta sincronizza il volume tra i due nodi. Il volume viene presentato al cluster come Volume condiviso cluster (CSV). Usare il punto di montaggio del volume condiviso cluster per le directory di dati.
-
-   ![Directory dati](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure. 
 
 1. Dopo aver completato le istruzioni della procedura guidata, verrà installata un'istanza del cluster di failover di SQL Server nel primo nodo.
 

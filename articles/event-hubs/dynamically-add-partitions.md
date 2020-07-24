@@ -3,12 +3,12 @@ title: Aggiungere in modo dinamico partizioni a un hub eventi in Hub eventi di A
 description: Questo articolo illustra come aggiungere partizioni in modo dinamico a un hub eventi in Hub eventi di Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317948"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002540"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Aggiungere in modo dinamico partizioni a un hub eventi (argomento Apache Kafka) in Hub eventi di Azure
 Hub eventi fornisce lo streaming di messaggi tramite un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti. Una partizione è una sequenza ordinata di eventi contenuta in un hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Per altre informazioni sulle partizioni in generale, vedere [Partizioni](event-hubs-scalability.md#partitions)
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Usare il comando dell'interfaccia della riga di comando [az eventhubs eventhub update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) per aggiornare le partizioni in un hub eventi. 
+Usare il [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) comando dell'interfaccia della riga di comando per aggiornare le partizioni in un hub eventi. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -64,13 +64,13 @@ Usare l'API `AlterTopics` (ad esempio, tramite l'interfaccia della riga di coman
 ## <a name="event-hubs-clients"></a>Client di Hub eventi
 Verrà ora esaminato il comportamento dei client di Hub eventi quando il numero di partizioni viene aggiornato in un hub eventi. 
 
-Quando si aggiunge una partizione a un hub eventi esistente, il client dell'hub eventi riceve un'eccezione di tipo "MessagingException" dal servizio indicante ai client che i metadati dell'entità (l'entità è l'hub eventi e i metadati sono le informazioni sulla partizione) sono stati modificati. I client riapriranno automaticamente i collegamenti AMQP, che preleveranno le informazioni sui metadati modificati. I client quindi funzionano normalmente.
+Quando si aggiunge una partizione a un hub uniforme esistente, il client dell'hub eventi riceve un `MessagingException` dal servizio che informa i client che i metadati dell'entità (l'entità è l'hub eventi e i metadati sono le informazioni sulla partizione) è stato modificato. I client riapriranno automaticamente i collegamenti AMQP, che preleveranno le informazioni sui metadati modificati. I client quindi funzionano normalmente.
 
 ### <a name="senderproducer-clients"></a>Client mittenti/producer
 Hub eventi offre tre opzioni di mittente:
 
 - **Mittente partizione**: in questo scenario, i client inviano eventi direttamente a una partizione. Sebbene le partizioni siano identificabili e sia possibile inviarvi direttamente gli eventi, questo modello non è consigliato. L'aggiunta di partizioni non ha alcun effetto su questo scenario. Si consiglia di riavviare le applicazioni in modo che possano rilevare le partizioni appena aggiunte. 
-- **Mittente chiave di partizione**: in questo scenario, i client inviano gli eventi con una chiave in modo che tutti gli eventi appartenenti a tale chiave si trovino nella stessa partizione. In questo caso, il servizio esegue l'hashing della chiave e la instrada alla partizione corrispondente. L'aggiornamento del numero di partizioni può causare problemi di ordinamento dovuti alla modifica dell'hashing. Pertanto, se si è interessati all'ordinamento, assicurarsi che l'applicazione usi tutti gli eventi delle partizioni esistenti prima di aumentare il numero di partizioni.
+- **Mittente chiave di partizione**: in questo scenario, i client inviano gli eventi con una chiave in modo che tutti gli eventi appartenenti a tale chiave si trovino nella stessa partizione. In questo caso, il servizio esegue l'hashing della chiave e la instrada alla partizione corrispondente. L'aggiornamento del numero di partizioni può causare problemi non ordinati a causa della modifica dell'hash. Pertanto, se si è interessati all'ordinamento, assicurarsi che l'applicazione usi tutti gli eventi delle partizioni esistenti prima di aumentare il numero di partizioni.
 - **Mittente round robin (impostazione predefinita)** : in questo scenario, il servizio Hub eventi esegue il meccanismo di round robin per gli eventi tra le partizioni. Il servizio Hub eventi riconosce le modifiche al numero di partizioni ed eseguirà l'invio a nuove partizioni entro pochi secondi dalla modifica del numero di partizioni.
 
 ### <a name="receiverconsumer-clients"></a>Client destinatari/consumer
@@ -84,7 +84,7 @@ Hub eventi fornisce destinatari diretti e una semplice libreria di consumer deno
 ## <a name="apache-kafka-clients"></a>Client Apache Kafka
 Questa sezione descrive in che modo si comportano i client Apache Kafka che usano l'endpoint Kafka di Hub eventi di Azure quando il numero di partizioni viene aggiornato per un hub eventi. 
 
-I client Kafka che usano Hub eventi con il protocollo Apache Kafka si comportano in modo diverso rispetto ai client dell'hub eventi che usano il protocollo AMQP. I client Kafka aggiornano i metadati una volta ogni `metadata.max.age.ms` millisecondi. Questo valore viene specificato nelle configurazioni client. Le librerie `librdkafka` usano la stessa configurazione. Gli aggiornamenti dei metadati indicano ai client le modifiche di servizio, incluso l'aumento del numero di partizioni. Per un elenco di configurazioni, vedere le [configurazioni Apache Kafka per Hub eventi](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+I client Kafka che usano Hub eventi con il protocollo Apache Kafka si comportano in modo diverso rispetto ai client dell'hub eventi che usano il protocollo AMQP. I client Kafka aggiornano i metadati una volta ogni `metadata.max.age.ms` millisecondi. Questo valore viene specificato nelle configurazioni client. Le librerie `librdkafka` usano la stessa configurazione. Gli aggiornamenti dei metadati indicano ai client le modifiche di servizio, incluso l'aumento del numero di partizioni. Per un elenco delle configurazioni, vedere [Apache Kafka configurazioni per hub eventi](apache-kafka-configurations.md).
 
 ### <a name="senderproducer-clients"></a>Client mittenti/producer
 I producer stabiliscono sempre che le richieste di invio contengano la destinazione della partizione per ogni set di record prodotti. Quindi, tutto il partizionamento di produzione viene eseguito sul lato client con la visualizzazione dei metadati del broker da parte del producer. Una volta aggiunte le nuove partizioni alla visualizzazione dei metadati del producer, sono disponibili per le richieste del producer.
@@ -100,7 +100,7 @@ Quando un membro del gruppo di consumer esegue un aggiornamento dei metadati e p
     > Mentre i dati esistenti mantengono l'ordinamento, l'hashing della partizione viene interrotto per i messaggi con hashing dopo la modifica del numero di partizioni a causa dell'aggiunta di partizioni.
 - L'aggiunta di una partizione a un argomento o a un'istanza di hub eventi esistente è consigliata nei casi seguenti:
     - Quando si usa il metodo round robin (impostazione predefinita) per l'invio di eventi
-     - In caso di strategie di partizionamento predefinite Kafka, ad esempio la strategia StickyAssignor
+     - Strategie di partizionamento predefinite Kafka, esempio: strategia di assegnazione Sticky
 
 
 ## <a name="next-steps"></a>Passaggi successivi

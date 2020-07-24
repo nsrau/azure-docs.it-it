@@ -3,14 +3,14 @@ title: Sicurezza dei dati di automazione di Azure
 description: Questo articolo illustra in che modo automazione di Azure protegge la privacy e protegge i dati.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/03/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004648"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
@@ -50,7 +50,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 | Data | Policy |
 |:--- |:--- |
 | Account |Un account viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente. |
-| Asset |Un asset viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede l'asset. |
+| Asset |Un asset viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede l'asset. Gli asset includono variabili, pianificazioni, credenziali, certificati, pacchetti Python 2 e connessioni. |
 | Nodi DSC |Un nodo DSC viene rimosso in modo permanente 30 giorni dopo l'annullamento della registrazione dall'account di Automazione tramite il portale di Azure o il cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 30 giorni dopo aver eliminato l'account che possiede il nodo. |
 | Processi |Un processo viene eliminato e rimosso definitivamente 30 giorni dopo la modifica, ad esempio dopo il completamento, l'arresto o la sospensione del processo. |
 | Moduli |Un modulo viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede il modulo. |
@@ -66,7 +66,7 @@ Quando si elimina un account di automazione in Azure, vengono eliminati tutti gl
 
 ### <a name="runbooks"></a>Runbook
 
-È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) in Windows PowerShell. È possibile importare questi file di script in un altro account di Automazione, come illustrato in [Gestire runbook in Automazione di Azure](manage-runbooks.md).
+È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) in Windows PowerShell. È possibile importare questi file di script in un altro account di Automazione, come illustrato in [Gestire runbook in Automazione di Azure](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Moduli di integrazione
 

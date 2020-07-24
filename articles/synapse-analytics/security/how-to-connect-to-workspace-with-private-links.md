@@ -1,5 +1,5 @@
 ---
-title: Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati
+title: Connettersi a un'area di lavoro sinapsi usando i collegamenti privati
 description: Questo articolo illustra come connettersi all'area di lavoro di Azure Synapse con i collegamenti privati
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005974"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati (anteprima)
 
@@ -47,7 +47,7 @@ Selezionare **Avanti: Configurazione>** per passare alla parte successiva della 
 
 Nella scheda **Configurazione** selezionare la **Rete virtuale** e la **Subnet** in cui creare l'endpoint privato. È anche necessario creare un record DNS che esegue il mapping nell'endpoint privato.
 
-Selezionare **Sì** per **Integra con la zona DNS privata** per integrare l'endpoint privato con una zona DNS privata. Se non vi è alcuna una zona DNS privata associata alla rete virtuale, viene creata una nuova zona DNS privata. Al termine selezionare **Rivedi e crea**.
+Selezionare **Sì** per **Integra con la zona DNS privata** per integrare l'endpoint privato con una zona DNS privata. Se non si dispone di una zona DNS privata associata alla Rete virtuale di Microsoft Azure, viene creata una nuova zona DNS privata. Al termine selezionare **Rivedi e crea**.
 
 ![Selezionare i dettagli per la sottoscrizione e l'area](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -57,7 +57,7 @@ Al termine della distribuzione, aprire l'area di lavoro di Azure Synapse nel por
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [Rete virtuale dell'area di lavoro gestita](./synapse-workspace-managed-vnet.md)
+Altre informazioni sulla [rete virtuale dell'area di lavoro gestita](./synapse-workspace-managed-vnet.md)
 
 Altre informazioni sugli [endpoint privati gestiti](./synapse-workspace-managed-private-endpoints.md)
 

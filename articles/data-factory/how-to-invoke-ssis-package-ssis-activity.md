@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003209"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory
 
@@ -57,7 +57,7 @@ In questo passaggio si usa l'interfaccia utente o l'app Data Factory per creare 
 
 Nella scheda **generale** dell'attività Esegui pacchetto SSIS completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![Impostare le proprietà nella scheda Generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. Per **nome**immettere il nome dell'attività Esegui pacchetto SSIS.
 
@@ -77,7 +77,7 @@ Nella scheda **generale** dell'attività Esegui pacchetto SSIS completare i pass
 
 Nella scheda **Impostazioni** dell'attività Esegui pacchetto SSIS completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Impostazioni - Modalità automatica](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![Impostare le proprietà nella scheda Impostazioni - Modalità automatica](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. Per **Azure-SSIS IR**, selezionare il Azure-SSIS IR designato per eseguire l'attività Esegui pacchetto SSIS.
 
@@ -103,13 +103,13 @@ Nella scheda **Impostazioni** dell'attività Esegui pacchetto SSIS completare i 
 
    1. Se il Azure-SSIS IR non è in esecuzione o la casella di controllo **voci manuali** è selezionata, immettere i percorsi del pacchetto e dell'ambiente da SSISDB direttamente nei formati seguenti: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>` .
 
-   ![Impostare le proprietà nella scheda Impostazioni - Modalità manuale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![Impostare le proprietà nella scheda Impostazioni - Modalità manuale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>Percorso pacchetto: file System (pacchetto)
 
 Il **file System (pacchetto)** come percorso del pacchetto viene selezionato automaticamente se è stato effettuato il provisioning del Azure-SSIS IR senza SSISDB oppure è possibile selezionarlo autonomamente. Se questa opzione è selezionata, completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Impostazioni-file System (pacchetto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![Impostare le proprietà nella scheda Impostazioni-file System (pacchetto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. Specificare il pacchetto da eseguire fornendo un percorso di Universal Naming Convention (UNC) al file del pacchetto (con `.dtsx` ) nella casella **percorso pacchetto** . È possibile cercare e selezionare il pacchetto selezionando **Esplora file archiviazione** oppure immettere il percorso manualmente. Se ad esempio si archivia il pacchetto in File di Azure, il percorso è `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
@@ -133,13 +133,13 @@ Il **file System (pacchetto)** come percorso del pacchetto viene selezionato aut
    
    1. Specificare le credenziali per accedere alla cartella dei log. Se in precedenza sono stati immessi i valori per le credenziali di accesso al pacchetto (vedere sopra), è possibile riutilizzarli selezionando la stessa casella di controllo **credenziali di accesso al pacchetto** . In caso contrario, immettere i valori per le credenziali di accesso alla registrazione nelle caselle **dominio**, **nome utente**e **password** . Se ad esempio si archiviano i log in File di Azure, il dominio è `Azure` , il nome utente è `<storage account name>` e la password è `<storage account key>` . In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori (vedere sopra).
    
-   Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
+Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
 
 ##### <a name="package-location-file-system-project"></a>Percorso pacchetto: file System (progetto)
 
 Se si seleziona **file System (Project)** come percorso del pacchetto, completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Impostazioni-file System (progetto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![Impostare le proprietà nella scheda Impostazioni-file System (progetto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. Specificare il pacchetto da eseguire fornendo un percorso UNC per il file di progetto (con `.ispac` ) nella casella **percorso progetto** e un file di pacchetto (con `.dtsx` ) dal progetto nella casella **nome pacchetto** . È possibile cercare e selezionare il progetto selezionando **Esplora file archiviazione** oppure immettere il percorso manualmente. Se, ad esempio, si archivia il progetto in File di Azure, il percorso è `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
@@ -161,19 +161,19 @@ Se si seleziona **file System (Project)** come percorso del pacchetto, completar
    
    1. Specificare le credenziali per accedere alla cartella dei log. Se in precedenza sono stati immessi i valori per le credenziali di accesso al pacchetto (vedere sopra), è possibile riutilizzarli selezionando la stessa casella di controllo **credenziali di accesso al pacchetto** . In caso contrario, immettere i valori per le credenziali di accesso alla registrazione nelle caselle **dominio**, **nome utente**e **password** . Se ad esempio si archiviano i log in File di Azure, il dominio è `Azure` , il nome utente è `<storage account name>` e la password è `<storage account key>` . In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori (vedere sopra).
    
-   Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
+Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
 
 ##### <a name="package-location-embedded-package"></a>Percorso pacchetto: pacchetto incorporato
 
 Se si seleziona **pacchetto incorporato** come percorso del pacchetto, completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Impostazioni-pacchetto incorporato](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![Impostare le proprietà nella scheda Impostazioni-pacchetto incorporato](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. Trascinare e rilasciare il pacchetto per eseguirlo o **caricarlo** da una cartella di file nella casella specificata. Il pacchetto verrà automaticamente compresso e incorporato nel payload dell'attività. Una volta incorporato, è possibile **scaricare** il pacchetto in un secondo momento per la modifica. È anche possibile **parametrizzare** il pacchetto incorporato assegnando il pacchetto a un parametro della pipeline che può essere usato in più attività, ottimizzando quindi le dimensioni del payload della pipeline. 
+   1. Trascinare e rilasciare il file del pacchetto (con `.dtsx` ) o **caricarlo** da una cartella di file nella casella specificata. Il pacchetto verrà automaticamente compresso e incorporato nel payload dell'attività. Una volta incorporato, è possibile **scaricare** il pacchetto in un secondo momento per la modifica. È anche possibile **parametrizzare** il pacchetto incorporato assegnando il pacchetto a un parametro della pipeline che può essere usato in più attività, ottimizzando quindi le dimensioni del payload della pipeline. L'incorporamento dei file di progetto (con `.ispac` ) non è attualmente supportato, pertanto non è possibile utilizzare parametri SSIS/gestioni connessioni con ambito a livello di progetto nei pacchetti incorporati.
    
-   1. Se il pacchetto incorporato non è completamente crittografato e si rileva l'utilizzo dell'attività Esegui pacchetto, l' **attività Esegui pacchetto** verrà selezionata automaticamente e i pacchetti figlio pertinenti con i relativi riferimenti file System verranno aggiunti automaticamente per incorporarli. 
+   1. Se il pacchetto incorporato non è completamente crittografato e si rileva l'utilizzo dell'attività Esegui pacchetto (EPT), la casella di controllo **Esegui attività pacchetto** verrà selezionata automaticamente e i pacchetti figlio a cui viene fatto riferimento nel percorso di file System verranno aggiunti automaticamente, quindi è possibile incorporarli anche.
    
-      Se non è possibile rilevare l'utilizzo dell'attività Esegui pacchetto, è necessario selezionare manualmente la casella di controllo **attività Esegui pacchetto** e aggiungere i pacchetti figlio pertinenti con i relativi file System riferimenti uno alla volta per incorporarli. Se i pacchetti figlio usano SQL Server riferimenti, verificare che il SQL Server sia accessibile dal Azure-SSIS IR.  L'utilizzo di riferimenti di progetto per i pacchetti figlio non è attualmente supportato.
+      Se non è possibile rilevare l'uso di EPT, è necessario selezionare manualmente l' **attività Esegui pacchetto** e aggiungere i pacchetti figlio a cui fa riferimento il percorso di file System uno alla volta, in modo da poterli incorporare anche. Se i pacchetti figlio vengono archiviati nel database di SQL Server (MSDB), non è possibile incorporarli, pertanto è necessario assicurarsi che il Azure-SSIS IR possa accedere a MSDB per recuperarli usando i relativi riferimenti di SQL Server. L'incorporamento dei file di progetto (con `.ispac` ) non è attualmente supportato, pertanto non è possibile usare riferimenti basati sul progetto per i pacchetti figlio.
    
    1. Se è stato usato il livello di protezione **EncryptAllWithPassword** o **EncryptSensitiveWithPassword** al momento della creazione del pacchetto tramite SSDT, immettere il valore della password nella casella **password di crittografia** . 
    
@@ -189,13 +189,13 @@ Se si seleziona **pacchetto incorporato** come percorso del pacchetto, completar
    
    1. Specificare le credenziali per accedere alla cartella dei log immettendo i relativi valori nelle caselle **dominio**, **nome utente**e **password** . Se ad esempio si archiviano i log in File di Azure, il dominio è `Azure` , il nome utente è `<storage account name>` e la password è `<storage account key>` . In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori (vedere sopra).
    
-   Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
+Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
 
 ##### <a name="package-location-package-store"></a>Percorso pacchetto: archivio pacchetti
 
 Se si seleziona **Archivio pacchetti** come percorso del pacchetto, completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Impostazioni-archivio pacchetti](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![Impostare le proprietà nella scheda Impostazioni-archivio pacchetti](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. Per **Nome archivio pacchetti**selezionare un archivio pacchetti esistente collegato al Azure-SSIS IR.
 
@@ -221,49 +221,73 @@ Se si seleziona **Archivio pacchetti** come percorso del pacchetto, completare i
    
    1. Specificare le credenziali per accedere alla cartella dei log immettendo i relativi valori nelle caselle **dominio**, **nome utente**e **password** . Se ad esempio si archiviano i log in File di Azure, il dominio è `Azure` , il nome utente è `<storage account name>` e la password è `<storage account key>` . In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori (vedere sopra).
    
-   Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
+Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
 
 #### <a name="ssis-parameters-tab"></a>Scheda parametri SSIS
 
 Nella scheda **SSIS Parameters** dell'attività Esegui pacchetto SSIS completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Parametri per SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![Impostare le proprietà nella scheda Parametri per SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo delle **voci manuali** nella scheda **Impostazioni** è deselezionata, vengono visualizzati i parametri SSIS esistenti nel progetto selezionato e il pacchetto da SSISDB per poter assegnare loro i valori. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
    
    1. Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SSDT e il **file System (pacchetto)**, il **file System (progetto)**, il **pacchetto incorporato**o l' **Archivio pacchetti** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente i parametri sensibili per assegnare loro i valori in questa scheda. 
    
-   Quando si assegnano valori ai parametri, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline.
+Quando si assegnano valori ai parametri, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline.
 
-   In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori. A tale scopo, selezionare la casella di controllo **Azure Key Vault** accanto ad esse. Selezionare o modificare il servizio collegato di Key Vault esistente o crearne uno nuovo. Selezionare quindi il nome e la versione del segreto per il valore. Quando si crea o si modifica il servizio collegato di Key Vault, è possibile selezionare o modificare l'insieme di credenziali delle chiavi esistente o crearne uno nuovo. Assicurarsi di concedere l'accesso Data Factory identità gestita all'insieme di credenziali delle chiavi, se non è già stato fatto. È anche possibile immettere il segreto direttamente nel formato seguente: `<key vault linked service name>/<secret name>/<secret version>` . 
+In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori. A tale scopo, selezionare la casella di controllo **Azure Key Vault** accanto ad esse. Selezionare o modificare il servizio collegato di Key Vault esistente o crearne uno nuovo. Selezionare quindi il nome e la versione del segreto per il valore. Quando si crea o si modifica il servizio collegato di Key Vault, è possibile selezionare o modificare l'insieme di credenziali delle chiavi esistente o crearne uno nuovo. Assicurarsi di concedere l'accesso Data Factory identità gestita all'insieme di credenziali delle chiavi, se non è già stato fatto. È anche possibile immettere il segreto direttamente nel formato seguente: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="connection-managers-tab"></a>Scheda Gestioni connessioni
 
 Nella scheda **gestioni connessioni** dell'attività Esegui pacchetto SSIS completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Gestori connessioni](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![Impostare le proprietà nella scheda Gestori connessioni](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo **voci manuali** nella scheda **Impostazioni** è deselezionata, vengono visualizzate le gestioni connessioni esistenti nel progetto e nel pacchetto selezionati da SSISDB per assegnare valori alle relative proprietà. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori alle rispettive proprietà. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
    
-   1. Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SSDT e il **file System (pacchetto)**, il **file System (progetto)**, il **pacchetto incorporato**o l' **Archivio pacchetti** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente le proprietà di gestione connessione sensibili per assegnare i valori in questa scheda. 
-   
-   Quando si assegnano valori alle proprietà di gestione connessione, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline. 
+      È possibile ottenere l' **ambito**, il **nome**e i nomi di **proprietà** corretti per qualsiasi gestione connessione aprendo il pacchetto che lo contiene in SSDT. Dopo l'apertura del pacchetto, selezionare la gestione connessione pertinente per visualizzare i nomi e i valori di tutte le relative proprietà nella finestra **Proprietà** di SSDT. Con queste informazioni, è possibile eseguire l'override dei valori delle proprietà di qualsiasi gestione connessione in fase di esecuzione. 
 
-   In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori. A tale scopo, selezionare la casella di controllo **Azure Key Vault** accanto ad esse. Selezionare o modificare il servizio collegato di Key Vault esistente o crearne uno nuovo. Selezionare quindi il nome e la versione del segreto per il valore. Quando si crea o si modifica il servizio collegato di Key Vault, è possibile selezionare o modificare l'insieme di credenziali delle chiavi esistente o crearne uno nuovo. Assicurarsi di concedere l'accesso Data Factory identità gestita all'insieme di credenziali delle chiavi, se non è già stato fatto. È anche possibile immettere il segreto direttamente nel formato seguente: `<key vault linked service name>/<secret name>/<secret version>` . 
+      ![Ottenere le proprietà della gestione connessione da SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      Ad esempio, senza modificare il pacchetto originale in SSDT, è possibile convertire i flussi di dati da locale a locale in esecuzione in SQL Server in flussi di dati da locale a cloud in esecuzione nel runtime di integrazione SSIS in ADF eseguendo l'override dei valori delle proprietà **ConnectByProxy**, **ConnectionString**e **ConnectUsingManagedIdentity** nelle gestioni connessioni esistenti in fase di esecuzione.
+      
+      Queste sostituzioni di runtime possono abilitare il runtime di integrazione self-hosted come proxy per il runtime di integrazione SSIS durante l'accesso ai dati in locale. vedere Configurazione dell' [autenticazione di AAD](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication) [come proxy per](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)il runtime di integrazione SSIS e connessione del database SQL di Azure/istanza gestita usando il driver MSOLEDBSQL più recente che abilita a sua volta l'autenticazione Azure Active Directory (AAD) con l'identità gestita di ADF.
+
+      ![Impostare le proprietà da SSDT nella scheda Gestioni connessioni](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SSDT e il **file System (pacchetto)**, il **file System (progetto)**, il **pacchetto incorporato**o l' **Archivio pacchetti** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente le proprietà di gestione connessione sensibili per assegnare i valori in questa scheda. 
+
+Quando si assegnano valori alle proprietà di gestione connessione, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline. 
+
+In alternativa, è possibile usare i segreti archiviati nel Azure Key Vault come valori. A tale scopo, selezionare la casella di controllo **Azure Key Vault** accanto ad esse. Selezionare o modificare il servizio collegato di Key Vault esistente o crearne uno nuovo. Selezionare quindi il nome e la versione del segreto per il valore. Quando si crea o si modifica il servizio collegato di Key Vault, è possibile selezionare o modificare l'insieme di credenziali delle chiavi esistente o crearne uno nuovo. Assicurarsi di concedere l'accesso Data Factory identità gestita all'insieme di credenziali delle chiavi, se non è già stato fatto. È anche possibile immettere il segreto direttamente nel formato seguente: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="property-overrides-tab"></a>Scheda override proprietà
 
 Nella scheda **override proprietà** dell'attività Esegui pacchetto SSIS completare i passaggi seguenti.
 
-   ![Impostare le proprietà nella scheda Override proprietà](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![Impostare le proprietà nella scheda Override proprietà](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. Immettere i percorsi delle proprietà esistenti nel pacchetto selezionato uno alla volta per assegnarvi i valori manualmente. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. Ad esempio, per eseguire l'override del valore della variabile utente, immettere il percorso nel formato seguente: `\Package.Variables[User::<variable name>].Value` . 
+
+      È possibile ottenere il **percorso della proprietà** corretto per qualsiasi proprietà del pacchetto aprendo il pacchetto che lo contiene in SSDT. Dopo aver aperto il pacchetto, selezionarne il flusso di controllo e la proprietà **configurazioni** nella finestra **Proprietà** di SSDT. A questo punto, selezionare il pulsante con i puntini di sospensione (**...**) accanto alla proprietà **configurazioni** per aprire la **libreria di configurazioni** dei pacchetti utilizzata normalmente per [creare configurazioni di pacchetto nel modello di distribuzione del pacchetto](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+
+      ![Ottenere le proprietà del pacchetto dalla proprietà SSDT-Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      Nella **Libreria configurazioni**pacchetto selezionare la casella di **controllo Abilita configurazioni pacchetto** e il pulsante **Aggiungi...** per aprire la **Configurazione guidata pacchetto**. 
+      
+      Nella **Configurazione guidata pacchetto**selezionare l'elemento **file di configurazione XML** nel menu a discesa **tipo di configurazione** e il pulsante **specificare le impostazioni di configurazione direttamente** , immettere il nome del file di configurazione e selezionare il pulsante **Avanti >** . 
+
+      ![Ottenere le proprietà del pacchetto da SSDT-configurazioni libreria](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      Infine, selezionare le proprietà del pacchetto di cui si desidera il percorso e il pulsante **avanti >** .  È ora possibile visualizzare, copiare & incollare i percorsi delle proprietà del pacchetto desiderati e salvarli nel file di configurazione. Con queste informazioni, è possibile eseguire l'override dei valori di tutte le proprietà del pacchetto in fase di esecuzione. 
+
+      ![Ottenere le proprietà del pacchetto da SSDT-configurazione guidata](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SSDT e il **file System (pacchetto)**, il **file System (progetto)**, il **pacchetto incorporato**o l' **Archivio pacchetti** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente le proprietà del pacchetto sensibili per assegnare loro i valori in questa scheda. 
    
-   Quando si assegnano valori alle proprietà del pacchetto, è possibile aggiungere contenuto dinamico tramite espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline.
+Quando si assegnano valori alle proprietà del pacchetto, è possibile aggiungere contenuto dinamico tramite espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline.
 
-   È possibile eseguire l'override dei valori assegnati nei file di configurazione e nella scheda **parametri SSIS** utilizzando le schede **gestioni connessioni** o **sostituzioni proprietà** . È anche possibile eseguire l'override dei valori assegnati nella scheda **gestioni connessioni** usando la scheda **sostituzioni proprietà** .
+È possibile eseguire l'override dei valori assegnati nei file di configurazione e nella scheda **parametri SSIS** utilizzando le schede **gestioni connessioni** o **sostituzioni proprietà** . È anche possibile eseguire l'override dei valori assegnati nella scheda **gestioni connessioni** usando la scheda **sostituzioni proprietà** .
 
 Per convalidare la configurazione della pipeline, selezionare **convalida** sulla barra degli strumenti. Per chiudere il **report di convalida della pipeline**, selezionare **>>** .
 

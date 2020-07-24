@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006451"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
 HDInsight offre l'elasticità con le opzioni per la scalabilità verticale e orizzontale del numero di nodi del ruolo di lavoro nei cluster. Questa elasticità consente di compattare un cluster dopo ore o nei fine settimana. Ed espanderlo durante i picchi delle richieste aziendali.
 
-Ridimensionare il cluster prima dell'elaborazione batch periodica, in modo che il cluster disponga di risorse appropriate. Una volta completata l'elaborazione e l'utilizzo diventa inattivo, ridimensionare il cluster HDInsight a un numero inferiore di nodi di lavoro.
+Ridimensionare il cluster prima dell'elaborazione batch periodica, in modo che il cluster disponga di risorse appropriate.  Una volta completata l'elaborazione e l'utilizzo diventa inattivo, ridimensionare il cluster HDInsight a un numero inferiore di nodi di lavoro.
 
 È possibile ridimensionare manualmente un cluster usando uno dei metodi descritti di seguito. È anche possibile usare le opzioni di [scalabilità](hdinsight-autoscale-clusters.md) automatica per la scalabilità verticale e verticale in risposta a determinate metriche.
 
@@ -36,7 +36,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
+|[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
 ![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -106,6 +106,14 @@ Impatto della modifica del numero di nodi dati per ogni tipo di cluster supporta
 * Kafka
 
     è consigliabile ribilanciare le repliche di una partizione dopo le operazioni di ridimensionamento. Per altre informazioni, vedere il documento [Disponibilità elevata dei dati con Apache Kafka in HDInsight](./kafka/apache-kafka-high-availability.md).
+
+* Apache Hive LLAP
+
+    Dopo la scalabilità ai `N` nodi del ruolo di lavoro, HDInsight imposterà automaticamente le configurazioni seguenti e riavvierà hive.
+
+  * Numero massimo di query simultanee:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Numero di nodi usati da LLAP di hive:`num_llap_nodes  = N`
+  * Numero di nodi per l'esecuzione del daemon hive LLAP:`num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Come ridimensionare in modo sicuro un cluster
 

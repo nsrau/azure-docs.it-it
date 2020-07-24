@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f676c4129b79499eb9ed524821a336b3859dbb3c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004852"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Avvisi di sicurezza del Centro sicurezza di Azure per IoT
+# <a name="azure-security-center-for-iot-customizable-security-alerts"></a>Centro sicurezza di Azure per gli avvisi di sicurezza personalizzabili
 
 Il Centro sicurezza di Azure consente di analizzare continuamente la soluzione Internet delle cose usando analisi avanzate e Intelligence per le minacce per segnalare attività dannose.
 

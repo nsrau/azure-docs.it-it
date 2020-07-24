@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005617"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
 
@@ -37,10 +37,10 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |Impostazione  |Valore  |
    |---------|---------|
    |Criteri per     |WAF globale (porta anteriore)|
-   |Subscription     |Selezionare la propria sottoscrizione|
-   |Resource group     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
+   |Sottoscrizione     |Selezionare la propria sottoscrizione|
+   |Gruppo di risorse     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
    |Nome criteri     |Digitare un nome per il criterio|
-   |Stato criteri     |Abilitato|
+   |Stato criteri     |Attivato|
 
    Selezionare **Avanti: impostazioni dei criteri**
 
@@ -53,7 +53,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |Impostazione  |Valore  |
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
-   |Stato     |Abilitato|
+   |Stato     |Attivato|
    |Tipo regola     |Corrispondenza|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|
@@ -168,7 +168,7 @@ Prima di iniziare a configurare un criterio di restrizione IP, configurare l'amb
 #### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
 Azure PowerShell fornisce un set di cmdlet che usano il modello di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure.
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere a PowerShell usando le credenziali di Azure e quindi installare il modulo AZ.
+È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere a PowerShell usando le credenziali di Azure e quindi installare il modulo AZ.
 
 1. Connettersi ad Azure usando il comando seguente e quindi usare una finestra di dialogo interattiva per accedere.
     ```

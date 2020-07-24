@@ -2,13 +2,13 @@
 title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320529"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002479"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta il [protocollo Apache Kafka 1.0 e versioni successive](https://kafka.apache.org/documentation/) e funziona con le applicazioni Kafka esistenti, tra cui MirrorMaker.  
@@ -27,7 +27,7 @@ Concettualmente Kafka e hub eventi sono quasi identici: sono entrambi log partiz
 | --- | --- |
 | Cluster | Spazio dei nomi |
 | Argomento | Hub eventi |
-| Partizione | Partizione|
+| Partition | Partition|
 | Gruppo di consumer | Gruppo di consumer |
 | Offset | Offset|
 
@@ -79,12 +79,10 @@ Hub eventi per la funzionalità di Kafka consente di scrivere con un protocollo 
 
 Di seguito è riportato l'elenco delle funzionalità di Kafka che non sono ancora supportate:
 
-*   Producer idempotente
 *   Transazione
 *   Compressione
 *   Conservazione basata sulle dimensioni
 *   Compattazione dei log
-*   Aggiunta di partizioni a un argomento esistente
 *   Supporto API Kafka HTTP
 *   Kafka Streams
 

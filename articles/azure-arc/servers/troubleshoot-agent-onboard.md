@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004546"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Risolvere i problemi di connessione dell'agente computer connesso
 
@@ -48,6 +48,9 @@ Di seguito è riportato un esempio del comando per abilitare la registrazione de
 
 Di seguito è riportato un esempio del comando per abilitare la registrazione dettagliata con l'agente computer connesso per Linux quando si esegue un'installazione interattiva.
 
+>[!NOTE]
+>Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -69,16 +72,19 @@ azcmagent connect \
 
 Nella tabella seguente sono elencati alcuni degli errori noti e i suggerimenti su come risolverli e risolverli.
 
-|Message |Errore |Possibile causa |Soluzione |
+|Message |Errore |Possibile causa |Solution |
 |--------|------|---------------|---------|
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Impossibile raggiungere l' `login.windows.net` endpoint | Verificare la connettività all'endpoint. |
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Il proxy o il firewall blocca l'accesso all' `login.windows.net` endpoint. | Verificare la connettività all'endpoint e non è bloccata da un firewall o un server proxy. |
+|Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | Criteri di gruppo *Configurazione computer oggetto \ modelli amministrativi \ System \ utente profili \ Elimina profili utente più vecchi di un numero specificato di giorni al riavvio del sistema* è abilitato. | Verificare che l'oggetto Criteri di gruppo sia abilitato e che abbia come destinazione il computer interessato. Per informazioni dettagliate, vedere la Nota <sup>[1](#footnote1)</sup> . |
 |Non è stato possibile acquisire il token di autorizzazione dal nome SPN |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Il proxy o il firewall blocca l'accesso all' `login.windows.net` endpoint. |Verificare la connettività all'endpoint e non è bloccata da un firewall o un server proxy. |
 |Non è stato possibile acquisire il token di autorizzazione dal nome SPN |`Invalid client secret is provided` |Segreto dell'entità servizio errato o non valido. |Verificare il segreto dell'entità servizio. |
 | Non è stato possibile acquisire il token di autorizzazione dal nome SPN |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Entità servizio e/o ID tenant non corretti. |Verificare l'entità servizio e/o l'ID tenant.|
 |Ottieni risposta risorse ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Credenziali e/o autorizzazioni errate |Verificare che l'entità servizio sia un membro del ruolo di **onboarding del computer connesso di Azure** . |
 |Non è stato possibile AzcmagentConnect la risorsa ARM |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |I provider di risorse di Azure non sono registrati. |Registrare i [provider di risorse](./agent-overview.md#register-azure-resource-providers). |
 |Non è stato possibile AzcmagentConnect la risorsa ARM |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Il server proxy o il firewall blocca l'accesso all' `management.azure.com` endpoint. |Verificare la connettività all'endpoint e non è bloccata da un firewall o un server proxy. |
+
+<a name="footnote1"></a><sup>1</sup> Se questo GPO è abilitato e si applica ai computer con l'agente del computer connesso, viene eliminato il profilo utente associato all'account predefinito specificato per il servizio *himds* . Viene quindi eliminato anche il certificato di autenticazione utilizzato per comunicare con il servizio memorizzato nella cache nell'archivio certificati locale per 30 giorni. Prima del limite di 30 giorni, viene effettuato un tentativo di rinnovare il certificato. Per risolvere questo problema, seguire la procedura per annullare la [registrazione del computer](manage-agent.md#unregister-machine) e quindi registrarlo di nuovo con il servizio in esecuzione `azcmagent connect` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

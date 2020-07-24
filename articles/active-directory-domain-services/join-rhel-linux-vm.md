@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005090"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -116,7 +116,7 @@ Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiunger
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Infine, aggiungere il computer al dominio gestito utilizzando il `realm join` comando. Usare lo stesso account utente che fa parte del dominio gestito specificato nel `kinit` comando precedente, ad esempio `contosoadmin@AADDSCONTOSO.COM` :
+1. Infine, aggiungere la macchina virtuale al dominio gestito usando il `realm join` comando. Usare lo stesso account utente che fa parte del dominio gestito specificato nel `kinit` comando precedente, ad esempio `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
@@ -142,7 +142,7 @@ Successfully enrolled machine in realm
     * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito.
     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito.
 
-1. Per prima cosa, aggiungere il dominio usando il `adcli join` comando. questo comando creerà anche il keytab per autenticare il computer. Usare un account utente che fa parte del dominio gestito.
+1. Per prima cosa, aggiungere il dominio usando il `adcli join` comando. questo comando crea anche il keytab per autenticare il computer. Usare un account utente che fa parte del dominio gestito.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin

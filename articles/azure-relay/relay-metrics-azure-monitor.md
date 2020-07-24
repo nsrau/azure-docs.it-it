@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come usare monitoraggio di
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004563"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Metriche di inoltro di Azure in monitoraggio di Azure 
 Le metriche del servizio Inoltro di Azure indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse di inoltro, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti poiché consentono di monitorare lo stato del servizio di inoltro di Azure. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
@@ -29,7 +29,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 È possibile monitorare le metriche nel tempo nel [portale di Azure](https://portal.azure.com). L'esempio seguente illustra come visualizzare le richieste completate e le richieste in ingresso a livello di account:
 
-![][1]
+![Una pagina intitolata "monitor-Metrics (anteprima)" Mostra un grafico a linee con utilizzo di memoria negli ultimi 30 giorni.][1]
 
 È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **Metriche**. 
 

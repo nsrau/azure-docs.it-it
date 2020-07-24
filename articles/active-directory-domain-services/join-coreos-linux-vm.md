@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 845b48d84040343f829648f9c7fda2372e3413dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734742"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005107"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale CoreOS a un dominio gestito Azure Active Directory Domain Services
 
@@ -85,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 Specificare il nome di dominio gestito per i parametri seguenti:
 
 * *domini* in lettere maiuscole
-* *[Domain/AADDS]* dove AADDS è in lettere maiuscole
+* *[Domain/AADDSCONTOSO]* dove AADDSCONTOSO è in lettere maiuscole
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -97,7 +97,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad

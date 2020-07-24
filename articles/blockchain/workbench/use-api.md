@@ -4,12 +4,12 @@ description: Scenari per l'uso dell'API REST di Azure blockchain Workbench Previ
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 7c96e45c8bcc9834df7ef2a0b2a59f53fd8315cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003067"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
 
@@ -28,11 +28,11 @@ L'API REST di Azure blockchain Workbench Preview fornisce a sviluppatori e Infor
 
     ![URL dell'endpoint dell'API del servizio app](media/use-api/app-service-api.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Le richieste all'API REST di blockchain Workbench sono protette con Azure Active Directory (Azure AD).
 
-Per effettuare una richiesta autenticata alle API REST, il codice client richiede l'autenticazione con credenziali valide prima di poter chiamare l'API. L'autenticazione è coordinata tra i vari attori per Azure AD e fornisce al client un [token di accesso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) come prova dell'autenticazione. Il token viene quindi inviato nell'intestazione di autorizzazione HTTP delle richieste dell'API REST. Per ulteriori informazioni sull'autenticazione Azure AD, vedere [Azure Active Directory per gli sviluppatori](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+Per effettuare una richiesta autenticata alle API REST, il codice client richiede l'autenticazione con credenziali valide prima di poter chiamare l'API. L'autenticazione è coordinata tra i vari attori per Azure AD e fornisce al client un [token di accesso](../../active-directory/develop/developer-glossary.md#access-token) come prova dell'autenticazione. Il token viene quindi inviato nell'intestazione di autorizzazione HTTP delle richieste dell'API REST. Per ulteriori informazioni sull'autenticazione Azure AD, vedere [Azure Active Directory per gli sviluppatori](../../active-directory/develop/index.yml).
 
 Per esempi su come eseguire l'autenticazione, vedere [esempi di API REST](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) .
 
@@ -44,7 +44,7 @@ Se si vuole testare o sperimentare le API di Workbench, è possibile usare il [p
 
 Per creare un'applicazione blockchain Workbench si usano due chiamate API. Questo metodo può essere eseguito solo dagli utenti che sono amministratori di Workbench.
 
-Usare l' [API post delle applicazioni](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) per caricare il file JSON dell'applicazione e ottenere un ID applicazione.
+Usare l' [API post delle applicazioni](/rest/api/azure-blockchain-workbench/applications/applicationspost) per caricare il file JSON dell'applicazione e ottenere un ID applicazione.
 
 ### <a name="applications-post-request"></a>Richiesta POST applicazioni
 
@@ -70,11 +70,11 @@ Content-Type: "application/json"
 
 ### <a name="contract-code-post-request"></a>Richiesta POST del codice del contratto
 
-Usare l' [API post di codice del contratto](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) per le applicazioni passando l'ID applicazione per caricare il file di codice di solidità dell'applicazione. Il payload può essere un singolo file di solidità o un file compresso contenente file di solidità.
+Usare l' [API post di codice del contratto](/rest/api/azure-blockchain-workbench/applications/contractcodepost) per le applicazioni passando l'ID applicazione per caricare il file di codice di solidità dell'applicazione. Il payload può essere un singolo file di solidità o un file compresso contenente file di solidità.
 
 Sostituire i valori seguenti:
 
-| Parametro | valore |
+| Parametro | Valore |
 |-----------|-------|
 | ApplicationId | Valore restituito dall'API POST delle applicazioni. |
 | {ledgerId} | Indice del Ledger. Il valore è in genere 1. È anche possibile controllare la [tabella Ledger](data-sql-management-studio.md) per il valore. |
@@ -98,13 +98,13 @@ Content-Type: "application/json"
 
 ## <a name="assign-roles-to-users"></a>Assegnare ruoli agli utenti
 
-Usare le [assegnazioni di ruolo applicazione Post API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) passando l'ID applicazione, l'ID utente e l'ID del ruolo applicazione per creare un mapping da utente a ruolo nell'applicazione blockchain specificata. Questo metodo può essere eseguito solo dagli utenti che sono amministratori di Workbench.
+Usare le [assegnazioni di ruolo applicazione Post API](/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) passando l'ID applicazione, l'ID utente e l'ID del ruolo applicazione per creare un mapping da utente a ruolo nell'applicazione blockchain specificata. Questo metodo può essere eseguito solo dagli utenti che sono amministratori di Workbench.
 
 ### <a name="role-assignments-post-request"></a>Richiesta POST per assegnazioni di ruolo
 
 Sostituire i valori seguenti:
 
-| Parametro | valore |
+| Parametro | Valore |
 |-----------|-------|
 | ApplicationId | Valore restituito dall'API POST delle applicazioni. |
 | UserID | Valore dell'ID utente della [tabella utente](data-sql-management-studio.md). |
@@ -132,7 +132,7 @@ HTTP/1.1 200
 
 ## <a name="list-applications"></a>Elenco applicazioni
 
-Usare l' [API Get delle applicazioni](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) per recuperare tutte le applicazioni blockchain Workbench per l'utente. In questo esempio, l'utente connesso può accedere a due applicazioni:
+Usare l' [API Get delle applicazioni](/rest/api/azure-blockchain-workbench/applications/applicationsget) per recuperare tutte le applicazioni blockchain Workbench per l'utente. In questo esempio, l'utente connesso può accedere a due applicazioni:
 
 - [Trasferimento cespite](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 - [Trasporto refrigerato](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
@@ -180,7 +180,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Elencare i flussi di lavoro per un'applicazione
 
-Usare i [flussi di lavoro delle applicazioni Get API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) per elencare tutti i flussi di lavoro di un'applicazione blockchain specificata a cui un utente può accedere in blockchain Workbench. Ogni applicazione della blockchain dispone di uno o più flussi di lavoro e ciascun flusso di lavoro non dispone di istanze oppure dispone delle istanze del contratto smart. Per un'applicazione client della blockchain con un solo flusso di lavoro, è consigliabile ignorare il flusso dell'esperienza utente che consente agli utenti di selezionare il flusso di lavoro appropriato.
+Usare i [flussi di lavoro delle applicazioni Get API](/rest/api/azure-blockchain-workbench/applications/workflowsget) per elencare tutti i flussi di lavoro di un'applicazione blockchain specificata a cui un utente può accedere in blockchain Workbench. Ogni applicazione della blockchain dispone di uno o più flussi di lavoro e ciascun flusso di lavoro non dispone di istanze oppure dispone delle istanze del contratto smart. Per un'applicazione client della blockchain con un solo flusso di lavoro, è consigliabile ignorare il flusso dell'esperienza utente che consente agli utenti di selezionare il flusso di lavoro appropriato.
 
 ### <a name="application-workflows-request"></a>Richiesta flussi di lavoro applicazione
 
@@ -214,7 +214,7 @@ Content-type: application/json
 
 ## <a name="create-a-contract-instance"></a>Creare un'istanza di contratto
 
-Usare i [contratti V2 post API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) per creare una nuova istanza di Smart Contract per un flusso di lavoro. Gli utenti sono in grado di creare una nuova istanza di Smart Contract solo se l'utente è associato a un ruolo applicazione, che può avviare un'istanza di Smart Contract per il flusso di lavoro.
+Usare i [contratti V2 post API](/rest/api/azure-blockchain-workbench/contractsv2/contractpost) per creare una nuova istanza di Smart Contract per un flusso di lavoro. Gli utenti sono in grado di creare una nuova istanza di Smart Contract solo se l'utente è associato a un ruolo applicazione, che può avviare un'istanza di Smart Contract per il flusso di lavoro.
 
 > [!NOTE]
 > In questo esempio viene usata la versione 2 dell'API. Le API dei contratti della versione 2 forniscono una maggiore granularità per i campi ProvisioningStatus associati.
@@ -223,7 +223,7 @@ Usare i [contratti V2 post API](https://docs.microsoft.com/rest/api/azure-blockc
 
 Sostituire i valori seguenti:
 
-| Parametro | valore |
+| Parametro | Valore |
 |-----------|-------|
 | WorkflowId | Il valore ID del flusso di lavoro è il ConstructorID del contratto dalla [tabella del flusso di lavoro](data-sql-management-studio.md). |
 | {contractCodeId} | Valore ID del codice del contratto dalla [tabella ContractCode](data-sql-management-studio.md). Correlare l'ID applicazione e l'ID Ledger per l'istanza del contratto che si vuole creare. |
@@ -231,7 +231,7 @@ Sostituire i valori seguenti:
 
 Per il corpo della richiesta, impostare i valori usando le seguenti informazioni:
 
-| Parametro | valore |
+| Parametro | Valore |
 |-----------|-------|
 | workflowFunctionID | ID della [tabella WorkflowFunction](data-sql-management-studio.md). |
 | workflowActionParameters | Coppie nome-valore dei parametri passati al costruttore. Per ogni parametro, usare il valore workflowFunctionParameterID dalla tabella [WorkflowFunctionParameter](data-sql-management-studio.md) . |
@@ -477,4 +477,4 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni di riferimento sulle API di blockchain Workbench, vedere le informazioni di [riferimento sull'API REST di Azure blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+Per informazioni di riferimento sulle API di blockchain Workbench, vedere le informazioni di [riferimento sull'API REST di Azure blockchain Workbench](/rest/api/azure-blockchain-workbench).

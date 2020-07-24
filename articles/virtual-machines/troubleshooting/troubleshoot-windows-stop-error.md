@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005906"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Errore di arresto di Windows - Memoria esaurita
 
@@ -26,7 +27,7 @@ Questo articolo illustra i passaggi per risolvere i problemi in cui non è possi
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale (VM), si noterà che nella schermata è visualizzato il codice di errore: `0xC0000017` . A seconda della versione di Windows in esecuzione, questo codice può essere visualizzato in **Gestione avvio Windows** o nella **schermata di ripristino**.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale (VM), si noterà che nella schermata è visualizzato il codice di errore: `0xC0000017` . A seconda della versione di Windows in esecuzione, questo codice può essere visualizzato in **Gestione avvio Windows** o nella **schermata di ripristino**.
 
    **Windows Boot Manager**
 
@@ -56,7 +57,7 @@ Il disco del sistema operativo è pieno, troppo frammentato oppure il sistema op
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Seguire i [passaggi da 1 a 3 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>Per le macchine virtuali di seconda generazione, assegnare una lettera alla partizione Extensible Firmware Interface (EFI):
@@ -93,7 +94,7 @@ Se si usa una macchina virtuale di seconda generazione, la partizione EFI del di
 Ora che il disco rotto è collegato alla macchina virtuale di ripristino, è necessario verificare che il sistema operativo su tale disco disponga di spazio sufficiente per il corretto funzionamento. 
 
 1. Controllare se il disco è pieno facendo clic con il pulsante destro del mouse sull'unità del disco collegato e selezionando **Proprietà**.
-1. Se lo spazio disponibile sul disco è **inferiore a 300 MB**, [espanderlo fino a un massimo di 1 TB usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Se lo spazio disponibile sul disco è **inferiore a 300 MB**, [espanderlo fino a un massimo di 1 TB usando PowerShell](../windows/expand-os-disk.md).
 1. Quando le dimensioni del disco sono pari a **1 TB**, è necessario eseguire una pulitura del disco. È possibile utilizzare lo [strumento Pulitura disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) per liberare spazio.
 1. Aprire un'istanza del prompt dei comandi con privilegi elevati (Esegui come amministratore) ed eseguire un'operazione di deframmentazione sull'unità:
 
@@ -222,4 +223,4 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
    
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.

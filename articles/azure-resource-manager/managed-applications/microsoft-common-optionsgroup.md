@@ -3,21 +3,25 @@ title: Elemento OptionsGroup dell'interfaccia utente
 description: Illustra l'elemento Microsoft.Common.OptionsGroup dell'interfaccia utente per il portale di Azure. Consente agli utenti di selezionare le opzioni disponibili durante la distribuzione di un'applicazione gestita.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004192"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento Microsoft.Common.OptionsGroup dell'interfaccia utente
 
-Controllo di selezione con una riga di opzioni disponibili.
+Il controllo OptionsGroup consente agli utenti di selezionare un'opzione da due o più opzioni. Un utente può selezionare una sola opzione.
+
+> [!NOTE]
+> In passato, questo controllo eseguiva il rendering orizzontale delle opzioni. A questo punto, il controllo Visualizza le opzioni verticalmente come pulsanti di opzione.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>SCHEMA
 

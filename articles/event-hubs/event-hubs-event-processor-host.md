@@ -3,12 +3,12 @@ title: Ricevere eventi tramite l'host del processore di eventi - Hub eventi di A
 description: Questo articolo descrive l'host del processore di eventi in Hub eventi di Azure, che semplifica la gestione di checkpoint e lease e la lettura in parallelo degli eventi.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002523"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320639"
 
 Hub eventi di Azure è un potente servizio di inserimento di dati di telemetria che può essere usato per lo streaming di milioni di eventi a basso costo. Questo articolo descrive come usare gli eventi inseriti tramite *Host processore di eventi* (EPH); un agente consumer intelligente che semplifica la gestione dei checkpoint, dei leasing e dei lettori di eventi paralleli.  
 
-La chiave per ridurre il numero di istanze di Hub eventi è l'idea di consumer partizionato. A differenza dei criteri relativi ai [consumer concorrenti](https://msdn.microsoft.com/library/dn568101.aspx), il modello consumer partizionato consente un'elevata scalabilità rimuovendo il collo di bottiglia dovuto alla contesa e agevolare il parallelismo end to end.
+La chiave per ridurre il numero di istanze di Hub eventi è l'idea di consumer partizionato. A differenza dei criteri relativi ai [consumer concorrenti](/previous-versions/msp-n-p/dn568101(v=pandp.10)), il modello consumer partizionato consente un'elevata scalabilità rimuovendo il collo di bottiglia dovuto alla contesa e agevolare il parallelismo end to end.
 
 ## <a name="home-security-scenario"></a>Scenario di sicurezza abitativa
 
@@ -162,7 +162,7 @@ Inoltre, uno degli overload di [RegisterEventProcessorAsync](/dotnet/api/microso
 Di seguito viene illustrato il funzionamento dell'EPOCH Receive:
 
 ### <a name="with-epoch"></a>Con Epoch
-Epoch è un identificatore univoco (valore Epoch) utilizzato dal servizio per applicare la proprietà Partition/lease. Si crea un ricevitore basato su Epoch usando il metodo [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Questo metodo crea un ricevitore basato su Epoch. Il ricevitore viene creato per una partizione di hub eventi specifica del gruppo di consumer specificato.
+Epoch è un identificatore univoco (valore Epoch) utilizzato dal servizio per applicare la proprietà Partition/lease. Si crea un ricevitore basato su Epoch usando il metodo [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Questo metodo crea un ricevitore basato su Epoch. Il ricevitore viene creato per una partizione di hub eventi specifica del gruppo di consumer specificato.
 
 La funzionalità Epoch consente agli utenti di verificare la presenza di un solo destinatario in un gruppo di consumer in qualsiasi momento, con le regole seguenti:
 
@@ -171,7 +171,7 @@ La funzionalità Epoch consente agli utenti di verificare la presenza di un solo
 - Se è presente un ricevitore con un valore Epoch E1 e viene creato un nuovo ricevitore con un valore di Epoch E2 in cui E1 > E2, la creazione di E2 con ha esito negativo con l'errore: un ricevitore con Epoch E1 esiste già.
 
 ### <a name="no-epoch"></a>Nessuna Epoch
-Per creare un ricevitore non basato su Epoch, usare il metodo [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
+Per creare un ricevitore non basato su Epoch, usare il metodo [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
 
 Esistono alcuni scenari di elaborazione del flusso in cui gli utenti desiderano creare più ricevitori in un singolo gruppo di consumer. Per supportare questi scenari, è possibile creare un ricevitore senza Epoch e in questo caso si consentiranno fino a 5 ricevitori simultanei nel gruppo di consumer.
 

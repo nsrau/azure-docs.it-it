@@ -4,11 +4,12 @@ description: Risposte ad alcune domande comuni sulla soluzione Azure VMware (AVS
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003424"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione Azure VMware (AVS)
 
@@ -84,15 +85,15 @@ I server sono dotati di 576 GB di RAM.
 
 **Qual è la capacità di archiviazione di ogni host?**
 
-Ogni host ESXi è dotato di due gruppi di dischi VSAN con livello di capacità di 15,2 TB e livello di cache NVMe di 3,2 TB (1,6 TB in ogni gruppo di dischi).
+Ogni host ESXi ha due diskgroups rete VSAN con un livello di capacità di 15,2 TB e un livello di cache di 3,2 TB NVMe (1,6 TB in ogni gruppo dei dischi).
 
 **Quanta larghezza di banda di rete è disponibile in ogni host ESXi?**
 
 Gli host ESXi supportano fino a 25 Gbps di larghezza di banda di connettività.
 
-**Ai dati archiviati negli archivi dati VSAN viene applicata la crittografia dei dati inattivi?**
+**I dati archiviati negli archivi dati rete VSAN sono crittografati?**
 
-Sì. Per impostazione predefinita, tutti i dati VSAN vengono crittografati usando le chiavi archiviate in Azure Key Vault.
+Sì, tutti i dati rete VSAN vengono crittografati per impostazione predefinita usando le chiavi archiviate in Azure Key Vault.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 
@@ -136,7 +137,7 @@ No. Non è necessario usare NSX in locale.
 
 **Come sono pianificati gli aggiornamenti del software VMware in un cloud privato?**
 
-Gli aggiornamenti del bundle software del cloud privato vengono eseguiti per preservare il software all'interno di una versione della versione più recente del bundle software da VMware. Le versioni del software del cloud privato possono differire dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, VSAN).
+Gli aggiornamenti del bundle software del cloud privato vengono eseguiti per preservare il software all'interno di una versione della versione più recente del bundle software da VMware. Le versioni del software del cloud privato possono essere diverse dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, rete VSAN).
 
 **Con quale frequenza verrà aggiornato lo stack software del cloud privato?**
 
@@ -215,7 +216,7 @@ Sarà necessario un account Azure in una sottoscrizione di Azure.
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. Nel portale di Azure creare una richiesta di supporto in **Guida e supporto** selezionando **Nuova richiesta di supporto** e quindi specificare le informazioni seguenti per il ticket.
    - **Tipo di problema:** Tecnici
