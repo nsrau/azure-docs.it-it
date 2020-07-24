@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081560"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Connettore dei log di monitoraggio di Azure per app per la logica e Microsoft Flow
-[App](/azure/logic-apps/) per la logica di Azure e [Power automatizzate](https://ms.flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
+[App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://ms.flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
 
 Ad esempio, è possibile creare un'app per la logica per usare i dati di log di monitoraggio di Azure in una notifica di posta elettronica da Office 365, creare un bug in Azure DevOps o pubblicare un messaggio Slack.  È possibile attivare un flusso di lavoro da una semplice pianificazione o con un'azione in un servizio connesso, ad esempio quando viene ricevuto un messaggio di posta elettronica o un tweet. 
 
@@ -31,16 +32,16 @@ A seconda delle dimensioni dei dati e della query usata, il connettore potrebbe 
 La tabella seguente descrive le azioni incluse nel connettore dei log di monitoraggio di Azure. Entrambi consentono di eseguire una query di log su un'area di lavoro Log Analytics o Application Insights applicazione. La differenza consiste nel modo in cui vengono restituiti i dati.
 
 > [!NOTE]
-> Il connettore log di monitoraggio di Azure sostituisce il [connettore azure log Analytics](https://docs.microsoft.com/connectors/azureloganalytics/) e il connettore [applicazione Azure Insights](https://docs.microsoft.com/connectors/applicationinsights/). Questo connettore fornisce le stesse funzionalità degli altri ed è il metodo preferito per l'esecuzione di una query su un'area di lavoro Log Analytics o un'applicazione Application Insights.
+> Il connettore log di monitoraggio di Azure sostituisce il [connettore azure log Analytics](/connectors/azureloganalytics/) e il connettore [applicazione Azure Insights](/connectors/applicationinsights/). Questo connettore fornisce le stesse funzionalità degli altri ed è il metodo preferito per l'esecuzione di una query su un'area di lavoro Log Analytics o un'applicazione Application Insights.
 
 
 | Azione | Descrizione |
 |:---|:---|
-| [Eseguire query ed elencare i risultati](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Restituisce ogni riga come oggetto proprio. Utilizzare questa azione quando si desidera utilizzare ogni riga separatamente nel resto del flusso di lavoro. L'azione è in genere seguita da un [per ogni attività](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Esecuzione di query e visualizzazione dei risultati](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Restituisce tutte le righe del set di risultati come singolo oggetto formattato. Utilizzare questa azione quando si desidera utilizzare il set di risultati insieme nel resto del flusso di lavoro, ad esempio l'invio dei risultati in un messaggio di posta elettronica.  |
+| [Eseguire query ed elencare i risultati](/connectors/azuremonitorlogs/#run-query-and-list-results) | Restituisce ogni riga come oggetto proprio. Utilizzare questa azione quando si desidera utilizzare ogni riga separatamente nel resto del flusso di lavoro. L'azione è in genere seguita da un [per ogni attività](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Esecuzione di query e visualizzazione dei risultati](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Restituisce tutte le righe del set di risultati come singolo oggetto formattato. Utilizzare questa azione quando si desidera utilizzare il set di risultati insieme nel resto del flusso di lavoro, ad esempio l'invio dei risultati in un messaggio di posta elettronica.  |
 
 ## <a name="walkthroughs"></a>Procedure dettagliate
-Le esercitazioni seguenti illustrano l'uso dei connettori di monitoraggio di Azure in app per la logica di Azure. È possibile eseguire lo stesso esempio con Power Automate, l'unica differenza consiste nel creare il flusso di lavoro iniziale ed eseguirlo al termine dell'operazione. La configurazione del flusso di lavoro e delle azioni è la stessa tra entrambi. Per iniziare, vedere [creare un flusso da un modello in Power automatici](https://docs.microsoft.com/power-automate/get-started-logic-template) .
+Le esercitazioni seguenti illustrano l'uso dei connettori di monitoraggio di Azure in app per la logica di Azure. È possibile eseguire lo stesso esempio con Power Automate, l'unica differenza consiste nel creare il flusso di lavoro iniziale ed eseguirlo al termine dell'operazione. La configurazione del flusso di lavoro e delle azioni è la stessa tra entrambi. Per iniziare, vedere [creare un flusso da un modello in Power automatici](/power-automate/get-started-logic-template) .
 
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
@@ -124,6 +125,5 @@ Al termine dell'app per la logica, controllare la posta del destinatario specifi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
-- Altre informazioni sulle [app](/azure/logic-apps/) per la logica
+- Altre informazioni sulle [app](../../logic-apps/index.yml) per la logica
 - Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
-

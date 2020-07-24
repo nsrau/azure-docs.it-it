@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079571"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -51,7 +51,7 @@ Interfaccia della riga di comando che può essere usata per la gestione dei serv
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Interfaccia della riga di comando per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando.
-Vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview)
+Vedere [come installare e configurare Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modello di distribuzione Azure Resource Manager
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
@@ -150,7 +150,7 @@ Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtu
 Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un [gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) consente di stabilire connessioni tra le reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
 Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.md)  
 
-## <a name="web-app"></a>App Web
+## <a name="web-app"></a>app Web
 Nome alternativo per [app del servizio app](#app-service-app).
 
 ## <a name="see-also"></a>Vedere anche

@@ -4,13 +4,14 @@ description: Articolo sulle procedure di annotazione di asset di dati nel catalo
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68950252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081237"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Come annotare le origini dati in Azure Data Catalog
 
@@ -56,7 +57,7 @@ Quando si selezionano più tabelle e viste, nel portale di Data Catalog verranno
 ## <a name="annotations-and-discovery"></a>Individuazione e annotazioni
 Così come i metadati estratti dall'origine dati durante la registrazione vengono aggiunti all'indice di ricerca di Data Catalog, anche i metadati forniti dagli utenti vengono indicizzati. Ciò significa che le annotazioni non facilitano soltanto la comprensione dei dati individuati dagli utenti ma che esse rendono anche più semplice individuare gli asset di dati con annotazioni tramite ricerche effettuate utilizzando termini conosciuti dagli utenti stessi.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati in Data Catalog rende individuabili tali dati copiando i metadati strutturali e descrittivi dall'origine dati al servizio Catalog. Dopo la registrazione di un'origine dati, gli utenti possono specificare annotazioni per facilitare l'individuazione e la comprensione dal portale di Data Catalog.
 
 ## <a name="see-also"></a>Vedere anche

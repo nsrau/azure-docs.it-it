@@ -3,12 +3,12 @@ title: Installare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come installare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup di computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079367"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di backup di Azure
 
@@ -42,10 +42,10 @@ I dati disponibili per il backup dipendono dalla posizione in cui è installato 
 
 ## <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
-Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md).
 
 * Se l'insieme di credenziali è il meccanismo di backup principale, si consiglia di usare GRS.
-* È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per ridurre i costi di archiviazione di Azure.
+* È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) per ridurre i costi di archiviazione di Azure.
 
 Per modificare il tipo di replica di archiviazione:
 
@@ -95,7 +95,7 @@ Per usare il peering Microsoft, selezionare i servizi, le aree e i valori della 
 * Area di Azure, in base alla posizione dell'insieme di credenziali di servizi di ripristino
 * Archiviazione di Azure, in base alla posizione dell'insieme di credenziali di servizi di ripristino
 
-Per ulteriori informazioni, vedere [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Per ulteriori informazioni, vedere [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Il peering pubblico è deprecato per i nuovi circuiti.

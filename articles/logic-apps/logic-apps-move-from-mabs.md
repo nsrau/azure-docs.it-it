@@ -8,11 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078219"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione di app e soluzioni da servizi BizTalk in app per la logica di Azure
 
@@ -52,13 +53,13 @@ Servizi BizTalk include diversi tipi di elementi.
 
 I connettori di Servizi BizTalk permettono ai bridge di inviare e ricevere dati, inclusi i bridge bidirezionali che consentono interazioni di richiesta/risposta basate su HTTP. App per la logica usa la stessa terminologia e offre centinaia di connettori che svolgono la stessa funzione connettendosi a un'ampia gamma di tecnologie e servizi. Ad esempio, sono disponibili connettori per servizi SaaS e PaaS cloud, come OneDrive, Office 365, Dynamics CRM e altri ancora, nonché sistemi locali tramite il gateway dati locale, che sostituisce il servizio Adapter BizTalk per Servizi BizTalk. Le origini di Servizi BizTalk sono limitate a sottoscrizioni FTP, SFTP e coda o argomento del bus di servizio.
 
-![](media/logic-apps-move-from-mabs/sources.png)
+![Diagramma che mostra il flusso dei servizi BizTalk.](media/logic-apps-move-from-mabs/sources.png)
 
 Per impostazione predefinita, ogni bridge ha un endpoint HTTP, configurato con le proprietà per l'indirizzo di runtime e per l'indirizzo relativo per il bridge. Per ottenere gli stessi risultati con App per la logica, usare le azioni di [richiesta e risposta](../connectors/connectors-native-reqres.md).
 
 ## <a name="xml-processing-and-bridges"></a>Bridge ed elaborazione XML
 
-In Servizi BizTalk un bridge è analogo a una pipeline di elaborazione. Un bridge può elaborare i dati ricevuti da un connettore, modificarli e quindi inviare i risultati a un altro sistema. App per la logica esegue la stessa operazione supportando gli stessi modelli di interazione basati su pipeline di Servizi BizTalk e offrendo anche altri modelli di integrazione. Il [bridge di richiesta-risposta XML](https://msdn.microsoft.com/library/azure/hh689781.aspx) in Servizi BizTalk è noto come pipeline VETER, costituita da varie fasi che eseguono queste attività:
+In Servizi BizTalk un bridge è analogo a una pipeline di elaborazione. Un bridge può elaborare i dati ricevuti da un connettore, modificarli e quindi inviare i risultati a un altro sistema. App per la logica esegue la stessa operazione supportando gli stessi modelli di interazione basati su pipeline di Servizi BizTalk e offrendo anche altri modelli di integrazione. Il [bridge di richiesta-risposta XML](/previous-versions/azure/hh689781(v=azure.100)) in Servizi BizTalk è noto come pipeline VETER, costituita da varie fasi che eseguono queste attività:
 
 * Convalidare
 * Migliorare
@@ -68,7 +69,7 @@ In Servizi BizTalk un bridge è analogo a una pipeline di elaborazione. Un bridg
 
 Questa immagine mostra in che modo l'elaborazione è divisa tra richiesta e risposta, fornendo il controllo sui percorsi di richiesta e risposta separatamente, ad esempio, usando mappe diverse per ciascun percorso:
 
-![](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![Screenshot che Mostra come suddividere l'elaborazione tra richiesta e risposta.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 Inoltre, un bridge unidirezionale XML aggiunge fasi di decodifica e codifica all'inizio e alla fine dell'elaborazione. Il bridge pass-through include una singola fase di miglioramento.
 
@@ -90,7 +91,7 @@ In Servizi BizTalk, la fase di trasformazione converte un formato di messaggi ba
 
 Servizi BizTalk effettua una scelta di routing relativamente all'endpoint o al connettore per l'invio di messaggi o dati in ingresso. La possibilità di scegliere da endpoint preconfigurati viene garantita tramite l'opzione del filtro di routing:
 
-![](media/logic-apps-move-from-mabs/route-filter.png)
+![Screenshot che mostra l'opzione del filtro di routing.](media/logic-apps-move-from-mabs/route-filter.png)
 
 In Servizi BizTalk, se sono disponibili solo due opzioni, l'uso di una *condizione* è il modo migliore per convertire filtri di routing in Servizi BizTalk stesso. Se ci sono più di due opzioni, usare uno **switch**.
 
@@ -102,7 +103,7 @@ Nell'elaborazione di Servizi BizTalk la fase di miglioramento aggiunge propriet�
 
 ### <a name="run-custom-code"></a>Eseguire codice personalizzato
 
-Servizi BizTalk permette di [eseguire codice personalizzato](https://msdn.microsoft.com/library/azure/dn232389.aspx) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
+Servizi BizTalk permette di [eseguire codice personalizzato](/previous-versions/azure/dn232389(v=azure.100)) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
 
 App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e App per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
 
@@ -134,6 +135,6 @@ In Servizi BizTalk il ripristino di emergenza al di fuori dell'area per l'elabor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+* [Cos'è App per la logica?](../logic-apps/logic-apps-overview.md)
 * [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md), oppure iniziare rapidamente usando un [modello predefinito](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  
 * [Visualizzare tutti i connettori disponibili](../connectors/apis-list.md) che è possibile usare in app per la logica

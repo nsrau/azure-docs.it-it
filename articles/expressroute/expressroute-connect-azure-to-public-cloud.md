@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889634"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081101"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Connessione di Azure con cloud pubblici
 
@@ -33,7 +34,7 @@ I provider riceveranno sono comunemente noti come VPN IP o provider VPN MPLS. I 
  
 Quando ci si connette tramite il provider riceveranno, Microsoft annuncia le route VNET del cliente al provider di servizi tramite BGP. Il provider può avere due implementazioni diverse.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagramma che mostra un provider riceveranno.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 È possibile che il provider sbarchi ogni provider di servizi cloud in un VRF separato, se il traffico da tutti i provider di cloud raggiungerà il router del cliente. Se il cliente esegue BGP con il provider di servizi, queste route verranno annunciate nuovamente ad altri provider di servizi cloud per impostazione predefinita. 
 
@@ -44,14 +45,14 @@ Ogni cloud pubblico presenta un limite di prefisso diverso, quindi la distribuzi
 ### <a name="layer2-provider-and-direct-connection"></a>Provider layer2 e connessione diretta
 
 Anche se la connettività fisica in entrambi i modelli è diversa, ma in riceveranno BGP viene stabilita direttamente tra MSEE e il router del cliente. Per il cliente ExpressRoute Direct si connette direttamente a MSEE. Nel caso di Layer2, il provider di servizi estende la VLAN dalle sedi dei clienti al cloud. I clienti eseguono BGP sulla rete layer2 per connettere i controller di dominio al cloud.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagramma che mostra un provider layer2 e una connessione diretta.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 In entrambi i casi, il cliente avrà connessioni Point-to-Point a ogni cloud pubblico. Il cliente stabilirà una connessione BGP separata a ogni cloud pubblico. Per impostazione predefinita, le route ricevute da un provider di cloud verranno annunciate ad altri provider di servizi cloud. Ogni provider di servizi cloud ha un limite di prefisso diverso, quindi, quando si annunciano le route, il cliente deve occuparsi di questi limiti. Il cliente può usare le normali manopole BGP con Microsoft, mentre annuncia le route da altri cloud pubblici.
 
 ## <a name="direct-connection-with-expressroute"></a>Connessione diretta a ExpressRoute
 
 I clienti possono scegliere di connettere ExpressRoute direttamente all'offerta di connettività diretta del provider di servizi cloud. Due provider di servizi cloud verranno connessi di nuovo e BGP verrà stabilito direttamente tra i rispettivi router. Questo tipo di connessione è attualmente disponibile con Oracle.
 
-## <a name="site-to-site-vpn"></a>Da sito a VPN
+## <a name="site-to-site-vpn"></a>VPN da sito a sito
 
 I clienti possono sfruttare Internet per connettere le istanze in Azure con altri cloud pubblici. Quasi tutti i provider di servizi cloud offrono funzionalità VPN da sito a sito. Tuttavia, potrebbero verificarsi incompatibilità a causa della mancanza di determinate varianti. Alcuni provider di servizi cloud, ad esempio, supportano solo IKEv1, quindi è necessario un endpoint di terminazione VPN in tale cloud. Per i provider di servizi cloud che supportano IKEv2 è possibile stabilire un tunnel diretto tra gateway VPN in entrambi i provider di servizi cloud.
 

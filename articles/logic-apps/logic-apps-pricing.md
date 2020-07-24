@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078153"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -77,27 +77,27 @@ Per le app per la logica create ed eseguite in un ISE, si paga un [prezzo fisso]
 
 ## <a name="connectors"></a>Connettori
 
-I connettori delle app per la logica di Azure consentono all'app per la logica di accedere a app, servizi e sistemi nel cloud o in locale fornendo [trigger](#triggers), [azioni](#actions)o entrambi. I connettori sono classificati come standard o Enterprise. Per una panoramica su questi connettori, vedere [connettori per app per la logica di Azure](../connectors/apis-list.md). Se non sono disponibili connettori predefiniti per le API REST che si vuole usare nelle app per la logica, è possibile creare [connettori personalizzati](https://docs.microsoft.com/connectors/custom-connectors), che sono solo wrapper intorno a tali API REST. I connettori personalizzati vengono fatturati come connettori standard. Nelle sezioni seguenti vengono fornite ulteriori informazioni sul funzionamento della fatturazione per i trigger e le azioni.
+I connettori delle app per la logica di Azure consentono all'app per la logica di accedere a app, servizi e sistemi nel cloud o in locale fornendo [trigger](#triggers), [azioni](#actions)o entrambi. I connettori sono classificati come standard o Enterprise. Per una panoramica su questi connettori, vedere [connettori per app per la logica di Azure](../connectors/apis-list.md). Se non sono disponibili connettori predefiniti per le API REST che si vuole usare nelle app per la logica, è possibile creare [connettori personalizzati](/connectors/custom-connectors), che sono solo wrapper intorno a tali API REST. I connettori personalizzati vengono fatturati come connettori standard. Nelle sezioni seguenti vengono fornite ulteriori informazioni sul funzionamento della fatturazione per i trigger e le azioni.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Trigger
 
-I trigger sono azioni speciali che creano un'istanza di un'app per la logica ogni volta che si verifica un evento specifico. I trigger agiscono in modi diversi, che influiscono sulla misurazione dell'app per la logica. Ecco i diversi tipi di trigger presenti nelle app per la logica di Azure:
+Un trigger è sempre il primo passaggio di un flusso di lavoro dell'app per la logica ed è un'azione speciale che crea ed esegue un'istanza di app per la logica quando vengono soddisfatti criteri specifici o si verifica un evento specifico. I trigger agiscono in modi diversi, che influiscono sulla misurazione dell'app per la logica. Ecco i diversi tipi di trigger presenti nelle app per la logica di Azure:
 
-* **Trigger di polling**: questo trigger controlla continuamente un endpoint per i messaggi che soddisfano i criteri per la creazione di un'istanza dell'app per la logica e l'avvio del flusso di lavoro. Anche quando non viene creata alcuna istanza di app per la logica, il servizio App per la logica misura ogni richiesta di polling come un'esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
+* **Trigger di ricorrenza**: è possibile usare questo trigger generico, che non è specifico per alcun servizio o sistema, per avviare qualsiasi flusso di lavoro dell'app per la logica e creare un'istanza dell'app per la logica che viene eseguita in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
+
+* **Trigger di polling**: è possibile usare questo trigger di ricorrenza più specializzato, che in genere è associato al connettore gestito per un servizio o un sistema specifico, per verificare la presenza di eventi o messaggi che soddisfino i criteri per la creazione e l'esecuzione di un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Anche quando non viene creata alcuna istanza di app per la logica, ad esempio quando i trigger vengono ignorati, il servizio app per la logica misura ogni richiesta di polling come esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Trigger webhook**: questo trigger attende che un client invii una richiesta a un endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP, ad esempio, sono entrambi trigger di webhook.
-
-* **Trigger di ricorrenza**: questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
+* **Trigger di Webhook**: invece di usare un trigger di polling, è possibile usare un trigger webhook per attendere che il client invii una richiesta all'app per la logica in un URL di endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di un'azione. Ad esempio, il trigger di richiesta e webhook HTTP sono entrambi trigger di Webhook generici. Alcuni connettori per i servizi o i sistemi hanno anche trigger di webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Azioni
 
-App per la logica di Azure "azioni predefinite", ad esempio HTTP, come azioni native. Ad esempio, le azioni predefinite includono le chiamate HTTP, le chiamate da funzioni di Azure o gestione API e i passaggi del flusso di controllo come condizioni, cicli e istruzioni switch. Ogni azione ha un proprio tipo di azione. Ad esempio, le azioni che chiamano [connettori](https://docs.microsoft.com/connectors) hanno il tipo "ApiConnection". Questi connettori sono classificati come connettori standard o Enterprise, che vengono misurati in base ai rispettivi [prezzi](https://azure.microsoft.com/pricing/details/logic-apps). I connettori aziendali in *Anteprima* vengono addebitati come connettori standard.
+App per la logica di Azure "azioni predefinite", ad esempio HTTP, come azioni native. Ad esempio, le azioni predefinite includono le chiamate HTTP, le chiamate da funzioni di Azure o gestione API e i passaggi del flusso di controllo come condizioni, cicli e istruzioni switch. Ogni azione ha un proprio tipo di azione. Ad esempio, le azioni che chiamano [connettori](/connectors) hanno il tipo "ApiConnection". Questi connettori sono classificati come connettori standard o Enterprise, che vengono misurati in base ai rispettivi [prezzi](https://azure.microsoft.com/pricing/details/logic-apps). I connettori aziendali in *Anteprima* vengono addebitati come connettori standard.
 
 App per la logica di Azure misura tutte le azioni riuscite e non riuscite come esecuzioni. Tuttavia, le app per la logica non misurano le azioni seguenti:
 
@@ -122,7 +122,7 @@ Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/conne
 
 Per scegliere tra un account di integrazione gratuito, Basic o standard, esaminare le descrizioni dei casi d'uso seguenti:
 
-* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](https://docs.microsoft.com/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
+* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
 
 * **Basic**: per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
 

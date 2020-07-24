@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079242"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso del rendering di Azure Batch
 
@@ -19,7 +19,7 @@ Sono disponibili diversi modi per usare il rendering di Azure Batch:
 * API:
   * Scrivere codice usando una delle API di Batch.  Gli sviluppatori possono integrare le funzionalità di Azure Batch nelle applicazioni esistenti o nel flusso di lavoro, su un'istanza locale o nel cloud.
 * Strumenti da riga di comando:
-  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](/cli/azure/) o [PowerShell](/powershell/azure/overview).
+  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](/cli/azure/) o [PowerShell](/powershell/azure/).
   * In particolare, il [supporto dei modelli dell'interfaccia della riga di comando di Batch](./batch-cli-templates.md) semplifica notevolmente la creazione di pool e l'invio di processi.
 * Interfaccia utente di Batch Explorer:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) è uno strumento client multipiattaforma che consente anche la gestione e il monitoraggio degli account di Batch.

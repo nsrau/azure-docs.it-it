@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081492"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
-Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o Platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Tuttavia, esse sono intrinsecamente limitate. 
+Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o Platform](./metrics-supported.md). Tuttavia, esse sono intrinsecamente limitate. 
 
 È opportuno pertanto raccogliere alcuni indicatori delle prestazioni personalizzati o metriche specifiche dell'azienda per ottenere informazioni più dettagliate. Le metriche **personalizzate** possono essere raccolte tramite i dati di telemetria dell'applicazione o un agente in esecuzione sulle risorse di Azure o anche all'esterno del sistema di monitoraggio e inviate direttamente a Monitoraggio di Azure. Dopo la pubblicazione in Monitoraggio di Azure, è possibile esplorare le metriche personalizzate per le risorse e le applicazioni di Azure, nonché eseguire query e inviare avvisi in modo analogo a come si opera sulle metriche standard generate da Azure.
 
@@ -37,17 +37,17 @@ Vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.c
 Le metriche personalizzate vengono mantenute per la [stessa quantità di tempo delle metriche della piattaforma](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Le metriche inviate a monitoraggio di Azure tramite il Application Insights SDK vengono fatturate come dati di log inseriti. Vengono addebitate solo le metriche aggiuntive solo se è stata selezionata la funzionalità Application Insights [Abilita avvisi sulle dimensioni metriche personalizzate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) . Questa casella di controllo Invia i dati al database di metriche di monitoraggio di Azure usando l'API metrica personalizzata per consentire gli avvisi più complessi.  Scopri di più sul [modello di determinazione prezzi Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) e sui [prezzi nella tua area](https://azure.microsoft.com/pricing/details/monitor/).
+> Le metriche inviate a monitoraggio di Azure tramite il Application Insights SDK vengono fatturate come dati di log inseriti. Vengono addebitate solo le metriche aggiuntive solo se è stata selezionata la funzionalità Application Insights [Abilita avvisi sulle dimensioni metriche personalizzate](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) . Questa casella di controllo Invia i dati al database di metriche di monitoraggio di Azure usando l'API metrica personalizzata per consentire gli avvisi più complessi.  Scopri di più sul [modello di determinazione prezzi Application Insights](../app/pricing.md#pricing-model) e sui [prezzi nella tua area](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="how-to-send-custom-metrics"></a>Come inviare metriche personalizzate
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
-1. [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
-2. [Azure ad entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
+1. [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
+2. [Azure ad entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
 Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'applicazione usando le chiavi pubbliche di Azure AD. Il ruolo di **autore delle metriche di monitoraggio** dispone già di tale autorizzazione. È disponibile nel portale di Azure. All'entità servizio, in base alle risorse per cui genera le metriche personalizzate, può essere assegnato il ruolo di **autore delle metriche di monitoraggio** nell'ambito richiesto. Esempi possono essere una sottoscrizione, un gruppo di risorse o una risorsa specifica.
 
 > [!TIP]  
@@ -60,7 +60,7 @@ Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indi
 > Non è possibile generare metriche personalizzate in base all'ID risorsa di un gruppo di risorse o di una sottoscrizione.
 
 
-### <a name="region"></a>Region
+### <a name="region"></a>Area
 Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la risorsa per cui si generano le metriche. Le metriche devono essere inviate allo stesso endpoint regionale di Monitoraggio di Azure dell'area in cui la risorsa è distribuita. Per una macchina virtuale distribuita negli Stati Uniti occidentali, ad esempio, le metriche personalizzate devono essere inviate all'endpoint di Monitoraggio di Azure in tale area. Le informazioni sulle aree sono codificate anche nell'URL della chiamata API.
 
 > [!NOTE]  
@@ -91,7 +91,7 @@ Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione pe
 Quando si pubblica un valore della metrica, è possibile specificare solo un unico valore di dimensione per chiave di dimensione. Se si raccoglie la stessa metrica di uso della memoria per più processi nella macchina virtuale, è possibile indicare più valori di metrica per tale timestamp. Ogni valore della metrica specifica un valore di dimensione diverso per la chiave di dimensione **Processo**.
 Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Se una metrica post definisce le chiavi della dimensione, i valori della dimensione corrispondenti sono obbligatori.
 
-### <a name="metric-values"></a>Valori della metrica
+### <a name="metric-values"></a>Valori delle metriche
 Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di un minuto. Siamo consapevoli che durante un minuto specificato, potrebbe essere necessario campionare più volte una metrica. Un esempio è l'utilizzo della CPU. Oppure potrebbe essere necessario misurarla per diversi eventi discreti. Un esempio sono le latenze delle transazioni di accesso. Per limitare il numero di valori non elaborati che è necessario generare e pagare in Monitoraggio di Azure, è possibile pre-aggregare in locale e generare i valori in locale, come indicato di seguito.
 
 * **Min**: valore minimo valore osservato da tutti i campioni e da tutte le osservazioni durante il minuto.
@@ -178,7 +178,7 @@ Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Esplorare le metriche personalizzate tramite il portale di Azure
 1.    Accedere al [portale di Azure](https://portal.azure.com).
 2.    Selezionare il riquadro **Monitoraggio**.
-3.    Selezionare **metrica**.
+3.    Selezionare **Metriche**.
 4.    Selezionare una risorsa per cui sono state generate metriche personalizzate.
 5.    Selezionare lo spazio dei nomi di metriche per la metrica personalizzata.
 6.    Selezionare la metrica personalizzata.
@@ -190,7 +190,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 |---|---|
 | **Stati Uniti e Canada** | |
 |Stati Uniti centro-occidentali | https: \/ /westcentralus.Monitoring.Azure.com |
-|Stati Uniti occidentali 2       | https: \/ /westus2.Monitoring.Azure.com |
+|West US 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Stati Uniti centro-settentrionali | https: \/ /northcentralus.Monitoring.Azure.com
 |Stati Uniti centro-meridionali| https: \/ /southcentralus.Monitoring.Azure.com |
 |Stati Uniti centrali      | https: \/ /centralus.Monitoring.Azure.com |

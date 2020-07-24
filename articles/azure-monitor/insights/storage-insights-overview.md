@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944492"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081611"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -31,7 +31,7 @@ In combinazione, offre:
 
 * **Possibilità di personalizzazione**, per modificare le metriche da visualizzare, modificare o impostare soglie allineate ai propri limiti e salvare come cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono essere aggiunti ai dashboard di Azure.  
 
-Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
+Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >Non sono previsti addebiti per accedere a questa funzionalità. Verranno addebitate solo le funzionalità essenziali di Monitoraggio di Azure configurate o abilitate, come descritto nella pagina relativa ai [dettagli sui prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
@@ -198,7 +198,7 @@ A questo punto è possibile modificare il tema colori per le metriche di capacit
 
 1. Selezionare **Impostazioni di colonna** nella griglia delle metriche.
 
-2. Nel riquadro **Modifica impostazioni di colonna**, sotto la sezione **Colonne** selezionare **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . Nell'elenco a discesa **Tavolozza dei colori** selezionare **Verde**.
+2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ `|` Microsoft. storage/storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. storage/storageaccounts/fileservices-Capacity-filecapacity $ `|` Microsoft. storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Nell'elenco a discesa **Tavolozza dei colori** selezionare **Verde**.
 
 3. Selezionare **Salva e chiudi** per eseguire il commit della modifica.
 
@@ -246,7 +246,7 @@ Per la procedura dettagliata su come modificare la colorazione e le soglie per l
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Come si fa ad analizzare e risolvere i problemi relativi ai dati visualizzati in Monitoraggio di Azure per l'archiviazione?
 
- Per informazioni dettagliate su come analizzare e risolvere i problemi relativi ai dati di Archiviazione di Azure visualizzati in Monitoraggio di Azure per l'archiviazione, vedere l'articolo relativo a [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting).
+ Per informazioni dettagliate su come analizzare e risolvere i problemi relativi ai dati di Archiviazione di Azure visualizzati in Monitoraggio di Azure per l'archiviazione, vedere l'articolo relativo a [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Perché nelle metriche non vengono visualizzati tutti i tipi di errori?
 
@@ -269,7 +269,7 @@ Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è st
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
 * Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
 

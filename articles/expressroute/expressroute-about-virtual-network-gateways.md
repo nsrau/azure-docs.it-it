@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
-ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7779e0638ea61c70758394dc212910ba8f1d7f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081135"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale ExpressRoute
 
@@ -42,7 +43,7 @@ La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabe
 >
 >
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet del gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet gateway
 
 Prima di creare un gateway ExpressRoute, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni richieste del gateway ExpressRoute. Non distribuire mai nient'altro (ad esempio, altre VM) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
@@ -85,9 +86,9 @@ Per ulteriori informazioni su FastPath, inclusi i requisiti e le limitazioni, ve
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API REST e cmdlet PowerShell
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST e i cmdlet PowerShell per le configurazioni di gateway di rete virtuale, vedere le pagine seguenti:
 
-| **Classico** | **Gestione risorse** |
+| **Classico** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Passaggi successivi

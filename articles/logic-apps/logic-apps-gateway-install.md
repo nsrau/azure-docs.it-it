@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078648"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -21,7 +22,7 @@ Prima di poter [connettere le origini dati locali da App per la logica di Azure]
 * [Gateway dati locale di Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
-Questo articolo illustra come scaricare, installare e configurare il gateway dati locale in modo da poter accedere alle origini dati locali da App per la logica di Azure. È anche possibile ottenere altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service) più avanti in questo argomento. Per altre informazioni sul gateway, vedere [Cos'è un gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)? Per automatizzare le attività di installazione e gestione del gateway, visitare la PowerShell Gallery per i [cmdlet di PowerShell DataGateway](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
+Questo articolo illustra come scaricare, installare e configurare il gateway dati locale in modo da poter accedere alle origini dati locali da App per la logica di Azure. È anche possibile ottenere altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service) più avanti in questo argomento. Per altre informazioni sul gateway, vedere [Cos'è un gateway dati locale](/data-integration/gateway/service-gateway-onprem)? Per automatizzare le attività di installazione e gestione del gateway, visitare la PowerShell Gallery per i [cmdlet di PowerShell DataGateway](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 
@@ -79,7 +80,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
   * Il gateway usa due modalità: la modalità standard e la modalità personale, che si applica solo a Power BI. Non è possibile eseguire più di un gateway nella stessa modalità sullo stesso computer.
 
-  * App per la logica di Azure supporta le operazioni di lettura e scrittura tramite il gateway. Tuttavia, queste operazioni presentano [limiti di dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * App per la logica di Azure supporta le operazioni di lettura e scrittura tramite il gateway. Tuttavia, queste operazioni presentano [limiti di dimensioni del payload](/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -142,8 +143,8 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 Il gateway dati locale dipende dal [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività al cloud e stabilisce le corrispondenti connessioni in uscita all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede l'invio del traffico attraverso un proxy o un firewall per l'accesso a Internet, questa restrizione potrebbe impedire al gateway dati locale di connettersi al servizio cloud del gateway e al bus di servizio di Azure. Il gateway dispone di diverse impostazioni di comunicazione che è possibile modificare. Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Configurazione delle impostazioni di comunicazione per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Configurare le impostazioni proxy per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Configurazione delle impostazioni di comunicazione per il gateway dati locale](/data-integration/gateway/service-gateway-communication)
+* [Configurare le impostazioni proxy per il gateway dati locale](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -155,7 +156,7 @@ Per evitare singoli punti di guasto per l'accesso ai dati locali, è possibile a
 
 * Il gateway primario deve eseguire l'aggiornamento del gateway di novembre 2017 o versione successiva.
 
-Dopo aver configurato il gateway primario, quando si installa un altro gateway, selezionare **Aggiungi a un cluster di gateway esistente**, selezionare il gateway primario, che è il primo gateway installato e specificare la chiave di ripristino per il gateway. Per altre informazioni, vedere [Cluster a disponibilità elevata per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+Dopo aver configurato il gateway primario, quando si installa un altro gateway, selezionare **Aggiungi a un cluster di gateway esistente**, selezionare il gateway primario, che è il primo gateway installato e specificare la chiave di ripristino per il gateway. Per altre informazioni, vedere [Cluster a disponibilità elevata per il gateway dati locale](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
@@ -185,7 +186,7 @@ Per modificare la posizione del gateway, spostare l'installazione del gateway in
 
 ## <a name="tenant-level-administration"></a>Amministrazione a livello di tenant
 
-Per ottenere la visibilità di tutti i gateway dati locali in un tenant di Azure AD, gli amministratori globali in quel tenant possono accedere all'[interfaccia di amministrazione di Power Platform](https://powerplatform.microsoft.com) come amministratore tenant e selezionare l'opzione **Gateway dati**. Per altre informazioni, vedere [Amministrazione a livello di tenant per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+Per ottenere la visibilità di tutti i gateway dati locali in un tenant di Azure AD, gli amministratori globali in quel tenant possono accedere all'[interfaccia di amministrazione di Power Platform](https://powerplatform.microsoft.com) come amministratore tenant e selezionare l'opzione **Gateway dati**. Per altre informazioni, vedere [Amministrazione a livello di tenant per il gateway dati locale](/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
@@ -196,7 +197,7 @@ Per impostazione predefinita, l'installazione del gateway nel computer locale vi
 > [!NOTE]
 > L'account di servizio di Windows è diverso dall'account usato per la connessione alle origini dati locali e dall'account di Azure usato per accedere ai servizi cloud.
 
-Come qualsiasi altro servizio di Windows, è possibile avviare o arrestare il gateway in diversi modi. Per altre informazioni, vedere [Riavviare un gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Come qualsiasi altro servizio di Windows, è possibile avviare o arrestare il gateway in diversi modi. Per altre informazioni, vedere [Riavviare un gateway dati locale](/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
@@ -260,9 +261,9 @@ Ecco i modi in cui è possibile far corrispondere gli account Active Directory l
 
 ## <a name="faq-and-troubleshooting"></a>Domande frequenti e risoluzione dei problemi
 
-* [Domande frequenti sul gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Risolvere i problemi del gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorare e ottimizzare le prestazioni del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Domande frequenti sul gateway dati locale](/data-integration/gateway/service-gateway-onprem-faq)
+* [Risolvere i problemi del gateway dati locale](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorare e ottimizzare le prestazioni del gateway](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

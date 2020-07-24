@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f97b4877d87acec923812fd0289d5161529dbe7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081033"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -268,7 +268,7 @@ Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si voglion
 
 È possibile selezionare le dimensioni di un nodo solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le informazioni seguenti forniscono indicazioni su come specificare le dimensioni usando il [portale di Azure](https://portal.azure.com/), il [modulo di Azure PowerShell AZ](/powershell/azureps-cmdlets-docs)e l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure:
+Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le informazioni seguenti forniscono indicazioni su come specificare le dimensioni usando il [portale di Azure](https://portal.azure.com/), il [modulo di Azure PowerShell AZ](/powershell/azure/)e l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure:
 
 * **Portale di Azure**: quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 
@@ -284,6 +284,6 @@ Per ulteriori informazioni sugli elementi trattati in questo articolo, vedere:
 
 * [Riferimento REST Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Installare e configurare Azure PowerShell modulo AZ](/powershell/azure/overview)
+* [Installare e configurare Azure PowerShell modulo AZ](/powershell/azure/)
 * [Gestire HDInsight tramite Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080751"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -29,7 +29,7 @@ L'onboarding del Centro sicurezza di Azure tramite PowerShell consente di automa
 
 Questo articolo fornisce uno script di PowerShell di esempio che può essere modificato e applicato all'ambiente in uso per implementare il Centro sicurezza in tutte le sottoscrizioni. 
 
-In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con ID d07c0080-170c-4c24-861d-9c817742786c. Inoltre, si applicheranno le impostazioni consigliate che forniscono un elevato livello di protezione mediante l'implementazione del livello Standard del Centro sicurezza, che offre funzionalità avanzate di protezione e rilevamento delle minacce:
+In questo esempio verrà abilitato il Centro sicurezza in una sottoscrizione con ID: d07c0080-170C-4c24-861d-9c817742786c e verranno applicate le impostazioni consigliate che garantiscono un elevato livello di protezione, implementando il livello standard del Centro sicurezza, che offre funzionalità avanzate di protezione dalle minacce e rilevamento:
 
 1. Impostare il [livello di protezione standard del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/). 
  

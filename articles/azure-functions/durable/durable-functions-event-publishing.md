@@ -3,15 +3,16 @@ title: Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (antepri
 description: Informazioni su come configurare la pubblicazione automatica di Griglia di eventi di Azure per Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83124265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081747"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
-Questo articolo illustra come configurare Durable Functions per pubblicare eventi del ciclo di vita di orchestrazione (ad esempio "creato", "completato" e "non riuscito") in un [argomento personalizzato di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Questo articolo illustra come configurare Durable Functions per pubblicare eventi del ciclo di vita di orchestrazione (ad esempio "creato", "completato" e "non riuscito") in un [argomento personalizzato di Griglia di eventi di Azure](../../event-grid/overview.md).
 
 Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
@@ -25,7 +26,7 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
 * Installare [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) nel progetto Durable Functions.
 * Installare l'[emulatore di Archiviazione di Azure](../../storage/common/storage-use-emulator.md) (solo Windows) o usare un account di archiviazione di Azure esistente.
-* Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento personalizzato di Griglia di eventi
 
@@ -167,7 +168,7 @@ Usando il portale di Azure, creare un'altra app per le funzioni per rimanere in 
 
 ### <a name="add-an-event-grid-subscription"></a>Aggiungere una sottoscrizione di Griglia di eventi
 
-È ora possibile aggiungere una sottoscrizione di Griglia di eventi per l'argomento di Griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
+È ora possibile aggiungere una sottoscrizione di Griglia di eventi per l'argomento di Griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](../../event-grid/concepts.md).
 
 1. Selezionare **Integrazione** nella nuova funzione, quindi selezionare **Trigger di Griglia di eventi (eventGridEvent)** . 
 

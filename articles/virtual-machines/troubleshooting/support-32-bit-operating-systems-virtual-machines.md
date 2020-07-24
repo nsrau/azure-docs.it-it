@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079860"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure
 
 Microsoft Azure consente ora agli utenti di portare i sistemi operativi Windows a 32 bit in Azure. Sono supportati solo i dischi rigidi virtuali specializzati e le immagini generalizzate non funzioneranno in Azure. Poiché alcuni di questi sistemi operativi hanno già raggiunto la scadenza del contratto di supporto, Microsoft potrebbe non offrire un supporto aggiuntivo. Il supporto non è inoltre disponibile per i sistemi operativi basati su Linux o Berkeley Software Distribution (BSD) eseguiti in una macchina virtuale Microsoft Azure (VM).
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Per ulteriori informazioni sui sistemi operativi supportati in macchine virtuali di Azure, vedere gli articoli seguenti della Microsoft Knowledge Base:
 
@@ -34,8 +34,8 @@ Per ulteriori informazioni sui sistemi operativi supportati in macchine virtuali
 ## <a name="references"></a>Riferimenti
 
 * [Scopri di più sugli aggiornamenti della sicurezza estesa gratuiti per Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Scopri di più sul supporto per immagini specializzate di Windows Server 2008 SP2 a 32 bit in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Altre informazioni sul supporto per la migrazione di immagini di Windows Server 2008 in Azure con Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Scopri di più sul supporto per immagini specializzate di Windows Server 2008 SP2 a 32 bit in Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Altre informazioni sul supporto per la migrazione di immagini di Windows Server 2008 in Azure con Azure Site Recovery](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Altre informazioni sui sistemi operativi supportati dall'estensione di Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Altre informazioni sull'esecuzione di Windows Server 2003 in Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

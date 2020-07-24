@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6b29125087bd60041f85b1b5023646b039bd6a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243e5eafd38a35b5afd89e765c3196efbfe5362f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079996"
 ---
 # <a name="nd-series"></a>Serie ND
 
@@ -27,7 +27,7 @@ Live Migration: Non supportato
 Manutenzione con mantenimento della memoria: Non supportato
 
 > [!IMPORTANT]
-> Per questa serie di macchine virtuali, la quota di vCPU (Core) per area nella sottoscrizione viene inizialmente impostata su 0. [Richiedere un aumento della quota di vCPU](../azure-supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/).
+> Per questa serie di macchine virtuali, la quota di vCPU (Core) per area nella sottoscrizione viene inizialmente impostata su 0. [Richiedere un aumento della quota di vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/).
 >
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081424"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
@@ -61,7 +61,7 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 ## <a name="azure-data-explorer"></a>Esplora dati di Azure
 
-Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/) con il potente linguaggio di query [kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](/azure/data-explorer/) con il potente linguaggio di query [kusto](/azure/kusto/query/index) .   
 
 ![Screenshot della finestra di query kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ Il provider JSON consente di creare un risultato di query dal contenuto JSON sta
 > [!NOTE]
 > Il modo consigliato per eseguire query per le informazioni sugli avvisi di Azure consiste nell'usare l'origine dati [Graph di risorse di Azure](#azure-resource-graph) , eseguendo una query sulla `AlertsManagementResources` tabella.
 >
-> Per esempi, vedere il [riferimento alla tabella del grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)o il modello di [avviso](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
+> Per esempi, vedere il [riferimento alla tabella del grafo delle risorse di Azure](../../governance/resource-graph/reference/supported-tables-resources.md)o il modello di [avviso](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
 >
 > L'origine dati degli avvisi rimarrà disponibile per un determinato periodo di tempo mentre gli autori passano a utilizzando ARG. L'uso di questa origine dati nei modelli è sconsigliato. 
 
@@ -113,5 +113,5 @@ Per evitare di effettuare automaticamente chiamate a host non attendibili quando
 
 * Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
-* [Suggerimenti per l'ottimizzazione delle query Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Suggerimenti per l'ottimizzazione delle query Log Analytics](../log-query/query-optimization.md)
 * 

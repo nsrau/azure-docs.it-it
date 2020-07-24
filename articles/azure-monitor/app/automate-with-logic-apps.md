@@ -3,11 +3,12 @@ title: Automatizzare i processi di applicazione Azure Insights usando app per la
 description: Informazioni su come automatizzare in poco tempo i processi ripetibili aggiungendo il connettore di Application Insights all'app per la logica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79473167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079622"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
@@ -18,7 +19,7 @@ Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetr
 
 Con questa integrazione è possibile automatizzare numerosi processi senza dover scrivere una sola riga di codice. È possibile creare un'app per la logica con il connettore di Application Insights per automatizzare rapidamente qualsiasi processo di Application Insights. 
 
-È possibile aggiungere anche altre azioni. App per la logica è una funzione del Servizio app di Azure che offre centinaia di azioni. Usando un'app per la logica, è ad esempio possibile inviare automaticamente una notifica di posta elettronica o creare un bug in Azure DevOps. È anche possibile usare uno dei numerosi [modelli](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibili per velocizzare il processo di creazione dell'app per la logica. 
+È possibile aggiungere anche altre azioni. App per la logica è una funzione del Servizio app di Azure che offre centinaia di azioni. Usando un'app per la logica, è ad esempio possibile inviare automaticamente una notifica di posta elettronica o creare un bug in Azure DevOps. È anche possibile usare uno dei numerosi [modelli](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) disponibili per velocizzare il processo di creazione dell'app per la logica. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Creare un app per la logica per Application Insights
 
@@ -130,13 +131,8 @@ Quando l'app per la logica è in esecuzione, i destinatari specificati nell'elen
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulla creazione di [query di Analisi](../../azure-monitor/log-query/get-started-queries.md).
-- Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
-

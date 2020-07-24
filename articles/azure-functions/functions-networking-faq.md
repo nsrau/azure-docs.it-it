@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081645"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulla rete in funzioni di Azure
 
@@ -54,7 +55,7 @@ Con l'integrazione della rete virtuale è possibile accedere alle risorse protet
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Come si distribuisce l'app per le funzioni in una rete virtuale?
 
-La distribuzione in un ambiente del servizio app è l'unico modo per creare un'app per le funzioni interamente all'interno di una rete virtuale. Per informazioni dettagliate sull'uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app, iniziare con l'articolo [creare e usare un servizio di bilanciamento del carico interno con una ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+La distribuzione in un ambiente del servizio app è l'unico modo per creare un'app per le funzioni interamente all'interno di una rete virtuale. Per informazioni dettagliate sull'uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app, iniziare con l'articolo [creare e usare un servizio di bilanciamento del carico interno con una ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
 
 Per gli scenari in cui è necessario solo l'accesso unidirezionale alle risorse della rete virtuale o un isolamento di rete meno completo, vedere la [Panoramica sulle funzioni](functions-networking-options.md)di rete.
 

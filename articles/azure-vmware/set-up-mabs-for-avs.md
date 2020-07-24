@@ -3,12 +3,12 @@ title: Configurare server di Backup di Azure per la soluzione VMware di Azure
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079537"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
 
@@ -198,7 +198,7 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
    1. Nell'elenco di risorse digitare **Servizi di ripristino**.
 
-   1. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
+   1. Quando si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
 
    ![Creare l'insieme di credenziali di servizi di ripristino passaggio 1](../backup/media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -280,7 +280,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
    ![Verifica SQL Server server di Backup di Azure](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
-   > Se si vuole usare un'istanza di SQL Server personalizzata, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017. Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit Server di Backup di Azure non funziona con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale. Se si utilizza un'istanza di SQL Server esistente per server di Backup di Azure, il programma di installazione di supporta solo l'utilizzo di *istanze denominate* di SQL Server.
+   > Se si vuole usare un'istanza di SQL Server personalizzata, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017. Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit. Server di Backup di Azure non funziona con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale. Se si utilizza un'istanza di SQL Server esistente per server di Backup di Azure, il programma di installazione di supporta solo l'utilizzo di *istanze denominate* di SQL Server.
 
    Se si verifica un errore con una raccomandazione per riavviare il computer, fare clic su **Verifica di nuovo**. Se si verificano problemi di configurazione SQL Server, riconfigurare SQL Server in base alle linee guida SQL Server. Quindi riprovare a installare o aggiornare server di Backup di Azure usando l'istanza esistente di SQL Server.
 
@@ -309,7 +309,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
    * **Database**: **DatabaseName** deve essere **ReportServer $ \<SQLInstanceName> **.
    * **URL del portale Web**: la **directory virtuale** deve essere **reports_ \<SQLInstanceName> **.
 
-   [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
+   [Altre informazioni](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
 
    > [!NOTE]
    > Le [condizioni di Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) regolano la gestione delle licenze per SQL Server usato come database per server di backup di Azure. Secondo OST, SQL Server in bundle con server di Backup di Azure può essere usato solo come database per server di Backup di Azure.
@@ -319,7 +319,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 1. Specificare un percorso per l'installazione dei file di Backup di Microsoft Azure server e selezionare **Avanti**.
 
    > [!NOTE]
-   > Il percorso dei file temporanei è obbligatorio per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione del disco, è necessario configurare dischi separati dopo aver completato l'installazione. Per altre informazioni sui pool di archiviazione, vedere [configurare i pool di archiviazione e l'archiviazione su disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > Il percorso dei file temporanei è obbligatorio per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione del disco, è necessario configurare dischi separati dopo aver completato l'installazione. Per altre informazioni sui pool di archiviazione, vedere [configurare i pool di archiviazione e l'archiviazione su disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Impostazioni di installazione di Backup di Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Passare all'esercitazione successiva per informazioni su come configurare il bac
 
 > [!div class="nextstepaction"]
 > [Configurare il backup di macchine virtuali della soluzione VMware di Azure](backup-avs-vms-with-mabs.md)
-

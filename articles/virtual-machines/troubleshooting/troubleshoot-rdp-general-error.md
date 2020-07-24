@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079826"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -58,7 +58,7 @@ Servizi Desktop remoto (TermService) non è in esecuzione.
 
 Il listener RDP non è configurato correttamente.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per risolvere il problema, usare il controllo seriale o ripristinare la macchina virtuale offline.
 
@@ -183,7 +183,7 @@ Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM
 
 #### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare il desktop remoto
 
-1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 3. Verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 4. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.

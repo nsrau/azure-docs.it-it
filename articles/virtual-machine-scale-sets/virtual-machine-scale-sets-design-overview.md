@@ -10,15 +10,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080506"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
-Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
+Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando usare i set di scalabilità invece delle macchine virtuali?
 I set di scalabilità sono in genere utili per distribuire un'infrastruttura a disponibilità elevata che include un set di computer con una configurazione simile. Tuttavia, alcune funzionalità sono disponibili soltanto nei set di scalabilità, mentre altre sono disponibili solo nelle macchine virtuali. Per prendere una decisione consapevole su quando usare una tecnologia, è consigliabile esaminare prima alcune delle funzionalità di uso comune disponibili nei set di scalabilità ma non nelle macchine virtuali:
@@ -27,8 +27,8 @@ I set di scalabilità sono in genere utili per distribuire un'infrastruttura a d
 
 - Dopo aver specificato la configurazione del set di scalabilità, è possibile aggiornare la proprietà *capacity* per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
 - È possibile [usare il ridimensionamento automatico di Azure per la scalabilità automatica di un set di scalabilità](./virtual-machine-scale-sets-autoscale-overview.md) ma non di singole macchine virtuali.
-- È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- È possibile [eseguire il provisioning eccessivo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. È possibile eseguire il provisioning eccessivo di singole macchine virtuali solo se si scrive un codice personalizzato per eseguire questa azione.
+- È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](/rest/api/compute/virtualmachinescalesets/reimage) ma [non delle singole macchine virtuali](/rest/api/compute/virtualmachines).
+- È possibile [eseguire il provisioning eccessivo](#overprovisioning) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. È possibile eseguire il provisioning eccessivo di singole macchine virtuali solo se si scrive un codice personalizzato per eseguire questa azione.
 - È possibile specificare [criteri di aggiornamento](./virtual-machine-scale-sets-upgrade-scale-set.md) per semplificare l'implementazione degli aggiornamenti nelle macchine virtuali del set di scalabilità. Con le singole macchine virtuali, è necessario orchestrare gli aggiornamenti manualmente.
 
 ### <a name="vm-specific-features"></a>Funzionalità specifiche delle macchine virtuali
@@ -68,4 +68,3 @@ Un set di scalabilità configurato con account di archiviazione gestita dall'ute
 Un set di scalabilità basato su un'immagine personalizzata (creata dall'utente) può avere una capacità massima di 600 macchine virtuali quando configurato con Azure Managed Disks. Se il set di scalabilità è configurato con gli account di archiviazione gestita dall'utente, è necessario creare tutti i dischi rigidi virtuali del disco del sistema operativo all'interno di un unico account di archiviazione. Di conseguenza, il numero massimo consigliato di VM in un set di scalabilità basato su un'immagine personalizzata e su un'archiviazione gestita dall'utente è 20. Se si disattiva il provisioning eccessivo, è possibile arrivare a 40.
 
 Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità, come indicato in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-

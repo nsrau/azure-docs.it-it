@@ -4,15 +4,16 @@ description: Questo articolo illustra come gestire le operazioni di backup e rip
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079333"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare l'insieme di credenziali di Servizi di ripristino di Azure con l'API REST
 
-La procedura per creare un insieme di credenziali di Servizi di ripristino di Azure con l'API REST è descritta nella documentazione sull'[API REST per creare insiemi di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate). Questo documento verrà usato come riferimento per creare un insieme di credenziali denominato "testVault" nell'area Stati Uniti occidentali ("West US").
+La procedura per creare un insieme di credenziali di Servizi di ripristino di Azure con l'API REST è descritta nella documentazione sull'[API REST per creare insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate). Questo documento verrà usato come riferimento per creare un insieme di credenziali denominato "testVault" nell'area Stati Uniti occidentali ("West US").
 
 Per creare o aggiornare un insieme di credenziali di Servizi di ripristino di Azure, usare l'operazione *PUT* seguente.
 
@@ -29,7 +30,7 @@ Gli argomenti seguenti sono obbligatori:
 | Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
 | *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
-| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per altre informazioni su come creare la richiesta, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -39,10 +40,10 @@ Per compilare un corpo della richiesta vengono usate le definizioni comuni segue
 
 |Nome  |Obbligatoria  |Tipo  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag facoltativo       |
-|posizione     |  true       |string         |   Posizione risorsa      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
+|eTag     |         |   Stringa      |  eTag facoltativo       |
+|posizione     |  true       |Stringa         |   Posizione risorsa      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
+|sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 
 Si noti che il nome dell'insieme di credenziali e il nome del gruppo di risorse vengono specificati nell'URI PUT. Il corpo della richiesta definisce la località.
@@ -65,10 +66,10 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|Nome  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
-|200 - OK     |   [Insiemi di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201 Creato     | [Insiemi di credenziali](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |
+|200 - OK     |   [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
+|201 Creato     | [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |
 
 Per altre informazioni sulle risposte dell'API REST, vedere [Process the response message](/rest/api/azure/#process-the-response-message) (Elaborare il messaggio di risposta).
 

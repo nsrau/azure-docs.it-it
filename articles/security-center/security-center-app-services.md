@@ -1,5 +1,5 @@
 ---
-title: Proteggi le app Web e le API del servizio app Azure
+title: Proteggere le app Web e le API del servizio app di Azure
 description: Questo articolo consente di iniziare a proteggere le app Web e le API del servizio app Azure nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -10,13 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080795"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggi le app Web e le API del servizio app Azure
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggere le app Web e le API del servizio app di Azure
 
 App Azure servizio è una piattaforma completamente gestita per la creazione e l'hosting di API e app Web senza doversi preoccupare della gestione dell'infrastruttura. Fornisce funzionalità di gestione, monitoraggio e informazioni operative per soddisfare i requisiti di prestazioni, sicurezza e conformità di livello aziendale. Per ulteriori informazioni, vedere [app Azure Service](https://azure.microsoft.com/services/app-service/).
 

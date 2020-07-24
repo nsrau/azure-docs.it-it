@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080285"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -205,13 +205,13 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | posizione | Posizione per tutte le risorse. |
 
-Per altre informazioni sulla configurazione del modello di crittografia del disco delle macchine virtuali Linux, vedere [Crittografia dischi di Azure per Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Per altre informazioni sulla configurazione del modello di crittografia del disco delle macchine virtuali Linux, vedere [Crittografia dischi di Azure per Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Usare la funzionalità EncryptFormatAll per i dischi dati nelle macchine virtuali Linux
 
 Il parametro **EncryptFormatAll** riduce la durata per la crittografia dei dischi dati Linux. Le partizioni che soddisfano determinati criteri verranno formattate, insieme ai relativi file system correnti, quindi rimontate nella posizione in cui si trovavano prima dell'esecuzione del comando. Se si desidera escludere un disco dati che soddisfa i criteri, è possibile smontarlo prima di eseguire il comando.
 
- Dopo l'esecuzione di questo comando, le unità montate in precedenza verranno formattate e il livello di crittografia verrà avviato al di sopra dell'unità ora vuota. Quando questa opzione è selezionata, verrà crittografato anche il disco temporaneo collegato alla macchina virtuale. Se viene reimpostato, il disco temporaneo verrà riformattato e di nuovo crittografato per la macchina virtuale dalla soluzione Crittografia dischi di Azure alla successiva opportunità. Dopo che il disco risorse è stato crittografato, l'[agente Linux di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) non è in grado di gestirlo e di abilitare il file di scambio che, tuttavia, può essere configurato manualmente.
+ Dopo l'esecuzione di questo comando, le unità montate in precedenza verranno formattate e il livello di crittografia verrà avviato al di sopra dell'unità ora vuota. Quando questa opzione è selezionata, verrà crittografato anche il disco temporaneo collegato alla macchina virtuale. Se viene reimpostato, il disco temporaneo verrà riformattato e di nuovo crittografato per la macchina virtuale dalla soluzione Crittografia dischi di Azure alla successiva opportunità. Dopo che il disco risorse è stato crittografato, l'[agente Linux di Microsoft Azure](../extensions/agent-linux.md) non è in grado di gestirlo e di abilitare il file di scambio che, tuttavia, può essere configurato manualmente.
 
 >[!WARNING]
 > EncryptFormatAll non deve essere usato quando i volumi di dati di una macchina virtuale contengono dati necessari. Per escludere i dischi dalla crittografia, è possibile smontarli. È innanzitutto necessario provare EncryptFormatAll in una macchina virtuale di test, poi comprendere il parametro della funzione e la sua implicazione prima di provarlo nella macchina virtuale di produzione. L'opzione EncryptFormatAll formatta il disco dati e tutti i dati che contiene andranno persi. Prima di procedere, verificare che i dischi da escludere siano smontati correttamente. </br></br>
@@ -262,7 +262,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 
 1. Formattare, montare e aggiungere i dischi al file fstab.
 
-1. Scegliere uno standard di partizione, creare una partizione che occupa l'intera unità e quindi formattare la partizione. Qui vengono usati i collegamenti simbolici generati da Azure. L'uso di collegamenti simbolici evita i problemi legati alla modifica dei nomi dei dispositivi. Per altre informazioni, vedere l'articolo [Risolvere il problema dei nomi di dispositivo](troubleshoot-device-names-problems.md).
+1. Scegliere uno standard di partizione, creare una partizione che occupa l'intera unità e quindi formattare la partizione. Qui vengono usati i collegamenti simbolici generati da Azure. L'uso di collegamenti simbolici evita i problemi legati alla modifica dei nomi dei dispositivi. Per altre informazioni, vedere l'articolo [Risolvere il problema dei nomi di dispositivo](../troubleshooting/troubleshoot-device-names-problems.md).
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Abilitare la crittografia in un disco appena aggiunto con l'interfaccia della riga di comando di Azure
 
- Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro --volume-type deve rimanere "All". Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con il tipo di volume "OS", impostare il parametro --volume-type su "All", in modo da includere il disco del sistema operativo e il nuovo disco dati. Se la macchina virtuale è stata crittografata solo con il tipo di volume "Data", è possibile lasciare invariato il parametro "Data", come illustrato di seguito. L'aggiunta e il collegamento di un nuovo disco dati a una macchina virtuale non sono condizioni sufficienti alla preparazione per la crittografia. Il disco appena collegato deve anche essere formattato e montato in modo corretto nella macchina virtuale prima dell'abilitazione della crittografia. In Linux il disco deve essere montato in /etc/fstab con un [nome del dispositivo a blocchi permanente](troubleshoot-device-names-problems.md).  
+ Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro --volume-type deve rimanere "All". Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con il tipo di volume "OS", impostare il parametro --volume-type su "All", in modo da includere il disco del sistema operativo e il nuovo disco dati. Se la macchina virtuale è stata crittografata solo con il tipo di volume "Data", è possibile lasciare invariato il parametro "Data", come illustrato di seguito. L'aggiunta e il collegamento di un nuovo disco dati a una macchina virtuale non sono condizioni sufficienti alla preparazione per la crittografia. Il disco appena collegato deve anche essere formattato e montato in modo corretto nella macchina virtuale prima dell'abilitazione della crittografia. In Linux il disco deve essere montato in /etc/fstab con un [nome del dispositivo a blocchi permanente](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 A differenza della sintassi di PowerShell, l'interfaccia della riga di comando non richiede all'utente di specificare una versione di sequenza univoca quando si abilita la crittografia. L'interfaccia della riga di comando genera e usa automaticamente uno specifico valore di versione di sequenza univoco.
 
@@ -413,7 +413,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
 - Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.
 - VM serie M con dischi acceleratore di scrittura.
-- Applicazione della [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) a una VM crittografata da Ade e viceversa.
+- Applicazione di ADE a una macchina virtuale con un disco dati crittografato con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK) o applicazione di SSE + CMK a un disco dati in una VM crittografata con Ade.
 - Migrazione di una macchina virtuale crittografata con ADE alla [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

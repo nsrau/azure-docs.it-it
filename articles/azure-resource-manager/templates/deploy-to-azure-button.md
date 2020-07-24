@@ -2,13 +2,13 @@
 title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079464"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
@@ -28,7 +28,11 @@ L'immagine viene visualizzata come segue:
 
 ## <a name="create-url-for-deploying-template"></a>Crea URL per la distribuzione del modello
 
-Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository:
+Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository. Per visualizzare l'URL non elaborato, selezionare **RAW**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Seleziona RAW":::
+
+Il formato dell'URL è:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 05/13/2020
-ms.openlocfilehash: e4096b00ca1bbe1ad7d88c37a846d3f56b2860b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e523d468ae53e220cbda1c9748965110e82d48a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081084"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare i log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
   Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/overview). Verificare di avere l'ultima versione. Se necessario, eseguire `Update-Module -Name Az`.
+* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/). Verificare di avere l'ultima versione. Se necessario, eseguire `Update-Module -Name Az`.
 
 * Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

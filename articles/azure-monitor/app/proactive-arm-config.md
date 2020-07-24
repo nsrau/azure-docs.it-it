@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081594"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -22,7 +22,7 @@ Questo metodo può essere usato durante la distribuzione di nuove risorse di App
 
 Per una regola di rilevamento intelligente è possibile configurare le impostazioni seguenti:
 - Se la regola è abilitata (il valore predefinito è **true**).
-- Se i messaggi di posta elettronica devono essere inviati agli utenti associati ai ruoli di [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) della sottoscrizione quando viene individuato un rilevamento (il valore predefinito è **true**).
+- Se i messaggi di posta elettronica devono essere inviati agli utenti associati ai ruoli di [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [collaboratore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) della sottoscrizione quando viene individuato un rilevamento (il valore predefinito è **true**).
 - Eventuali destinatari di posta elettronica aggiuntivi che devono ricevere una notifica quando si ha un rilevamento.
     -  La configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _Anteprima_.
 

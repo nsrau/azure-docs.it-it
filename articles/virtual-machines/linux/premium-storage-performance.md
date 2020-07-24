@@ -1,5 +1,5 @@
 ---
-title: 'Archiviazione Premium di Azure: Progettare ai fini delle prestazioni nelle macchine virtuali di Linux | Microsoft Docs'
+title: 'Archiviazione Premium di Azure: progettazione per prestazioni elevate | Microsoft Docs'
 description: Progettare applicazioni a prestazioni elevate con i dischi SSD Premium gestiti di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 91968a9701c46114d56b30ec6e3a93cfa76bf023
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c654be5f85d5f8b8330e6c08d2655f27d3b2660d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080200"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

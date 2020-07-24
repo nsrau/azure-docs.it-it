@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078196"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure
 
@@ -86,7 +86,7 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
      È ora possibile visualizzare informazioni quali input e output per il passaggio, ad esempio:
 
    > [!NOTE]
-   > Tutti i dettagli ed eventi di runtime vengono crittografati nel servizio App per la logica. Vengono decrittografati solo quando un utente richiede di visualizzare i dati. È possibile [nascondere gli input e gli output nella cronologia di esecuzione](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controllare l'accesso degli utenti a queste informazioni tramite il [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md).
+   > Tutti i dettagli ed eventi di runtime vengono crittografati nel servizio App per la logica. Vengono decrittografati solo quando un utente richiede di visualizzare i dati. È possibile [nascondere gli input e gli output nella cronologia di esecuzione](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controllare l'accesso degli utenti a queste informazioni tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

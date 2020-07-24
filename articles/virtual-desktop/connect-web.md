@@ -1,5 +1,5 @@
 ---
-title: Connettere il client Web di Desktop virtuale Windows
+title: Connettersi al desktop virtuale Windows con il client Web-Azure
 description: Come connettersi a Desktop virtuale Windows usando il client Web.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb3a73566cd2477e493ca8621336fb3a51f3b3b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080625"
 ---
-# <a name="connect-with-the-web-client"></a>Connettersi con il client Web
+# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Connettersi al desktop virtuale Windows con il client Web
 
 >[!IMPORTANT]
 >Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md).

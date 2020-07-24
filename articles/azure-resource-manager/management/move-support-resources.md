@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079499"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -288,6 +288,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
+> [!IMPORTANT]
+> Non è possibile spostare un servizio Gestione API impostato sull'utilizzo delle SKU.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -298,9 +301,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | reportfeedback | No | No |
 > | service | Sì | Sì |
 > | validateservicename | No | No |
-
-> [!IMPORTANT]
-> Non è possibile spostare un servizio Gestione API impostato sull'utilizzo delle SKU.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -330,15 +330,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
+> [!IMPORTANT]
+> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | apiapps | No | No |
 > | appidentities | No | No |
 > | gateways | No | No |
-
-> [!IMPORTANT]
-> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -375,6 +375,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
+> [!IMPORTANT]
+> I runbook devono esistere nello stesso gruppo di risorse dell'account di automazione.
+>
+> Per informazioni, vedere [spostare l'account di automazione di Azure in un'altra sottoscrizione](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -388,11 +393,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | automationaccounts/softwareupdateconfigurations | No | No |
 > | automationaccounts/webhooks | No | No |
 > | Operazioni | No | No |
-
-> [!IMPORTANT]
-> I runbook devono esistere nello stesso gruppo di risorse dell'account di automazione.
->
-> Per informazioni, vedere [spostare l'account di automazione di Azure in un'altra sottoscrizione](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -626,6 +626,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
+> [!IMPORTANT]
+> Se l'istanza di cache di Azure per Redis è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni di spostamento della rete](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -638,9 +641,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Redis/eventgridfilters | No | No |
 > | redis/privatelinkresources | No | No |
 > | redisenterprise | No | No |
-
-> [!IMPORTANT]
-> Se l'istanza di cache di Azure per Redis è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni di spostamento della rete](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -700,6 +700,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
+> [!IMPORTANT]
+> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -707,9 +710,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | certificateorders/certificates | No | No |
 > | Operazioni | No | No |
 > | validatecertificateregistrationinformation | No | No |
-
-> [!IMPORTANT]
-> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
 
@@ -719,6 +719,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Operazioni | No | No |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+
+> [!IMPORTANT]
+> Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
@@ -746,20 +749,20 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | virtualmachines/metricdefinitions | No | No |
 > | virtualmachines/metrics | No | No |
 
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
+
 > [!IMPORTANT]
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
-
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | classicinfrastructureresources | No | No |
 
+## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+
 > [!IMPORTANT]
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
-
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
@@ -776,10 +779,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | virtualnetworks/remotevirtualnetworkpeeringproxies | No | No |
 > | virtualnetworks/virtualnetworkpeerings | No | No |
 
+## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+
 > [!IMPORTANT]
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
-
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
@@ -807,18 +810,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | storageaccounts/vmimages | No | No |
 > | vmimages | No | No |
 
+## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
+
 > [!IMPORTANT]
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
-
-## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | Operazioni | No | No |
-
-> [!IMPORTANT]
-> Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -843,6 +843,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | usageaggregates | No | No |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
+
+> [!IMPORTANT]
+> Vedere [Linee guida per lo spostamento di macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
@@ -888,9 +891,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | virtualmachinescalesets/publicipaddresses | No | No |
 > | virtualmachinescalesets/virtualmachines | No | No |
 > | virtualmachinescalesets/virtualmachines/networkinterfaces | No | No |
-
-> [!IMPORTANT]
-> Vedere [Linee guida per lo spostamento di macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1613,6 +1613,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
+> [!IMPORTANT]
+> È possibile spostare i cluster HDInsight in una nuova sottoscrizione o in un nuovo gruppo di risorse. Non è tuttavia possibile spostare tra sottoscrizioni le risorse di rete collegate al cluster HDInsight, ad esempio la rete virtuale, l'interfaccia di rete o il servizio di bilanciamento del carico. Non è possibile spostare in un nuovo gruppo di risorse un'interfaccia di rete collegata a una macchina virtuale per il cluster.
+>
+> Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1627,11 +1632,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | locations/usages | No | No |
 > | locations/validatecreaterequest | No | No |
 > | Operazioni | No | No |
-
-> [!IMPORTANT]
-> È possibile spostare i cluster HDInsight in una nuova sottoscrizione o in un nuovo gruppo di risorse. Non è tuttavia possibile spostare tra sottoscrizioni le risorse di rete collegate al cluster HDInsight, ad esempio la rete virtuale, l'interfaccia di rete o il servizio di bilanciamento del carico. Non è possibile spostare in un nuovo gruppo di risorse un'interfaccia di rete collegata a una macchina virtuale per il cluster.
->
-> Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
@@ -1699,6 +1699,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
+> [!IMPORTANT]
+> Verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1754,9 +1757,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | workbooks | Sì | Sì |
 > | workbooktemplates | Sì | Sì |
 
-> [!IMPORTANT]
-> Verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
-
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -1779,6 +1779,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
+> [!IMPORTANT]
+> Gli insiemi di credenziali delle chiavi usati per la crittografia dei dischi non possono essere spostati in un gruppo di risorse nella stessa sottoscrizione o in sottoscrizioni diverse.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1795,9 +1798,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | vaults/accesspolicies | No | No |
 > | vaults/eventgridfilters | No | No |
 > | vaults/secrets | No | No |
-
-> [!IMPORTANT]
-> Gli insiemi di credenziali delle chiavi usati per la crittografia dei dischi non possono essere spostati in un gruppo di risorse nella stessa sottoscrizione o in sottoscrizioni diverse.
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -2115,6 +2115,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
+> [!IMPORTANT]
+> Vedere [Linee guida di spostamento della rete](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2237,9 +2240,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | vpnserverconfigurations | No | No |
 > | vpnsites (rete WAN virtuale) | No | No |
 
-> [!IMPORTANT]
-> Vedere [Linee guida di spostamento della rete](./move-limitations/networking-move-limitations.md).
-
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -2272,6 +2272,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
+> [!IMPORTANT]
+> Verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
+>
+> Non è possibile spostare le aree di lavoro con un account di automazione collegato. Prima di iniziare un'operazione di spostamento, assicurarsi di scollegare tutti gli account di automazione.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2289,11 +2294,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | workspaces/metadata | No | No |
 > | workspaces/query | No | No |
 > | workspaces/scopedprivatelinkproxies | No | No |
-
-> [!IMPORTANT]
-> Verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
->
-> Non è possibile spostare le aree di lavoro con un account di automazione collegato. Prima di iniziare un'operazione di spostamento, assicurarsi di scollegare tutti gli account di automazione.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -2406,6 +2406,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
+> [!IMPORTANT]
+> Vedere [Linee guida di spostamento di Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2426,9 +2429,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Operazioni | No | No |
 > | replicationeligibilityresults | No | No |
 > | insiemi di credenziali | Sì | Sì |
-
-> [!IMPORTANT]
-> Vedere [Linee guida di spostamento di Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
@@ -2532,6 +2532,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
+> [!IMPORTANT]
+> Non è possibile spostare più risorse di ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2540,9 +2543,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Operazioni | No | No |
 > | resourcehealthmetadata | No | No |
 > | searchservices | Sì | Sì |
-
-> [!IMPORTANT]
-> Non è possibile spostare più risorse di ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -2748,6 +2748,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
+> [!IMPORTANT]
+> Un database e un server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di analisi delle sinapsi di Azure.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2922,9 +2925,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | servers/vulnerabilityassessments | No | No |
 > | virtualclusters | Sì | Sì |
 
-> [!IMPORTANT]
-> Un database e un server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di analisi delle sinapsi di Azure.
-
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
@@ -3012,6 +3012,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
+> [!IMPORTANT]
+> I processi di analisi di flusso non possono essere spostati durante l'esecuzione.
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3020,9 +3023,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | locations/quotas | No | No |
 > | Operazioni | No | No |
 > | streamingjobs | Sì | Sì |
-
-> [!IMPORTANT]
-> I processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -3110,6 +3110,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
+> [!IMPORTANT]
+> Per modificare la sottoscrizione per Azure DevOps, vedere [Modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3118,9 +3121,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | account/project | No | No |
 > | checknameavailability | No | No |
 > | Operazioni | No | No |
-
-> [!IMPORTANT]
-> Per modificare la sottoscrizione per Azure DevOps, vedere [Modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -3178,6 +3178,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
+> [!IMPORTANT]
+> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3232,9 +3235,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | staticsites | No | No |
 > | validate | No | No |
 > | verifyhostingenvironmentvnet | No | No |
-
-> [!IMPORTANT]
-> Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 

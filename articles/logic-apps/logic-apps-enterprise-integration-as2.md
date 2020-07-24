@@ -7,18 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078632"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
 > [!IMPORTANT]
-> Il connettore AS2 originale viene deprecato, quindi assicurarsi di usare il connettore **AS2 (v2)** . Questa versione offre le stesse funzionalità della versione originale, è nativa per il runtime di app per la logica e offre miglioramenti significativi delle prestazioni in termini di velocità effettiva e dimensione dei messaggi. Inoltre, il connettore nativo V2 non richiede la creazione di una connessione all'account di integrazione. Al contrario, come descritto nei prerequisiti, assicurarsi di collegare l'account di integrazione all'app per la logica in cui si prevede di usare il connettore.
+> Il connettore AS2 originale viene deprecato, pertanto, a meno che non siano necessarie funzionalità di rilevamento, usare invece il connettore **AS2 (v2)** . Ad eccezione del rilevamento, il connettore v2 fornisce le stesse funzionalità della versione originale, è nativo per il runtime di app per la logica e offre miglioramenti significativi delle prestazioni in merito a dimensioni dei messaggi, velocità effettiva e latenza. Inoltre, il connettore V2 non richiede la creazione di una connessione all'account di integrazione. Al contrario, come descritto nei prerequisiti, assicurarsi di collegare l'account di integrazione all'app per la logica in cui si prevede di usare il connettore.
 
 Per gestire i messaggi AS2 in App per la logica di Azure è possibile usare il connettore AS2, che fornisce trigger e azioni per la gestione della comunicazione AS2. Ad esempio, per stabilire sicurezza e affidabilità durante la trasmissione dei messaggi, è possibile usare le azioni seguenti:
 
@@ -119,7 +119,7 @@ Per distribuire un'app per la logica completamente operativa e uno scenario AS2 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/as2/). 
+Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/as2/). 
 
 > [!NOTE]
 > Per le app per la logica in un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa i [limiti dei messaggi B2B per ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

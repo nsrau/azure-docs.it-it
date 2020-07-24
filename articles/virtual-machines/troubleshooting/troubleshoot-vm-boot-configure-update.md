@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078409"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079843"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
@@ -45,7 +45,7 @@ Se il problema non si risolve dopo l'attesa dell'elaborazione delle modifiche, �
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md).
 3. Connettersi tramite Desktop remoto alla macchina virtuale di ripristino. 
 4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di procedere al passaggio successivo. Per altre informazioni, vedere [decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non può essere avviato](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -99,7 +99,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](./troubleshoot-recovery-disks-portal-windows.md).
 4. Avviare la macchina virtuale e accedere alla console seriale.
 5. Selezionare **Invia interrupt non mascherabile (NMI)** per attivare il dump della memoria.
     ![immagine della posizione in cui inviare l'interrupt non mascherabile](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078148"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guida di riferimento allo schema per il linguaggio di definizione del flusso di lavoro in Azure per la logica
 
@@ -74,7 +74,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 },
 ```
 
-| Attributo | Obbligatorio | Type | Description |
+| Attributo | Obbligatorio | Tipo | Description |
 |-----------|----------|------|-------------|
 | <*Nome parametro*> | Sì | string | Nome del parametro che si desidera definire |
 | <*tipo di parametro*> | Sì | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Nota**: per tutte le password, le chiavi e i segreti, usare i `securestring` `secureobject` tipi o perché l' `GET` operazione non restituisce questi tipi. Per ulteriori informazioni sulla protezione dei parametri, vedere [suggerimenti sulla sicurezza per i parametri di input e di azione](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Tipo di parametro |
@@ -112,7 +112,7 @@ Nell' `staticResults` attributo definire la simulazione di un'azione `outputs` e
 }
 ```
 
-| Attributo | Obbligatorio | Type | Description |
+| Attributo | Obbligatorio | Tipo | Description |
 |-----------|----------|------|-------------|
 | <*Nome-risultato statico-definizione*> | Sì | string | Nome di una definizione di risultato statico a cui può fare riferimento una definizione di azione tramite un `runtimeConfiguration.staticResult` oggetto. Per altre informazioni vedere [Impostazioni di configurazione di runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>È possibile usare qualsiasi nome univoco desiderato. Per impostazione predefinita, questo nome univoco viene aggiunto con un numero, che viene incrementato in base alle esigenze. |
 | <*output-attributi e valori-restituiti*> | Sì | Varia | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando `status` è `Succeeded` , l' `outputs` attributo include gli attributi e i valori restituiti come output fittizi dall'azione. Se `status` è `Failed` , l' `outputs` attributo include l' `errors` attributo, ovvero una matrice con uno o più oggetti Error con `message` informazioni sull'errore. |
@@ -178,7 +178,7 @@ Con JSON è possibile avere valori letterali già esistenti in fase di progettaz
 "rainbowColorsCount": 7
 ```
 
-È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), [variabili](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso (\@). Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere \@ e si ottiene sempre un altro valore JSON.
+È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), [variabili](./logic-apps-create-variables-store-values.md), valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso (\@). Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere \@ e si ottiene sempre un altro valore JSON.
 
 Ad esempio, per la proprietà `customerName` definita in precedenza è possibile ottenere il valore usando la funzione [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) in un'espressione e assegnare tale valore alla proprietà `accountName`:
 
@@ -275,14 +275,14 @@ Di seguito è riportata la struttura generale della definizione di un output:
 }
 ```
 
-| Attributo | Obbligatoria | Type | Descrizione |
+| Attributo | Obbligatoria | Tipo | Descrizione |
 |-----------|----------|------|-------------|
 | <*nome chiave*> | Sì | string | Valore chiave del valore di output restituito |
 | <*tipo di chiave*> | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
 | <*key-value*> | Sì | Uguale a <*tipo di chiave*> | Valore di output restituito |
 |||||
 
-Per ottenere l'output da un'esecuzione del flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nell'portale di Azure o usare l' [API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
+Per ottenere l'output da un'esecuzione del flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nell'portale di Azure o usare l' [API REST del flusso di lavoro](/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
 
 <a name="operators"></a>
 
@@ -307,4 +307,4 @@ Alcune espressioni ottengono i valori dalle azioni di runtime che potrebbero non
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Azioni e trigger del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md)
-* Informazioni sulla creazione e la gestione di app per la logica a livello di codice con l'[API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows)
+* Informazioni sulla creazione e la gestione di app per la logica a livello di codice con l'[API REST del flusso di lavoro](/rest/api/logic/workflows)

@@ -3,17 +3,18 @@ title: Pacchetto di rilevamento della sicurezza con applicazione Azure Insights
 description: Monitora l'applicazione con applicazione Azure Insights e il rilevamento intelligente per i potenziali problemi di sicurezza.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081628"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacchetto per il rilevamento della sicurezza delle applicazioni (anteprima)
 
 Application Insights analizza automaticamente i dati di telemetria generati dall'applicazione e rileva i potenziali problemi di sicurezza. Questa funzionalità consente di identificare i potenziali problemi di sicurezza e gestirli correggendo l'applicazione o adottando le misure di sicurezza necessarie.
 
-Questa funzionalità non richiede una configurazione specifica a parte la [configurazione dell'app per l'invio di dati di telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
+Questa funzionalità non richiede una configurazione specifica a parte la [configurazione dell'app per l'invio di dati di telemetria](./usage-overview.md).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
 Vengono rilevati tre tipi di problemi di sicurezza:

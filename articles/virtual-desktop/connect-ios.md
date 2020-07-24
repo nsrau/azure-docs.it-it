@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fa3a120788bf6b196409491584e068609b65e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af6063c93997d1faf6453cfe7e184bd4cc2427da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080642"
 ---
-# <a name="connect-with-the-ios-client"></a>Connettersi con il client iOS
+# <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Connettersi al desktop virtuale Windows con il client iOS
 
 > Si applica a: iOS 13,0 o versione successiva. Compatibile con iPhone, iPad e iPod touch.
 

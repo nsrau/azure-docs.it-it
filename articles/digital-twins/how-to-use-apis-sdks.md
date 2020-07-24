@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079159"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -54,7 +54,7 @@ Per usare le API del piano dati:
    - è possibile trovare l'origine SDK, inclusa una cartella di esempi, in GitHub: [libreria client di dispositivi digitali gemelli di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - per visualizzare informazioni dettagliate ed esempi di utilizzo, continuare con la sezione [.NET (C#) SDK (piano dati)](#net-c-sdk-data-plane) di questo articolo.
-* È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest](how-to-create-custom-sdks.md).
+* È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 È anche possibile esercitare le API del piano dati interagendo con i dispositivi gemelli digitali di Azure tramite l' [interfaccia](how-to-use-cli.md)della riga di comando.
 
@@ -71,11 +71,11 @@ Per usare l'SDK, includere il pacchetto NuGet **Azure. DigitalTwins. Core** con 
 * Utilizzando lo strumento da riga di comando .NET è possibile eseguire:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-Per una procedura dettagliata sull'uso delle API, vedere l' [esercitazione: scrivere codice per un'app client](tutorial-code.md). 
+Per una procedura dettagliata sull'uso delle API, vedere l' [*esercitazione: scrivere codice per un'app client*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>Esempi di utilizzo di .NET SDK
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-Vedere l' [esercitazione: scrivere codice di un'app client](tutorial-code.md) per una procedura dettagliata del codice dell'app di esempio. 
+Vedere l' [*esercitazione: scrivere codice di un'app client*](tutorial-code.md) per una procedura dettagliata del codice dell'app di esempio. 
 
 È anche possibile trovare esempi aggiuntivi nel [repository GitHub per .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
@@ -290,8 +290,8 @@ Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come usare le API per creare un'istanza di dispositivi gemelli digitali di Azure:
-* [Procedura: creare un'istanza di dispositivi gemelli digitali di Azure](how-to-set-up-instance.md)
+Vedere come usare le API per configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione:
+* [*Procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md)
 
 In alternativa, esaminare i passaggi per creare un'app client come quella usata in questa procedura:
-* [Esercitazione: Scrivere il codice di un'app client](tutorial-code.md)
+* [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

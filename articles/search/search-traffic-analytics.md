@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 21f91c15adb5e950f5ed9cc20449387ddcf6504f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080829"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Raccogliere i dati di telemetria per Analisi del traffico di ricerca
 
@@ -76,9 +77,9 @@ private static TelemetryClient _telemetryClient;
 
 // Add a constructor that accepts a telemetry client:
 public HomeController(TelemetryClient telemetry)
-    {
-        _telemetryClient = telemetry;
-    }
+{
+    _telemetryClient = telemetry;
+}
 ```
 
 **Usare JavaScript**
@@ -109,7 +110,8 @@ var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchC
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
 var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
 string searchId = string.Empty;
-if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues)){
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
     searchId = headerValues.FirstOrDefault();
 }
 ```
@@ -140,14 +142,15 @@ Ogni volta che un utente esegue una richiesta di ricerca, è necessario registra
 **Usare C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search Id>},
     {"IndexName", <index name>},
     {"QueryTerms", <search terms>},
     {"ResultCount", <results count>},
     {"ScoringProfile", <scoring profile used>}
-    };
+};
 _telemetryClient.TrackEvent("Search", properties);
 ```
 
@@ -155,12 +158,12 @@ _telemetryClient.TrackEvent("Search", properties);
 
 ```javascript
 appInsights.trackEvent("Search", {
-SearchServiceName: <service name>,
-SearchId: <search id>,
-IndexName: <index name>,
-QueryTerms: <search terms>,
-ResultCount: <results count>,
-ScoringProfile: <scoring profile used>
+  SearchServiceName: <service name>,
+  SearchId: <search id>,
+  IndexName: <index name>,
+  QueryTerms: <search terms>,
+  ResultCount: <results count>,
+  ScoringProfile: <scoring profile used>
 });
 ```
 
@@ -180,12 +183,13 @@ Ogni clic di un utente su un documento è un segnale che deve essere registrato 
 **Usare C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search id>},
     {"ClickedDocId", <clicked document id>},
     {"Rank", <clicked document position>}
-    };
+};
 _telemetryClient.TrackEvent("Click", properties);
 ```
 

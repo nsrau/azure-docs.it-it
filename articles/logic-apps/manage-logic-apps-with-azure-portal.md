@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078624"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gestire app per la logica nella portale di Azure
 
@@ -36,7 +36,7 @@ Per trovare e aprire l'app per la logica, seguire questa procedura:
 
 1. Nella barra di ricerca di Azure immettere `logic apps` e selezionare app per la **logica**.
 
-   ![Trovare e selezionare "App per la logica"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+   ![Screenshot del menu di portale di Azure, con app per la logica ricercata e selezionata nella barra di ricerca.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
 1. Nella pagina **app** per la logica trovare e selezionare l'app per la logica che si vuole gestire.
 
@@ -100,19 +100,19 @@ La disabilitazione dell'app per la logica influiscono sulle istanze del flusso d
 
    * Sulla barra degli strumenti selezionare **Disabilita**.
 
-     ![Disabilitare l'app per la logica singola in portale di Azure](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     ![Screenshot della barra degli strumenti dell'app per la logica, che mostra il pulsante Disabilita selezionato.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
 
      Se l'app per la logica è già disabilitata, viene visualizzata solo l'opzione **Abilita** .
 
    * Sulla barra degli strumenti selezionare **Abilita**.
 
-     ![Abilitare l'app per la logica singola in portale di Azure](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+     ![Screenshot della barra degli strumenti dell'app per la logica, che mostra il pulsante Abilita selezionato.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
 
      Se l'app per la logica è già abilitata, viene visualizzata solo l'opzione **Disable (Disabilita** ). 
 
    Il portale di Azure Visualizza una notifica sulla barra degli strumenti di Azure principale che conferma se l'operazione ha avuto esito positivo o negativo.
 
-   ![Notifica per confermare lo stato dell'operazione](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+   ![Screenshot del portale di Azure, che mostra la notifica per confermare lo stato dell'operazione](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
@@ -122,15 +122,15 @@ La disabilitazione dell'app per la logica influiscono sulle istanze del flusso d
 
 1. Per verificare se un'app per la logica è attualmente abilitata o disabilitata, nella pagina **app** per la logica esaminare la colonna **stato** per l'app per la logica. 
 
-   ![Colonna stato app per la logica](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+   ![Screenshot della pagina portale di Azure app per la logica, che mostra l'elenco delle app per la logica ordinate in base alla colonna stato.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
 
    Se la colonna **stato** non è visibile, sulla barra degli strumenti app per la **logica** Selezionare **prova anteprima**.
 
-   ![Attiva anteprima](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+   ![Screenshot della pagina portale di Azure app per la logica, che mostra il pulsante prova anteprima selezionato.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
 
 1. Nella colonna CheckBox selezionare le app per la logica che si desidera disabilitare o abilitare. Sulla barra degli strumenti selezionare **Disabilita** o **Abilita**.
 
-   ![Abilitare o disabilitare più app per la logica nella portale di Azure](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![Screenshot della pagina portale di Azure app per la logica, che mostra i pulsanti Abilita e Disabilita per più app per la logica.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
 1. Quando viene visualizzata la casella di conferma, selezionare **Sì** per continuare.
 
@@ -158,11 +158,11 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Scegliere **Panoramica**dal menu dell'app per la logica. Sulla barra degli strumenti dell'app per la logica selezionare **Elimina**.
 
-   ![Nella barra degli strumenti dell'app per la logica selezionare "Elimina"](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
+   ![Screenshot della barra degli strumenti dell'app per la logica, che mostra il pulsante Elimina selezionato.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
 1. Quando viene visualizzata la casella di conferma, immettere il nome dell'app per la logica e selezionare **Elimina**.
 
-   ![Confermare l'eliminazione dell'app per la logica](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
+   ![Screenshot del prompt di app per la logica per confermare l'eliminazione di un'app per la logica singola.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
 
    Il portale di Azure Visualizza una notifica sulla barra degli strumenti di Azure principale che conferma se l'operazione ha avuto esito positivo o negativo.
 
@@ -174,11 +174,11 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nella colonna CheckBox selezionare le app per la logica che si desidera eliminare. Sulla barra degli strumenti selezionare **Elimina**.
 
-   ![Eliminare più app per la logica](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+   ![Screenshot della pagina app per la logica, che Mostra più app per la logica in un elenco selezionato per l'eliminazione.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
 1. Quando viene visualizzata la casella di conferma, immettere `yes` e selezionare **Elimina**.
 
-   ![Confermare l'eliminazione delle app per la logica](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
+   ![Screenshot del prompt di app per la logica per confermare l'eliminazione di più app per la logica.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Il portale di Azure Visualizza una notifica sulla barra degli strumenti di Azure principale che conferma se l'operazione ha avuto esito positivo o negativo.
 
@@ -196,13 +196,13 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nel menu dell'app per la logica, in **strumenti di sviluppo**selezionare **versioni**.
 
-   ![Nel menu dell'app per la logica selezionare "versioni" in "strumenti di sviluppo".](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![Screenshot dell'app per la logica in portale di Azure, che mostra la selezione della pagina versioni in strumenti di sviluppo.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
 1. Consente di selezionare la **versione** dell'app per la logica da gestire dall'elenco. È possibile immettere l'identificatore di **versione** nella barra di ricerca per filtrare l'elenco.
 
 1. Nella pagina Cronologia **versione** , verranno visualizzati i dettagli della versione precedente in modalità di sola lettura. È possibile scegliere tra le modalità **progettazione** app per la logica e **visualizzazione codice** .
 
-   ![Pagina Cronologia versione per app per la logica con visualizzazione codice e visualizzazione progettazione app per la logica](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![Screenshot della pagina della cronologia delle app per la logica, che mostra le opzioni visualizzazione codice e visualizzazione progettazione.](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
@@ -212,11 +212,11 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 
 1. Nella pagina Cronologia **versione** selezionare **alza**di livello.
 
-   ![Pulsante Alza di livello nella cronologia delle versioni dell'app per la logica](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![Screenshot della cronologia delle versioni dell'app per la logica, che mostra il pulsante per alzare di livello una versione precedente.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
 1. Nella pagina **progettazione app** per la logica visualizzata modificare la versione che si sta innalzando di livello in base alle esigenze. È possibile passare dalla modalità **progettazione** a quella **visualizzazione codice** e viceversa. È anche possibile aggiornare **parametri**, **modelli**e **connettori**.
 
-   ![Pagina progettazione app per la logica per la promozione di una versione precedente](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   ![Screenshot della finestra di progettazione di app per la logica, che mostra il pulsante per promuovere una versione precedente di un'app per la logica.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
 1. Per salvare gli aggiornamenti e completare la promozione della versione precedente, selezionare **Salva**. In alternativa, per annullare le modifiche, selezionare **Ignora**. 
 

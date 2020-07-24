@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080472"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -71,15 +71,15 @@ Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabil
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quali sono le procedure consigliate per la scalabilità automatica di Azure?
 
-Per informazioni sulle procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica delle macchine virtuali](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+Per informazioni sulle procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica delle macchine virtuali](../azure-monitor/platform/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Dove è possibile trovare i nomi delle metriche per la scalabilità automatica che usa metriche basate su host?
 
-Per informazioni sui nomi delle metriche per la scalabilità automatica che usa metriche basate su host, vedere [Metriche supportate con Monitoraggio di Azure](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+Per informazioni sui nomi delle metriche per la scalabilità automatica che usa metriche basate su host, vedere [Metriche supportate con Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Sono disponibili eventuali esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure?
 
-Sì. Per esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Sì. Per esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
 Per una coda del bus di servizio, usare il codice JSON seguente:
 
@@ -104,9 +104,9 @@ Sostituire i valori dell'esempio con gli URI (Uniform Resource Identifier) della
 
 È possibile creare un'impostazione di scalabilità automatica in una macchina virtuale per l'uso di metriche a livello di host o per l'uso di metriche basate sul sistema operativo guest.
 
-Per un elenco delle metriche supportate, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+Per un elenco delle metriche supportate, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
-Per un esempio completo per i set di scalabilità di macchine virtuali, vedere [Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+Per un esempio completo per i set di scalabilità di macchine virtuali, vedere [Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
 
 L'esempio usa la metrica relativa alla CPU a livello di host e una metrica di conteggio dei messaggi.
 
@@ -114,13 +114,13 @@ L'esempio usa la metrica relativa alla CPU a livello di host e una metrica di co
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Come si impostano le regole di avviso in un set di scalabilità di macchine virtuali?
 
-È possibile creare avvisi sulle metriche per i set di scalabilità di macchine virtuali tramite PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) ed [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma 1.0 per Monitoraggio di Azure](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+È possibile creare avvisi sulle metriche per i set di scalabilità di macchine virtuali tramite PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) ed [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma 1.0 per Monitoraggio di Azure](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 Il valore TargetResourceId del set di scalabilità di macchine virtuali ha un aspetto simile al seguente:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-È possibile scegliere qualsiasi contatore delle prestazioni delle macchine virtuali come metrica per cui impostare un avviso. Per altre informazioni, vedere [Metriche del sistema operativo guest per le VM Windows basate su Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) e [Metriche del sistema operativo guest per le VM Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) nell'articolo [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+È possibile scegliere qualsiasi contatore delle prestazioni delle macchine virtuali come metrica per cui impostare un avviso. Per altre informazioni, vedere [Metriche del sistema operativo guest per le VM Windows basate su Resource Manager](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e [Metriche del sistema operativo guest per le VM Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) nell'articolo [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Come si configura la scalabilità automatica in un set di scalabilità di macchine virtuali tramite PowerShell?
 
@@ -159,7 +159,7 @@ Usare il codice JSON seguente:
 
 Il codice supporta Windows e Linux.
 
-Per altre informazioni, vedere [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx) (Creare o aggiornare un set di scalabilità di macchine virtuali).
+Per altre informazioni, vedere [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate) (Creare o aggiornare un set di scalabilità di macchine virtuali).
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Ricerca per categorie usare i certificati autofirmati sottoposti a provisioning per i cluster Azure Service Fabric?
@@ -169,7 +169,7 @@ Per l'esempio più recente usare la seguente istruzione dell'interfaccia della r
 az sf cluster create -h
 ```
 
-I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) e [Scenari di sicurezza di un cluster di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](../security/fundamentals/service-fabric-best-practices.md) e [Scenari di sicurezza di un cluster di Service Fabric](../service-fabric/service-fabric-cluster-security.md).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>È possibile specificare una coppia di chiavi SSH da usare per l'autenticazione SSH con un set di scalabilità di macchine virtuali Linux da un modello di Resource Manager?
 
@@ -197,7 +197,7 @@ Includere **osProfile** nel modello:
 
 Questo blocco JSON viene usato nel [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-Per altre informazioni, vedere [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration) (Creare o aggiornare un set di scalabilità di macchine virtuali).
+Per altre informazioni, vedere [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration) (Creare o aggiornare un set di scalabilità di macchine virtuali).
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>Come si rimuovono i certificati deprecati?
 
@@ -224,7 +224,7 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 }
 ```
 
-Nome dell'elemento linuxConfiguration | Obbligatoria | Type | Descrizione
+Nome dell'elemento linuxConfiguration | Obbligatoria | Tipo | Descrizione
 --- | --- | --- | ---
 ssh | No | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
 path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
@@ -240,7 +240,7 @@ Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso 
 
 Per aggiungere altri segreti dallo stesso insieme di credenziali delle chiavi, aggiornare l'elenco $vmss.properties.osProfile.secrets[0].vaultCertificates.
 
-Per la struttura di input prevista, vedere [Create or update a virtual machine set](https://msdn.microsoft.com/library/azure/mt589035.aspx) (Creare o aggiornare un set di macchine virtuali).
+Per la struttura di input prevista, vedere [Create or update a virtual machine set](/rest/api/compute/virtualmachinescalesets/createorupdate) (Creare o aggiornare un set di macchine virtuali).
 
 Trovare il segreto nell'oggetto del set di scalabilità di macchine virtuali presente nell'insieme di credenziali delle chiavi. Aggiungere quindi il riferimento al certificato, ovvero l'URL e il nome dell'archivio di certificati, all'elenco associato all'insieme di credenziali.
 
@@ -268,7 +268,7 @@ I certificati vengono aggiunti a tutte le VM, comprese quelle già esistenti. Se
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Dove vengono inseriti i certificati per le macchine virtuali Linux?
 
-Per informazioni su come distribuire i certificati per le macchine virtuali Linux, vedere [Deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) (Distribuire certificati nelle VM da un insieme di credenziali delle chiavi gestito dai clienti).
+Per informazioni su come distribuire i certificati per le macchine virtuali Linux, vedere [Deploy certificates to VMs from a customer-managed key vault](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault) (Distribuire certificati nelle VM da un insieme di credenziali delle chiavi gestito dai clienti).
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Come si aggiunge un nuovo certificato dell'insieme di credenziali a un nuovo oggetto certificato?
 
@@ -304,7 +304,7 @@ Se si crea una macchina virtuale e quindi si aggiorna il segreto nell'insieme di
 
 Per distribuire le chiavi pubbliche con estensione cer in un set di scalabilità di macchine virtuali, è possibile generare un file con estensione pfx che contiene solo file con estensione cer. A questo scopo, usare `X509ContentType = Pfx`. Caricare ad esempio il file con estensione cer come oggetto x509Certificate2 in C# o PowerShell, quindi chiamare il metodo.
 
-Per altre informazioni, vedere [Metodo X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Per altre informazioni, vedere [Metodo X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Ricerca per categorie passano i certificati come stringhe Base64?
 
@@ -334,7 +334,7 @@ Dal punto di vista della conformità, i set di scalabilità di macchine virtuali
 
 Per ulteriori informazioni, vedere [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) funzionano con i set di scalabilità di macchine virtuali?
 
 Sì. È possibile vedere alcuni modelli MSI di esempio in modelli di avvio rapido di Azure per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -436,7 +436,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Ricerca per categorie eseguire uno script personalizzato ospitato in un account di archiviazione privato?
 
-Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [estensione script personalizzato](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [estensione script personalizzato](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## <a name="passwords"></a>Password
 
@@ -448,7 +448,7 @@ Esistono due modi per modificare la password delle VM nei set di scalabilità.
 
     Aggiornare le credenziali di amministratore direttamente nel modello del set di scalabilità (ad esempio tramite Azure Resource Explorer, PowerShell o CLI). Una volta aggiornato il set di scalabilità, tutte le nuove VM dispongono delle nuove credenziali. Le VM esistenti avranno le nuove credenziali solo se ne viene ricreata l'immagine.
 
-- Reimpostare la password usando le estensioni di accesso della VM. Assicurarsi di rispettare i requisiti per le password, come descritto [qui](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+- Reimpostare la password usando le estensioni di accesso della VM. Assicurarsi di rispettare i requisiti per le password, come descritto [qui](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     Usare l'esempio di PowerShell seguente:
 
@@ -523,7 +523,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
-Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio
+Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio:
 
 ```json
 "networkProfile": {
@@ -635,7 +635,7 @@ Sì, è possibile spostare le risorse di un set di scalabilità in una nuova sot
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Come si aggiorna il set di scalabilità di macchine virtuali a una nuova immagine? Come si gestisce l'applicazione di patch?
 
-Per aggiornare il set di scalabilità di macchine virtuali a una nuova immagine e gestire l'applicazione di patch, vedere [Aggiornare un set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Per aggiornare il set di scalabilità di macchine virtuali a una nuova immagine e gestire l'applicazione di patch, vedere [Aggiornare un set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>È possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine, ovvero ripristinare le impostazioni predefinite di una VM invece di usare una nuova immagine?
 
@@ -671,7 +671,7 @@ Per attivare la diagnostica di avvio, creare prima di tutto un account di archiv
 }
 ```
 
-Quando viene creata una nuova VM, la proprietà InstanceView della VM mostra i dettagli per lo screenshot e così via. Ad esempio:
+Quando viene creata una nuova VM, la proprietà InstanceView della VM mostra i dettagli per lo screenshot e così via. Ecco un esempio:
 
 ```json
 "bootDiagnostics": {

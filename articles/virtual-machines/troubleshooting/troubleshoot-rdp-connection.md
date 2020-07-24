@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: a259217280be343f383372a066d4033368c2b651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 831ce1ccb2c09a85ddfff8fa65172b1871119a61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079894"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
@@ -104,7 +104,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
 Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Risoluzione dei problemi con Azure PowerShell
-Se non è già stato fatto, [installare e configurare la versione più recente di Azure PowerShell](/powershell/azure/overview).
+Se non è già stato fatto, [installare e configurare la versione più recente di Azure PowerShell](/powershell/azure/).
 
 Negli esempi seguenti vengono usate alcune variabili, ad esempio `myResourceGroup`, `myVM` e `myVMAccessExtension`. Sostituire i nomi e i percorsi delle variabili con i valori personalizzati.
 

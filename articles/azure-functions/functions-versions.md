@@ -3,11 +3,12 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29dd4a1ea60c463655c5b9a17fedcf6d51eee927
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081679"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -90,13 +91,13 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 #### <a name="net"></a>.NET
 
-* [Le operazioni sincrone del server sono disabilitate per impostazione predefinita](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Le operazioni sincrone del server sono disabilitate per impostazione predefinita](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### <a name="changing-version-of-apps-in-azure"></a>Modifica della versione delle app in Azure
 
 La versione del runtime di funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell' [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) applicazione. Sono supportati i valori di versione di runtime principali seguenti:
 
-| valore | Destinazione Runtime |
+| Valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |

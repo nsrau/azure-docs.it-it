@@ -4,13 +4,14 @@ description: Questo articolo illustra le procedure di individuazione degli asset
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68736365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081203"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 
@@ -55,7 +56,7 @@ Nella visualizzazione affiancata predefinita ogni riquadro che appare nei risult
 
  ![Evidenziazione dei risultati e corrispondenze di ricerca nel portale catalogo dati di Azure.](./media/data-catalog-how-to-discover/search-matches.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Poiché la registrazione di un'origine dati con Data Catalog copia i metadati strutturali e descrittivi dall'origine dati al servizio catalogo, diventa più facile trovare e comprendere l'origine dati. Dopo avere registrato un'origine dati, è possibile trovarla usando i filtri e la ricerca dal portale di Data Catalog.
 

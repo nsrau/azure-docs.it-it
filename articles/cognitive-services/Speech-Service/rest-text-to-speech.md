@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079223"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -41,7 +41,7 @@ L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
-| Region | Endpoint |
+| Area | Endpoint |
 |--------|----------|
 | Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brasile meridionale | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -69,11 +69,11 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Richiesto |
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
-Non è necessario un corpo `GET` per le richieste a questo endpoint.
+Non è necessario un corpo per `GET` le richieste a questo endpoint.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -144,7 +144,7 @@ Questa risposta è stata troncata per illustrare la struttura di una risposta.
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Codice di stato HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta è stata completata. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
@@ -169,29 +169,29 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
-| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatoria |
-| `User-Agent` | Nome dell'applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Richiesto |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Richiesto |
+| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Richiesto |
+| `User-Agent` | Nome dell'applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Richiesto |
 
 ### <a name="audio-outputs"></a>Output audio
 
 Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. Il servizio di riconoscimento vocale supporta gli output audio a 24 kHz, 16 kHz e 8 kHz.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci di 24 kHz non `audio-16khz-16kbps-mono-siren` supportano `riff-16khz-16kbps-mono-siren` e i formati di output.
+> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. OGG-24kHz-16 bit-mono-Opus può essere decodificato con il [codec Opus](https://opus-codec.org/downloads/)
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
 Il corpo di ogni richiesta `POST` viene inviato come [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML consente di scegliere la voce e la lingua della sintesi vocale restituita dal servizio di sintesi vocale. Per un elenco completo delle voci supportate, consultare [Supporto per le lingue](language-support.md#text-to-speech).
 
@@ -227,13 +227,13 @@ Vedere le guide introduttive per esempi specifici della lingua:
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Codice di stato HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
 | 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
-| 415 | Tipo di supporto non supportato | È possibile che sia stato specificato `Content-Type` un errore. `Content-Type`deve essere impostato su `application/ssml+xml`. |
+| 415 | Tipo di supporto non supportato | È possibile che sia `Content-Type` stato specificato un errore. `Content-Type`deve essere impostato su `application/ssml+xml` . |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido    | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 

@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080438"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
@@ -80,7 +81,7 @@ Dopo la programmazione di un'ondata di manutenzione pianificata è possibile vis
 
 La colonna **Manutenzione self-service** è ora visualizzata nell'elenco dei set di scalabilità di macchine virtuali. Ogni set di scalabilità di macchine virtuali può avere uno dei valori seguenti per la colonna manutenzione self-service:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 |-------|-------------|
 | Sì | Almeno una macchina virtuale nel set di scalabilità di macchine virtuali si trova in una finestra self-service. È possibile avviare la manutenzione in qualsiasi momento durante questa finestra self-service. | 
 | No | Non sono presenti macchine virtuali in una finestra self-service del set di scalabilità di macchine virtuali interessato. | 
@@ -111,7 +112,7 @@ Dopo aver avviato la manutenzione, le macchine virtuali interessate nel set di s
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Controllare lo stato della manutenzione con PowerShell
 
-È anche possibile usare Azure PowerShell per vedere quando è pianificata la manutenzione dei diversi set di scalabilità di macchine virtuali. Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss), usando il parametro `-InstanceView`.
+È anche possibile usare Azure PowerShell per vedere quando è pianificata la manutenzione dei diversi set di scalabilità di macchine virtuali. Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss), usando il parametro `-InstanceView`.
  
 Le informazioni vengono restituite solo se la manutenzione è pianificata. Se non è presente alcuna manutenzione pianificata per l'istanza della macchina virtuale, il cmdlet non restituisce informazioni. 
 
@@ -121,7 +122,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus** restituisce le proprietà seguenti: 
 
-| valore | Descrizione   |
+| Valore | Descrizione   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale. |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |
@@ -152,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 **MaintenanceRedeployStatus** restituisce le proprietà seguenti per ogni istanza della macchina virtuale: 
 
-| valore | Descrizione   |
+| Valore | Descrizione   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale. |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |

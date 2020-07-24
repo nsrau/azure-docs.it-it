@@ -9,15 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081390"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Come usare JSONPath per trasformare i dati JSON nelle cartelle di lavoro
 
-Le cartelle di lavoro di sono in grado di eseguire query sui dati da molte origini. Alcuni endpoint, ad esempio [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) o un endpoint personalizzato, possono restituire i risultati in formato JSON. Se i dati JSON restituiti dall'endpoint sottoposto a query non sono configurati in un formato desiderato, è possibile usare JSONPath per trasformare i risultati.
+Le cartelle di lavoro di sono in grado di eseguire query sui dati da molte origini. Alcuni endpoint, ad esempio [Azure Resource Manager](../../azure-resource-manager/management/overview.md) o un endpoint personalizzato, possono restituire i risultati in formato JSON. Se i dati JSON restituiti dall'endpoint sottoposto a query non sono configurati in un formato desiderato, è possibile usare JSONPath per trasformare i risultati.
 
 JSONPath è un linguaggio di query per JSON simile a XPath for XML. Analogamente a XPath, JSONPath consente l'estrazione e la filtraggio dei dati fuori dalla struttura JSON.
 

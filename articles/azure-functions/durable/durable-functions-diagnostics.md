@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081815"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -19,7 +20,7 @@ Per la diagnostica dei problemi con [Funzioni permanenti](durable-functions-over
 
 Per eseguire la diagnostica e il monitoraggio in Funzioni di Azure, è consigliabile usare [Application Insights](../../azure-monitor/app/app-insights-overview.md). Lo stesso consiglio vale per Funzioni permanenti. Per una panoramica su come usare Application Insights nell'app per le funzioni, vedere [Monitorare Funzioni di Azure](../functions-monitoring.md).
 
-L'estensione Funzioni permanenti di Funzioni di Azure genera anche *eventi di rilevamento* che consentono di tenere traccia dell'esecuzione end-to-end di un'orchestrazione. Questi eventi di rilevamento possono essere trovati e sottoposti a query usando lo strumento [Application Insights Analytics](../../azure-monitor/app/analytics.md) nel portale di Azure.
+L'estensione Funzioni permanenti di Funzioni di Azure genera anche *eventi di rilevamento* che consentono di tenere traccia dell'esecuzione end-to-end di un'orchestrazione. Questi eventi di rilevamento possono essere trovati e sottoposti a query usando lo strumento [Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md) nel portale di Azure.
 
 ### <a name="tracking-data"></a>Dati di rilevamento
 
@@ -382,7 +383,7 @@ Funzioni di Azure supporta direttamente il debug del codice della funzione e lo 
 
 ## <a name="storage"></a>Archiviazione
 
-Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. Questo comportamento significa che è possibile controllare lo stato delle orchestrazioni utilizzando strumenti come [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. Questo comportamento significa che è possibile controllare lo stato delle orchestrazioni utilizzando strumenti come [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ![Schermata Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 

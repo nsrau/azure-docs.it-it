@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ba95969d8bb6987d2e3685f937170f97e1af68f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078697"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
 
@@ -31,7 +31,7 @@ Questo argomento illustra come configurare un criterio che blocca connessioni sp
 
 Se è già presente un'app per la logica con la connessione che si vuole bloccare, seguire i [passaggi per la portale di Azure](#connector-ID-portal). In caso contrario, seguire questi passaggi:
 
-1. Visitare l' [elenco di connettori per app](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors)per la logica.
+1. Visitare l' [elenco di connettori per app](/connectors/connector-reference/connector-reference-logicapps-connectors)per la logica.
 
 1. Trovare la pagina di riferimento per il connettore che si desidera bloccare.
 
@@ -129,7 +129,7 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
    | **Nome** | Sì | <*Policy-Definition-nome*> | Nome da usare per la definizione dei criteri |
    | **Descrizione** | No | <*Policy-Definition-nome*> | Una descrizione per la definizione dei criteri |
    | **Categoria** | Sì | **App per la logica** | Nome di una categoria esistente o di una nuova categoria per la definizione dei criteri |
-   | **Imposizione dei criteri** | Sì | **Abilitato** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
+   | **Applicazione dei criteri** | Sì | **Enabled** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
    ||||
 
 1. In **regola dei criteri**, la casella di modifica JSON è già popolata con un modello di definizione dei criteri. Sostituire questo modello con la [definizione dei criteri](../governance/policy/concepts/definition-structure.md) in base alle proprietà descritte nella tabella seguente e seguendo questa sintassi:
@@ -250,7 +250,7 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
    | **Nome** | Sì | <*Policy-Definition-nome*> | Nome da usare per la definizione dei criteri |
    | **Descrizione** | No | <*Policy-Definition-nome*> | Una descrizione per la definizione dei criteri |
    | **Categoria** | Sì | **App per la logica** | Nome di una categoria esistente o di una nuova categoria per la definizione dei criteri |
-   | **Imposizione dei criteri** | Sì | **Abilitato** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
+   | **Applicazione dei criteri** | Sì | **Enabled** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
    ||||
 
 1. In **regola dei criteri**, la casella di modifica JSON è già popolata con un modello di definizione dei criteri. Sostituire questo modello con la [definizione dei criteri](../governance/policy/concepts/definition-structure.md) in base alle proprietà descritte nella tabella seguente e seguendo questa sintassi:
@@ -329,15 +329,15 @@ Successivamente, è necessario assegnare la definizione dei criteri in cui si vu
 
 1. In **nozioni di base**fornire queste informazioni per l'assegnazione dei criteri:
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Scope** | Sì | Risorse in cui si desidera applicare l'assegnazione dei criteri. <p><p>1. accanto alla casella **ambito** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** selezionare la sottoscrizione di Azure. <br>3. Facoltativamente, nell'elenco **gruppo di risorse** selezionare il gruppo di risorse. <br>4. al termine, selezionare **Seleziona**. |
+   | **Ambito** | Sì | Risorse in cui si desidera applicare l'assegnazione dei criteri. <p><p>1. accanto alla casella **ambito** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** selezionare la sottoscrizione di Azure. <br>3. Facoltativamente, nell'elenco **gruppo di risorse** selezionare il gruppo di risorse. <br>4. al termine, selezionare **Seleziona**. |
    | **Esclusioni** | No | Tutte le risorse di Azure da escludere dall'assegnazione dei criteri. <p><p>1. accanto alla casella **esclusioni** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco di **risorse** selezionare la risorsa > **Aggiungi a ambito selezionato**. <br>3. al termine, selezionare **Salva**. |
-   | **Definizione di criteri** | Sì | Nome della definizione dei criteri che si desidera assegnare e applicare. Questo esempio continua con il criterio Instagram di esempio "blocca le connessioni Instagram". <p><p>1. accanto alla casella **definizione criteri** selezionare il pulsante con i puntini di sospensione (**...**). <br>2. trovare e selezionare la definizione dei criteri usando il filtro dei **tipi** o la casella di **ricerca** . <br>3. al termine, selezionare **Seleziona**. |
-   | **Nome assegnazione** | Sì | Nome da utilizzare per l'assegnazione dei criteri, se diverso dalla definizione dei criteri |
+   | **Definizione criteri** | Sì | Nome della definizione dei criteri che si desidera assegnare e applicare. Questo esempio continua con il criterio Instagram di esempio "blocca le connessioni Instagram". <p><p>1. accanto alla casella **definizione criteri** selezionare il pulsante con i puntini di sospensione (**...**). <br>2. trovare e selezionare la definizione dei criteri usando il filtro dei **tipi** o la casella di **ricerca** . <br>3. al termine, selezionare **Seleziona**. |
+   | **Nome dell'assegnazione** | Sì | Nome da utilizzare per l'assegnazione dei criteri, se diverso dalla definizione dei criteri |
    | **ID assegnazione** | Sì | ID generato automaticamente per l'assegnazione di criteri |
    | **Descrizione** | No | Una descrizione per l'assegnazione dei criteri |
-   | **Imposizione dei criteri** | Sì | Impostazione che Abilita o Disabilita l'assegnazione dei criteri |
+   | **Applicazione dei criteri** | Sì | Impostazione che Abilita o Disabilita l'assegnazione dei criteri |
    | **Assegnato da** | No | Nome della persona che ha creato e applicato l'assegnazione dei criteri |
    ||||
 
@@ -366,7 +366,7 @@ Il messaggio include le informazioni seguenti:
 | Descrizione | Contenuto |
 |---|---|
 | Motivo dell'errore | `"Resource 'instagram' was disallowed by policy."` |
-| Nome assegnazione | `"Block Instagram connections"` |
+| Nome dell'assegnazione | `"Block Instagram connections"` |
 | ID assegnazione | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |
 | ID definizione dei criteri | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
 |||

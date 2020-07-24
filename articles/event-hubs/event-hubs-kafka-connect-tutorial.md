@@ -3,12 +3,12 @@ title: Integrare Apache Kafka Connect - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come usare Apache Spark con Hub eventi di Azure per Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c63d27549df40120a90b2594ab54337c11168b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079092"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrare il supporto di Apache Kafka Connect in Hub eventi di Azure (anteprima)
 Man mano che aumentano i volumi di inserimento per le esigenze aziendali, aumentano di pari passo i requisiti di inserimento per i vari sink e le varie origini esterne. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornisce un framework che consente di connettere e importare/esportare dati da/a qualsiasi sistema esterno come MySQL, HDFS e il file system tramite un cluster Kafka. Questa esercitazione illustra l'uso di Kafka Connect Framework con hub eventi.
@@ -34,7 +34,7 @@ Per completare questa procedura dettagliata, verificare di disporre dei prerequi
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka (versione 1.1.1, versione di Scala 2.11), disponibile su [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Leggere con attenzione l'articolo introduttivo [Hub eventi per Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+- Leggere con attenzione l'articolo introduttivo [Hub eventi per Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 Per l'invio e la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Per istruzioni su come creare uno spazio dei nomi e un hub eventi, vedere [creazione di un hub eventi](event-hubs-create.md) . Ottenere la stringa di connessione di Hub eventi e il nome di dominio completo (FQDN) da usare successivamente. Per istruzioni, vedere [Ottenere una stringa di connessione ad Hub eventi](event-hubs-get-connection-string.md). 

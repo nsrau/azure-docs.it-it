@@ -4,12 +4,12 @@ description: Questo articolo illustra come tenere traccia e gestire i processi d
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079316"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
@@ -33,7 +33,7 @@ Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esem
 }
 ```
 
-Il processo di backup di macchine virtuali di Azure è identificato dal campo "jobId" e può essere registrato come indicato [qui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando una semplice richiesta *GET*.
+Il processo di backup di macchine virtuali di Azure è identificato dal campo "jobId" e può essere registrato come indicato [qui](/rest/api/backup/jobdetails/) usando una semplice richiesta *GET*.
 
 ## <a name="tracking-the-job"></a>Tenere traccia del processo
 
@@ -45,9 +45,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>Risposta
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 - OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Risposta di esempio
 

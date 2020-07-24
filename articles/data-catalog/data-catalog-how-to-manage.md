@@ -4,13 +4,14 @@ description: L'articolo illustra come controllare la visibilità e la proprietà
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d035417b613c81487c493bde90cdcc461f04412
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68736335"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081152"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -62,5 +63,5 @@ La visibilità degli asset di dati è controllata dai relativi proprietari. Per 
 ## <a name="catalog-administrators"></a>Amministratori del catalogo
 Gli amministratori di Data Catalog sono implicitamente comproprietari di tutti gli asset nel catalogo. I proprietari di asset non possono rimuovere la visibilità dagli amministratori, che possono gestire la proprietà e la visibilità per tutti gli asset di dati nel catalogo.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il modello di crowdsourcing di Data Catalog per l'individuazione di asset di dati e metadati consente a tutti gli utenti del catalogo di contribuire all'individuazione. L'edizione Standard di Data Catalog è progettata per la proprietà e la gestione per poter limitare la visibilità e l'uso di asset di dati specifici.

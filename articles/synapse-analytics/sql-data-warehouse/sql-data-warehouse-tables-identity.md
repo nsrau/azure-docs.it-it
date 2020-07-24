@@ -7,15 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080727"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso di IDENTITY per la creazione di chiavi surrogate nel pool SQL sinapsi
 
@@ -23,7 +24,7 @@ In questo articolo sono disponibili indicazioni ed esempi per l'uso della propri
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
-Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
+Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento. La proprietà IDENTITY presenta alcune limitazioni, come descritto in [Create Table identità (Transact-SQL) (proprietà)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). Una delle limitazioni dell'identità è che non è garantito che sia univoca. L'impostazione di IDENTITY INSERT off e non il reseeding del valore Identity consentirà di ottenere valori più univoci, ma potrebbe non garantire l'univocità in tutte le situazioni. Se non è possibile usare valori Identity a causa delle restrizioni relative all'identità, creare una tabella separata contenente un valore corrente e gestire l'accesso alla tabella e all'assegnazione di numeri con l'applicazione. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
@@ -49,7 +50,7 @@ La parte rimanente di questa sezione illustra le varie sfumature dell'implementa
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 
-La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, nel pool di SQL sinapsi, l'assenza di una garanzia è più evidente.
+La proprietà IDENTITY non garantisce l'ordine in cui vengono allocati i valori surrogati a causa dell'architettura distribuita del data warehouse. La proprietà IDENTITY è progettata per scalare orizzontalmente tutte le distribuzioni nel pool SQL sinapsi senza influire sulle prestazioni di caricamento. 
 
 L'esempio seguente è una dimostrazione:
 

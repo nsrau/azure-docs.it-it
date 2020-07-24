@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078734"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
@@ -19,9 +20,9 @@ Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la
 > [!NOTE]
 > Non tutti i connettori di Power automatizzate sono disponibili nelle app per la logica di Azure. È possibile eseguire la migrazione solo dei flussi di Power automatizzati che dispongono di connettori equivalenti nelle app per la logica di Azure. Ad esempio, il trigger del pulsante, il connettore di approvazione e il connettore di notifica sono specifici per l'automazione dell'energia elettrica. Attualmente i flussi basati su OpenAPI in Power automatizzate non sono supportati per l'esportazione e la distribuzione come modelli di app per la logica.
 >
-> * Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors)per la logica.
+> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](/connectors/connector-reference/connector-reference-powerautomate-connectors)per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

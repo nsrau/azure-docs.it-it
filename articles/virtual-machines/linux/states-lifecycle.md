@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cce718c22c591210dd31eb7c0b983d7a7322d7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080166"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Stati e ciclo di vita di macchine virtuali
 
@@ -20,4 +21,4 @@ ms.locfileid: "81757864"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul monitoraggio della VM, vedere [Monitorare le macchine virtuali Windows in Azure](monitor.md).
+Per altre informazioni sul monitoraggio della VM, vedere [monitorare le macchine virtuali in Azure](../../azure-monitor/insights/monitor-vm-azure.md).

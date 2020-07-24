@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dbd44c5a90a656b804ff4e3bb9984a059ec3a89a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 30edd5b8e9fbfdce9fb3061c1891ff0a68a50cc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080251"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Crittografia dischi di Azure con Azure AD (versione precedente)
+# <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Crittografia dischi di Azure con Azure Active Directory (AD) (versione precedente)
 
 La nuova versione di crittografia dischi di Azure Elimina la necessità di fornire un parametro dell'applicazione Azure Active Directory (Azure AD) per abilitare la crittografia del disco della macchina virtuale. Con la nuova versione, non è più necessario specificare le credenziali di Azure AD durante il passaggio di abilitazione della crittografia. Tutte le nuove macchine virtuali devono essere crittografate senza i parametri dell'applicazione Azure AD usando la nuova versione. Per istruzioni su come abilitare la crittografia del disco della macchina virtuale usando la nuova versione, vedere [crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md). Le macchine virtuali che sono già state crittografate con i parametri dell'applicazione Azure AD sono ancora supportate e dovrebbero continuare a essere gestite con la sintassi di AAD.
 
@@ -47,9 +47,9 @@ Per abilitare la funzionalità Crittografia dischi di Azure usando la sintassi d
   ```
 
 ### <a name="group-policy"></a>Criteri di gruppo
- - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali appartenenti a un dominio, non eseguire il push di criteri di gruppo che applicano protezioni TPM. Per informazioni sui Criteri di gruppo per l'opzione **Consenti BitLocker senza un TPM compatibile**, vedere la pagina relativa al [riferimento criteri di gruppo BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+ - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali appartenenti a un dominio, non eseguire il push di criteri di gruppo che applicano protezioni TPM. Per informazioni sui Criteri di gruppo per l'opzione **Consenti BitLocker senza un TPM compatibile**, vedere la pagina relativa al [riferimento criteri di gruppo BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-- I criteri di BitLocker nelle macchine virtuali appartenenti a un dominio con un Criteri di gruppo personalizzato devono includere l'impostazione seguente: [Configura archiviazione utente delle informazioni di ripristino di BitLocker-> consente la chiave di ripristino a 256 bit](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure non riesce se le impostazioni Criteri di gruppo personalizzate per BitLocker sono incompatibili. Nei computer che non hanno l'impostazione dei criteri corretta, applicare il nuovo criterio, forzare l'aggiornamento del nuovo criterio (gpupdate.exe/Force), quindi riavviare il sistema se necessario. 
+- I criteri di BitLocker nelle macchine virtuali appartenenti a un dominio con un Criteri di gruppo personalizzato devono includere l'impostazione seguente: [Configura archiviazione utente delle informazioni di ripristino di BitLocker-> consente la chiave di ripristino a 256 bit](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure non riesce se le impostazioni Criteri di gruppo personalizzate per BitLocker sono incompatibili. Nei computer che non hanno l'impostazione dei criteri corretta, applicare il nuovo criterio, forzare l'aggiornamento del nuovo criterio (gpupdate.exe/Force), quindi riavviare il sistema se necessario. 
 
 ## <a name="encryption-key-storage-requirements"></a>Requisiti di archiviazione delle chiavi di crittografia 
 

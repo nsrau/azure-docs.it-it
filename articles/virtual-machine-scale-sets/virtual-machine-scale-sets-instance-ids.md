@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84607347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080455"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.
@@ -22,19 +23,19 @@ Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse m
 
 Ogni macchina virtuale in un set di scalabilità ottiene un ID istanza che la identifica in modo univoco. Questo ID istanza viene usato nelle API del set di scalabilità per eseguire operazioni su una specifica macchina virtuale nel set di scalabilità. Ad esempio, è possibile specificare un determinato ID istanza per ricreare l'immagine quando si usa l'API per la ricreazione dell'immagine:
 
-API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
+API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](/rest/api/compute/virtualmachinescalesetvms/reimage))
 
-PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (per altre informazioni, vedere la [documentazione di PowerShell](/powershell/module/az.compute/set-azvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (per altre informazioni, vedere la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)della riga di comando).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (per altre informazioni, vedere la [documentazione dell'interfaccia](/cli/azure/vmss?view=azure-cli-latest)della riga di comando).
 
 È possibile ottenere l'elenco degli ID istanza elencando tutte le istanze in un set di scalabilità:
 
-API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
+API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](/rest/api/compute/virtualmachinescalesetvms/list))
 
-PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (per altre informazioni, vedere la [documentazione di PowerShell](/powershell/module/az.compute/get-azvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per altre informazioni, vedere la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)della riga di comando).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per altre informazioni, vedere la [documentazione dell'interfaccia](/cli/azure/vmss?view=azure-cli-latest)della riga di comando).
 
 Si può anche usare [resources.azure.com](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per elencare le macchine virtuali in un set di scalabilità.
 
@@ -65,7 +66,7 @@ Come si può notare, la proprietà "instanceId" è solo un numero decimale. Gli 
 
 Nell'output di esempio riportato in precedenza alla macchina virtuale è associata una voce "name". Questo nome ha il formato "{nome-set-scalabilità}_{id-istanza}" ed è quello che viene visualizzato nel portale di Azure quando si elencano le istanze in un set di scalabilità:
 
-![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
+![Screenshot che mostra un elenco di istanze in un set di scalabilità di macchine virtuali nella portale di Azure.](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
 La parte {id-istanza} del nome è lo stesso numero decimale della proprietà "instanceId" descritta in precedenza.
 

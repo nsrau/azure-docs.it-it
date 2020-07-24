@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080353"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
-Le estensioni macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale. Le estensioni macchina virtuale di Azure possono essere eseguite tramite l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere aggregate con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
+Le estensioni macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale. Le estensioni macchina virtuale di Azure possono essere eseguite con l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere aggregate con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
 
 Questo articolo offre una panoramica delle estensioni macchina virtuale, i prerequisiti per l'uso di queste estensioni di Azure e le indicazioni su come rilevare, gestire e rimuovere le estensioni. Questo articolo offre informazioni generali perché sono disponibili molte estensioni macchina virtuale, ognuna con una configurazione potenzialmente univoca. I dettagli sono disponibili nel documento specifico della singola estensione.
 
@@ -32,7 +32,7 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Linux. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [Come monitorare una macchina virtuale Linux in Azure](../linux/tutorial-monitoring.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [Come monitorare una macchina virtuale Linux in Azure](../linux/tutorial-monitor.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Chef o Datadog. Per altre informazioni, vedere i [documenti di Chef](https://docs.chef.io/azure_portal.html) o il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione dello script personalizzata per Linux consente l'esecuzione di qualsiasi script Bash su una VM. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione di script personalizzata per le VM Linux](custom-script-linux.md).
@@ -65,7 +65,7 @@ I pacchetti di estensioni vengono scaricati dal repository delle estensioni di A
 > [!IMPORTANT]
 > Se l'accesso a *168.63.129.16* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](../../virtual-network/security-overview.md#service-tags).
 
 Per reindirizzare le richieste di traffico dell'agente, l'agente Linux include il supporto del server proxy. Tuttavia, il supporto del server proxy non applica le estensioni. È necessario configurare ogni singola estensione per usare un proxy.
 
@@ -259,7 +259,7 @@ Nell'output di esempio precedente l'elemento padre o la "versione distribuita de
 
 "Goal state agent" è la versione dell'aggiornamento automatico.
 
-È consigliabile impostare sempre l'aggiornamento automatico per l'agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Se non viene abilitato, è necessario continuare ad aggiornare manualmente l'agente, senza ottenere correzioni di bug e della sicurezza.
+È consigliabile impostare sempre l'aggiornamento automatico per l'agente, [AutoUpdate.Enabled=y](./update-linux-agent.md). Se non viene abilitato, è necessario continuare ad aggiornare manualmente l'agente, senza ottenere correzioni di bug e della sicurezza.
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
@@ -403,7 +403,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
 
-| Nome estensione | Descrizione | Altre informazioni |
+| Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione script personalizzata per Linux |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Linux](custom-script-linux.md) |
 | Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione di accesso alla macchina virtuale](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

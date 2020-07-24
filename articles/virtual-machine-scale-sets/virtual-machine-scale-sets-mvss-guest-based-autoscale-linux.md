@@ -9,23 +9,24 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 549f8fbc1e3acf435011f223faeb5b8240f0c55d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080421"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità Linux
 
 In Azure sono disponibili due tipi generali di metriche che vengono raccolte da VM e set di scalabilità: metriche host e metriche Guest. A un livello elevato, se si vuole usare la metrica standard della CPU, del disco e della rete, le metriche host sono adatte. Se, tuttavia, è necessaria una selezione più ampia di metriche, le metriche Guest devono essere esaminate.
 
-Le metriche host non richiedono una configurazione aggiuntiva perché vengono raccolte dalla macchina virtuale host, mentre le metriche Guest richiedono l'installazione dell' [estensione diagnostica di Azure Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o dell' [estensione Linux diagnostica di Azure](../virtual-machines/linux/diagnostic-extension.md) nella VM guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../azure-monitor/platform/metrics-supported.md), mentre le metriche guest usate comunemente sono elencate [qui](../azure-monitor/platform/autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità di base valido](virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche Guest per i set di scalabilità Linux.
+Le metriche host non richiedono una configurazione aggiuntiva perché vengono raccolte dalla macchina virtuale host, mentre le metriche Guest richiedono l'installazione dell' [estensione diagnostica di Azure Windows](../virtual-machines/extensions/diagnostics-template.md) o dell' [estensione Linux diagnostica di Azure](../virtual-machines/extensions/diagnostics-linux.md) nella VM guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../azure-monitor/platform/metrics-supported.md), mentre le metriche guest usate comunemente sono elencate [qui](../azure-monitor/platform/autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità di base valido](virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche Guest per i set di scalabilità Linux.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
 In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità Linux con scalabilità automatica basata sulle metriche Guest.
 
-Per prima cosa, aggiungere i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivia i dati di metrica in una [tabella](../cosmos-db/table-storage-how-to-use-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. Usare invece un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Per prima cosa, aggiungere i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivia i dati di metrica in una [tabella](../cosmos-db/tutorial-develop-table-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. Usare invece un [token di firma di accesso condiviso](../storage/common/storage-sas-overview.md).
 
 ```diff
      },
@@ -41,7 +42,7 @@ Per prima cosa, aggiungere i parametri per `storageAccountName` e `storageAccoun
    },
 ```
 
-Successivamente, modificare il set di scalabilità `extensionProfile` in modo da includere l'estensione di diagnostica. In questa configurazione specificare l'ID della risorsa del set di scalabilità da cui vengono raccolte le metriche, oltre all'account di archiviazione e al token di firma di accesso condiviso da usare per archiviare le metriche. Specificare la frequenza con cui vengono aggregate le metriche, in questo caso, ogni minuto, e le metriche di cui tenere traccia, in questo caso, la percentuale di memoria usata. Per informazioni più dettagliate su questa configurazione e sulle metriche diverse dalla percentuale di memoria usata, vedere [questa documentazione](../virtual-machines/linux/diagnostic-extension.md).
+Successivamente, modificare il set di scalabilità `extensionProfile` in modo da includere l'estensione di diagnostica. In questa configurazione specificare l'ID della risorsa del set di scalabilità da cui vengono raccolte le metriche, oltre all'account di archiviazione e al token di firma di accesso condiviso da usare per archiviare le metriche. Specificare la frequenza con cui vengono aggregate le metriche, in questo caso, ogni minuto, e le metriche di cui tenere traccia, in questo caso, la percentuale di memoria usata. Per informazioni più dettagliate su questa configurazione e sulle metriche diverse dalla percentuale di memoria usata, vedere [questa documentazione](../virtual-machines/extensions/diagnostics-linux.md).
 
 ```diff
                  }

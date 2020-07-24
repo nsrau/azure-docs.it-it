@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'aggiornamento dal pubblico di base al Azure Load Balancer pubblico standard
+title: Eseguire l'aggiornamento dal livello Basic interno al Azure Load Balancer pubblico standard
 description: Questo articolo illustra come aggiornare Load Balancer interni di Azure Basic al Load Balancer pubblico standard
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078759"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Aggiornare Load Balancer interno di Azure-connessione in uscita necessaria
 [Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus). Poiché il Load Balancer interno standard non fornisce una connessione in uscita, viene fornita una soluzione per creare un Load Balancer pubblico standard.

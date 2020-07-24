@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079554"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980899"
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
-[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), l' [estensione di Windows diagnostica di Azure (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)o l' [API REST di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](../app/api-custom-events-metrics.md), l' [estensione di Windows diagnostica di Azure (WAD)](./diagnostics-extension-overview.md)o l' [API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e grafici
 
@@ -159,7 +160,7 @@ Dopo avere configurato il grafico, fare clic sul menu delle **azioni del grafico
 
 Si verrà reindirizzati al riquadro di creazione della regola di avviso con le dimensioni di metriche sottostanti del grafico prepopolato per semplificare la generazione di regole di avviso personalizzate.
 
-![Creare la regola di avviso](./media/metrics-charts/016.png)
+![Creare una regola di avviso](./media/metrics-charts/016.png)
 
 Per altre informazioni sulla configurazione di avvisi delle metriche, vedere questo [articolo](alerts-metric.md).
 
@@ -175,5 +176,4 @@ Per altre informazioni sulla configurazione di avvisi delle metriche, vedere que
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-  Per informazioni sulle procedure consigliate per la creazione di dashboard operativi con metriche, leggere [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) (Creazione di dashboard KPI personalizzati).
-
+  Per informazioni sulle procedure consigliate per la creazione di dashboard operativi con metriche, leggere [Creating custom KPI dashboards](../learn/tutorial-app-dashboards.md) (Creazione di dashboard KPI personalizzati).
