@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092763"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 
@@ -79,7 +79,7 @@ Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funz
 * API:
   * Scrivere codice tramite API [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare le funzionalità di Azure Batch nelle applicazioni esistenti o nel flusso di lavoro, su un'istanza locale o nel cloud.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
 * Strumenti da riga di comando:
-  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/overview).
+  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/).
   * In particolare, il supporto dei modelli dell'interfaccia della riga di comando di Batch semplifica notevolmente la creazione di pool e l'invio di processi.
 * Interfacce utente:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client multipiattaforma che permette anche la gestione e il monitoraggio degli account di Batch, ma offre alcune funzionalità avanzate rispetto all'interfaccia utente del portale di Azure.  Viene fornito un set di modelli di pool e di processo ottimizzati per ogni applicazione supportata, che possono essere usati per creare pool e inviare processi in tutta semplicità.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091981"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (Origin) 
+# <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (Origine) 
 
 Questo argomento descrive gli errori che possono essere ricevuti dal [servizio di endpoint di streaming](streaming-endpoint-concept.md)di servizi multimediali di Azure.
 
@@ -82,7 +82,7 @@ L'ID fornito per una risorsa in un' `PUT` `POST` operazione o è stato accettato
 
 ## <a name="412-precondition-failure"></a>412 Precondition Failure
 
-L'operazione ha specificato un valore eTag diverso dalla versione disponibile sul server, ovvero un errore di concorrenza ottimistica. Riprovare la richiesta dopo aver letto la versione più recente della risorsa e aver aggiornato l'eTag sulla richiesta.
+L'operazione ha specificato un valore eTag diverso dalla versione disponibile sul server, ovvero un errore di concorrenza ottimistica. Riprovare a eseguire la richiesta dopo aver letto la versione più recente della risorsa e aver aggiornato l'ETag sulla richiesta.
 
 |Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
@@ -163,7 +163,7 @@ Per gli articoli e gli esempi Live, vedere:
 - [Concetto: eventi live e output Live](live-events-outputs-concept.md)
 - [Esempio: esercitazione per lo streaming live](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416 intervallo non Impossibile attenersi all'
+## <a name="416-range-not-satisfiable"></a>416 Impossibile attenersi all'intervallo richiesto
 
 |Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
@@ -200,7 +200,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Codici di errore di codifica](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Codici di errore di codifica](/rest/api/media/jobs/get#joberrorcode)
 - [Concetti relativi ai Servizi multimediali di Azure](concepts-overview.md)
 - [Quote e limiti](limits-quotas-constraints.md)
 

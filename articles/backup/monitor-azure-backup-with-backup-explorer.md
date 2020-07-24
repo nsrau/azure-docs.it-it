@@ -4,11 +4,12 @@ description: Questo articolo descrive come usare Explorer di Backup per eseguire
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092797"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorare i backup con Explorer di Backup
 
@@ -93,8 +94,8 @@ Il riquadro **Backup Not Enabled** (Backup non abilitato) visualizza una tabella
 
 ## <a name="cross-tenant-views"></a>Visualizzazioni tra tenant
 
-Gli utenti di Azure Lighthouse con accesso delegato alle sottoscrizioni in più ambienti tenant possono usare il filtro della sottoscrizione predefinito. Per visualizzare le sottoscrizioni di cui si vogliono vedere i dati, selezionare l'icona "Filtro" nella parte superiore destra del portale di Azure. Quando si usa questa funzionalità, Explorer di Backup aggrega le informazioni relative a tutti gli insiemi di credenziali nelle sottoscrizioni selezionate. Per altre informazioni, vedere [Informazioni su Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
+Gli utenti di Azure Lighthouse con accesso delegato alle sottoscrizioni in più ambienti tenant possono usare il filtro della sottoscrizione predefinito. Per visualizzare le sottoscrizioni di cui si vogliono vedere i dati, selezionare l'icona "Filtro" nella parte superiore destra del portale di Azure. Quando si usa questa funzionalità, Explorer di Backup aggrega le informazioni relative a tutti gli insiemi di credenziali nelle sottoscrizioni selezionate. Per altre informazioni, vedere [Informazioni su Azure Lighthouse](../lighthouse/overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come usare Monitoraggio di Azure per ottenere informazioni dettagliate sui dati di backup](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Informazioni su come usare Monitoraggio di Azure per ottenere informazioni dettagliate sui dati di backup](./backup-azure-monitoring-use-azuremonitor.md)

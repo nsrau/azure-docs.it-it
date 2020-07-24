@@ -3,12 +3,12 @@ title: Versioni cluster supportate in Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808924"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091641"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -41,8 +41,9 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 7.0.466.* | 6,5. * |Minore o uguale alla versione 4,0|1 agosto 2020 |
 | 7.0.470.* | 7.0.466.* |Minore o uguale alla versione 4,0 |1 agosto 2020  |
 | 7.0.472.* | 7.0.466.* |Minore o uguale alla versione 4,0 |1 agosto 2020  |
-| 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
-| 7.1.417.* | 7.0.466.* |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
+| 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4,1 |Versione corrente, quindi nessuna data di fine |
+| 7.1.417.* | 7.0.466.* |Minore o uguale alla versione 4,1 |Versione corrente, quindi nessuna data di fine |
+| 7.1.428.* | 7.0.466.* |Minore o uguale alla versione 4,1 |Versione corrente, quindi nessuna data di fine |
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -50,7 +51,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per le versi
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| R2 per Windows Server 2012 | Tutte le versioni |
+| Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
@@ -113,3 +114,4 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 7,0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7,1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7,1 CU2 | 7.1.428.9590 | 7.1.428.1 |

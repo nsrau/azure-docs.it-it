@@ -3,15 +3,16 @@ title: Guida all'onboarding del programma Business Applications ISV Connect
 description: Di seguito viene illustrato come eseguire l'onboarding nel programma Business Applications ISV Connect.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
+ms.topic: article
+author: qianw211
 ms.author: dsindona
-ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 7/14/2020
+ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092219"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guida all'onboarding del programma Business Applications ISV Connect
 
@@ -38,7 +39,7 @@ La partecipazione al programma richiede la revisione e l'accettazione del [Busin
 
 1.  Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard).
 2.  Selezionare **Impostazioni** (icona a forma di ingranaggio) e selezionare **Impostazioni sviluppatore**.
-3.  Selezionare **contratti**. 
+3.  Selezionare **contratti**.
 4.  Selezionare il collegamento versione e visualizzare l'accordo.
 5.  Per accettare il contratto, selezionare **accetta accordo**.
 
@@ -75,9 +76,8 @@ Il passaggio finale per la registrazione nel programma Business Applications ISV
 
 Rivolgersi all'account Manager oppure contattare il [supporto tecnico Microsoft](https://aka.ms/marketplacepublishersupport) per ottenere assistenza per l'account. Per informazioni generali sul programma Business Applications ISV Connect, vedere:
 
-- **[Business Applications per ISV (articolo online)](https://aka.ms/bizappsisvweb)**
-
-- **[Panoramica del nuovo programma per Business Applications ISV (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[Criteri del programma di connessione ISV](https://aka.ms/bizappsisvpolicies)**
-
+- [Business Applications per ISV](https://partner.microsoft.com/solutions/business-applications/isv-overview) (articolo online)
+- [Panoramica del nuovo programma per Business Applications ISV](https://aka.ms/BizAppsISVProgram) (PDF)
+- [Domande frequenti sul programma di connessione ISV Business Applications](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Programma imminente per Business Applications ISV](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (post di Blog)
+- [Criteri del programma di connessione ISV](https://aka.ms/bizappsisvpolicies) (PDF)

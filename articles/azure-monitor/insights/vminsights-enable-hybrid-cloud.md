@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092848"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente ibrido
 
@@ -18,7 +19,7 @@ ms.locfileid: "79480743"
 
 Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali per le macchine virtuali o i computer fisici ospitati nel Data Center o in un altro ambiente cloud. Al termine di questo processo, è stato avviato il monitoraggio delle macchine virtuali nell'ambiente in uso e viene illustrato se si verificano problemi di prestazioni o di disponibilità.
 
-Prima di iniziare, esaminare i [prerequisiti](vminsights-enable-overview.md) e verificare che la sottoscrizione e le risorse soddisfino i requisiti. Esaminare i requisiti e i metodi di distribuzione per l'[agente di Log Analytics per Linux e Windows](../../log-analytics/log-analytics-agent-overview.md).
+Prima di iniziare, esaminare i [prerequisiti](vminsights-enable-overview.md) e verificare che la sottoscrizione e le risorse soddisfino i requisiti. Esaminare i requisiti e i metodi di distribuzione per l'[agente di Log Analytics per Linux e Windows](../platform/log-analytics-agent.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -155,7 +156,7 @@ Se non si sa come distribuire le risorse usando un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Per usare l'interfaccia della riga di comando di Azure, è prima necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando.
+Per usare l'interfaccia della riga di comando di Azure, è prima necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando.
 
 ### <a name="create-and-execute-a-template"></a>Creare ed eseguire un modello
 
@@ -234,7 +235,7 @@ Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il comp
 
     **Linux**: cercare il processo in esecuzione "Microsoft-Dependency-Agent".
 
-2. Il piano [tariffario gratuito di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
+2. Il piano [tariffario gratuito di log Analytics](./solutions.md)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
 
 3. Il computer invia i dati di log e delle prestazioni ai log di monitoraggio di Azure? Eseguire la query seguente per il computer:
 

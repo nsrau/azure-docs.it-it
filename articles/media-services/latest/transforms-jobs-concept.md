@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091930"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Trasformazioni e processi in servizi multimediali
 
-In questo argomento vengono fornite informazioni dettagliate sulle [trasformazioni](https://docs.microsoft.com/rest/api/media/transforms) e sui [processi](https://docs.microsoft.com/rest/api/media/jobs) e viene illustrata la relazione tra queste entità.
+In questo argomento vengono fornite informazioni dettagliate sulle [trasformazioni](/rest/api/media/transforms) e sui [processi](/rest/api/media/jobs) e viene illustrata la relazione tra queste entità.
 
 ## <a name="overview"></a>Panoramica
 
@@ -57,7 +58,7 @@ Usare **Trasformazioni** per configurare attività comuni relative alla codifica
 
 ### <a name="viewing-schema"></a>Visualizzazione dello schema
 
-In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizzate nell'API stessa. È possibile trovare la definizione dello schema per questi oggetti in [Open API Specification (o spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). È anche possibile visualizzare le definizioni di set di impostazioni (ad esempio **StandardEncoderPreset**) nell' [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)o altri documenti di riferimento di Media Services V3 SDK.
+In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizzate nell'API stessa. È possibile trovare la definizione dello schema per questi oggetti in [Open API Specification (o spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). È anche possibile visualizzare le definizioni di set di impostazioni (ad esempio **StandardEncoderPreset**) nell' [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)o altri documenti di riferimento di Media Services V3 SDK.
 
 ### <a name="creating-transforms"></a>Creazione di trasformazioni
 
@@ -65,7 +66,7 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 
 ### <a name="updating-transforms"></a>Aggiornamento delle trasformazioni
 
-Se è necessario aggiornare la [trasformazione](https://docs.microsoft.com/rest/api/media/transforms), utilizzare l'operazione di **aggiornamento** . È concepito per apportare modifiche alla descrizione o per le priorità dei TransformOutputs sottostanti. È consigliabile eseguire tali aggiornamenti al termine di tutti i processi in corso. Se si intende riscrivere la ricetta, è necessario creare una nuova trasformazione.
+Se è necessario aggiornare la [trasformazione](/rest/api/media/transforms), utilizzare l'operazione di **aggiornamento** . È concepito per apportare modifiche alla descrizione o per le priorità dei TransformOutputs sottostanti. È consigliabile eseguire tali aggiornamenti al termine di tutti i processi in corso. Se si intende riscrivere la ricetta, è necessario creare una nuova trasformazione.
 
 ### <a name="transform-object-diagram"></a>Trasformazione diagramma oggetti
 
@@ -77,7 +78,7 @@ Selezionare l'immagine per visualizzarla a schermo intero.
 
 ## <a name="jobs"></a>Processi
 
-Un **processo** è la richiesta effettiva a servizi multimediali di applicare la **trasformazione** a un video di input o a un contenuto audio specifico. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video di input usando: URL HTTPS, URL SAS o [Asset](https://docs.microsoft.com/rest/api/media/assets).  
+Un **processo** è la richiesta effettiva a servizi multimediali di applicare la **trasformazione** a un video di input o a un contenuto audio specifico. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video di input usando: URL HTTPS, URL SAS o [Asset](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Input del processo da HTTPS
 
@@ -93,7 +94,7 @@ Usare [asset come input del processo](job-input-from-local-file-how-to.md) se il
 
 ### <a name="updating-jobs"></a>Aggiornamento di processi
 
-L'operazione di aggiornamento sull'entità [Job](https://docs.microsoft.com/rest/api/media/jobs) può essere utilizzata per modificare la *Descrizione* e le proprietà di *priorità* dopo l'invio del processo. Una modifica alla proprietà relativa alla *priorità* ha effetto solo se il processo è ancora accodato. Se il processo ha iniziato l'elaborazione o è terminato, la modifica della priorità non ha alcun effetto.
+L'operazione di aggiornamento sull'entità [Job](/rest/api/media/jobs) può essere utilizzata per modificare la *Descrizione* e le proprietà di *priorità* dopo l'invio del processo. Una modifica alla proprietà relativa alla *priorità* ha effetto solo se il processo è ancora accodato. Se il processo ha iniziato l'elaborazione o è terminato, la modifica della priorità non ha alcun effetto.
 
 ### <a name="job-object-diagram"></a>Diagramma oggetti processo
 
@@ -115,7 +116,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Codici di errore](/rest/api/media/jobs/get#joberrorcode)
 * [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

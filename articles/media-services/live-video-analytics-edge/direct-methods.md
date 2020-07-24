@@ -3,15 +3,16 @@ title: Usare i metodi diretti in analisi video in tempo reale su IoT Edge-Azure
 description: Analisi video in tempo reale su IoT Edge espone diversi metodi diretti. I metodi diretti sono basati sulle convenzioni descritte in questo argomento.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260804"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091828"
 ---
 # <a name="direct-methods"></a>Metodi diretti
 
-Analisi video in tempo reale su IoT Edge espone diversi metodi diretti che possono essere richiamati dall'hub Internet. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno, Per altre informazioni, vedere [comprendere e richiamare metodi diretti dall'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods)Internet.
+Analisi video in tempo reale su IoT Edge espone diversi metodi diretti che possono essere richiamati dall'hub Internet. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno, Per altre informazioni, vedere [comprendere e richiamare metodi diretti dall'hub](../../iot-hub/iot-hub-devguide-direct-methods.md)Internet.
 
 In questo argomento vengono descritti questi metodi e convenzioni.
 

@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: ea313adb43f8d91ec9e57dd1d0b8d3447a8075f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75465497"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091607"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Risolvere i problemi di configurazione del cluster di sviluppo locale
 Se si verifica un problema durante l'interazione con il cluster di sviluppo di Service Fabric di Azure locale, esaminare i suggerimenti seguenti per possibili soluzioni.
@@ -19,14 +20,15 @@ Se si verifica un problema durante l'interazione con il cluster di sviluppo di S
 #### <a name="problem"></a>Problema
 Quando si esegue lo script DevClusterSetup, viene visualizzato l'errore seguente:
 
-    Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
-    At line:1 char:1 + .\DevClusterSetup.ps1
-    + ~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
-    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
+```output
+Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
+At line:1 char:1 + .\DevClusterSetup.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
++ FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
+```
 
-
-#### <a name="solution"></a>Soluzione
+#### <a name="solution"></a>Solution
 Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore. Ora è possibile eseguire lo script correttamente.
 
 ## <a name="cluster-connection-failures"></a>Errori di connessione del cluster
@@ -35,28 +37,30 @@ Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di Power
 #### <a name="problem"></a>Problema
 Quando ci si connette al cluster in PowerShell, viene visualizzato l'errore TypeInitializationException per System.Fabric.Common.AppTrace.
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution"></a>Solution
 La variabile di percorso non è stata impostata correttamente durante l'installazione. Disconnettersi da Windows e accedere nuovamente. Il percorso risulterà aggiornato.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>La connessione del cluster ha esito negativo con il messaggio "L’oggetto è chiuso"
 #### <a name="problem"></a>Problema
 Una chiamata a Connect-ServiceFabricCluster ha esito negativo con un errore simile a quello indicato di seguito:
 
-    Connect-ServiceFabricCluster : The object is closed.
-    At line:1 char:1
-    + Connect-ServiceFabricCluster
-    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
-    + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
+```output
+Connect-ServiceFabricCluster : The object is closed.
+At line:1 char:1
++ Connect-ServiceFabricCluster
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
++ FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
+```
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution"></a>Solution
 Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore.
 
 ### <a name="fabric-connection-denied-exception"></a>Eccezione di connessione a Fabric negata
 #### <a name="problem"></a>Problema
 Durante il debug da Visual Studio, si verifica un errore FabricConnectionDeniedException.
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution"></a>Solution
 Questo errore si verifica in genere quando si cerca di avviare un processo host servizio manualmente.
 
 Assicurarsi di non disporre di progetti di servizio impostati come progetti di avvio nella soluzione. Solo i progetti di applicazione di Infrastruttura di servizi devono essere impostati come progetti di avvio.

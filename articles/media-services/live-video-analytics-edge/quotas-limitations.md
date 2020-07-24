@@ -3,11 +3,12 @@ title: Analisi video in tempo reale sulle quote di IoT Edge-Azure
 description: Questo articolo descrive le analisi video in tempo reale su IoT Edge quote e limitazioni.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260344"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091811"
 ---
 # <a name="quotas-and-limitations"></a>Quote e limitazioni
 
@@ -46,11 +47,8 @@ Con la versione di anteprima, è possibile connettere in una topologia del grafi
 * Processore Gate Signal
    * Deve essere immediatamente a valle dall'origine RTSP.
 * Sink di asset 
-   * Può essere presente al massimo un nodo per ogni topologia Graph.
-      * Se viene usato un sink di asset, non può essere presente un sink di file o viceversa.
    * Deve essere immediatamente downstream dal processore RTSP source o Signal Gate.
 * Sink di file
-   * Può essere presente al massimo uno di questi nodi per topologia Graph (vedere la nota precedente relativa al sink di asset).
    * Deve essere immediatamente downstream dal processore del Gate Signal.
    * Non può essere immediatamente downstream del processore di estensione HTTP o del processore di rilevamento del movimento
 * Sink hub tutto

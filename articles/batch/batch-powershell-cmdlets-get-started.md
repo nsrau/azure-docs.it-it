@@ -4,11 +4,12 @@ description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gesti
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779619"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092780"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
@@ -20,7 +21,7 @@ Questo articolo si basa sui cmdlet del modulo Azure Batch versione 1.0.0. È con
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Installare e configurare il modulo Azure PowerShell](/powershell/azure/overview). Per installare un modulo di Azure Batch specifico, ad esempio una versione non definitiva del modulo, vedere [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* [Installare e configurare il modulo Azure PowerShell](/powershell/azure/). Per installare un modulo di Azure Batch specifico, ad esempio una versione non definitiva del modulo, vedere [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Eseguire il cmdlet **Connect-AzAccount** per connettersi alla sottoscrizione. I cmdlet di Azure Batch sono disponibili nel modulo Azure Resource Manager:
 

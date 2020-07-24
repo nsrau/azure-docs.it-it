@@ -7,11 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 432ff655ef072d491227d297e620612203f73d3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092984"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -33,7 +34,7 @@ In un ambiente di microservizi, le tracce dai componenti possono finire in eleme
 
 ## <a name="example"></a>Esempio
 
-Ecco un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
+Esaminiamo un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -301,15 +302,15 @@ Quando viene eseguito questo codice, nella console vengono stampate le seguenti 
 ```
 Si noti che è presente un oggetto `spanId` per il messaggio di log compreso nell'intervallo. Questo è lo stesso `spanId` che appartiene all'intervallo denominato `hello` .
 
-È possibile esportare i dati di log usando `AzureLogHandler` . Per altre informazioni, vedi [questo articolo](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+È possibile esportare i dati di log usando `AzureLogHandler` . Per altre informazioni, vedi [questo articolo](./opencensus-python.md#logs).
 
 ## <a name="telemetry-correlation-in-net"></a>Correlazione di dati di telemetria in .NET
 
 Nel corso del tempo, .NET ha definito diversi modi per correlare i log di diagnostica e di telemetria:
 
-- `System.Diagnostics.CorrelationManager`consente di tenere traccia di [LogicalOperationStack e ActivityID](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx).
-- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono il metodo [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
-- `ILogger`USA gli [ambiti del log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager`consente di tenere traccia di [LogicalOperationStack e ActivityID](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono il metodo [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads).
+- `ILogger`USA gli [ambiti del log](/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) e HTTP creano la propagazione del contesto "corrente".
 
 Tuttavia, questi metodi non abilitavano il supporto automatico per la traccia distribuita. `DiagnosticSource`supporta la correlazione automatica tra computer. Le librerie .NET supportano `DiagnosticSource` e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio http.
@@ -327,7 +328,7 @@ Application Insights SDK, a partire dalla versione 2.4.0-beta1, usa `DiagnosticS
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Correlazione di dati di telemetria in Java
 
-[L'agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) e [Java SDK](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supportano la correlazione automatica dei dati di telemetria. Viene popolato automaticamente `operation_id` per tutti i dati di telemetria (ad esempio, tracce, eccezioni ed eventi personalizzati) rilasciati nell'ambito di una richiesta. Propaga anche le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se è configurato l' [agente Java SDK](../../azure-monitor/app/java-agent.md) .
+[L'agente Java](./java-in-process-agent.md) e [Java SDK](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supportano la correlazione automatica dei dati di telemetria. Viene popolato automaticamente `operation_id` per tutti i dati di telemetria (ad esempio, tracce, eccezioni ed eventi personalizzati) rilasciati nell'ambito di una richiesta. Propaga anche le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se è configurato l' [agente Java SDK](../../azure-monitor/app/java-agent.md) .
 
 > [!NOTE]
 > Application Insights agente Java raccoglie automaticamente le richieste e le dipendenze per JMS, Kafka, Netty/webflux e altro ancora. Per Java SDK sono supportate solo le chiamate effettuate tramite Apache HttpClient per la funzionalità di correlazione. La propagazione del contesto automatica tra le tecnologie di messaggistica (ad esempio Kafka, RabbitMQ e il bus di servizio di Azure) non è supportata nell'SDK. 

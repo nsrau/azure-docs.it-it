@@ -4,13 +4,14 @@ description: Informazioni su come configurare le chiavi gestite dal cliente per 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092610"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 
@@ -227,7 +228,15 @@ La rotazione della chiave gestita dal cliente usata dall'account Azure Cosmos pu
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Creare una nuova versione della chiave":::
 
-- Scambiare la chiave attualmente usata con un valore completamente diverso aggiornando la `keyVaultKeyUri` proprietà dell'account. Ecco come eseguire questa operazione in PowerShell:
+- Scambiare la chiave attualmente usata con un valore completamente diverso aggiornando l'URI della chiave nell'account. Dal portale di Azure passare all'account Azure Cosmos e selezionare **crittografia dei dati** nel menu a sinistra:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Voce del menu crittografia dati":::
+
+    Quindi, sostituire l' **URI della chiave** con la nuova chiave che si vuole usare e selezionare **Save (Salva**):
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Aggiornare l'URI della chiave":::
+
+    Ecco come ottenere lo stesso risultato in PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -286,7 +295,11 @@ Non attualmente, ma vengono prese in considerazione le chiavi a livello di conte
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Come è possibile stabilire se le chiavi gestite dal cliente sono abilitate nell'account Azure Cosmos usato?
 
-È possibile recuperare i dettagli dell'account Azure Cosmos a livello di codice e cercare la presenza della proprietà `keyVaultKeyUri`. Vedere sopra per informazioni su come eseguire questa operazione [in PowerShell](#using-powershell) e [usando l'interfaccia della riga di comando di Azure](#using-azure-cli).
+Dal portale di Azure passare all'account Azure Cosmos e controllare la voce relativa alla **crittografia dei dati** nel menu a sinistra. Se questa voce esiste, le chiavi gestite dal cliente sono abilitate per l'account:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Voce del menu crittografia dati":::
+
+È anche possibile recuperare a livello di codice i dettagli dell'account Azure Cosmos e cercare la presenza della `keyVaultKeyUri` Proprietà. Vedere sopra per informazioni su come eseguire questa operazione [in PowerShell](#using-powershell) e [usando l'interfaccia della riga di comando di Azure](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>In che modo le chiavi gestite dal cliente influiscono su un backup?
 

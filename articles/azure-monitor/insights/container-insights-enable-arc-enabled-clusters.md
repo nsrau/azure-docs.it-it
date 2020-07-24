@@ -3,12 +3,12 @@ title: Configurare il cluster Kubernetes abilitato per Azure Arc con monitoraggi
 description: Questo articolo descrive come configurare il monitoraggio con monitoraggio di Azure per i contenitori nei cluster Kubernetes abilitati per Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092882"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Abilita il monitoraggio del cluster Kubernetes abilitato per Azure Arc
 
@@ -63,7 +63,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
     >[!IMPORTANT]
     >La versione minima dell'agente supportata per il monitoraggio dei cluster Kubernetes abilitati per Arc è ciprod04162020 o versione successiva.
 
-- [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) è necessario se si Abilita il monitoraggio usando il metodo di script di PowerShell.
+- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) è necessario se si Abilita il monitoraggio usando il metodo di script di PowerShell.
 
 - [Bash versione 4](https://www.gnu.org/software/bash/) è necessario se si Abilita il monitoraggio usando il metodo bash con script.
 

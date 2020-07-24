@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091947"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
-In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Media Services V3 fornisce alcuni criteri di streaming predefiniti che consentono di usarli direttamente per la valutazione o la produzione. 
+In Servizi multimediali di Azure v3, i [criteri di streaming](/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Media Services V3 fornisce alcuni criteri di streaming predefiniti che consentono di usarli direttamente per la valutazione o la produzione. 
 
 Criteri di streaming predefiniti attualmente disponibili:<br/>
 * ' Predefined_DownloadOnly '
@@ -44,11 +44,11 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 
 Se si crittografa il contenuto, è necessario creare un [criterio della chiave](content-key-policy-concept.md)simmetrica. i **criteri della chiave** simmetrica non sono necessari per cancellare lo streaming o il download. 
 
-Se si dispone di requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato oppure è necessario utilizzare una traccia audio non crittografata), è possibile [creare](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) un criterio di flusso personalizzato. 
+Se si dispone di requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato oppure è necessario utilizzare una traccia audio non crittografata), è possibile [creare](/rest/api/media/streamingpolicies/create) un criterio di flusso personalizzato. 
 
 ## <a name="get-a-streaming-policy-definition"></a>Ottenere una definizione di criteri di flusso  
 
-Se si vuole visualizzare la definizione di un criterio di flusso, usare [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
+Se si vuole visualizzare la definizione di un criterio di flusso, usare [Get](/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
 
 ### <a name="rest"></a>REST
 
