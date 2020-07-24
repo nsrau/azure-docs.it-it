@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072584"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Scambiare messaggi RosettaNet per l'integrazione aziendale B2B in app per la logica di Azure
 
@@ -81,7 +82,7 @@ Per aggiungere una configurazione del processo PIP all'account di integrazione, 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome** | Sì | Nome PIP |
-   | **Codice PIP** | Sì | Codice di tre cifre PIP. Per altre informazioni, vedere [RosettaNet PIP](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **Codice PIP** | Sì | Codice di tre cifre PIP. Per altre informazioni, vedere [RosettaNet PIP](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **Versione PIP** | Sì | Il numero di versione PIP, disponibile in base al codice PIP selezionato |
    ||||
 
@@ -200,9 +201,9 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Message** | Sì | Messaggio RosettaNet da decodificare  |
+   | **Messaggio** | Sì | Messaggio RosettaNet da decodificare  |
    | **Intestazioni** | Sì | Intestazioni HTTP che forniscono i valori per la versione, ovvero la versione RNIF, e il tipo di risposta, che indica il tipo di comunicazione tra i partner e può essere sincrono o asincrono |
-   | **Role** | Sì | Ruolo del partner host nel PIP |
+   | **Ruolo** | Sì | Ruolo del partner host nel PIP |
    ||||
 
    Dall'azione di decodifica RosettaNet, l'output, insieme ad altre proprietà, include il **segnale in uscita**, che è possibile scegliere di codificare e tornare al partner o eseguire qualsiasi altra azione sull'output.
@@ -229,14 +230,14 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Message** | Sì | Messaggio RosettaNet da codificare  |
+   | **Messaggio** | Sì | Messaggio RosettaNet da codificare  |
    | **Partner host** | Sì | Nome del partner host |
    | **Partner Guest** | Sì | Nome del partner Guest |
    | **Codice PIP** | Sì | Codice PIP |
    | **Versione PIP** | Sì | Versione PIP |  
    | **Identità dell'istanza PIP** | Sì | Identificatore univoco per questo messaggio PIP |  
    | **Tipo di messaggio** | Sì | Tipo di messaggio da codificare. |  
-   | **Role** | Sì | Ruolo del partner host |
+   | **Ruolo** | Sì | Ruolo del partner host |
    ||||
 
    Il messaggio codificato è ora pronto per l'invio al partner.

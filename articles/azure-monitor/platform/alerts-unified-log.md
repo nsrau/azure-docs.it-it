@@ -6,20 +6,21 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d080c18a1af9549373750b787093fec03b32006
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073599"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
 Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](../../azure-monitor/platform/alerts-overview.md). Gli avvisi del log consentono agli utenti di usare la piattaforma Azure Analytics come base per gli avvisi.
 
-Un avviso di log è costituito da regole di ricerca log create per i [log di monitoraggio di Azure](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Per altre informazioni sull'utilizzo, vedere [Creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md) (Creazione di avvisi dei log in Azure).
+Un avviso di log è costituito da regole di ricerca log create per i [log di monitoraggio di Azure](../log-query/get-started-portal.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Per altre informazioni sull'utilizzo, vedere [Creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md) (Creazione di avvisi dei log in Azure).
 
 > [!NOTE]
-> I dati di log più comuni dei [log di monitoraggio di Azure](../../azure-monitor/learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
+> I dati di log più comuni dei [log di monitoraggio di Azure](../log-query/get-started-portal.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regole di avviso di ricerca log - Definizioni e tipi
@@ -40,10 +41,10 @@ Le regole di ricerca log sono definite dai dettagli seguenti:
 
 - **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per tipi diversi di regole di avviso di ricerca log.
 
-Le regole di ricerca log, sia per i [log di monitoraggio di Azure](../../azure-monitor/learn/tutorial-viewdata.md) sia per [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
+Le regole di ricerca log, sia per i [log di monitoraggio di Azure](../log-query/get-started-portal.md) sia per [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
 
 - **[Numero di risultati](#number-of-results-alert-rules)**. Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
-- **[Unità di misura della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
+- **[Misurazione della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
 
 Di seguito sono riportate le differenze tra i tipi di regola di avviso.
 
@@ -89,7 +90,7 @@ Le regole di avviso di **misurazione delle metriche** creano un avviso per ogni 
     
 - **Soglia**: la soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, ciò viene considerato una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
 
-L'errata configurazione dell'opzione *Aggregate On* o *metricColumn* può causare errori di attivazione delle regole di avviso. Per altre informazioni, vedere [Risoluzione dei problemi quando la regola di avviso Unità di misura della metrica non è corretta](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
+L'errata configurazione dell'opzione *Aggregate On* o *metricColumn* può causare errori di attivazione delle regole di avviso. Per altre informazioni, vedere [Risoluzione dei problemi quando la regola di avviso Unità di misura della metrica non è corretta](./alerts-troubleshoot-log.md#metric-measurement-alert-rule-is-incorrect).
 
 #### <a name="example-of-metric-measurement-type-log-alert"></a>Esempio di avviso di log di tipo Unità di misurazione
 
@@ -149,7 +150,7 @@ Alle 1:20, quando vengono visualizzati zero record con il codice risultato 500, 
 I prezzi applicabili agli avvisi dei log sono disponibili nella pagina [Prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Nelle fatture di Azure gli avvisi dei log sono rappresentati come tipo `microsoft.insights/scheduledqueryrules` con:
 
 - Avvisi dei log in Application Insights visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso
-- Avvisi dei log in Log Analytics visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso, se creati con l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+- Avvisi dei log in Log Analytics visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso, se creati con l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)
 
 L'[API legacy Log Analytics](../../azure-monitor/platform/api-alerts.md) ha azioni di avviso e pianificazioni che fanno parte della ricerca salvata di Log Analytics e non [risorse di Azure](../../azure-resource-manager/management/overview.md) vere e proprie. Pertanto per abilitare la fatturazione per tali avvisi di log legacy creati per Log Analytics usando il portale di Azure **senza** [passare alla nuova API](../../azure-monitor/platform/alerts-log-api-switch.md) o usando l'[API legacy Log Analytics](../../azure-monitor/platform/api-alerts.md), vengono create pseudo-regole di avviso nascoste in `microsoft.insights/scheduledqueryrules` per la fatturazione in Azure. Le pseudo-regole di avviso nascoste create per la fatturazione in `microsoft.insights/scheduledqueryrules` vengono visualizzate come `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` insieme al gruppo di risorse e alle proprietà di avviso.
 
@@ -158,15 +159,15 @@ L'[API legacy Log Analytics](../../azure-monitor/platform/api-alerts.md) ha azio
 
 Per rimuovere le risorse scheduleQueryRules nascoste create per le regole di avviso mediante l'[API legacy Log Analytics](api-alerts.md), l'utente può eseguire una delle operazioni seguenti:
 
-- Può [cambiare la preferenza dell'API per le regole di avviso nell'area di lavoro di Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e, senza perdere le regole di avviso o il monitoraggio, passare all'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) conforme ad Azure Resource Manager. In questo modo non è più necessario creare pseudo-regole di avviso nascoste per la fatturazione.
+- Può [cambiare la preferenza dell'API per le regole di avviso nell'area di lavoro di Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e, senza perdere le regole di avviso o il monitoraggio, passare all'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) conforme ad Azure Resource Manager. In questo modo non è più necessario creare pseudo-regole di avviso nascoste per la fatturazione.
 - Se l'utente non vuole cambiare la preferenza dell'API, dovrà **eliminare** la pianificazione e l'azione di avviso originali usando l'[API legacy Log Analytics](api-alerts.md) o eliminare nel [portale di Azure la regola di avviso dei log originale](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal).
 
-Inoltre, per le risorse scheduleQueryRules nascoste create per la fatturazione di regole di avviso tramite l' [API log Analytics legacy](api-alerts.md), qualsiasi operazione di modifica, ad esempio PUT, avrà esito negativo. Poiché le `microsoft.insights/scheduledqueryrules` pseudo regole del tipo hanno lo scopo di addebitare le regole di avviso create usando l' [API log Analytics legacy](api-alerts.md). Qualsiasi modifica della regola di avviso deve essere eseguita usando l' [api log Analytics legacy](api-alerts.md) (o) l'utente può [cambiare la preferenza API per le regole di avviso per l'uso dell'](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) .
+Inoltre, per le risorse scheduleQueryRules nascoste create per la fatturazione di regole di avviso tramite l' [API log Analytics legacy](api-alerts.md), qualsiasi operazione di modifica, ad esempio PUT, avrà esito negativo. Poiché le `microsoft.insights/scheduledqueryrules` pseudo regole del tipo hanno lo scopo di addebitare le regole di avviso create usando l' [API log Analytics legacy](api-alerts.md). Qualsiasi modifica della regola di avviso deve essere eseguita usando l' [api log Analytics legacy](api-alerts.md) (o) l'utente può [cambiare la preferenza API per le regole di avviso per l'uso dell'](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sulla [creazione di avvisi dei log in Azure](../../azure-monitor/platform/alerts-log.md).
 * Acquisire familiarità con i [webhook negli avvisi dei log in Azure](alerts-log-webhook.md).
 * Informazioni su [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
-* Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md).
+* Altre informazioni su [Application Insights](../log-query/log-query-overview.md).
 * Altre informazioni su [log Analytics](../../azure-monitor/log-query/log-query-overview.md).

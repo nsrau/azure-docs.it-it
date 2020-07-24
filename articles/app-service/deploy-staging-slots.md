@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073855"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -262,7 +262,7 @@ Per consentire agli utenti di rifiutare esplicitamente l'app beta, ad esempio, Ã
 
 La stringa `x-ms-routing-name=self` specifica lo slot di produzione. Quando il browser client accede al collegamento, viene reindirizzato allo slot di produzione. Ogni richiesta successiva ha il `x-ms-routing-name=self` cookie che blocca la sessione allo slot di produzione.
 
-Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ad esempio:
+Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ecco un esempio:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -288,7 +288,7 @@ Cercare e selezionare l'app. Selezionare Panoramica degli **slot di distribuzion
 
 Azure PowerShell Ã¨ un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione in Servizio app di Azure.
 
-Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
+Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/).  
 
 ---
 ### <a name="create-a-web-app"></a>Creare un'app Web

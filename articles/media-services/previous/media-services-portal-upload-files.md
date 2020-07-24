@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982561"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071813"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure 
 
@@ -30,7 +30,7 @@ ms.locfileid: "84982561"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Per informazioni aggiornate sui file di caricamento con il portale, vedere [usare il portale per caricare, codificare e trasmettere in flusso il contenuto](../latest/manage-assets-quickstart.md).<br/>Vedere anche: [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Per informazioni aggiornate sui file di caricamento con il portale, vedere [usare il portale per caricare, codificare e trasmettere in flusso il contenuto](../latest/manage-assets-quickstart.md).<br/>Vedere anche: [servizi multimediali V3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 In Servizi multimediali di Azure è possibile caricare i file digitali in un asset. L'asset può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file. Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
@@ -65,5 +65,3 @@ Al termine del caricamento, il nuovo asset viene visualizzato nel riquadro **Ass
 * Informazioni su come [codificare gli asset caricati](media-services-portal-encode.md).
 
 * È anche possibile usare Funzioni di Azure per attivare un processo di codifica quando un file arriva nel contenitore configurato. Per altre informazioni, vedere l'esempio in [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Servizi multimediali: Integrazione di Servizi multimediali di Azure con Funzioni di Azure e App per la logica).
-
-

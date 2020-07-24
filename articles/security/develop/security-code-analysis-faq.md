@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071451"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
@@ -106,15 +106,17 @@ Ecco i dettagli di due degli scenari di eliminazione più comuni.
 
 La chiave hash del segreto dal file di output CredScan è obbligatoria come illustrato nell'esempio seguente.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > La chiave hash viene generata da una parte del valore corrispondente o del contenuto del file. Qualsiasi revisione del codice sorgente può modificare la chiave hash e disabilitare la regola di eliminazione.
@@ -133,19 +135,21 @@ Esempi di regole di eliminazione valide:
 - \lib\angular.js
 - angular.js: Disattiva tutti i file con lo stesso nome
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > Tutti i segreti futuri aggiunti al file verranno anche eliminati automaticamente.
@@ -154,7 +158,7 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
- - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
+ - [Azure Key Vault](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)

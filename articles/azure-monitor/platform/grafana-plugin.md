@@ -4,11 +4,12 @@ description: Indirizzare dati di Monitoraggio di Azure e Application Insights i 
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073472"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione ottenuti da Monitoraggio di Azure, tra cui diversi log e metriche. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -58,9 +59,9 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 2. Scegliere un nome per l'origine dati e selezionare **Monitoraggio di Azure** come tipo nell'elenco a discesa.
 
 3. Creare un'entità servizio: Grafana usa un'entità servizio di Azure Active Directory per connettersi alle API di Monitoraggio di Azure e raccogliere i dati. È necessario creare un'entità servizio o usarne una esistente per gestire l'accesso alle risorse di Azure.
-    * Per creare un'entità servizio, seguire [queste istruzioni](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Copiare e salvare l'ID tenant (ID directory), l'ID client (ID applicazione) e il segreto client (valore della chiave dell'applicazione).
-    * Vedere [Assegnare l'applicazione al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) per assegnare il ruolo Lettore all'applicazione Azure Active Directory per la sottoscrizione, il gruppo di risorse o la risorsa che si vuole monitorare. 
-    L'API Log Analytics richiede il [ruolo Lettore di Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), che include le autorizzazioni del ruolo Lettore e le aggiunge.
+    * Per creare un'entità servizio, seguire [queste istruzioni](../../active-directory/develop/howto-create-service-principal-portal.md). Copiare e salvare l'ID tenant (ID directory), l'ID client (ID applicazione) e il segreto client (valore della chiave dell'applicazione).
+    * Vedere [Assegnare l'applicazione al ruolo](../../active-directory/develop/howto-create-service-principal-portal.md) per assegnare il ruolo Lettore all'applicazione Azure Active Directory per la sottoscrizione, il gruppo di risorse o la risorsa che si vuole monitorare. 
+    L'API Log Analytics richiede il [ruolo Lettore di Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader), che include le autorizzazioni del ruolo Lettore e le aggiunge.
 
 4. Fornire i dettagli della connessione alle API da usare. È possibile connettersi a tutte o ad alcune di esse. 
     * Se ci si connette a metriche e log in monitoraggio di Azure, è possibile riutilizzare le stesse credenziali selezionando gli **stessi dettagli dell'API di monitoraggio di Azure**.
@@ -119,7 +120,7 @@ Di seguito è riportata un'immagine di un dashboard di Grafana completo che incl
 
 ## <a name="advanced-grafana-features"></a>Funzionalità avanzate di Grafana
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variabili
 Alcuni valori della query possono essere selezionati tramite gli elenchi a discesa dell'interfaccia utente e aggiornati nella query. Considerare la query seguente come esempio:
 ```
 Usage 
@@ -149,7 +150,7 @@ Una delle molte funzionalità utili di Grafana è la playlist di dashboard. È p
 
 ![Esempio di playlist di Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Se è stato configurato un ambiente Grafana in Azure, è previsto un addebito quando le macchine virtuali sono in esecuzione indipendentemente dal fatto che le si usi o meno. Per evitare di dover sostenere costi aggiuntivi, eliminare il gruppo di risorse creato in questo articolo.
 
@@ -158,4 +159,3 @@ Se è stato configurato un ambiente Grafana in Azure, è previsto un addebito qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica delle metriche di Monitoraggio di Azure](data-platform.md)
-

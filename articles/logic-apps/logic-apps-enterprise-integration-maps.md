@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072646"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
@@ -42,7 +43,7 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Questo strumento consente di gestire più facilmente gli account di archiviazione e i contenitori BLOB. Per usare Storage Explorer, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Per altre informazioni, vedere [Guida introduttiva: creare un BLOB nell'archivio oggetti con Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>In alternativa, nel portale di Azure trovare e selezionare l'account di archiviazione. Dal menu dell'account di archiviazione selezionare **Storage Explorer**. |
     |||
 
-  * Per le mappe, è attualmente possibile aggiungere mappe più grandi usando l'[API REST di App per la logica di Azure - Mappe](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * Per le mappe, è attualmente possibile aggiungere mappe più grandi usando l'[API REST di App per la logica di Azure - Mappe](/rest/api/logic/maps/createorupdate).
 
 Non è necessaria un'app per la logica quando si creano e si aggiungono mappe. Per usare una mappa, tuttavia, l'app per la logica deve essere collegata a un account di integrazione in cui si archivia tale mappa. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -219,7 +220,7 @@ Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile cari
 
 ### <a name="add-maps-more-than-2-mb"></a>Aggiungere mappe di dimensioni superiori a 2 MB
 
-Attualmente, per aggiungere mappe più grandi, usare l'[API REST di App per la logica di Azure - Mappe](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Attualmente, per aggiungere mappe più grandi, usare l'[API REST di App per la logica di Azure - Mappe](/rest/api/logic/maps/createorupdate).
 
 <!--
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: b22ce64e7058f093a102aebec8b00842c8a41cb5
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a2292dc789938b8bde709728f5bbffe661529cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072626"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -36,7 +36,7 @@ Azure Load Balancer fornisce la connettività in uscita tramite diversi meccanis
 | Porte SNAT| TCP | Le porte SNAT sono porte temporanee disponibili per un particolare indirizzo di origine IP pubblico. Viene usata una porta SNAT per flusso verso un singolo indirizzo IP e porta di destinazione. Nel caso di più flussi TCP verso la stessa combinazione di indirizzo IP, porta e protocollo di destinazione, ogni flusso TCP utilizza una singola porta SNAT. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP, alla stessa porta e allo stesso protocollo di destinazione. Più flussi destinati ognuno a un indirizzo IP, una porta e un protocollo diversi condividono una sola porta SNAT. L'indirizzo IP, la porta e il protocollo di destinazione rendono univoci i flussi senza la necessità di porte di origine aggiuntive per distinguere i flussi nello spazio indirizzi IP pubblici.|
 |Porte SNAT | UDP | Le porte SNAT UDP vengono gestite da un algoritmo diverso rispetto alle porte SNAT TCP.  Load Balancer usa un algoritmo noto come "port-restricted cone NAT" per UDP.  Per ogni flusso, viene usata una porta SNAT indipendentemente dall'indirizzo IP e porta di destinazione.|
 | Esaurimento | - | Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che i flussi esistenti rilasciano le porte SNAT. Il servizio Load Balancer recupera le porte SNAT alla chiusura del flusso e usa un [timeout per inattività di 4 minuti](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) per il recupero delle porte SNAT dai flussi inattivi. Le porte SNAT UDP in genere si esauriscono molto più rapidamente rispetto alle porte SNAT TCP a causa della differenza tra gli algoritmi utilizzati. È necessario progettare e scalare il test tenendo presente questa differenza.|
-| Comportamento della versione della porta SNAT | TCP | Se il server o il client inviano richieste FIN/ACK, la porta SNAT viene rilasciata dopo 240 secondi. Se viene visualizzata una RST, la porta SNAT viene rilasciata dopo 15 secondi. Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.|
+| Comportamento della versione della porta SNAT | TCP | Se il server o il client inviano richieste FIN/ACK, la porta SNAT viene rilasciata dopo 240 secondi. In presenza di una richiesta RST, la porta SNAT viene rilasciata dopo 15 secondi. Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.|
 | Comportamento della versione della porta SNAT | UDP |Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.|
 | Riutilizzo delle porte SNAT | TCP, UDP | Una volta rilasciata una porta, la porta sarà disponibile per il riutilizzo in base alle esigenze.  È possibile considerare le porte SNAT come una sequenza dal più basso al più alto disponibile per un determinato scenario e la prima porta SNAT disponibile viene usata per le nuove connessioni.|
 

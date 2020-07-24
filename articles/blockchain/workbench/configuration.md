@@ -4,11 +4,12 @@ description: Panoramica dei metadati di configurazione dell'applicazione Azure b
 ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710185"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073081"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -60,11 +61,11 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Tipi di dati supportati.
 
-| Type | Description |
+| Tipo | Description |
 |-------|-------------|
 | address  | Tipo di indirizzo blockchain, ad esempio *contratti* o *utenti*. |
 | array    | Matrice a livello singolo di tipo integer, bool, money o time. Le matrici possono essere statiche o dinamiche. Usare **ElementType** per specificare il tipo di dati degli elementi all'interno della matrice. Vedere una [configurazione di esempio](#example-configuration-of-type-array). |
@@ -390,7 +391,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 | Nome | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | Descrizione | Descrizione della proprietà o del parametro. | No | 255 |
-| Type | [Tipo di dati](#type)della proprietà. | Sì |
+| Tipo | [Tipo di dati](#type)della proprietà. | Sì |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 
@@ -995,5 +996,4 @@ Il file di configurazione seguente è relativo all'esempio di trasferimento cesp
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Riferimenti all'API REST di Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
-
+> [Riferimenti all'API REST di Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench)

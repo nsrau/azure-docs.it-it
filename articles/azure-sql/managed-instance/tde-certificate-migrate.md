@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-ms.date: 04/25/2019
-ms.openlocfilehash: c9a9b42d6f6d8c89847b03f5eda858c75d198c58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: ba2dd167cdf49b5f1a4b4f2dcd0edd48ea969fae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073328"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Eseguire la migrazione di un certificato di un database protetto con Transparent Data Encryption in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -148,7 +149,7 @@ Se il certificato viene mantenuto nell'archivio certificati del computer locale 
 2. Al termine di tutti i passaggi di preparazione, eseguire i comandi seguenti per caricare il certificato con codifica base 64 nell'istanza gestita di destinazione:
 
    ```azurepowershell
-   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -AsByteStream
    $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "<password>"

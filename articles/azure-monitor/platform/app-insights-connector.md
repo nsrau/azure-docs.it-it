@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073641"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -46,7 +47,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 | [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
+| [Account di archiviazione di Azure](./resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -184,9 +185,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Country | Paese/area geografica in cui ha avuto origine la richiesta |
+| Paese | Paese/area geografica in cui ha avuto origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| city | Città o paese in cui ha origine la richiesta |
+| Città | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = metodo automatico o false = utente generato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
@@ -224,7 +225,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Questo script richiede un bearer token di autenticazione per l'autenticazione con Azure Active Directory. Un modo per recuperare questo token consiste nell'usare un articolo sul [sito della documentazione dell'API REST](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Fare clic su **Prova** e accedere alla propria sottoscrizione di Azure. È possibile copiare il bearer token dal riquadro **Request Preview** (Anteprima richiesta), come mostrato nell'immagine seguente.
+Questo script richiede un bearer token di autenticazione per l'autenticazione con Azure Active Directory. Un modo per recuperare questo token consiste nell'usare un articolo sul [sito della documentazione dell'API REST](/rest/api/loganalytics/datasources/createorupdate). Fare clic su **Prova** e accedere alla propria sottoscrizione di Azure. È possibile copiare il bearer token dal riquadro **Request Preview** (Anteprima richiesta), come mostrato nell'immagine seguente.
 
 
 ![Bearer token](media/app-insights-connector/bearer-token.png)

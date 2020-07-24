@@ -3,15 +3,16 @@ title: Conformità e procedure consigliate per la produzione-Azure
 description: Questo articolo fornisce indicazioni su come configurare e distribuire l'analisi video in tempo reale sul modulo IoT Edge in ambienti di produzione.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071933"
 ---
 # <a name="production-readiness-and-best-practices"></a>Idoneità e procedure consigliate per la produzione
 
-Questo articolo fornisce indicazioni su come configurare e distribuire l'analisi video in tempo reale sul modulo IoT Edge in ambienti di produzione. Per preparare la soluzione di IoT Edge, vedere anche [preparare la distribuzione dell'IoT Edge soluzione in produzione](https://docs.microsoft.com/azure/iot-edge/production-checklist) . 
+Questo articolo fornisce indicazioni su come configurare e distribuire l'analisi video in tempo reale sul modulo IoT Edge in ambienti di produzione. Per preparare la soluzione di IoT Edge, vedere anche [preparare la distribuzione dell'IoT Edge soluzione in produzione](../../iot-edge/production-checklist.md) . 
 
 > [!NOTE]
 > È necessario consultare i reparti IT delle organizzazioni per gli aspetti correlati alla sicurezza.

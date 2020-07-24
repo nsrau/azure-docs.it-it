@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072213"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
@@ -47,7 +48,7 @@ Le richieste REST amministrative vengono autenticate con un flusso implicito OAu
 - ID client (che verrà associato al token creato)
 - Il segreto client (che deve essere salvaguardato)
 
-È necessario avere questi valori dalla risposta alla creazione dell'entità servizio, come descritto in [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Se si usa la sottoscrizione aziendale, è possibile che non si disponga dell'autorizzazione per creare un'entità servizio. In tal caso, è consigliabile usare una [sottoscrizione personale gratuita o a pagamento](https://aka.ms/AMLFree).
+È necessario avere questi valori dalla risposta alla creazione dell'entità servizio. Il recupero di questi valori viene descritto in [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Se si usa la sottoscrizione aziendale, è possibile che non si disponga dell'autorizzazione per creare un'entità servizio. In tal caso, è consigliabile usare una [sottoscrizione personale gratuita o a pagamento](https://aka.ms/AMLFree).
 
 Per recuperare un token:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. La documentazione di riferimento dell'API nei collegamenti seguenti elenca le operazioni, i parametri e i codici di risposta per le varie operazioni.
+Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. 
 
-|Area|Percorso|Informazioni di riferimento|
-|-|-|-|
-|Artifacts|artefatto/v 2.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Archivi dati|archivio dati/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Ottimizzazione degli iperparametri|iperguida/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelli|Modelmanagement/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Cronologia di esecuzione|esecuzione/v 1.0/e cronologia/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Area|Percorso|
+|-|-|
+|Artifacts|artefatto/v 2.0/|
+|Archivi dati|archivio dati/v 1.0/|
+|Ottimizzazione degli iperparametri|iperguida/v 1.0/|
+|Modelli|Modelmanagement/v 1.0/|
+|Cronologia di esecuzione|esecuzione/v 1.0/e cronologia/v 1.0/|
 
 È possibile esplorare l'API REST usando il modello generale di:
 

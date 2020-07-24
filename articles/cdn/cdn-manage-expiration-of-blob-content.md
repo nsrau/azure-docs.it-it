@@ -15,17 +15,17 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073133"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Archiviazione BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -91,7 +91,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azure/) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
 Ad esempio:
 

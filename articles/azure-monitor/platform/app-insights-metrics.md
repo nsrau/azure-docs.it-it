@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073563"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
 Application Insights metriche basate su log consentono di analizzare l'integrità delle app monitorate, creare dashboard potenti e configurare gli avvisi. Esistono due tipi di metriche:
 
-* Le [metriche basate su log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) dietro la scena vengono convertite in [query kusto](https://docs.microsoft.com/azure/kusto/query/) da eventi archiviati.
+* Le [metriche basate su log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) dietro la scena vengono convertite in [query kusto](/azure/kusto/query/) da eventi archiviati.
 * Le [metriche standard](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) vengono archiviate come serie temporali pre-aggregate.
 
 Poiché le *metriche standard* sono pre-aggregate durante la raccolta, hanno prestazioni migliori in fase di query. Questo li rende una scelta migliore per i dashboard e per gli avvisi in tempo reale. Le *metriche basate su log* hanno più dimensioni, in modo da renderle l'opzione superiore per l'analisi dei dati e la diagnostica ad hoc. Usare il [selettore dello spazio dei nomi](metrics-getting-started.md#create-your-first-metric-chart) per passare tra la metrica basata su log e la metrica standard in [Esplora metriche](metrics-getting-started.md).
@@ -97,7 +98,7 @@ Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|nessuno|
+|Millisecondi|Media, min, max|Nessuna|
 
 ```Kusto
 browserTimings
@@ -113,7 +114,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|nessuno|
+|Millisecondi|Media, min, max|Nessuna|
 
 ```Kusto
 browserTimings
@@ -129,7 +130,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|nessuno|
+|Millisecondi|Media, min, max|Nessuna|
 
 ```Kusto
 browserTimings
@@ -145,7 +146,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|nessuno|
+|Millisecondi|Media, min, max|Nessuna|
 
 ```Kusto
 browserTimings
@@ -161,7 +162,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|nessuno|
+|Millisecondi|Media, min, max|Nessuna|
 
 ```Kusto
 browserTimings
@@ -183,7 +184,7 @@ Questa metrica riflette il numero di eccezioni generate dal codice dell'applicaz
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -198,7 +199,7 @@ Numero di chiamate di dipendenza non riuscite.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 dependencies

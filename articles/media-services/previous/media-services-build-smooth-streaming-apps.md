@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071903"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming  
 
@@ -53,7 +53,7 @@ In questa lezione verrà creata un'applicazione Windows Store con un controllo M
 
 ![Esempio di applicazione Windows Store Smooth Streaming][PlayerApplication]
 
-Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sito relativo allo [sviluppo di app di Windows Store per Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). In questa lezione sono incluse le procedure seguenti:
+Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sito relativo allo [sviluppo di app di Windows Store per Windows 8](https://developer.microsoft.com/en-us/windows/). In questa lezione sono incluse le procedure seguenti:
 
 1. Creare un progetto Windows Store
 2. Progettare l'interfaccia utente (XAML)
@@ -66,7 +66,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 1. Scegliere **nuovo**dal menu **file** , quindi fare clic su **progetto**.
 1. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
-    | Nome | valore |
+    | Nome | Valore |
     | --- | --- |
     | Gruppo dei modelli di progetto |Installato/Modelli/Visual C#/Windows Store |
     | Modello |Applicazione vuota (XAML) |
@@ -82,10 +82,10 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **SSPlayer**, quindi scegliere **Aggiungi riferimento**.
 1. Digitare o selezionare i valori seguenti:
 
-    | Nome | valore |
+    | Nome | Valore |
     | --- | --- |
     | Gruppo di riferimenti |Windows/Estensioni |
-    | Informazioni di riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
+    | Riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
 
 1. Fare clic su **OK**. 
 
@@ -141,7 +141,7 @@ Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di d
          </StackPanel>
    ```
    Il controllo MediaElement viene utilizzato per riprodurre i file multimediali. Nella lezione successiva verrà utilizzato il controllo del dispositivo di scorrimento denominato sliderProgress per controllare l'avanzamento del file multimediale.
-3. Premere **CTRL+S** per salvare il file.
+3. Premere **CTRL + S** per salvare il file.
 
 Il controllo MediaElement non supporta il contenuto Smooth Streaming per impostazione predefinita. Per abilitare il supporto Smooth Streaming, è necessario registrare il gestore del flusso di byte in base all'estensione del nome file e al tipo MIME.  Per effettuare la registrazione è necessario usare il metodo MediaExtensionManager.RegisterByteStreamHandler dello spazio dei nomi Windows.Media.
 
@@ -214,7 +214,7 @@ Nel file XAML alcuni gestori di eventi sono associati ai controlli.  Sarà quind
          # endregion
    ```
    Il gestore di eventi sliderProgress_PointerPressed viene definito qui.  Per renderlo funzionante, è tuttavia necessario eseguire ulteriori attività che verranno illustrate nella lezione successiva di questa esercitazione.
-6. Premere **CTRL+S** per salvare il file.
+6. Premere **CTRL + S** per salvare il file.
 
 Il file code-behind finito avrà un aspetto simile al seguente:
 
@@ -291,7 +291,7 @@ In questa lezione sono incluse le procedure seguenti:
             "application/vnd.ms-sstr+xml", 
          propertySet);
    ```
-6. Premere **CTRL+S** per salvare il file.
+6. Premere **CTRL + S** per salvare il file.
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Per aggiungere il gestore eventi a livello di gestione dell'origine adattiva
 
@@ -319,7 +319,7 @@ In questa lezione sono incluse le procedure seguenti:
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
    ```
-5. Premere **CTRL+S** per salvare il file.
+5. Premere **CTRL + S** per salvare il file.
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>Per aggiungere i gestori eventi a livello di origine adattiva
 
@@ -368,7 +368,7 @@ In questa lezione sono incluse le procedure seguenti:
 
             mediaElement_AdaptiveSourceFailed;
    ```
-5. Premere **CTRL+S** per salvare il file.
+5. Premere **CTRL + S** per salvare il file.
 
 Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine adattiva e possono essere utilizzati per gestire le funzionalità comuni a tutti gli elementi multimediali nell'app. Ogni elemento AdaptiveSource include i relativi eventi e tutti gli eventi AdaptiveSource vengono propagati in AdaptiveSourceManager.
 
@@ -406,7 +406,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
    ```
-4. Premere **CTRL+S** per salvare il file.
+4. Premere **CTRL + S** per salvare il file.
 
 ### <a name="to-add-slider-bar-related-code"></a>Per aggiungere il codice relativo alla barra del dispositivo di scorrimento
 
@@ -539,7 +539,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
    ```
-8. Premere **CTRL+S** per salvare il file.
+8. Premere **CTRL + S** per salvare il file.
 
 ### <a name="to-compile-and-test-the-application"></a>Per compilare e testare l'applicazione
 
@@ -1045,4 +1045,3 @@ La lezione 4 è stata completata.  In questa lezione è stata aggiunta la funzio
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

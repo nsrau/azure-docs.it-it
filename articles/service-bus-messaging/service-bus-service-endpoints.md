@@ -3,17 +3,19 @@ title: Configurare gli endpoint del servizio di rete virtuale per il bus di serv
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. ServiceBus a una rete virtuale.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071327"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurare gli endpoint del servizio di rete virtuale per il bus di servizio di Azure
 
 L'integrazione di endpoint del servizio bus di servizio con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro come le macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
 
-Una volta configurato per essere associato ad almeno un endpoint del servizio della subnet della rete virtuale, lo spazio dei nomi del bus di servizio corrispondente non accetterà più traffico se non dalle reti virtuali autorizzate. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi del bus di servizio a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
+Una volta configurato per essere associato ad almeno un endpoint del servizio subnet della rete virtuale, il rispettivo spazio dei nomi del bus di servizio non accetterà più il traffico da qualsiasi luogo, ma reti virtuali autorizzate e, facoltativamente, indirizzi IP Internet specifici. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi del bus di servizio a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi del bus di servizio corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
 

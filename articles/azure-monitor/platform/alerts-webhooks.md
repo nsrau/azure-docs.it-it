@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073584"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in Monitoraggio di Azure
 
@@ -25,7 +26,7 @@ Per aggiungere o aggiornare l'URI del webhook, nel [portale di Azure](https://po
 
 ![Riquadro Aggiungi una regola di avviso](./media/alerts-webhooks/Alertwebhook.png)
 
-È anche possibile configurare un avviso da inserire nell'URI di un webhook usando i [cmdlet di Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), l'[interfaccia della riga di comando multipiattaforma](../samples/cli-samples.md#work-with-alerts) o l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+È anche possibile configurare un avviso da inserire nell'URI di un webhook usando i [cmdlet di Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), l'[interfaccia della riga di comando multipiattaforma](../samples/cli-samples.md#work-with-alerts) o l'[API REST di Monitoraggio di Azure](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
 È possibile autenticare il webhook usando l'autorizzazione basata su token. L'URI del webhook viene salvato con un ID token. Ad esempio: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -78,11 +79,11 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | conditionType |S |Metric, Event |Sono supportati due tipi di avviso: metrica ed evento. Gli avvisi di metrica sono basati su una condizione di metrica. Gli avvisi di eventi sono basati su un evento nel log attività. Usare questo valore per controllare se l'avviso è basato su una metrica o su un evento. |
 | condizione |S | |Campi specifici da controllare in base al valore di **conditionType**. |
 | metricName |Per avvisi di metrica | |Nome della metrica che definisce l'oggetto monitorato dalla regola. |
-| metricUnit |Per avvisi di metrica |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Unità consentita nella metrica. Vedere i [valori consentiti](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Per avvisi di metrica |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Unità consentita nella metrica. Vedere i [valori consentiti](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |Per avvisi di metrica | |Valore effettivo della metrica che ha generato l'avviso. |
 | threshold |Per avvisi di metrica | |Valore soglia al quale viene attivato l'avviso. |
 | windowSize |Per avvisi di metrica | |Periodo di tempo usato per monitorare l'attività degli avvisi in base alla soglia. Il valore deve essere compreso tra 5 minuti e 1 giorno. Il valore deve essere nel formato di durata ISO 8601. |
-| timeAggregation |Per avvisi di metrica |Average, Last, Maximum, Minimum, None, Total |Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Vedere i [valori consentiti](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |Per avvisi di metrica |Average, Last, Maximum, Minimum, None, Total |Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Vedere i [valori consentiti](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operator |Per avvisi di metrica | |Operatore usato per confrontare i dati di metrica attuali con la soglia impostata. |
 | subscriptionId |S | |ID sottoscrizione di Azure. |
 | resourceGroupName |S | |Nome del gruppo di risorse per la risorsa interessata. |
@@ -94,7 +95,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
 
 > [!NOTE]
-> È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](/rest/api/monitor/alertrules).
 >
 >
 
@@ -104,4 +105,3 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 * Informazioni su come [usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Informazioni su come [usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Informazioni su come [usare un'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072027"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -147,7 +148,7 @@ La tabella seguente illustra il mapping:
 
 | **Blocco predefinito** | **Tecnologia** |
 | --- | --- |
-| **Lettore** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Provider di identità (IdP)** |Azure Active Directory (Azure AD) |
 | **Servizio token di sicurezza (STS) ** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali |
@@ -226,7 +227,7 @@ Per altre informazioni, vedere [autenticazione del token JWT in servizi multimed
 Per informazioni su Azure AD:
 
 * Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione
 Usare le informazioni seguenti per la risoluzione dei problemi di implementazione.
@@ -295,7 +296,7 @@ Il rollover della chiave di firma è un aspetto importante da tenere in consider
 
 Azure AD usa gli standard di settore per stabilire una relazione di trust tra questo servizio di gestione delle identità e le applicazioni che lo usano. In particolare, Azure AD usa una chiave per la firma costituita da una coppia di chiavi pubblica e privata. Quando Azure AD crea un token di sicurezza contenente informazioni sull'utente, questo token viene firmato da Azure AD con una chiave privata prima di essere inviato all'applicazione. Per verificare che il token sia valido e originato da Azure AD, l'applicazione deve convalidare la firma del token. L'applicazione usa la chiave pubblica esposta da Azure AD che è contenuta nel documento metadati federazione del tenant. Questa chiave pubblica e la chiave di firma da cui deriva sono le stesse usate per tutti i tenant in Azure AD.
 
-Per altre informazioni sul rollover della chiave di Azure AD, vedere [Rollover della chiave di firma in Azure Active Directory](../../active-directory/active-directory-signing-key-rollover.md).
+Per altre informazioni sul rollover della chiave di Azure AD, vedere [Rollover della chiave di firma in Azure Active Directory](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 In merito alla [coppia di chiavi pubblica-privata](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -328,7 +329,7 @@ Se si esamina come un'app Web chiama un'app per le API in [Identità applicazion
 * Azure AD autentica l'applicazione e restituisce un token di accesso JWT che viene usato per chiamare l'API Web.
 * Sul protocollo HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT. Se la convalida ha esito positivo, restituisce la risorsa desiderata.
 
-In questo flusso di identità dell'applicazione, l'API Web fa affidamento sul fatto che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile. Il [diagramma del flusso di autorizzazione](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) illustra il funzionamento del flusso per la concessione del codice di autorizzazione.
+In questo flusso di identità dell'applicazione, l'API Web fa affidamento sul fatto che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile. Il [diagramma del flusso di autorizzazione](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) illustra il funzionamento del flusso per la concessione del codice di autorizzazione.
 
 L'acquisizione della licenza con la restrizione token segue lo stesso modello di sottosistema attendibile. Il servizio di distribuzione delle licenze in Servizi multimediali è la risorsa API Web, o la "risorsa back-end" a cui un'applicazione Web deve accedere. Dov'è quindi il token di accesso?
 
@@ -469,7 +470,7 @@ La schermata seguente illustra uno scenario che usa una chiave asimmetrica trami
 
 In entrambi i casi precedenti, l'autenticazione utente è la stessa, ovvero viene eseguita tramite Azure AD. L'unica differenza è che i token JWT vengono rilasciati dal servizio token di sicurezza personalizzato invece che da Azure AD. Quando si configura la protezione CENC dinamica, la restrizione del servizio di distribuzione delle licenze specifica il tipo di token JWT, una chiave simmetrica o asimmetrica.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il controllo di accesso tramite l'autenticazione token: la progettazione e l'implementazione con Azure, Servizi multimediali e Media Player.
 

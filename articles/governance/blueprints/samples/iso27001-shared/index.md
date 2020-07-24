@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto Servizi condivisi ISO 27001
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
-ms.date: 04/15/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "81458455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072872"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 

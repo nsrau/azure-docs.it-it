@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071632"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Come integrare RabbitMQ con il bus di servizio di Azure
 
@@ -90,7 +90,7 @@ Prima di poter usare la stringa di connessione, è necessario convertirla nel fo
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Converte la stringa di connessione":::
 
-Aprire quindi il plug-in di gestione di RabbitMQ nel browser [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) e passare a `Admin -> Shovel Management` , in cui è possibile aggiungere la nuova paletta che verrà inviata per l'invio di messaggi da una coda di RabbitMQ alla coda del bus di servizio di Azure.
+Aprire quindi il plug-in di gestione di RabbitMQ nel browser `http://localhost:15672/#/dynamic-shovels` e passare a `Admin -> Shovel Management` , in cui è possibile aggiungere la nuova paletta che verrà inviata per l'invio di messaggi da una coda di RabbitMQ alla coda del bus di servizio di Azure.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Aggiungi pala RabbitMQ":::
 
@@ -98,7 +98,7 @@ Chiamare la pala `azure` e scegliere `AMQP 0.9.1` come protocollo di origine. Ne
 
 Sul lato coda di elementi, è possibile usare `azure` come nome della coda. Se la coda non esiste, verrà creata da RabbitMQ. È anche possibile scegliere il nome di una coda già esistente. È possibile lasciare le altre opzioni come predefinite.
 
-Quindi, a `destination` parte gli elementi, scegliere `AMQP 1.0` come protocollo. Nel `URI` campo immettere la stringa di connessione ottenuta nel passaggio precedente. la stringa di connessione di Azure è stata convertita nel formato RabbitMQ. L'aspetto dovrebbe risultare simile al seguente:
+Quindi, a `destination` parte gli elementi, scegliere `AMQP 1.0` come protocollo. Nel `URI` campo immettere la stringa di connessione ottenuta nel passaggio precedente. la stringa di connessione di Azure è stata convertita nel formato RabbitMQ. Avrà un aspetto simile al seguente:
 
 ```
 amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.windows.net:5671/?sasl=plain

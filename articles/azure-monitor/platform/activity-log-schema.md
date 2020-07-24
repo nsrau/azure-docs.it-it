@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073666"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive le categorie del log attività e lo schema per ciascuna di esse. 
 
 Lo schema può variare a seconda della modalità di accesso al log:
  
-- Gli schemi descritti in questo articolo si trovano quando si accede al log attività dall' [API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Questo è anche lo schema usato quando si seleziona l'opzione **JSON** durante la visualizzazione di un evento nella portale di Azure.
+- Gli schemi descritti in questo articolo si trovano quando si accede al log attività dall' [API REST](/rest/api/monitor/activitylogs). Questo è anche lo schema usato quando si seleziona l'opzione **JSON** durante la visualizzazione di un evento nella portale di Azure.
 - Vedere lo schema della sezione finale [dall'account di archiviazione e hub eventi](#schema-from-storage-account-and-event-hubs) per lo schema quando si usa un' [impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività ad archiviazione di Azure o hub eventi di Azure.
-- Vedere [riferimento ai dati di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/reference/) per lo schema quando si usa un' [impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics.
+- Vedere [riferimento ai dati di monitoraggio di Azure](/azure/azure-monitor/reference/) per lo schema quando si usa un' [impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics.
 
 
 ## <a name="categories"></a>Categorie
-Ogni evento nel log attività dispone di una categoria specifica descritta nella tabella seguente. Vedere le sezioni seguenti per altre informazioni su ogni categoria e il relativo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](resource-logs-stream-event-hubs.md). Un mapping delle proprietà allo schema dei [log delle risorse](diagnostic-logs-schema.md) è disponibile nell'ultima sezione dell'articolo.
+Ogni evento nel log attività dispone di una categoria specifica descritta nella tabella seguente. Vedere le sezioni seguenti per altre informazioni su ogni categoria e il relativo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](./resource-logs.md#send-to-azure-event-hubs). Un mapping delle proprietà allo schema dei [log delle risorse](./resource-logs-schema.md) è disponibile nell'ultima sezione dell'articolo.
 
 | Category | Descrizione |
 |:---|:---|
@@ -214,7 +214,7 @@ Questa categoria contiene il record degli eventi imprevisti di integrità dei se
   }
 }
 ```
-Per la documentazione relativa ai valori nelle proprietà fare riferimento all'articolo sulle [notifiche sull'integrità dei servizi](./../../azure-monitor/platform/service-notifications.md).
+Per la documentazione relativa ai valori nelle proprietà fare riferimento all'articolo sulle [notifiche sull'integrità dei servizi](../../service-health/service-notifications.md).
 
 ## <a name="resource-health-category"></a>Categoria integrità risorse
 Questa categoria contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Virtual Machine health status changed to unavailable". Gli eventi di integrità delle risorse possono rappresentare uno dei quattro stati di integrità: Disponibile, Non disponibile, Danneggiato e Sconosciuto. Inoltre, gli eventi di integrità delle risorse possono essere classificati come avviati dalla piattaforma o avviati dall'utente.
@@ -793,10 +793,10 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schema dall'account di archiviazione e hub eventi
-Quando si trasmette il log attività di Azure a un account di archiviazione o a un hub eventi, i dati seguono lo [schema del log delle risorse](diagnostic-logs-schema.md). La tabella seguente fornisce un mapping delle proprietà dagli schemi precedenti allo schema dei log delle risorse.
+Quando si trasmette il log attività di Azure a un account di archiviazione o a un hub eventi, i dati seguono lo [schema del log delle risorse](./resource-logs-schema.md). La tabella seguente fornisce un mapping delle proprietà dagli schemi precedenti allo schema dei log delle risorse.
 
 > [!IMPORTANT]
-> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](diagnostic-logs-append-blobs.md) .
+> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](./resource-logs-append-blobs.md) .
 
 
 | Proprietà dello schema dei log delle risorse | Proprietà dello schema API REST del log attività | Note |
@@ -812,7 +812,7 @@ Quando si trasmette il log attività di Azure a un account di archiviazione o a 
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | attestazioni e proprietà di autorizzazione |  |
-| Level | Level |  |
+| Livello | Livello |  |
 | posizione | N/D | Posizione in cui è stato elaborato l'evento. *Non si tratta della posizione della risorsa, ma piuttosto del punto in cui l'evento è stato elaborato. Questa proprietà verrà rimossa in un aggiornamento futuro.* |
 | Proprietà | properties.eventProperties |  |
 | properties.eventCategory | category | Se properties.eventCategory non è presente, la categoria è "Administrative" |
@@ -885,4 +885,3 @@ Di seguito è riportato un esempio di un evento che utilizza questo schema.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sul log attività](platform-logs-overview.md)
 * [Creare un'impostazione di diagnostica per inviare il log attività a Log Analytics area di lavoro, archiviazione di Azure o hub eventi](diagnostic-settings.md)
-

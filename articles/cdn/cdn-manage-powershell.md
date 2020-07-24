@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073061"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gestire la rete CDN di Azure con PowerShell
 PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endpoint della rete CDN.  È possibile usare PowerShell in modo interattivo o scrivendo script per automatizzare le attività di gestione.  Questa esercitazione illustra alcune delle attività più comuni che è possibile eseguire con PowerShell per gestire i profili e gli endpoint della rete CDN di Azure.
@@ -28,7 +28,7 @@ PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endp
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato.  Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Connect-AzAccount`[Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato.  Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Connect-AzAccount`[Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > È necessario accedere con `Connect-AzAccount` per poter eseguire i cmdlet di Azure PowerShell.

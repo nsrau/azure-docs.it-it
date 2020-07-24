@@ -4,11 +4,12 @@ description: Informazioni su quali metriche vengono comunemente usate per la sca
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57bffede3b6c6c137da2feea32ad467a13f71a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073514"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 
@@ -16,7 +17,7 @@ ms.locfileid: "76845573"
 
 La scalabilità automatica di Monitoraggio di Azure consente di aumentare o ridurre il numero delle istanze in esecuzione in base ai dati di telemetria (metriche). Questo documento descrive le metriche comuni che è possibile usare. Nel portale di Azure è possibile scegliere la metrica della risorsa in base alla quale eseguire il ridimensionamento. È tuttavia possibile scegliere metriche da risorse diverse.
 
-La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Altri servizi Azure usano metodi di ridimensionamento diversi.
+La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](../../api-management/api-management-key-concepts.md). Altri servizi Azure usano metodi di ridimensionamento diversi.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Metriche di calcolo per le macchine virtuali basate su Resource Manager
 Per impostazione predefinita, le macchine virtuali e i set di scalabilità di macchine virtuali basati su Resource Manager generano metriche di base (a livello di host). Quando si configura la raccolta dei dati di diagnostica per una VM di Azure e VMSS, inoltre, l'estensione Diagnostica di Azure genera anche i contatori delle prestazioni del sistema operativo guest (noti comunemente come "metriche del sistema operativo guest").  Tutte queste metriche vengono usate nelle regole di scalabilità automatica.
@@ -185,4 +186,3 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 > Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 >
 >
-

@@ -4,16 +4,17 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: db1814c0a27ac6d61c7353a2c66cb5a1a72688d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a17d2de24aadfbab218d2b28a157f19e2e845fa9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82801604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073557"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
 
-La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](../../api-management/api-management-key-concepts.md).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Individuare le impostazioni di scalabilità automatica nella sottoscrizione
 
@@ -58,7 +59,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
    ![Scalabilità in base alla CPU][8]
 1. Fare clic su **Salva**.
 
-Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+A questo punto, A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -120,7 +121,7 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 [1]:https://portal.azure.com
 [2]: ./media/autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
+[4]: ../../app-service/app-service-web-get-started-dotnet.md
 [5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/autoscale-get-started/scale-in-recommendation.png
@@ -131,4 +132,3 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 [12]: ./media/autoscale-get-started/scale-definition-json.png
 [13]: ./media/autoscale-get-started/disable-autoscale.png
 [14]: ./media/autoscale-get-started/set-manualscale.png
-

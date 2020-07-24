@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073688"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Origini dati degli agenti in Monitoraggio di Azure
 I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle origini dati configurate.  I dati degli agenti vengono archiviati come [dati di log](data-platform-logs.md) con un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -46,7 +47,7 @@ Configurare le origini dati nel menu **Dati** in **Impostazioni avanzate** per l
 ## <a name="data-collection"></a>Raccolta dati
 Le configurazioni dell'origine dati vengono distribuite agli agenti connessi direttamente a Monitoraggio di Azure entro pochi minuti.  I dati specificati vengono raccolti dall'agente e distribuiti direttamente a Monitoraggio di Azure a intervalli specifici per ogni origine dati.  Per informazioni sugli intervalli specifici di ogni origine dati, vedere la documentazione.
 
-Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Monitoraggio di Azure oppure verranno inviati dall'agente a Monitoraggio di Azure senza passare per il server di gestione. Per informazioni dettagliate, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../insights/solutions-inventory.md).  È possibile leggere informazioni sulla connessione di Operations Manager e Monitoraggio di Azure e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](om-agents.md).
+Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Monitoraggio di Azure oppure verranno inviati dall'agente a Monitoraggio di Azure senza passare per il server di gestione. Per informazioni dettagliate, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitor-reference.md).  È possibile leggere informazioni sulla connessione di Operations Manager e Monitoraggio di Azure e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](om-agents.md).
 
 Se l'agente non riesce a connettersi a Monitoraggio di Azure o a Operations Manager, continuerà a raccogliere dati che distribuirà quando stabilirà una connessione.  I dati possono andare persi se la quantità di dati raggiunge la dimensione massima della cache per il client o se l'agente non riesce a stabilire una connessione entro 24 ore.
 

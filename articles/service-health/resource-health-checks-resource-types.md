@@ -3,11 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: f4d622ac6d37059731b51a679e13f824670b9dc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071283"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -231,4 +232,4 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="next-steps"></a>Passaggi successivi
 -  Vedere [Introduzione al dashboard per l'integrità dei servizi di Azure](service-health-overview.md) e [Introduzione a Integrità risorse di Azure](resource-health-overview.md) per informazioni più specifiche. 
 -  [Domande frequenti su Integrità risorse di Azure](resource-health-faq.md)
-- Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per gli eventi di Integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+- Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per gli eventi di Integrità dei servizi](./alerts-activity-log-service-notifications-portal.md). 

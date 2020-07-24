@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073916"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
@@ -113,7 +114,7 @@ Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scar
 1. Avviare il portale di CloudSimple e selezionare **rete**.
 2. Selezionare **gateway VPN**.
 3. Dall'elenco dei gateway VPN fare clic sul gateway VPN da punto a sito.
-4. Selezionare **utenti**.
+4. Selezionare **Utenti**.
 5. Fare clic su **Scarica configurazione VPN**.
 
     ![Scaricare la configurazione della VPN](media/download-p2s-vpn-configuration.png)
@@ -147,7 +148,7 @@ La VLAN/subnet verrà creata.  È ora possibile usare questo ID VLAN per creare 
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Connettere l'ambiente a una rete virtuale di Azure
 
-CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute. Per informazioni dettagliate sull'impostazione della connessione, seguire i passaggi in [connessione di rete virtuale di Azure con ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
+CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute. Per informazioni dettagliate sull'impostazione della connessione, seguire i passaggi in [connessione di rete virtuale di Azure con ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## <a name="sign-in-to-vcenter"></a>Accedere a vCenter
 

@@ -3,16 +3,16 @@ title: Gestire il backup di condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup da backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073240"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gestire il backup di condivisioni file di Azure con l'API REST
 
-Questo articolo illustra come eseguire attività di gestione e monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Questo articolo illustra come eseguire attività di gestione e monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da [backup di Azure](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Monitorare i processi
 
@@ -38,7 +38,7 @@ Ad esempio, la risposta finale di un'operazione dell' [API REST di backup del tr
 }
 ```
 
-Il processo di backup della condivisione file di Azure è identificato dal campo **JobID** e può essere rilevato come indicato [qui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando una richiesta GET.
+Il processo di backup della condivisione file di Azure è identificato dal campo **JobID** e può essere rilevato come indicato [qui](/rest/api/backup/jobdetails/) usando una richiesta GET.
 
 ### <a name="tracking-the-job"></a>Tenere traccia del processo
 
@@ -54,7 +54,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>Risposta
 
-Nome  | Type  |  Descrizione
+Nome  | Tipo  |  Descrizione
 --- | --- | ----
 200 - OK |  JobResource  | OK
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Arrestare la protezione ed eliminare i dati
 
-Per rimuovere la protezione in una condivisione file protetta ed eliminare anche i dati di backup, eseguire un'operazione di eliminazione, come descritto [qui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Per rimuovere la protezione in una condivisione file protetta ed eliminare anche i dati di backup, eseguire un'operazione di eliminazione, come descritto [qui](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

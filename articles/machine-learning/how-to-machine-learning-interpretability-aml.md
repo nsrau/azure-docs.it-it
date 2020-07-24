@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 3830f65a3435c1db0291811c6306ea579bf1d896
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 04d9e82c56979a459734b8732c127922361a1100
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072386"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -86,7 +86,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
 
@@ -112,7 +112,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -129,11 +129,11 @@ Vedere l'esempio seguente per ottenere i valori di importanza della funzionalit√
 
 ```python
 
-# you can use the training data or the test data here
-global_explanation = explainer.explain_global(x_train)
+# you can use the training data or the test data here, but test data would allow you to use Explanation Exploration
+global_explanation = explainer.explain_global(x_test)
 
 # if you used the PFIExplainer in the previous step, use the next line of code instead
-# global_explanation = explainer.explain_global(x_train, true_labels=y_test)
+# global_explanation = explainer.explain_global(x_train, true_labels=y_train)
 
 # sorted feature importance values and feature names
 sorted_global_importance_values = global_explanation.get_ranked_global_values()
@@ -244,7 +244,7 @@ Nell'esempio seguente viene illustrato come √® possibile utilizzare la `Explanat
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio, `train_explain.py`
+1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -354,7 +354,7 @@ Per caricare il dashboard di visualizzazione, usare il codice seguente.
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, x_test)
+ExplanationDashboard(global_explanation, model, dataset=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualizzazione in Azure Machine Learning Studio

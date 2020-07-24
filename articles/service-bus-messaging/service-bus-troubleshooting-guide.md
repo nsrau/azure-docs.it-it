@@ -2,12 +2,13 @@
 title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071314"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure. 
@@ -15,7 +16,7 @@ Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemi di connettività, certificato o timeout
 I passaggi seguenti possono essere utili per la risoluzione dei problemi di connettività/certificato/timeout per tutti i servizi in *. servicebus.windows.net. 
 
-- Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
+- Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati, che sono comuni quando si usa Java SDK.
 
     Esempio di messaggio riuscito:
     
@@ -53,25 +54,48 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
 - Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemi che possono verificarsi con gli aggiornamenti o i riavvii del servizio
-Gli aggiornamenti del servizio back-end e i riavvii possono provocare le seguenti conseguenze per le applicazioni:
 
+### <a name="symptoms"></a>Sintomi
 - Le richieste possono essere temporaneamente limitate.
 - Potrebbe essere presente un calo nei messaggi/richieste in arrivo.
 - Il file di log può contenere messaggi di errore.
 - È possibile che le applicazioni siano disconnesse dal servizio per alcuni secondi.
 
+### <a name="cause"></a>Causa
+Gli aggiornamenti del servizio back-end e i riavvii possono causare questi problemi nelle applicazioni.
+
+### <a name="resolution"></a>Risoluzione
 Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Accesso non autorizzato: è necessario inviare attestazioni
+
+### <a name="symptoms"></a>Sintomi 
 Questo errore può essere visualizzato quando si tenta di accedere a un argomento del bus di servizio da Visual Studio in un computer locale usando un'identità gestita assegnata dall'utente con autorizzazioni di invio.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
+### <a name="cause"></a>Causa
+L'identità non dispone delle autorizzazioni per accedere all'argomento del bus di servizio. 
+
+### <a name="resolution"></a>Risoluzione
 Per correggere l'errore, installare la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Per ulteriori informazioni, vedere [autenticazione di sviluppo locale](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
 
 Per informazioni su come assegnare le autorizzazioni ai ruoli, vedere [autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md).
+
+## <a name="service-bus-exception-put-token-failed"></a>Eccezione del bus di servizio: il token put non è riuscito
+
+### <a name="symptoms"></a>Sintomi
+Quando si tenta di inviare più di 1000 messaggi usando la stessa connessione del bus di servizio, verrà visualizzato il messaggio di errore seguente: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### <a name="cause"></a>Causa
+È previsto un limite al numero di token usati per inviare e ricevere messaggi usando una singola connessione a uno spazio dei nomi del bus di servizio. È 1000. 
+
+### <a name="resolution"></a>Risoluzione
+Aprire una nuova connessione allo spazio dei nomi del bus di servizio per inviare altri messaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 

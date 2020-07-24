@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5158bbb32635ebf030879f4d0290a1feba0ec93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072918"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azu
 
 A questo punto è possibile iniziare a usare il codice scaricando un'applicazione Java di esempio da GitHub. Questa applicazione esegue operazioni in blocco sui dati di Azure Cosmos DB. Per clonare l'applicazione, aprire un prompt dei comandi, passare alla directory in cui si vuole copiare l'applicazione ed eseguire il comando seguente:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -123,13 +123,13 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di importazione in blocco usando il comando seguente:  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -186,13 +186,13 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di aggiornamento in blocco usando il comando seguente:
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 

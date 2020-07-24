@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27438b0729aa309878eb54a346f04754cb983af1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073268"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e ripristino per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,7 +127,7 @@ Per altre informazioni, vedere uno degli articoli seguenti in base alla versione
 
 La tabella seguente riepiloga le funzionalità di ogni opzione di backup e ripristino per le macchine virtuali SQL Server in Azure.
 
-|| **Backup automatico** | **Backup di Azure per SQL** | **Backup manuale** |
+| Opzione | Backup automatizzato | Backup di Azure per SQL | Backup manuale |
 |---|---|---|---|
 | Richiede altri servizi di Azure |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Configurare i criteri di backup nel portale di Azure | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |   |

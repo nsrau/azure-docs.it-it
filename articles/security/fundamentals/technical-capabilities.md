@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071602"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -66,7 +66,7 @@ Il [portale Azure Active Directory](https://aad.portal.azure.com/) è disponibil
 
 Di seguito sono riportate le principali funzionalità di gestione delle identità di Azure:
 
-- Single Sign-On
+- Accesso Single Sign-On
 
 - Multi-Factor Authentication
 
@@ -80,7 +80,7 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Protezione dell'identità
 
-#### <a name="single-sign-on"></a>Single Sign-On
+#### <a name="single-sign-on"></a>Accesso Single Sign-On
 
 [Single Sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) consente di accedere a tutte le applicazioni e risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -152,7 +152,7 @@ La fatturazione costituisce il punto di partenza per il controllo di accesso in 
 
 Le sottoscrizioni dispongono anche di un'associazione a una directory. Una directory definisce un set di utenti. Possono essere utenti dell'azienda o dell'istituto di istruzione che ha creato la directory oppure utenti esterni, ossia utenti con account Microsoft. Le sottoscrizioni sono accessibili da un sottogruppo di questi utenti della directory che sono stati nominati Amministratori del servizio (SA) o Co-amministratori (CA); l'unica eccezione è che, per motivi di compatibilità, gli account Microsoft (precedentemente Windows Live ID) possono essere nominati SA o CA senza essere presenti nella directory.
 
-Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
+Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) consente di risolvere questo problema offrendo una gestione degli accessi con granularità fine per Azure.
 
 ![Accesso protetto alle risorse](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

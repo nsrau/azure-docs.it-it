@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85979999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073310"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funzionalità multimodello del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -95,9 +95,6 @@ In alcuni scenari specifici è possibile usare i modelli di documento invece dei
 ## <a name="spatial-features"></a>Funzionalità spaziali
 
 I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere percorsi di punti o più oggetti complessi, ad esempio paesi/aree geografiche, strade o laghi.
-
-La famiglia di prodotti SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati nel formato JavaScript Object Notation [(JSON)](https://www.json.org/) ed esportare i dati relazionali come testo JSON.
-
 
  I due tipi di dati spaziali supportati sono i seguenti: 
 

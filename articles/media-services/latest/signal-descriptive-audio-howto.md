@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99e0a78ea1aed0ecf08618c919e7949c5645de5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72392189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072080"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
 
@@ -27,14 +27,14 @@ Questo articolo illustra come codificare un video, caricare un file MP4 solo aud
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 - Esaminare la creazione [dinamica dei pacchetti](dynamic-packaging-overview.md).
 - Vedere l'esercitazione [caricare, codificare e trasmettere video](stream-files-tutorial-with-api.md) .
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creare un asset di input e caricare un file locale nell'asset 
 
-La funzione **CreateInputAsset** crea un nuovo [asset](https://docs.microsoft.com/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo **Asset** viene usato come input per il processo di codifica. In servizi multimediali V3, l'input per un **processo** può essere un **Asset**oppure può essere contenuto reso disponibile per l'account di servizi multimediali tramite URL HTTPS. 
+La funzione **CreateInputAsset** crea un nuovo [asset](/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo **Asset** viene usato come input per il processo di codifica. In servizi multimediali V3, l'input per un **processo** può essere un **Asset**oppure può essere contenuto reso disponibile per l'account di servizi multimediali tramite URL HTTPS. 
 
 Per informazioni su come eseguire la codifica da un URL HTTPS, vedere [questo articolo](job-input-from-http-how-to.md) .  
 
@@ -43,7 +43,7 @@ In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricar
 La funzione esegue queste azioni:
 
 * Crea un **Asset** 
-* Ottiene un [URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) di firma di accesso condiviso scrivibile per il contenitore dell'asset [nell'archivio](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Ottiene un [URL](../../storage/common/storage-sas-overview.md) di firma di accesso condiviso scrivibile per il contenitore dell'asset [nell'archivio](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -52,7 +52,7 @@ Se è necessario passare il nome dell'asset di input creato ad altri metodi, ass
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Creare un asset di output per archiviare il risultato del processo di codifica
 
-L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo di codifica. La funzione seguente mostra come creare un asset di output.
+L'[asset](/rest/api/media/assets) di output archivia il risultato del processo di codifica. La funzione seguente mostra come creare un asset di output.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -62,7 +62,7 @@ Nel caso di questo articolo, passare il `outputAsset.Name` valore alle `SubmitJo
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Creare una trasformazione e un processo che codifica il file caricato
 
-Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](transform-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
+Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
 
 Nell'esempio seguente viene creata una trasformazione, se non ne esiste una.
 
@@ -202,14 +202,14 @@ Al termine del processo di codifica, l'asset di output conterrà i file generati
 
 ## <a name="get-a-streaming-locator"></a>Ottenere un localizzatore di streaming
 
-Al termine della codifica, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
+Al termine della codifica, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un [localizzatore di streaming](/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
 
 Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo aver effettuato le chiamate all'API e dura fino a quando non viene eliminato, a meno che non si configuri l'ora di inizio e di fine facoltativa. 
 
-Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, **PredefinedStreamingPolicy.ClearStreamingOnly**.
+Quando si crea un oggetto [StreamingLocator](/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, **PredefinedStreamingPolicy.ClearStreamingOnly**.
 
 > [!IMPORTANT]
-> Se si usano [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzati, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che si devono usare gli stessi protocolli e le stesse opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di criteri di streaming. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
+> Se si usano [criteri di streaming](/rest/api/media/streamingpolicies) personalizzati, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che si devono usare gli stessi protocolli e le stesse opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di criteri di streaming. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
 
 Il codice seguente presuppone che la funzione venga chiamata con un parametro locatorName univoco.
 
@@ -219,7 +219,7 @@ Anche se l'esempio in questo argomento illustra un processo di streaming, è pos
 
 ### <a name="get-streaming-urls"></a>Ottenere URL di streaming
 
-Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming, come illustrato in **GetStreamingURLs**. Per creare un URL, è necessario concatenare il nome host dell'[endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming**. In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, l'*endpoint di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
+Ora che è stato creato il [localizzatore di streaming](/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming, come illustrato in **GetStreamingURLs**. Per creare un URL, è necessario concatenare il nome host dell'[endpoint di streaming](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming**. In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, l'*endpoint di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
 
 > [!NOTE]
 > In questo metodo è necessario specificare il parametro locatorName usato per la creazione del **localizzatore di streaming** per l'asset di output.

@@ -3,15 +3,16 @@ title: Gestire i backup di condivisioni file di Azure
 description: Questo articolo descrive le attività comuni per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073301"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gestire i backup di condivisioni file di Azure
 
-Questo articolo descrive le attività comuni per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il [backup da backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). Si apprenderà come eseguire le attività di gestione nell'insieme di credenziali di servizi di ripristino.
+Questo articolo descrive le attività comuni per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il [backup da backup di Azure](./backup-overview.md). Si apprenderà come eseguire le attività di gestione nell'insieme di credenziali di servizi di ripristino.
 
 ## <a name="monitor-jobs"></a>Monitorare i processi
 
@@ -164,4 +165,4 @@ Per annullare la registrazione dell'account di archiviazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [risolvere i problemi di backup di condivisioni file di Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Per altre informazioni, vedere [risolvere i problemi di backup di condivisioni file di Azure](./troubleshoot-azure-files.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f92281be683d7f9a4e8a820b54f9795928eb97e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071869"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestione di asset ed entità correlate con Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "85847068"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questo argomento illustra come gestire le entità dei Servizi multimediali di Azure con .NET.
 
@@ -429,4 +429,3 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

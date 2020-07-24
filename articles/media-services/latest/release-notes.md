@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072133"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -36,6 +36,20 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 >
 > Per informazioni dettagliate, vedere: [limitazioni portale di Azure per servizi multimediali V3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="july-2020"></a>Luglio 2020
+
+### <a name="live-transcriptions"></a>Trascrizioni in tempo reale
+
+Le trascrizioni Live supportano ora 19 lingue e 8 aree.
+
+## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protezione dei contenuti con servizi multimediali e Azure AD
+
+È stata pubblicata un'esercitazione denominata [protezione del contenuto end-to-end con Azure ad](./azure-ad-content-protection.md).
+
+### <a name="high-availablity"></a>Disponibilità elevato
+
+È stato pubblicato un [esempio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)di disponibilità elevata con servizi multimediali e [Panoramica](./media-services-high-availability-encoding.md) di video on demand (VOD).
+
 ## <a name="june-2020"></a>Giugno 2020
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Analisi video in tempo reale su IoT Edge versione di anteprima
@@ -43,16 +57,6 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 L'anteprima di analisi video in tempo reale su IoT Edge è stata pubblica. Per ulteriori informazioni, vedere [Note sulla versione](../live-video-analytics-edge/release-notes.md).
 
 Analisi video in tempo reale su IoT Edge è un'espansione alla famiglia di servizi multimediali. Consente di analizzare video in tempo reale con i modelli di intelligenza artificiale scelti nei propri dispositivi perimetrali e, facoltativamente, di acquisire e registrare il video. È ora possibile creare app con analisi video in tempo reale al perimetro senza doversi preoccupare della complessità della creazione e della gestione di una pipeline video live.
-
-### <a name="search-by-topics"></a>Cerca per argomenti
-
-È ora possibile usare l'API di ricerca per cercare video con argomenti specifici (solo API).
-
-Gli argomenti vengono aggiunti come parte del `textScope` (parametro facoltativo). Per informazioni dettagliate, vedere l' [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) .  
-
-### <a name="labels-enhancement"></a>Miglioramento delle etichette
-
-Il contrassegno etichetta è stato aggiornato e ora include più etichette visive che possono essere identificate.
 
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -137,7 +141,7 @@ Media Services V3 annuncia l'anteprima di 24 ore per 365 giorni della codifica l
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Viene annunciata la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2*. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md). [Video Indexer di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+Viene annunciata la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2*. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md). [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
 
 Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -171,9 +175,9 @@ A partire da luglio, la funzionalità di anteprima era disponibile solo negli St
 
 ### <a name="video-subclipping"></a>Creazione di clip video secondarie
 
-È ora possibile tagliare o suddividere in clip secondarie un video quando lo si codifica usando un [Processo](https://docs.microsoft.com/rest/api/media/jobs). 
+È ora possibile tagliare o suddividere in clip secondarie un video quando lo si codifica usando un [Processo](/rest/api/media/jobs). 
 
-Questa funzionalità può essere usata con qualsiasi [Trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o i set di impostazioni [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+Questa funzionalità può essere usata con qualsiasi [Trasformazione](/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o i set di impostazioni [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
 Ecco alcuni esempi:
 
@@ -212,8 +216,8 @@ Sono stati aggiunti aggiornamenti che includono miglioramenti delle prestazioni 
 
 ### <a name="new-presets"></a>Nuovi set di impostazioni
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) è stato aggiunto ai set di impostazioni predefiniti dell'analizzatore.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) è stato aggiunto ai set di impostazioni predefiniti del codificatore. Per altre informazioni, vedere [Codifica con riconoscimento del contenuto](content-aware-encoding.md). 
+* [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) è stato aggiunto ai set di impostazioni predefiniti dell'analizzatore.
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) è stato aggiunto ai set di impostazioni predefiniti del codificatore. Per altre informazioni, vedere [Codifica con riconoscimento del contenuto](content-aware-encoding.md). 
 
 ## <a name="march-2019"></a>Marzo 2019
 
@@ -246,21 +250,21 @@ Gli aggiornamenti dalla versione disponibile a livello generale dell'API V3 incl
 
 ## <a name="november-2018"></a>Novembre 2018
 
-Il modulo dell'interfaccia della riga di comando 2.0 è ora disponibile per [Servizi multimediali di Azure v3 (disponibilità a livello generale)](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) - v 2.0.50.
+Il modulo dell'interfaccia della riga di comando 2.0 è ora disponibile per [Servizi multimediali di Azure v3 (disponibilità a livello generale)](/cli/azure/ams?view=azure-cli-latest) - v 2.0.50.
 
 ### <a name="new-commands"></a>Nuovi comandi
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest): consente di gestire le Media Reserved Unit. Per altre informazioni, vedere [Ridimensionare le Media Reserved Unit](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest): consente di gestire le Media Reserved Unit. Per altre informazioni, vedere [Ridimensionare le Media Reserved Unit](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuove funzionalità e modifiche di rilievo
 
@@ -351,7 +355,7 @@ Supporto della crittografia CMAF e 'cbcs' per lettori Apple HLS (iOS 11 +) e MPE
 
 ### <a name="video-indexer"></a>Video Indexer
 
-La versione di disponibilità generale di Video Indexer era stata annunciata nel mese di agosto. Per informazioni aggiornate sulle funzionalità attualmente supportate, vedere [Informazioni su Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+La versione di disponibilità generale di Video Indexer era stata annunciata nel mese di agosto. Per informazioni aggiornate sulle funzionalità attualmente supportate, vedere [Informazioni su Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
 ### <a name="plans-for-changes"></a>Modifiche pianificate
 

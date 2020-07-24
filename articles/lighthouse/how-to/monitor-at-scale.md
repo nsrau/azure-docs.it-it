@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 07/07/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 758437fdc7a32fd5937434ce10f16a8c792423d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072724"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -34,10 +34,11 @@ Una volta determinati i criteri da distribuire, è possibile [distribuirli nelle
 
 ## <a name="analyze-the-gathered-data"></a>Analizzare i dati raccolti
 
-Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati.
+Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Esplorare questa [cartella di lavoro di esempio creata da MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), che tiene traccia dei report di conformità delle patch eseguendo una [query sui log gestione aggiornamenti](../../automation/automation-update-management-query-logs.md) in più aree di lavoro log Analytics. 
 - Informazioni su [Monitoraggio di Azure](../../azure-monitor/index.yml).
 - Informazioni sui [log di monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md).
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).

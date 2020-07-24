@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073627"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -63,7 +64,7 @@ Al termine di questa procedura, è possibile creare nuovi avvisi delle metriche 
 - SASThrottlingError
 - ThrottlingError
 
-È necessario eseguire la migrazione delle regole di avviso classiche sulla percentuale di metriche in base [al mapping tra la metrica di archiviazione precedente e quella nuova](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Le soglie dovranno essere modificate in modo appropriato perché la nuova metrica disponibile è assoluta.
+È necessario eseguire la migrazione delle regole di avviso classiche sulla percentuale di metriche in base [al mapping tra la metrica di archiviazione precedente e quella nuova](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Le soglie dovranno essere modificate in modo appropriato perché la nuova metrica disponibile è assoluta.
 
 Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e ThrottlingError devono essere suddivise in due nuovi avvisi perché non esiste alcuna metrica combinata che fornisce la stessa funzionalità. Le soglie dovranno essere adattate in modo appropriato.
 

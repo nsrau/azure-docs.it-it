@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072429"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creare mappe per trasformare i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
 
@@ -37,11 +38,11 @@ Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:
 
 1. Creare un'app per la logica e [collegarla all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
 2. Aggiungere un trigger **Richiesta** all'app per la logica.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Screenshot dell'elenco a discesa "Mostra API gestite da Microsoft" con il trigger di richiesta selezionato. L'elenco a discesa si trova in un'app per la logica creata con Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Aggiungere l'azione **Trasforma XML** selezionando prima **Aggiungi un'azione**   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Screenshot che mostra il pulsante "Aggiungi un'azione" selezionato nella schermata del trigger di richiesta.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Immettere la parola *trasforma* nella casella di ricerca per filtrare tutte le azioni e ottenere quella che si vuole usare.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Screenshot che illustra come cercare l'azione trasforma XML nell'elenco a discesa "Mostra API gestite da Microsoft" in modo che possa essere aggiunto al trigger di richiesta.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selezionare l'azione **Trasforma XML**   
 6. Aggiungere il **CONTENUTO** XML da trasformare. È possibile usare tutti i dati XML ricevuti nella richiesta HTTP come **CONTENUTO**. In questo esempio selezionare il corpo della richiesta HTTP che ha attivato l'app per la logica.
 
@@ -50,9 +51,9 @@ Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:
  
 
 7. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Screenshot che mostra i campi del contenuto e della mappa nella schermata Transform XML per il trigger request.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Salvare il lavoro   
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Screenshot che mostra il pulsante Salva nella finestra di progettazione di app per la logica.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 A questo punto, la configurazione della mappa è completa. In un'applicazione reale è possibile archiviare i dati trasformati in un'applicazione LOB, ad esempio SalesForce. È possibile eseguire facilmente questa azione inviando l'output della trasformazione a Salesforce. 
 
