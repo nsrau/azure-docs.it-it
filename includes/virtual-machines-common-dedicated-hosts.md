@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902505"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133855"
 ---
 ## <a name="limitations"></a>Limitazioni
 
@@ -79,7 +79,15 @@ Una volta eseguito il provisioning di un host dedicato, Azure lo assegna al serv
 
 ## <a name="quotas"></a>Quote
 
-È previsto un limite di quota predefinito di 3000 vCPU per gli host dedicati, per area. Tuttavia, il numero di host che è possibile distribuire è limitato dalla quota per la famiglia di dimensioni di VM usata per l'host. Una sottoscrizione con **pagamento in base** al consumo, ad esempio, può avere solo una quota di 10 vCPU disponibili per la serie di dimensioni Dsv3 nell'area Stati Uniti orientali. In questo caso, è necessario richiedere un aumento della quota ad almeno 64 vCPU prima di poter distribuire un host dedicato. Selezionare il pulsante **Richiedi aumento** nell'angolo superiore destro per archiviare una richiesta, se necessario.
+Quando si distribuisce un host dedicato, vengono utilizzati due tipi di quota.
+
+1. Quota vCPU host dedicata. Il limite di quota predefinito è 3000 vCPU, per area.
+1. Quota della famiglia di dimensioni della macchina virtuale. Una sottoscrizione con **pagamento in base** al consumo, ad esempio, può avere solo una quota di 10 vCPU disponibili per la serie di dimensioni Dsv3 nell'area Stati Uniti orientali. Per distribuire un host dedicato Dsv3, è necessario richiedere un aumento della quota ad almeno 64 vCPU prima di poter distribuire l'host dedicato. 
+
+Per richiedere un aumento della quota, creare una richiesta di supporto nella [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Il provisioning di un host dedicato utilizzerà sia vCPU host dedicato che la quota vCPU della famiglia di macchine virtuali, ma non utilizzerà l'vCPU regionale.
+
 
 ![Screenshot della pagina utilizzo e quote nel portale](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

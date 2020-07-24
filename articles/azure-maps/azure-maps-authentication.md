@@ -2,19 +2,20 @@
 title: Metodi di autenticazione
 titleSuffix: Azure Maps
 description: In questo articolo si apprenderà come Azure Active Directory e l'autenticazione con chiave condivisa. Entrambi vengono usati per i servizi di Microsoft Azure maps. Informazioni su come ottenere la chiave di sottoscrizione di Azure maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e270a9a1a773442a4d1d28d9bbfe37639cac7c65
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987534"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133385"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -58,7 +59,7 @@ Le applicazioni eseguiranno l'autenticazione con il tenant di Azure AD usando un
 
 Quando l'applicazione riceve un token di accesso, l'SDK e/o l'applicazione invia una richiesta HTTPS con il seguente set di intestazioni HTTP obbligatorie oltre ad altre intestazioni HTTP dell'API REST:
 
-| Nome dell'intestazione    | valore               |
+| Nome dell'intestazione    | Valore               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
 | Autorizzazione  | Bearer eyJ0e….HNIVN |

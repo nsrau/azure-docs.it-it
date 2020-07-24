@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 21d910fb0e0992b35aa19ce65fc216734e30265c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515880"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133848"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -45,6 +45,6 @@ Questa tabella riflette i limiti di velocità delle diverse API.
 
 ### <a name="other-limits"></a>Altri limiti
 
-I limiti per i tipi di dati e i campi nei documenti di DTDL per i modelli di dispositivi gemelli digitali di Azure sono disponibili nella relativa documentazione specifica in GitHub: [Digital Gemini Definition Language (DTDL)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+I limiti per i tipi di dati e i campi nei documenti di DTDL per i modelli di dispositivi gemelli digitali di Azure sono disponibili nella relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
 Per informazioni dettagliate sulla latenza delle query e altre linee guida sulla scrittura di query durante [*l'anteprima, vedere Procedura: eseguire una query sul grafico gemello*](../articles/digital-twins/how-to-query-graph.md).

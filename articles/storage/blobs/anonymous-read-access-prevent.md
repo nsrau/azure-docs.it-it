@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518725"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133164"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
 L'accesso in lettura pubblico anonimo a contenitori e BLOB in archiviazione di Azure è un modo pratico per condividere i dati, ma può anche presentare un rischio per la sicurezza. È importante gestire l'accesso anonimo in modo oculato e comprendere come valutare l'accesso anonimo ai dati. La complessità operativa, gli errori umani o gli attacchi dannosi contro i dati accessibili pubblicamente possono comportare violazioni dei dati costose. Microsoft consiglia di abilitare l'accesso anonimo solo quando necessario per lo scenario dell'applicazione.
 
-Per impostazione predefinita, un utente con le autorizzazioni appropriate può configurare l'accesso pubblico a contenitori e BLOB. È possibile impedire l'accesso pubblico a livello dell'account di archiviazione. Quando si impedisce l'accesso al BLOB pubblico per l'account di archiviazione, i contenitori nell'account non possono essere configurati per l'accesso pubblico. Tutti i contenitori già configurati per l'accesso pubblico non accettano più richieste anonime. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
+Per impostazione predefinita, l'accesso pubblico ai dati BLOB è sempre vietato. Tuttavia, la configurazione predefinita per un account di archiviazione consente a un utente con le autorizzazioni appropriate di configurare l'accesso pubblico a contenitori e BLOB in un account di archiviazione. Per una maggiore sicurezza, è possibile impedire l'accesso pubblico all'account di archiviazione, indipendentemente dall'impostazione di accesso pubblico per un singolo contenitore. Non consentire l'accesso pubblico all'account di archiviazione impedisce a un utente di abilitare l'accesso pubblico per un contenitore nell'account. Microsoft consiglia di non consentire l'accesso pubblico a un account di archiviazione, a meno che lo scenario non lo richieda. La disattivazione dell'accesso pubblico impedisce la violazione dei dati causata da un accesso anonimo indesiderato.
+
+Quando si impedisce l'accesso al BLOB pubblico per l'account di archiviazione, archiviazione di Azure rifiuta tutte le richieste anonime a tale account. Dopo che l'accesso pubblico non è consentito per un account, i contenitori di tale account non possono essere configurati per l'accesso pubblico. Tutti i contenitori già configurati per l'accesso pubblico non accettano più richieste anonime. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
 
 Questo articolo descrive come analizzare le richieste anonime in un account di archiviazione e come impedire l'accesso anonimo per l'intero account di archiviazione o per un singolo contenitore.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Rilevare richieste anonime da applicazioni client
 
-Quando si impedisce l'accesso in lettura pubblico per un account di archiviazione, si rischia di rifiutare le richieste a contenitori e BLOB attualmente configurati per l'accesso pubblico. Non consentire l'accesso pubblico per un account di archiviazione sostituisce le impostazioni di accesso pubblico per tutti i contenitori nell'account di archiviazione. Quando l'accesso pubblico non è consentito per l'account di archiviazione, eventuali richieste anonime future a tale account avranno esito negativo.
+Quando si impedisce l'accesso in lettura pubblico per un account di archiviazione, si rischia di rifiutare le richieste a contenitori e BLOB attualmente configurati per l'accesso pubblico. Non consentire l'accesso pubblico per un account di archiviazione sostituisce le impostazioni di accesso pubblico per i singoli contenitori nell'account di archiviazione. Quando l'accesso pubblico non è consentito per l'account di archiviazione, eventuali richieste anonime future a tale account avranno esito negativo.
 
 Per comprendere in che modo la disattivazione dell'accesso pubblico può influire sulle applicazioni client, Microsoft consiglia di abilitare la registrazione e le metriche per tale account e analizzare i modelli di richieste anonime in un intervallo di tempo. Usare le metriche per determinare il numero di richieste anonime per l'account di archiviazione e usare i log per determinare a quali contenitori viene eseguito l'accesso in modo anonimo.
 
