@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010870"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Estensione driver GPU AMD per Windows
 
-Questo articolo fornisce una panoramica dell'estensione della macchina virtuale per distribuire driver GPU AMD in macchine virtuali della [serie NVv4](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) di Windows. Quando si installano driver AMD con questa estensione, si accettano e si accettano le condizioni del contratto di [licenza con l'utente finale di AMD](https://amd.com/radeonsoftwarems). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
+Questo articolo fornisce una panoramica dell'estensione della macchina virtuale per distribuire driver GPU AMD in macchine virtuali della [serie NVv4](../nvv4-series.md) di Windows. Quando si installano driver AMD con questa estensione, si accettano e si accettano le condizioni del contratto di [licenza con l'utente finale di AMD](https://amd.com/radeonsoftwarems). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
-Le istruzioni per l'installazione manuale dei driver e le versioni correnti supportate sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+Le istruzioni per l'installazione manuale dei driver e le versioni correnti supportate sono disponibili [qui](../windows/n-series-amd-driver-setup.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -81,7 +81,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione.
 
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio). 
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio). 
 
 L'esempio seguente presuppone che l'estensione sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
@@ -172,4 +172,4 @@ Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, conta
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).
 
-Per altre informazioni sulle macchine virtuali di serie N, vedere [Dimensioni delle macchine virtuali ottimizzate per il GPU](../windows/sizes-gpu.md).
+Per altre informazioni sulle macchine virtuali di serie N, vedere [Dimensioni delle macchine virtuali ottimizzate per il GPU](../sizes-gpu.md).

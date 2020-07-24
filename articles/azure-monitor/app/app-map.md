@@ -4,11 +4,12 @@ description: Monitorare topologie di applicazioni complesse con la mappa delle a
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008507"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -38,7 +39,7 @@ Uno dei principali obiettivi di questa esperienza è quello di consentire di vis
 
 Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate correlate e passare all'esperienza di valutazione delle prestazioni e degli errori per il componente.
 
-![Flyout](media/app-map/application-map-002.png)
+![Riquadro a comparsa](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>Esaminare gli errori
 
@@ -156,7 +157,7 @@ Per le applicazioni [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)
 
 **Agente Java**
 
-Per l' [agente Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) il nome del ruolo cloud viene impostato nel modo seguente:
+Per l' [agente Java 3,0](./java-in-process-agent.md) il nome del ruolo cloud viene impostato nel modo seguente:
 
 ```json
 {
@@ -258,15 +259,15 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 1. Assicurarsi di usare un SDK supportato ufficialmente. Gli SDK non supportati/community potrebbero non supportare la correlazione.
 
-    Per un elenco degli SDK supportati, fare riferimento a questo [articolo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) .
+    Fare riferimento a questo [articolo](./platforms.md) per un elenco degli SDK supportati.
 
 2. Aggiornare tutti i componenti alla versione più recente dell'SDK.
 
-3. Se si usa funzioni di Azure con C#, eseguire l'aggiornamento a [funzioni V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se si usa funzioni di Azure con C#, eseguire l'aggiornamento a [funzioni V2](../../azure-functions/functions-versions.md).
 
 4. Verificare che il [nome del ruolo Cloud](#set-cloud-role-name) sia configurato correttamente.
 
-5. Se non si presenta una dipendenza, assicurarsi che sia nell'elenco delle [dipendenze raccolte automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se non lo è, si può comunque tenere traccia di essa manualmente con una [chiamata per tenere traccia delle dipendenze](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Se non si presenta una dipendenza, assicurarsi che sia nell'elenco delle [dipendenze raccolte automaticamente](./auto-collect-dependencies.md). Se non lo è, si può comunque tenere traccia di essa manualmente con una [chiamata per tenere traccia delle dipendenze](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Troppi nodi sulla mappa
 
@@ -280,7 +281,7 @@ Per risolvere questo problema, è necessario modificare la strumentazione per im
 
 * Il tipo di dipendenza deve rappresentare il tipo logico di una dipendenza. Ad esempio, HTTP, SQL o BLOB di Azure sono tipi di dipendenza tipici. Non deve contenere ID univoci.
 
-* Lo scopo del nome del ruolo Cloud è descritto nella [sezione precedente](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* Lo scopo del nome del ruolo Cloud è descritto nella [sezione precedente](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commenti e suggerimenti del portale
 

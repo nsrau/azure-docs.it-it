@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011346"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio
 
@@ -151,7 +151,7 @@ In questa sezione vengono illustrati gli scenari seguenti usando il portale di A
 
 1. Selezionare il livello di accesso appropriato per le proprie esigenze: impostare il **livello di accesso** su **Hot**sporadico **o frequente** .
 
-1. Nella parte superiore, fare clic su **Salva** .
+1. Fare clic su **Salva** nella parte superiore.
 
 ![Modificare il livello dell'account di archiviazione](media/storage-tiers/account-tier.png)
 
@@ -248,7 +248,7 @@ I livelli di accesso frequente e sporadico con la suddivisione in livelli a live
 
 I BLOB nel livello di accesso frequente hanno la stessa latenza dei BLOB negli account di archiviazione BLOB e utilizzo generico V1, GPv2. I BLOB nel livello di accesso sporadico hanno una latenza simile (in millisecondi) come BLOB negli account di archiviazione BLOB e utilizzo generico V1, GPv2. I BLOB nel livello di accesso dell'archivio hanno diverse ore di latenza negli account di archiviazione BLOB e utilizzo generico V1, GPv2.
 
-I BLOB nel livello ad accesso sporadico hanno un livello di servizio di disponibilità leggermente inferiore rispetto ai BLOB archiviati nel livello di accesso frequente. Per altre informazioni, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+I BLOB nel livello ad accesso sporadico hanno un livello di servizio di disponibilità leggermente inferiore rispetto ai BLOB archiviati nel livello di accesso frequente. Per altre informazioni, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **Le operazioni tra i livelli ad accesso frequente, ad accesso sporadico e archivio sono uguali?**
 

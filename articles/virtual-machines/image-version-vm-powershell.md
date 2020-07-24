@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010768"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Anteprima: creare un'immagine da una macchina virtuale
 
 Se è presente una macchina virtuale esistente che si vuole usare per creare più macchine virtuali identiche, è possibile usare tale macchina virtuale per creare un'immagine in una raccolta di immagini condivise usando Azure PowerShell. È anche possibile creare un'immagine da una macchina virtuale usando l'interfaccia della riga di comando di [Azure](image-version-vm-cli.md).
 
-È possibile acquisire un'immagine da macchine virtuali [specializzate e generalizzate](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) usando Azure PowerShell. 
+È possibile acquisire un'immagine da macchine virtuali [specializzate e generalizzate](./windows/shared-image-galleries.md#generalized-and-specialized-images) usando Azure PowerShell. 
 
 Le immagini in una raccolta immagini hanno due componenti, che verrà creato in questo esempio:
 - Una **definizione di immagine** contiene informazioni sull'immagine e sui requisiti per l'utilizzo. Questo include la possibilità di specificare se l'immagine è Windows o Linux, le note sulla versione e i requisiti di memoria minimi e massimi. Si tratta della definizione di un tipo di immagine. 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Ottenere la macchina virtuale
 
-Per visualizzare un elenco di macchine virtuali disponibili in un gruppo di risorse, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, è possibile usare `Get-AzVM` di nuovo per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile da usare in un secondo momento. Questo esempio Mostra come ottenere una macchina virtuale denominata *sourceVM* dal gruppo di risorse "myResourceGroup" e assegnarla alla variabile *$sourceVm*. 
+Per visualizzare un elenco di macchine virtuali disponibili in un gruppo di risorse, usare [Get-AzVM](/powershell/module/az.compute/get-azvm). Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, è possibile usare `Get-AzVM` di nuovo per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile da usare in un secondo momento. Questo esempio Mostra come ottenere una macchina virtuale denominata *sourceVM* dal gruppo di risorse "myResourceGroup" e assegnarla alla variabile *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -62,7 +62,7 @@ $sourceVm = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 
-È consigliabile stop\deallocate la macchina virtuale prima di creare un'immagine con [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+È consigliabile stop\deallocate la macchina virtuale prima di creare un'immagine con [Stop-AzVM](/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -77,9 +77,9 @@ Le definizioni di immagini creano un raggruppamento logico per le immagini. Veng
 
 Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. Se la macchina virtuale è stata generalizzata (usando Sysprep per Windows o waagent-deprovision per Linux), è necessario creare una definizione di immagine usando `-OsState generalized` . Se la macchina virtuale non è stata generalizzata, creare una definizione di immagine usando `-OsState specialized` .
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./windows/shared-image-galleries.md#image-definitions).
 
-Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è destinata a una VM specializzata che esegue Windows. Per creare una definizione per le immagini con Linux, usare `-OsType Linux` . 
 
@@ -99,7 +99,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
-Creare una versione dell'immagine usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Creare una versione dell'immagine usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `-StorageAccountType Standard_ZRS`.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md), aggiungendo `-StorageAccountType Standard_ZRS`.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

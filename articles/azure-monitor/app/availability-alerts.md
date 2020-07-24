@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008354"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 
@@ -24,7 +24,7 @@ Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, m
 ![Esperienza di creazione](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravità delle regole di avviso e le preferenze di notifica con [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devono essere** configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
+>  con i [nuovi avvisi unificati](../platform/alerts-overview.md), la gravità delle regole di avviso e le preferenze di notifica con [gruppi di azioni](../platform/action-groups.md) **devono essere** configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
 
 1. Dopo il salvataggio del test di disponibilità, nella scheda Dettagli fare clic sui puntini di sospensione accanto al test appena creato. Fare clic su "Modifica avviso".
 
@@ -39,7 +39,7 @@ Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, m
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Inviare avvisi per X di Y località con segnalazione di errori
 
-Questa regola di avviso è abilitata per impostazione predefinita nell'[esperienza dei nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), quando si crea un nuovo test di disponibilità. È possibile rifiutarla esplicitamente selezionando l'opzione "classica" o scegliendo di disabilitare la regola di avviso.
+Questa regola di avviso è abilitata per impostazione predefinita nell'[esperienza dei nuovi avvisi unificati](../platform/alerts-overview.md), quando si crea un nuovo test di disponibilità. È possibile rifiutarla esplicitamente selezionando l'opzione "classica" o scegliendo di disabilitare la regola di avviso.
 
 > [!NOTE]
 > Configurare i gruppi di azioni per ricevere le notifiche quando viene attivato l'avviso seguendo la procedura precedente. Se non si esegue questa procedura, le notifiche all'interno del portale si riceveranno solo quando la regola viene attivata.
@@ -47,7 +47,7 @@ Questa regola di avviso è abilitata per impostazione predefinita nell'[esperien
 
 ### <a name="alert-on-availability-metrics"></a>Inviare avvisi per le metriche di disponibilità
 
-Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile generare avvisi per la disponibilità aggregata segmentata e anche per le metriche di durata dei test:
+Usando i [nuovi avvisi unificati](../platform/alerts-overview.md) è possibile generare avvisi per la disponibilità aggregata segmentata e anche per le metriche di durata dei test:
 
 1. Selezionare una risorsa di Application Insights nell'esperienza delle metriche e quindi selezionare una metrica di disponibilità:
 
@@ -57,7 +57,7 @@ Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-an
 
 ### <a name="alert-on-custom-analytics-queries"></a>Inviare avvisi per le query di analisi personalizzate
 
-Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile inviare avvisi per le [query di log personalizzate](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con le query personalizzate è possibile inviare avvisi per qualsiasi condizione arbitraria che consenta di ottenere il segnale più affidabile di problemi di disponibilità. Questa operazione è applicabile anche se si inviano risultati di disponibilità personalizzati con TrackAvailability SDK.
+Usando i [nuovi avvisi unificati](../platform/alerts-overview.md) è possibile inviare avvisi per le [query di log personalizzate](../platform/alerts-unified-log.md). Con le query personalizzate è possibile inviare avvisi per qualsiasi condizione arbitraria che consenta di ottenere il segnale più affidabile di problemi di disponibilità. Questa operazione è applicabile anche se si inviano risultati di disponibilità personalizzati con TrackAvailability SDK.
 
 > [!Tip]
 > Le metriche sui dati di disponibilità includono tutti i risultati di disponibilità personalizzati che si possono inviare chiamando l'SDK TrackAvailability. È possibile usare gli avvisi per il supporto delle metriche per inviare avvisi sui risultati di disponibilità personalizzati.

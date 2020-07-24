@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008405"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
@@ -23,7 +23,7 @@ Questo articolo illustra come creare una funzione di Azure con TrackAvailability
 
 - Se si dispone di una risorsa Application Insights:
     - Per impostazione predefinita, funzioni di Azure crea una risorsa Application Insights ma se si vuole usare una delle risorse già create, è necessario specificarla durante la creazione.
-    - Seguire le istruzioni su come [creare una risorsa di funzioni di Azure e una funzione attivata dal timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (arresta prima della pulizia) con le opzioni seguenti.
+    - Seguire le istruzioni su come [creare una risorsa di funzioni di Azure e una funzione attivata dal timer](../../azure-functions/functions-create-scheduled-function.md) (arresta prima della pulizia) con le opzioni seguenti.
         -  Selezionare la scheda **monitoraggio** nella parte superiore.
 
             ![ Creare un'app funzioni di Azure con la propria risorsa di Application Insights](media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ Questo articolo illustra come creare una funzione di Azure con TrackAvailability
         - Selezionare **Verifica + crea**
 - Se non è ancora stata creata una risorsa di Application Insights per la funzione attivata dal timer:
     - Per impostazione predefinita, durante la creazione dell'applicazione funzioni di Azure verrà creata automaticamente una risorsa Application Insights.
-    - Seguire le istruzioni su come [creare una risorsa di funzioni di Azure e una funzione attivata dal timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (arresta prima della pulizia).
+    - Seguire le istruzioni su come [creare una risorsa di funzioni di Azure e una funzione attivata dal timer](../../azure-functions/functions-create-scheduled-function.md) (arresta prima della pulizia).
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -45,7 +45,7 @@ Copiare il codice seguente nel file run. CSX (verrà sostituito il codice preesi
 >![Run. CSX della funzione di Azure in portale di Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Per l'indirizzo endpoint da usare: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A meno che la risorsa non si trovi in un'area come Azure per enti pubblici o Azure Cina, in questo caso consultare questo articolo sull' [override degli endpoint predefiniti](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selezionare l'endpoint del canale di telemetria appropriato per la propria area.
+> Per l'indirizzo endpoint da usare: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A meno che la risorsa non si trovi in un'area come Azure per enti pubblici o Azure Cina, in questo caso consultare questo articolo sull' [override degli endpoint predefiniti](./custom-endpoints.md#regions-that-require-endpoint-modification) e selezionare l'endpoint del canale di telemetria appropriato per la propria area.
 
 ```C#
 #load "runAvailabilityTest.csx"

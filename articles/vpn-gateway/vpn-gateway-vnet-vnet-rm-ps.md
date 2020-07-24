@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009493"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -21,7 +21,7 @@ Questo articolo descrive come connettere reti virtuali tramite il tipo di connes
 I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano PowerShell. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -81,7 +81,7 @@ Per questo esercizio è possibile combinare le configurazioni oppure sceglierne 
 
 * Poiché la creazione di un gateway richiede fino a 45 minuti, Azure Cloud Shell andrà periodicamente in timeout nel corso dell'esercizio. È possibile riavviare Cloud Shell facendo clic nella parte superiore sinistra del terminale. Assicurarsi di dichiarare nuovamente tutte le variabili quando si riavvia il terminale.
 
-* Se si preferisce installare la versione più recente del modulo Azure PowerShell in locale, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Se si preferisce installare la versione più recente del modulo Azure PowerShell in locale, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 

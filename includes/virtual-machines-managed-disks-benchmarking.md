@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010827"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -68,12 +68,12 @@ Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS 
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Nome | Duration |
+   | Scenario | Volume di destinazione | Nome | Durata |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Nome | Duration |
+   | Scenario | Volume di destinazione | Nome | Durata |
    | --- | --- | --- | --- |
    | Preparare il disco della cache |CacheReads |RandomReads\_1MB |2 ore |
 
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di scrittura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce il limite massimo di IOPS di scrittura pari a 50.000 IOPS.  
-    ![Numero di operazioni IOPS di scrittura gestite dalla macchina virtuale e dai dischi Premium](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Il numero di operazioni di i/o a macchina virtuale e dischi Premium sono disponibili.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>IOPS massime di lettura
 
@@ -194,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di lettura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 64.000 IOPS di lettura. Ciò dipende da una combinazione delle prestazioni del disco e della cache.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Screenshot del numero di operazioni di i/o al secondo in scrittura e dischi Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>IOPS massime di lettura e scrittura
 

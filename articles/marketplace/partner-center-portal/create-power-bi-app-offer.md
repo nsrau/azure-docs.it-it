@@ -1,20 +1,20 @@
 ---
-title: Creare un'offerta per un'app Power BI nel marketplace commerciale Microsoft
+title: Creare un'offerta di app Power BI in Microsoft AppSource
 description: Informazioni su come creare e pubblicare un'offerta per un'app Power BI in Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/22/2020
+ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011941"
 ---
-# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creare un'app Power BI per Microsoft AppSource
+# <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
 
 Questo articolo descrive come creare e pubblicare un'offerta per un'app Power BI in Microsoft [AppSource](https://appsource.microsoft.com/).
 
@@ -142,7 +142,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 6. Condizioni per l'utilizzo
 7. Informativa sulla privacy
 8. Nome offerta
-9. Summary
+9. Riepilogo
 10. Descrizione
 11. Screenshot/video
 

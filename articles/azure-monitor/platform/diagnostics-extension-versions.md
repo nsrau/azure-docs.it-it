@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007912"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Versioni e cronologia dello schema di configurazione di Windows Diagnostica di Azure Extension (WAD)
 Questo articolo fornisce la cronologia delle versioni delle versioni dello schema di [diagnostica di Azure Extension for Windows (WAD)](diagnostics-extension-overview.md) fornite come parte di Microsoft Azure SDK.  
@@ -45,7 +46,7 @@ Versioni diverse di Diagnostica di Azure usano schemi di configurazione diversi.
 
 ### <a name="diagnostics-extension-111"></a>Estensione di Diagnostica 1.11
 Aggiunta del supporto per il sink di Monitoraggio di Azure. Questo sink è applicabile solo ai contatori delle prestazioni. Consente di inviare i contatori delle prestazioni raccolti nella macchina virtuale, VMSS o servizio cloud a Monitoraggio di Azure come metriche personalizzate. Il sink di Monitoraggio di Azure supporta:
-* Il recupero di tutti i contatori delle prestazioni inviati a Monitoraggio di Azure tramite le [API di metrica di Monitoraggio di Azure.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+* Il recupero di tutti i contatori delle prestazioni inviati a Monitoraggio di Azure tramite le [API di metrica di Monitoraggio di Azure.](/rest/api/monitor/metrics/list)
 * La visualizzazione di avvisi su tutti i contatori delle prestazioni inviati a Monitoraggio di Azure tramite la nuova [esperienza di avvisi unificati](../../azure-monitor/platform/alerts-overview.md) in Monitoraggio di Azure
 * La considerazione dell'operatore carattere jolly nei contatori delle prestazioni come la dimensione "Istanza" per la metrica. Ad esempio se è stato raccolto il contatore "LogicalDisk(\*)/DiskWrites/sec" sarà possibile filtrare e suddividere la dimensione "Istanza" del tracciato o avviso su Disk Writes/sec per ogni disco logico (C:, D:, e così via)
 
@@ -189,4 +190,3 @@ Se si aggiorna il progetto da Azure SDK 2.4 ad Azure SDK 2.5 o versioni successi
 * **La diagnostica per le applicazioni del servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
 * **Ogni volta che si distribuisce l'app, le configurazioni di diagnostica vengono aggiornate** : ciò può provocare problemi di parità se si modifica la configurazione di diagnostica da Esplora server e quindi si ridistribuisce l'app.
 * **In Azure SDK 2.5 e versioni successive, i dump di arresto anomalo del sistema sono configurati nel file di configurazione diagnostica, non nel codice**: se i dump di arresto anomalo del sistema sono stati configurati nel codice, sarà necessario trasferire manualmente la configurazione dal codice al file di configurazione, perché i dump di arresto anomalo del sistema non vengono trasferiti durante la migrazione ad Azure SDK 2.6.
-

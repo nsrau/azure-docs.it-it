@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: a45f0a882c58c7035badcc1270c66bd9c6fb252a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b48334f1e7f2032216e1b058950c7ffc3cef70b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010156"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Raccogliere i dettagli su tutte le VM in una sottoscrizione con PowerShell
 
@@ -82,6 +82,6 @@ Questo script usa i seguenti comandi per creare un'esportazione CSV dei dettagli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di script PowerShell della macchina virtuale sono reperibili nella [documentazione della VM Windows di Azure](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json).

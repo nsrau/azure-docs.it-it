@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009697"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -43,12 +43,12 @@ Quando si cerca di attivare una VM Windows di Azure, si riceve un messaggio di e
 
 In genere si verificano problemi di attivazione della macchina virtuale di Azure se la macchina virtuale Windows non viene configurata usando la chiave di configurazione del client del server di gestione delle chiavi appropriata, oppure se la macchina virtuale Windows ha un problema di connettività al server di gestione delle chiavi di Azure (kms.core.windows.net, porta 1688). 
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 >[!NOTE]
->Se si usa una VPN da sito a sito e il tunneling forzato, vedere [usare le route personalizzate di Azure per abilitare l'attivazione del servizio di gestione delle chiavi con il tunneling forzato](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
+>Se si usa una VPN da sito a sito e il tunneling forzato, vedere [usare le route personalizzate di Azure per abilitare l'attivazione del servizio di gestione delle chiavi con il tunneling forzato](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 
 >
->Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere è [possibile bloccare la connettività Internet alle reti virtuali connesse ai circuiti ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
+>Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere è [possibile bloccare la connettività Internet alle reti virtuali connesse ai circuiti ExpressRoute?](../../expressroute/expressroute-faqs.md).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata
 
@@ -61,7 +61,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
+2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -77,7 +77,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Passaggio 2 Verificare la connettività tra la VM e il Servizio di gestione delle chiavi di Azure
 
-1. Scaricare ed estrarre lo strumento [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) in una cartella locale della macchina virtuale che non viene attivata. 
+1. Scaricare ed estrarre lo strumento [PSping](/sysinternals/downloads/psping) in una cartella locale della macchina virtuale che non viene attivata. 
 
 2. Andare a Start, cercare Windows PowerShell, fare clic con il pulsante destro del mouse su Windows PowerShell e scegliere Esegui come amministratore.
 
@@ -102,7 +102,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
   
     Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 
-5. Verificare usando [Network Watcher hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) che il tipo di hop successivo dalla macchina virtuale in questione all'indirizzo IP di destinazione 23.102.135.246 (per KMS.Core.Windows.NET) o l'indirizzo IP dell'endpoint del servizio di gestione delle chiavi appropriato che si applica alla propria area è **Internet**.  Se il risultato è VirtualAppliance o VirtualNetworkGateway, è probabile che esista una route predefinita.  Contattare l'amministratore di rete e collaborare per determinare la linea di condotta corretta.  Potrebbe trattarsi di una [Route personalizzata](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se tale soluzione è coerente con i criteri dell'organizzazione.
+5. Verificare usando [Network Watcher hop successivo](../../network-watcher/network-watcher-next-hop-overview.md) che il tipo di hop successivo dalla macchina virtuale in questione all'indirizzo IP di destinazione 23.102.135.246 (per KMS.Core.Windows.NET) o l'indirizzo IP dell'endpoint del servizio di gestione delle chiavi appropriato che si applica alla propria area è **Internet**.  Se il risultato è VirtualAppliance o VirtualNetworkGateway, è probabile che esista una route predefinita.  Contattare l'amministratore di rete e collaborare per determinare la linea di condotta corretta.  Potrebbe trattarsi di una [Route personalizzata](./custom-routes-enable-kms-activation.md) se tale soluzione è coerente con i criteri dell'organizzazione.
 
 6. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 
@@ -130,7 +130,7 @@ Sì.
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Che cosa succede se il periodo di attivazione di Windows scade? 
 
  
-Se il periodo di prova è scaduto e Windows non è ancora attivato, Windows Server 2008 R2 e le versioni successive di Windows visualizzeranno altre notifiche sull'attivazione. Lo sfondo del desktop rimane nero e Windows Update installerà solo gli aggiornamenti della sicurezza e quelli critici, ma non quelli facoltativi. Vedere la sezione Notifications (Notifiche) alla fine della pagina [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Condizioni di licenza).   
+Se il periodo di prova è scaduto e Windows non è ancora attivato, Windows Server 2008 R2 e le versioni successive di Windows visualizzeranno altre notifiche sull'attivazione. Lo sfondo del desktop rimane nero e Windows Update installerà solo gli aggiornamenti della sicurezza e quelli critici, ma non quelli facoltativi. Vedere la sezione Notifications (Notifiche) alla fine della pagina [Licensing Conditions](/previous-versions/tn-archive/ff793403(v=technet.10)) (Condizioni di licenza).   
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

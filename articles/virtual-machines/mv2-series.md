@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21c28f3b6b498b162cbff276755b098c5ebba7c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010479"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -27,7 +28,7 @@ Live Migration: Non supportato
 
 Manutenzione con mantenimento della memoria: Non supportato
 
-Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acceleratore di scrittura: [supportato](./windows/how-to-enable-write-accelerator.md)
 
 |Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|

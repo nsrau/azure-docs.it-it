@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011635"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 e V3
 
@@ -27,7 +28,7 @@ In questo articolo vengono descritte le modifiche introdotte nella versione 3 di
 
 ## <a name="general-changes-from-v2"></a>Modifiche generali da V2
 
-* Per gli asset creati con V3, servizi multimediali supporta solo la [crittografia di archiviazione lato server di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* Per gli asset creati con V3, servizi multimediali supporta solo la [crittografia di archiviazione lato server di archiviazione di Azure](../../storage/common/storage-service-encryption.md).
     * È possibile usare le API v3 con gli asset creati con le API v2 che dispongono di [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) (AES 256) offerta da Servizi multimediali.
     * Non è possibile usare le API v3 per creare nuovi asset con [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) AES 256.
 * Le proprietà dell' [Asset](assets-concept.md)in V3 sono diverse da V2, vedere [come viene mappata la proprietà](#map-v3-asset-properties-to-v2).
@@ -87,11 +88,11 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappare le proprietà Asset V3 alla versione V2
 
-La tabella seguente illustra in che modo le proprietà dell' [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)in V3 sono mappate alle proprietà dell'asset nella versione V2.
+La tabella seguente illustra in che modo le proprietà dell' [Asset](/rest/api/media/assets/createorupdate#asset)in V3 sono mappate alle proprietà dell'asset nella versione V2.
 
 |Proprietà V3|V2 (proprietà)|
 |---|---|
-|`id`-(univoco) il percorso di Azure Resource Manager completo, vedere esempi nell' [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id`-(univoco) il percorso di Azure Resource Manager completo, vedere esempi nell' [Asset](/rest/api/media/assets/createorupdate)||
 |`name`-(univoco) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id`-(Unique) il valore inizia con il `nb:cid:UUID:` prefisso.|
@@ -109,8 +110,8 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 |Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da servizi multimediali.|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
-|[Crittografia del servizio di archiviazione per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportato|Supportato|
-|[Crittografia lato client di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato|Non supportato|
+|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Funzionalità supportata|Funzionalità supportata|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato|Non supportato|
 
 <sup>1</sup> anche se servizi multimediali supporta la gestione del contenuto in chiaro o senza alcuna forma di crittografia, questa operazione non è consigliata.
 

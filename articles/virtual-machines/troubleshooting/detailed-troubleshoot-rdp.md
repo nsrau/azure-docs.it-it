@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009867"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
@@ -35,7 +36,7 @@ Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possi
 ## <a name="components-of-a-remote-desktop-connection"></a>Componenti di una connessione Desktop remoto
 Di seguito sono riportati i componenti di una connessione RDP:
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
+![Diagramma che mostra i componenti necessari in una connessione di Desktop remoto (RDP).](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. Ad esempio:
 
@@ -64,7 +65,7 @@ Il client Desktop remoto potrebbe non essere in grado di raggiungere il servizio
 ## <a name="source-1-remote-desktop-client-computer"></a>Origine 1: computer client Desktop remoto
 Verificare che il computer sia in grado di stabilire connessioni Desktop remoto a un altro computer locale basato su Windows.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
+![Un diagramma dei componenti in una connessione di Desktop remoto (RDP) con il client RDP evidenziato e una freccia che punta a un altro computer locale che indica una connessione.](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 Se non è possibile, verificare le impostazioni seguenti sul computer:
 
@@ -78,9 +79,9 @@ In tutti questi casi, disabilitare temporaneamente il software e provare a conne
 ## <a name="source-2-organization-intranet-edge-device"></a>Origine 2: dispositivo periferico dell’Intranet dell’organizzazione
 Verificare che un computer connesso direttamente a Internet possa eseguire connessioni Desktop remoto alla macchina virtuale di Azure.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
+![Un diagramma dei componenti in una connessione di Desktop remoto (RDP) con un client RDP connesso a Internet evidenziato e una freccia che punta a una macchina virtuale di Azure che indica una connessione.](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](../virtual-machines-windows-hero-tutorial.md). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
+Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](../windows/quick-create-portal.md). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
 
 Se è possibile creare una connessione Desktop remoto con un computer collegato direttamente a Internet, controllare se nel dispositivo periferico dell’Intranet dell’organizzazione si verificano le seguenti condizioni:
 
@@ -96,29 +97,29 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni del disposi
 
 Per le VM create mediante il modello di distribuzione classico, verificare che un'altra VM di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di stabilire connessioni Desktop remoto alla VM di Azure.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
+![Un diagramma dei componenti in una connessione di Desktop remoto (RDP) con una macchina virtuale di Azure evidenziata e una freccia che punta a un'altra VM di Azure all'interno dello stesso servizio cloud che indica una connessione.](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
 > Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#source-4-network-security-groups).
 
-Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una. Seguire la procedura riportata in [Creazione rapida di una macchina virtuale che esegue Linux in Azure](../virtual-machines-windows-hero-tutorial.md). Eliminare la macchina virtuale di test al completamento del test.
+Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una. Seguire la procedura riportata in [Creazione rapida di una macchina virtuale che esegue Linux in Azure](../windows/quick-create-portal.md). Eliminare la macchina virtuale di test al completamento del test.
 
 Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare le impostazioni seguenti:
 
 * La configurazione dell'endpoint per il traffico di Desktop remoto nella VM di destinazione: la porta TCP privata dell'endpoint deve corrispondere alla porta TCP in cui è in ascolto il servizio Desktop remoto della macchina virtuale (l'impostazione predefinita è 3389).
-* L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per ulteriori informazioni, vedere [che cos'è un elenco di controllo di accesso di rete (ACL)?](../../virtual-network/virtual-networks-acl.md)
+* L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per ulteriori informazioni, vedere [che cos'è un elenco di controllo di accesso di rete (ACL)?](/previous-versions/azure/virtual-network/virtual-networks-acl)
 
-Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per ulteriori informazioni, vedere [come configurare gli endpoint in una macchina virtuale](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per ulteriori informazioni, vedere [come configurare gli endpoint in una macchina virtuale](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=/azure/virtual-machines/windows/classic/toc.json).
 
 ## <a name="source-4-network-security-groups"></a>Origine 4: gruppi di sicurezza di rete
 I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure.
 
-Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Usare la [verifica del flusso IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
-![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
+![Un diagramma dei componenti in una connessione di Desktop remoto (RDP) con una macchina virtuale di Azure evidenziata in un servizio cloud e un messaggio che potrebbe essere una "possibile fonte di problemi". Una linea blu indica che le regole del gruppo di sicurezza di rete potrebbero bloccare il traffico da o verso la macchina virtuale di Azure.](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Seguire le istruzioni riportate in [questo articolo](../windows/reset-rdp.md). per reimpostare il servizio Desktop remoto nella macchina virtuale:
+Seguire le istruzioni riportate in [questo articolo](./reset-rdp.md). per reimpostare il servizio Desktop remoto nella macchina virtuale:
 
 * Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
 * Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections su 0.
@@ -132,9 +133,9 @@ Provare nuovamente la connessione dal computer. Se non si è ancora in grado di 
 
 Per le VM create usando il modello di distribuzione classico, usare una sessione remota di Azure PowerShell per connettersi alla macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Passare alla pagina dello script per [Configure Secure Remote PowerShell Access to Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configurare l'accesso remoto PowerShell sicuro alle macchine virtuali di Azure) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** nel computer locale.
 
-Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
-Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1** . Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1** . Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1).
 
 Immettere quindi il nome della sottoscrizione di Azure, il nome del servizio cloud e il nome della macchina virtuale (rimuovendo i caratteri < e >) e infine eseguire questi comandi.
 
@@ -193,11 +194,10 @@ Exit-PSSession
 Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta TCP 3398 come porta interna. Riavviare la VM di Azure e tentare nuovamente la connessione Desktop remoto.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](../windows/reset-rdp.md)
+[Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](./reset-rdp.md)
 
-[Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+[Come installare e configurare Azure PowerShell](/powershell/azure/)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 
-[Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)

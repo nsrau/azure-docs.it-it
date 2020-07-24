@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011057"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Anteprima: Creazione e uso di gruppi di posizionamento di prossimità con PowerShell
 
@@ -29,7 +30,7 @@ Un gruppo di posizionamento di prossimità è un raggruppamento logico usato per
 
 
 ## <a name="create-a-proximity-placement-group"></a>Creare un gruppo di selezione host di prossimità
-Creare un gruppo di posizionamento di prossimità usando il cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Creare un gruppo di posizionamento di prossimità usando il cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
-Quando si usa [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) per creare un set di scalabilità nel gruppo di posizionamento di prossimità, usare `-ProximityPlacementGroup $ppg.Id` come riferimento all'ID del gruppo.
+Quando si usa [New-AzVMSS](/powershell/module/az.compute/new-azvmss) per creare un set di scalabilità nel gruppo di posizionamento di prossimità, usare `-ProximityPlacementGroup $ppg.Id` come riferimento all'ID del gruppo.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

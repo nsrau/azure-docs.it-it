@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008184"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
@@ -18,7 +19,7 @@ Internet Information Services (IIS) archivia le attività utente in file di log 
 ![Log di IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurazione dei log di IIS
-Poiché Monitoraggio di Azure raccoglie le voci dai file di log creati da IIS, è necessario [configurare la registrazione in IIS](https://technet.microsoft.com/library/hh831775.aspx).
+Poiché Monitoraggio di Azure raccoglie le voci dai file di log creati da IIS, è necessario [configurare la registrazione in IIS](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Monitoraggio di Azure supporta solo i file di log di IIS archiviati in formato W3C, mentre non supporta campi personalizzati o IIS Advanced Logging. Non raccoglie log in formato nativo NCSA o IIS.
 

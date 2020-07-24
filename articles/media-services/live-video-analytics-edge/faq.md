@@ -3,11 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge domande frequenti-Azure
 description: Questo argomento fornisce le risposte alle analisi video in tempo reale su IoT Edge domande frequenti.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011516"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -19,14 +20,14 @@ Quali sono le variabili di sistema che è possibile usare nella definizione dell
 
 |Variabile   |Descrizione|
 |---|---|
-|[System.DateTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno.|
 |System. GraphTopologyName   |Rappresenta una topologia del grafico multimediale, che include il progetto di un grafico.|
 |System. GraphInstanceName|  Rappresenta un'istanza del grafico multimediale, include i valori dei parametri e fa riferimento alla topologia.|
 
 ## <a name="configuration-and-deployment"></a>Configurazione e distribuzione
 
 È possibile distribuire il modulo Media Edge in un dispositivo Windows 10?
-    * Sì. Vedere l'articolo sui [contenitori Linux in Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Sì. Vedere l'articolo sui [contenitori Linux in Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Acquisisci dalla fotocamera IP e dalle impostazioni RTSP
 

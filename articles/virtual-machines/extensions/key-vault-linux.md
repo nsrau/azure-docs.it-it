@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010802"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -71,7 +71,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 > [!NOTE]
 > Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Ciò è dovuto al fatto che il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo restituisce. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Ciò è dovuto al fatto che il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo restituisce. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > La proprietà' authenticationSettings ' è facoltativa per gli scenari in cui la macchina virtuale ha più identità assegnate.
@@ -204,7 +204,7 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
 Tenere presenti le restrizioni e i requisiti seguenti:
 - Restrizioni relative all'insieme di credenziali:
   - Deve essere già presente al momento della distribuzione 
-  - Il criterio di accesso all'insieme di credenziali delle chiavi deve essere impostato per l'identità della macchina virtuale o del set di scalabilità di macchine virtuali usando un'identità gestita. Vedere [Fornire l'autenticazione a Key Vault con un'identità gestita](../../key-vault/managed-identity.md)
+  - Il criterio di accesso all'insieme di credenziali delle chiavi deve essere impostato per l'identità della macchina virtuale o del set di scalabilità di macchine virtuali usando un'identità gestita. Vedere [Fornire l'autenticazione a Key Vault con un'identità gestita](../../key-vault/general/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto

@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008099"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creare un'impostazione di diagnostica in Azure usando un modello di Gestione risorse
 [Le impostazioni di diagnostica](diagnostic-settings.md) in monitoraggio di Azure specificano dove inviare i [log della piattaforma](platform-logs-overview.md) raccolti dalle risorse di Azure e dalla piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni ed esempi per l'uso di un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare le impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse.
@@ -29,7 +30,7 @@ Per informazioni dettagliate, vedere [distribuire risorse con modelli di gestion
 
 
 ## <a name="resource-logs"></a>Log risorse
-Per i log delle risorse, aggiungere una risorsa di tipo `<resource namespace>/providers/diagnosticSettings` al modello. La sezione properties segue il formato descritto in [impostazioni di diagnostica-crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Fornire un oggetto `category` nella `logs` sezione per ognuna delle categorie valide per la risorsa che si desidera raccogliere. Aggiungere la `metrics` proprietà per raccogliere le metriche delle risorse nelle stesse destinazioni se la [risorsa supporta le metriche](metrics-supported.md).
+Per i log delle risorse, aggiungere una risorsa di tipo `<resource namespace>/providers/diagnosticSettings` al modello. La sezione properties segue il formato descritto in [impostazioni di diagnostica-crea o aggiorna](/rest/api/monitor/diagnosticsettings/createorupdate). Fornire un oggetto `category` nella `logs` sezione per ognuna delle categorie valide per la risorsa che si desidera raccogliere. Aggiungere la `metrics` proprietà per raccogliere le metriche delle risorse nelle stesse destinazioni se la [risorsa supporta le metriche](metrics-supported.md).
 
 Di seguito è riportato un modello che raccoglie una categoria di log delle risorse per una determinata risorsa in un'area di lavoro Log Analytics, un account di archiviazione e un hub eventi.
 
@@ -143,7 +144,7 @@ Di seguito è riportato un esempio che crea un'impostazione di diagnostica per u
 ```
 
 ## <a name="activity-log"></a>Log attività
-Per il log attività di Azure, aggiungere una risorsa di tipo `Microsoft.Insights/diagnosticSettings` . Le categorie disponibili sono elencate in [categorie nel log attività](activity-log-view.md#categories-in-the-activity-log). Di seguito è riportato un modello che raccoglie tutte le categorie di log attività in un'area di lavoro Log Analytics, un account di archiviazione e un hub eventi.
+Per il log attività di Azure, aggiungere una risorsa di tipo `Microsoft.Insights/diagnosticSettings` . Le categorie disponibili sono elencate in [categorie nel log attività](./activity-log.md#view-the-activity-log). Di seguito è riportato un modello che raccoglie tutte le categorie di log attività in un'area di lavoro Log Analytics, un account di archiviazione e un hub eventi.
 
 
 ```json

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011652"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
 
@@ -58,7 +58,7 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 ### <a name="streaming-endpoint"></a>Endpoint di streaming
 
-Sono supportate le metriche seguenti per gli [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) di servizi multimediali:
+Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/media/streamingendpoints) di servizi multimediali:
 
 |Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|

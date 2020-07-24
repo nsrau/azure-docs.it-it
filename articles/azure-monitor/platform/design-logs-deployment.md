@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201299"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008201"
 ---
-# <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
+# <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
 Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics, ovvero una risorsa di Azure e un contenitore in cui i dati vengono raccolti, aggregati e utilizzati come limite amministrativo. Sebbene sia possibile distribuire una o più aree di lavoro nella sottoscrizione di Azure, è necessario comprendere alcune considerazioni per garantire che la distribuzione iniziale stia seguendo le linee guida per offrire una distribuzione economica, gestibile e scalabile che soddisfi le esigenze dell'organizzazione.
 
@@ -25,7 +25,7 @@ Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
-* Ambito per la configurazione di impostazioni quali il piano [tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Ambito per la configurazione di impostazioni quali il piano [tariffario](./manage-cost-storage.md#changing-pricing-tier), la [conservazione](./manage-cost-storage.md#change-the-data-retention-period)e la [capsulatura dei dati](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -140,7 +140,7 @@ Operation
 ``` 
 
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Indicazioni
 
 ![Esempio di progettazione del contesto di risorsa](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 

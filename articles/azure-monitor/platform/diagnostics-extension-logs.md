@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a367e819ab9f12d9adcb448848c80eaeea73d113
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008031"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Raccogliere i dati dall'estensione diagnostica di Azure ai log di monitoraggio di Azure
 L'estensione diagnostica di Azure è un [agente di monitoraggio di Azure](agents-overview.md) che raccoglie i dati di monitoraggio dal sistema operativo guest delle risorse di calcolo di Azure, incluse le macchine virtuali. Questo articolo descrive come raccogliere i dati raccolti dall'estensione di diagnostica da archiviazione di Azure ai log di monitoraggio di Azure.
@@ -62,6 +63,6 @@ In circa 30 minuti è possibile visualizzare i dati dall'account di archiviazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Raccogliere i log e le metriche per i servizi di Azure](collect-azure-metrics-logs.md) per i servizi supportati di Azure.
+* [Raccogliere i log e le metriche per i servizi di Azure](./resource-logs.md#send-to-log-analytics-workspace) per i servizi supportati di Azure.
 * [Abilitare soluzioni](../../azure-monitor/insights/solutions.md) per fornire informazioni dettagliate sui dati.
 * [Usare query di ricerca](../../azure-monitor/log-query/log-query-overview.md) per analizzare i dati.

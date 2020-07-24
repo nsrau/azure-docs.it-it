@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88856a16dbc197be29ddd88311063df4473a1e40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007878"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -100,12 +100,18 @@ Per modificare il piano tariffario di Log Analytics dell'area di lavoro,
 
 Le sottoscrizioni che includevano un'area di lavoro Log Analytics o una risorsa Application Insights prima del 2 aprile 2018 o sono collegate a un contratto Enterprise avviato prima del 1° febbraio 2019, continueranno ad avere accesso per usare i piani tariffari legacy: **Gratuito**, **Autonomo (per GB)** e **Per Nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avranno un inserimento dati giornaliero limitato a 500 MB (ad eccezione dei tipi di dati di sicurezza raccolti da [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/)) e la conservazione dei dati è limitata a 7 giorni. Il piano tariffario Gratuito è destinato solo a scopo di valutazione. Le aree di lavoro nei piani tariffari Autonomo o Per nodo prevedono una conservazione configurabile dall'utente da 30 a 730 giorni.
 
-Il piano tariffario Per nodo viene addebitato per ogni macchina virtuale monitorata (nodo) in base a una granularità oraria. Per ogni nodo monitorato, all'area di lavoro vengono allocati 500 MB di dati al giorno che non vengono fatturati. Questa allocazione viene aggregata a livello di area di lavoro. I dati inseriti in eccedenza rispetto all'allocazione giornaliera aggregata di dati vengono fatturati per GB come eccedenza di dati. Si noti che nella fattura il servizio sarà **Informazioni dettagliate e analisi** per l'utilizzo di Log Analytics se l'area di lavoro rientra nel piano tariffario Per nodo. 
+L'utilizzo del piano tariffario autonomo viene fatturato in base al volume di dati inserito. Viene segnalato nel servizio **log Analytics** e il contatore è denominato "data analyzed". 
+
+Il piano tariffario Per nodo viene addebitato per ogni macchina virtuale monitorata (nodo) in base a una granularità oraria. Per ogni nodo monitorato, all'area di lavoro vengono allocati 500 MB di dati al giorno che non vengono fatturati. Questa allocazione viene aggregata a livello di area di lavoro. I dati inseriti in eccedenza rispetto all'allocazione giornaliera aggregata di dati vengono fatturati per GB come eccedenza di dati. Si noti che nella fattura il servizio sarà **Informazioni dettagliate e analisi** per l'utilizzo di Log Analytics se l'area di lavoro rientra nel piano tariffario Per nodo. L'utilizzo viene segnalato in tre contatori:
+
+1. Node: utilizzo per il numero di nodi monitorati (VM) in unità di nodo * mesi.
+2. Dati in eccedenza per nodo: numero di GB di dati inseriti in eccesso nell'allocazione dei dati aggregati.
+3. Dati inclusi per nodo: questa è la quantità di dati inseriti che è stata analizzata nell'allocazione dei dati aggregati. Questo contatore viene usato anche quando l'area di lavoro è in tutti i piani tariffari per visualizzare la quantità di dati analizzati dal centro sicurezza di Azure.
 
 > [!TIP]
 > Se l'area di lavoro ha accesso al piano tariffario **Per nodo**, ma non si è sicuri se il costo con pagamento in base al consumo sarebbe inferiore, è possibile [usare la query seguente](#evaluating-the-legacy-per-node-pricing-tier) per ottenere facilmente un suggerimento. 
 
-Le aree di lavoro create prima di aprile 2016 possono anche accedere ai piani tariffari **Standard** e **Premium** con una conservazione dei dati fissa rispettivamente di 30 e 365 giorni. Non è possibile creare nuove aree di lavoro nei piani tariffari **Standard** o **Premium** e se un'area di lavoro viene spostata fuori da questi piani, non sarà farla rientrare nuovamente.
+Le aree di lavoro create prima di aprile 2016 possono anche accedere ai piani tariffari **Standard** e **Premium** con una conservazione dei dati fissa rispettivamente di 30 e 365 giorni. Non è possibile creare nuove aree di lavoro nei piani tariffari **Standard** o **Premium** e se un'area di lavoro viene spostata fuori da questi piani, non sarà farla rientrare nuovamente. I contatori di inserimento dei dati per questi livelli legacy sono detti "dati analizzati".
 
 Esistono anche alcuni comportamenti di cui tenere conto tra l'uso di piani legacy di Log Analytics e il modo in cui viene fatturato l'utilizzo per [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/). 
 
@@ -132,15 +138,15 @@ Per impostare la conservazione predefinita per l'area di lavoro,
 
     ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
-Quando il periodo di conservazione viene ridotto, è previsto un periodo di tolleranza di diversi giorni prima che i dati meno recenti vengano rimossi. 
-    
-Il periodo di conservazione può essere anche [impostato tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità è disponibile solo tramite Azure Resource Manager. 
+Quando il periodo di conservazione viene ridotto, è previsto un periodo di prova di diversi giorni prima che i dati precedenti alla nuova impostazione di conservazione vengano rimossi. 
 
+Il periodo di conservazione può essere anche [impostato tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il parametro `retentionInDays`. Quando si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il `immediatePurgeDataOn30Days` parametro (eliminando il periodo di tolleranza di diversi giorni). Questo può essere utile per gli scenari correlati alla conformità in cui è imperativa la rimozione immediata dei dati. Questa funzionalità di ripulitura immediata viene esposta solo tramite Azure Resource Manager. 
+
+Le aree di lavoro con conservazione di 30 giorni possono effettivamente conservare i dati per 31 giorni. Se è fondamentale che i dati vengano conservati solo per 30 giorni, utilizzare il Azure Resource Manager per impostare la conservazione su 30 giorni e con il `immediatePurgeDataOn30Days` parametro.  
 
 Due tipi di dati, `Usage` e `AzureActivity`, vengono conservati per un minimo di 90 giorni per impostazione predefinita e non è previsto alcun addebito per il periodo di conservazione di 90 giorni. Se la conservazione dell'area di lavoro viene aumentata oltre 90 giorni, viene anche aumentata la conservazione di questi tipi di dati.  Anche per questi tipi di dati non sono previsti addebiti per l'inserimento di dati. 
 
 Anche i tipi di dati delle risorse Application Insights basate sull'area di lavoro (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) vengono conservati per 90 giorni per impostazione predefinita e non è previsto alcun addebito per un periodo di conservazione di 90 giorni. La conservazione può essere regolata usando la funzionalità di conservazione per tipo di dati. 
-
 
 ### <a name="retention-by-data-type"></a>Conservazione per tipo di dati
 
@@ -189,14 +195,17 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gestire il volume di dati giornaliero massimo
 
-È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite giornaliero è finalizzato a gestire l'aumento imprevisto nel volume di dati dalle risorse gestite e rimanere entro il limite prefissato oppure quando si vuole limitare gli addebiti non pianificati per l'area di lavoro.  
+È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite giornaliero è destinato a essere utilizzato come metodo per gestire un **aumento imprevisto** del volume di dati dalle risorse gestite e rimanere entro il limite o quando si desidera limitare gli addebiti non pianificati per l'area di lavoro. Non è consigliabile impostare un limite giornaliero in modo che venga soddisfatto ogni giorno in un'area di lavoro.
 
 Ogni area di lavoro ha il limite giornaliero applicato in un'ora diversa del giorno. L'ora di reimpostazione viene visualizzata nella pagina **limite giornaliero** (vedere di seguito). Questa ora di ripristino non può essere configurata. 
 
-Non appena viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. (La latenza insita nell'applicazione del limite giornaliero significa che il limite non viene applicato esattamente al livello di limite giornaliero specificato). Viene visualizzato un messaggio di avviso nella parte superiore della pagina per l'area di lavoro Log Analytics selezionata e viene inviato un evento Operation alla tabella *Operation* nella categoria **LogManagement** . La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
+Non appena viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. La latenza insita nell'applicazione del limite giornaliero significa che il limite non viene applicato esattamente al livello di limite giornaliero specificato. Nella parte superiore della pagina per l'area di lavoro Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
+
+> [!NOTE]
+> Il limite giornaliero non può arrestare la raccolta dati esattamente come il livello di estremità specificato e sono previsti alcuni dati in eccesso, in particolare se l'area di lavoro riceve volumi elevati di dati.  
 
 > [!WARNING]
-> Il limite giornaliero non interrompe la raccolta di dati da Azure Sentinel o dal centro sicurezza di Azure, tranne per le aree di lavoro in cui il Centro sicurezza di Azure è stato installato prima del 19 giugno 2017. 
+> Il limite giornaliero non interrompe la raccolta di dati da Azure segnale o dal centro sicurezza di Azure, tranne per le aree di lavoro in cui il Centro sicurezza di Azure è stato installato prima del 19 giugno 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 

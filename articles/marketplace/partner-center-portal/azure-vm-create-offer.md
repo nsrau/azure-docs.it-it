@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
-description: Informazioni su come creare un'offerta di macchina virtuale in Azure Marketplace con lo SKU richiesto.
+description: Informazioni su come creare un'offerta di macchina virtuale in Azure Marketplace con il piano necessario.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/17/2020
+ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012026"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -286,7 +286,7 @@ Prima di passare alla sezione successiva, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Nel Centro per i partner è possibile specificare diverse opzioni per il piano all'interno della stessa offerta. Questi piani erano noti in precedenza come SKU. Per un'offerta occorre almeno un piano, che può variare in base ai destinatari della monetizzazione, all'area di Azure, alle funzionalità o alle immagini di macchine virtuali.
+Nel Centro per i partner è possibile specificare diverse opzioni per il piano all'interno della stessa offerta. Un'offerta richiede almeno un piano (in precedenza noto come SKU), che può variare in base ai destinatari della monetizzazione, all'area di Azure, alle funzionalità o alle immagini di macchina virtuale.
 
 Dopo aver creato i piani, selezionare la scheda **Panoramica del piano** per visualizzare:
 
@@ -413,7 +413,6 @@ Per i piani di fatturazione mensile basati sull'utilizzo, usare una delle tre op
 >[!Note]
 >Le offerte private non sono supportate con le sottoscrizioni di Azure stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
-
 #### <a name="hide-a-plan"></a>Nascondere un piano
 
 Se la macchina virtuale è destinata a essere usata solo indirettamente quando un altro modello di soluzione o un'altra applicazione gestita le fanno riferimento, selezionare questa casella di controllo per pubblicare la macchina virtuale, ma non renderla visibile ai clienti che potrebbero cercarla o accedervi direttamente.
@@ -516,10 +515,10 @@ La pagina **Panoramica offerta** mostra una rappresentazione visiva dei passaggi
 
 Questa pagina include anche collegamenti che consentono di lavorare con l'offerta, a seconda del suo stato:
 
-- Se l'offerta è una bozza: [Elimina l'offerta bozza](update-existing-offer.md#delete-a-draft-offer))
-- Se l'offerta è Live: [interrompere la vendita dell'offerta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se l'offerta è in anteprima: [Go-Live](publishing-status.md#publisher-approval))
-- Se la disconnessione del server di pubblicazione non è stata completata: [Annulla pubblicazione](update-existing-offer.md#cancel-publishing))
+- Se l'offerta è in stato di bozza: [Eliminare la bozza dell'offerta](update-existing-offer.md#delete-a-draft-offer)
+- Se l'offerta è live: [Interrompere la vendita dell'offerta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se l'offerta è in anteprima: [Go Live](publishing-status.md#publisher-approval)
+- Se non è stata completata la disconnessione dell'editore: [Annullare la pubblicazione](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Esempi di marketplace
 
@@ -535,7 +534,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Description
+7. Descrizione
 8. Collegamenti utili
 9. Screenshot/video
 
@@ -567,7 +566,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Nome
-2. Description
+2. Descrizione
 3. Collegamenti utili
 4. Screenshot/video
 

@@ -3,12 +3,12 @@ title: Configurare un contenitore Linux personalizzato
 description: Informazioni su come configurare un contenitore Linux personalizzato nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008592"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio app Azure
 
@@ -18,7 +18,7 @@ Questa guida fornisce concetti chiave e istruzioni per la contenitori di app Lin
 
 ## <a name="configure-port-number"></a>Configurare il numero di porta
 
-Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta utilizzata dal contenitore personalizzato usando l'impostazione dell' `WEBSITES_PORT` app. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) il comando nella cloud Shell. Ad esempio:
+Per impostazione predefinita, il servizio app presuppone che il contenitore personalizzato sia in ascolto sulla porta 80. Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta utilizzata dal contenitore personalizzato usando l'impostazione dell' `WEBSITES_PORT` app. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) il comando nella cloud Shell. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -138,7 +138,7 @@ Negli elenchi seguenti sono illustrate le opzioni di configurazione Docker Compo
 
 - .
 - entrypoint
-- environment
+- ambiente
 - image
 - ports
 - restart

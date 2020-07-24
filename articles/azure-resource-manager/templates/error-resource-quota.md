@@ -4,10 +4,11 @@ description: Viene descritto come risolvere gli errori di quota delle risorse du
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79273787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007793"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
 
@@ -83,7 +84,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-## <a name="solution"></a>Soluzione
+## <a name="solution"></a>Solution
 
 Per ottenere un aumento della quota, accedere al portale e inviare una richiesta di supporto. Nella richiesta specificare un aumento della quota per l'area di destinazione della distribuzione.
 
@@ -98,7 +99,7 @@ Per ottenere un aumento della quota, accedere al portale e inviare una richiesta
 
 2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
 
-   ![Seleziona sottoscrizione](./media/error-resource-quota/select-subscription.png)
+   ![Selezionare la sottoscrizione](./media/error-resource-quota/select-subscription.png)
 
 3. Selezionare **utilizzo e quote**
 

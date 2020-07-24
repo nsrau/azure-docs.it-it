@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011449"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -36,7 +36,7 @@ Prima di iniziare, assicurarsi di aver effettuato la registrazione per le antepr
 - [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
 - [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed di modifiche nell'account di origine e il controllo delle versioni dei BLOB nell'account di destinazione.
 
@@ -52,7 +52,7 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
-1. Se si vuole, specificare uno o più filtri per copiare solo i BLOB che corrispondono a un criterio di prefisso. Se ad esempio si specifica il prefisso `b`, verranno replicati solo i BLOB il cui nome inizia con tale lettera. È possibile specificare una directory virtuale come parte del prefisso.
+1. Se si vuole, specificare uno o più filtri per copiare solo i BLOB che corrispondono a un criterio di prefisso. Se ad esempio si specifica il prefisso `b`, verranno replicati solo i BLOB il cui nome inizia con tale lettera. È possibile specificare una directory virtuale come parte del prefisso. La stringa di prefisso non supporta i caratteri jolly.
 
     L'immagine seguente illustra i filtri che limitano quali BLOB vengono copiati come parte di una regola di replica.
 
@@ -68,7 +68,7 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per creare un criterio di replica con PowerShell, installare prima di tutto la versione [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) del modulo AZ.Storage di PowerShell. Per installare il modulo di anteprima, seguire questa procedura:
+Per creare un criterio di replica con PowerShell, installare prima la versione [2.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) o successiva del modulo AZ. storage PowerShell. Per installare il modulo di anteprima, seguire questa procedura:
 
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell da Windows usando l'opzione **App e funzionalità** in **Impostazioni**.
 

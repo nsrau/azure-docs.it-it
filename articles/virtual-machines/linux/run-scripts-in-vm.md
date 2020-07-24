@@ -7,11 +7,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d40352d2110fa54ab699e41fa6d161d5c9ea4f4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010513"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Eseguire gli script nella macchina virtuale Linux
 
@@ -32,7 +33,7 @@ L'[Estensione dello Script personalizzata](../extensions/custom-script-linux.md)
 La funzione [Eseguire comando](run-command.md) abilita la macchina virtuale e la gestione delle applicazioni e della risoluzione dei problemi tramite gli script ed è disponibile anche quando il computer non è raggiungibile, ad esempio se il firewall guest non ha la porta RDP o SSH aperta.
 
 * Eseguire script nelle macchine virtuali di Azure.
-* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
+* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Eseguire velocemente uno script e visualizzare l'output e ripetere come richiesto nel portale di Azure.
 * Lo script può essere digitato direttamente oppure è possibile eseguire script incorporati.
 * Eseguire uno script di PowerShell nei computer Windows e gli Script Bash nei computer Linux.
@@ -55,7 +56,7 @@ Il [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbo
 
 ## <a name="serial-console"></a>Console seriale
 
-Il [console seriale](serial-console.md) fornisce l'accesso diretto a una macchina virtuale, come avere una tastiera connessa alla macchina virtuale.
+Il [console seriale](../troubleshooting/serial-console-linux.md) fornisce l'accesso diretto a una macchina virtuale, come avere una tastiera connessa alla macchina virtuale.
 
 * Eseguire comandi nelle macchine virtuali di Azure.
 * Possono essere eseguiti tramite una console basata su testo per la macchina nel portale di Azure.
@@ -69,4 +70,4 @@ Altre informazioni sulle diverse funzioni che sono disponibili per eseguire scri
 * [Estensione di script personalizzati](../extensions/custom-script-linux.md)
 * [Eseguire un comando](run-command.md)
 * [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
-* [console seriale](serial-console.md)
+* [console seriale](../troubleshooting/serial-console-linux.md)

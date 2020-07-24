@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008320"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per Cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -82,10 +83,10 @@ Se si desidera testare il funzionamento del codice in condizioni di errore, è c
  
 ### <a name="redis-benchmark-examples"></a>Redis-esempi di benchmark
 **Installazione preliminare del test**: preparare l'istanza della cache con i dati necessari per i comandi di latenza e di test della velocità effettiva elencati di seguito.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
+> Redis-benchmark-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 
 **Per testare la latenza**: testare richieste Get usando un payload 1K.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> Redis-benchmark-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Per testare la velocità effettiva:** Richieste GET inviate tramite pipeline con payload 1K.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1 milione-d 1024-P 50-c 50
+> Redis-benchmark-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1 milione-d 1024-P 50-c 50

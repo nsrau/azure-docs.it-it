@@ -1,18 +1,18 @@
 ---
-title: Creare una nuova offerta SaaS per il marketplace commerciale Microsoft
-description: Come creare una nuova offerta SaaS (software come un servizio) per la presentazione o la vendita in Microsoft AppSource, Azure Marketplace o tramite il programma Cloud Solution Provider (CSP) usando il programma del marketplace commerciale Microsoft nel Centro per i partner Microsoft.
+title: Creare un'offerta SaaS, Azure Marketplace e Microsoft AppSource
+description: Come creare un'offerta SaaS (software as a Service) per l'inserzione o la vendita in Microsoft AppSource, Azure Marketplace o tramite il programma Cloud Solution Provider (CSP) tramite il programma Microsoft Commercial Marketplace nel centro per i partner Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012094"
 ---
-# <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Creare una nuova offerta SaaS nel marketplace commerciale
+# <a name="create-a-saas-offer"></a>Creare un'offerta SaaS
 
 Per iniziare a creare offerte SaaS (software come un servizio) nel marketplace commerciale, assicurarsi prima di tutto di [creare un account per il Centro per i partner](./create-account.md) e aprire il [dashboard del marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la scheda **Panoramica** selezionata.
 
@@ -96,7 +96,7 @@ Questo è un esempio di suddivisione dei costi e dei pagamenti per illustrare il
 - In questo esempio Microsoft fattura $ 100,00 al cliente per la licenza software e paga $ 80,00 all'editore.
 
 > [!NOTE]
-> **Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte da qualificare, è necessario che le offerte siano state designate da Microsoft perché siano pronte per la co-selling IP o la co-selling IP con priorità. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale.
+> **Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica anche alle macchine virtuali incentivate di Azure con co-selling IP di Azure, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ### <a name="list-through-microsoft"></a>Presentazione tramite Microsoft
 
@@ -136,8 +136,8 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Condizioni per l'utilizzo
 6. Informativa sulla privacy
 7. Nome offerta
-8. Summary
-9. Description
+8. Riepilogo
+9. Descrizione
 10. Screenshot/video
 11. Documenti
 
@@ -331,14 +331,14 @@ I diagrammi e le spiegazioni dettagliate che descrivono l'utilizzo dei campi rac
 
 - **URL della pagina di destinazione** (obbligatorio): definire l'URL del sito SaaS (ad esempio, `https://contoso.com/signup` ) che i clienti finali dovranno sbarcare dopo aver acquisito l'offerta dal Marketplace e aver attivato il processo di configurazione dalla sottoscrizione Saas appena creata.  Questo URL viene chiamato con il parametro del token di identificazione dell'acquisto del Marketplace che identifica in modo univoco l'acquisto SaaS del cliente finale specifico.  È necessario scambiare questo token per i dettagli della sottoscrizione SaaS corrispondenti usando l'API [Resolve](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) .  Questi dettagli e tutti gli altri che si desidera raccogliere devono essere utilizzati come parte di una pagina Web interattiva del cliente integrata nella propria esperienza per completare la registrazione del cliente finale e attivare l'acquisto.  In questa pagina l'utente deve iscriversi con l'autenticazione con un clic usando Azure Active Directory (Azure AD). <br> <br> Questo URL con il parametro del token di identificazione del Marketplace viene chiamato anche quando il cliente finale avvia un'esperienza SaaS gestita dall'interfaccia di amministrazione di portale di Azure o M365. È necessario gestire entrambi i flussi, quando il token viene fornito per la prima volta dopo l'acquisto per i nuovi clienti e quando viene fornito per i clienti esistenti che gestiscono il proprio SaaS. <br> <br> La pagina di destinazione configurata qui dovrebbe essere attiva ed eseguita 24/7. Questo è l'unico modo per ricevere notifiche sui nuovi acquisti delle offerte SaaS effettuate nel Marketplace o sulle richieste di configurazione di una sottoscrizione attiva di un'offerta.
 
-- **Webhook di connessione** (obbligatorio): per tutti gli eventi asincroni che Microsoft deve inviare all'utente (ad esempio, la sottoscrizione Saas è stata annullata), è necessario specificare un URL del webhook di connessione. Questo URL verrà chiamato per notificare l'evento. <br> <br> Il webhook fornito dovrebbe essere attivo e in esecuzione 24/7 poiché questo è l'unico modo per ricevere una notifica sugli aggiornamenti delle sottoscrizioni SaaS dei clienti acquistate tramite il Marketplace.  Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nel disporre di un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi da inviare e quindi di gestirli in modo appropriato (ad esempio, `https://prod-1westus.logic.azure.com:443/work` ). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](../../logic-apps/logic-apps-http-endpoint.md).
+- **Webhook di connessione** (obbligatorio): per tutti gli eventi asincroni che Microsoft deve inviare all'utente (ad esempio, la sottoscrizione Saas è stata annullata), è necessario specificare un URL del webhook di connessione. Questo URL verrà chiamato per notificare l'evento. <br> <br> Il webhook fornito dovrebbe essere attivo e in esecuzione 24/7 poiché questo è l'unico modo per ricevere una notifica sugli aggiornamenti delle sottoscrizioni SaaS dei clienti acquistate tramite il Marketplace. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nel disporre di un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi da inviare e quindi di gestirli in modo appropriato (ad esempio, `https://prod-1westus.logic.azure.com:443/work` ). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](../../logic-apps/logic-apps-http-endpoint.md).
 
 - **Azure ad ID tenant** (obbligatorio): all'interno del portale di Azure, è necessario [creare un'app di Azure Active Directory (ad)](../../active-directory/develop/howto-create-service-principal-portal.md) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
 
 - **Azure ad ID app** (obbligatorio): è necessario anche l' [ID applicazione](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Per ottenere il valore, passare alla Azure Active Directory e selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 >[!Note]
->Il Azure AD ID app è associato all'ID editore nell'account del centro per i partner.  Assicurarsi che in tutte le offerte venga usato lo stesso ID applicazione.
+>Il Azure AD ID app è associato all'ID editore nell'account del centro per i partner. Assicurarsi di usare lo stesso ID applicazione in tutte le offerte.
 
 >[!Note]
 >Se il server di pubblicazione dispone di due o più account diversi nel centro per i partner, è necessario usare due o più ID app Azure AD diversi, ognuno per uno degli account. Ogni account partner nel centro per i partner deve usare un ID app univoco Azure AD per tutte le offerte SaaS pubblicate tramite questo account.
@@ -347,7 +347,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Questa pagina consente di fornire diverse opzioni per i piani all'interno della stessa offerta. Questi piani (noti anche come SKU) possono differire in termini di versione, monetizzazione o livelli di servizio. Per vendere l'offerta nel marketplace, è necessario configurare almeno un piano.
+Questa pagina consente di fornire diverse opzioni per i piani all'interno della stessa offerta. Questi piani, chiamati in precedenza SKU, possono differire in termini di versione, monetizzazione o livelli di servizio. È necessario configurare almeno un piano per vendere l'offerta nel Marketplace.
 
 Una volta creati i piani, verranno visualizzati i nomi, gli ID, i modelli di determinazione prezzi, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili.
 
@@ -380,7 +380,7 @@ Questa pagina consente di configurare i mercati in cui sarà disponibile questo 
 
 #### <a name="markets-optional"></a>Mercati (facoltativo)
 
-Ogni piano deve essere disponibile in almeno un mercato. Selezionare **Modifica mercati** e selezionare la casella di controllo relativa alla località di qualsiasi mercato in cui si vuole rendere disponibile questo piano. Questa pagina include una casella di ricerca e un'opzione per la selezione di paesi o aree geografiche in cui Microsoft versa l'IVA e l'imposta sui beni durevoli per conto dell'editore.
+Ogni piano deve essere disponibile in almeno un mercato. Selezionare **Modifica mercati** e selezionare la casella di controllo relativa alla località di qualsiasi mercato in cui si vuole rendere disponibile questo piano. Questa pagina include una casella di ricerca e un'opzione per la selezione dei [paesi o delle aree geografiche](tax-details-paid-transactions.md)in cui Microsoft ha fatturato le vendite e l'uso delle imposte per conto dell'utente.
 
 Se i prezzi per il piano sono già stati impostati in dollari statunitensi (USD) e si aggiunge la località di un altro mercato, il prezzo del nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Controllare il prezzo di ogni mercato prima della pubblicazione. Visualizzare i prezzi tramite il collegamento "Export prices (xlsx)" (Esporta prezzi - XLSX) dopo aver salvato le modifiche.
 

@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549498"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007980"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione Diagnostica di Azure per Windows
 L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo include informazioni dettagliate sull'installazione e la configurazione dell'estensione Diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di Archiviazione di Azure.
@@ -77,7 +77,7 @@ Quando si configura l'estensione Diagnostica di Azure è necessario specificare 
 Vedere [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) per informazioni sulla distribuzione dell'estensione di diagnostica con i modelli di Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set), come nell'esempio seguente. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set), come nell'esempio seguente. 
 
 ```azurecli
 az vm extension set \
@@ -133,7 +133,7 @@ Le impostazioni pubbliche sono definite nell'[elemento PublicConfig](diagnostics
 
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
-PowerShell può essere usato per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension), come nell'esempio seguente. 
+PowerShell può essere usato per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension), come nell'esempio seguente. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

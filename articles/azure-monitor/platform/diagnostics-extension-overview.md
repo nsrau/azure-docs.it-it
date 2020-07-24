@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007997"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Panoramica dell’estensione Diagnostica di Azure
 L’estensione Diagnostica di Azure è un [agente Monitoraggio di Azure](agents-overview.md) che raccoglie i dati di monitoraggio dal sistema operativo guest delle risorse di elaborazione di Azure, comprese le macchine virtuali. Questo articolo offre una panoramica dell'estensione Diagnostica di Azure, comprese le funzionalità specifiche supportate e le opzioni di installazione e configurazione. 
@@ -33,7 +34,7 @@ Le differenze principali da considerare sono le seguenti:
 
 - L'estensione Diagnostica di Azure può essere usata solo con le macchine virtuali di Azure. L'agente di Log Analytics può essere usato con le macchine virtuali di Azure, in altri cloud e in locale.
 - L'estensione Diagnostica di Azure invia i dati ad Archiviazione di Azure, alle [metriche di Monitoraggio di Azure](data-platform-metrics.md) (solo Windows) e a Hub eventi. L'agente di Log Analytics raccoglie i dati da inviare ai [log di Monitoraggio di Azure](data-platform-logs.md).
-- L'agente di Log Analytics è necessario per [soluzioni](../monitor-reference.md#insights-and-core-solutions), [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) e altri servizi, ad esempio [Centro sicurezza di Azure](/azure/security-center/).
+- L'agente di Log Analytics è necessario per [soluzioni](../monitor-reference.md#insights-and-core-solutions), [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) e altri servizi, ad esempio [Centro sicurezza di Azure](../../security-center/index.yml).
 
 ## <a name="costs"></a>Costi
 Non sono previsti costi per l'estensione Log Analytics, ma è possibile che vengano addebitati costi per i dati inseriti. Controllare i [prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) in base alla destinazione in cui si intende raccogliere i dati.
@@ -49,8 +50,8 @@ Le tabelle seguenti elencano i dati che possono essere raccolti dall'estensione 
 | Contatori delle prestazioni | Valori numerici che misurano le prestazioni di diversi aspetti del sistema operativo e dei carichi di lavoro. |
 | Log IIS             | Informazioni sull'utilizzo per siti Web IIS in esecuzione nel sistema operativo guest. |
 | Log applicazioni     | Messaggi di traccia scritti dall'applicazione usata. |
-| Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) di .NET |
-| [Log ETW basati su manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Traccia di eventi per eventi Windows generati da qualsiasi processo. |
+| Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) di .NET |
+| [Log ETW basati su manifesto](/windows/desktop/etw/about-event-tracing) |Traccia di eventi per eventi Windows generati da qualsiasi processo. |
 | Dump di arresto anomalo (log)   | Informazioni sullo stato del processo in caso di arresto anomalo di un'applicazione. |
 | Log basati su file    | Log creati dall'applicazione o dal servizio. |
 | Log di diagnostica dell’agente | Informazioni su Diagnostica di Azure. |
@@ -116,4 +117,3 @@ Per informazioni dettagliate sull'installazione e la configurazione dell'estensi
 
 * Informazioni su come [usare i contatori delle prestazioni in Diagnostica di Azure](../../cloud-services/diagnostics-performance-counters.md).
 * In caso di problemi nell'avvio della diagnostica o nell'individuazione dei dati nelle tabelle di archiviazione di Azure, vedere [Risoluzione dei problemi di Diagnostica di Azure](diagnostics-extension-troubleshooting.md)
-

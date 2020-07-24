@@ -3,8 +3,8 @@ title: Panoramica di DSC (Desired State Configuration) per Azure
 description: Informazioni sull'uso del gestore dell'estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). L'articolo include prerequisiti, architettura e cmdlet.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: dsc
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
-ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: magoedte
+ms.openlocfilehash: edf1fce488bf3bb8aa107a295cf3488243775192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010921"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -49,7 +49,7 @@ Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 - **Nodo**: destinazione di una configurazione DSC. In questo documento, *node* fa sempre riferimento a una VM di Azure.
 - **Dati di configurazione**: file con estensione psd1 con i dati ambientali di una configurazione.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
@@ -59,7 +59,7 @@ Alla prima chiamata, l'estensione installa una versione di WMF adottando la logi
 - Se la proprietà **wmfVersion** è specificata, viene installata la versione di WMF corrispondente, a meno che tale versione non sia incompatibile con il sistema operativo della VM.
 - Se la proprietà **wmfVersion** non è specificata, viene installata la versione più recente applicabile di WMF.
 
-L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo aver scaricato e decompresso il file zip, viene eseguita la funzione di configurazione definita in **configurationFunction** per generare un file mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
+L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo aver scaricato e decompresso il file zip, viene eseguita la funzione di configurazione definita in **configurationFunction** per generare un file mof ([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)). L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
 
 ### <a name="default-configuration-script"></a>Script di configurazione predefinito
 
@@ -81,7 +81,7 @@ Queste informazioni possono essere visualizzate nel portale di Azure oppure è p
 ```
 
 Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di usare il nome della *configurazione del nodo* e non la configurazione.
-Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](../../automation/automation-dsc-compile.md).
 Il nome sarà sempre la configurazione seguita da un punto `.` e da `localhost` o da un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
@@ -188,11 +188,11 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
-- File di dati di **configurazione psd1**: la configurazione richiede un file di dati di configurazione in. psd1, usare questo campo per selezionare il file di dati e caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
+- File di dati di **configurazione psd1**: se la configurazione richiede un file di dati di configurazione in `.psd1` , usare questo campo per selezionare il file di dati e caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
 - **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
 
-- **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
+- **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 
 - **Versione**: specifica la versione dell'estensione DSC da installare. Per informazioni sulle versioni, vedere [Cronologia delle versioni dell'estensione DSC (Desired State Configuration)](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187405"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008609"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gestire le credenziali in Automazione di Azure
 
@@ -44,7 +44,7 @@ I cmdlet nella tabella seguente vengono usati per accedere alle credenziali nei 
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Ottiene un oggetto `PSCredential` da usare in un runbook o in una configurazione DSC. Nella maggior parte dei casi è consigliabile usare questo [ cmdlet interno](modules.md#internal-cmdlets) anziché il cmdlet `Get-AzAutomationCredential`, perché quest'ultimo recupera solo le informazioni sulle credenziali. Queste informazioni non sono in genere utili da passare a un altro cmdlet. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Ottiene una credenziale con una richiesta di nome utente e password. Questo cmdlet fa parte del modulo Microsoft.PowerShell.Security predefinito. Vedere [Moduli predefiniti](modules.md#default-modules).|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Crea un asset di credenziali. Questo cmdlet fa parte del modulo di Azure predefinito. Vedere [Moduli predefiniti](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | Crea un asset di credenziali. Questo cmdlet fa parte del modulo di Azure predefinito. Vedere [Moduli predefiniti](modules.md#default-modules).|
 
 Per recuperare oggetti `PSCredential` nel codice è necessario importare il modulo `Orchestrator.AssetManagement.Cmdlets`. Per altre informazioni, vedere [Gestire i moduli in Automazione di Azure](modules.md).
 
