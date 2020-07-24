@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067562"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
@@ -126,7 +126,7 @@ Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodica
 * **TimeoutSeconds**: specifica l'intervallo di tempo prima del timeout della richiesta.
 * **TimeWindowMinutes**: specifica l'intervallo di tempo per l'esecuzione di query sui dati. Il valore predefinito è 60 minuti, ovvero l'intervallo massimo consentito.
 
-## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
 
@@ -138,9 +138,9 @@ La progettazione attuale presenta i problemi e le limitazioni seguenti:
 
 Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio, vedere:
 
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) (Creare un'entità servizio usando PowerShell)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
+* [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) (Creare un'entità servizio usando PowerShell)
+* [Create a service principal by using Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
+* [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) (Creare un'entità servizio usando il portale di Azure)
 
 ### <a name="suggestions"></a>Suggerimenti
 

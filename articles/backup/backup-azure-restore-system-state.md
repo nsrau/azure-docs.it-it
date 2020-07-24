@@ -3,12 +3,12 @@ title: Ripristinare lo stato del sistema per Windows Server
 description: Spiegazione dettagliata del ripristino dello stato del sistema di Windows Server da un backup in Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067368"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -183,7 +183,7 @@ In questo articolo verrà illustrato solo il primo scenario, che richiede un rip
         >[!NOTE]
         >Se si ripristinano tutti i dati Active Directory (e non sono presenti controller di dominio che funzionano nella foresta), nel passaggio 9 precedente assicurarsi di selezionare **Esegui un ripristino autorevole di file di Active Directory**.
 
-    * Utilizzare l'utilità [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) per eseguire il ripristino dalla riga di comando.
+    * Utilizzare l'utilità [Wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) per eseguire il ripristino dalla riga di comando.
 
         È necessario l'identificatore di versione del backup che si vuole usare. È possibile ottenere un elenco di identificatori di versione eseguendo questo comando:
 
@@ -193,7 +193,7 @@ In questo articolo verrà illustrato solo il primo scenario, che richiede un rip
 
         Usare quindi tale identificatore di versione per eseguire il ripristino.
 
-        Ad esempio, per eseguire un [ripristino nonauthorative di servizi di dominio Active Directory e un ripristino autorevole della cartella SYSVOL](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) usando il backup da 04/30/2020 alle 9:00 AM, archiviato nella risorsa condivisa `\\servername\share` per `server01` , digitare:
+        Ad esempio, per eseguire un [ripristino nonauthorative di servizi di dominio Active Directory e un ripristino autorevole della cartella SYSVOL](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) usando il backup da 04/30/2020 alle 9:00 AM, archiviato nella risorsa condivisa `\\servername\share` per `server01` , digitare:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

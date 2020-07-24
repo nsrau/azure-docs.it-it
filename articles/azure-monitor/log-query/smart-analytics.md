@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82960845e357579b82c493958287cb602d75182e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067390"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Esempi di analisi intelligente di Log Analytics
 Questo articolo contiene esempi che usano le funzioni di analisi intelligente di Log Analytics per eseguire l'analisi dell'attività utente. È possibile usare questi esempi per analizzare le applicazioni monitorate da Application Insights o usare i concetti delle query per eseguire analisi simili su altri dati. 
 
-Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](https://docs.microsoft.com/azure/kusto/query/). Se non si conosce Log Analytics, seguire una [lezione sulla creazione di query](get-started-queries.md).
+Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](/azure/kusto/query/). Se non si conosce Log Analytics, seguire una [lezione sulla creazione di query](get-started-queries.md).
 
 ## <a name="cohorts-analytics"></a>Analisi di coorte
 

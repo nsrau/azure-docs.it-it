@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067410"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,6 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 
 | Funzionalità | Dettagli |
 | ---| --- |
-| Nuove generazioni di hardware serie Fsv2 e serie M| Per informazioni, vedere [Generazioni hardware](service-tiers-vcore.md#hardware-generations).|
 | Rescupero accelerato del database con database singoli e pool elastici | Per informazioni, vedere [Ripristino accelerato del database](../accelerated-database-recovery.md).|
 | Individuazione dati e classificazione  |Per informazioni, vedere [database SQL di Azure e individuazione dei dati di analisi delle sinapsi di azure & classificazione](data-discovery-and-classification-overview.md).|
 | Processi di database elastici | Per informazioni, vedere [Creare, configurare e gestire processi elastici](elastic-jobs-overview.md). |
@@ -68,7 +67,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 | <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a> | Soluzione comoda ed economica per eseguire la migrazione di istanze SQL di dimensioni ridotte nel cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Entità di sicurezza server (accessi) di Azure AD a livello di istanza</a> | Creare account di accesso a livello di istanza usando un'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">create login from External provider</a> . |
 | [Replica transazionale](../managed-instance/replication-transactional-overview.md) | Replicare le modifiche dalle tabelle in altri database di SQL Istanza gestita, database SQL o SQL Server. In alternativa, aggiornare le tabelle quando alcune righe vengono modificate in altre istanze di SQL Istanza gestita o SQL Server. Per informazioni, vedere [configurare la replica in Azure SQL istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
-| Introduzione al rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in Azure SQL istanza gestita](../managed-instance/threat-detection-configure.md).|
+| Rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in Azure SQL istanza gestita](../managed-instance/threat-detection-configure.md).|
 | Conservazione del backup a lungo termine | Per informazioni, vedere [configurare la conservazione del backup a lungo termine in Azure SQL istanza gestita](../managed-instance/long-term-backup-retention-configure.md), attualmente disponibile in anteprima pubblica limitata. | 
 
 ---
@@ -98,8 +97,8 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 
 |Problema  |Data individuata  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
-|[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Ha una soluzione alternativa| |
-|[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Attenuato automaticamente| |
+|[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
+|[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
 |[Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febbraio 2020|Ha una soluzione alternativa||
 |[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Ha una soluzione alternativa||
 |[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli accessi diversi da sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dicembre 2019|Ha una soluzione alternativa||

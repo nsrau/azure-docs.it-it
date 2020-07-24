@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067697"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -142,6 +142,9 @@ Lo strumento Azcmagent (Azcmagent. exe) viene usato per configurare l'agente Azu
 * **-v o --verbose**: permette di abilitare la registrazione dettagliata
 
 È possibile eseguire un comando **Connetti**, **Disconnetti** e **Riconnetti** manualmente durante l'accesso in modo interattivo oppure automatizzarlo mediante la stessa entità servizio usata per caricare più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md) della piattaforma di identità Microsoft. Se non è stata usata un'entità servizio per registrare il computer con Azure Arc per server (anteprima), vedere l'articolo [seguente](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) per creare un'entità servizio.
+
+>[!NOTE]
+>Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
 
 ### <a name="connect"></a>Connessione
 

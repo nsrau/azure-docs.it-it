@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77660258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067508"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Esperienza dei log semplici in monitoraggio di Azure (anteprima)
 Monitoraggio di Azure offre un' [esperienza avanzata](get-started-portal.md) per la creazione di [query di log](log-query-overview.md) con il linguaggio KQL. È possibile che non sia necessaria tutta la potenza di KQL, ma è preferibile un'esperienza semplificata per i requisiti di query di base. La semplice esperienza dei log consente di creare query di base senza interagire direttamente con KQL. È anche possibile usare i log semplici come strumento di apprendimento per KQL, in quanto sono necessarie query più sofisticate.
@@ -23,7 +24,7 @@ Monitoraggio di Azure offre un' [esperienza avanzata](get-started-portal.md) per
 L'esperienza dei log semplici recupera i dati dalla tabella *AzureDiagnostics*, *AzureMetrics*e *AzureActivity* per la risorsa selezionata. 
 
 ## <a name="using-simple-logs"></a>Uso di log semplici
-Passare a qualsiasi Cosmos DB o Key Vault nella sottoscrizione di Azure con [le impostazioni di diagnostica configurate per raccogliere i log in un'area di lavoro log Analytics](../platform/resource-logs-collect-storage.md). Fare clic su **log** nel menu **monitoraggio** per aprire la semplice esperienza dei log.
+Passare a qualsiasi Cosmos DB o Key Vault nella sottoscrizione di Azure con [le impostazioni di diagnostica configurate per raccogliere i log in un'area di lavoro log Analytics](../platform/resource-logs.md#send-to-azure-storage). Fare clic su **log** nel menu **monitoraggio** per aprire la semplice esperienza dei log.
 
 ![Menu](media/simple-logs/menu.png)
 
