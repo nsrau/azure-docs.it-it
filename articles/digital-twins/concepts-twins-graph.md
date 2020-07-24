@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062065"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -23,7 +23,7 @@ In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambie
 
 ## <a name="digital-twins"></a>Dispositivi gemelli digitali
 
-Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [concetti: modelli personalizzati](concepts-models.md).
+Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [*concetti: modelli personalizzati*](concepts-models.md).
 
 Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor*, è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor*denominato *pianterreno*, un altro denominato *floor2*e così via. 
 
@@ -197,8 +197,8 @@ Di seguito è riportato un esempio di una relazione formattata come oggetto JSON
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere How to Manage Graph elements with Azure Digital Twin API:
-* [Procedura: gestire i dispositivi gemelli digitali](how-to-manage-twin.md)
-* [Procedura: gestire il grafo gemello con relazioni](how-to-manage-graph.md)
+* [*Procedura: gestire i dispositivi gemelli digitali*](how-to-manage-twin.md)
+* [*Procedura: gestire il grafo gemello con relazioni*](how-to-manage-graph.md)
 
 In alternativa, informazioni sull'esecuzione di query sul grafico gemello di Azure Digital gemelli per informazioni:
-* [Concetti: linguaggio di query](concepts-query-language.md)
+* [*Concetti: linguaggio di query*](concepts-query-language.md)

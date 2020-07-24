@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 638a7fa96f4112f9805fd46618dc0acd1c2f382f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063231"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,7 +55,7 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server Iaas 
 
 * Windows Server 2008 R2
 * Windows Server 2012
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows Server 2019 
 
@@ -71,7 +71,7 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server Iaas 
 
 **Azure PowerShell**:
 
-* [Scaricare e configurare i comandi di Azure PowerShell più recenti](/powershell/azure/overview)
+* [Scaricare e configurare i comandi di Azure PowerShell più recenti](/powershell/azure/)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

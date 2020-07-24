@@ -3,14 +3,14 @@ title: Configurare chiavi gestite dal cliente per l'account Azure Batch con Azur
 description: Informazioni su come crittografare i dati in batch usando le chiavi
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: d0dcb79d5e319abd46515162ce5a17e935d9693b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062532"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -20,7 +20,8 @@ Le chiavi fornite devono essere generate in [Azure Key Vault](../key-vault/gener
 
 > [!IMPORTANT]
 > Il supporto per le chiavi gestite dal cliente in Azure Batch è attualmente disponibile in anteprima pubblica per le aree Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, US Gov Virginia e US Gov Arizona.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Creare un account batch con identità gestita assegnata dal sistema
 
@@ -57,6 +58,9 @@ az batch account show \
     -g $resourceGroupName \
     --query identity
 ```
+
+> [!NOTE]
+> L'identità gestita assegnata dal sistema creata in un account batch viene utilizzata solo per il recupero delle chiavi gestite dal cliente dal Key Vault. Questa identità non è disponibile nei pool di batch.
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurare l'istanza di Azure Key Vault
 
@@ -106,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Aggiornare la versione della chiave gestita dal cliente
 
-Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Attenersi ai passaggi descritti di seguito.
+Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Seguire questa procedura:
 
 1. Passare all'account batch in portale di Azure e visualizzare le impostazioni di crittografia.
 2. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
@@ -145,4 +149,5 @@ az batch account set \
   * **Dopo il ripristino dell'accesso, quanto tempo sarà necessario per il corretto funzionamento dell'account batch?** Possono essere necessari fino a 10 minuti prima che l'account sia nuovamente accessibile dopo il ripristino dell'accesso.
   * **Mentre l'account batch non è disponibile, cosa accade alle risorse?** Tutti i pool in esecuzione quando l'accesso batch alle chiavi gestite dal cliente viene perso continuerà a essere eseguito. Tuttavia, i nodi passeranno a uno stato non disponibile e le attività smetteranno di funzionare e verranno riaccodate. Una volta ripristinato l'accesso, i nodi diventeranno nuovamente disponibili e le attività verranno riavviate.
   * **Questo meccanismo di crittografia si applica ai dischi delle macchine virtuali in un pool di batch?** No. Per i pool di configurazione dei servizi cloud, non viene applicata alcuna crittografia per il sistema operativo e il disco temporaneo. Per i pool di configurazione delle macchine virtuali, il sistema operativo e i dischi dati specificati verranno crittografati con una chiave gestita della piattaforma Microsoft per impostazione predefinita. Attualmente, non è possibile specificare la propria chiave per questi dischi. Per crittografare il disco temporaneo delle macchine virtuali per un pool di batch con una chiave gestita dalla piattaforma Microsoft, è necessario abilitare la proprietà [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) nel pool di [configurazione della macchina virtuale](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Per gli ambienti altamente sensibili, è consigliabile abilitare la crittografia del disco temporaneo ed evitare l'archiviazione di dati sensibili nei dischi del sistema operativo e dei dati.
+  * **L'identità gestita assegnata dal sistema per l'account batch è disponibile nei nodi di calcolo?** No. Questa identità gestita viene attualmente utilizzata solo per accedere alla Azure Key Vault per la chiave gestita dal cliente.
   

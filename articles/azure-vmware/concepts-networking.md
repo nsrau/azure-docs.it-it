@@ -2,67 +2,51 @@
 title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività in Azure VMware Solution (AVS)
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 2378ad56e2754b2d2fde7f895f6673e7d7d561c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/23/2020
+ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062849"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e all'interconnettività di Azure VMware Solution (AVS) Preview
 
-L'interconnettività di rete tra i cloud privati della soluzione VMware di Azure (AVS) e gli ambienti locali o le reti virtuali in Azure consente di accedere e usare il cloud privato. In questo articolo vengono descritti alcuni concetti chiave di rete e interconnettività che definiscono la base dell'interconnettività.
+L'interconnettività di rete tra i cloud privati della soluzione VMware di Azure (AVS) e gli ambienti locali o le reti virtuali in Azure consente di accedere e usare il cloud privato. In questo articolo verranno illustrati alcuni concetti chiave che definiscono le basi per la rete e l'interconnettività.
 
-Una prospettiva utile sull'interconnettività consiste nel considerare i due tipi di implementazioni di cloud privato AVS: implementazioni con interconnettività solo Azure di base e implementazioni con l'interconnettività completa da locale a cloud privato.
+Una prospettiva utile sull'interconnettività consiste nel considerare i due tipi di implementazioni di cloud privato AVS:
+
+1. L' [**interconnettività di base di Azure**](#azure-virtual-network-interconnectivity) consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. Questa implementazione è più adatta per le valutazioni AVS o le implementazioni che non richiedono l'accesso da ambienti locali.
+
+1. L' [**interconnettività completa da locale a cloud privato**](#on-premises-interconnectivity) estende l'implementazione di base di Azure per includere l'interconnettività tra cloud privati locali e AVS.
+ 
+È possibile trovare altre informazioni sui requisiti e i due tipi di implementazioni di interconnettività del cloud privato AVS descritti nelle sezioni riportate di seguito.
+
+## <a name="avs-private-cloud-use-cases"></a>Casi d'uso del cloud privato AVS
 
 I casi d'uso per i cloud privati AVS includono:
 - nuovi carichi di lavoro delle macchine virtuali VMware nel cloud
-- Aumento del carico di lavoro della macchina virtuale nel cloud
-- Migrazione del carico di lavoro della macchina virtuale nel cloud
-- ripristino di emergenza
+- Aumento del carico di lavoro della macchina virtuale nel cloud (solo da locale ad AVS)
+- Migrazione del carico di lavoro della macchina virtuale nel cloud (solo da locale ad AVS)
+- ripristino di emergenza (AVS per AVS o da locale a AVS)
 - uso dei servizi di Azure
 
- Tutti i casi d'uso per il servizio AVS sono abilitati con la connettività da sito locale a cloud privato. Il modello di interconnettività di base è ideale per le valutazioni AVS o per le implementazioni che non richiedono l'accesso da ambienti locali.
+ Tutti i casi d'uso per il servizio AVS sono abilitati con la connettività da sito locale a cloud privato. 
 
-I due tipi di interconnettività del cloud privato AVS sono descritti nelle sezioni riportate di seguito.  L'interconnettività di base è "connettività rete virtuale di Azure"; consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. L'interconnettività descritta in "connettività locale" estende la connettività di rete virtuale per includere anche l'interconnettività tra ambienti locali e cloud privati AVS.
+## <a name="virtual-network-and-expressroute-circuit-requirements"></a>Requisiti del circuito ExpressRoute e della rete virtuale
+ 
+Quando si crea una connessione da una rete virtuale nella sottoscrizione, il circuito ExpressRoute viene stabilito tramite peering, usa una chiave di autorizzazione e un ID peering che si richiede nell'portale di Azure. Il peering è una connessione privata, uno-a-uno tra il cloud privato e la rete virtuale.
 
-## <a name="azure-virtual-network-interconnectivity"></a>Interconnettività rete virtuale di Azure
+> [!NOTE] 
+> Il circuito ExpressRoute non fa parte di una distribuzione di cloud privato. Il circuito ExpressRoute locale esula dall'ambito di questo documento. Se è necessaria la connettività locale al cloud privato, è possibile usare uno dei circuiti ExpressRoute esistenti o acquistarne uno nel portale di Azure.
 
-Il diagramma seguente illustra l'interconnettività di rete di base stabilita al momento della distribuzione di un cloud privato. Mostra la rete logica basata su ExpressRoute tra una rete virtuale in Azure e un cloud privato. L'interconnettività soddisfa tre casi d'uso principali:
-- Accesso in ingresso alle reti di gestione in cui si trovano il server vCenter e la gestione NSX-T.
-    - Accessibili dalle macchine virtuali all'interno della sottoscrizione di Azure, non dai sistemi locali.
-- Accesso in uscita dalle macchine virtuali ai servizi di Azure.
-- Accesso in ingresso e utilizzo dei carichi di lavoro che eseguono un cloud privato.
+Quando si distribuisce un cloud privato, si ricevono indirizzi IP per vCenter e NSX-T Manager. Per accedere a tali interfacce di gestione, è necessario creare risorse aggiuntive in una rete virtuale nella sottoscrizione. È possibile trovare le procedure per la creazione di tali risorse e la definizione del peering privato di ExpressRoute nelle esercitazioni.
 
-![Connettività di base da rete virtuale a cloud privato](./media/concepts/adjacency-overview-drawing-single.png)
+La rete logica del cloud privato viene fornita con un pre-provisioning di NSX-T. Viene eseguito il pre-provisioning di un gateway di livello 0 e di un gateway di primo livello. È possibile creare un segmento e collegarlo al gateway di primo livello esistente o collegarlo a un nuovo gateway di primo livello definito dall'utente. I componenti di rete logica NSX-T forniscono la connettività East-West tra i carichi di lavoro e forniscono anche la connettività Nord-Sud a Internet e ai servizi di Azure. 
 
-Il circuito ExpressRoute in questa rete virtuale allo scenario di cloud privato viene stabilito quando si crea una connessione da una rete virtuale nella sottoscrizione al circuito ExpressRoute del cloud privato. Il peering usa una chiave di autorizzazione e un ID di circuito richiesta nell'portale di Azure. La connessione ExpressRoute stabilita tramite il peering è una connessione privata, uno a uno tra il cloud privato e la rete virtuale. È possibile gestire il cloud privato, utilizzare i carichi di lavoro nel cloud privato e accedere ai servizi di Azure tramite la connessione ExpressRoute.
+## <a name="routing-and-subnet-requirements"></a>Requisiti di routing e subnet
 
-Quando si distribuisce un cloud privato AVS, è necessario un singolo spazio di indirizzi della rete privata/22. Questo spazio di indirizzi non deve sovrapporsi agli spazi di indirizzi usati in altre reti virtuali nella sottoscrizione. All'interno di questo spazio di indirizzi, viene effettuato automaticamente il provisioning delle reti di gestione, provisioning e vMotion. Il routing è basato su BGP e viene automaticamente sottoposta a provisioning e abilitato per impostazione predefinita per ogni distribuzione di cloud privato.
-
-Quando viene distribuito un cloud privato, vengono forniti gli indirizzi IP per vCenter e NSX-T Manager. Per accedere a tali interfacce di gestione, è necessario creare risorse aggiuntive in una rete virtuale nella sottoscrizione. Le procedure per la creazione di tali risorse e la definizione del peering privato di ExpressRoute sono disponibili nelle esercitazioni.
-
-È possibile progettare la rete logica del cloud privato e implementarla con NSX-T. Il cloud privato viene fornito con il pre-provisioning di NSX-T. Per l'utente è stato eseguito il pre-provisioning di un gateway di livello 0 & gateway di livello 1. È possibile creare un segmento e collegarlo al gateway di primo livello esistente o collegarlo a un nuovo gateway di primo livello che è possibile definire. I componenti di rete logica NSX-T forniscono la connettività East-West tra i carichi di lavoro e forniscono anche la connettività Nord-Sud a Internet e ai servizi di Azure. 
-
-## <a name="on-premises-interconnectivity"></a>Interconnettività locale
-
-È anche possibile connettere ambienti locali ai cloud privati AVS. Questo tipo di interconnettività è un'estensione dell'interconnettività di base descritta nella sezione precedente.
-
-![rete virtuale e connettività cloud privata completa locale](./media/concepts/adjacency-overview-drawing-double.png)
-
-Per stabilire un'interconnettività completa a un cloud privato, è possibile usare la portale di Azure per abilitare il Copertura globale ExpressRoute tra un circuito ExpressRoute del cloud privato e un circuito ExpressRoute locale. Questa configurazione estende la connettività di base per includere l'accesso a cloud privati da ambienti locali.
-
-È necessario un circuito ExpressRoute da locale a rete virtuale di Azure per connettersi da ambienti locali al cloud privato in Azure. Questo circuito ExpressRoute si trova nella sottoscrizione e non fa parte di una distribuzione di cloud privato. Il circuito ExpressRoute locale esula dall'ambito di questo documento. Se è necessaria la connettività locale al cloud privato, è possibile usare uno dei circuiti ExpressRoute esistenti o acquistarne uno nel portale di Azure.
-
-Una volta collegato con Copertura globale, i due circuiti ExpressRoute instraderanno il traffico di rete tra gli ambienti locali e il cloud privato. L'interconnettività da locale a cloud privato è illustrata nel diagramma precedente. L'interconnettività rappresentata nel diagramma consente i casi d'uso seguenti:
-
-- Cross-vCenter a caldo/freddo, vMotion
-- Accesso a gestione cloud privato da sito locale ad AVS
-
-Per abilitare la connettività completa, è possibile richiedere una chiave di autorizzazione e un ID di peering privato per Copertura globale nell'portale di Azure. Usare la chiave e l'ID per stabilire Copertura globale tra un circuito ExpressRoute nella sottoscrizione e il circuito ExpressRoute per il nuovo cloud privato. Nell' [esercitazione per la creazione di un cloud privato](tutorial-create-private-cloud.md) vengono fornite le procedure per la richiesta e l'utilizzo della chiave e dell'ID.
-
-Per i requisiti di routing della soluzione è necessario pianificare gli spazi di indirizzi della rete del cloud privato in modo da evitare sovrapposizioni con altre reti virtuali e reti locali. I cloud privati di AVS richiedono almeno un blocco di indirizzi di rete `/22` CIDR per le subnet, come illustrato di seguito. Questa rete integra le reti locali disponibili. Per la connessione ad ambienti locali e reti virtuali, questo blocco di indirizzi di rete non deve essere sovrapposto.
+Il routing è Border Gateway Protocol (BGP), che viene automaticamente sottoposta a provisioning e abilitato per impostazione predefinita per ogni distribuzione di cloud privato. Per i cloud privati AVS, è necessario pianificare gli spazi di indirizzi di rete del cloud privato con una lunghezza minima di/22 blocchi di indirizzi di rete CIDR per le subnet, come illustrato nella tabella seguente. Il blocco di indirizzi non deve sovrapporsi ai blocchi di indirizzi usati in altre reti virtuali presenti nella sottoscrizione e nelle reti locali. All'interno di questo blocco di indirizzi, viene effettuato automaticamente il provisioning delle reti di gestione, provisioning e vMotion.
 
 Esempio di blocco di indirizzi di rete `/22` CIDR: `10.10.0.0/22`
 
@@ -70,10 +54,35 @@ Le subnet:
 
 | Utilizzo di rete             | Subnet | Esempio        |
 | ------------------------- | ------ | -------------- |
-| Gestione del cloud privato            | `/24`    | `10.10.0.0/24`   |
-| Rete vMotion       | `/24`    | `10.10.1.0/24`   |
-| Carichi di lavoro della VM | `/24`   | `10.10.2.0/24`   |
-| Peering ExpressRoute | `/24`    | `10.10.3.8/30`   |
+| Gestione del cloud privato  | `/24`  | `10.10.0.0/24` |
+| Rete vMotion           | `/24`  | `10.10.1.0/24` |
+| Carichi di lavoro della VM              | `/24`  | `10.10.2.0/24` |
+| Peering ExpressRoute      | `/24`  | `10.10.3.8/30` |
+
+
+## <a name="azure-virtual-network-interconnectivity"></a>Interconnettività rete virtuale di Azure
+
+Nell'implementazione della rete virtuale per il cloud privato è possibile gestire il cloud privato AVS, utilizzare i carichi di lavoro nel cloud privato e accedere ai servizi di Azure tramite la connessione ExpressRoute. 
+
+Il diagramma seguente illustra l'interconnettività di rete di base stabilita al momento della distribuzione di un cloud privato. Mostra la rete logica basata su ExpressRoute tra una rete virtuale in Azure e un cloud privato. L'interconnettività soddisfa tre casi d'uso principali:
+* Accesso in ingresso al server vCenter e alla gestione NSX-T accessibili dalle macchine virtuali nella sottoscrizione di Azure e non dai sistemi locali. 
+* Accesso in uscita dalle macchine virtuali ai servizi di Azure. 
+* Accesso in ingresso e utilizzo dei carichi di lavoro che eseguono un cloud privato.
+
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Connettività da rete virtuale di base a cloud privato" border="false":::
+
+## <a name="on-premises-interconnectivity"></a>Interconnettività locale
+
+Nella rete virtuale e nell'implementazione da locale a cloud privato completo è possibile accedere ai cloud privati AVS da ambienti locali. Questa implementazione è un'estensione dell'implementazione di base descritta nella sezione precedente. Analogamente all'implementazione di base, è necessario un circuito ExpressRoute, ma con questa implementazione viene usato per connettersi da ambienti locali al cloud privato in Azure. 
+
+Il diagramma seguente illustra l'interconnettività da locale a cloud privato, che consente i casi d'uso seguenti:
+* Cross-vCenter a caldo/freddo, vMotion
+* Accesso locale per la gestione del cloud privato AVS
+
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rete virtuale e connettività cloud privata completa locale" border="false":::
+
+Per l'interconnettività completa con il cloud privato, abilitare ExpressRoute Copertura globale e quindi richiedere una chiave di autorizzazione e un ID di peering privato per Copertura globale nel portale di Azure. La chiave di autorizzazione e l'ID del peering vengono usati per stabilire Copertura globale tra un circuito ExpressRoute nella sottoscrizione e il circuito ExpressRoute per il nuovo cloud privato. Una volta collegati, i due circuiti ExpressRoute instradano il traffico di rete tra gli ambienti locali al cloud privato.  Vedere l' [esercitazione per la creazione di un ExpressRoute copertura globale peering a un cloud privato](tutorial-expressroute-global-reach-private-cloud.md) per le procedure per richiedere e usare la chiave di autorizzazione e l'ID del peering.
+
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

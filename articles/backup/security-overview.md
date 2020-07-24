@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza di Backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062596"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza in Backup di Azure
 
@@ -16,7 +16,7 @@ Una delle decisioni più importanti che è possibile prendere per proteggere i d
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestione e controllo dell'identità e dell'accesso utente
 
-Gli account di archiviazione usati dagli insiemi di credenziali di Servizi di ripristino sono isolati e gli utenti non possono accedervi per eventuali azioni dannose. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino. Backup di Azure consente di controllare le operazioni gestite tramite un accesso con granularità fine usando il [controllo degli accessi in base al ruolo (RBAC)](./backup-rbac-rs-vault.md) di Azure. RBAC consente di separare i compiti all'interno del team e concedere agli utenti l'accesso solo nella misura necessaria per consentire loro di svolgere il lavoro.
+Gli account di archiviazione usati dagli insiemi di credenziali di Servizi di ripristino sono isolati e gli utenti non possono accedervi per eventuali azioni dannose. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino. Backup di Azure consente di controllare le operazioni gestite tramite un accesso con granularità fine tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](./backup-rbac-rs-vault.md). RBAC consente di separare i compiti all'interno del team e concedere agli utenti l'accesso solo nella misura necessaria per consentire loro di svolgere il lavoro.
 
 Backup di Azure offre tre [ruoli predefiniti](../role-based-access-control/built-in-roles.md) per controllare le operazioni di gestione del backup:
 
