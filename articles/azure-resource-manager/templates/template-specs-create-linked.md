@@ -1,0 +1,204 @@
+---
+title: Creare una specifica di modello con i modelli collegati
+description: Informazioni su come creare una specifica di modello con i modelli collegati.
+ms.topic: conceptual
+ms.date: 07/22/2020
+ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87097737"
+---
+# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
+
+Informazioni su come creare una [specifica del modello](template-specs.md) con un [modello collegato](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Questo articolo illustra come creare una specifica del modello per creare un pacchetto di un modello principale e dei relativi modelli collegati usando la nuova `relativePath` proprietà della [risorsa di distribuzione](/azure/templates/microsoft.resources/deployments).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+> [!NOTE]
+> Le specifiche del modello sono attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
+
+## <a name="create-linked-templates"></a>Creare modelli collegati
+
+Creare il modello principale e il modello collegato.
+
+Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella `templateLink` Proprietà specificare il percorso relativo del modello collegato in base al percorso del modello padre.
+
+Il modello collegato viene chiamato **linkedTemplate.json**e viene archiviato in una sottocartella denominata **artefatti** nel percorso in cui è archiviato il modello principale.  È possibile usare uno dei valori seguenti per relativePath:
+
+- `./artifacts/linkedTemplate.json`
+- `/artifacts/linkedTemplate.json`
+- `artifacts/linkedTemplate.json`
+
+Se è presente un altro linkedTemplate2.jsin che viene chiamato da linkedTemplate.json e linkedTemplate2.json viene archiviato nella stessa sottocartella degli artefatti, il relativePath specificato in linkedTemplate.json viene **linkedTemplate2.json**.
+
+1. Creare il modello principale con il codice JSON seguente. Salvare il modello principale come **azuredeploy.jsnel** computer locale. In questa esercitazione si presuppone che sia stato salvato in un percorso **c:\Templates\linkedTS\azuredeploy.js** , ma è possibile utilizzare qualsiasi percorso.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "location": {
+          "type": "string",
+          "defaultValue": "westus2",
+          "metadata":{
+            "description": "Specify the location for the resources."
+          }
+        },
+        "storageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "metadata":{
+            "description": "Specify the storage account type."
+          }
+        }
+      },
+      "variables": {
+        "appServicePlanName": "[concat('plan', uniquestring(resourceGroup().id))]"
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Web/serverfarms",
+          "apiVersion": "2016-09-01",
+          "name": "[variables('appServicePlanName')]",
+          "location": "[parameters('location')]",
+          "sku": {
+            "name": "B1",
+            "tier": "Basic",
+            "size": "B1",
+            "family": "B",
+            "capacity": 1
+          },
+          "kind": "linux",
+          "properties": {
+            "perSiteScaling": false,
+            "reserved": true,
+            "targetWorkerCount": 0,
+            "targetWorkerSizeId": 0
+          }
+        },
+        {
+          "type": "Microsoft.Resources/deployments",
+          "apiVersion": "2020-06-01",
+          "name": "createStorage",
+          "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+              "relativePath": "artifacts/linkedTemplate.json"
+            },
+            "parameters": {
+              "storageAccountType": {
+                "value": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      ]
+    }
+    ```
+
+    > [!NOTE]
+    > Il apiVersion di `Microsoft.Resources/deployments` deve essere 2020-06-01 o versione successiva.
+
+1. Creare una directory denominata **artefatti** nella cartella in cui è salvato il modello principale.
+1. Creare il modello collegato con il codice JSON seguente:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+            "Standard_LRS",
+            "Standard_GRS",
+            "Standard_ZRS",
+            "Premium_LRS"
+          ],
+          "metadata": {
+            "description": "Storage Account type"
+          }
+        },
+        "location": {
+          "type": "string",
+          "defaultValue": "[resourceGroup().location]",
+          "metadata": {
+            "description": "Location for all resources."
+          }
+        }
+      },
+      "variables": {
+        "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Storage/storageAccounts",
+          "apiVersion": "2019-04-01",
+          "name": "[variables('storageAccountName')]",
+          "location": "[parameters('location')]",
+          "sku": {
+            "name": "[parameters('storageAccountType')]"
+          },
+          "kind": "StorageV2",
+          "properties": {}
+        }
+      ],
+      "outputs": {
+        "storageAccountName": {
+          "type": "string",
+          "value": "[variables('storageAccountName')]"
+        }
+      }
+    }
+    ```
+
+1. Salvare il modello come **linkedTemplate.js** nella cartella **artefatti** .
+
+## <a name="create-template-spec"></a>Crea specifica modello
+
+Le specifiche di modelli vengono archiviate in gruppi di risorse.  Creare un gruppo di risorse e quindi creare una specifica del modello con lo script seguente. Il nome della specifica del modello è **webspec**.
+
+```azurepowershell
+New-AzResourceGroup `
+  -Name templateSpecRG `
+  -Location westus2
+
+New-AzTemplateSpec `
+  -ResourceGroupName templateSpecRG `
+  -Name webSpec `
+  -Version "1.0.0.0" `
+  -Location westus2 `
+  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+Al termine, è possibile visualizzare la specifica del modello dal portale di Azure o usando il cmdlet seguente:
+
+```azurepowershell-interactive
+Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
+```
+
+## <a name="deploy-template-spec"></a>Distribuisci specifiche modello
+
+È ora possibile distribuire la specifica del modello. la distribuzione della specifica del modello è simile alla distribuzione del modello in essa contenuto, con la differenza che viene passato l'ID risorsa della specifica del modello. Usare gli stessi comandi di distribuzione e, se necessario, passare i valori dei parametri per la specifica del modello.
+
+```azurepowershell
+New-AzResourceGroup `
+  -Name webRG `
+  -Location westus2
+
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName webRG
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni sulla distribuzione di una specifica di modello come modello collegato, vedere [esercitazione: distribuire una specifica di modello come modello collegato](template-specs-deploy-linked-template.md).
