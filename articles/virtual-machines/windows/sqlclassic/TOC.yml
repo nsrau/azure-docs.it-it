@@ -35,7 +35,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
-      href: /powershell/azure/overview?view=azuresmps-3.7.0
+      href: /powershell/azure/?view=azuresmps-3.7.0
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/
     - name: T-SQL
