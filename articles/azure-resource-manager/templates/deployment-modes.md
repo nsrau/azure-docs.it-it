@@ -2,12 +2,13 @@
 title: Modalità di distribuzione
 description: Viene descritto come specificare se usare una modalità di distribuzione completa o incrementale con Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040426"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -20,6 +21,9 @@ La modalità predefinita è incrementale.
 ## <a name="complete-mode"></a>Modalità completa
 
 Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
+
+> [!NOTE]
+> Usare sempre l' [operazione](template-deploy-what-if.md) di simulazione prima di distribuire un modello in modalità completa. Cosa-se Mostra le risorse che verranno create, eliminate o modificate. Usare il tipo di simulazione per evitare l'eliminazione involontaria delle risorse.
 
 Se il modello include una risorsa che non viene distribuita perché la [condizione](conditional-resource-deployment.md) restituisce false, il risultato dipende dalla versione dell'API REST usata per distribuire il modello. Se si usa una versione precedente alla 2019-05-10, la risorsa **non viene eliminata**. Con 2019-05-10 o versioni successive, la risorsa **viene eliminata**. Le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure Elimina la risorsa.
 
@@ -49,6 +53,8 @@ Nella modalità incrementale, Resource Manager **lascia invariate** le risorse e
 
 > [!NOTE]
 > Quando si ridistribuisce una risorsa esistente in modalità incrementale, tutte le proprietà vengono riapplicate. Le **proprietà non vengono aggiunte in modo incrementale**. Un equivoco comune è pensare che le proprietà che non sono specificate nel modello rimangano invariate. Se non si specificano determinate proprietà, Gestione risorse interpreta la distribuzione come sovrascrivendo tali valori. Le proprietà che non sono incluse nel modello vengono reimpostate sui valori predefiniti. Specificare tutti i valori non predefiniti per la risorsa, non solo quelli che si sta aggiornando. La definizione di risorsa nel modello contiene sempre lo stato finale della risorsa. Non può rappresentare un aggiornamento parziale di una risorsa esistente.
+>
+> In rari casi, le proprietà specificate per una risorsa vengono effettivamente implementate come una risorsa figlio. Ad esempio, quando si specificano i valori di configurazione del sito per un'app Web, tali valori vengono implementati nel tipo di risorsa figlio `Microsoft.Web/sites/config` . Se si ridistribuisce l'app Web e si specifica un oggetto vuoto per i valori di configurazione del sito, la risorsa figlio non viene aggiornata. Tuttavia, se si specificano nuovi valori di configurazione del sito, il tipo di risorsa figlio viene aggiornato.
 
 ## <a name="example-result"></a>Risultati di esempio
 

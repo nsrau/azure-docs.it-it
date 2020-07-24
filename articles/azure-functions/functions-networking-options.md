@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a88570805a9fc23904bfe82f91813b3460d0b10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045936"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -119,7 +119,7 @@ Si supponga ad esempio di voler configurare Azure Cosmos DB in modo che accetti 
 
 ## <a name="hybrid-connections"></a>connessioni ibride
 
-Le [connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) sono una funzionalità di Inoltro di Azure che consente di accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarla per accedere all'applicazione. Le connessioni ibride sono disponibili per le funzioni che vengono eseguite in Windows in tutte le versioni meno il Piano a consumo.
+Le [connessioni ibride](../azure-relay/relay-hybrid-connections-protocol.md) sono una funzionalità di Inoltro di Azure che consente di accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarla per accedere all'applicazione. Le connessioni ibride sono disponibili per le funzioni che vengono eseguite in Windows in tutte le versioni meno il Piano a consumo.
 
 Come in Funzioni di Azure, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Questo significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e in qualsiasi applicazione, a condizione che si acceda a una porta TCP in ascolto. La funzionalità Connessioni ibride non conosce né deve conoscere qual è il protocollo dell'applicazione o a quale risorsa sta accedendo l'utente. Offre solo l'accesso alla rete.
 

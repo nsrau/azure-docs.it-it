@@ -1,6 +1,6 @@
 ---
-title: Bilanciamento del carico del pool host del desktop virtuale Windows-Azure
-description: Metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale di Windows.
+title: Bilanciamento del carico del pool host del desktop virtuale Windows (2019)-Azure
+description: Informazioni sui metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale Windows (versione 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046258"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
+# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Metodi di bilanciamento del carico del pool host (versione 2019)
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../host-pool-load-balancing.md).

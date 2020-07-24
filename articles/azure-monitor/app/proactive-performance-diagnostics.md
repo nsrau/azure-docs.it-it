@@ -4,11 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045796"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -48,7 +49,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e vengono inviate agli utenti con accesso [Ruolo con autorizzazioni di lettura dei dati di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Collaboratore per il monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa di Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
+Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e vengono inviate agli utenti con accesso [Ruolo con autorizzazioni di lettura dei dati di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Collaboratore per il monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa di Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
   ![Impostazioni di rilevamento intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,12 +70,12 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 * *Si possono creare regole personalizzate di rilevamento delle anomalie o personalizzare le regole esistenti?*
 
   * Non ancora, ma è possibile:
-    * [Impostare avvisi](/azure/azure-monitor/platform/alerts-log) per essere informati quando una determinata metrica supera una soglia.
+    * [Impostare avvisi](../platform/alerts-log.md) per essere informati quando una determinata metrica supera una soglia.
     * [Esportare dati di telemetria](../../azure-monitor/app/export-telemetry.md) in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o in [Power BI](../../azure-monitor/app/export-power-bi.md ), in cui è possibile analizzarli personalmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
-* *Ciò sostituisce [gli avvisi delle metriche](/azure/azure-monitor/platform/alerts-log)?*
+* *Ciò sostituisce [gli avvisi delle metriche](../platform/alerts-log.md)?*
   * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
@@ -175,9 +176,9 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 * [Profiler](profiler.md) 
 * [Debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md)
 * [Analisi](../../azure-monitor/log-query/get-started-portal.md)
-* [Diagnostica intelligenti di Analisi](../../azure-monitor/app/analytics.md)
+* [Diagnostica intelligenti di Analisi](../log-query/log-query-overview.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](/azure/azure-monitor/platform/alerts-log)
+* [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)

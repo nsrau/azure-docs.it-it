@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040583"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ I criteri di controllo predefinito includono tutte le azioni e il set di gruppi 
 Il database SQL di Azure e il controllo di Azure sinapsi archivia 4000 caratteri di dati per i campi di tipo carattere in un record di controllo. Quando i valori **statement** o **data_sensitivity_information** restituiti da un'azione controllabile contengono più di 4000 caratteri, i dati oltre i primi 4000 caratteri verranno **troncati e non controllati**.
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
+  > [!NOTE]
+  > Non è possibile abilitare il controllo in un pool SQL sinapsi sospeso. Per abilitare il controllo, annullare la sospensione del pool SQL sinapsi. Altre informazioni sul [pool di SQL sinapsi](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **controllo** sotto l'intestazione sicurezza nel riquadro **database SQL** o **SQL Server** .
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e appena creati in questo server.
@@ -100,7 +103,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 
   ![archiviazione di Azure](./media/auditing-overview/auditing_select_storage.png)
 
-#### <a name="remarks"></a>Commenti
+#### <a name="remarks"></a>Osservazioni
 
 - I log di controllo vengono scritti per **aggiungere BLOB** in un archivio BLOB di Azure nella sottoscrizione di Azure
 - Per configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database, seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Assicurarsi di aver selezionato **Consenti aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile.
@@ -119,10 +122,6 @@ Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analy
 Per altre informazioni sulle aree di lavoro dei log di monitoraggio di Azure, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllare la destinazione dell'hub eventi
-
-> [!WARNING]
-> L'abilitazione del controllo in un server che dispone di un pool di database SQL **determina il riavvio del pool di database SQL e la nuova sospensione,** che può comportare addebiti per la fatturazione.
-> Non è possibile abilitare il controllo in un pool di database SQL sospeso. Per abilitarla, annullare la sospensione del pool di database SQL.
 
 Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 

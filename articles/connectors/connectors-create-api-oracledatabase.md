@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039987"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -77,7 +77,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
     Nell'esempio seguente i dati del processo vengono restituiti da un database delle risorse umane: 
 
-    ![La finestra di dialogo intitolata "Get Row (Preview)" include due caselle di testo: "Table Name", che contiene "HRJOBS" e un elenco a discesa e "Row ID", che contiene "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![La finestra di dialogo intitolata "Get Row (Preview)" include due caselle di testo: "Table Name", che contiene "H R JOBS" e un elenco a discesa e "Row i d", che contiene "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole testare il recupero dei dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati Oracle usando uno dei connettori di invio di posta elettronica, ad esempio Office 365 Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
 

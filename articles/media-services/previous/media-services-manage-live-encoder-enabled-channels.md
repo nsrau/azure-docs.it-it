@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042820"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -70,7 +71,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione) |YES |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |YES |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No |
 
@@ -216,14 +217,14 @@ Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 #### <a name="output-video-stream"></a>Flusso video di output
 
-| Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
+| Velocità in bit | Larghezza | Altezza | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
 
@@ -239,14 +240,14 @@ Quando nel canale è abilitata la codifica live, nella pipeline è presente un c
 
 Di seguito sono elencate le proprietà che è possibile usare quando si inviano segnali pubblicitari. 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Durata
 Durata dell'interruzione pubblicitaria in secondi. Per avviare l'interruzione pubblicitaria, deve essere un valore positivo diverso da zero. Quando è in corso un'interruzione pubblicitaria e la durata è impostata su zero con ID battuta corrispondente all'interruzione pubblicitaria in corso, l'interruzione viene annullata.
 
 ### <a name="cueid"></a>ID battuta
 ID univoco dell'interruzione pubblicitaria che dovrà essere usato dall'applicazione downstream per eseguire le operazioni necessarie. Deve essere un intero positivo. È possibile impostare questo valore su qualsiasi intero positivo casuale oppure usare un sistema upstream per tenere traccia degli ID battuta. Assicurarsi di normalizzare tutti gli ID in interi positivi prima dell'invio tramite l'API.
 
 ### <a name="show-slate"></a>Visualizza slate
-Facoltativa. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
+facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
 
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata. 
 
@@ -255,7 +256,7 @@ L'immagine usata sarà quella specificata tramite la proprietà ID asset dello s
 
 Il codificatore live può essere configurato per passare a un'immagine dello slate e nascondere il segnale video in ingresso in determinate situazioni, ad esempio, durante un'interruzione pubblicitaria. Se non è configurato uno slate, il video di input non viene mascherato durante l'interruzione pubblicitaria.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Durata
 Durata dello slate in secondi. Per avviare lo slate, deve essere un valore positivo diverso da zero. Se è in corso uno slate e viene specificata una durata pari a zero, lo slate in corso verrà terminato.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserisci slate su marcatore di annuncio
@@ -263,7 +264,7 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 ### <a name="default-slate-asset-id"></a><a id="default_slate"></a>ID asset dello slate predefinito
 
-Facoltativa. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
+facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è null. 
 
 
 > [!NOTE] 
@@ -312,7 +313,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione) |Sì |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |Sì |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No |
 
@@ -349,7 +350,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati
@@ -359,11 +360,10 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [Creare canali che eseguono la codifica live da flusso a bitrate singolo a flusso a bitrate adattivo con .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Gestire i canali con l'API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Gestire i canali con l'API REST](/rest/api/media/operations/channel)
 
 [Concetti relativi a servizi multimediali](media-services-concepts.md)
 
 [Specifica di inserimento Live MP4 frammentato di servizi multimediali di Azure](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

@@ -12,16 +12,16 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 900e76fff3e5ccf88fa1e25ebea97f26e406a358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042549"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Distribuire Micro Focus Enterprise Server 5,0 ad AKS
 
-In un altro [articolo](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)sono stati illustrati i passaggi per eseguire Micro Focus Enterprise Server 5,0 in un contenitore docker. Per completare questa procedura, desidero illustrare come eseguire un ulteriore passaggio e distribuire l'immagine Docker creata nel servizio Azure Kubernetes (AKS).
+In un altro [articolo](./run-enterprise-server-container.md)sono stati illustrati i passaggi per eseguire Micro Focus Enterprise Server 5,0 in un contenitore docker. Per completare questa procedura, desidero illustrare come eseguire un ulteriore passaggio e distribuire l'immagine Docker creata nel servizio Azure Kubernetes (AKS).
 
 Il servizio Azure Kubernetes è un servizio di orchestrazione gestito basato su Kubernetes. Consente di distribuire, ridimensionare e gestire contenitori Docker (e altre applicazioni basate su contenitori) in un cluster di host contenitore.
 
@@ -119,4 +119,4 @@ Verrà visualizzato es-acctdemo come pod in esecuzione, come illustrato nella fi
 
 ![Screenshot es-acctdemo come pod in esecuzione](media/deploy-image-9.png)
 
-Congratulazioni! Si sta ora eseguendo Enterprise Server nel servizio Azure Kubernetes. Nel prossimo articolo verrà illustrato come accedere alla console di amministrazione di Enterprise Server e come sfruttare i Kubernetes per scalare la distribuzione.
+A questo punto, Si sta ora eseguendo Enterprise Server nel servizio Azure Kubernetes. Nel prossimo articolo verrà illustrato come accedere alla console di amministrazione di Enterprise Server e come sfruttare i Kubernetes per scalare la distribuzione.

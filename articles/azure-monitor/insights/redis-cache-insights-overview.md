@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945410"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045857"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Esplorare Monitoraggio di Azure per la cache di Azure per Redis (anteprima)
 
@@ -120,7 +120,7 @@ Se si seleziona **Errori** nella parte superiore della pagina, si apre la tabell
 
 ### <a name="metric-definitions"></a>Definizioni delle metriche
 
-Per un elenco completo delle definizioni delle metriche che formano queste cartelle di lavoro, vedere [l'articolo sulle metriche e gli intervalli di segnalazione disponibili](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Per un elenco completo delle definizioni delle metriche che formano queste cartelle di lavoro, vedere [l'articolo sulle metriche e gli intervalli di segnalazione disponibili](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Visualizzazione da una risorsa della cache di Azure per Redis
 
@@ -156,7 +156,7 @@ Selezionando una delle altre schede per **Prestazioni** o **Operazioni** vengono
 
 ## <a name="pin-export-and-expand"></a>Aggiungere, esportare ed espandere
 
-Per aggiungere una sezione di metriche a un [dashboard di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), selezionare il simbolo della puntina da disegno nell'angolo in alto a destra della sezione.
+Per aggiungere una sezione di metriche a un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md), selezionare il simbolo della puntina da disegno nell'angolo in alto a destra della sezione.
 
 ![Sezione di metriche con il simbolo della puntina da disegno evidenziato](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
 * Per informazioni sugli scenari supportati dalle cartelle di lavoro, su come creare o personalizzare report e su altro ancora, vedere [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).

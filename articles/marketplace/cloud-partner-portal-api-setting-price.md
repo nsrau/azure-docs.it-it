@@ -3,26 +3,25 @@ title: Prezzi per le offerte di macchine virtuali-Azure Marketplace
 description: Vengono illustrati i tre metodi per specificare i prezzi delle offerte della macchina virtuale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039118"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 
 > [!NOTE]
-> Le API del portale Cloud Partner sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte in esso. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
+> Le API portale Cloud Partner sono integrate con e continueranno a funzionare nel centro per i partner. La transizione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](./cloud-partner-portal-api-overview.md) per assicurarsi che il codice continui a funzionare dopo la transizione al centro per i partner. Le API CPP devono essere usate solo per i prodotti esistenti già integrati prima della transizione al centro per i partner; i nuovi prodotti devono usare le API di invio del centro per i partner.
 
 Esistono tre modi per specificare i prezzi per le offerte di macchine virtuali: prezzi core personalizzati, prezzi per core e fogli di calcolo dei prezzi.
 
-
-<a name="customized-core-pricing"></a>Prezzi core personalizzati
------------------------
+## <a name="customized-core-pricing"></a>Prezzi core personalizzati
 
 I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'elenco sell deve essere specificata nella sezione **virtualMachinePricing** / **regionPrices** della definizione.  Nella richiesta, usare i codici di valuta corretti per ogni [area](#regions).  L'esempio seguente illustra questi requisiti:
 
@@ -66,9 +65,7 @@ I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'
      }
 ```
 
-
-<a name="per-core-pricing"></a>Prezzi per core
-----------------
+## <a name="per-core-pricing"></a>Prezzi per core
 
 In questo caso, gli editori specificano un unico prezzo in USD per SKU e tutti gli altri prezzi sono generati automaticamente. Il prezzo per core viene specificato nella richiesta nel parametro **singolo**.
 
@@ -84,9 +81,7 @@ In questo caso, gli editori specificano un unico prezzo in USD per SKU e tutti g
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>Foglio di calcolo dei prezzi
--------------------
+## <a name="spreadsheet-pricing"></a>Foglio di calcolo dei prezzi
 
 L'editore può anche caricare il foglio di calcolo dei prezzi in un percorso di archiviazione temporaneo, quindi includere l'URI nella richiesta, come altri file artefatti. Il foglio di calcolo viene quindi caricato, tradotto per valutare la pianificazione prezzi specificata e infine viene aggiornato con le informazioni sui prezzi dell'offerta. Le successive richieste GET per l'offerta restituiranno l'URI del foglio di calcolo e i prezzi valutati per l'area.
 
@@ -101,14 +96,11 @@ L'editore può anche caricare il foglio di calcolo dei prezzi in un percorso di 
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni core aggiunte il 7/2/2019
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni core aggiunte il 7/2/2019
 
 Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni di macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le dimensioni di base 10, 44, 48, 60, 120, 208 e 416.  Per le macchine virtuali esistenti, i nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno fino al 1 ° agosto 2019 per esaminare i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dal server di pubblicazione, i prezzi calcolati automaticamente per queste nuove dimensioni di core diverranno effettivi.
 
-
-<a name="regions"></a>Regioni
--------
+## <a name="regions"></a>Regioni
 
 La tabella seguente illustra le diverse aree che è possibile specificare per i prezzi core personalizzati e i codici di valuta corrispondenti.
 

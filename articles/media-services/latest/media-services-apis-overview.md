@@ -13,15 +13,16 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043415"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di Servizi multimediali v3
 
-Gli sviluppatori possono usare l'[API REST](https://docs.microsoft.com/rest/api/media/) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
+Gli sviluppatori possono usare l'[API REST](/rest/api/media/) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
 
 Questo articolo descrive le regole applicabili alle entità e alle API quando vengono eseguite attività di sviluppo con Servizi multimediali v3.
 
@@ -53,7 +54,7 @@ Nella figura seguente i numeri rappresentano il flusso delle richieste in ordine
    * URI di risorsa per Servizi multimediali REST.
    * Valori dell'app Azure AD: ID client e segreto client.
 
-   Per ottenere tutti i valori necessari, vedere [Accedere all'API di Servizi multimediali di Azure](access-api-cli-how-to.md).
+   Per ottenere tutti i valori necessari, vedere [Accedere all'API di Servizi multimediali di Azure](./access-api-howto.md).
 
 2. Il token di accesso di Azure AD viene inviato al livello intermedio.
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.
@@ -79,36 +80,36 @@ Per altre informazioni sulla denominazione di Azure Resource Manager, vedere [Re
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomi di file/BLOB all'interno di un asset
 
-I nomi di file/BLOB all'interno di un asset devono rispettare i [requisiti del nome del BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e i [requisiti del nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Questi requisiti sono necessari perché i file possano essere copiati dall'archiviazione BLOB in un disco NTFS locale per l'elaborazione.
+I nomi di file/BLOB all'interno di un asset devono rispettare i [requisiti del nome del BLOB](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) e i [requisiti del nome NTFS](/windows/win32/fileio/naming-a-file). Questi requisiti sono necessari perché i file possano essere copiati dall'archiviazione BLOB in un disco NTFS locale per l'elaborazione.
 
 ## <a name="long-running-operations"></a>Operazioni a esecuzione prolungata
 
 Le operazioni contrassegnate con `x-ms-long-running-operation` nei [file Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) di Servizi multimediali di Azure sono a esecuzione prolungata. 
 
-Per informazioni dettagliate su come tenere traccia delle operazioni asincrone di Azure, vedere [Operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Per informazioni dettagliate su come tenere traccia delle operazioni asincrone di Azure, vedere [Operazioni asincrone](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
 
 Servizi multimediali include le seguenti operazioni a esecuzione prolungata:
 
-* [Creare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Aggiornare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/update)
-* [Eliminare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Avviare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/start)
-* [Arrestare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [Creare un evento live](/rest/api/media/liveevents/create)
+* [Aggiornare un evento live](/rest/api/media/liveevents/update)
+* [Eliminare un evento live](/rest/api/media/liveevents/delete)
+* [Avviare un evento live](/rest/api/media/liveevents/start)
+* [Arrestare un evento live](/rest/api/media/liveevents/stop)
 
   Usare il parametro `removeOutputsOnStop` per eliminare tutti gli output live associati quando si arresta l'evento.  
-* [Reimpostare un evento live](https://docs.microsoft.com/rest/api/media/liveevents/reset)
-* [Creare un output live](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Eliminare un output live](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Creare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
-* [Aggiornare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
-* [Eliminare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
-* [Avviare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [Arrestare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
-* [Dimensionare un'entità StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+* [Reimpostare un evento live](/rest/api/media/liveevents/reset)
+* [Creare un output live](/rest/api/media/liveevents/create)
+* [Eliminare un output live](/rest/api/media/liveevents/delete)
+* [Creare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/create)
+* [Aggiornare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/update)
+* [Eliminare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/delete)
+* [Avviare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/start)
+* [Arrestare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
+* [Dimensionare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
 Dopo l'invio di un'operazione di lunga durata, viene visualizzato un messaggio "202 Accettato" ed è necessario eseguire il polling dell'operazione completata usando l'ID operazione restituito.
 
-L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
+L'articolo [Tenere traccia delle operazioni asincrone](../../azure-resource-manager/management/async-operations.md) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
 
 Per un determinato evento live o per qualsiasi output live associato è supportata una sola operazione a esecuzione prolungata. Dopo l'avvio, un'operazione a esecuzione prolungata deve essere completata prima di avviare una successiva operazione a esecuzione prolungata per lo stesso evento live o per qualsiasi output live associato. Per gli eventi live con più output live, è necessario attendere il completamento di un'operazione a esecuzione prolungata per un output live prima di attivare un'operazione a esecuzione prolungata per un altro output live. 
 
@@ -147,7 +148,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="see-also"></a>Vedere anche
 
-Per ottenere tutti i valori necessari, vedere [Accedere all'API di Servizi multimediali di Azure](access-api-cli-how-to.md).
+Per ottenere tutti i valori necessari, vedere [Accedere all'API di Servizi multimediali di Azure](./access-api-howto.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

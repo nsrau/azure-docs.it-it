@@ -5,23 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046628"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Azure Time Series Insights Gen1 usando il portale di Azure
 
 In questo articolo viene descritto come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights. Risulta utile associare i dati di riferimento ai dati di origine per aumentarne il valore.
 
-Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
+Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Azure Time Series Insights motore di ingresso unisce ogni evento dell'origine evento con la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
 
 Non viene creato un join dei dati di riferimento in maniera retroattiva. In questo modo, solo i dati in ingresso correnti e futuri vengono abbinati e aggiunti al set di date di riferimento, una volta che è stato configurato e caricato.
 
@@ -35,15 +36,15 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. In ques
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Individuare l'ambiente di Azure Time Series Insights esistente. Selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure. Selezionare l'ambiente Time Series Insights.
+1. Individuare l'ambiente di Azure Time Series Insights esistente. Selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure. Selezionare l'ambiente Azure Time Series Insights.
 
-1. Selezionare la pagina **Panoramica**. Espandere la sezione **Essentials** nella parte superiore della pagina per individuare l' **URL di Time Series Insights Explorer** e aprire il collegamento.  
+1. Selezionare la pagina di **panoramica**. Espandere la sezione **Essentials** nella parte superiore della pagina per individuare l' **URL di Time Series Insights Explorer** e aprire il collegamento.  
 
    [![Espandi la sezione Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Visualizzare la finestra di esplorazione per l'ambiente Time Series Insights.
+   Visualizzare la finestra di esplorazione per l'ambiente Azure Time Series Insights.
 
-1. Espandere il selettore di ambiente in Esplora Time Series Insights. Scegliere l'ambiente attivo. Selezionare l'icona dei dati di riferimento nell'angolo superiore destro della pagina dell'Explorer.
+1. Espandere il selettore di ambiente in Esplora Azure Time Series Insights. Scegliere l'ambiente attivo. Selezionare l'icona dei dati di riferimento in alto a destra nella pagina di Explorer.
 
    [![Aggiungere i dati di riferimento](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 

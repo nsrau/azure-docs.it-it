@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041613"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -23,18 +24,18 @@ Monitoraggio di Azure offre le seguenti soluzioni per il monitoraggio delle reti
     * Log di gateway applicazione di Azure
     * Metriche di gateway applicazione di Azure
 * Soluzioni per monitorare e controllare l'attività della rete cloud
-    * [Analisi del traffico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Analisi del traffico](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Analisi del gruppo di sicurezza di rete di Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitoraggio delle prestazioni di rete
 
-La soluzione di gestione [Monitoraggio delle prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.  Viene usata per monitorare la connettività tra:
+La soluzione di gestione [Monitoraggio delle prestazioni di rete](../../networking/network-monitoring-overview.md) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.  Viene usata per monitorare la connettività tra:
 
 * Cloud pubblico e risorse locali
 * Data center e percorsi utente (succursali)
 * Subnet che ospitano vari livelli di un'applicazione multilivello.
 
-Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](../../networking/network-monitoring-overview.md).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway Analytics e Azure Network Security Group Analytics
 Per usare le soluzioni:

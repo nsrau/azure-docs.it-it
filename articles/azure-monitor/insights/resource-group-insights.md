@@ -7,11 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045766"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -45,10 +46,10 @@ Nella pagina delle informazioni dettagliate sul gruppo di risorse sono disponibi
 
    |         |          |
    | ---------------- |:-----|
-   | [**Avvisi**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Consente di visualizzare, creare e gestire gli avvisi. |
-   | [**Metriche**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |
-   | [**Log attività**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
-   | [**Mappa delle applicazioni**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Consente di esplorare la topologia dell'applicazione distribuita per identificare i colli di bottiglia delle prestazioni o le aree sensibili agli errori. |
+   | [**Avvisi**](../platform/alerts-overview.md)      |  Consente di visualizzare, creare e gestire gli avvisi. |
+   | [**Metriche**](../platform/data-platform.md) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |
+   | [**Log attività**](../platform/platform-logs-overview.md) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
+   | [**Mappa delle applicazioni**](../app/app-map.md) | Consente di esplorare la topologia dell'applicazione distribuita per identificare i colli di bottiglia delle prestazioni o le aree sensibili agli errori. |
 
 ## <a name="failures-and-performance"></a>Errori e prestazioni
 
@@ -116,6 +117,6 @@ Monitoraggio di Azure per i gruppi di risorse si basa sul sistema Gestione avvis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Cartelle di lavoro di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Integrità risorse di Azure](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Avvisi di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md)
+- [Integrità risorse di Azure](../../service-health/resource-health-overview.md)
+- [Avvisi di Monitoraggio di Azure](../platform/alerts-overview.md)

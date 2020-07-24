@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045255"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Esercitazione: aggiungere un database SQL di Azure a un gruppo di failover automatico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ Per completare questa esercitazione, accertarsi di avere:
 Per completare l'esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -327,7 +327,7 @@ Questa parte dell'esercitazione usa i cmdlet dell'interfaccia della riga di coma
 
 ---
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Pulire le risorse eliminando il gruppo di risorse.
 
@@ -390,7 +390,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Consente di creare un server che ospita i database singoli e i pool elastici nel database SQL di Azure. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server nel database SQL di Azure. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Consente di creare un nuovo database nel database SQL di Azure. |

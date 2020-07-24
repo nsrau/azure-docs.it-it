@@ -4,12 +4,12 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045811"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -61,13 +61,13 @@ Gli avvisi vengono attivati da un algoritmo di apprendimento automatico propriet
 
 ## <a name="configure-alerts"></a>Configurare gli avvisi
 
-È possibile disabilitare la regola di avviso per il rilevamento intelligente dal portale o usando Azure Resource Manager ([vedere l'esempio del modello](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+È possibile disabilitare la regola di avviso per il rilevamento intelligente dal portale o usando Azure Resource Manager ([vedere l'esempio del modello](./proactive-arm-config.md)).
 
-Questa regola di avviso viene creata con un [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associato denominato "Rilevamento intelligente di Application Insights" che contiene le azioni di posta elettronica e webhook e può essere esteso per attivare azioni aggiuntive quando viene attivato l'avviso.
+Questa regola di avviso viene creata con un [gruppo di azioni](../platform/action-groups.md) associato denominato "Rilevamento intelligente di Application Insights" che contiene le azioni di posta elettronica e webhook e può essere esteso per attivare azioni aggiuntive quando viene attivato l'avviso.
 
 > [!NOTE]
-> Le notifiche di posta elettronica inviate da questa regola di avviso vengono ora inviate per impostazione predefinita agli utenti associati ai ruoli di lettore di monitoraggio e di collaboratore monitoraggio della sottoscrizione. Altre informazioni su questo argomento sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-> Le notifiche inviate da questa regola di avviso seguono lo [schema di avviso comune](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> Le notifiche di posta elettronica inviate da questa regola di avviso vengono ora inviate per impostazione predefinita agli utenti associati ai ruoli di lettore di monitoraggio e di collaboratore monitoraggio della sottoscrizione. Altre informazioni su questo argomento sono disponibili [qui](./proactive-email-notification.md).
+> Le notifiche inviate da questa regola di avviso seguono lo [schema di avviso comune](../platform/alerts-common-schema.md).
 >
 
 Aprire la pagina degli avvisi. Le regole di avviso di anomalie degli errori sono disponibili con gli eventuali avvisi impostati manualmente e si può vedere se attualmente sono in uno stato di avviso.
@@ -348,7 +348,7 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Alcuni avvisi segnalano problemi noti che è inutile ricevere.*
 
-* È possibile usare la funzionalità di eliminazione delle [regole di azione di avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules).
+* È possibile usare la funzionalità di eliminazione delle [regole di azione di avviso](../platform/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli strumenti di diagnostica seguenti consentono di controllare i dati dall'app:

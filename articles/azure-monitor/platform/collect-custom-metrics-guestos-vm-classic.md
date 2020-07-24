@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87277c0c61f6d63e453386724dd472d2663e3148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045205"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-L'[estensione Diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conosciuta come "WAD" o "Diagnostica") di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+L'[estensione Diagnostica](./diagnostics-extension-overview.md) (conosciuta come "WAD" o "Diagnostica") di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](./data-platform.md?toc=/azure/azure-monitor/toc.json).
 
 Questo articolo descrive il processo per l'invio di metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows (classica) al database delle metriche di monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
@@ -30,9 +30,9 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 
 - È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
-- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
@@ -204,4 +204,3 @@ Assegnare all'app le autorizzazioni "Monitoring Metrics Publisher" (Autore delle
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
-

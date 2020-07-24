@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5f2c823b0932db42876be6ab04ebcd82783729aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097c894594987e92038beeaf4b17a3e67538fdad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046058"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services
 
@@ -39,11 +40,11 @@ La tabella seguente illustra come usare la sincronizzazione con ambito:
 
 Usare il portale di Azure o PowerShell per configurare le impostazioni di sincronizzazione con ambito:
 
-| Action | | |
-|--|--|--|
-| Creare un dominio gestito e configurare la sincronizzazione con ambito | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificare la sincronizzazione con ambito | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Disabilitare la sincronizzazione con ambito | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Operazione | Uso<br>Portale di Azure | Uso<br>PowerShell |
+| ------ | ------------------- | ----------------- |
+| Creare un dominio gestito e configurare la sincronizzazione con ambito | [Portale di Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificare la sincronizzazione con ambito | [Portale di Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Disabilitare la sincronizzazione con ambito | [Portale di Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > La modifica dell'ambito di sincronizzazione determina la risincronizzazione di tutti i dati da parte del dominio gestito. Si applicano le considerazioni seguenti:

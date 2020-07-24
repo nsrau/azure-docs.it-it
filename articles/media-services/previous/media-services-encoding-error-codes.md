@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64709521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042870"
 ---
 # <a name="encoding-error-codes"></a>Codici di errore di codifica
 
-Nella tabella seguente sono elencati i codici di errore che potrebbero essere restituiti quando si verifica un errore durante l'esecuzione di attività di codifica.  Per ottenere i dettagli dell'errore nel codice .NET, usare la classe [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Per ottenere i dettagli dell'errore nel codice REST, usare l'API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
+Nella tabella seguente sono elencati i codici di errore che potrebbero essere restituiti quando si verifica un errore durante l'esecuzione di attività di codifica.  Per ottenere i dettagli dell'errore nel codice .NET, usare la classe [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Per ottenere i dettagli dell'errore nel codice REST, usare l'API REST [ErrorDetail](/rest/api/media/operations/errordetail) .
 
 | ErrorDetail.Code | Le possibili cause dell'errore |
 | --- | --- |

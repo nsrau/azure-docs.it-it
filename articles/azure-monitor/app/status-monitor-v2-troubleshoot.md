@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732948"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041401"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi relativi a Application Insights Agent (denominato in precedenza Status Monitor v2)
 
@@ -54,7 +55,7 @@ Per visualizzare il comportamento sintomatico, è possibile usare gli strumenti 
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflitto con la configurazione condivisa di IIS
 
-Se si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Se si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 Non è possibile inserire HttpModule in questa configurazione condivisa.
 Eseguire il comando Abilita in ogni server Web per installare la DLL nella GAC di ogni server.
 
@@ -130,14 +131,14 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i log ETW usando PerfView
 
-#### <a name="setup"></a>Configurazione
+#### <a name="setup"></a>Installazione
 
 1. Scaricare PerfView.exe e PerfView64.exe da [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Avviare PerfView64.exe.
 3. Espandere **Opzioni avanzate**.
 4. Deselezionare le caselle di controllo seguenti:
     - **Zip**
-    - **Unione**
+    - **Merge**
     - **Raccolta di simboli .NET**
 5. Impostare i **provider aggiuntivi**seguenti:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 

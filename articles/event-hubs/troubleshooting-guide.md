@@ -3,12 +3,12 @@ title: Risolvere i problemi di connettività-Hub eventi di Azure | Microsoft Doc
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di connettività con hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039328"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Risolvere i problemi di connettività-Hub eventi di Azure
 Esistono diversi motivi per cui le applicazioni client non sono in grado di connettersi a un hub eventi. I problemi di connettività che si verificano potrebbero essere permanenti o temporanei. Se il problema si verifica sempre (permanente), è consigliabile controllare la stringa di connessione, le impostazioni del firewall dell'organizzazione, le impostazioni del firewall IP, le impostazioni di sicurezza di rete (endpoint di servizio, endpoint privati e così via) e altro ancora. Per i problemi temporanei, l'aggiornamento alla versione più recente dell'SDK, l'esecuzione di comandi per controllare i pacchetti eliminati e il recupero di tracce di rete possono essere utili per la risoluzione dei problemi. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Verificare che gli indirizzi IP siano consentiti nel firewall aziendale
-Quando si lavora con Azure, a volte è necessario consentire URL o intervalli di indirizzi IP specifici nel firewall o nel proxy aziendale per accedere a tutti i servizi di Azure in uso o che si sta tentando di usare. Verificare che il traffico sia consentito sugli indirizzi IP usati da Hub eventi. Per gli indirizzi IP usati da Hub eventi di Azure: vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) e [tag del servizio-EventHub](network-security.md#service-tags).
+Quando si lavora con Azure, a volte è necessario consentire URL o intervalli di indirizzi IP specifici nel firewall o nel proxy aziendale per accedere a tutti i servizi di Azure in uso o che si sta tentando di usare. Verificare che il traffico sia consentito sugli indirizzi IP usati da Hub eventi. Per gli indirizzi IP usati da Hub eventi di Azure: vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Verificare anche che l'indirizzo IP per lo spazio dei nomi sia consentito. Per trovare gli indirizzi IP giusti per consentire le connessioni, attenersi alla procedura seguente:
 
@@ -75,13 +75,16 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
     ```
 3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Verificare che il tag del servizio AzureEventGrid sia consentito nei gruppi di sicurezza di rete
+Se l'applicazione è in esecuzione all'interno di una subnet ed è presente un gruppo di sicurezza di rete associato, verificare se è consentito il servizio Internet in uscita o se è consentito il tag del servizio AzureEventGrid. Vedere [tag del servizio di rete virtuale](../virtual-network/service-tags-overview.md) e cercare `EventHub` .
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Controllare se l'applicazione deve essere in esecuzione in una subnet specifica di un VNET
 Verificare che l'applicazione sia in esecuzione in una subnet di rete virtuale che abbia accesso allo spazio dei nomi. In caso contrario, eseguire l'applicazione nella subnet che ha accesso allo spazio dei nomi o aggiungere l'indirizzo IP del computer in cui è in esecuzione l'applicazione al [firewall IP](event-hubs-ip-filtering.md). 
 
 Quando si crea un endpoint del servizio rete virtuale per uno spazio dei nomi di hub eventi, lo spazio dei nomi accetta il traffico solo dalla subnet associata all'endpoint del servizio. Si è verificata un'eccezione a questo comportamento. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. Per altre informazioni, vedere [endpoint del servizio di rete](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Controllare le impostazioni del firewall IP per lo spazio dei nomi
-Verificare che l'indirizzo IP del computer in cui è in esecuzione l'applicazione non sia bloccato dal firewall IP.  
+Verificare che l'indirizzo IP pubblico del computer in cui è in esecuzione l'applicazione non sia bloccato dal firewall IP.  
 
 Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -108,9 +111,9 @@ Abilitare i log di diagnostica per [gli eventi di connessione alla rete virtuale
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Controllare se è possibile accedere allo spazio dei nomi usando solo un endpoint privato
 Se lo spazio dei nomi di hub eventi è configurato per essere accessibile solo tramite endpoint privato, verificare che l'applicazione client acceda allo spazio dei nomi sull'endpoint privato. 
 
-Il [servizio di collegamento privato di Azure](../private-link/private-link-overview.md) consente di accedere a hub eventi di Azure tramite un **endpoint privato** nella rete virtuale. Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+Il [servizio di collegamento privato di Azure](../private-link/private-link-overview.md) consente di accedere a hub eventi di Azure tramite un **endpoint privato** nella rete virtuale. Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
-Per altre informazioni, vedere [configurare endpoint privati](private-link-service.md). 
+Per altre informazioni, vedere [configurare endpoint privati](private-link-service.md). Vedere la sezione **verificare che la connessione all'endpoint privato funzioni** per verificare che venga usato un endpoint privato. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Risolvere i problemi relativi alla rete
 Per risolvere i problemi relativi alla rete con hub eventi, attenersi alla procedura seguente: 
@@ -160,7 +163,7 @@ Potrebbero verificarsi problemi di connettività temporanei a causa degli aggior
 - È possibile che le applicazioni siano disconnesse dal servizio per alcuni secondi.
 - Le richieste possono essere temporaneamente limitate.
 
-Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro. In caso contrario, riprovare a connettersi al servizio dopo un paio di minuti per verificare se i problemi sono stati rilasciati. 
+Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro. Il rilevamento di questi errori temporanei, il backup e quindi la ripetizione della chiamata assicurerà che il codice sia resiliente a questi problemi temporanei.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

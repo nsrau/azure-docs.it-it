@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13ffd1eeb2df3c21a6167b056557b9141444f7c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038580"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia dei dati inattivi in Azure ricerca cognitiva usando chiavi gestite dal cliente in Azure Key Vault
 
@@ -36,7 +36,7 @@ In questo esempio vengono usati i servizi seguenti.
 
 + [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o trovare un insieme di credenziali esistente nella sottoscrizione.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usata per attività di configurazione.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usata per attività di configurazione.
 
 + Per chiamare l'API REST, è possibile usare l'anteprima di [postazione](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [.NET SDK](https://aka.ms/search-sdk-preview) . Al momento non è disponibile il supporto del portale per la crittografia gestita dal cliente.
 

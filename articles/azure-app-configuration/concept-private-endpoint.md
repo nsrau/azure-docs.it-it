@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042120"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso di endpoint privati per la configurazione di app Azure
 
@@ -23,10 +23,7 @@ L'uso di endpoint privati per l'archivio di configurazione delle app consente di
 - Aumentare la sicurezza per la rete virtuale (VNet) assicurando che i dati non vengano ignorati dal VNet.
 - Connettersi in modo sicuro all'archivio di configurazione delle app dalle reti locali che si connettono al VNet tramite [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../expressroute/expressroute-locations.md) con peering privato.
 
-> [!NOTE]
-> La funzionalità degli endpoint privati è ora disponibile a livello generale in tutte le aree, *ad eccezione* dell'India centrale. Nell'area **India centrale** , app Azure configurazione offre l'uso di endpoint privati come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.
-
-## <a name="conceptual-overview"></a>Informazioni generali
+## <a name="conceptual-overview"></a>Panoramica dei concetti
 
 Un endpoint privato è un'interfaccia di rete speciale per un servizio di Azure nella [rete virtuale](../virtual-network/virtual-networks-overview.md) (VNet). Quando si crea un endpoint privato per l'archivio di configurazione dell'app, fornisce connettività sicura tra i client nella VNet e nell'archivio di configurazione. All'endpoint privato viene assegnato un indirizzo IP dall'intervallo di indirizzi IP della VNet. La connessione tra l'endpoint privato e l'archivio di configurazione utilizza un collegamento privato protetto.
 

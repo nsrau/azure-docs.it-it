@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c3e872dee06ac4fa0c8c37ce8fb77bd34dc78bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041854"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Binding di input Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -296,7 +296,7 @@ namespace CosmosDBSamplesV2
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un elenco di documenti. La funzione viene attivata da una richiesta HTTP. Il codice usa un'istanza di `DocumentClient` fornita dall'associazione di Azure Cosmos DB per leggere un elenco di documenti. L'istanza di `DocumentClient` potrebbe essere usata anche per operazioni di scrittura.
 
 > [!NOTE]
-> È anche possibile usare l'interfaccia [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) per semplificare i test.
+> È anche possibile usare l'interfaccia [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) per semplificare i test.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1420,7 +1420,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Dalla [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), usare l' `@CosmosDBOutput` annotazione sui parametri che scrivono in Cosmos DB. Il tipo di parametro dell'annotazione deve essere `OutputBinding<T>` , dove `T` è un tipo Java nativo o un POJO.
+Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l' `@CosmosDBOutput` annotazione sui parametri che scrivono in Cosmos DB. Il tipo di parametro dell'annotazione deve essere `OutputBinding<T>` , dove `T` è un tipo Java nativo o un POJO.
 
 ---
 
@@ -1463,7 +1463,7 @@ I dati vengono resi disponibili per la funzione tramite un `DocumentList` parame
 
 # <a name="java"></a>[Java](#tab/java)
 
-Dalla [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), l' [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotazione espone Cosmos DB dati alla funzione. Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`.
+Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), l' [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotazione espone Cosmos DB dati alla funzione. Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`.
 
 ---
 

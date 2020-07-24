@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202038"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044878"
 ---
 # <a name="what-is-a-keyword"></a>Che cos'è una parola chiave?
 
@@ -33,10 +33,13 @@ Con le funzionalità di personalizzazione, prestazioni e integrazione delle paro
 
 ## <a name="get-started-with-custom-keywords"></a>Introduzione alle parole chiave personalizzate
 
-* Esercitazione: come [creare una parola chiave personalizzata usando speech studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Esercitazione: [attivare l'attivazione vocale del prodotto con l'SDK di riconoscimento vocale usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Guida introduttiva: [riconoscere parole chiave con l'SDK di riconoscimento vocale, su piattaforma UWP (Universal Windows Platform) con C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Guida introduttiva: [riconoscere parole chiave con l'SDK di riconoscimento vocale su Android con Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Vedere [nozioni fondamentali sulle parole chiave personalizzate](custom-keyword-basics.md) per i modelli di utilizzo e progettazione di base.
+* Come [attivare l'attivazione vocale del prodotto con l'SDK di riconoscimento vocale usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="see-samples-on-github"></a>Vedere gli esempi in GitHub
+
+* [Riconoscere parole chiave con l'SDK di riconoscimento vocale, su piattaforma UWP (Universal Windows Platform) con C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Riconoscere parole chiave con l'SDK di riconoscimento vocale su Android con Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

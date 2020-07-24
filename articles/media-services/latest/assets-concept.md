@@ -13,19 +13,20 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c9f69a39f725b082771b66959a219581c281ed5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043511"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Asset in servizi multimediali di Azure V3
 
-In servizi multimediali di Azure, un [Asset](https://docs.microsoft.com/rest/api/media/assets) è un concetto di base. È il punto in cui vengono inseriti i supporti (ad esempio, tramite il caricamento o l'inserimento Live), i supporti di output (dall'output di un processo) e la pubblicazione di supporti da (per il flusso). 
+In servizi multimediali di Azure, un [Asset](/rest/api/media/assets) è un concetto di base. È il punto in cui vengono inseriti i supporti (ad esempio, tramite il caricamento o l'inserimento Live), i supporti di output (dall'output di un processo) e la pubblicazione di supporti da (per il flusso). 
 
 Un asset viene mappato a un contenitore BLOB nell' [account di archiviazione di Azure](storage-account-concept.md) e i file nell'asset vengono archiviati come BLOB in blocchi in tale contenitore. Gli asset contengono informazioni sui file digitali archiviati in archiviazione di Azure (inclusi video, audio, immagini, raccolte di anteprime, tracce di testo e file di didascalia chiusi).
 
-Servizi multimediali supporta i livelli BLOB quando l'account usa l'archiviazione Utilizzo generico v2 (GPv2). Con GPv2, è possibile spostare i file in uno [spazio di archiviazione ad accesso sporadico o archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Storage **Archive** è adatto per l'archiviazione di file di origine quando non è più necessario, ad esempio dopo la codifica.
+Servizi multimediali supporta i livelli BLOB quando l'account usa l'archiviazione Utilizzo generico v2 (GPv2). Con GPv2, è possibile spostare i file in uno [spazio di archiviazione ad accesso sporadico o archivio](../../storage/blobs/storage-blob-storage-tiers.md). Storage **Archive** è adatto per l'archiviazione di file di origine quando non è più necessario, ad esempio dopo la codifica.
 
 Il livello di archiviazione **archivio** è consigliato solo per file di origine di dimensioni molto estese già codificati e con l'output del processo di codifica inserito in un contenitore BLOB di output. I BLOB nel contenitore di output che si vuole associare a un asset e usare per eseguire lo streaming o l'analisi del contenuto devono esistere **in un livello di archiviazione** **ad** accesso frequente o sporadico.
 
@@ -37,7 +38,7 @@ I nomi degli asset devono essere univoci. I nomi di risorsa di servizi multimedi
 
 ### <a name="blobs"></a>BLOB
 
-I nomi di file/BLOB all'interno di un asset devono rispettare i [requisiti del nome del BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e i [requisiti del nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Questi requisiti sono necessari perché i file possano essere copiati dall'archiviazione BLOB in un disco NTFS locale per l'elaborazione.
+I nomi di file/BLOB all'interno di un asset devono rispettare i [requisiti del nome del BLOB](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) e i [requisiti del nome NTFS](/windows/win32/fileio/naming-a-file). Questi requisiti sono necessari perché i file possano essere copiati dall'archiviazione BLOB in un disco NTFS locale per l'elaborazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

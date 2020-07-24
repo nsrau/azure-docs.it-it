@@ -6,11 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045241"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Risoluzione dei problemi negli avvisi di monitoraggio di Azure
 
@@ -240,13 +241,13 @@ Se si è ricevuto un errore durante il tentativo di creare, aggiornare o elimina
 
 1. **Si è ricevuto un errore di autorizzazione?**  
 
-    È necessario avere il [ruolo predefinito collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)o le autorizzazioni specifiche relative alle regole di azione e agli avvisi.
+    È necessario avere il [ruolo predefinito collaboratore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor)o le autorizzazioni specifiche relative alle regole di azione e agli avvisi.
 
 1. **Si verificano i parametri della regola di azione?**  
 
-    Controllare la [documentazione della regola di azione](alerts-action-rules.md)o la [regola azione PowerShell set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) comando. 
+    Controllare la [documentazione della regola di azione](alerts-action-rules.md)o la [regola azione PowerShell set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) comando. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Se si usa un avviso di log, vedere anche [risoluzione dei problemi relativi agli avvisi del log](alert-log-troubleshoot.md).
+- Se si usa un avviso di log, vedere anche [risoluzione dei problemi relativi agli avvisi del log](./alerts-troubleshoot-log.md).
 - Tornare alla [portale di Azure](https://portal.azure.com) per verificare se il problema è stato risolto con le linee guida precedenti 

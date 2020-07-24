@@ -6,15 +6,16 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d1fecddd2c82e4b0d2d67ad14d93d3459f57fb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041722"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Associazione di output di hub eventi di Azure per funzioni di Azure
 
-Questo articolo illustra come usare le associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi.
+Questo articolo illustra come usare le associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-about.md) in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi.
 
 Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-event-hubs.md).
 

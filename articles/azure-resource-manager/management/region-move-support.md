@@ -4,13 +4,14 @@ description: Elenca i tipi di risorse di Azure che possono essere spostati tra l
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/31/2020
+ms.date: 07/21/2020
 ms.author: raynew
-ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 70f981f2763dd36f0f417faec6c81e168e9856e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040953"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree
 
@@ -542,14 +543,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)<br/><br/> Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md)
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -557,7 +558,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
 > | servergroups | No | 
-> | servers | No |  
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | No | 
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -579,7 +580,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | elasticpools | No. La risorsa non è esposta.
 > | elasticpools/iothubtenants | No. La risorsa non è esposta.
-> | iothubs | Sì. [Altre informazioni](../../iot-hub/iot-hub-how-to-clone.md)
+> | iothubs | Sì. [Scopri di più](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -717,7 +718,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | checknameavailability |  No.<br/><br/> IoT Central funziona con le aree geografiche e non con le aree.
 > | graph | No
 
-## <a name="microsoftiothub"></a>Microsoft. IoTHub
+## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 

@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038615"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorare la sicurezza dei contenitori
 
@@ -35,13 +36,11 @@ Questa pagina illustra come usare le funzionalità di sicurezza del contenitore 
 
 1. Per attivare l'analisi di un'immagine, eseguirne il push nel registro. 
 
-    Al termine dell'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nelle raccomandazioni del Centro sicurezza.
-    
+    Al termine dell'analisi (in genere dopo circa 2 minuti, ma può essere fino a 15 minuti), i risultati sono disponibili come raccomandazioni del Centro sicurezza, come indicato di seguito:
 
 1. Per visualizzare i risultati, passare alla pagina **raccomandazioni** . Se sono stati rilevati problemi, verrà visualizzata la raccomandazione seguente:
 
     ![Suggerimenti per correggere i problemi ](media/monitor-container-security/acr-finding.png)
-
 
 1. Selezionare la raccomandazione. 
     Verrà visualizzata la pagina Dettagli raccomandazione con ulteriori informazioni. Queste informazioni includono l'elenco dei registri con le immagini vulnerabili ("risorse interessate") e i passaggi correttivi. 

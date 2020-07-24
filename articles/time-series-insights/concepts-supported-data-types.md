@@ -1,6 +1,6 @@
 ---
-title: Tipi di dati supportati-Azure Time Series Insights | Microsoft Docs
-description: Informazioni sui tipi di dati supportati in Azure Time Series Insights Preview.
+title: Tipi di dati supportati-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Informazioni sui tipi di dati supportati in Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,18 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.custom: seodec18
-ms.openlocfilehash: 1a1ab9fa19956341e930c85d13d7067be4449cea
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: c2e70a4f5cdbbc7a5a408138c3ec832cc831cf33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046575"
 ---
 # <a name="supported-data-types"></a>Tipi di dati supportati
 
-Nella tabella seguente sono elencati i tipi di dati supportati da Time Series Insights
+Nella tabella seguente sono elencati i tipi di dati supportati da Azure Time Series Insights Gen2
 
 | Tipo di dati | Descrizione | Esempio | Nome della colonna proprietà in parquet
 |---|---|---|---|
@@ -28,11 +27,11 @@ Nella tabella seguente sono elencati i tipi di dati supportati da Time Series In
 | **double** | Numero a 64 bit a precisione doppia  | "valore": 31,0482941 | value_double
 | **long** | Intero con segno a 64 bit  | "valore": 31 | value_long
 | **string** | I valori di testo devono essere costituiti da UTF-8 valido. |  "sito": "DIM_MLGGG" | site_string
-| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o i timestamp appropriati verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero non essere sottoposti a rollback |  "values": "[197, 194, 189, 188]" | values_dynamic
+| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o i timestamp appropriati verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero non essere sottoposti a rollback. Le proprietà del payload archiviate come questo tipo sono accessibili tramite il Azure Time Series Insights Gen2 Explorer e l'API di query GetEvents. |  "values": "[197, 194, 189, 188]" | values_dynamic
 
 > [!IMPORTANT]
 >
-> * L'ambiente TSI è fortemente tipizzato. Se i dispositivi o i tag inviano sia dati integrali che non integrali, i valori delle proprietà del dispositivo verranno archiviati in due colonne doppie e lunghe separate e la [funzione COALESCE ()](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) deve essere utilizzata quando si effettuano chiamate API e si definiscono le espressioni variabili del modello Time Series.
+> * L'ambiente di Azure Time Series Insights Gen2 è fortemente tipizzato. Se i dispositivi o i tag inviano sia dati integrali che non integrali, i valori delle proprietà del dispositivo verranno archiviati in due colonne doppie e lunghe separate e la [funzione COALESCE ()](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) deve essere utilizzata quando si effettuano chiamate API e si definiscono le espressioni variabili del modello Time Series.
 
 #### <a name="objects-and-arrays"></a>Oggetti e matrici
 
@@ -42,6 +41,6 @@ Nella tabella seguente sono elencati i tipi di dati supportati da Time Series In
 
 * Leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md) per comprendere come verranno archiviati gli eventi. 
 
-* Informazioni sulle limitazioni della [velocità effettiva](concepts-streaming-throughput-limitations.md) dell'ambiente
+* Informazioni sulle limitazioni della [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente
 
 * Informazioni sulle [origini evento](concepts-streaming-ingestion-event-sources.md) per inserire i dati di streaming.

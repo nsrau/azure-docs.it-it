@@ -3,24 +3,25 @@ title: Connettere l'ambiente a Power BI-Azure Time Series Insights | Microsoft D
 description: Informazioni su come connettere Azure Time Series Insights a Power BI per condividere, visualizzare grafici e visualizzare i dati nell'intera organizzazione.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.openlocfilehash: b9d91921fc375a1209e8fa8df6e3c6ff56e55be0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046705"
 ---
-# <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
+# <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizzare i dati da Azure Time Series Insights in Power BI
 
-Azure Time Series Insights è una piattaforma per l'archiviazione, la gestione, l'esecuzione di query e la visualizzazione di dati di serie temporali nel cloud. [Power bi](https://powerbi.microsoft.com) è uno strumento di analisi aziendale con funzionalità di visualizzazione avanzate che consente di condividere informazioni dettagliate e risultati nell'intera organizzazione. È ora possibile integrare entrambi i servizi per sfruttare al meglio le funzionalità di visualizzazione intrinseche di Time Series Insights e di Power BI.
+Azure Time Series Insights è una piattaforma per l'archiviazione, la gestione, l'esecuzione di query e la visualizzazione di dati di serie temporali nel cloud. [Power bi](https://powerbi.microsoft.com) è uno strumento di analisi aziendale con funzionalità di visualizzazione avanzate che consente di condividere informazioni dettagliate e risultati nell'intera organizzazione. È ora possibile integrare entrambi i servizi per sfruttare al meglio le funzionalità di visualizzazione intrinseche di Azure Time Series Insights e di Power BI.
 
 Si apprenderà come:
 
-* Connettersi Time Series Insights a Power BI tramite il connettore Cloud
+* Connettersi Azure Time Series Insights a Power BI tramite il connettore Cloud
 * Creare oggetti visivi con i dati in Power BI
 * Pubblicare il report per Power BI e condividere con il resto dell'organizzazione
 
@@ -31,28 +32,30 @@ Assicurarsi di iscriversi per ottenere una [sottoscrizione gratuita di Azure](ht
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Scaricare e installare la versione più recente di [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Avere o creare un' [istanza di Azure Time Series Insights Preview](time-series-insights-update-how-to-manage.md)
+* Avere o creare un [ambiente Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> Il connettore Power BI è attualmente supportato in Time Series Insights anteprima ambienti con *pagamento in base* al consumo configurati per l' **archivio a caldo**.
+>
+> * Il connettore è attualmente supportato in Azure Time Series Insights ambienti Gen2 configurati **solo con warm Store**.
+> * Se si dispone dell'accesso guest all'ambiente Azure Time Series Insights Gen2 da un altro tenant Azure AD, non sarà possibile accedere al connettore. Leggere le informazioni sui [criteri di accesso all'ambiente](./concepts-access-policies.md).
 
-## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Connettere i dati da Time Series Insights a Power BI
+## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Connettere i dati da Azure Time Series Insights a Power BI
 
-Per connettere l'ambiente di Time Series Insights al Power BI, attenersi alla procedura seguente:
+Per connettere l'ambiente di Azure Time Series Insights al Power BI, attenersi alla procedura seguente:
 
-1. Apri Esplora Time Series Insights
+1. Apri Esplora Azure Time Series Insights
 1. Esportare dati come query o come dati non elaborati
-1. Apri Power BI Desktop
+1. Aprire Power BI Desktop
 1. Carica da query personalizzata
 
 ### <a name="export-data-into-power-bi-desktop"></a>Esportare i dati in Power BI desktop
 
 Attività iniziali
 
-1. Aprire Esplora Time Series Insights Preview e curare i dati.
+1. Aprire il Azure Time Series Insights Gen2 Explorer e curare i dati.
 1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e selezionare **Connetti a Power bi**.
 
-    [![Esportazione di Esplora Time Series Insights Preview](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Esportazione di Azure Time Series Insights Gen2 Explorer](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Impostare i parametri all'interno di questa scheda:
 
@@ -64,11 +67,11 @@ Attività iniziali
        > È sempre possibile aggregare i dati in un secondo momento in Power BI, ma non è possibile ripristinare i dati non elaborati dopo l'aggregazione. 
        
        > [!NOTE]
-       > È previsto un limite di numero di eventi 100-K per i dati a livello di evento non elaborato.
+       > È previsto un limite di numero di eventi 250.000 per i dati non elaborati a livello di evento.
 
-       [![Connettersi](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Connessione](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Se non è stata configurata l'istanza di Time Series Insights per **warm Store**, verrà visualizzato un avviso.
+   1. Se l'ambiente di Azure Time Series Insights non è stato configurato con **warm Store**, verrà visualizzato un avviso.
 
        [![Avviso di warm Store](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
@@ -81,9 +84,9 @@ Attività iniziali
 
     [![Elenco a discesa Home](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
 
-1. Cercare **Time Series Insights**, selezionare **Azure Time Series Insights (beta)**, quindi **Connetti**.
+1. Cercare **Azure Time Series Insights**, selezionare **Azure Time Series Insights (beta)**, quindi **Connetti**.
 
-    [![Connetti Power BI a Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
+    [![Connetti Power BI a Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     In alternativa, passare alla scheda **Azure** , selezionare **Azure Time Series Insights (beta)**, quindi **Connetti**.
     
@@ -146,5 +149,3 @@ L'interfaccia rifletterà ora le modifiche desiderate applicate.
 * Per Azure Time Series Insights, vedere Concetti relativi a [Power bi Connector](https://docs.microsoft.com/power-bi/desktop-query-overview) .
 
 * Scopri di più su [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
-
-* Leggere [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

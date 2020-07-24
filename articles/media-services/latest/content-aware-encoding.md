@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039143"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione
 
-Per preparare il contenuto per la distribuzione tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), il video deve essere codificato a più velocità in bit (da alto a basso). In questo modo si garantisce una riduzione del livello di qualità, perché la velocità in bit è ridotta, quindi è la risoluzione del video. Tale codifica a più bit usa una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate, vedere i [set di impostazioni di codifica predefiniti di](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)servizi multimediali.
+Per preparare il contenuto per la distribuzione tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), il video deve essere codificato a più velocità in bit (da alto a basso). In questo modo si garantisce una riduzione del livello di qualità, perché la velocità in bit è ridotta, quindi è la risoluzione del video. Tale codifica a più bit usa una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate, vedere i [set di impostazioni di codifica predefiniti di](/rest/api/media/transforms/createorupdate#encodernamedpreset)servizi multimediali.
 
 È necessario conoscere il contenuto che si sta elaborando e personalizzare/ottimizzare la scala di codifica per la complessità del singolo video. A ogni risoluzione, esiste una velocità in bit oltre la quale un aumento della qualità non è percettivo, il codificatore opera a questo valore a bitrate ottimale. Il livello successivo di ottimizzazione consiste nel selezionare le risoluzioni in base al contenuto. ad esempio, un video di una presentazione di PowerPoint non può trarre vantaggio dal passaggio inferiore a 720p. Per proseguire, è possibile eseguire l'attività del codificatore per ottimizzare le impostazioni per ogni scatto nel video. 
 
@@ -81,7 +82,7 @@ TransformOutput[] output = new TransformOutput[]
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3](stream-files-tutorial-with-api.md)
-* [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST](stream-files-tutorial-with-rest.md)
+* [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST](stream-files-tutorial-with-rest.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-CLI](stream-files-cli-quickstart.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-.NET](stream-files-dotnet-quickstart.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video Node.js](stream-files-nodejs-quickstart.md)

@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038733"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gestire gli endpoint di streaming con .NET SDK  
 
 >[!NOTE]
->Vedere l'articolo sulla [panoramica](media-services-streaming-endpoints-overview.md). Vedere anche [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Vedere l'articolo sulla [panoramica](media-services-streaming-endpoints-overview.md). Vedere anche [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 Il codice in questo articolo illustra come eseguire queste attività tramite SDK di Servizi multimediali di Azure per .NET:
 
@@ -149,4 +150,3 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040234"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file in OneDrive Connector usando app per la logica di Azure
 
@@ -40,7 +40,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 1. Nella finestra di progettazione dell'app per la logica digitare `onedrive` per ottenere un elenco dei trigger:  
 
-   ![Una finestra di dialogo intitolata "Mostra API gestite da Microsoft" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di quattro trigger. Il primo di questi è "OneDrive-quando viene creato un file". Il secondo, "OneDrive-when a file is modified", è stato selezionato.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Una finestra di dialogo intitolata "Mostra Microsoft Managed A P I" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di quattro trigger. Il primo di questi è "OneDrive-quando viene creato un file". Il secondo, "OneDrive-when a file is modified", è stato selezionato.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Selezionare **Quando viene modificato un file**. Se esiste già una connessione, selezionare il pulsante Mostra selezione per selezionare una cartella.
 
@@ -68,7 +68,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 3. Nella casella di ricerca digitare `onedrive` per ottenere un elenco di tutte le azioni disponibili.
 
-   ![Una finestra di dialogo intitolata "Mostra API gestite da Microsoft" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di otto azioni. Il primo è "OneDrive-create file" ed è selezionato.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Una finestra di dialogo intitolata "Mostra Microsoft Managed A P I" contiene una casella contenente "OneDrive". Di seguito è riportato un elenco di otto azioni. Il primo è "OneDrive-create file" ed è selezionato.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. Nell'esempio scegliere **OneDrive - Crea file**. Se esiste già una connessione, selezionare il **percorso della cartella** in cui inserire il file, immettere il **nome del file** e scegliere il **contenuto del file** desiderato:  
 

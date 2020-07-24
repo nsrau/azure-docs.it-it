@@ -4,23 +4,23 @@ description: includere file
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 02/03/2020
+ms.date: 07/09/2020
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 11469d992e0f5669cd3fc1e3864627dd0b8ae23d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e07f56bc2e820b325414e124c7825c1d356ca26
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046400"
 ---
-Di seguito sono riepilogati i limiti chiave della disponibilità generale.
+Di seguito vengono riepilogati i limiti delle chiavi in Azure Time Series Insights Gen1.
 
 ### <a name="sku-ingress-rates-and-capacities"></a>Velocità e capacità in ingresso dello SKU
 
-Le capacità e le velocità in ingresso dello SKU S1 e S2 garantiscono flessibilità durante la configurazione di un nuovo ambiente Time Series Insights. La capacità dello SKU indica la velocità in ingresso giornaliera in base al numero di eventi o byte archiviati, a seconda di quale si verifichi per primo. Si noti che il traffico in ingresso viene misurato *al minuto*e la **limitazione** viene applicata usando l'algoritmo bucket del token. Il traffico in ingresso viene misurato in blocchi da 1 KB. Ad esempio, un evento effettivo da 0,8 KB verrebbe misurato come un evento e un evento 2,6-KB viene conteggiato come tre eventi.
+Le capacità e le velocità in ingresso dello SKU S1 e S2 garantiscono flessibilità durante la configurazione di un nuovo ambiente Azure Time Series Insights. La capacità dello SKU indica la velocità in ingresso giornaliera in base al numero di eventi o byte archiviati, a seconda di quale si verifichi per primo. Si noti che il traffico in ingresso viene misurato *al minuto*e la **limitazione** viene applicata usando l'algoritmo bucket del token. Il traffico in ingresso viene misurato in blocchi da 1 KB. Ad esempio, un evento effettivo da 0,8 KB verrebbe misurato come un evento e un evento 2,6-KB viene conteggiato come tre eventi.
 
 | Capacità SKU S1 | Velocità in ingresso | Capacità di archiviazione massima
 | --- | --- | --- |
@@ -44,7 +44,7 @@ Gli ambienti SKU S2 supportano sostanzialmente più eventi al mese e hanno una c
 
 ### <a name="property-limits"></a>Limiti delle proprietà
 
-I limiti delle proprietà GA dipendono dall'ambiente SKU selezionato. Le proprietà dell'evento fornite presentano colonne JSON, CSV e del grafico corrispondenti che possono essere visualizzate all'interno di [esplora Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
+I limiti della proprietà Gen1 dipendono dall'ambiente SKU selezionato. Le proprietà dell'evento fornite presentano colonne JSON, CSV e del grafico corrispondenti che possono essere visualizzate all'interno di [esplora Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
 
 | SKU | Proprietà massime |
 | --- | --- |
@@ -53,11 +53,11 @@ I limiti delle proprietà GA dipendono dall'ambiente SKU selezionato. Le proprie
 
 ### <a name="event-sources"></a>Origini eventi
 
-È supportato un massimo di due origini evento per ogni istanza. 
+È supportato un massimo di due origini evento per ogni istanza.
 
 * Informazioni su come [aggiungere un'origine di hub eventi](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurare [un'origine Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)Internet delle cose.
 
 ### <a name="api-limits"></a>Limiti API
 
-I limiti dell'API REST per Time Series Insights disponibilità generale sono specificati nella [documentazione di riferimento dell'API REST](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+I limiti dell'API REST per Azure Time Series Insights Gen1 sono specificati nella [documentazione di riferimento dell'API REST](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).

@@ -3,11 +3,12 @@ title: Registrazione video continua-Azure
 description: La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. In questo argomento viene illustrata la CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043302"
 ---
 # <a name="continuous-video-recording"></a>Registrazione continua di video  
 
@@ -33,7 +34,7 @@ L'analisi di video in tempo reale su IoT Edge supporta il funzionamento in condi
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-Le ultime due proprietà sono rilevanti per la registrazione resiliente (entrambe sono anche proprietà obbligatorie per un nodo sink di asset). La proprietà localMediaCachePath indica al sink di asset di usare il percorso della cartella per memorizzare i dati multimediali prima del caricamento nell'asset. [Questo](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) articolo illustra come il modulo Edge può usare la risorsa di archiviazione locale del dispositivo. La proprietà localMediaCacheMaximumSizeMiB definisce la quantità di spazio su disco che il sink di asset può usare come cache (1 MiB = 1024 * 1024 byte). 
+Le ultime due proprietà sono rilevanti per la registrazione resiliente (entrambe sono anche proprietà obbligatorie per un nodo sink di asset). La proprietà localMediaCachePath indica al sink di asset di usare il percorso della cartella per memorizzare i dati multimediali prima del caricamento nell'asset. [Questo](../../iot-edge/how-to-access-host-storage-from-module.md) articolo illustra come il modulo Edge può usare la risorsa di archiviazione locale del dispositivo. La proprietà localMediaCacheMaximumSizeMiB definisce la quantità di spazio su disco che il sink di asset può usare come cache (1 MiB = 1024 * 1024 byte). 
 
 Se il modulo perimetrale perde la connettività per un periodo di tempo molto lungo e il contenuto archiviato nella cartella della cache raggiunge il valore localMediaCacheMaximumSizeMiB, il sink di asset avvierà l'eliminazione dei dati dalla cache, a partire dai dati meno recenti. Ad esempio, se il dispositivo ha perso la connettività alle ore 10.00 e la cache raggiunge il limite massimo alle 18.00, il sink di asset inizia a eliminare i dati registrati alle 10.00. 
 

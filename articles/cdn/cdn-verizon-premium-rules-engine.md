@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040213"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Eseguire l'override del comportamento HTTP con il motore regole della rete CDN di Azure fornito da Verizon Premium
 
@@ -55,7 +55,7 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
     ![Opzioni delle regole della nuova rete CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente.
+   > L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente. Se, ad esempio, è presente una regola che consente l'accesso a una risorsa in base a una proprietà di richiesta e a una regola che nega l'accesso a tutte le richieste, la seconda regola esegue l'override della prima. Le regole sostituiranno le regole precedenti solo se interagiscono con le stesse proprietà.
    >
 
 3. Inserire un nome per la casella di testo **Nome / Descrizione** .

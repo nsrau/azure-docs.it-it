@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042838"
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
 Quando si usa Servizi multimediali di Microsoft Azure, è possibile ricevere codici di errore HTTP dal servizio a seconda del problema, ad esempio scadenza dei token di autenticazione o azioni non supportate in Servizi multimediali. Di seguito è riportato un elenco di **codici di errore HTTP** che possono essere restituiti da Servizi multimediali e le cause che li possono generare.  
@@ -27,19 +28,19 @@ Quando si usa Servizi multimediali di Microsoft Azure, è possibile ricevere cod
 La richiesta contiene informazioni non valide e viene rifiutata a causa di uno dei motivi seguenti:
 
 * Viene specificata una versione API non supportata. Per la versione più aggiornata, vedere [Setup for Media Services REST API Development](media-services-rest-how-to-use.md) (Configurazione della distribuzione dell'API REST di Servizi multimediali).
-* Non viene specificata la versione dell'API di Servizi multimediali. Per informazioni su come specificare la versione dell'API, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* Non viene specificata la versione dell'API di Servizi multimediali. Per informazioni su come specificare la versione dell'API, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali](/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Se si usano gli SDK .NET o Java per connettersi a Servizi multimediali, la versione dell'API viene specificata automaticamente ogni volta che si tenta di eseguire un'azione su Servizi multimediali.
   > 
   > 
-* Viene specificata una proprietà non definita. Il nome della proprietà è nel messaggio di errore. Solo le proprietà che fanno parte di una determinata entità possono essere specificate. Per un elenco delle entità e delle relative proprietà, vedere [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) (Informazioni di riferimento relative all'API REST di Servizi multimediali di Azure).
+* Viene specificata una proprietà non definita. Il nome della proprietà è nel messaggio di errore. Solo le proprietà che fanno parte di una determinata entità possono essere specificate. Per un elenco delle entità e delle relative proprietà, vedere [Azure Media Services REST API Reference](/rest/api/media/operations/azure-media-services-rest-api-reference) (Informazioni di riferimento relative all'API REST di Servizi multimediali di Azure).
 * Viene specificato un valore di proprietà non valido. Il nome della proprietà è nel messaggio di errore. Per i tipi di proprietà validi e i relativi valori, fare clic sul collegamento precedente.
 * Il valore di una proprietà risulta mancante ed è obbligatorio.
 * Parte dell'URL specificato contiene un valore non valido.
 * È stato effettuato un tentativo di aggiornamento di una proprietà WriteOnce.
 * È stato effettuato un tentativo di creazione di un'istanza di Job che dispone di un'istanza di Asset di input con un'istanza di AssetFile primaria che non è stata specificata o non può essere determinata.
-* È stato effettuato un tentativo di aggiornamento di un localizzatore di firma di accesso condiviso. I localizzatori di firma di accesso condiviso possono solo essere creati o eliminati. I localizzatori di flusso possono essere aggiornati. Per altre informazioni, vedere [Locators](https://docs.microsoft.com/rest/api/media/operations/locator) (Localizzatori).
+* È stato effettuato un tentativo di aggiornamento di un localizzatore di firma di accesso condiviso. I localizzatori di firma di accesso condiviso possono solo essere creati o eliminati. I localizzatori di flusso possono essere aggiornati. Per altre informazioni, vedere [Locators](/rest/api/media/operations/locator) (Localizzatori).
 * È stata inviata un'operazione o una query non supportata.
 
 ## <a name="401-unauthorized"></a>401 - Non autorizzato
@@ -108,7 +109,7 @@ Possibili descrizioni dello stato sono:
 * "Il server è occupato. Più di {0} richieste al secondo possono essere limitate."
 * "Il server è occupato. Più di {0} richieste in {1} secondi possono essere limitate."
 
-Per gestire questo errore, è consigliabile usare la logica di ripetizione dei tentativi con interruzione temporanea esponenziale. Ciò significa usare attese progressivamente più lunghe tra le ripetizioni dei tentativi per le risposte di errore consecutive.  Per altre informazioni, vedere [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680905.aspx) (Blocco di applicazioni per la gestione degli errori temporanei).
+Per gestire questo errore, è consigliabile usare la logica di ripetizione dei tentativi con interruzione temporanea esponenziale. Ciò significa usare attese progressivamente più lunghe tra le ripetizioni dei tentativi per le risposte di errore consecutive.  Per altre informazioni, vedere [Transient Fault Handling Application Block](/previous-versions/msp-n-p/hh680905(v=pandp.50)) (Blocco di applicazioni per la gestione degli errori temporanei).
 
 > [!NOTE]
 > Se si usa [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), la logica di ripetizione dei tentativi per l'errore 503 è stata implementata dall'SDK.  
@@ -116,11 +117,10 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 > 
 
 ## <a name="see-also"></a>Vedere anche
-[Codici di errore di gestione di Servizi multimediali](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Codici di errore di gestione di Servizi multimediali](/rest/api/media/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

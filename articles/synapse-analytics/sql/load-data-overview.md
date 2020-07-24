@@ -1,5 +1,5 @@
 ---
-title: Invece di ETL, progettare ELT per il pool SQL sinapsi | Microsoft Docs
+title: Progettare una strategia di caricamento dei dati di base per il pool SQL
 description: Anziché ETL, progettare un processo di estrazione, caricamento e trasformazione (ELT) per il caricamento di dati o pool SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046771"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Progettazione di una strategia di caricamento dei dati di base per il pool SQL di sinapsi di Azure
 
-I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL, Extract, Transform, Load) per il caricamento dei dati. Il pool SQL di Azure è un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. Usando un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform), è possibile sfruttare i vantaggi dell'elaborazione MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento.
+I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Il pool SQL di Azure è un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. L'uso di un processo di estrazione, caricamento e trasformazione (ELT) può trarre vantaggio da MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento.
 
 Sebbene il pool SQL supporti molti metodi di caricamento, tra cui opzioni non di base quali BCP e l'API BulkCopy SQL, il modo più rapido e scalabile per caricare la data è tramite la polibase.  una tecnologia che accede ai dati archiviati esterni in Archiviazione BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL.
 
@@ -27,7 +27,7 @@ Sebbene il pool SQL supporti molti metodi di caricamento, tra cui opzioni non di
 
 ## <a name="what-is-elt"></a>Definizione di ELT
 
-ELT è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un data warehouse e quindi trasformati.
+Estrazione, caricamento e trasformazione (ELT) è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un data warehouse e quindi trasformati.
 
 I passaggi di base per l'implementazione di un pool ELT di base per il pool SQL sono:
 
@@ -55,7 +55,7 @@ Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da r
 | **Tipo di dati parquet** |                      **Tipo di dati SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        TINYINT        |                           TINYINT                            |
-|       SMALLINT        |                           SMALLINT                           |
+|       smallint        |                           smallint                           |
 |          INT          |                             INT                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
@@ -69,12 +69,12 @@ Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da r
 |        string         |                           varchar                            |
 |        BINARY         |                            BINARY                            |
 |        BINARY         |                          varbinary                           |
-|       timestamp       |                             Data                             |
+|       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           Datetime                           |
 |       timestamp       |                             time                             |
-|       Data            |                             Data                             |
+|       date            |                             Data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Trasferire i dati in Archiviazione BLOB di Azure o in Azure Data Lake Store
@@ -95,7 +95,7 @@ Potrebbe essere necessario preparare e pulire i dati nell'account di archiviazio
 
 Prima di caricare i dati, è necessario definire le tabelle esterne nel data warehouse. PolyBase usa le tabelle esterne per definire i dati e accedervi in Archiviazione di Azure. Una tabella esterna è simile a una vista di database. La tabella esterna contiene lo schema di tabella e punta a dati archiviati all'esterno del data warehouse.
 
-La definizione di tabelle esterne include la specifica dell'origine dati, del formato dei file di testo e delle definizioni delle tabelle. Questi sono gli argomenti della sintassi T-SQL a cui fare riferimento:
+La definizione di tabelle esterne include la specifica dell'origine dati, del formato dei file di testo e delle definizioni delle tabelle. Di seguito sono riportati gli argomenti della sintassi T-SQL necessari:
 
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

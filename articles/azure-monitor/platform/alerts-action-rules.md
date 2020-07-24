@@ -4,12 +4,12 @@ description: Informazioni sulle regole di azione in monitoraggio di Azure e su c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045717"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -21,14 +21,13 @@ Le regole di azione consentono di definire o escludere azioni in qualsiasi ambit
 
 ### <a name="suppression-of-alerts"></a>Eliminazione di avvisi
 
-Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante le ore non lavorative. Ad esempio, il team responsabile di **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata. 
+Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante le ore non lavorative. Ad esempio, il team responsabile di **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata.
 
 Sebbene il team possa disabilitare manualmente ogni regola di avviso configurata in **ContosoVM** (e abilitarla di nuovo dopo la manutenzione), non si tratta di un processo semplice. Le regole di azione consentono di definire l'eliminazione degli avvisi su larga scala con la possibilità di configurare in modo flessibile il periodo di eliminazione. Nell'esempio precedente, il team può definire una regola di azione in **ContosoVM** che elimina tutte le notifiche di avviso per il fine settimana.
 
-
 ### <a name="actions-at-scale"></a>Azioni su larga scala
 
-Sebbene le regole di avviso consentano di definire il gruppo di azioni che viene attivato quando viene generato l'avviso, i clienti hanno spesso un gruppo di azioni comune nell'ambito delle operazioni. Ad esempio, un team responsabile del gruppo di risorse **ContosoRG** definirà probabilmente lo stesso gruppo di azioni per tutte le regole di avviso definite in **ContosoRG**. 
+Sebbene le regole di avviso consentano di definire il gruppo di azioni che viene attivato quando viene generato l'avviso, i clienti hanno spesso un gruppo di azioni comune nell'ambito delle operazioni. Ad esempio, un team responsabile del gruppo di risorse **ContosoRG** definirà probabilmente lo stesso gruppo di azioni per tutte le regole di avviso definite in **ContosoRG**.
 
 Le regole di azione consentono di semplificare questo processo. Definendo azioni su larga scala, un gruppo di azioni può essere attivato per qualsiasi avviso generato nell'ambito configurato. Nell'esempio precedente, il team può definire una regola di azione in **ContosoRG** che attiverà lo stesso gruppo di azione per tutti gli avvisi generati al suo interno.
 
@@ -37,11 +36,13 @@ Le regole di azione consentono di semplificare questo processo. Definendo azioni
 
 ## <a name="configuring-an-action-rule"></a>Configurazione di una regola di azione
 
+### <a name="portal"></a>[Portale](#tab/portal)
+
 È possibile accedere alla funzionalità selezionando **Gestisci azioni** dalla pagina di destinazione **avvisi** in monitoraggio di Azure. Selezionare quindi **regole di azione (anteprima)**. È possibile accedere alle regole selezionando **regole di azione (anteprima)** dal dashboard della pagina di destinazione per gli avvisi.
 
 ![Regole di azione dalla pagina di destinazione di monitoraggio di Azure](media/alerts-action-rules/action-rules-landing-page.png)
 
-Selezionare **+ nuova regola di azione**. 
+Selezionare **+ nuova regola di azione**.
 
 ![Aggiungi nuova regola azione](media/alerts-action-rules/action-rules-new-rule.png)
 
@@ -49,7 +50,7 @@ In alternativa, è possibile creare una regola di azione durante la configurazio
 
 ![Aggiungi nuova regola azione](media/alerts-action-rules/action-rules-alert-rule.png)
 
-A questo punto verrà visualizzata la pagina flusso per la creazione di regole di azione. Configurare gli elementi seguenti: 
+A questo punto verrà visualizzata la pagina flusso per la creazione di regole di azione. Configurare gli elementi seguenti:
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -61,9 +62,9 @@ Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o 
 
 ### <a name="filter-criteria"></a>Criteri di filtro
 
-È inoltre possibile definire filtri per limitarli a un subset specifico di avvisi. 
+È inoltre possibile definire filtri per limitarli a un subset specifico di avvisi.
 
-I filtri disponibili sono: 
+I filtri disponibili sono:
 
 * **Gravità**: l'opzione per selezionare uno o più livelli di gravità degli avvisi. **Gravità = Sev1** significa che la regola di azione è applicabile per tutti gli avvisi impostati su Sev1.
 * **Servizio**monitoraggio: un filtro basato sul servizio di monitoraggio di origine. Questo filtro è anche Select multiplo. Ad esempio, **Monitor Service = "Application Insights"** indica che la regola di azione è applicabile per tutti gli avvisi basati su Application Insights.
@@ -73,7 +74,7 @@ I filtri disponibili sono:
 * **Descrizione**: corrispondenza Regex (Regular Expression) che definisce una corrispondenza di stringa rispetto alla descrizione, definita come parte della regola di avviso. Ad esempio, la **Descrizione contiene ' prod '** corrispondente a tutti gli avvisi che contengono la stringa "prod" nelle descrizioni.
 * **Contesto avviso (payload)**: una corrispondenza Regex che definisce una corrispondenza di stringa con i campi di contesto degli avvisi del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
 
-Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, è stato applicato un filtro per tutti gli avvisi **Sev0** solo nelle VM. 
+Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, è stato applicato un filtro per tutti gli avvisi **Sev0** solo nelle VM.
 
 ![Filtri delle regole azione](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -83,7 +84,7 @@ Configurare quindi la regola di azione per il supporto dell'eliminazione avvisi 
 
 #### <a name="suppression"></a>Eliminazione degli avvisi
 
-Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle seguenti opzioni:
+Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle opzioni seguenti:
 * **Da Now (always)**: Disattiva tutte le notifiche a tempo indefinito.
 * **All'ora pianificata**: disattiva le notifiche entro una durata limitata.
 * **Con una ricorrenza**: disattiva le notifiche in base a una pianificazione ricorrente giornaliera, settimanale o mensile.
@@ -92,7 +93,7 @@ Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di
 
 #### <a name="action-group"></a>Gruppo di azioni
 
-Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di azioni esistente o crearne uno nuovo. 
+Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di azioni esistente o crearne uno nuovo.
 
 > [!NOTE]
 > È possibile associare un solo gruppo di azione a una regola di azione.
@@ -104,7 +105,83 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 Infine, configurare i dettagli seguenti per la regola di azione:
 * Nome
 * Gruppo di risorse in cui viene salvato
-* Description 
+* Descrizione
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+È possibile creare regole di azione con l'interfaccia della riga di comando di Azure usando il comando [AZ monitor Action-Rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  Il `az monitor action-rule` riferimento è solo uno dei numerosi riferimenti dell'interfaccia della riga di comando di [Azure per monitoraggio di Azure](/cli/azure/azure-cli-reference-for-monitor).
+
+### <a name="prepare-your-environment"></a>Preparare l'ambiente
+
+1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
+
+   Se si preferisce, è anche possibile usare Azure Cloud Shell per completare la procedura descritta in questo articolo.  Azure Cloud Shell è un ambiente shell interattivo utilizzato dal browser.  Avviare Cloud Shell usando uno dei metodi seguenti:
+
+   - Per aprire Cloud Shell, passare a[https://shell.azure.com](https://shell.azure.com)
+
+   - Selezionare il pulsante **cloud Shell** sulla barra dei menu nell'angolo superiore destro della [portale di Azure](https://portal.azure.com)
+
+1. Accedere.
+
+   Se si usa un'installazione locale dell'interfaccia della riga di comando, eseguire l'accesso con il comando [AZ login](/cli/azure/reference-index#az-login) .  Seguire le istruzioni visualizzate nel terminale per completare il processo di autenticazione.
+
+    ```azurecli
+    az login
+    ```
+
+1. Installare l'estensione `alertsmanagement`
+
+   `az monitor action-rule`Si tratta di un'estensione sperimentale dell'interfaccia della riga di comando di Azure core. Per altre informazioni sui riferimenti all'estensione, vedere [usare l'estensione con l'interfaccia](/cli/azure/azure-cli-extensions-overview?)della riga di comando
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   È previsto il seguente avviso.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="create-action-rules-with-the-azure-cli"></a>Creare regole azione con l'interfaccia della riga di comando di Azure
+
+Per informazioni sui parametri obbligatori e facoltativi, vedere il contenuto di riferimento dell'interfaccia della riga di comando di Azure per [AZ monitor Action-Rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .
+
+Creare una regola di azione per eliminare le notifiche in un gruppo di risorse.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --scope-type ResourceGroup \
+                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
+                              --suppression-recurrence-type Always \
+                              --alert-context Contains Computer-01 \
+                               --monitor-service Equals "Log Analytics"
+```
+
+Creare una regola di azione per eliminare le notifiche per tutti gli avvisi di Sev4 su tutte le macchine virtuali all'interno della sottoscrizione ogni fine settimana.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --severity Equals Sev4 \
+                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
+                              --suppression-recurrence-type Weekly \
+                              --suppression-recurrence 0 6 \
+                              --suppression-start-date 12/09/2018 \
+                              --suppression-end-date 12/18/2018 \
+                              --suppression-start-time 06:00:00 \
+                              --suppression-end-time 14:00:00
+
+```
+
+* * *
 
 ## <a name="example-scenarios"></a>Scenari di esempio
 
@@ -132,7 +209,7 @@ Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati 
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: gruppo di azioni definito in un gruppo di risorse
 
-Contoso ha definito [un avviso di metrica a livello di sottoscrizione](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Ma desidera definire le azioni che vengono attivate in modo specifico per gli avvisi generati dal gruppo di risorse **ContosoRG**.
+Contoso ha definito [un avviso di metrica a livello di sottoscrizione](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Ma desidera definire le azioni che vengono attivate in modo specifico per gli avvisi generati dal gruppo di risorse **ContosoRG**.
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoRG**
@@ -140,15 +217,39 @@ Contoso ha definito [un avviso di metrica a livello di sottoscrizione](https://d
 * Gruppo di azioni impostato su **ContosoActionGroup**
 
 > [!NOTE]
-> *I gruppi di azioni definiti nelle regole di azione e nelle regole di avviso operano in modo indipendente, senza deduplicazione.* Nello scenario descritto in precedenza, se per la regola di avviso viene definito un gruppo di azioni, questo viene attivato insieme al gruppo di azioni definito nella regola di azione. 
+> *I gruppi di azioni definiti nelle regole di azione e nelle regole di avviso operano in modo indipendente, senza deduplicazione.* Nello scenario descritto in precedenza, se per la regola di avviso viene definito un gruppo di azioni, questo viene attivato insieme al gruppo di azioni definito nella regola di azione.
 
 ## <a name="managing-your-action-rules"></a>Gestione delle regole di azione
+
+### <a name="portal"></a>[Portale](#tab/portal)
 
 È possibile visualizzare e gestire le regole di azione dalla visualizzazione elenco:
 
 ![Visualizzazione elenco regole di azione](media/alerts-action-rules/action-rules-list-view.png)
 
 Da qui è possibile abilitare, disabilitare o eliminare le regole di azione su larga scala selezionando la casella di controllo accanto. Quando si seleziona una regola di azione, viene visualizzata la pagina di configurazione. La pagina consente di aggiornare la definizione della regola di azione e di abilitarla o disabilitarla.
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+È possibile visualizzare e gestire le regole di azione usando il comando [AZ monitor Action-Rule](/cli/azure/ext/alertsmanagement/monitor) dall'interfaccia della riga di comando di Azure.
+
+Prima di gestire le regole di azione con l'interfaccia della riga di comando di Azure, preparare l'ambiente seguendo le istruzioni fornite in [configurazione di una regola di azione](#configuring-an-action-rule).
+
+```azurecli
+# List all action rules for a subscription
+az monitor action-rule list
+
+# Get details of an action rule
+az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+
+# Update an action rule.
+az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+
+# Delete an action rule.
+az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+```
+
+* * *
 
 ## <a name="best-practices"></a>Procedure consigliate
 
@@ -181,12 +282,12 @@ Dopo aver definito la risorsa di destinazione per la regola di avviso, è possib
 * Un subset: ad esempio, la regola di avviso che si sta definendo si trova in una sottoscrizione e la regola di azione si trova in un gruppo di risorse all'interno della sottoscrizione.
 * Un superset: ad esempio, la regola di avviso che si sta definendo si trova in un gruppo di risorse e la regola di azione si trova nella sottoscrizione che contiene il gruppo di risorse.
 * Un'intersezione: ad esempio, la regola di avviso che si sta definendo si trova in **VM1** e **VM2**e la regola di azione si trova in **VM2** e **VM3**.
-    
+
 ![Regole di azione sovrapposte](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>È possibile visualizzare gli avvisi che sono stati eliminati da una regola di azione?
 
-Nella [pagina elenco avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)è possibile scegliere una colonna aggiuntiva denominata **stato di eliminazione**. Se la notifica relativa a un'istanza di avviso è stata eliminata, questo stato verrà visualizzato nell'elenco.
+Nella [pagina elenco avvisi](./alerts-managing-alert-instances.md)è possibile scegliere una colonna aggiuntiva denominata **stato di eliminazione**. Se la notifica relativa a un'istanza di avviso è stata eliminata, questo stato verrà visualizzato nell'elenco.
 
 ![Istanze di avvisi eliminati](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -200,7 +301,7 @@ L'eliminazione ha sempre la precedenza sullo stesso ambito.
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-Per ogni avviso in VM1 e VM3, il gruppo di azioni AG1 verrebbe attivato una sola volta. Per ogni avviso in **VM2**, il gruppo di azioni AG1 verrebbe attivato due volte, perché le regole di azione non deduplicano le azioni. 
+Per ogni avviso in VM1 e VM3, il gruppo di azioni AG1 verrebbe attivato una sola volta. Per ogni avviso in **VM2**, il gruppo di azioni AG1 verrebbe attivato due volte, perché le regole di azione non deduplicano le azioni.
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Cosa accade se una risorsa viene monitorata in due regole di azione separate e una viene chiamata per l'azione mentre un'altra per l'eliminazione? Ad esempio, **VM2** nello scenario seguente:
 
@@ -208,7 +309,7 @@ Per ogni avviso in VM1 e VM3, il gruppo di azioni AG1 verrebbe attivato una sola
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta. Le azioni e le notifiche per ogni avviso in VM2 e VM3 verranno eliminati. 
+Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta. Le azioni e le notifiche per ogni avviso in VM2 e VM3 verranno eliminati.
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Cosa accade se si dispone di una regola di avviso e di una regola di azione definita per la stessa risorsa che chiama gruppi di azioni diversi? Ad esempio, **VM1** nello scenario seguente:
 
@@ -216,8 +317,8 @@ Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta. Ogni volta che viene attivata la regola di avviso "rule1", attiverà anche AG2. I gruppi di azioni definiti nelle regole di azione e nelle regole di avviso operano in modo indipendente, senza deduplicazione. 
+Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta. Ogni volta che viene attivata la regola di avviso "rule1", attiverà anche AG2. I gruppi di azioni definiti nelle regole di azione e nelle regole di avviso operano in modo indipendente, senza deduplicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sugli avvisi in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Altre informazioni sugli avvisi in Azure](./alerts-overview.md)

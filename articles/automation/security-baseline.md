@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045910"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -918,7 +918,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, usare la raccomandazione d
 
 * [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-* [Distribuire un account di automazione usando un modello di Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
+* [Distribuire un account di automazione usando un modello di Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ Quando si usa la funzionalità di ruolo di lavoro ibrido per Runbook, usare la c
 
 **Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
 
-* [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1124,7 +1124,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 * [Riferimento al modello di Azure Resource Manager per le risorse di automazione di Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Creare un account di Automazione usando un modello di Azure Resource Manager](./automation-create-account-template.md)
+* [Creare un account di Automazione usando un modello di Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 * [Riferimento al modello di Azure Resource Manager per le risorse di automazione di Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Creare un account di Automazione usando un modello di Azure Resource Manager](./automation-create-account-template.md)
+* [Creare un account di Automazione usando un modello di Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1232,7 +1232,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Indicazioni**: a intervalli regolari, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi, per contribuire a proteggere le risorse di Azure. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
+**Linee guida**: eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
 * [Pubblicazione del NIST - Guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

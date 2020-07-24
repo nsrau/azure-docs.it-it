@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325066"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042624"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -28,6 +29,18 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="june-2020"></a>Giugno 2020
+
+### <a name="search-by-topics"></a>Cerca per argomenti
+
+È ora possibile usare l'API di ricerca per cercare video con argomenti specifici (solo API).
+
+Gli argomenti vengono aggiunti come parte del `textScope` (parametro facoltativo). Per informazioni dettagliate, vedere l' [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) .  
+
+### <a name="labels-enhancement"></a>Miglioramento delle etichette
+
+Il contrassegno etichetta è stato aggiornato e ora include più etichette visive che possono essere identificate.
 
 ## <a name="may-2020"></a>Maggio 2020
 

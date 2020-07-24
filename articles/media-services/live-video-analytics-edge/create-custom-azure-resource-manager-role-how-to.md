@@ -3,15 +3,16 @@ title: Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a u
 description: Questo articolo fornisce indicazioni su come creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio per analisi video in tempo reale su IoT Edge usando l'interfaccia della riga di comando di Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043172"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio
 
-Per il corretto funzionamento di analisi video in tempo reale su IoT Edge istanza del modulo è necessario un account di servizi multimediali di Azure attivo. La relazione tra l'analisi video in tempo reale sul modulo IoT Edge e l'account del servizio multimediale di Azure viene stabilita tramite un set di proprietà del modulo gemello. Una di queste proprietà del dispositivo gemello è un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) che consente all'istanza del modulo di comunicare con e attivare le operazioni necessarie nell'account di servizi multimediali. Per ridurre al minimo i potenziali abusi e/o l'esposizione accidentale dei dati dal dispositivo perimetrale, questa entità servizio deve avere il minor numero di privilegi.
+Per il corretto funzionamento di analisi video in tempo reale su IoT Edge istanza del modulo è necessario un account di servizi multimediali di Azure attivo. La relazione tra l'analisi video in tempo reale sul modulo IoT Edge e l'account del servizio multimediale di Azure viene stabilita tramite un set di proprietà del modulo gemello. Una di queste proprietà del dispositivo gemello è un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) che consente all'istanza del modulo di comunicare con e attivare le operazioni necessarie nell'account di servizi multimediali. Per ridurre al minimo i potenziali abusi e/o l'esposizione accidentale dei dati dal dispositivo perimetrale, questa entità servizio deve avere il minor numero di privilegi.
 
 Questo articolo illustra i passaggi per la creazione di un ruolo di Azure Resource Manager personalizzato con Azure Cloud Shell, che viene quindi usato per creare un'entità servizio.
 
@@ -22,7 +23,7 @@ I prerequisiti per questo articolo sono i seguenti:
 * Sottoscrizione di Azure con sottoscrizione proprietario.
 * Un Azure Active Directory con privilegi per creare un'app e assegnare un'entità servizio a un ruolo.
 
-Il modo più semplice per verificare se l'account dispone delle autorizzazioni appropriate è tramite il portale. Vedere [Controllare le autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Il modo più semplice per verificare se l'account dispone delle autorizzazioni appropriate è tramite il portale. Vedere [Controllare le autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="overview"></a>Panoramica  
 
@@ -48,7 +49,7 @@ Se non si dispone di un account del servizio multimediale, attenersi alla proced
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Creare un [gruppo di risorse](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) e un [account di archiviazione](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Creare un [gruppo di risorse](/cli/azure/group?view=azure-cli-latest#az-group-create) e un [account di archiviazione](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 1. A questo punto, creare un account di servizi multimediali di Azure usando il modello di comando seguente in Cloud Shell:
 
     ```
@@ -84,8 +85,8 @@ Questo comando genera una risposta simile alla seguente:
 ```
 1. L'output per un'entità servizio con autenticazione della password include la chiave della password che in questo caso è il parametro "AadSecret". 
 
-    Assicurarsi di copiare questo valore perché non può essere recuperato. Se si dimentica la password, [reimpostare le credenziali dell'entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. La chiave appId e tenant viene visualizzata rispettivamente nell'output come "AadClientId" e "AadTenantId". Vengono usati nell'autenticazione basata su entità servizio. Registrare i valori, che possono essere tuttavia recuperati in qualsiasi momento con [az ad sp list](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Assicurarsi di copiare questo valore perché non può essere recuperato. Se si dimentica la password, [reimpostare le credenziali dell'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
+1. La chiave appId e tenant viene visualizzata rispettivamente nell'output come "AadClientId" e "AadTenantId". Vengono usati nell'autenticazione basata su entità servizio. Registrare i valori, che possono essere tuttavia recuperati in qualsiasi momento con [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Creare una definizione di ruolo personalizzata  
 
@@ -170,7 +171,7 @@ Con il comando precedente viene stampato il valore objectId dell'entità servizi
 “objectId” : “<yourObjectId>”,
 ```
 
-Usare [AZ Role Assignment create Command](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template per collegare il ruolo personalizzato all'entità servizio:
+Usare [AZ Role Assignment create Command](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template per collegare il ruolo personalizzato all'entità servizio:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

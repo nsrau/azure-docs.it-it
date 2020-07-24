@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039160"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Spostare le risorse dell'app per la logica in altri gruppi di risorse, aree o sottoscrizioni di Azure
 
@@ -94,7 +94,7 @@ Alcune risorse di Azure, ad esempio le risorse del gateway dati locale in Azure,
 
 Ad esempio, per collegare un'app per la logica a un account di integrazione, entrambe le risorse devono esistere nella stessa area. In scenari come il ripristino di emergenza, in genere si vogliono gli account di integrazione con la stessa configurazione e gli stessi artefatti. In altri scenari potrebbe essere necessario disporre di account di integrazione con configurazioni ed elementi diversi.
 
-I connettori personalizzati in app per la logica di Azure sono visibili agli autori dei connettori e agli utenti che hanno la stessa sottoscrizione di Azure e lo stesso tenant Azure Active Directory. Questi connettori sono disponibili nella stessa area in cui vengono distribuite le app per la logica. Per altre informazioni, vedere [Share custom connectors in your organization](https://docs.microsoft.com/connectors/custom-connectors/share) (Condividere i connettori personalizzati nell'organizzazione).
+I connettori personalizzati in app per la logica di Azure sono visibili agli autori dei connettori e agli utenti che hanno la stessa sottoscrizione di Azure e lo stesso tenant Azure Active Directory. Questi connettori sono disponibili nella stessa area in cui vengono distribuite le app per la logica. Per altre informazioni, vedere [Share custom connectors in your organization](/connectors/custom-connectors/share) (Condividere i connettori personalizzati nell'organizzazione).
 
 Il modello ottenuto da Visual Studio include solo le definizioni delle risorse per l'app per la logica e le relative connessioni. Quindi, se l'app per la logica usa altre risorse, ad esempio un account di integrazione e gli artefatti B2B, ad esempio partner, contratti e schemi, è necessario esportare il modello di tale account di integrazione usando il portale di Azure. Questo modello include le definizioni delle risorse per l'account di integrazione e gli artefatti. Tuttavia, il modello non è completamente parametrizzato. Pertanto, è necessario parametrizzare manualmente i valori che si desidera utilizzare per la distribuzione.
 

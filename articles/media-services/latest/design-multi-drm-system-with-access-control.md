@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039192"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 
@@ -132,7 +133,7 @@ La tabella seguente illustra il mapping:
 
 | **Blocco predefinito** | **Tecnologia** |
 | --- | --- |
-| **Lettore** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Provider di identità (IDP)** |Azure Active Directory (Azure AD) |
 | **Servizio token di sicurezza** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali di Azure |
@@ -213,7 +214,7 @@ Per altre informazioni, vedere [autenticazione del token JWT in servizi multimed
 Per informazioni su Azure AD:
 
 * Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v2-overview.md).
-* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045687"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -64,7 +64,7 @@ I dati vengono raccolti nel server di gestione e inoltrati a Log Analytics ogni 
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Account RunAs di Operations Manager per Log Analytics
 
-Log Analytics si basa sui Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account utente di dominio. Configurare un account RunAs di Operations Manager con credenziali con privilegi. Per altre informazioni, vedere [Come creare un account RunAs](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) nella documentazione di Operations Manager.
+Log Analytics si basa sui Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account utente di dominio. Configurare un account RunAs di Operations Manager con credenziali con privilegi. Per altre informazioni, vedere [Come creare un account RunAs](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) nella documentazione di Operations Manager.
 
 Usare le informazioni seguenti per impostare l'account RunAs di Operations Manager per Controllo integrità System Center Operations Manager.
 
@@ -147,7 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 Il Management Pack della soluzione Controllo integrità di System Center Operations Manager include una regola denominata *Microsoft System Center Operations Manager Esegui regola di controllo integrità*. Questa regola è responsabile del controllo integrità. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
 
-Per impostazione predefinita, la regola di controllo dello stato di esecuzione di Microsoft System Center Operations Manager è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Segui questa procedura.
+Per impostazione predefinita, la regola di controllo dello stato di esecuzione di Microsoft System Center Operations Manager è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Abilitare la regola per un server di gestione specifico
 

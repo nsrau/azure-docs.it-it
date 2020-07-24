@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045231"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -32,9 +32,9 @@ Se si ritiene che un avviso di metrica debba essere stato attivato ma non è sta
 
 2. **Generato ma nessuna notifica** : esaminare l' [elenco degli avvisi](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) attivati per verificare se è possibile individuare l'avviso generato. Se è possibile visualizzare l'avviso nell'elenco, ma si verifica un problema con alcune delle azioni o notifiche, vedere altre informazioni [qui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
-3. **Già attivo** : controllare se è già presente un avviso attivato per la serie temporale della metrica per cui si prevede di ricevere un avviso. Gli avvisi delle metriche sono con stato, vale a dire che, una volta generato un avviso in una serie temporale metrica specifica, gli avvisi aggiuntivi su tale serie temporale non vengono attivati fino a quando il problema non viene più rilevato. Questa scelta di progettazione riduce il rumore. L'avviso viene risolto automaticamente quando la condizione di avviso non viene soddisfatta per tre valutazioni consecutive.
+3. **Già attivo** : controllare se è già presente un avviso attivato per la serie temporale della metrica per cui si prevede di ricevere un avviso. Gli avvisi delle metriche sono avvisi con stato, di conseguenza, una volta generato un avviso in una serie temporale della metrica specifica, gli avvisi successivi in tale serie temporale non verranno attivati fino a quando il problema non viene più rilevato. Questa scelta di progettazione riduce il rumore. L'avviso viene risolto automaticamente quando la condizione di avviso non viene soddisfatta per tre valutazioni consecutive.
 
-4. **Dimensioni utilizzate** : se sono stati selezionati alcuni [valori di dimensione per una metrica](./alerts-metric-overview.md#using-dimensions), la regola di avviso monitora ogni singola serie temporale della metrica (definita dalla combinazione dei valori della dimensione) per una violazione di soglia. Per monitorare anche le serie temporali delle metriche aggregate (senza dimensioni selezionate), configurare un'altra regola di avviso sulla metrica senza selezionare le dimensioni.
+4. **Dimensioni usate** : se sono stati selezionati alcuni [valori di dimensione per una metrica](./alerts-metric-overview.md#using-dimensions), la regola di avviso monitora ogni singola serie temporale della metrica (definita dalla combinazione dei valori della dimensione) per una violazione di soglia. Per monitorare anche le serie temporali delle metriche aggregate (senza dimensioni selezionate), configurare un'altra regola di avviso sulla metrica senza selezionare le dimensioni.
 
 5. **Granularità di aggregazione e ora** : se si visualizza la metrica usando i [grafici di metrica](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), verificare che:
     * L' **aggregazione** selezionata nel grafico delle metriche è uguale a quella del **tipo di aggregazione** nella regola di avviso
@@ -47,7 +47,7 @@ Se si ritiene che l'avviso della metrica non debba essere stato attivato ma è s
 1. Esaminare l' [elenco degli avvisi](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) attivati per individuare l'avviso attivato e fare clic per visualizzarne i dettagli. Esaminare le informazioni fornite in **perché questo avviso** è stato attivato? per visualizzare il grafico delle metriche, il **valore della metrica**e il **valore soglia** nel momento in cui è stato attivato l'avviso.
 
     > [!NOTE] 
-    > se si usa il tipo di condizione Soglie dinamiche e si ritiene che non siano state usate le soglie corrette, fornire un feedback usando l'icona con la faccia imbronciata. Questo feedback avrà un effetto sulla ricerca algoritmica di machine learning e contribuirà a migliorare i rilevamenti futuri.
+    > Se si usa un tipo di condizione per le soglie dinamiche e si ritiene che le soglie usate non siano corrette, fornire commenti e suggerimenti tramite l'icona imbronciata. Questo feedback avrà un effetto sulla ricerca algoritmica di machine learning e contribuirà a migliorare i rilevamenti futuri.
 
 2. Se sono stati selezionati più valori di dimensione per una metrica, l'avviso viene attivato quando **una** serie temporale metrica, definita dalla combinazione di valori di dimensione, viola la soglia. Per altre informazioni sull'uso delle dimensioni negli avvisi delle metriche, vedere [qui](./alerts-metric-overview.md#using-dimensions).
 
@@ -67,7 +67,7 @@ Se si ritiene che l'avviso della metrica non debba essere stato attivato ma è s
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Non è possibile trovare la metrica per l'avviso sulle metriche Guest delle macchine virtuali
 
-Per ricevere un avviso sulle metriche del sistema operativo guest delle macchine virtuali (ad esempio memoria, spazio su disco), assicurarsi di avere installato l'agente necessario per raccogliere i dati nelle metriche di monitoraggio di Azure:
+Per inviare un avviso sulle metriche del sistema operativo guest delle macchine virtuali (ad esempio: memoria, spazio su disco), assicurarsi di avere installato l'agente richiesto per raccogliere i dati nelle metriche di monitoraggio di Azure:
 - [Per macchine virtuali Windows](./collect-custom-metrics-guestos-resource-manager-vm.md)
 - [Per macchine virtuali Linux](./collect-custom-metrics-linux-telegraf.md)
 
@@ -83,7 +83,7 @@ Se è possibile visualizzare alcune metriche per la risorsa ma non si riesce a t
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Impossibile trovare la dimensione metrica su cui inviare l'avviso
 
-Se si sta cercando di eseguire un avviso su [valori di dimensione specifici di una metrica](./alerts-metric-overview.md#using-dimensions), ma questi valori non sono stati trovati, tenere presente quanto segue:
+Se si sta cercando di avvisare su [valori di dimensione specifici di una metrica](./alerts-metric-overview.md#using-dimensions), ma questi valori non sono stati trovati, tenere presente quanto segue:
 
 1. La visualizzazione dei valori delle dimensioni nell'elenco **Valori delle dimensioni** potrebbe richiedere alcuni minuti
 1. I valori delle dimensioni visualizzati sono basati sui dati delle metriche raccolti negli ultimi tre giorni
@@ -106,12 +106,35 @@ Gli avvisi delle metriche sono con stato per impostazione predefinita e pertanto
 > [!NOTE] 
 > La creazione di una regola di avviso della metrica senza stato impedisce la risoluzione degli avvisi attivati, quindi anche dopo che la condizione non è più soddisfatta, gli avvisi attivati rimarranno in uno stato attivato fino al periodo di conservazione di 30 giorni.
 
+## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definire una regola di avviso per una metrica personalizzata che non è ancora stata emessa
+
+Quando si crea una regola di avviso per la metrica, il nome della metrica viene convalidato in base all' [API delle definizioni delle metriche](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) per assicurarsi che esista. In alcuni casi, si vuole creare una regola di avviso su una metrica personalizzata anche prima che venga emessa. Ad esempio, quando si crea (usando un modello ARM) una risorsa Application Insights che emetterà una metrica personalizzata, insieme a una regola di avviso che monitora tale metrica.
+
+Per evitare che la distribuzione abbia esito negativo quando si tenta di convalidare le definizioni della metrica personalizzata, è possibile usare il parametro *skipMetricValidation* nella sezione criteri della regola di avviso, che causerà l'omissione della convalida della metrica. Vedere l'esempio seguente per informazioni su come usare questo parametro in un modello ARM (per esempi completi di modelli ARM per la creazione di regole di avviso delle metriche, vedere [qui]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+
+```json
+"criteria": {
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+            {
+                    "name" : "condition1",
+                        "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+                    "skipMetricValidation": true
+        }
+              ]
+        }
+```
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota regole di avviso metrica troppo piccola
 
 Il numero di regole di avviso per la metrica consentito per ogni sottoscrizione è soggetto ai [limiti della quota](../service-limits.md).
 
-Se è stato raggiunto il limite di quota, la procedura seguente può contribuire a risolvere il problema:
+Se è stato raggiunto il limite di quota, i passaggi seguenti possono contribuire a risolvere il problema:
 1. Provare a eliminare o disabilitare le regole di avviso delle metriche che non vengono più usate.
 
 2. Passare a usare le regole di avviso della metrica che monitorano più risorse. Con questa funzionalità, una singola regola di avviso può monitorare più risorse usando solo una regola di avviso calcolata in base alla quota. Per altre informazioni su questa funzionalità e sui tipi di risorse supportati, vedere [qui](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
@@ -133,7 +156,7 @@ Per verificare l'utilizzo corrente delle regole di avviso delle metriche, attene
 3. Assicurarsi di non filtrare per un gruppo di risorse, un tipo di risorsa o una risorsa specifici
 4. Nel controllo elenco a discesa **tipo di segnale** selezionare **metrica**
 5. Verificare che il controllo elenco a discesa **stato** sia impostato su **abilitato**
-6. Il numero totale di regole di avviso delle metriche viene visualizzato sopra l'elenco di regole
+6. Il numero totale di regole di avviso delle metriche viene visualizzato sopra l'elenco delle regole di avviso
 
 ### <a name="from-api"></a>Nell'API
 
@@ -148,11 +171,11 @@ Se si verificano problemi durante la creazione, l'aggiornamento, il recupero o l
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
 - Rivedere l'elenco di [Errori di distribuzione di Azure comuni](../../azure-resource-manager/templates/common-deployment-errors.md) e provare a risolvere il problema
-- Vedere gli [avvisi sulle metriche Azure Resource Manager esempi di modelli](./alerts-metric-create-templates.md) per assicurarsi di passare correttamente tutti i parametri
+- Per verificare che tutti i parametri siano stati passati correttamente, vedere gli [avvisi sulle metriche Azure Resource Manager esempi di modelli](./alerts-metric-create-templates.md) .
 
 ### <a name="rest-api"></a>API REST
 
-Consultare la [guida all'API REST](/rest/api/monitor/metricalerts/) per verificare se tutti i parametri vengono trasmessi correttamente
+Esaminare la [Guida dell'API REST](/rest/api/monitor/metricalerts/) per verificare che tutti i parametri siano stati passati correttamente
 
 ### <a name="powershell"></a>PowerShell
 
@@ -171,13 +194,13 @@ Assicurarsi di usare i comandi dell'interfaccia della riga di comando corretti p
 
 ### <a name="general"></a>Generale
 
-- Se si riceve un errore `Metric not found`:
+- Se si riceve un `Metric not found` errore:
 
    - Per una metrica della piattaforma: assicurarsi di usare il nome della **metrica** nella [pagina metrica supportata di monitoraggio di Azure](./metrics-supported.md)e non il **nome visualizzato della metrica** .
 
    - Per una metrica personalizzata: assicurarsi che la metrica sia già emessa (non è possibile creare una regola di avviso su una metrica personalizzata che non esiste ancora) e che si fornisca lo spazio dei nomi della metrica personalizzata (vedere [un esempio di](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)modello ARM)
 
-- Se si stanno creando [avvisi delle metriche nei log](./alerts-metric-logs.md), assicurarsi che siano incluse le dipendenze appropriate. Vedere il [modello di esempio](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+- Se si stanno creando [avvisi sulle metriche nei log](./alerts-metric-logs.md), verificare che siano incluse le dipendenze appropriate. Vedere il [modello di esempio](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 - Se si sta creando una regola di avviso che contiene più criteri, tenere presente i vincoli seguenti:
 
@@ -197,7 +220,7 @@ Per creare una regola di avviso per la metrica, è necessario disporre delle aut
 
 ## <a name="naming-restrictions-for-metric-alert-rules"></a>Limitazioni di denominazione per le regole di avviso delle metriche
 
-Tenere presente le restrizioni seguenti per i nomi delle regole di avviso delle metriche:
+Prendere in considerazione le restrizioni seguenti per i nomi delle regole di avviso delle metriche:
 
 - Non è possibile modificare i nomi delle regole di avviso delle metriche (rinominate) dopo la creazione
 - I nomi delle regole di avviso delle metriche devono essere univoci in un gruppo di risorse
@@ -209,10 +232,10 @@ Tenere presente le restrizioni seguenti per i nomi delle regole di avviso delle 
 
 Gli avvisi delle metriche supportano gli avvisi sulle metriche multidimensionali e supportano la definizione di più condizioni (fino a 5 condizioni per regola di avviso).
 
-Quando si usano le dimensioni in una regola di avviso che contiene più condizioni, tenere presente i vincoli seguenti:
-1. È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
-2. Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
-3. Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
+Quando si usano le dimensioni in una regola di avviso che contiene più condizioni, tenere presenti i vincoli seguenti:
+- È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
+- Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
+- Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
 Ad esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
