@@ -4,16 +4,16 @@ description: Informazioni su come eseguire la migrazione di applicazioni di Serv
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 07/23/2020
 ms.author: yegu
-ms.openlocfilehash: 909329a4326354a890c3c4645002f7248f30e8fa
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3f5cfccd1f85f68c619192496c62bf80ea8d4785
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184787"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170184"
 ---
-# <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
+# <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Eseguire la migrazione dal servizio cache gestita alla cache di Azure per Redis (deprecato)
 La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
 
 >[!NOTE]

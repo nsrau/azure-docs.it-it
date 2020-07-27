@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085961"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172066"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionare gli host di sessioni con Automazione di Azure
 
@@ -60,10 +60,10 @@ Tuttavia, lo strumento presenta anche le limitazioni seguenti:
 
 - Questa soluzione si applica solo alle VM host sessione multisessione in pool.
 - Questa soluzione gestisce le macchine virtuali in qualsiasi area, ma può essere usata solo nella stessa sottoscrizione dell'account di automazione di Azure e dell'app per la logica di Azure.
-- Il runtime massimo di un processo in Runbook è di 3 ore. Se l'avvio o l'arresto delle macchine virtuali nel pool host richiede più tempo, il processo avrà esito negativo. Per altri dettagli, vedere [risorse condivise](../../automation/automation-runbook-execution.md#fair-share)
+- Il runtime massimo di un processo in Runbook è di 3 ore. Se l'avvio o l'arresto delle macchine virtuali nel pool host richiede più tempo, il processo avrà esito negativo. Per informazioni dettagliate, vedere [risorse condivise](../../automation/automation-runbook-execution.md#fair-share).
 
 >[!NOTE]
->Lo strumento di dimensionamento controlla la modalità di bilanciamento del carico del pool di host da dimensionare. Imposta il bilanciamento in ampiezza per le ore di punta e non di punta.
+>Lo strumento di scalabilità controlla la modalità di bilanciamento del carico del pool host attualmente in fase di ridimensionamento. Lo strumento usa la modalità di bilanciamento del carico con prima larghezza per le ore di picco e di minore utilizzo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -140,7 +140,7 @@ Ora che si dispone di un account di automazione di Azure, è necessario creare a
 
 Un [account RunAs di automazione di Azure](../../automation/manage-runas-account.md) fornisce l'autenticazione per la gestione delle risorse in Azure con i cmdlet di Azure. Quando si crea un account RunAs, viene creato un nuovo utente entità servizio in Azure Active Directory e il ruolo Collaboratore viene assegnato all'utente dell'entità servizio a livello di sottoscrizione. Un account RunAs di Azure è un ottimo modo per eseguire l'autenticazione in modo sicuro con certificati e un nome dell'entità servizio senza dover archiviare un nome utente e una password in un oggetto credenziale. Per ulteriori informazioni sull'autenticazione dell'account RunAs, vedere [limitare le autorizzazioni dell'account RunAs](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Qualsiasi utente membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione può creare un account RunAs seguendo le istruzioni della sezione successiva.
+Qualsiasi utente che sia membro del ruolo amministratori della sottoscrizione e coamministratore della sottoscrizione può creare un account RunAs.
 
 Per creare un account RunAs nell'account di automazione di Azure:
 

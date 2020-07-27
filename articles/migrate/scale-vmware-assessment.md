@@ -3,12 +3,12 @@ title: Valutare un numero elevato di macchine virtuali VMware per la migrazione 
 description: Viene descritto come valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure usando il servizio Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336860"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171920"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
 
@@ -34,8 +34,10 @@ Quando si pianifica la valutazione di un numero elevato di macchine virtuali VMw
 
 - **Pianificare Azure migrate progetti**: scoprire come distribuire progetti di Azure migrate. Se, ad esempio, i Data Center si trovano in aree geografiche diverse oppure è necessario archiviare i metadati relativi a individuazione, valutazione o migrazione in un'altra area geografica, potrebbero essere necessari più progetti. 
 - **Appliance del piano**: Azure migrate usa un'appliance Azure migrate locale, distribuita come macchina virtuale VMware, per individuare continuamente le VM. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di VM, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario scoprire quante Appliance è necessario distribuire.
-- **Pianificare gli account per l'individuazione**: il Azure migrate Appliance usa un account con accesso a server vCenter per individuare le VM per la valutazione e la migrazione. Se si stanno scoprendo più di 10.000 VM, configurare più account.
+- **Pianificare gli account per l'individuazione**: il Azure migrate Appliance usa un account con accesso a server vCenter per individuare le VM per la valutazione e la migrazione. Se si stanno individuando più di 10.000 VM, configurare più account perché è necessario che non esistano sovrapposizioni tra le macchine virtuali individuate da due appliance di un progetto. 
 
+> [!NOTE]
+> Se si configurano più appliance, assicurarsi che non vi sia sovrapposizione tra le macchine virtuali negli account vCenter forniti. Un'individuazione con una sovrapposizione di questo tipo è uno scenario non supportato. Se una macchina virtuale viene individuata da più di un appliance, si verificano duplicati nell'individuazione e nei problemi durante l'abilitazione della replica per la macchina virtuale usando il portale di Azure nella migrazione del server.
 
 ## <a name="planning-limits"></a>Limiti di pianificazione
  
@@ -52,11 +54,12 @@ Tenendo conto di questi limiti, di seguito sono riportate alcune distribuzioni d
 
 
 **server vCenter** | **Macchine virtuali nel server** | **Consiglio** | **Azione**
----|---|---
+---|---|---|---
 Uno | < 10.000 | Un progetto Azure Migrate.<br/> Un appliance.<br/> Un account vCenter per l'individuazione. | Configurare il dispositivo, connettersi a server vCenter con un account.
-Uno | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Configurare l'appliance per ogni VM 10.000.<br/><br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Uno | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Configurare l'appliance per ogni VM 10.000.<br/><br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi. <br/> <br/> Assicurarsi che non vi sia sovrapposizione tra le macchine virtuali negli account vCenter forniti. Un'individuazione con una sovrapposizione di questo tipo è uno scenario non supportato. Se una macchina virtuale viene individuata da più di un appliance, si verificano duplicati nell'individuazione e nei problemi durante l'abilitazione della replica per la macchina virtuale usando il portale di Azure nella migrazione del server.
 Più elementi | < 10.000 |  Un progetto Azure Migrate.<br/> Più appliance.<br/> Un account vCenter per l'individuazione. | Configurare le appliance, connettersi a server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
-Più elementi | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Se server vCenter individuazione < VM 10.000, configurare un'appliance per ogni server vCenter.<br/><br/> Se server vCenter individuazione > VM 10.000, configurare un'appliance per ogni VM 10.000.<br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Più elementi | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Se server vCenter individuazione < VM 10.000, configurare un'appliance per ogni server vCenter.<br/><br/> Se server vCenter individuazione > VM 10.000, configurare un'appliance per ogni VM 10.000.<br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi. <br/><br/> Assicurarsi che non vi sia sovrapposizione tra le macchine virtuali negli account vCenter forniti. Un'individuazione con una sovrapposizione di questo tipo è uno scenario non supportato. Se una macchina virtuale viene individuata da più di un appliance, si verificano duplicati nell'individuazione e nei problemi durante l'abilitazione della replica per la macchina virtuale usando il portale di Azure nella migrazione del server.
+
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Pianificare l'individuazione in un ambiente multi-tenant
@@ -65,7 +68,7 @@ Se si sta pianificando un ambiente multi-tenant, è possibile definire l'ambito 
 
 - È possibile impostare l'ambito di individuazione dell'appliance su un server vCenter Data Center, cluster o cartella di cluster, host o cartella di host o singole macchine virtuali.
 - Se l'ambiente è condiviso tra i tenant e si vuole individuare separatamente ogni tenant, è possibile definire l'ambito di accesso all'account vCenter usato dall'appliance per l'individuazione. 
-    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Altre informazioni](set-discovery-scope.md)
+    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Altre informazioni](set-discovery-scope.md).
 
 ## <a name="prepare-for-assessment"></a>Preparare la valutazione
 
@@ -85,7 +88,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Creare un progetto Azure Migrate.
 2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Scopri di più](how-to-add-tool-first-time.md)
+[Altre informazioni](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 

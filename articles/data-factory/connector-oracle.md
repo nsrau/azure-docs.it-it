@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416817"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171270"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -58,7 +58,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -76,6 +76,8 @@ Il servizio collegato Oracle supporta le proprietà seguenti:
 
 >[!TIP]
 >Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. Quindi riprovare.
+
+Se si dispone di più istanze di Oracle per uno scenario di failover, è possibile creare il servizio collegato Oracle e compilare l'host primario, la porta, il nome utente, la password e così via e aggiungere una nuova "**proprietà di connessione aggiuntiva**" con il nome della proprietà `AlternateServers` e il valore As `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)` : non perdere le parentesi e prestare attenzione ai due punti ( `:` ) come separatore. Ad esempio, il valore seguente di server alternativi definisce due server di database alternativi per il failover della connessione: `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)` .
 
 Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
 

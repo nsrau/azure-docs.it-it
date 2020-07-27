@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico in Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 226f49dc2a1603aba5eaa2f03ead32b815ac34b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e28c1fd3dd117491360a1671955a6ec028033c01
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101691"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171629"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -34,7 +34,7 @@ Per valutare i server fisici, creare un progetto Azure Migrate e aggiungere lo s
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** È necessario essere un amministratore di dominio in tutti i server Windows che si desidera individuare. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti a un dominio e un account locale per i computer aggiunti a un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
 | **Sistema operativo** | Tutti i sistemi operativi ad eccezione di Windows Server 2003 e SUSE Linux possono essere valutati per la migrazione. |
 
 

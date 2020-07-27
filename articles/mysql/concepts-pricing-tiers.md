@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b9cf070e1431c04a7e899a3b8875c8db796608d3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119889"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171018"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -39,7 +39,7 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Cina orientale 1, Cina settentrionale 1, US DoD (area centrale) e US DoD (area orientale) utilizzano le CPU logiche di generazione 4 basate sui processori Intel E5-2673 V3 (Haswell) a 2,4 GHz. Tutte le altre aree utilizzano le CPU logiche di generazione 5 basate sui processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz.
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per MySQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server MySQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
@@ -48,7 +48,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
+| Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
 > L'archiviazione fino a 16TB e 20.000 IOPS è supportata nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale
@@ -83,9 +83,9 @@ Se, ad esempio, è stato effettuato il provisioning di 1000 GB di spazio di arch
 
 Tenere presente che lo spazio di archiviazione può essere scalato solo, non inattivo.
 
-## <a name="backup"></a>Backup
+## <a name="backup-storage"></a>Archiviazione di backup 
 
-Il servizio esegue automaticamente il backup del server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. I server per utilizzo generico e con ottimizzazione per la memoria possono scegliere di disporre di archiviazione con ridondanza geografica per i backup. Per altre informazioni sui backup, vedere l' [articolo concetti](concepts-backup.md).
+Database di Azure per MySQL offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Qualsiasi spazio di archiviazione di backup utilizzato in eccedenza rispetto a questo importo viene addebitato in GB al mese. Se, ad esempio, si esegue il provisioning di un server con 250 GB di spazio di archiviazione, saranno disponibili 250 GB di spazio di archiviazione aggiuntivo per i backup del server senza alcun costo aggiuntivo. Lo spazio di archiviazione per i backup in eccesso rispetto a 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/mysql/). Per comprendere i fattori che influenzano l'utilizzo dell'archiviazione di backup, il monitoraggio e il controllo dei costi di archiviazione di backup, è possibile fare riferimento alla [documentazione di backup](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Ridimensionare le risorse
 

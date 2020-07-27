@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483704"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169967"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -215,6 +215,12 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
         ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se si desidera applicare un criterio snapshot esistente al volume, fare clic su **Mostra sezione avanzata** per espanderlo e selezionare un criterio di snapshot nel menu a discesa. 
+
+        Per informazioni sulla creazione di un criterio snapshot, vedere [gestire gli snapshot](azure-netapp-files-manage-snapshots.md).
+
+        ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Fare clic su **Protocollo** e completare le informazioni seguenti:  
     * Selezionare **SMB** come tipo di protocollo per il volume. 

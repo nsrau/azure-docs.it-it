@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483653"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169820"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
-È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Azure NetApp Files i criteri di esportazione supportano solo i volumi NFS.  Sono supportati sia NFSv3 che NFSv4. 
+È possibile configurare i criteri di esportazione per controllare l'accesso a un volume Azure NetApp Files. Azure NetApp Files i criteri di esportazione supportano i volumi che usano il protocollo NFS (NFSv3 e NFSv 4.1) e il protocollo Dual (NFSv3 e SMB). 
+
+È possibile creare fino a cinque regole dei criteri di esportazione.
 
 ## <a name="steps"></a>Passaggi 
 
-1.  Fare clic su **Esporta criterio** nel riquadro di spostamento Azure NetApp files. 
+1.  Nella pagina volumi selezionare il volume per il quale si desidera configurare i criteri di esportazione, quindi fare clic su **Esporta criterio**. 
+
+    È anche possibile configurare i criteri di esportazione durante la creazione del volume.
 
 2.  Specificare le informazioni nei campi seguenti creare una regola di criteri di esportazione:   
     *  **Indice**   
@@ -39,7 +43,11 @@ ms.locfileid: "85483653"
         * Lettura e scrittura
         * Sola lettura
 
-    ![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **Accesso alla radice**  
+        Specificare se l' `root` account può accedere al volume.  Per impostazione predefinita, l'accesso alla radice è impostato **su on**e l' `root` account ha accesso al volume.
+
+        ![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

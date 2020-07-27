@@ -25,6 +25,11 @@
       href: extension-resource-types.md
     - name: Limite delle istanze di risorse
       href: resources-without-resource-group-limit.md
+    - name: Sicurezza
+      items:
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Procedure
   items:
     - name: Spostamento - gruppi di risorse/sottoscrizioni

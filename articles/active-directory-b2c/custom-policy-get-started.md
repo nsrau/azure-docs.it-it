@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65ff0ab03abdbd3b403d37700dc8df4fa5eee73a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116589"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169430"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -87,7 +87,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 
 Esporre quindi l'API aggiungendo un ambito:
 
-1. In **Gestisci** selezionare **Esponi un'API**.
+1. Nel menu a sinistra, in **Gestisci**, selezionare **esporre un'API**.
 1. Selezionare **Aggiungi un ambito** e quindi **Salva e continua** per accettare l'URI dell'ID applicazione predefinito.
 1. Immettere i valori seguenti per creare un ambito che consenta l'esecuzione di criteri personalizzati nel tenant di Azure AD B2C:
     * **Nome ambito**: `user_impersonation`
@@ -110,13 +110,13 @@ Esporre quindi l'API aggiungendo un ambito:
 
 Specificare quindi che l'applicazione deve essere considerata come un client pubblico:
 
-1. In **Gestisci** selezionare **Autenticazione**.
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
 1. In **Impostazioni avanzate** abilitare **Gestire l'applicazione come un client pubblico** (selezionare **Sì**). Verificare che nel manifesto dell'applicazione sia impostato **"allowPublicClient": true**. 
 1. Selezionare **Salva**.
 
 È ora necessario concedere le autorizzazioni all'ambito dell'API esposto in precedenza nella registrazione di *IdentityExperienceFramework*:
 
-1. In **Gestisci** selezionare **Autorizzazioni API**.
+1. Nel menu a sinistra, in **Gestisci**, selezionare autorizzazioni per le **API**.
 1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **Le mie API** e quindi selezionare l'applicazione **IdentityExperienceFramework**.
 1. In **Autorizzazione** selezionare l'ambito **user_impersonation** definito in precedenza.

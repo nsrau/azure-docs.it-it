@@ -1,6 +1,6 @@
 ---
 title: Gestire gli snapshot tramite Azure NetApp Files | Microsoft Docs
-description: Questo articolo descrive come creare snapshot per un volume o come eseguire il ripristino da uno snapshot a un nuovo volume tramite Azure NetApp Files.
+description: Viene descritto come creare e gestire gli snapshot utilizzando Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483602"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169751"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
-È possibile usare Azure NetApp Files per creare manualmente uno snapshot su richiesta per un volume o un ripristino da uno snapshot in un nuovo volume. Il servizio Azure NetApp Files non crea automaticamente snapshot del volume.  
+Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di criteri snapshot per pianificare la creazione automatica di snapshot.  È anche possibile ripristinare uno snapshot in un nuovo volume.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creare uno snapshot su richiesta per un volume
 
-Gli snapshot possono essere creati solo su richiesta. Al momento non sono supportati i criteri degli snapshot.
+È possibile creare snapshot del volume su richiesta. 
 
-1.  Nel pannello Volume fare clic su **Snapshot**.
+1.  Passare al volume per il quale si desidera creare uno snapshot. Fare clic su **snapshot**.
 
     ![Passare agli snapshot](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
@@ -43,47 +43,109 @@ Gli snapshot possono essere creati solo su richiesta. Al momento non sono suppor
 
 4. Fare clic su **OK**. 
 
+## <a name="manage-snapshot-policies"></a>Gestire i criteri di snapshot
+
+È possibile pianificare l'uso automatico degli snapshot del volume usando i criteri di snapshot. È anche possibile modificare i criteri di snapshot in base alle esigenze o eliminare un criterio di snapshot non più necessario.  
+
+### <a name="create-a-snapshot-policy"></a>Creare un criterio di snapshot 
+
+Un criterio di snapshot consente di specificare la frequenza di creazione dello snapshot nei cicli orari, giornalieri, settimanali o mensili. È anche necessario specificare il numero massimo di snapshot da conservare per il volume.  
+
+1.  Dalla visualizzazione dell'account NetApp fare clic su **criteri snapshot**.
+
+    ![Esplorazione dei criteri snapshot](../media/azure-netapp-files/snapshot-policy-navigation.png)
+
+2.  Nella finestra criteri snapshot impostare stato criterio su **abilitato**. 
+
+3.  Fare clic sulla scheda **oraria**, **giornaliera**, **settimanale**o **mensile** per creare criteri di snapshot orari, giornalieri, settimanali o mensili. Consente di specificare il **numero di snapshot da memorizzare**.  
+
+    Vedere [limiti delle risorse per Azure NetApp files](azure-netapp-files-resource-limits.md) sul numero massimo di snapshot consentiti per un volume. 
+
+    Nell'esempio seguente viene illustrata la configurazione dei criteri snapshot orari. 
+
+    ![Criteri snapshot ogni ora](../media/azure-netapp-files/snapshot-policy-hourly.png)
+
+    Nell'esempio seguente viene illustrata la configurazione dei criteri snapshot giornalieri.
+
+    ![Criteri di snapshot giornalieri](../media/azure-netapp-files/snapshot-policy-daily.png)
+
+    Nell'esempio seguente viene illustrata la configurazione dei criteri snapshot settimanali.
+
+    ![Criteri di snapshot settimanalmente](../media/azure-netapp-files/snapshot-policy-weekly.png)
+
+    Nell'esempio seguente viene illustrata la configurazione dei criteri snapshot mensili.
+
+    ![Criteri snapshot mensili](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+
+4.  Fare clic su **Salva**.  
+
+Se è necessario creare criteri di snapshot aggiuntivi, ripetere il passaggio 3.
+I criteri creati vengono visualizzati nella pagina Criteri snapshot.
+
+Se si vuole che un volume usi i criteri di snapshot, è necessario [applicare il criterio al volume](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
+
+### <a name="apply-a-snapshot-policy-to-a-volume"></a>Applicare un criterio snapshot a un volume
+
+Se si vuole che un volume usi un criterio snapshot creato, è necessario applicare il criterio al volume. 
+
+1.  Andare alla pagina **volumi** , fare clic con il pulsante destro del mouse sul volume a cui si desidera applicare i criteri di snapshot e scegliere **modifica**.
+
+    ![Menu di scelta rapida dei volumi](../media/azure-netapp-files/volume-right-cick-menu.png) 
+
+2.  Nella finestra modifica, in **criteri snapshot**, selezionare i criteri da usare per il volume.  Fare clic su **OK** per applicare i criteri.  
+
+    ![Modifica dei criteri di snapshot](../media/azure-netapp-files/snapshot-policy-edit.png) 
+
+### <a name="modify-a-snapshot-policy"></a>Modificare un criterio di snapshot 
+
+È possibile modificare un criterio snapshot esistente per modificare lo stato dei criteri, la frequenza degli snapshot (oraria, giornaliera, settimanale o mensile) o il numero di snapshot da contenere.  
+ 
+1.  Dalla visualizzazione dell'account NetApp fare clic su **criteri snapshot**.
+
+2.  Fare clic con il pulsante destro del mouse sui criteri di snapshot da modificare, quindi scegliere **modifica**.
+
+    ![Menu di scelta rapida per i criteri snapshot](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Apportare le modifiche nella finestra dei criteri di snapshot visualizzata, quindi fare clic su **Salva**. 
+
+### <a name="delete-a-snapshot-policy"></a>Eliminare un criterio di snapshot 
+
+È possibile eliminare un criterio snapshot che non si desidera più memorizzare.   
+
+1.  Dalla visualizzazione dell'account NetApp fare clic su **criteri snapshot**.
+
+2.  Fare clic con il pulsante destro del mouse sui criteri di snapshot da modificare, quindi selezionare **Elimina**.
+
+    ![Menu di scelta rapida per i criteri snapshot](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Fare clic su **Sì** per confermare che si desidera eliminare i criteri di snapshot.   
+
+    ![Conferma eliminazione criteri snapshot](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Ripristinare uno snapshot in un nuovo volume
 
 Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume. 
-1. Andare al pannello **Manage Snapshots** (Gestisci snapshot) nel pannello Volume per visualizzare l'elenco degli snapshot. 
-2. Selezionare lo snapshot da ripristinare.  
-3. Fare clic con il destro del mouse sul nome dello snapshot e selezionare **Ripristina in nuovo volume** dall'opzione di menu.  
+1. Selezionare **snapshot** dal pannello volume per visualizzare l'elenco di snapshot. 
+2. Fare clic con il pulsante destro del mouse sullo snapshot da ripristinare e selezionare **Ripristina in nuovo volume** dall'opzione di menu.  
 
     ![Ripristinare snapshot in un nuovo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. Nella finestra Nuovo volume, fornire le informazioni relative al nuovo volume:  
+3. Nella finestra Crea un volume specificare le informazioni per il nuovo volume:  
     * **Nome**   
         Specificare il nome per il volume che si sta creando.  
         
         Il nome deve essere univoco all'interno di un gruppo di risorse. Deve essere composto da almeno tre caratteri.  È possibile usare qualsiasi carattere alfanumerico.
 
-    * **Percorso file**     
-        Specificare il percorso del file che verrà usato per creare il percorso di esportazione per il nuovo volume. Il percorso di esportazione viene usato per montare il volume e accedervi.   
-        
-        Una destinazione di montaggio è l'endpoint dell'indirizzo IP del servizio NFS. Viene generata automaticamente.   
-        
-        Il nome di percorso di file può contenere solo lettere, numeri e trattini ("-"). Il nome deve avere una lunghezza compresa tra 16 e 40 caratteri. 
-
     * **Quota**  
-        Specificare la quantità di spazio di archiviazione logico allocato al volume.  
+        Specificare la quantità di archiviazione logica che si desidera allocare al volume.  
 
-        Il campo **Quota disponibile** mostra la quantità di spazio inutilizzato nel pool di capacità scelto che è possibile usare per la creazione di un nuovo volume. Le dimensioni del nuovo volume non devono superare la quota disponibile.
+    ![Ripristino in un nuovo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-    *   **Rete virtuale**  
-        Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
-        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. È possibile accedere al volume dalla rete locale tramite Express route. 
-
-    * **Subnet**  
-        Specificare la subnet desiderata per il volume.  
-        La subnet specificata deve essere delegata al servizio Azure NetApp Files. È possibile creare una nuova subnet selezionando **Crea nuovo** sotto il campo Subnet.  
-   <!--
-    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-   -->
-
-5. Fare clic su **OK**.   
+4. Fare clic su **Verifica + crea**.  Fare clic su **Crea**.   
+    Il nuovo volume usa lo stesso protocollo usato dallo snapshot.   
     Il nuovo volume in cui viene ripristinato lo snapshot viene visualizzato nel pannello Volumi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)

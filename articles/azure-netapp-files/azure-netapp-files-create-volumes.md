@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483636"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169456"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
@@ -89,6 +89,12 @@ Azure NetApp Files supporta i volumi NFS (NFSv3 e NFSv 4.1) e SMBv3. L'utilizzo 
         ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se si desidera applicare un criterio snapshot esistente al volume, fare clic su **Mostra sezione avanzata** per espanderlo e selezionare un criterio di snapshot nel menu a discesa. 
+
+        Per informazioni sulla creazione di un criterio snapshot, vedere [gestire gli snapshot](azure-netapp-files-manage-snapshots.md).
+
+        ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Fare clic su **Protocollo** e quindi completare le azioni seguenti:  
     * Selezionare **NFS** come tipo di protocollo per il volume.   
