@@ -9,49 +9,49 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: d4d811d782acdd75550f05a8be28711be41ad343
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7db367222d96d7bc9dae48242992ee76a89c849d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544441"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
 
-In questo argomento di avvio rapido si creerà da zero un'app Android che si integrerà con lo strumento di lettura immersiva. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [qui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
+In questo argomento di avvio rapido si creerà da zero un'app Android che si integrerà con lo strumento di lettura immersiva. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [in GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](../../how-to-create-immersive-reader.md) per configurare l'ambiente. Per la configurazione delle proprietà dell'ambiente, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
-* [Git](https://git-scm.com/)
-* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
-* [Android Studio](https://developer.android.com/studio)
+* Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](../../how-to-create-immersive-reader.md) per configurare l'ambiente. Quando si configurano le proprietà dell'ambiente, sarà necessario usare alcuni valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
+* [Git](https://git-scm.com/).
+* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
+* [Android Studio](https://developer.android.com/studio).
 
 ## <a name="create-an-android-project"></a>Creare un progetto Android
 
-Avviare un nuovo progetto in Android Studio. Il codice sorgente di questo esempio è disponibile nell'[Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin)
+Avviare un nuovo progetto in Android Studio. Il codice sorgente di questo esempio è disponibile nell'[Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 ![Nuovo progetto](../../media/android/kotlin/android-studio-create-project.png)
 
-Nella pagina Choose your project (Scegliere il progetto) selezionare **Empty Activity** (Attività vuota), quindi fare clic su Next (Avanti).
+Nella finestra **Choose your project** (Scegliere il progetto) selezionare **Empty Activity** (Attività vuota) e quindi **Next** (Avanti).
 
 ![Progetto Attività vuota](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Configurare il progetto
 
-Assegnare al progetto il nome "QuickstartKotlin", selezionare un percorso di salvataggio e scegliere "Kotlin" come linguaggio di programmazione, quindi fare clic su "Finish" (Fine).
+Denominare il progetto **QuickstartKotlin** e selezionare un percorso per salvarlo. Selezionare **Kotlin** come linguaggio di programmazione e quindi selezionare **Fine**.
 
 ![Configurare il progetto](../../media/android/kotlin/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>Configurare gli asset e l'autenticazione
 
-Creare una nuova cartella **/assets**
+Creare una nuova cartella **/assets**.
 
-![Crea una nuova cartella Assets](../../media/android/kotlin/android-studio-assets-folder.png)
+![Creare una nuova cartella assets](../../media/android/kotlin/android-studio-assets-folder.png)
 
- Creare un file denominato **env** all'interno della cartella assets. Aggiungere il codice seguente, specificando i valori appropriati. Fare attenzione a non eseguire il commit di questo file env nel controllo del codice sorgente, poiché contiene segreti che non devono essere resi pubblici.
+ Creare un file denominato **env** all'interno della cartella assets. Aggiungere i nomi e i valori seguenti e specificare i valori appropriati. Non eseguire il commit di questo file env nel controllo del codice sorgente, perché contiene segreti che non devono essere resi pubblici.
 
 ![Creare un nuovo file env](../../media/android/kotlin/android-studio-create-env-file.png)
 
@@ -65,7 +65,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Sostituire le dipendenze esistenti nel file **build.gradle** con le implementazioni seguenti per abilitare le couroutine (programmazione asincrona), gson (analisi e serializzazione JSON) e dotenv per fare riferimento alle variabili definite nel file env. Potrebbe essere necessario sincronizzare nuovamente il progetto quando si implementerà MainActivity.kt in un passaggio successivo di questo avvio rapido.
+Sostituire le dipendenze esistenti nel file **build.gradle** con le implementazioni seguenti per abilitare le coroutine (programmazione asincrona), gson (analisi e serializzazione JSON) e dotenv per fare riferimento alle variabili definite nel file env. Potrebbe essere necessario sincronizzare nuovamente il progetto quando si implementerà MainActivity.kt in un passaggio successivo di questo avvio rapido.
 
 ```build.gradle
 dependencies {
@@ -106,7 +106,7 @@ Sostituire il contenuto di **res/strings/strings.xml** con le stringhe seguenti 
 </resources>
 ```
 
-Sostituire il contenuto di **res/layout/activity_main.xml** con il codice XML seguente da usare nell'app. È il layout dell'interfaccia utente dell'app.
+Sostituire il contenuto di **res/layout/activity_main.xml** con il codice XML seguente da usare nell'app. Questo codice XML è il layout dell'interfaccia utente dell'app.
 
 ![File activity_main.xml dell'app](../../media/android/kotlin/android-studio-activity-main-xml.png)
 
@@ -207,7 +207,7 @@ Sostituire il contenuto di **res/layout/activity_main.xml** con il codice XML se
 
 ## <a name="set-up-the-app-kotlin-code-javascript-interface"></a>Configurare l'interfaccia JavaScript del codice dell'app Kotlin
 
-Nella cartella **/Java/com.example.quickstartkotlin** creare una nuova classe Kotlin e assegnarle il nome **WebAppInterface**, quindi aggiungerle il codice seguente. Questo codice consente all'app di interfacciarsi con le funzioni JavaScript in HTML che verranno aggiunte in un passaggio successivo.
+Nella cartella **/Java/com.example.quickstartkotlin** creare una nuova classe Kotlin e assegnarle il nome **WebAppInterface**. Aggiungerle quindi il codice seguente. Questo codice consente all'app di interfacciarsi con le funzioni JavaScript in HTML che verranno aggiunte in un passaggio successivo.
 
 ![Cartella com.example.quickstartkotlin](../../media/android/kotlin/android-studio-com-folder.png)
 
@@ -262,7 +262,7 @@ class WebAppInterface(private val mContext: Context, var parentLayout: LinearLay
 
 ## <a name="set-up-the-app-kotlin-code-main-activity"></a>Configurare l'attività principale del codice dell'app Kotlin
 
-Nella cartella **/Java/com.example.quickstartkotlin** è presente un file di classe Kotlin **MainActivity.kt**. È in questa cartella che viene creata la logica dell'app. Sostituire il contenuto con il codice seguente.
+Nella cartella **/Java/com.example.quickstartkotlin** è presente un file di classe Kotlin **MainActivity.kt**. È in questo file che viene creata la logica dell'app. Sostituire il contenuto con il codice seguente:
 
 ```MainActivity.kt
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -290,10 +290,10 @@ import kotlinx.coroutines.*
 import org.json.JSONObject
 import java.util.*
 
-// This sample app uses the Dotenv is a module that loads environment variables from a .env file to better manage secrets.
+// This sample app uses the Dotenv. It's a module that loads environment variables from a .env file to better manage secrets.
 // https://github.com/cdimascio/java-dotenv
-// Be sure to add a "env" file to the /assets folder
-// instead of '.env', use 'env'
+// Be sure to add a "env" file to the /assets folder.
+// Instead of '.env', use 'env'.
 
 class MainActivity : AppCompatActivity() {
     private val dotEnv = dotenv {
@@ -313,10 +313,10 @@ class MainActivity : AppCompatActivity() {
         immersiveReaderButton.setOnClickListener { GlobalScope.launch { handleLoadImmersiveReaderWebView() } }
     }
 
-    // Assigns values to the objects sent to the Immersive Reader SDK
+    // Assigns values to the objects sent to the Immersive Reader SDK,
     // acquires the token and authorizes the app, then launches
     // the Web View to get the response and load the Immersive Reader
-    // When the button is clicked in HTML.
+    // when the button is clicked in HTML.
     private suspend fun handleLoadImmersiveReaderWebView() {
         val exampleActivity = this
         val subdomain = dotEnv["SUBDOMAIN"]
@@ -358,7 +358,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // The next two functions get the token from the Immersive Reader SDK
-    // and authorizes the app.
+    // and authorize the app.
     private suspend fun getImmersiveReaderTokenAsync(): String {
         return getToken()
     }
@@ -416,7 +416,7 @@ class MainActivity : AppCompatActivity() {
                   var options: Options? = null)
 
     // Only includes Immersive Reader options relevant to Android apps.
-    // For a complete list visit https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference
+    // For a complete list, visit https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference
     class Options(var uiLang: String? = null, // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
                   var timeout: Int? = null, // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
                   var uiZIndex: Int? = null, // Z-index of the iframe that will be created (default is 1000)
@@ -507,9 +507,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                // This is where the WebAppInterface Class is used
+                // This is where the WebAppInterface Class is used.
                 // Affords a way for JavaScript to work with the app directly from
-                // the Web View's HTML
+                // the Web View's HTML.
                 val jsInterface = WebAppInterface(exampleActivity, parentLayout, contextualWebView)
                 contextualWebView.addJavascriptInterface(jsInterface, "Android")
                 contextualWebView.loadUrl("file:///android_asset/immersiveReader.html")
@@ -521,13 +521,13 @@ class MainActivity : AppCompatActivity() {
 
 ## <a name="add-the-app-html-to-the-web-view"></a>Aggiungere il codice HTML dell'app alla visualizzazione Web
 
-L'implementazione della visualizzazione Web ha bisogno del codice HTML per funzionare. Fare clic con il pulsante destro del mouse sulla cartella **/assets**, creare un nuovo file e assegnargli in nome **immersiveReader.html**.
+L'implementazione della visualizzazione Web ha bisogno del codice HTML per funzionare. Fare clic con il pulsante destro del mouse sulla cartella **/assets**, creare un nuovo file e assegnargli il nome **immersiveReader.html**.
 
 ![Creare un nuovo file HTML](../../media/android/kotlin/android-studio-immersive-reader-html.png)
 
 ![Posizione degli asset HTML](../../media/android/kotlin/android-studio-immersive-reader-html-assets.png)
 
-Aggiungere il codice HTML e JavaScript seguente. L'Immersive Reader SDK verrà aggiunto all'app e verrà usato per avviare lo strumento di lettura immersiva usando il codice dell'app scritto.
+Aggiungere il codice HTML e JavaScript seguente. Questo codice aggiunge l'Immersive Reader SDK all'app che verrà usato per aprire lo strumento di lettura immersiva usando il codice dell'app scritto.
 
 ```immersiveReader.html
 <!-- Copyright (c) Microsoft Corporation. All rights reserved.
@@ -576,7 +576,7 @@ Licensed under the MIT License. -->
 
 ![AndroidManifest](../../media/android/kotlin/android-studio-android-manifest-xml.png)
 
-Poiché l'applicazione deve effettuare chiamate di rete all'Immersive Reader SDK per poter funzionare, è necessario assicurarsi che le autorizzazioni dell'app siano configurate in modo da consentire l'accesso alla rete. Sostituire il contenuto di **/manifests/AndroidManifest.xml** con il codice XML seguente.
+Poiché l'applicazione deve effettuare chiamate di rete all'Immersive Reader SDK per poter funzionare, è necessario assicurarsi che le autorizzazioni dell'app siano configurate in modo da consentire l'accesso alla rete. Sostituire il contenuto di **/manifests/AndroidManifest.xml** con il codice XML seguente:
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -604,12 +604,12 @@ Poiché l'applicazione deve effettuare chiamate di rete all'Immersive Reader SDK
 </manifest>
 ```
 
-## <a name="running-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
-Usare Android Studio per eseguire l'app in un emulatore di dispositivo. Quando si fa clic sul pulsante **Strumento di lettura immersiva**, lo strumento di lettura immersiva verrà avviato con il contenuto dell'app.
+Usare Android Studio per eseguire l'app in un emulatore di dispositivo. Quando si seleziona lo **Strumento di lettura immersiva**, questo si apre con il contenuto dell'app.
 
 ![Strumento di lettura immersiva](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)
+Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md).

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b6829f52cb8aaac6f243d3a4a1fa7f6bc1b150d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035943"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544166"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,7 +25,7 @@ Creare una nuova cartella vuota. Se si vuole ospitare l'esempio in un server Web
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Decomprimere Speech SDK per JavaScript nella cartella
 
-Scaricare Speech SDK come [pacchetto con estensione zip](https://aka.ms/csspeech/jsbrowserpackage) e decomprimerlo nella nuova cartella. Vengono decompressi due file, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Scaricare Speech SDK come [pacchetto con estensione zip](https://aka.ms/csspeech/jsbrowserpackage) e decomprimerlo nella nuova cartella. Il risultato è la decompressione di cinque file, tra cui `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 Quest'ultimo file è facoltativo ed è utile per eseguire il debug nel codice dell'SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Creare una pagina index.html

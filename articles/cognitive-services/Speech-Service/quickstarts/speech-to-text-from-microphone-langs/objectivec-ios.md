@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Objective-C - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale, Objective-C - Servizio Voce (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in Objective-C in iOS con Speech SDK
+description: Informazioni su come creare un'app per il riconoscimento vocale in Objective-C per un dispositivo iOS con Speech SDK di Servizi cognitivi.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ba12f258ce7b0db60d3e7343bf12ffc28e8548ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524285"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-ios.md).
 

@@ -3,12 +3,12 @@ title: Che cos'è il servizio Language Understanding (LUIS)?
 description: Language Understanding (LUIS) è un servizio API basato sul cloud che applica l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538038"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
@@ -61,7 +61,7 @@ Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **
 
 ## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di stima
 
-Dopo il training e la pubblicazione dell'app nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) di stima. L'API applica l'app all'espressione per l'analisi e risponde con i risultati della stima in un formato JSON.
+Dopo il training e la pubblicazione dell'app nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) di stima. L'API applica il modello all'espressione per l'analisi e risponde con i risultati della stima in un formato JSON.
 
 La risposta dell'endpoint JSON contiene almeno l'espressione della query e la finalità con il punteggio più alto. Può anche estrarre dati, ad esempio l'entità **Contact Type** seguente e il sentiment generale.
 

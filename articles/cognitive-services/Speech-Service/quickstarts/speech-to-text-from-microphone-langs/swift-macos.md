@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Swift - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale, Swift - Servizio Voce (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in Swift in macOS con Speech SDK
+description: Informazioni su come creare un'app per il riconoscimento vocale in Swift per un computer macOS con Speech SDK di Servizi cognitivi.
 services: cognitive-services
 author: cbasoglu
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 440addd017e7a819d9d3d02a8b77b9432b68b9af
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 68947446d18ce1632b63ac3ba27311f648f3deea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524115"
 ---
-# <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Swift in macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Swift in macOS con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-macos.md).
 

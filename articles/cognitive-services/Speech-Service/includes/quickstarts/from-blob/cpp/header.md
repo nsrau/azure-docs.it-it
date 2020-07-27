@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 2bc38b75a5239e31eb98dab94989e6dc15b3fbf1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf3b67e59abed86062fa71b51b8e7b542d4917ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75469316"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544535"
 ---
-Se si preferisce iniziare subito, visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-cpp">esempi C++ di Speech SDK</a> in GitHub. In caso contrario, ecco come procedere.
+È possibile visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-cpp">esempi C++ di Speech SDK</a> in GitHub. 
