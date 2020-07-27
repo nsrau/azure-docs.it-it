@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a5829057aed913ea824cbd2fd6b52369b5e70d88
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801844"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536522"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
 
@@ -63,7 +63,7 @@ Per iniziare, creare un hub IoT con l'interfaccia della riga di comando di Azure
 
 Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se l'hub IoT è già stato usato in passato ed è disponibile un hub, è possibile usarlo qui.
 
-Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeResources**. Sostituire `{hub_name}` con un nome univoco per l'hub IoT.
+Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeResources**. Sostituire `{hub_name}` con un nome univoco per l'hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -113,7 +113,7 @@ In questa sezione verrà usato un modello di Azure Resource Manager per creare u
 
 Usare il comando dell'interfaccia della riga di comando seguente per creare il dispositivo IoT Edge in base al modello [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) predefinito.
 
-* Per gli utenti di Bash o Cloud Shell, copiare il comando seguente in un editor di testo, sostituire il testo segnaposto con le informazioni correnti, quindi copiare il testo nella finestra di Bash o Cloud Shell:
+* Per gli utenti di Bash o Cloud Shell, copiare il comando seguente in un editor di testo, sostituire il testo segnaposto con le informazioni correnti e quindi copiare il testo nella finestra di Bash o Cloud Shell:
 
    ```azurecli-interactive
    az deployment group create \
@@ -233,10 +233,19 @@ Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il d
 
 Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di risorse, è possibile eliminare il gruppo e tutte le risorse associate. Verificare il contenuto del gruppo di risorse per assicurarsi che non vi siano dati da conservare. Se non si vuole eliminare l'intero gruppo, è possibile eliminare le singole risorse.
 
-Rimuovere il gruppo **IoTEdgeResources**.
+> [!IMPORTANT]
+> L'eliminazione di un gruppo di risorse è irreversibile.
+
+Rimuovere il gruppo **IoTEdgeResources**. L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources
+```
+
+Per confermare la rimozione del gruppo di risorse, visualizzare l'elenco dei gruppi di risorse.
+
+```azurecli-interactive
+az group list
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

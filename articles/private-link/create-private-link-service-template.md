@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio Collegamento privato in Collegamento privato di Azure
-description: In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un servizio Collegamento privato.
+description: In questo argomento di avvio rapido si usa un modello di Azure Resource Manager (modello di Resource Manager) per creare un servizio Collegamento privato.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529608"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un servizio Collegamento privato con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio Collegamento privato con un modello di Resource Manager
 
-In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un servizio Collegamento privato.
+In questo argomento di avvio rapido si usa un modello di Azure Resource Manager (modello di Resource Manager) per creare un servizio Collegamento privato.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 È anche possibile completare questa guida di avvio rapido usando il [portale di Azure](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) o l'[interfaccia della riga di comando di Azure](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Prerequisito
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea un servizio Collegamento privato.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): sono disponibili due indirizzi IP pubblici, uno per ogni macchina virtuale.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): endpoint privato per accedere al servizio.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
-Di seguito è riportata la procedura per distribuire il modello di Azure Resource Manager in Azure:
+Ecco come distribuire il modello di Resource Manager in Azure:
 
 1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea una macchina virtuale, un'istanza di Load Balancer Standard, un servizio Collegamento privato, un endpoint privato, una rete e una macchina virtuale da convalidare.
 
-   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Selezionare o creare un gruppo di risorse.
 3. Specificare il nome utente e la password dell'amministratore della macchina virtuale.
@@ -63,7 +65,7 @@ Di seguito è riportata la procedura per distribuire il modello di Azure Resourc
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
 > [!NOTE]
-> Il modello di Azure Resource Manager genera un nome univoco per la risorsa macchina virtuale myConsumerVm<b>{uniqueid}</b>. Sostituire il valore generato per **{uniqueid}** .
+> Il modello di Resource Manager genera un nome univoco per la risorsa macchina virtuale myConsumerVm<b>{uniqueid}</b>. Sostituire il valore generato per **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
@@ -95,7 +97,7 @@ Connettersi alla macchina virtuale _myConsumerVm{uniqueid}_ da Internet come ind
 Di seguito viene illustrata la procedura per la connessione al servizio http dalla macchina virtuale tramite l'endpoint privato.
 
 1.  Passare al Desktop remoto di _myConsumerVm{uniqueid}_ .
-2.  Aprire un browser e immettere l'indirizzo dell'endpoint privato: http://10.0.0.5/.
+2.  Aprire un browser e immettere l'indirizzo dell'endpoint privato: `http://10.0.0.5/`.
 3.  Verrà visualizzata la pagina IIS predefinita.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

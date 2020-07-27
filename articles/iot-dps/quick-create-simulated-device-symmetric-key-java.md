@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8b54f216850b77473ea8c272311e3f135f256518
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76961188"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536505"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato nell'hub IoT con chiavi simmetriche
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Questo dispositivo simulato verrà configurato per usare una chiave simmetrica per l'autenticazione con un'istanza del servizio Device Provisioning e verrà assegnato a un hub IoT. Si userà un codice di esempio degli [SDK per IoT di Microsoft Azure per Java](https://github.com/Azure/azure-iot-sdk-java) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e verrà assegnato a un hub IoT.
 

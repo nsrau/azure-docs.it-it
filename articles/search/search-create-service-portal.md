@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529625"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
@@ -27,11 +27,11 @@ Se si preferisce PowerShell, usare il [modello di servizio](https://azure.micros
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Le proprietà seguenti sono fisse per la durata del servizio e la loro modifica richiede un nuovo servizio. Quando si crea un servizio, stabilire come verrà usato:
+Le proprietà seguenti sono fisse per la durata del servizio e per modificarne una qualsiasi di esse è richiesto un nuovo servizio. Dal momento che sono fisse, valutare le implicazioni di utilizzo seguenti quando si inseriscono le singole proprietà:
 
-* Nome (seguire [questi suggerimenti](#name-the-service) per i nomi di servizio)
-* Livello (può essere gratuito, Basic o Standard, [influisce sulla fatturazione](search-sku-tier.md) e imposta un limite massimo per la capacità)
-* Area (scegliere una località con servizi correlati. Per l'integrazione con Servizi cognitivi o Azure Machine Learning, è necessario che i servizi si trovino nella stessa area)
+* il nome del servizio diventa parte dell'endpoint dell'URL ([vedere i suggerimenti](#name-the-service) per i nomi di servizio utili).
+* il livello di servizio [influisce sulla fatturazione](search-sku-tier.md) e imposta un limite massimo per la capacità.
+* l'area del servizio può determinare la disponibilità di determinati scenari. Se si è interessati al knowledge mining e all'arricchimento tramite intelligenza artificiale, Servizi cognitivi ed eventualmente Azure Machine Learning devono trovarsi nella stessa area di Ricerca cognitiva di Azure.
 
 ## <a name="subscribe-free-or-paid"></a>Sottoscrizione gratuita o a pagamento
 

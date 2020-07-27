@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601412"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523605"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -155,6 +155,12 @@ Alcune richieste di transizione dei clienti possono richiedere un processo di re
 La directory delle sottoscrizioni di Azure da trasferire deve corrispondere alla directory del cliente che è stata selezionata durante la creazione della relazione CSP.
 
 Se queste due directory non corrispondono, non è possibile trasferire le sottoscrizioni. È necessario stabilire una nuova relazione rivenditore CSP con il cliente selezionando la directory delle sottoscrizioni di Azure o modificando la directory delle sottoscrizioni di Azure in modo che corrisponda alla directory della relazione CSP del cliente. Per altre informazioni, vedere [Associare una sottoscrizione esistente alla directory di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Sottoscrizione con Contratto Enterprise nella directory non dell'organizzazione
+
+Le sottoscrizioni con Contratto Enterprise da directory non dell'organizzazione possono essere trasferite purché per la directory sia disponibile una relazione come rivenditore con il programma CSP. Se per la directory non è disponibile una relazione come rivenditore, è necessario assicurarsi che l'utente dell'organizzazione sia presente nella directory come *amministratore globale* che può accettare la relazione come partner. La parte relativa al nome di dominio del nome utente deve essere il nome di dominio predefinito iniziale "[nome dominio]. onmicrosoft.com" o un nome di dominio personalizzato non federato verificato, ad esempio "contoso.com".  
+
+Per aggiungere un nuovo utente alla directory, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory per aggiungere il nuovo utente alla directory di AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificare l'accesso a un Contratto Microsoft Partner
 

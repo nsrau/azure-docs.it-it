@@ -1,30 +1,34 @@
 ---
 title: Creare un'istanza del Servizio Migrazione del database (modello di Azure Resource Manager)
-description: Informazioni su come creare un'istanza del Servizio Migrazione del database usando un modello di Azure Resource Manager.
+description: Informazioni su come creare un'istanza del Servizio Migrazione del database usando un modello di Azure Resource Manager (modello di Resource Manager).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 9e0d537a948e960c90737cc3f367940a0ffca74c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852479"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537446"
 ---
-# <a name="create-instance-of-azure-database-migration-service-azure-resource-manager-template"></a>Creare un'istanza del Servizio Migrazione del database di Azure (modello di Azure Resource Manager)
+# <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Avvio rapido: Creare un'istanza del Servizio Migrazione del database di Azure con il modello di Resource Manager
 
-Usare questo modello di Azure Resource Manager per distribuire un'istanza del Servizio Migrazione del database di Azure. 
+Usare questo modello di Azure Resource Manager (modello di Resource Manager) per distribuire un'istanza del Servizio Migrazione del database di Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Il modello di Azure Resource Manager del Servizio Migrazione del database di Azure richiede gli elementi seguenti: 
 
-- La versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e/o di [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e/o di [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="review-the-template"></a>Rivedere il modello
@@ -39,7 +43,7 @@ Nel modello sono definite tre risorse di Azure:
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): crea la subnet. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): distribuisce un'istanza del Servizio Migrazione del database di Azure. 
 
-Altri modelli per il Servizio Migrazione del database di Azure sono disponibili nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
+Altri modelli per il Servizio Migrazione del database di Azure sono disponibili nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
@@ -105,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
 
 > [!div class="nextstepaction"]
-> [ Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Per altri modi di distribuire il Servizio Migrazione del database di Azure, vedere: 
 - [Azure portal](quickstart-create-data-migration-service-portal.md)

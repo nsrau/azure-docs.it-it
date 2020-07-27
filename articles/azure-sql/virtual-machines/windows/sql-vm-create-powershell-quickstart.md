@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667404"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514612"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Avvio rapido: Creare un'istanza di SQL Server in una macchina virtuale Windows con Azure PowerShell
 
@@ -147,13 +147,34 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    > [!TIP]
    > La creazione della macchina virtuale richiede alcuni minuti.
 
-## <a name="install-the-sql-iaas-agent"></a>Installare SQL Server Iaas Agent
+## <a name="register-with-sql-vm-rp"></a>Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL 
 
-Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario installare l'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per installare l'agente nella nuova VM, eseguire il comando seguente dopo averla creata.
+Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario eseguire la registrazione con il [provider di risorse della macchina virtuale di SQL](sql-vm-resource-provider-register.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+Per ottenere la funzionalità completa, è necessario eseguire la registrazione con il provider di risorse in modalità completa. Se si procede in questo modo, però, il servizio SQL Server viene riavviato, di conseguenza l'approccio consigliato consiste nell'eseguire la registrazione in modalità semplificata e quindi eseguire l'aggiornamento alla modalità completa durante una finestra di manutenzione. 
+
+In primo luogo, registrare la macchina virtuale di SQL Server in modalità semplificata: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Quindi, durante una finestra di manutenzione, eseguire l'aggiornamento alla modalità completa: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>Desktop remoto nella macchina virtuale
 

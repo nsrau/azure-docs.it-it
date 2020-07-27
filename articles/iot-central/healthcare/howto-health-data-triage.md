@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021645"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497047"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Esercitazione: Creare un dashboard del provider Power BI
 
 
 
-Quando si crea la soluzione di monitoraggio pazienti continuo, si può creare anche un dashboard che consenta a un team per l'assistenza ospedaliera di visualizzare i dati dei pazienti. In questa esercitazione si apprenderà come creare un dashboard di streaming in tempo reale Power BI dal modello di applicazione di monitoraggio pazienti continuo di IoT Central.
+Quando si crea la soluzione di monitoraggio pazienti continuo, si può creare anche un dashboard che consenta a un team per l'assistenza ospedaliera di visualizzare i dati dei pazienti. In questa esercitazione si apprenderà come creare un dashboard di streaming in tempo reale Power BI dal modello di applicazione di monitoraggio pazienti continuo di IoT Central. Se il caso d'uso non richiede l'accesso ai dati in tempo reale, è possibile usare il [dashboard di Power BI per IoT Central](../core/howto-connect-powerbi.md), che offre un processo di distribuzione semplificato. 
 
 >[!div class="mx-imgBorder"]
 >![GIF del dashboard](media/dashboard-gif-3.gif)
@@ -77,7 +77,7 @@ Per altre informazioni sui set di dati di streaming in Power BI, è possibile le
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Connettere l'app per la logica a Hub eventi di Azure
 Per connettere l'app per la logica a Hub eventi di Azure, è possibile seguire le istruzioni riportate in questo documento sull'[invio di eventi con Hub eventi di Azure e App per la logica di Azure](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Ecco alcuni parametri consigliati:
 
-|Parametro|valore|
+|Parametro|Valore|
 |---|---|
 |Tipo di contenuto|application/json|
 |Interval|3|
@@ -141,7 +141,7 @@ Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eve
 
 2. Ora che i payload JSON sono stati esaminati, tornare alla finestra di progettazione dell'app per la logica e selezionare **+ Nuovo passaggio**. Cercare e aggiungere **Inizializza variabile** come passaggio successivo e immettere i parametri seguenti:
 
-    |Parametro|valore|
+    |Parametro|Valore|
     |---|---|
     |Nome|Interface Name (Nome interfaccia)|
     |Type|string|

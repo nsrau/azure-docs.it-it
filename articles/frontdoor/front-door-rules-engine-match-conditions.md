@@ -1,5 +1,5 @@
 ---
-title: Frontdoor di Azure
+title: Condizioni di corrispondenza del motore regole di Frontdoor di Azure
 description: Questo articolo fornisce un elenco delle condizioni di corrispondenza disponibili con il motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322000"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512164"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole di Frontdoor di Azure
 

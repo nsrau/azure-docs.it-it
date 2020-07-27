@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186691"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517621"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novità del gateway applicazione di Azure
 
@@ -27,7 +27,9 @@ Il gateway applicazione di Azure viene aggiornato regolarmente. Per rimanere agg
 
 |Funzionalità  |Descrizione  |Data di aggiunta  |
 |---------|---------|---------|
-| Porta personalizzata per i probe di integrità | Lo SKU del gateway applicazione v2 offre ora la possibilità di fornire una porta personalizzata nella configurazione dei probe di integrità. Per altre informazioni, vedere [Panoramica dei probe di integrità](application-gateway-probe-overview.md) | Luglio 2020
+| Nomi host con caratteri jolly nei listener (anteprima) | È ora possibile definire nomi host con caratteri jolly in un listener multisito e fino a cinque nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) e [ospitare più siti in un gateway applicazione con il portale di Azure](create-multiple-sites-portal.md) per la guida dettagliata. | Luglio 2020 |
+| Riscrittura URL (anteprima) | È ora possibile riscrivere i parametri relativi al percorso URL e alla stringa di query usando la riscrittura URL. Vedere [Riscrivere l'URL e le intestazioni HTTP](rewrite-http-headers-url.md) per altre informazioni e vedere [Riscrivere l'URL nel gateway applicazione con il portale di Azure](rewrite-url-portal.md) per la guida dettagliata. | Luglio 2020 |
+| Porta personalizzata per i probe di integrità | Lo SKU del gateway applicazione v2 offre ora la possibilità di fornire una porta personalizzata nella configurazione dei probe di integrità. Per altre informazioni, vedere [Panoramica dei probe di integrità](application-gateway-probe-overview.md) | Luglio 2020 |
 | Controller di ingresso del gateway applicazione di Azure come componente aggiuntivo del servizio Azure Kubernetes (anteprima) |È ora possibile distribuire Controller di ingresso del gateway applicazione come componente aggiuntivo nativo del servizio Azure Kubernetes su un'unica riga tramite l'interfaccia della riga di comando di Azure. In quanto componente aggiuntivo del servizio Azure Kubernetes, Controller di ingresso del gateway applicazione è un servizio completamente gestito, anche se viene comunque eseguito nel cluster del servizio Azure Kubernetes del cliente. Per altre informazioni, vedere [Differenze del componente aggiuntivo Controller di ingresso del gateway applicazione](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Giugno 2020 |
 | Route definite dall'utente in v2 (anteprima) |Le route definite dall'utente sono ora supportate in alcuni scenari negli SKU del gateway applicazione v2. Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Marzo 2020 |
 |Modifiche ai cookie di affinità |Quando è abilitata l'affinità basata su cookie, oltre al cookie ApplicationGatewayAffinity esistente il gateway applicazione inserisce un altro cookie identico denominato *ApplicationGatewayAffinityCORS*. Ad *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi (*SameSite=None; Secure*) in modo che le sessioni permanenti vengano mantenute anche per richieste effettuate da origini diverse. Per altre informazioni, vedere [Affinità basata su cookie del gateway applicazione](configuration-overview.md#cookie-based-affinity). |Febbraio 2020 |

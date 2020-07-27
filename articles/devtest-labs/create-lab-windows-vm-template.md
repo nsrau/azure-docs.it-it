@@ -1,21 +1,22 @@
 ---
-title: Creare un lab con Azure DevTest Labs usando un modello di Resource Manager
-description: In questa esercitazione verrà creato un lab in Azure DevTest Labs usando un modello di Azure Resource Manager. Un amministratore del lab configura un lab in un'organizzazione, crea le VM al suo interno e configura i criteri.
-ms.topic: tutorial
+title: Creare un lab con Azure DevTest Labs e un modello di Azure Resource Manager
+description: In questo argomento di avvio rapido verrà creato un lab in Azure DevTest Labs usando un modello di Azure Resource Manager. Un amministratore del lab configura un lab in un'organizzazione, crea le VM al suo interno e configura i criteri.
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ba4ffeec22a45c07b096b0a754d08c8230dd8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537548"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs-resource-manager-template"></a>Esercitazione: Configurare un lab con Azure DevTest Labs (modello di Resource Manager)
-In questa esercitazione verrà creato un lab con una macchina virtuale Windows Server 2019 Datacenter usando un modello di Azure Resource Manager. 
+# <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Avvio rapido: Configurare un lab con un modello di Resource Manager di Azure DevTest Labs
+In questo argomento di avvio rapido verrà creato un lab con una macchina virtuale Windows Server 2019 Datacenter usando un modello di Azure Resource Manager. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-In questa esercitazione vengono completate le azioni seguenti:
+Si eseguono le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Rivedere il modello 
@@ -23,11 +24,13 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Verificare il modello
 > * Risorse di pulizia
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
@@ -46,7 +49,7 @@ Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://a
 ## <a name="deploy-the-template"></a>Distribuire il modello
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente. 
 
-[![Distribuzione in Azure](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. Creare un **Nuovo gruppo di risorse** per semplificare la pulizia delle risorse in un secondo momento.
 1. Selezionare una **Località** per il gruppo di risorse. 
@@ -59,7 +62,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Pagina Distribuisci modello":::
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 1. Selezionare **Notifiche** nella parte superiore per visualizzare lo stato della distribuzione e fare clic sul collegamento **Distribuzione in corso**.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notifica della distribuzione":::
@@ -76,7 +79,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente.
     > [!IMPORTANT] 
     > Lasciare aperta questa pagina e seguire le istruzioni nella sezione successiva per pulire le risorse al fine di evitare l'addebito di costi per l'esecuzione del lab e della macchina virtuale in Azure. Se si vuole procedere con l'esercitazione successiva per testare l'accesso alla macchina virtuale nel lab, pulire le risorse dopo aver completato l'esercitazione. 
 
-## <a name="cleanup-resources"></a>Risorse di pulizia
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 1. Prima di tutto, è necessario eliminare il lab per poter eliminare il gruppo di risorse. Non sarà possibile eliminare il gruppo di risorse se contiene un lab al suo interno. Per eliminare il lab, selezionare **Elimina** sulla barra degli strumenti. 
 
@@ -90,8 +93,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente.
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Pulsante Elimina gruppo di risorse":::
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un account lab con una macchina virtuale. Per informazioni su come accedere al lab, passare all'esercitazione successiva:
+In questo argomento di avvio rapido è stato creato un lab con una VM. Per informazioni su come accedere al lab, passare all'esercitazione successiva:
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Accedere al lab](tutorial-use-custom-lab.md)
-

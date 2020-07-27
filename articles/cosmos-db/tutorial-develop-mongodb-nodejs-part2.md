@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523486"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un'app Node.js Express
 
@@ -147,11 +147,11 @@ Per completare questa esercitazione, sono necessari anche:
 
 7. Salvare tutti i file modificati. 
 
-8. In Visual Studio Code fare clic sul pulsante **Debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) e quindi sul pulsante Ingranaggio ![Pulsante Ingranaggio in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Il nuovo file launch.json viene aperto in Visual Studio Code.
+8. In Visual Studio Code fare clic sul pulsante **Debug** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::, quindi sul pulsante dell'ingranaggio :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. Il nuovo file launch.json viene aperto in Visual Studio Code. 
 
 8. Alla riga 11 del file launch.json sostituire `"${workspaceFolder}\\server"` con `"program": "${workspaceRoot}/src/server/index.js"` e salvare il file.
 
-9. Fare clic sul pulsante **Avvia debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) per eseguire l'app.
+9. Fare clic sul pulsante **Avvia debug** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: per eseguire l'app.
 
     L'app verrà eseguita senza errori.
 

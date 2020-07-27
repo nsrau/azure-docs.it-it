@@ -1,5 +1,5 @@
 ---
-title: Frontdoor di Azure
+title: Architettura e terminologia del motore regole per Frontdoor di Azure
 description: Questo articolo offre una panoramica della funzionalità Motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1332f4b21f971d23055c158c2aebdd3316f1bd39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322010"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512215"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Che cos'è il motore regole per Frontdoor di Azure? 
 

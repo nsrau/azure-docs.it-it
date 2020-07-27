@@ -1,6 +1,6 @@
 ---
-title: Aggiornamenti del pool di host di Desktop virtuale Windows - Azure
-description: Come creare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
+title: Aggiornamenti del servizio pool di host di Desktop virtuale Windows (autunno 2019) - Azure
+description: Informazioni su come creare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117731"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527586"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi (versione autunno 2019)
 
 >[!IMPORTANT]
 >Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../create-validation-host-pool.md).

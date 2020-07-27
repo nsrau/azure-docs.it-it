@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault'
+title: 'Avvio rapido: Impostare e visualizzare i certificati di Azure Key Vault - Interfaccia della riga di comando di Azure'
 description: Avvio rapido che illustra come impostare e recuperare un certificato da Azure Key Vault con l'interfaccia della riga di comando di Azure
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8107d26405423da6bb5d85ab79b83edce95d179
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e845ce859994aaac7d225ce3411c280582300408
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536488"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con l'interfaccia della riga di comando di Azure
 
@@ -87,7 +87,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide di avvio rapido ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non sono più necessari, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group). È possibile eliminare le risorse in questo modo:
 
 ```azurecli

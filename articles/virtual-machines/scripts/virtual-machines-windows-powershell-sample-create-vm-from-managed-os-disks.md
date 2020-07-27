@@ -1,5 +1,5 @@
 ---
-title: Creare una VM collegando un disco gestito come disco del sistema operativo - Esempio di PowerShell
+title: Creare una VM collegando un disco gestito come disco del sistema operativo (Windows) - PowerShell
 description: Esempio di script di Azure PowerShell - Creare una VM collegando un disco gestito come disco del sistema operativo
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4514940918f33ee28fc4195b821018df54252e13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8001990d4ade9986bea81f63b60832ed69024265
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368489"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509559"
 ---
-# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Creare una macchina virtuale usando un disco del sistema operativo gestito esistente con PowerShell
+# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell-windows"></a>Creare una macchina virtuale usando un disco del sistema operativo gestito esistente con PowerShell (Windows)
 
 Questo script crea una macchina virtuale collegando un disco gestito esistente come disco del sistema operativo. Usare questo script negli scenari precedenti:
 * Creare una VM da un disco del sistema operativo gestito esistente che è stato copiato da un disco gestito in una sottoscrizione diversa
@@ -51,15 +51,15 @@ Questo script usa i comandi seguenti per ottenere le proprietà di un disco gest
 
 | Comando | Note |
 |---|---|
-| [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/Get-AzDisk) | Ottiene l'oggetto disco in base al nome e al gruppo di risorse di un disco. La proprietà Id dell'oggetto disco restituito viene usata per collegare il disco a una nuova VM |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Collega un disco gestito usando la proprietà Id del disco come disco del sistema operativo per una nuova macchina virtuale |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Crea un indirizzo IP pubblico. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Crea un'interfaccia di rete. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Creare una macchina virtuale. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
+| [Get-AzDisk](/powershell/module/az.compute/get-azdisk) | Ottiene l'oggetto disco in base al nome e al gruppo di risorse di un disco. La proprietà Id dell'oggetto disco restituito viene usata per collegare il disco a una nuova VM |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Collega un disco gestito usando la proprietà Id del disco come disco del sistema operativo per una nuova macchina virtuale |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea un indirizzo IP pubblico. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Crea un'interfaccia di rete. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Creare una macchina virtuale. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
-Per le immagini del Marketplace usare [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) per impostare le informazioni sul piano.
+Per le immagini del Marketplace usare [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) per impostare le informazioni sul piano.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

@@ -1,18 +1,18 @@
 ---
-title: Creare un avviso metrica con un modello di Resource Manager
-description: Informazioni su come usare un modello di Resource Manager per creare un avviso di metrica.
+title: Esempi di modelli di Resource Manager per gli avvisi delle metriche
+description: Questo articolo include esempi di modelli di Azure Resource Manager usati per creare avvisi delle metriche in Monitoraggio di Azure.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515377"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso delle metriche in Monitoraggio di Azure
 
@@ -20,7 +20,7 @@ Questo articolo fornisce esempi dell'uso di [modelli di Azure Resource Manager](
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Per un elenco delle risorse che è possibile usare con le regole di avviso delle metriche, vedere [Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-near-real-time.md). Per una spiegazione dello schema e delle proprietà di una regola di avviso, vedere [Avvisi delle metriche: creazione o aggiornamento](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Per un elenco delle risorse che è possibile usare con le regole di avviso delle metriche, vedere [Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-near-real-time.md). Per una spiegazione dello schema e delle proprietà di una regola di avviso, vedere [Avvisi delle metriche: creazione o aggiornamento](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: area di lavoro Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere [Avviso delle metriche per i log: modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -1094,7 +1094,7 @@ Ad esempio, alcune possibili serie temporali monitorate da questa regola di avvi
 
 È possibile usare il modello seguente per creare una regola di avviso con soglia statica per una metrica personalizzata.
 
-Per altre informazioni sulle metriche personalizzate in Monitoraggio di Azure, vedere [Metriche personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Per altre informazioni sulle metriche personalizzate in Monitoraggio di Azure, vedere [Metriche personalizzate in Monitoraggio di Azure](../platform/metrics-custom-overview.md).
 
 Quando si crea una regola di avviso per una metrica personalizzata, è necessario specificare sia il nome che lo spazio dei nomi della metrica. È anche necessario assicurarsi che la metrica sia già stata segnalata, perché non è possibile definire una regola di avviso per una metrica personalizzata che non esiste ancora.
 
@@ -1325,7 +1325,7 @@ Salvare il codice JSON seguente con il nome simplestaticmetricalert.json ai fini
 
 >[!NOTE]
 >
-> Per trovare lo spazio dei nomi di una specifica metrica personalizzata, [esplorare le metriche personalizzate tramite il portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Per trovare lo spazio dei nomi di una specifica metrica personalizzata, [esplorare le metriche personalizzate tramite il portale di Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Più risorse

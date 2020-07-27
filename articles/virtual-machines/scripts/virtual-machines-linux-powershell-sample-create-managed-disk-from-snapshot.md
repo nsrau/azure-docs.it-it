@@ -1,5 +1,5 @@
 ---
-title: Creare un disco gestito da uno snapshot - Esempio di PowerShell
+title: Creare un disco gestito da uno snapshot (Linux) - Esempio di PowerShell
 description: Esempio di script di Azure PowerShell - Creare un disco gestito da uno snapshot
 services: virtual-machines-linux
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 89ab1a388aa6497e559a1746ee8165ccd8cae1ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2faa98ec21d260e6a7cbdf9eceba24baf4b13c61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459900"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501138"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Creare un disco gestito da uno snapshot con PowerShell
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell-linux"></a>Creare un disco gestito da uno snapshot con PowerShell (Linux)
 
 Questo script crea un disco gestito da uno snapshot. Può essere usato per ripristinare una macchina virtuale da snapshot dei dischi del sistema operativo e di dati. Creare dischi dati e del sistema operativo gestiti dai rispettivi snapshot e quindi creare una nuova macchina virtuale collegando i dischi gestiti. Collegando i dischi dati creati da snapshot, è anche possibile ripristinare i dischi di dati di una macchina virtuale esistente.
 
@@ -38,9 +38,9 @@ Questo script usa i comandi seguenti per creare un disco gestito da snapshot. Og
 
 | Comando | Note |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Ottiene le proprietà dello snapshot.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Crea la configurazione del disco usata per la creazione del disco. Include l'ID risorsa dello snapshot padre, il percorso, che è identico a quello dello snapshot padre, e il tipo di archiviazione.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Crea un disco accettando come parametri la configurazione del disco, il nome del disco e il nome del gruppo di risorse. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Ottiene le proprietà dello snapshot.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Crea la configurazione del disco usata per la creazione del disco. Include l'ID risorsa dello snapshot padre, il percorso, che è identico a quello dello snapshot padre, e il tipo di archiviazione.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Crea un disco accettando come parametri la configurazione del disco, il nome del disco e il nome del gruppo di risorse. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

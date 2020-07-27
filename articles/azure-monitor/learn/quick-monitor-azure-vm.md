@@ -1,18 +1,18 @@
 ---
-title: Monitorare una risorsa di Azure con Monitoraggio di Azure
-description: Informazioni su come raccogliere e analizzare i dati per una risorsa di Azure in Monitoraggio di Azure.
+title: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
+description: Informazioni su come raccogliere e analizzare i dati per una macchina virtuale di Azure in Monitoraggio di Azure.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805111"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516397"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Avvio rapido: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle macchine virtuali di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una VM di Azure e come visualizzare tali dati nel portale di Azure. Si abiliterà quindi [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) per la VM per consentire agli agenti nella VM di raccogliere e analizzare i dati del sistema operativo guest, includendo i processi e le relative dipendenze.
@@ -107,4 +107,4 @@ Quando si crea una nuova area di lavoro Log Analytics, è necessario configurarl
 In questa guida di avvio rapido si è abilitato Monitoraggio di Azure per le macchine virtuali per una VM e si è configurata l'area di lavoro Log Analytics per raccogliere gli eventi per il sistema operativo guest. Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../log-query/get-started-portal.md)

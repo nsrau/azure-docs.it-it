@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202556"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518488"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
 Con la reimpostazione della password self-service di Azure Active Directory (Azure AD), gli utenti possono reimpostare la password o sbloccare l'account tramite un Web browser. In un ambiente ibrido in cui Azure AD è connesso a un ambiente Active Directory Domain Services (AD DS) locale, possono verificarsi differenze tra le password nelle due directory.
 
 Il writeback delle password consente di sincronizzare le modifiche delle password in Azure AD nell'ambiente Active Directory Domain Services (AD DS) locale. Azure AD Connect fornisce un meccanismo sicuro per inviare le modifiche delle password a una directory locale esistente da Azure AD.
+
+> [!IMPORTANT]
+> Questa esercitazione illustra agli amministratori come abilitare la reimpostazione della password self-service in un ambiente locale. Se si è un utente finale già registrato per la reimpostazione della password self-service e si deve ripristinare l'accesso al proprio account, passare a https://aka.ms/sspr.
+>
+> Se il team IT non ha abilitato la funzionalità per reimpostare la propria password, rivolgersi al supporto tecnico per assistenza aggiuntiva.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -35,7 +40,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
-* Un tenant di Azure AD funzionante con almeno una licenza di valutazione di Azure AD Premium P1 o P2 abilitata.
+* Un tenant di Azure AD funzionante con almeno una licenza di valutazione P1 Premium di Azure AD abilitata.
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Per altre informazioni, vedere [Requisiti di licenza per la reimpostazione della password self-service di Azure AD](concept-sspr-licensing.md).
 * Un account con privilegi di *amministratore globale*.
@@ -43,7 +48,7 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [completare l'esercitazione precedente per abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md).
 * Un ambiente Active Directory Domain Services locale esistente configurato con una versione corrente di Azure AD Connect.
     * Se necessario, configurare Azure AD Connect usando la modalità [Rapida](../hybrid/how-to-connect-install-express.md) o [Personalizzata](../hybrid/how-to-connect-install-custom.md).
-    * Per usare il writeback delle password, i controller di dominio devono essere Windows Server 2012 o versioni successive.
+    * Per usare il writeback delle password, i controller di dominio devono essere Windows Server 2012 o versione successiva.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configurare le autorizzazioni dell'account per Azure AD Connect
 
@@ -54,11 +59,9 @@ Per usare correttamente il writeback della reimpostazione della password self-se
 * **Reimpostazione della password**
 * **Autorizzazioni di scrittura** su `lockoutTime`
 * **Autorizzazioni di scrittura** su `pwdLastSet`
-* **I diritti estesi** per "Password senza scadenza" in uno degli elementi seguenti:
-   * L'oggetto radice di *ogni dominio* in tale foresta
-   * Le unità organizzative (OU) utente che si vuole siano nell'ambito per SSPR
+* **Diritti estesi** per "Password senza scadenza" nell'oggetto radice di *ogni dominio* in tale foresta, se non sono già impostati.
 
-Se non si assegnano tali autorizzazioni, il writeback è configurato correttamente, ma gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud. Per visualizzare "Password senza scadenza", è necessario applicare le autorizzazioni a **Questo oggetto e tutti i discendenti**.  
+Se non si assegnano tali autorizzazioni, potrebbe sembrare che il writeback sia configurato correttamente, ma gli utenti riscontrano errori quando gestiscono le loro password locali dal cloud. Per visualizzare "Password senza scadenza", è necessario applicare le autorizzazioni a **Questo oggetto e tutti i discendenti**.  
 
 > [!TIP]
 >
@@ -74,7 +77,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 1. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Utente discendente**.
 1. In *Autorizzazioni* selezionare la casella per l'opzione seguente:
     * **Reimpostazione della password**
-1. In *Proprietà* selezionare le caselle per le opzioni seguenti. È necessario scorrere l'elenco per trovare le opzioni, che potrebbero essere già impostate:
+1. In *Proprietà* selezionare le caselle per le opzioni seguenti. Scorrere l'elenco per trovare queste opzioni, che potrebbero essere già specificate per impostazione predefinita:
     * **Scrittura di lockoutTime**
     * **Scrittura di pwdLastSet**
 
@@ -89,13 +92,13 @@ I criteri delle password nell'ambiente Active Directory Domain Services locale p
 Se si aggiornano i criteri di gruppo, attendere la replica del criterio aggiornato oppure usare il comando `gpupdate /force`.
 
 > [!Note]
-> Per consentire la modifica immediata delle password, il writeback delle password deve essere impostato su 0. Tuttavia, se gli utenti rispettano i criteri locali e la *validità minima della password* è impostata su un valore maggiore di zero, il writeback delle password continuerà a funzionare dopo la valutazione dei criteri locali. 
+> Per fare in modo che le password vengano cambiate immediatamente, il writeback delle password deve essere impostato su 0. Se tuttavia gli utenti rispettano i criteri locali e la *validità minima della password* è impostata su un valore maggiore di zero, il writeback delle password continuerà a funzionare dopo la valutazione dei criteri locali.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Abilitare il writeback delle password in Azure AD Connect
 
 Una delle opzioni di configurazione in Azure AD Connect riguarda il writeback delle password. Quando questa opzione è abilitata, gli eventi di modifica delle password fanno sì che Azure AD Connect sincronizzi di nuovo le credenziali aggiornate nell'ambiente Active Directory Domain Services locale.
 
-Per abilitare il writeback della reimpostazione della password self-service, è prima necessario abilitare l'opzione di writeback in Azure AD Connect. Dal server Azure AD Connect completare questa procedura:
+Per abilitare il writeback della reimpostazione della password self-service, è prima necessario abilitare l'opzione corrispondente in Azure AD Connect. Dal server Azure AD Connect completare questa procedura:
 
 1. Accedere al server Azure AD Connect e avviare la configurazione guidata di **Azure AD Connect**.
 1. Nella pagina di **benvenuto** selezionare **Configura**.

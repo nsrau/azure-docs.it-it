@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240220"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512453"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -102,7 +102,7 @@ Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev S
 
 Fare clic sull'icona *Debug* a sinistra e quindi su *.NET Core Launch (AZDS)* (Avvia .NET Core AZDS) nella parte superiore.
 
-![](media/get-started-netcore/debug-configuration.png)
+![Lo screenshot è relativo alla parte in alto a sinistra della finestra di Visual Studio Code. L'icona di debug è evidenziata, il pannello a sinistra è denominato "DEBUG" e in un elenco a discesa a destra del titolo è visualizzato ".NET Core Launch (AZDS)" (Avvia .NET Core AZDS).](media/get-started-netcore/debug-configuration.png)
 
 Questo comando compila ed esegue il servizio in Azure Dev Spaces in modalità debug. La finestra del *terminale* nella parte inferiore visualizza l'output della compilazione e gli URL per il servizio in esecuzione in Azure Dev Spaces. La *Console di debug* visualizza l'output del log.
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Salvare il file. Fare clic su *Debug*, quindi su *Riavvia debug* oppure premere il pulsante *Riavvia debug* sulla barra degli strumenti *Debug*.
 
-![](media/common/debug-action-refresh.png)
+![La barra degli strumenti di debug è un piccolo riquadro presente in alto al centro della pagina, appena sotto il titolo della pagina. Sul pulsante Riavvia, che è evidenziato, è visualizzata una freccia circolare. L'immagine del pulsante al passaggio del mouse è "Riavvia (CTRL+MAIUSC+F5)".](media/common/debug-action-refresh.png)
 
 Aprire il servizio in un browser e notare che è visualizzato il messaggio aggiornato.
 

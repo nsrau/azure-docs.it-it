@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96bb624472aa2053599765d5bfedeb96339d0973
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496051"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Che cos'è Azure Synapse Analytics (anteprima per aree di lavoro)?
 
@@ -40,7 +40,7 @@ Inoltre, Azure Synapse facilita la creazione di modelli predittivi e l'analisi a
 
 * Synapse SQL offre modelli di risorse **serverless** e **con provisioning**, rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, effettuare il provisioning dei pool per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
 * Usare le funzionalità predefinite di **streaming** per trasferire dati da origini cloud in tabelle SQL
-* Integrare l'intelligenza artificiale con SQL, usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la funzione T-SQL PREDICT
+* Integrare l'intelligenza artificiale con SQL, usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standard di settore
 

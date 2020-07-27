@@ -3,24 +3,27 @@ title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888198"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537919"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 
 Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure. L'app consente di analizzare e gestire i costi di Azure in Power BI. È possibile usare l'app per monitorare i costi e le tendenze di utilizzo e per identificare le opzioni di ottimizzazione dei costi per ridurre le spese.
 
-Dopo aver scaricato l'app in Power BI Desktop, è possibile usarla così com'è oppure modificarla personalizzando i filtri, le viste e le visualizzazioni predefiniti in base alle esigenze. È quindi possibile usarla per unire dati aggiuntivi per creare report personalizzati in modo da ottenere una visione olistica dei costi aziendali complessivi.
+è possibile usarla così com'è oppure modificarla personalizzando i filtri, le viste e le visualizzazioni predefiniti in base alle esigenze. È quindi possibile usarla per unire dati aggiuntivi per creare report personalizzati in modo da ottenere una visione olistica dei costi aziendali complessivi.
 
 Attualmente l'app Power BI Gestione costi di Azure supporta solo i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Le app modello Power BI non supportano il download del file PBIX.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

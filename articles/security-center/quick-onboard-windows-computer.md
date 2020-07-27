@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435932"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519763"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida di avvio rapido: Onboarding di computer Windows in Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente di Log Analytics.
@@ -29,7 +29,7 @@ Questa guida di avvio rapido illustra come installare l'agente di Log Analytics 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-Prima di iniziare questa guida di avvio rapido, è necessario essere nel piano tariffario Standard del Centro sicurezza. Vedere [Guida di avvio rapido per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+Prima di iniziare questa guida di avvio rapido, è necessario aver sottoscritto il piano tariffario Standard del Centro sicurezza. Vedere [Guida di avvio rapido per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Aggiunta di un nuovo computer Windows
 

@@ -5,22 +5,20 @@ author: tfitzmac
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: f86eabc30114a3643f5d39297567411e88018378
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f2ffa7515fb15f323e469daf9f3c94779e48eca
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75648528"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515360"
 ---
-# <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
+# <a name="azure-cli-samples-for-azure-managed-applications"></a>Esempi dell'interfaccia della riga di comando di Azure per Applicazioni gestite di Azure
 
 La tabella seguente include collegamenti a script Bash per applicazioni gestite di Azure che usano l'interfaccia della riga di comando di Azure.
 
-| | |
-|-|-|
-|**Creare un'applicazione gestita**||
+| Creare l'applicazione gestita | Descrizione |
+| -------------------------- | ----------- |
 | [Creare la definizione di un'applicazione gestita](scripts/managed-application-cli-sample-create-definition.md) | Crea la definizione di un'applicazione gestita nel catalogo di servizi.  |
 | [Distribuire l'applicazione gestita](scripts/managed-application-cli-sample-create-application.md) | Distribuisce un'applicazione gestita dal catalogo di servizi.  |
-| | |
-|**Aggiornare un gruppo di risorse gestite**||
+|**Aggiornare un gruppo di risorse gestite**| **Descrizione** |
 | [Ottenere risorse nel gruppo di risorse gestite e ridimensionare le macchine virtuali](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | Ottiene risorse dal gruppo di risorse gestite e ridimensiona le macchine virtuali. |

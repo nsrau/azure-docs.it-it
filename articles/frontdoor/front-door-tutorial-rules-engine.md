@@ -1,6 +1,6 @@
 ---
-title: Frontdoor di Azure
-description: Questo articolo fornisce un'esercitazione su come configurare il motore regole sia nell'portale di Azure che nell'interfaccia della riga di comando.
+title: 'Esercitazione: Configurare il motore regole - Frontdoor di Azure'
+description: Questo articolo include un'esercitazione relativa alla configurazione del motore regole nel portale di Azure e nell'interfaccia della riga di comando.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bb0e426571acc66d4f5f1b992fb4c6b67494a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321563"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536953"
 ---
 # <a name="configure-your-rules-engine"></a>Configurare il motore regole
 
-Questo articolo illustra la procedura per creare una configurazione del motore regole e la prima regola sia in portale di Azure che nell'interfaccia della riga di comando. 
+Questo articolo illustra la procedura per creare una configurazione del motore regole e la prima regola nel portale di Azure e nell'interfaccia della riga di comando. 
 
 ## <a name="configure-rules-engine-in-azure-portal"></a>Configurare il motore regole nel portale di Azure
 1. Prima di creare una configurazione del motore regole [creare una frontdoor](quickstart-create-front-door.md).
@@ -35,7 +35,7 @@ Questo articolo illustra la procedura per creare una configurazione del motore r
     > [!NOTE]
     >- Per eliminare una condizione o un'azione dalla regola, usare il Cestino sul lato destro della condizione o dell'azione specifica.
     > - Per creare una regola che si applica a tutto il traffico in ingresso, non specificare alcuna condizione.
-    > - Per arrestare la valutazione delle regole una volta soddisfatta la prima condizione di corrispondenza, selezionare **Interrompi valutazione della regola rimanente**. Se questa opzione è selezionata e vengono soddisfatte tutte le condizioni di corrispondenza di una determinata regola, le regole rimanenti nella configurazione non verranno eseguite.  
+    > - Per interrompere la valutazione delle regole una volta soddisfatta la prima condizione di corrispondenza, selezionare **Arresta valutazione delle regole rimanenti**. Se questa opzione è selezionata e tutte le condizioni di corrispondenza di una regola specifica sono soddisfatte, le altre regole nella configurazione non verranno eseguite.  
 
     ![trovare il motore regole](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 

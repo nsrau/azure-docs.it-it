@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78253121"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518540"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Esercitazione: Configurare password personalizzate escluse per password di protezione di Azure Active Directory
 
@@ -36,12 +36,12 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
 * Un utente non amministratore con una password conosciuta, ad esempio *testuser*. Questo account verrà usato per testare un evento di modifica della password in questa esercitazione.
-    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * Per testare la modifica della password con una password esclusa, è necessario che il tenant di Azure AD venga [configurato per la reimpostazione delle password self-service](tutorial-enable-sspr.md).
 
 ## <a name="what-are-banned-password-lists"></a>Che cosa sono gli elenchi di password escluse?
 
-Azure AD include un elenco globale di password escluse. Il contenuto dell'elenco globale di password escluse non si basa su un'origine dati esterna, ma sui risultati restituiti continuamente dalla telemetria e dall'analisi della sicurezza di Azure AD. Quando un utente o un amministratore prova a modificare o reimpostare le proprie credenziali, la password specificata viene confrontata con l'elenco di password escluse. La richiesta di modifica della password non verrà eseguita se la password è presente nell'elenco globale di password escluse.
+Azure AD include un elenco globale di password escluse. Il contenuto dell'elenco globale di password escluse non si basa su un'origine dati esterna, ma sui risultati restituiti continuamente dalla telemetria e dall'analisi della sicurezza di Azure AD. Quando un utente o un amministratore prova a modificare o reimpostare le proprie credenziali, la password specificata viene confrontata con l'elenco di password escluse. La richiesta di modifica della password non verrà eseguita se la password è presente nell'elenco globale di password escluse. Non è possibile modificare questo elenco globale di password escluse.
 
 Per una maggiore flessibilità sui termini consentiti nelle password, è anche possibile definire un elenco di password personalizzate escluse. L'uso congiunto dell'elenco di password personalizzate escluse e dell'elenco globale di password escluse consente di applicare password complesse nell'organizzazione. I termini specifici dell'organizzazione possono essere aggiunti all'elenco di password personalizzate escluse, come negli esempi seguenti:
 
@@ -91,7 +91,7 @@ Per un ambiente ibrido, è anche possibile [distribuire la password di protezion
 Per vedere come funziona l'elenco di password personalizzate escluse, provare a cambiare la password specificando una variante di una aggiunta nella sezione precedente. Quando Azure AD prova a elaborare la modifica della password, la password viene confrontata con una voce nell'elenco di password personalizzate escluse. Viene quindi visualizzato un errore.
 
 > [!NOTE]
-> Prima che un utente possa reimpostare la propria password nel portale basato sul Web, è necessario che il tenant di Azure AD venga [configurato per la reimpostazione delle password self-service](tutorial-enable-sspr.md).
+> Prima che un utente possa reimpostare la propria password nel portale basato sul Web, è necessario che il tenant di Azure AD venga [configurato per la reimpostazione delle password self-service](tutorial-enable-sspr.md). Se necessario, l'utente può quindi [eseguire la registrazione per SSPR all'indirizzo https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 
 1. Passare alla pagina **App personali** all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Nell'angolo in alto a destra selezionare il proprio nome, quindi scegliere **Profilo** dal menu a discesa.

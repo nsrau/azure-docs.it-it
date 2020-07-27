@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Java con l'API Cassandra di Azure Cosmos DB
+title: Creare un'app Java con l'API Cassandra di Azure Cosmos DB usando Java 3.0 SDK
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
 ms.service: cosmos-db
 author: TheovanKraay
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0136dce793fea1672b68062480420e5a05c75253
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2522d1def3407d9e2bd49363c3da8e462231c70c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118373"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523860"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB (driver v3)
 
@@ -148,7 +148,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Visualizzare e copiare un nome utente dalla pagina Stringa di connessione del portale di Azure":::
 
-2. Usare il ![Pulsante Copia](./media/create-cassandra-java/copy-button-azure-portal.png) sul lato destro della schermata per copiare il valore PUNTO DI CONTATTO.
+2. Usare il pulsante :::image type="icon" source="./media/create-cassandra-java/copy-button-azure-portal.png"::: sul lato destro della schermata per copiare il valore di CONTACT POINT. 
 
 3. Aprire il file *config.properties* dalla cartella *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources*. 
 

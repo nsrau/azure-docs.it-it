@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/14/2020
+ms.author: johndaw
+ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512504"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -62,13 +62,7 @@ Come indicato sopra, per qualsiasi attività di provisioning è necessaria la re
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-Il comando seguente verifica le funzionalità di rete necessarie per il servizio HSM dedicato.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Per poter procedere ulteriormente, entrambi i comandi devono restituire lo stato "Registered" come illustrato di seguito.  Se è necessario registrarsi per il servizio, contattare il rappresentante Microsoft.
+Prima di procedere ulteriormente, è necessario che il comando restituisca lo stato "Registered", come illustrato di seguito.  Se non è stata eseguita la registrazione per questo servizio, contattare il rappresentante Microsoft.
 
 ![Stato della sottoscrizione](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -190,7 +184,7 @@ Il completamento di questo comando richiederà circa 20 minuti. L'opzione "-verb
 
 ![Stato del provisioning](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Al termine verrà visualizzato "provisioningState": "Succeeded" e sarà possibile accedere alla macchina virtuale esistente e usare SSH per verificare la disponibilità del dispositivo del modulo di protezione hardware.
+Al termine verrà visualizzato "provisioningState": "Succeeded" e sarà possibile accedere alla macchina virtuale esistente e usare ssh per verificare la disponibilità del dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verifica della distribuzione
 
@@ -217,7 +211,7 @@ Per la connessione alla macchina virtuale viene usato lo strumento ssh. Il coman
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 La password da usare è quella contenuta nel file di parametri.
-Dopo aver eseguito l'accesso alla macchina virtuale Linux, è possibile accedere al modulo di protezione hardware usando l'indirizzo IP privato riportato nel portale per la risorsa \<prefix>hsm_vnic.
+Dopo aver eseguito l'accesso alla VM Linux, è possibile accedere al modulo di protezione hardware usando l'indirizzo IP privato riportato nel portale per la risorsa \<prefix>hsm_vnic.
 
 ```powershell
 

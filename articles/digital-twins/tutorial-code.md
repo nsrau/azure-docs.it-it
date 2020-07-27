@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537420"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -47,7 +47,7 @@ Nella directory verranno creati diversi file, tra cui uno denominato *Program.cs
 Aggiungere quindi due dipendenze necessarie per l'uso di Gemelli digitali di Azure:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -174,7 +174,7 @@ Nella directory in cui è stato creato il progetto creare un nuovo file con este
 > Se per questa esercitazione si usa Visual Studio, è possibile selezionare il nuovo file JSON e impostare la proprietà *Copia nella directory di output* di Controllo proprietà su *Copia se è più recente* o su *Copia sempre*. In questo modo Visual Studio troverà il file JSON con il percorso predefinito quando si eseguirà il programma con **F5** durante il resto dell'esercitazione.
 
 > [!TIP] 
-> È disponibile un [esempio di validator DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [Procedura: Analizzare e convalidare modelli](how-to-use-parser.md).
+> È disponibile un [esempio di validator DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [*Procedura: Analizzare e convalidare modelli*](how-to-use-parser.md).
 
 Successivamente, aggiungere altro codice al file *Program.cs* per caricare il modello appena creato nell'istanza di Gemelli digitali di Azure.
 
@@ -185,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Prepararsi quindi a usare i metodi asincroni dell'SDK del servizio C# cambiando la firma del metodo `Main` per consentire l'esecuzione asincrona. 
@@ -531,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Pulire le risorse
  
-L'istanza usata in questa esercitazione può essere riutilizzata nell'esercitazione successiva, [Esercitazione: Esplorare le nozioni di base con un'app client di esempio](tutorial-command-line-app.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere l'istanza di Gemelli digitali di Azure configurata qui.
+L'istanza usata in questa esercitazione può essere riutilizzata nell'esercitazione successiva, [*Esercitazione: Esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere l'istanza di Gemelli digitali di Azure configurata qui.
  
 Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle.
 
@@ -561,8 +560,8 @@ In questa esercitazione è stata creata un'applicazione client console .NET da z
 Continuare con l'esercitazione successiva per esplorare le operazioni che è possibile eseguire con questa app client di esempio: 
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Esplorare le nozioni di base con un'app client di esempio](tutorial-command-line-app.md)
+> [*Esercitazione: Esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md)
 
 È anche possibile aggiungere altro al codice scritto in questa esercitazione acquisendo informazioni su altre operazioni di gestione negli articoli di procedure oppure iniziare a esaminare la documentazione concettuale sugli elementi usati nell'esercitazione.
-* [Procedura: Gestire i modelli personalizzati](how-to-manage-model.md)
-* [Concetti: Modelli personalizzati](concepts-models.md)
+* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
+* [*Concetti: Modelli personalizzati*](concepts-models.md)

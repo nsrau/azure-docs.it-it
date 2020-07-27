@@ -2,18 +2,16 @@
 title: Creare un membro del servizio Azure Blockchain un modello di Azure Resource Manager
 description: Informazioni su come creare un membro del servizio Azure Blockchain usando un modello di Azure Resource Manager.
 services: azure-resource-manager
-author: PatAltimore
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: patricka
-ms.date: 06/04/2020
-ms.openlocfilehash: 8eabb6806dee96871648ea419ba36d768d32a2ab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: subject-armqs, references_regions
+ms.date: 07/16/2020
+ms.openlocfilehash: fb7f91a0670d99170656c0c3a2c1b73d96095762
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078167"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513031"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Avvio rapido: Creare un membro del servizio Azure Blockchain con un modello di Resource Manager
 
@@ -51,7 +49,7 @@ Risorse di Azure definite nel modello:
     --------|------------
     Subscription | Selezionare la sottoscrizione di Azure da usare per il servizio. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Resource group | Creare un nuovo nome di gruppo di risorse o sceglierne uno esistente nella sottoscrizione.
-    Location | Scegliere una località per creare il membro. La località deve essere la stessa per tutti i membri del consorzio. Le località disponibili per la distribuzione sono *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* e *japaneast*.
+    Location | Scegliere una località per creare il membro. La località deve essere la stessa per tutti i membri del consorzio. Le località disponibili per la distribuzione sono *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* e *japaneast*. Alcune funzionalità potrebbero non essere disponibili in alcune aree. Azure Blockchain Data Manager è disponibile nelle aree di Azure seguenti: ovvero Stati Uniti orientali ed Europa occidentale.
     Nome del membro | Scegliere un nome univoco per il membro del servizio Azure Blockchain. Il nome del membro della blockchain può contenere solo lettere minuscole e numeri. Il primo carattere deve essere una lettera. Il valore deve avere una lunghezza compresa tra 2 e 20 caratteri.
     Nome del consorzio | Immettere un nome univoco. Per altre informazioni sui consorzi, vedere [Consorzio del servizio Azure Blockchain](consortium.md).
     Password del membro | La password dell'account del membro viene usata per crittografare la chiave privata per l'account Ethereum creato per il membro. L'account del membro account e la password dell'account del membro si usano per la gestione del consorzio.

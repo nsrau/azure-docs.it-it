@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505823"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -44,7 +44,7 @@ Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visual
 
 ![Metriche](media/overview/metrics.png)
 
-I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando [Log Analytics](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti oppure salvare le query per usarle con [visualizzazioni](visualizations.md) o [regole degli avvisi](platform/alerts-overview.md).
+I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando [Log Analytics](./log-query/log-query-overview.md) nel portale di Azure e quindi analizzare direttamente i dati usando strumenti diversi oppure salvare le query per usarle con [visualizzazioni](visualizations.md) o [regole di avviso](platform/alerts-overview.md).
 
 Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/kusto/query/), usato da Esplora dati di Azure e adatto a query semplici nei log, ma che include anche funzionalità avanzate come le aggregazioni, i join e le analisi intelligenti. È possibile apprendere rapidamente il linguaggio di query usando le [numerose lezioni](log-query/get-started-queries.md) disponibili.  Indicazioni specifiche sono disponibili per gli utenti che hanno già familiarità con [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -90,7 +90,7 @@ I dati di monitoraggio sono utili solo se possono aumentare la visibilità del f
 ![Informazioni dettagliate macchina virtuale](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluzioni di monitoraggio
-Le [soluzioni di monitoraggio](insights/solutions.md) in Monitoraggio di Azure sono set di logica compressi che forniscono informazioni su una determinata applicazione o servizio. Includono logica per la raccolta di dati di monitoraggio per l'applicazione o il servizio, [query](log-query/log-query-overview.md) per analizzare i dati, e [visualizzazioni](../log-analytics/log-analytics-view-designer.md) per esaminarli. Sono disponibili soluzioni di monitoraggio [di Microsoft](insights/solutions-inventory.md) e di alcuni partner, che permettono il monitoraggio di vari servizi di Azure e altre applicazioni.
+Le [soluzioni di monitoraggio](insights/solutions.md) in Monitoraggio di Azure sono set di logica compressi che forniscono informazioni su una determinata applicazione o servizio. Includono logica per la raccolta di dati di monitoraggio per l'applicazione o il servizio, [query](log-query/log-query-overview.md) per analizzare i dati, e [visualizzazioni](./platform/view-designer.md) per esaminarli. Sono disponibili soluzioni di monitoraggio [di Microsoft](./monitor-reference.md) e di alcuni partner, che permettono il monitoraggio di vari servizi di Azure e altre applicazioni.
 
 ![Soluzioni di monitoraggio](media/overview/solutions-overview.png)
 
@@ -119,12 +119,12 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) consentono di
 ![Dashboard](media/overview/dashboard.png)
 
 ### <a name="views"></a>Viste
-Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano visivamente i dati di log in Monitoraggio di Azure.  Ogni visualizzazione include un riquadro singolo che esegue il drill-down a una combinazione di visualizzazioni quali grafici a barre o a linee, oltre ad elenchi di riepilogo dei dati critici.  Le soluzioni di monitoraggio includono visualizzazioni di riepilogo dei dati per un'applicazione specifica ed è possibile creare visualizzazioni personalizzate per presentare i dati da qualsiasi query di log. Come altri elementi di Monitoraggio di Azure, è possibile aggiungere le viste ai dashboard di Azure.
+Le [visualizzazioni](./platform/view-designer.md) presentano visivamente i dati di log in Monitoraggio di Azure.  Ogni visualizzazione include un riquadro singolo che esegue il drill-down a una combinazione di visualizzazioni quali grafici a barre o a linee, oltre ad elenchi di riepilogo dei dati critici.  Le soluzioni di monitoraggio includono visualizzazioni di riepilogo dei dati per un'applicazione specifica ed è possibile creare visualizzazioni personalizzate per presentare i dati da qualsiasi query di log. Come altri elementi di Monitoraggio di Azure, è possibile aggiungere le viste ai dashboard di Azure.
 
 ![Visualizzazione](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) è un servizio di analisi aziendale che fornisce visualizzazioni interattive per un'ampia gamma di origini dati e un metodo efficace per rendere i dati disponibili ad altri utenti all'interno e all'esterno dell'organizzazione. È possibile configurare per Power BI per [importare automaticamente i dati di log da Monitoraggio di Azure](../log-analytics/log-analytics-powerbi.md) per sfruttare i vantaggi di queste visualizzazioni aggiuntive.
+[Power BI](https://powerbi.microsoft.com) è un servizio di analisi aziendale che fornisce visualizzazioni interattive per un'ampia gamma di origini dati e un metodo efficace per rendere i dati disponibili ad altri utenti all'interno e all'esterno dell'organizzazione. È possibile configurare per Power BI per [importare automaticamente i dati di log da Monitoraggio di Azure](./platform/powerbi.md) per sfruttare i vantaggi di queste visualizzazioni aggiuntive.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -134,7 +134,7 @@ Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano
 Spesso si ha l'esigenza di integrare Monitoraggio di Azure con altri sistemi e compilare soluzioni personalizzate che utilizzano i dati di monitoraggio. Altri servizi di Azure funzionano con Monitoraggio di Azure per fornire questa integrazione.
 
 ### <a name="event-hub"></a>Hub eventi
-[Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare Hub eventi per [lo streaming dei dati di Monitoraggio di Azure](platform/stream-monitoring-data-event-hubs.md) a strumenti di monitoraggio e informazioni di sicurezza e gestione degli eventi partner.
+[Hub eventi di Azure](../event-hubs/index.yml) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare Hub eventi per [lo streaming dei dati di Monitoraggio di Azure](platform/stream-monitoring-data-event-hubs.md) a strumenti di monitoraggio e informazioni di sicurezza e gestione degli eventi partner.
 
 
 ### <a name="logic-apps"></a>App per la logica
@@ -150,4 +150,4 @@ Altre informazioni su:
 * [Metriche e log](platform/data-platform.md) per i dati raccolti da Monitoraggio di Azure.
 * [Origini dati](platform/data-sources.md) per come i diversi componenti dell'applicazione inviano i dati di telemetria.
 * [Query di log](log-query/log-query-overview.md) per l'analisi dei dati raccolti.
-* [Procedure consigliate](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) per il monitoraggio di applicazioni e servizi cloud.
+* [Procedure consigliate](/azure/architecture/best-practices/monitoring) per il monitoraggio di applicazioni e servizi cloud.

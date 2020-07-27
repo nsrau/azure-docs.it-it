@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ac23912b12bc6c7fcd40d7433cb4e2d257eeb5d0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525168"
 ---
 1. Nella pagina del portale per la rete WAN virtuale, nella sezione **Connettività** selezionare **Siti VPN** per aprire la pagina Siti VPN.
 2. Nella pagina **Siti VPN** fare clic su **+Crea sito**.
@@ -24,7 +24,7 @@ ms.locfileid: "85563048"
     * **Regione** - Precedentemente denominata posizione. Si tratta del percorso in cui si vuole creare la risorsa del sito.
     * **Nome** - Nome che si vuole usare per fare riferimento al sito locale.
     * **Fornitore del dispositivo** - Nome del fornitore del dispositivo VPN (ad esempio: Citrix, Cisco, Barracuda). Queste informazioni possono consentire al team di Azure di comprendere meglio l'ambiente per aggiungere ulteriori possibilità di ottimizzazione in futuro o per offrire supporto per la risoluzione dei problemi.
-    * **Border Gateway Protocol** - L'abilitazione implica che tutte le connessioni dal sito saranno abilitate per BGP. Verranno infine configurate le informazioni BGP per ogni collegamento dal Sito VPN nella sezione Collegamenti. La configurazione di BGP in una rete WAN virtuale equivale alla configurazione di BGP in un gateway VPN della rete virtuale di Azure. L'indirizzo del peer BGP locale non deve essere uguale all'indirizzo IP pubblico del dispositivo VPN né allo spazio di indirizzi della rete virtuale del sito VPN. Usare un indirizzo IP diverso nel dispositivo VPN per il peer BGP. Può trattarsi di un indirizzo assegnato all'interfaccia di loopback nel dispositivo. Tuttavia, non può essere un indirizzo APIPA (169.254.x.x). Specificare questo indirizzo nel sito VPN corrispondente che rappresenta la posizione. Per i prerequisiti di BGP, vedere [Informazioni su BGP con i gateway VPN di Azure](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). È sempre possibile modificare una connessione VPN per aggiornare i parametri BGP (IP del peering sul collegamento e l'AS #) dopo che l'impostazione BGP del sito VPN è stata abilitata.
+    * **Border Gateway Protocol** - L'abilitazione implica che tutte le connessioni dal sito saranno abilitate per BGP. Verranno infine configurate le informazioni BGP per ogni collegamento dal Sito VPN nella sezione Collegamenti. La configurazione di BGP in una rete WAN virtuale equivale alla configurazione di BGP in un gateway VPN della rete virtuale di Azure. L'indirizzo del peer BGP locale non deve essere uguale all'indirizzo IP pubblico del dispositivo VPN né allo spazio di indirizzi della rete virtuale del sito VPN. Usare un indirizzo IP diverso nel dispositivo VPN per il peer BGP. Può trattarsi di un indirizzo assegnato all'interfaccia di loopback nel dispositivo. Specificare questo indirizzo nel sito VPN corrispondente che rappresenta la posizione. Per i prerequisiti di BGP, vedere [Informazioni su BGP con i gateway VPN di Azure](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). È sempre possibile modificare una connessione VPN per aggiornare i parametri BGP (IP del peering sul collegamento e l'AS #) dopo che l'impostazione BGP del sito VPN è stata abilitata.
     * **Spazio indirizzi privato** - Spazio di indirizzi IP nel sito locale. Il traffico destinato a questo spazio di indirizzi viene indirizzato al sito locale. Questa operazione è necessaria quando BGP non è abilitato per il sito.
     * **Hub** - Hub a cui si vuole connettere il sito. Un sito può essere connesso solo agli hub con gateway VPN. Se non viene visualizzato un hub, creare prima un gateway VPN in tale hub.
 4. Selezionare **Collegamenti** per aggiungere informazioni sui collegamenti fisici al ramo. Se è presente un dispositivo CPE del partner WAN virtuale, rivolgersi al partner per verificare se queste informazioni vengono scambiate con Azure nell'ambito del caricamento delle informazioni sul ramo configurato dai rispettivi sistemi.

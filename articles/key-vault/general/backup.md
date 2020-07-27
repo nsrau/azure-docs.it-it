@@ -1,5 +1,5 @@
 ---
-title: Backup di Azure Key Vault | Microsoft Docs
+title: Eseguire il backup di un segreto, una chiave o un certificato archiviato in Azure Key Vault | Microsoft Docs
 description: Usare questo documento per eseguire il backup di un segreto, una chiave o un certificato archiviato in Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
@@ -10,111 +10,114 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 8a152e2771f0b207e81f42c6ecae2e4d14605051
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156354"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521106"
 ---
 # <a name="azure-key-vault-backup"></a>Backup di Azure Key Vault
 
-Questo documento illustra come eseguire un backup dei singoli segreti, chiavi e certificati archiviati nell'insieme di credenziali delle chiavi. Questo backup è destinato a fornire una copia offline di tutti i segreti nel caso improbabile in cui si perda l'accesso all'insieme di credenziali delle chiavi.
+Questo documento spiega come eseguire il backup di segreti, chiavi e certificati archiviati nell'insieme di credenziali delle chiavi. Un backup ha lo scopo di fornire una copia offline di tutti i segreti nel caso improbabile in cui si perda l'accesso all'insieme di credenziali delle chiavi.
 
 ## <a name="overview"></a>Panoramica
 
-Key Vault fornisce automaticamente diverse funzionalità per mantenere la disponibilità ed evitare la perdita di dati. Questo backup deve essere eseguito solo se è presente una motivazione aziendale critica per mantenere un backup dei segreti. Il backup dei segreti nell'insieme di credenziali delle chiavi può introdurre ulteriori problemi operativi come la gestione di più set di log, autorizzazioni e backup quando i segreti scadono o ruotano.
+Azure Key Vault fornisce automaticamente diverse funzionalità che aiutano a mantenere la disponibilità ed evitare la perdita di dati. Il backup dei segreti deve essere eseguito solo in presenza di una motivazione aziendale critica. Il backup dei segreti nell'insieme di credenziali delle chiavi può infatti comportare una serie di problemi operativi, come la gestione di più set di log, autorizzazioni e backup quando i segreti scadono o ruotano.
 
-Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automaticamente il failover delle richieste a un'area associata senza che sia necessario alcun intervento da parte di un utente. Per altre informazioni, vedere il collegamento seguente. [Ripristino di emergenza di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
+Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automaticamente il failover delle richieste a un'area associata senza che sia necessario l'intervento di un utente. Per altre informazioni, vedere [Disponibilità e ridondanza in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Key Vault protegge da eliminazioni accidentali e dannose dei segreti tramite l'eliminazione temporanea e la protezione dall'eliminazione. Se si vuole una protezione da eliminazioni accidentali o dannose dei segreti, configurare l'eliminazione temporanea e la protezione dall'eliminazione per l'insieme di credenziali delle chiavi. Per altre informazioni, vedere il documento seguente. [Ripristino di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
 
 ## <a name="limitations"></a>Limitazioni
 
-Azure Key Vault attualmente non supporta un modo per eseguire il backup di un intero insieme di credenziali delle chiavi in un'unica operazione. Qualsiasi tentativo di usare i comandi elencati in questo documento per eseguire un backup automatico di un insieme di credenziali delle chiavi non sarà supportato da Microsoft o dal team di Azure Key Vault.
+Azure Key Vault attualmente non offre un modo per eseguire il backup di un intero insieme di credenziali delle chiavi in un'unica operazione. Qualsiasi tentativo di usare i comandi elencati in questo documento per eseguire un backup automatico di un insieme di credenziali delle chiavi può generare errori per i quali non si riceverà assistenza da Microsoft o dal team di Azure Key Vault. 
 
-Il tentativo di usare i comandi mostrati nel documento seguente per creare un'automazione personalizzata può causare errori.
+Considerare anche le conseguenze seguenti:
 
-* Il backup di segreti con più versioni può causare errori di timeout.
-* Il backup crea uno snapshot temporizzato. I segreti possono essere rinnovati durante un backup causando una mancata corrispondenza delle chiavi di crittografia.
-* Il superamento dei limiti del servizio dell'insieme di credenziali delle chiavi per le richieste al secondo causerà la limitazione dell'insieme di credenziali delle chiavi e causerà l'esito negativo del backup.
+* Il backup di segreti con più versioni potrebbe causare errori di timeout.
+* Un backup crea uno snapshot temporizzato. I segreti potrebbero essere rinnovati durante un backup causando una mancata corrispondenza delle chiavi di crittografia.
+* Se si superano i limiti del servizio Key Vault per le richieste al secondo, l'insieme di credenziali delle chiavi verrà limitato e il backup non riuscirà.
 
 ## <a name="design-considerations"></a>Considerazioni sulla progettazione
 
-Quando si esegue il backup di un oggetto archiviato nell'insieme di credenziali delle chiavi (segreto, chiave o certificato), l'operazione di backup scarica l'oggetto come BLOB crittografato. Questo BLOB non può essere decrittografato all'esterno di Azure. Per ottenere dati utilizzabili da questo BLOB, è necessario ripristinare il BLOB in un insieme di credenziali delle chiavi all'interno della stessa sottoscrizione di Azure e della stessa area geografica di Azure.
-[Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+Quando si esegue il backup di un oggetto dell'insieme di credenziali delle chiavi, come un segreto, una chiave o un certificato, l'operazione di backup scarica l'oggetto come BLOB crittografato. Questo BLOB non può essere decrittografato all'esterno di Azure. Per ottenere dati utilizzabili da questo BLOB, è necessario ripristinare il BLOB in un insieme di credenziali delle chiavi all'interno della stessa sottoscrizione di Azure e della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Autorizzazioni a livello di collaboratore o superiori per una sottoscrizione di Azure
-* Insieme di credenziali delle chiavi primario contenente i segreti di cui si vuole eseguire il backup
+Per eseguire il backup di un oggetto dell'insieme di credenziali delle chiavi, è necessario avere: 
+
+* Autorizzazioni a livello di collaboratore o superiori per una sottoscrizione di Azure.
+* Insieme di credenziali delle chiavi primario che contiene i segreti di cui si vuole eseguire il backup.
 * Insieme di credenziali delle chiavi secondario in cui verranno ripristinati i segreti.
 
-## <a name="back-up-and-restore-with-azure-portal"></a>Eseguire il backup e il ripristino con il portale di Azure
+## <a name="back-up-and-restore-from-the-azure-portal"></a>Eseguire il backup e il ripristino dal portale di Azure
+
+Per eseguire il backup e il ripristino di oggetti usando il portale di Azure, seguire le procedure illustrate in questa sezione.
 
 ### <a name="back-up"></a>Eseguire il backup
 
-1. Passare al portale di Azure.
+1. Accedere al portale di Azure.
 2. Selezionare l'insieme di credenziali delle chiavi.
 3. Passare all'oggetto (segreto, chiave o certificato) di cui si vuole eseguire il backup.
 
-    ![Immagine](../media/backup-1.png)
+    ![Screenshot che mostra dove selezionare l'impostazione Chiavi e un oggetto in un insieme di credenziali delle chiavi.](../media/backup-1.png)
 
 4. Selezionare l'oggetto.
-5. Selezionare 'Scarica il backup'.
+5. Selezionare **Scarica il backup**.
 
-    ![Immagine](../media/backup-2.png)
+    ![Screenshot che mostra dove selezionare il pulsante Scarica il backup in un insieme di credenziali delle chiavi.](../media/backup-2.png)
     
-6. Fare clic sul pulsante 'Download'.
+6. Selezionare **Download**.
 
-    ![Immagine](../media/backup-3.png)
+    ![Screenshot che mostra dove selezionare il pulsante Scarica in un insieme di credenziali delle chiavi.](../media/backup-3.png)
     
 7. Archiviare il BLOB crittografato in una posizione sicura.
 
 ### <a name="restore"></a>Restore
 
-1. Passare al portale di Azure.
+1. Accedere al portale di Azure.
 2. Selezionare l'insieme di credenziali delle chiavi.
 3. Passare al tipo di oggetto (segreto, chiave o certificato) di cui si vuole eseguire il ripristino.
-4. Selezionare 'Ripristina il backup'
+4. Selezionare **Ripristina il backup**.
 
-    ![Immagine](../media/backup-4.png)
+    ![Screenshot che mostra dove selezionare il pulsante Ripristina il backup in un insieme di credenziali delle chiavi.](../media/backup-4.png)
     
 5. Passare al percorso in cui è stato archiviato il BLOB crittografato.
-6. Selezionare "Ok".
+6. Selezionare **OK**.
 
-## <a name="back-up-and-restore-with-the-azure-cli"></a>Eseguire il backup e il ripristino con l'interfaccia della riga di comando di Azure
+## <a name="back-up-and-restore-from-the-azure-cli"></a>Eseguire il backup e il ripristino dall'interfaccia della riga di comando di Azure
 
 ```azurecli
-## Login To Azure
+## Log in to Azure
 az login
 
-## Set your Subscription
+## Set your subscription
 az account set --subscription {AZURE SUBSCRIPTION ID}
 
-## Register Key Vault as a Provider
+## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
-## Backup a Certificate in Key Vault
+## Back up a certificate in Key Vault
 az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Key in Key Vault
+## Back up a key in Key Vault
 az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Secret in Key Vault
+## Back up a secret in Key Vault
 az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Certificate in Key Vault
+## Restore a certificate in Key Vault
 az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Key in Key Vault
+## Restore a key in Key Vault
 az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Secret in Key Vault
+## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Attivare la registrazione e il monitoraggio per Azure Key Vault. [Registrazione dell'insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/general/logging)
+Attivare la [registrazione e il monitoraggio](https://docs.microsoft.com/azure/key-vault/general/logging) per Azure Key Vault.

@@ -1,68 +1,62 @@
 ---
-title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa | Mappe di Microsoft Azure'
+title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa di Microsoft Azure'
 description: Informazioni su come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
-ms.date: 1/15/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 7/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80333874"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517403"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
-Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si consideri uno scenario in cui il direttore di un cantiere di costruzione deve monitorare i potenziali macchinari pericolosi. Il responsabile deve assicurarsi che i macchinari rimangano all'interno delle aree di costruzione complessive. Questa area di costruzione complessiva è un parametro rigido. Le normative richiedono che i macchinari rientrino in questo parametro e che le violazioni vengano segnalate al direttore dei lavori.  
+Questa esercitazione illustra le nozioni di base per la creazione e l'uso dei servizi di recinto virtuale di Mappe di Azure nel contesto dello scenario seguente:
 
-Verrà usata l'API Caricamento dati di Mappe di Azure per archiviare un recinto virtuale e si userà l'API Recinto virtuale di Mappe di Azure per verificare la posizione dei macchinari rispetto al recinto virtuale. Sia l'API Caricamento dati che l'API Recinto virtuale sono incluse in Mappe di Azure. Si userà inoltre Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. Per altre informazioni su Griglia di eventi, vedere [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+*Il direttore di un cantiere in costruzione deve monitorare i macchinari che entrano ed escono dal perimetro del cantiere. Ogni volta che un macchinario entra o esce, viene inviata una notifica tramite posta elettronica al direttore dei lavori.*
 
-In questa esercitazione verrà illustrato come:
+Mappe di Azure offre diversi servizi che consentono di monitorare i macchinari che entrano ed escono dal cantiere nello scenario in questione. In questa esercitazione verrà illustrato come:
 
 > [!div class="checklist"]
-> * Caricare l'area del recinto virtuale nel servizio dati di Mappe di Azure usando l'API Caricamento dati.
-> *   Configurare una griglia di eventi per gestire gli eventi del recinto virtuale.
-> *   Impostare il gestore di eventi del recinto virtuale.
-> *   Configurare gli avvisi in risposta agli eventi del recinto virtuale usando App per la logica.
-> *   Usare le API del servizio del recinto virtuale di Mappe di Azure per verificare se un asset di costruzione si trova nel cantiere o meno.
-
+> * Caricare i [dati GeoJSON di geofencing](geofence-geojson.md) che definiscono le aree del cantiere da monitorare. Si userà l'[API di caricamento dati](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) per caricare i recinti virtuali come coordinate di poligono nell'account di Mappe di Azure.
+> * Configurare due [app per la logica](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) che, quando attivate, invieranno notifiche tramite posta elettronica al direttore dei lavori del cantiere quando i macchinari entrano ed escono dall'area del recinto virtuale.
+> * Usare [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview) per sottoscrivere gli eventi di entrata e uscita dal recinto virtuale di Mappe di Azure. Verranno configurate due sottoscrizioni di eventi webhook che chiameranno gli endpoint HTTP definiti nelle due app per la logica. Le app per la logica invieranno quindi le notifiche di posta elettronica appropriate per i macchinari che escono o entrano nel recinto virtuale.
+> * Usare l'[API GET di ricerca recinto virtuale](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) per ricevere notifiche quando un macchinario esce ed entra nelle aree del recinto virtuale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
+1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 
-Creare una sottoscrizione dell'account Mappe di Azure nel piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). I passaggi descritti in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) illustrano come recuperare la chiave primaria dell'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
+Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), ma è possibile scegliere un ambiente di sviluppo API diverso.
 
-## <a name="upload-geofences"></a>Caricare i recinti virtuali
+## <a name="upload-geofencing-geojson-data"></a>Caricare i dati GeoJSON di geofencing
 
-Si presuppone che il recinto virtuale principale sia subsite1, per cui è impostata una data di scadenza. È possibile creare più recinti virtuali annidati a seconda delle esigenze. Questi set di recinti consentono di tenere traccia delle diverse aree del cantiere all'interno del cantiere di costruzione complessivo. È ad esempio possibile che subsite1 sia il luogo in cui si svolgono i lavori durante le settimane da 1 a 4 del piano dei lavori e subsite2 sia il luogo in cui si svolgono i lavori durante le settimane da 5 a 7. Tutti questi recinti possono essere caricati come singolo set di dati all'inizio del progetto ed essere usati per tenere traccia delle regole in base al tempo e allo spazio. 
+In questa esercitazione si caricheranno dati GeoJSON di geofencing che contengono una `FeatureCollection`. La `FeatureCollection` contiene due recinti virtuali che definiscono le aree poligonali all'interno del cantiere. Il primo recinto virtuale non presenta alcuna scadenza o restrizione. Il secondo può essere sottoposto a query solo durante l'orario lavorativo (dalle 9 alle 17) e non sarà più valido dopo il 1° gennaio 2022. Per altre informazioni sul formato GeoJSON, vedere [Dati GeoJSON di geofencing](geofence-geojson.md).
 
-Per caricare il recinto virtuale per il cantiere con l'API Caricamento dati si userà l'applicazione Postman. Installare l'[applicazione postman](https://www.getpostman.com/) e creare un account gratuito. 
+>[!TIP]
+>È possibile aggiornare i dati di geofencing in qualsiasi momento. Per altre informazioni su come aggiornare i dati, vedere [API di caricamento dati](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 
-Dopo aver installato l'app Postman, seguire questi passaggi per caricare il recinto virtuale del cantiere usando l'API Caricamento dati in Mappe di Azure.
+1. Aprire l'app Postman. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta).  Assegnare un nome alla raccolta e selezionare **Create** (Crea).
 
-1. Aprire l'app Postman e fare clic su New | Create new (Nuovo | Crea nuovo) e selezionare Request (Richiesta). Immettere un nome richiesta per Upload geofence data (Carica dati recinto virtuale), selezionare una raccolta o una cartella per il salvataggio, quindi fare clic su Salva (Save).
+2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare la raccolta creata nel passaggio precedente e fare clic su **Save** (Salva).
 
-    ![Caricare i recinti virtuali usando Postman](./media/tutorial-geofence/postman-new.png)
-
-2. Selezionare il metodo HTTP POST nella scheda Builder (Generatore) e immettere l'URL seguente per effettuare una richiesta POST.
+3. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per caricare i dati di geofencing nel servizio Mappe di Azure. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
     ```
-    
-    Il parametro GEOJSON nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire {subscription-key} con la chiave di sottoscrizione primaria di Mappe di Azure, nota anche come chiave primaria.
-   
-    ![Parametri per il caricamento dei dati (recinto virtuale) in Postman](./media/tutorial-geofence/postman-key-vals.png)
+    Il parametro _geojson_ nel percorso dell'URL rappresenta il formato dei dati caricati.
 
-4. Fare clic su **Body** (Corpo), quindi selezionare il formato di input non elaborato e scegliere JSON come formato di input nell'elenco a discesa. Specificare il codice JSON seguente come dati da caricare:
+4. Fare clic sulla scheda **Body** (Corpo). Selezionare **raw** e quindi **JSON** come formato di input. Copiare e incollare i dati GeoJSON seguenti nell'area di testo **Body** (Corpo):
 
    ```JSON
    {
@@ -133,11 +127,11 @@ Dopo aver installato l'app Postman, seguire questi passaggi per caricare il reci
           "properties": {
             "geometryId": "2",
             "validityTime": {
-              "expiredTime": "2019-01-15T00:00:00",
-              "validityPeriod": [
+            "expiredTime": "2022-01-01T00:00:00",
+            "validityPeriod": [
                 {
-                  "startTime": "2019-01-08T01:00:00",
-                  "endTime": "2019-01-08T17:00:00",
+                  "startTime": "2020-07-15T16:00:00",
+                  "endTime": "2020-07-15T24:00:00",
                   "recurrenceType": "Daily",
                   "recurrenceFrequency": 1,
                   "businessDayOnly": true
@@ -150,138 +144,338 @@ Dopo aver installato l'app Postman, seguire questi passaggi per caricare il reci
    }
    ```
 
-5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. In caso di esito positivo, l'intestazione **Location** conterrà l'URI dello stato. Il formato dell'URI dello stato sarà il seguente. Il valore uploadStatusId non è compreso tra { }. È pratica comune usare { } per visualizzare i valori che l'utente deve immettere oppure valori diversi per utenti diversi.
+5. Fare clic sul pulsante blu **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda di risposta **Headers** (Intestazioni). Copiare il valore della chiave **Location** (Posizione), ovvero lo `status URL`.
+
+    ```http
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    ```
+
+6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **GET** sullo `status URL`. È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **GET** dovrebbe essere simile all'URL seguente:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Copiare l'URI dello stato e aggiungere la chiave di sottoscrizione. Il formato dell'URI dello stato deve essere simile a quello riportato di seguito. Si noti che nel formato seguente è necessario modificare {subscription-key}, non includendo le parentesi { }, con la chiave di sottoscrizione.
+7. Quando la richiesta HTTP **GET** viene completata correttamente, restituisce un `resourceLocation`. `resourceLocation` contiene il valore `udid` univoco per il contenuto caricato. Sarà necessario salvare questo `udid` per eseguire query sull'API GET del recinto virtuale nell'ultima sezione dell'esercitazione. Se si vuole, è possibile usare l'URL `resourceLocation` per recuperare i metadati da questa risorsa nel passaggio successivo.
 
-   ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
-   ```
+      ```json
+      {
+          "status": "Succeeded",
+          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
+      }
+      ```
 
-7. Per ottenere l'`udId`, aprire una nuova scheda nell'app Postman e selezionare il metodo HTTP GET nella scheda Builder (Generatore) ed effettuare una richiesta GET per l'URI dello stato ottenuto nel passaggio precedente. Se il caricamento dei dati è riuscito, si riceverà il valore di udId nel corpo della risposta. Copiare l'udId per un uso successivo.
+8. Per recuperare i metadati del contenuto, creare una richiesta HTTP **GET** sull'URL `resourceLocation` recuperato nel passaggio 7. Assicurarsi di accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **GET** dovrebbe essere simile all'URL seguente:
 
-   ```JSON
-   {
-    "status": "Succeeded",
-    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
-   }
-   ```
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
 
-## <a name="set-up-an-event-handler"></a>Configurare un gestore di eventi
+9. Quando la richiesta HTTP **GET** viene completata correttamente, il corpo della risposta conterrà il valore `udid` specificato nel `resourceLocation` del passaggio 7, il percorso per accedere al contenuto in futuro e scaricarlo e altri metadati sul contenuto, come data di creazione/aggiornamento, dimensioni e così via. Un esempio di risposta complessiva è:
 
-In questa sezione viene creato un gestore eventi che riceve le notifiche. Il gestore eventi deve notificare al direttore dei lavori gli eventi di ingresso e uscita di qualsiasi macchinario.
+    ```json
+    {
+        "udid": "{udid}",
+        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
+        "created": "7/15/2020 6:11:43 PM +00:00",
+        "updated": "7/15/2020 6:11:45 PM +00:00",
+        "sizeInBytes": 1962,
+        "uploadStatus": "Completed"
+    }
+    ```
 
-Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) per gestire gli eventi di ingresso e uscita. Quando vengono attivati gli eventi nelle app per la logica, vengono attivati più eventi in sequenza. Verranno quindi inviati avvisi, in questo caso messaggi di posta elettronica, al direttore dei lavori. La figura seguente illustra la creazione di un'app per la logica per l'evento di ingresso nel recinto virtuale. È possibile crearne un'altra allo stesso modo per l'evento di uscita. È possibile vedere tutti i [gestori di eventi supportati](https://docs.microsoft.com/azure/event-grid/event-handlers) per altre informazioni.
+## <a name="create-logic-app-workflows"></a>Creare i flussi di lavoro delle app per la logica
 
-1. Creare un'app per la logica nel portale di Azure. Selezionare l'app per la logica in Azure Marketplace. Fare quindi clic sul pulsante **Crea**.
+In questa sezione verranno creati due endpoint di [app per la logica](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) che attiveranno una notifica tramite posta elettronica. Verrà illustrato come creare il primo trigger che invierà notifiche tramite posta elettronica ogni volta che viene chiamato l'endpoint corrispondente.
 
-   ![Creare app per la logica di Azure per gestire gli eventi del recinto virtuale](./media/tutorial-geofence/logic-app.png)
+1. Accedere al [portale di Azure](https://portal.azure.com)
 
-2. Dal menu Impostazioni dell'app per la logica passare a **Progettazione app per la logica**
+2. Nell'angolo superiore sinistro del [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa**.
 
-3. Selezionare un trigger di richiesta HTTP e quindi selezionare "Nuovo passaggio". Nel connettore per Outlook selezionare "Invia un messaggio di posta elettronica" come azione
+3. Nella casella *Cerca nel Marketplace* digitare **App per la logica**.
+
+4. In *Risultati* selezionare **App per la logica**. Fare clic sul pulsante **Crea**.
+
+5. Nella pagina **App per la logica** immettere i valori seguenti:
+    * La *sottoscrizione* da usare per l'app per la logica.
+    * Il nome del *gruppo di risorse* per l'app per la logica. Per il gruppo di risorse è possibile selezionare l'opzione *Crea nuovo* o *Usa esistente*.
+    * Il *nome dell'app per la logica*. In questo caso si userà `Equipment-Enter` come nome.
+
+    Ai fini di questa esercitazione, mantenere le impostazioni predefinite per il resto dei valori.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Creare un'app per la logica":::
+
+6. Fare clic sul pulsante **Rivedi e crea**. Rivedere le impostazioni e fare clic su **Crea** per inviare la distribuzione. Al termine della distribuzione, fare clic su **Vai alla risorsa**. Si aprirà **Progettazione app per la logica**
+
+7. A questo punto occorre selezionare un tipo di trigger. Scorrere leggermente verso il basso fino alla sezione *Inizia con un trigger comune**. Fare clic su **Alla ricezione di una richiesta HTTP**.
+
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Creare un trigger HTTP dell'app per la logica":::
+
+8. Fare clic su **Salva** nell'angolo in alto a destra della finestra di progettazione. L'**URL POST HTTP** verrà generato automaticamente. Salvare l'URL, in quanto sarà necessario nella sezione successiva per creare un endpoint di evento.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="URL della richiesta HTTP e schema JSON dell'app per la logica":::
+
+9. Selezionare **+ Nuovo passaggio**. A questo punto occorre scegliere un'azione. Digitare `outlook.com email` nella casella di ricerca. Nell'elenco **Azioni** scorrere verso il basso e fare clic su **Invia un messaggio di posta elettronica (v2)** .
   
-   ![Schema di App per la logica](./media/tutorial-geofence/logic-app-schema.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Finestra di progettazione per la creazione dell'app per la logica":::
 
-4. Compilare i campi per l'invio di un messaggio di posta elettronica. Lasciare vuoto il campo relativo all'URL HTTP, che verrà generato automaticamente dopo aver fatto clic su "Salva"
+10. Accedere all'account Outlook.com. Assicurarsi di fare clic su **Sì** per consentire all'app per la logica di accedere all'account. Compilare i campi per l'invio di un messaggio di posta elettronica.
 
-   ![Generare un endpoint delle app per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Passaggio relativo all'invio del messaggio di posta elettronica nel processo di creazione dell'app per la logica":::
 
-5. Salvare l'app per la logica per generare l'endpoint dell'URL HTTP e copiare l'URL HTTP.
+    >[!TIP]
+    > È possibile recuperare i dati della risposta GeoJSON, come `geometryId` o `deviceId`, nelle notifiche tramite posta elettronica configurando l'app per la logica per la lettura dei dati inviati da Griglia di eventi. Per informazioni su come configurare l'app per la logica per l'utilizzo e il passaggio dei dati degli eventi nelle notifiche di posta elettronica, vedere [Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
-## <a name="create-an-azure-maps-events-subscription"></a>Creare una sottoscrizione di Eventi di Mappe di Azure
+11. Fare clic su **Salva** nell'angolo superiore sinistro di Progettazione app per la logica.
 
-Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Sono necessarie due sottoscrizioni di eventi diverse, una per gli eventi di ingresso e una per gli eventi di uscita.
+12. Ripetere i passaggi da 3 a 11 per creare una seconda app per la logica che invii notifiche al direttore dei lavori quando un macchinario esce ed entra nel cantiere. Assegnare all'app per la logica il nome `Equipment-Exit`.
 
-Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso del recinto virtuale. Allo stesso modo è possibile creare una sottoscrizione per gli eventi di uscita del recinto virtuale.
+## <a name="create-azure-maps-events-subscriptions"></a>Creare le sottoscrizioni di eventi di Mappe di Azure
 
-1. Passare all'account Mappe di Azure. Nel dashboard selezionare Sottoscrizioni. Fare clic sul nome della sottoscrizione e selezionare **eventi** dal menu Impostazioni.
+Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  È necessario creare due sottoscrizioni di eventi diversi, una per gli eventi di entrata nel recinto virtuale e l'altra per gli eventi di uscita.
 
-   ![Passare all'account eventi di Mappe di Azure](./media/tutorial-geofence/events-tab.png)
+Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso del recinto virtuale. È possibile creare la sottoscrizione per gli eventi di uscita dal recinto virtuale ripetendo i passaggi allo stesso modo.
 
-2. Per creare una sottoscrizione per gli eventi, selezionare Sottoscrizione di eventi dalla pagina degli eventi.
+1. Passare all'account Mappe di Azure. Nel dashboard selezionare **Sottoscrizioni**. Fare clic sul nome della sottoscrizione e selezionare **eventi** dal menu Impostazioni.
 
-   ![Creare una sottoscrizione di Eventi di Mappe di Azure](./media/tutorial-geofence/create-event-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Passare alla pagina Eventi dell'account di Mappe di Azure":::
 
-3. Assegnare un nome alla sottoscrizione e selezionare il tipo di eventi di ingresso. Selezionare Webhook per "Tipo di endpoint". Fare clic su "Seleziona endpoint" e copiare l'endpoint URL HTTP dell'app per la logica in "{Endpoint}"
+2. Per creare una sottoscrizione per gli eventi, selezionare **+ Sottoscrizione di eventi** nella pagina Eventi.
 
-   ![Dettagli della sottoscrizione per Eventi di Mappe di Azure](./media/tutorial-geofence/events-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Creare una sottoscrizione di eventi di Mappe di Azure":::
 
+3. Nella pagina **Crea sottoscrizione di eventi** immettere i valori seguenti:
+    * In *Nome* specificare un nome per la sottoscrizione di eventi.
+    * In *Schema evento* selezionare *Schema griglia di eventi*.
+    * In *Nome dell'argomento del sistema* specificare un nome per questa sottoscrizione di eventi. In questo caso si userà `Contoso-Construction`.
+    * In *Filtra per tipi di evento* selezionare `Geofence Entered` come tipo di evento.
+    * In *Tipo di endpoint* selezionare `Web Hook`.
+    * In *Endpoint* copiare l'URL POST HTTP per l'endpoint di entrata dell'app per la logica creato nella sezione precedente. Se si è dimenticato di salvarlo, basta tornare in Progettazione app per la logica e copiarlo dal passaggio relativo al trigger HTTP.
 
-## <a name="use-geofence-api"></a>Usare l'API Recinto virtuale
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Dettagli della sottoscrizione di eventi di Mappe di Azure":::
 
-È possibile usare l'API Recinto virtuale per verificare se un **dispositivo**, in questo caso i macchinari, si trovano all'interno o all'esterno di un recinto virtuale. L'API GET per il recinto virtuale eseguirà query su diversi luoghi in cui è transitato un macchinario specifico nel tempo. La figura seguente illustra cinque posizioni con cinque macchinari da costruzione. 
+4. Fare clic su **Crea**.
 
-> [!Note]
-> Lo scenario e il comportamento si basano sullo stesso **ID dispositivo**, quindi riflettono le cinque posizioni come nella figura seguente.
+5. Ripetere i passaggi da 1 a 4 per l'endpoint di uscita dell'app per la logica creato nella sezione precedente. Al passaggio 3 assicurarsi di scegliere `Geofence Exited` come tipo di evento.
 
-"deviceId" è un ID univoco che viene specificato per il dispositivo nella richiesta GET, quando si esegue una query sulla relativa posizione. Quando si esegue una richiesta asincrona all'**API GET di ricerca recinto virtuale**, "deviceId" consente di pubblicare eventi di recinto virtuale per tale dispositivo, in relazione al recinto virtuale specificato. In questa esercitazione sono state inviate richieste asincrone all'API con un "deviceId" univoco. Le richieste nell'esercitazione vengono eseguite in ordine cronologico, come nel diagramma. La proprietà "isEventPublished" nella risposta viene pubblicata ogni volta che un dispositivo entra o esce dal recinto virtuale. Non è necessario registrare un dispositivo per eseguire questa esercitazione.
+## <a name="use-search-geofence-get-api"></a>Usare l'API GET di ricerca recinto virtuale
 
-Si osservi il diagramma. Ognuna di queste cinque posizioni viene usata per valutare la variazione di stato di ingresso e uscita rispetto al recinto virtuale. Se si verifica una variazione di stato, il servizio del recinto virtuale attiva un evento che viene inviato all'app per la logica dalla griglia di eventi. Di conseguenza, il direttore dei lavori riceverà la notifica di ingresso o uscita corrispondente tramite posta elettronica.
+Si userà ora l'[API GET di ricerca recinto virtuale](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) per inviare notifiche tramite posta elettronica al direttore dei lavori ogni volta che un macchinario entra o esce dal recinto virtuale.
+
+Ogni macchinario ha un `deviceId`. In questa esercitazione verrà monitorato un singolo macchinario il cui ID univoco è `device_1`.
+
+Per chiarezza, il diagramma seguente mostra le cinque posizioni del macchinario nel tempo, a partire dalla posizione *Start*, che si trova all'esterno del recinto virtuale. Ai fini di questa esercitazione, la posizione *Start* non è definita, dato che non verranno eseguite query sul dispositivo in tale posizione.
+
+Quando si esegue una query sull'[API GET di ricerca recinto virtuale](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una posizione del macchinario che indica l'entrata o l'uscita iniziale dal recinto virtuale, Griglia di eventi chiama l'endpoint dell'app per la logica appropriato per inviare una notifica tramite posta elettronica al direttore dei lavori.
+
+Ognuna delle sezioni seguenti crea richieste HTTP GET dell'API Geofencing usando le cinque diverse coordinate di posizione del macchinario.
 
 ![Mappa del recinto virtuale in Mappe di Azure](./media/tutorial-geofence/geofence.png)
 
-Nell'app Postman aprire una nuova scheda nella stessa raccolta creata in precedenza. Selezionare il metodo HTTP GET nella scheda Builder (Generatore):
+### <a name="equipment-location-1-47638237-122132483"></a>Posizione 1 del macchinario (47.638237,-122.132483)
 
-Di seguito sono riportate cinque richieste HTTP GET dell'API Recinto virtuale, con le diverse coordinate di posizione del macchinario in ordine cronologico. Ogni richiesta è seguita dal corpo della risposta.
- 
-1. Posizione 1:
-    
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 1*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
+
+2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
+
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-   ![Query recinto virtuale 1](./media/tutorial-geofence/geofence-query1.png)
 
-   Nella risposta precedente, la distanza negativa dal recinto virtuale principale indica che il macchinario si trova all'interno del recinto virtuale. La distanza positiva dal recinto virtuale della sottoarea indica che il macchinario si trova al di fuori del recinto virtuale della sottoarea. 
+3. Fare clic sul pulsante **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente.
 
-2. Posizione 2: 
-   
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638291,
+          "nearestLon": -122.132483
+        },
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.638053,
+          "nearestLon": -122.13295
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ```
+
+4. Nella risposta GeoJSON riportata sopra, la distanza negativa dal recinto virtuale del cantiere principale indica che il macchinario si trova all'interno del recinto virtuale. La distanza positiva dal recinto virtuale della sottoarea indica che il macchinario si trova al di fuori del recinto virtuale della sottoarea. Poiché questa è la prima volta che il dispositivo viene localizzato all'interno del recinto virtuale del cantiere principale, il parametro `isEventPublished` è impostato su `true` e il direttore dei lavori dovrebbe aver ricevuto una notifica di posta elettronica che lo ha informato che il macchinario è entrato nel recinto virtuale.
+
+### <a name="location-2-4763800-122132531"></a>Posizione 2 (47.63800,-122.132531)
+
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 2*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
+
+2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
+
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-    
-   ![Query recinto virtuale 2](./media/tutorial-geofence/geofence-query2.png)
 
-   Se si osserva attentamente la risposta JSON precedente, il macchinario si trova all'esterno della sottoarea, ma all'interno del recinto principale. Non viene attivato alcun evento e non viene inviato alcun messaggio di posta elettronica.
+3. Fare clic sul pulsante **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente:
 
-3. Posizione 3: 
-  
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637997,
+          "nearestLon": -122.132399
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.63789,
+          "nearestLon": -122.132809
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
 
-   ![Query recinto virtuale 3](./media/tutorial-geofence/geofence-query3.png)
+4. Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto virtuale del cantiere principale e non è entrato in quello del cantiere secondario. Di conseguenza, il parametro `isEventPublished` è impostato su `false` e il direttore dei lavori non riceverà alcuna notifica tramite posta elettronica.
 
-   Si è verificata una variazione di stato e ora il macchinario si trova all'interno del recinto virtuale principale e del recinto della sottoarea. Questa variazione genera la pubblicazione di un evento e verrà inviata una e-mail di notifica al direttore dei lavori.
+### <a name="location-3-4763810783315048-12213336020708084"></a>Posizione 3 (47.63810783315048,-122.13336020708084)
 
-4. Posizione 4: 
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 3*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
-  
-   ![Query recinto virtuale 4](./media/tutorial-geofence/geofence-query4.png)
+2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
-   Se si osserva attentamente la risposta corrispondente, si può notare che non vengono pubblicati eventi anche se il macchinario è uscito dal recinto virtuale della sottoarea. Se si osserva l'ora specificata dall'utente nella richiesta GET, si può notare che il recinto virtuale del sito secondario è scaduta e il macchinario si trova ancora all'interno del recinto virtuale principale. È anche visibile l'ID geometria del recinto virtuale della sottoarea sotto `expiredGeofenceGeometryId` nel corpo della risposta.
+    ```HTTP
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      ```
 
+3. Fare clic sul pulsante **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente:
 
-5. Posizione 5:
-      
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638294,
+          "nearestLon": -122.133359
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": -999.0,
+          "nearestLat": 47.638161,
+          "nearestLon": -122.133549
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
 
-   ![Query recinto virtuale 5](./media/tutorial-geofence/geofence-query5.png)
+4. Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto virtuale del cantiere principale, ma è entrato in quello del cantiere secondario. Di conseguenza, il parametro `isEventPublished` è impostato su `true` e il direttore dei lavori riceverà una notifica tramite posta elettronica che lo informa che il macchinario è entrato in un circuito virtuale.
 
-   Si può vedere che il macchinario è uscito dal recinto virtuale principale del cantiere. Viene pubblicato un evento e viene inviato un messaggio di posta elettronica di avviso al responsabile dei lavori.
+    >[!NOTE]
+    >Se il macchinario si fosse spostato nel cantiere secondario dopo l'orario lavorativo, non sarebbe stato pubblicato alcun evento e il direttore dei lavori non avrebbe ricevuto alcuna notifica.  
+
+### <a name="location-4-47637988-1221338344"></a>Posizione 4 (47.637988,-122.1338344)
+
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 4*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
+
+2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Fare clic sul pulsante **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente:
+
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637985,
+          "nearestLon": -122.133907
+        }
+      ],
+      "expiredGeofenceGeometryId": [
+        "2"
+      ],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
+
+4. Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto virtuale del cantiere principale, ma è uscito da quello del cantiere secondario. Tuttavia, si può notare che il valore di `userTime` è successivo al valore di `expiredTime` definito nei dati del circuito virtuale. Di conseguenza, il parametro `isEventPublished` è impostato su `false` e il direttore dei lavori non riceverà una notifica tramite posta elettronica.
+
+### <a name="location-547637988-1221338344"></a>Posizione 5 (47.637988,-122.1338344)
+
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 5*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
+
+2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Fare clic sul pulsante **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente:
+
+    ```json
+    {
+      "geometries": [
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "1",
+        "distance": -999.0,
+        "nearestLat": 47.637985,
+        "nearestLon": -122.133907
+      },
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "2",
+        "distance": 999.0,
+        "nearestLat": 47.637945,
+        "nearestLon": -122.133683
+      }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
+
+4. Nella risposta GeoJSON riportata sopra il macchinario è uscito dal recinto virtuale del cantiere principale. Di conseguenza, il parametro `isEventPublished` è impostato su `true` e il direttore dei lavori riceverà una notifica tramite posta elettronica che lo informa che il macchinario è uscito da un circuito virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come configurare un recinto virtuale caricandolo in Mappe di Azure e nel servizio dati con l'API Caricamento dati. Si è anche appreso come usare Griglia di eventi di Mappe di Azure per la sottoscrizione e la gestione di eventi di recinto virtuale. 
+> [!div class="nextstepaction"]
+> [Gestire tipi di contenuto in App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
 
-* Vedere [Gestire tipi di contenuto in App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type) per informazioni su come usare App per la logica per analizzare codice JSON e compilare una logica più complessa.
-* Per altre informazioni sui gestori di eventi in Griglia di eventi, vedere [Gestori di eventi supportati in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-handlers).
+> [!div class="nextstepaction"]
+> [Inviare notifiche di posta elettronica usando Griglia di eventi e App per la logica](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
+
+> [!div class="nextstepaction"]
+> [Gestori di eventi supportati in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-handlers)

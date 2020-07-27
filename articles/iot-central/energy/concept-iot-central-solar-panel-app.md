@@ -1,5 +1,5 @@
 ---
-title: Concetti dell'architettura di Azure IoT Central - Energia | Microsoft Docs
+title: Concetti dell'architettura di Azure IoT Central - Pannello solare | Microsoft Docs
 description: Questo articolo presenta i concetti fondamentali relativi all'architettura di Azure IoT Central
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 44171a08e69cfa058e0a9e75e3220fb996b7789d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f09a8cfae9b0f12df2ea76ecc216b1b2eb66e9ff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77018007"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511858"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - Architettura dell'app per pannelli solari
 
