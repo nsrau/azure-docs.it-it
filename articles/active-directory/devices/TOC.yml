@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Informazioni di riferimento
   items:
+    - name: Applicare TLS 1.2
+      href: reference-device-registration-tls-1-2.md
     - name: Impostazioni dell'oggetto Criteri di gruppo di Enterprise State Roaming
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Impostazioni Windows di Enterprise State Roaming

@@ -60,6 +60,8 @@
         - name: Vantaggi del Marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Vantaggi dell'impegno per il consumo di Azure
+              href: ./azure-consumption-commitment-benefit.md
             - name: Programma di co-selling per i partner
               href: ./marketplace-co-sell.md
             - name: Soluzioni preferite

@@ -351,6 +351,8 @@
           items:
             - name: Creare avvisi relativi alle metriche
               href: howto-hyperscale-alert-on-metric.md
+            - name: Accedere ai log del database
+              href: howto-hyperscale-logging.md
         - name: Risolvere problemi
           items:
             - name: Risolvere gli errori di connessione

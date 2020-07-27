@@ -1,20 +1,28 @@
 - name: Generale
   href: index.yml
 - name: Panoramica
-  expanded: true
   items:
     - name: Informazioni su Azure Key Vault
       href: overview.md
     - name: 'Informazioni su chiavi, segreti e certificati'
       href: about-keys-secrets-certificates.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portale
+      href: quick-create-portal.md
 - name: Esercitazioni
   items:
     - name: Macchina virtuale di Azure
       items:
-        - name: Usare Azure Key Vault con una macchina virtuale Windows in .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Usare Azure Key Vault con una macchina virtuale Windows in Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Usare Azure Key Vault con una macchina virtuale in .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Usare Azure Key Vault con una macchina virtuale in Python
+          href: tutorial-python-virtual-machine.md
     - name: Servizio Azure Kubernetes
       items:
         - name: Integrare Azure Key Vault con Kubernetes
@@ -117,15 +125,11 @@
     - name: Spostare Key Vault
       items:
         - name: Spostare Key Vault in un altro gruppo di risorse
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Spostare Key Vault in un'altra sottoscrizione
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Spostare Key Vault in un'altra area
-          href: keyvault-moveregion.md
-    - name: Risolvere problemi
-      items:
-        - name: Modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Informazioni di riferimento
   items:
     - name: Codici di errore dell'API REST - Azure Key Vault

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c239c30b24ad110d71c43b31448a0f5b29574b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0e249c512825dc4c36ff3f6355a4a774934ee4e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84762549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499937"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BlueJeans for Azure AD
 
@@ -38,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di BlueJeans for Azure AD abilitata per l'accesso Single Sign-On (SSO).
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -69,7 +72,7 @@ Configurare e testare l'accesso SSO di Azure AD con BlueJeans for Azure AD usand
 Per configurare e testare l'accesso SSO di Azure AD con BlueJeans for Azure AD, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di BlueJeans for Azure AD](#configure-bluejeans-for-azure-ad-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di BlueJeans for Azure AD](#create-bluejeans-for-azure-ad-test-user)** : per avere una controparte di B.Simon in BlueJeans for Azure AD collegata alla rappresentazione dell'utente in Azure AD.

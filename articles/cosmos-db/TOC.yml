@@ -1104,6 +1104,8 @@
       items:
         - name: Ripristinare i dati da un backup
           href: how-to-backup-and-restore.md
+        - name: Richiedere l'aumento della quota
+          href: create-support-request-quota-increase.md
     - name: Monitorare
       items:
         - name: Monitorare Cosmos DB
@@ -1112,6 +1114,8 @@
           items:
             - name: Monitoraggio di Azure per Cosmos (anteprima)
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Scenari da monitorare
+              href: use-metrics.md
             - name: Monitorare la latenza lato server
               href: monitor-server-side-latency.md
             - name: Monitorare l'utilizzo delle unità richiesta
@@ -1124,8 +1128,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Controllare i log del piano di controllo
               href: audit-control-plane-logs.md
-        - name: Visualizzare le metriche dall'account Cosmos DB
-          href: use-metrics.md
+        - name: Configurare gli avvisi
+          href: create-alerts.md
         - name: Informazioni di riferimento sui dati di monitoraggio
           href: monitor-cosmos-db-reference.md
         - name: Registrazione delle applicazioni con App per la logica

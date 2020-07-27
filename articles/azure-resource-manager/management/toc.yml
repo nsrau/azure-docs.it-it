@@ -93,6 +93,12 @@
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Rete virtuale
               href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Server di Database di Azure per PostgreSQL
+              href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Server di Database di Azure per MariaDB
+              href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Server di Database di Azure per MySQL
+              href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tag
       items:
         - name: Guida alle decisioni

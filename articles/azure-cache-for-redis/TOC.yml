@@ -59,13 +59,15 @@
     - name: Piano
       items:
         - name: Scegliere un livello di cache
-          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
+          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
         - name: Distribuire la cache con il clustering
           href: cache-how-to-premium-clustering.md
         - name: Rendere persistente la cache con la persistenza dei dati Redis
           href: cache-how-to-premium-persistence.md
         - name: Proteggere la cache con una rete virtuale
           href: cache-how-to-premium-vnet.md
+        - name: Connettersi privatamente a una cache
+          href: cache-private-link.md
         - name: Configurare la replica geografica
           href: cache-how-to-geo-replication.md
         - name: Risparmiare con la capacità riservata
@@ -101,9 +103,9 @@
         - name: Importare/esportare dati
           href: cache-how-to-import-export-data.md
         - name: Riavvio
-          href: 'cache-administration.md#reboot'
+          href: cache-administration.md#reboot
         - name: Pianificare gli aggiornamenti
-          href: 'cache-administration.md#schedule-updates'
+          href: cache-administration.md#schedule-updates
         - name: Configurare l'accesso con redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
         - name: Rimuovere TLS 1.0 e 1.1
@@ -113,7 +115,7 @@
         - name: Monitoraggio nel portale di Azure
           href: cache-how-to-monitor.md
         - name: Impostare avvisi per le eccezioni
-          href: 'cache-how-to-monitor.md#operations-and-alerts'
+          href: cache-how-to-monitor.md#operations-and-alerts
     - name: Diagnosticare e risolvere i problemi
       items:
         - name: Risolvere i problemi dei server Redis

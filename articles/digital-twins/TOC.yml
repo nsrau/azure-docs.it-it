@@ -40,9 +40,11 @@
       items:
         - name: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
           href: how-to-use-cli.md
-        - name: Creare un'istanza di Gemelli digitali di Azure
-          href: how-to-set-up-instance.md
-        - name: Autenticare un'applicazione client
+        - name: Configurare un'istanza e l'autenticazione (con script)
+          href: how-to-set-up-instance-scripted.md
+        - name: Configurare un'istanza e l'autenticazione (metodo manuale)
+          href: how-to-set-up-instance-manual.md
+        - name: Scrivere il codice di autenticazione dell'app
           href: how-to-authenticate-client.md
     - name: Modelli di progettazione
       items:
@@ -50,6 +52,8 @@
           href: how-to-manage-model.md
         - name: Analizzare e convalidare modelli
           href: how-to-use-parser.md
+        - name: Aggiungi tag
+          href: how-to-use-tags.md
     - name: Usare l'ambiente di esecuzione live
       items:
         - name: Gestire i gemelli digitali
@@ -72,10 +76,16 @@
           href: how-to-manage-routes.md
         - name: Integrazione con Mappe di Azure
           href: how-to-integrate-maps.md
+        - name: Integrazione con Azure Time Series Insights
+          href: how-to-integrate-time-series-insights.md
     - name: Risolvere problemi
       items:
         - name: Problemi noti
           href: troubleshoot-known-issues.md
+        - name: Risoluzione dei problemi
+          items:
+            - name: 403 (accesso negato)
+              href: troubleshoot-error-403.md
 - name: Informazioni di riferimento
   items:
     - name: Limiti del servizio Gemelli digitali
@@ -145,7 +155,7 @@
         - name: Esempi di Gemelli digitali di Azure
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Strumento di esplorazione di Gemelli digitali di Azure (esempio)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: Validator DTDL (esempio)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Strumenti di Azure

@@ -8,7 +8,7 @@
       href: whats-new.md
     - name: Domande frequenti
       href: load-balancer-faqs.md
-- name: Guida introduttiva
+- name: Avvio rapido
   items:
     - name: Creare il bilanciamento del carico - Portale
       href: quickstart-load-balancer-standard-public-portal.md
@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Creare il bilanciamento del carico - Modello di Azure Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
-    - name: Creare una risorsa Load Balancer interna - Portale
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Creare una risorsa Load Balancer interna - Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Creare una risorsa Load Balancer interna - Modello di Resource Manager
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Esercitazioni
   items:
+    - name: Load Balancer interno
+      items:
+        - name: Creare una risorsa Load Balancer interna - Portale
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Creare una risorsa Load Balancer interna - Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Creare una risorsa Load Balancer interna - Modello di Resource Manager
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Bilanciare il carico delle VM tra zone di disponibilità
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Bilanciare il carico delle VM in una zona di disponibilità specifica
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Gestione di pool back-end
       href: backend-pool-management.md
+    - name: Load Balancer Standard e set di scalabilità di macchine virtuali
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedure
   items:
     - name: set di scalabilità di macchine virtuali

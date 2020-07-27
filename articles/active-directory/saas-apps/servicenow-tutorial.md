@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -43,6 +43,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0). A tale scopo, è possibile [inviare una richiesta di servizio](https://hi.service-now.com).
 * Per la configurazione automatica, abilitare il plug-in per più provider per ServiceNow.
 * Per installare l'applicazione ServiceNow Classic (Mobile), passare allo store appropriato, cercare l'applicazione ServiceNow Classic e quindi scaricarla.
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -101,8 +104,10 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     c. Per **URL di risposta**, immettere uno degli URL seguenti:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | URL di risposta|
+    |----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. La procedura è descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -171,8 +176,10 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     c. Per **URL di risposta**, immettere uno degli URL seguenti:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | URL di risposta |
+    |-----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. La procedura è descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -227,7 +234,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     * Per **The field on the user table that...** (Il campo della tabella degli utenti che...) immettere **email**.
   
-    * Selezionare **Save** (Salva).
+    * Selezionare **Salva**.
 
 1. È possibile configurare ServiceNow automaticamente o manualmente. Per configurare ServiceNow automaticamente, seguire questa procedura:
 

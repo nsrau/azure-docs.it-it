@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Machine Learning
-summary: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning, esperimenti di AutoML e pipeline su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
+summary: Informazioni su come eseguire il training, distribuire e gestire modelli di Machine Learning, usare AutoML ed eseguire pipeline su larga scala con Azure Machine Learning.  Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
 metadata:
   title: Documentazione di Azure Machine Learning
-  description: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning, esperimenti di AutoML e pipeline su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
+  description: Informazioni su come eseguire il training, distribuire e gestire modelli di Machine Learning, usare AutoML ed eseguire pipeline su larga scala con Azure Machine Learning. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593002"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047795"
 landingContent:
 - title: Introduzione a Machine Learning
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Usare l'esperienza Web di Studio
+- title: Usare la finestra di progettazione e AutoML in Studio
   linkLists:
   - linkListType: overview
     links:
+    - text: Che cos'è Machine Learning automatizzato (AutoML)?
+      url: concept-automated-ml.md
     - text: Che cos'è la finestra di progettazione (trascinamento della selezione)?
       url: concept-designer.md
-    - text: Informazioni sulle funzionalità automatizzate di Machine Learning
-      url: concept-automated-ml.md
     - text: Come scegliere un algoritmo
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Creare un progetto di etichettatura di immagini
       url: tutorial-labeling.md
-- title: Usare Python SDK
+- title: Eseguire il training con Python SDK
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: Confronto tra Deep Learning e Machine Learning
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Eseguire il training con Scikit-learn
+    - text: Eseguire il training e la registrazione di modelli Scikit-learn
       url: how-to-train-scikit-learn.md
-    - text: Eseguire il training con TensorFlow
+    - text: Eseguire il training e la registrazione di modelli TensorFlow
       url: how-to-train-tensorflow.md
-    - text: Eseguire il training con PyTorch
+    - text: Eseguire il training e la registrazione di modelli PyTorch
       url: how-to-train-pytorch.md
-    - text: Eseguire il training con Keras
+    - text: Eseguire il training e la registrazione di modelli Keras
       url: how-to-train-keras.md
     - text: Apprendimento per rinforzo
       url: how-to-use-reinforcement-learning.md
     - text: Che cosa sono le pipeline di Machine Learning?
       url: concept-ml-pipelines.md
-- title: Distribuire e gestire i modelli (MLOps)
+- title: 'MLOps: Distribuire e gestire i modelli'
   linkLists:
   - linkListType: how-to-guide
     links:

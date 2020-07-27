@@ -210,6 +210,8 @@
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: Monitoraggio e avvisi
       items:
+        - name: Visualizzare le metriche di Gateway VPN
+          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
         - name: Configurare gli avvisi in base a metriche
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configurare gli avvisi in base ai log risorse
@@ -260,9 +262,9 @@
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#vpn'
+      href: /powershell/module/az.network#vpn
     - name: Azure PowerShell (versione classica)
-      href: '/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure'
+      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
     - name: REST
       href: /rest/api/network/virtualnetworkgateways
     - name: REST (versione classica)

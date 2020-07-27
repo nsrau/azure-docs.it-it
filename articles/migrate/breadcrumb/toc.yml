@@ -12,3 +12,6 @@
     - name: Migrazione
       tocHref: /sql/dma/
       topicHref: /azure/migrate/index
+    - name: Valutazione della migrazione della soluzione Azure VMware
+      tocHref: /azure/azure-vmware/
+      topicHref: /azure/migrate/index

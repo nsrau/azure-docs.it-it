@@ -11,7 +11,7 @@
 - name: Guide pratiche
   items:
     - name: Prerequisiti
-      href: hpc-cache-prereqs.md
+      href: hpc-cache-prerequisites.md
     - name: Creare la cache
       href: hpc-cache-create.md
     - name: Aggiungere le risorse di archiviazione
@@ -46,6 +46,8 @@
   items:
     - name: Aprire un ticket di supporto
       href: hpc-cache-support-ticket.md
+    - name: Configurare l'interfaccia della riga di comando di Azure per Cache HPC di Azure
+      href: az-cli-prerequisites.md
     - name: Aggirare le impostazioni del firewall per l'account di archiviazione BLOB
       href: hpc-cache-blob-firewall-fix.md
     - name: Risolvere i problemi di creazione della destinazione di archiviazione NFS

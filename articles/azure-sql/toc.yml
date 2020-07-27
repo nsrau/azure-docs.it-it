@@ -44,6 +44,9 @@
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
             - name: Procedure consigliate
               href: database/security-best-practice.md
+            - name: Controlli di sicurezza in base a Criteri di Azure
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./database/security-controls-policy.md
             - name: Baseline di sicurezza
               href: database/security-baseline.md
             - name: Attributi di sicurezza
@@ -201,9 +204,11 @@
             - name: Java
               items:
                 - name: Usare JDBC per Spring Data
-                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
                 - name: Usare JPA per Spring Data
-                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Usare R2DBC per Spring Data
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
 - name: Database SQL
   items:
     - name: Documentazione
@@ -230,9 +235,7 @@
               href: database/service-tier-hyperscale.md
             - name: Domande frequenti su Hyperscale
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-            - name: Eseguire la migrazione da Premium RS
-              href: database/service-tiers-prs.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       href: database/quickstart-content-reference-guide.md
       items:
         - name: Creazione del database
@@ -266,7 +269,7 @@
               href: database/geo-distributed-application-configure-tutorial.md
             - name: Replica geografica attiva
               href: database/active-geo-replication-configure-portal.md
-        - name: Sicurezza
+        - name: Security
           items:
             - name: Configurare la sicurezza
               href: database/secure-database-tutorial.md
@@ -392,6 +395,12 @@
                   href: database/connect-query-go.md
                 - name: Java
                   href: database/connect-query-java.md
+                - name: Java con JDBC per Spring Data
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Java con JPA per Spring Data
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Java con R2DBC per Spring Data
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
                 - name: Node.js
                   href: database/connect-query-nodejs.md
                 - name: PHP
@@ -630,7 +639,7 @@
         - name: Domande frequenti
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       href: managed-instance/quickstart-content-reference-guide.md
       items:
         - name: Creare un'istanza gestita di SQL
@@ -680,16 +689,20 @@
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
     - name: Concetti
       items:
-        - name: Replica transazionale
-          href: managed-instance/replication-transactional-overview.md
-        - name: Informazioni di riferimento sull'API Gestione
-          href: managed-instance/api-references-create-manage-instance.md
         - name: Limiti delle risorse
           href: managed-instance/resource-limits.md
         - name: Architettura della connettività
           href: managed-instance/connectivity-architecture-overview.md
         - name: Differenze con T-SQL
           href: managed-instance/transact-sql-tsql-differences-sql-server.md
+        - name: Replica transazionale
+          href: managed-instance/replication-transactional-overview.md
+        - name: Operazioni di gestione
+          items:
+            - name: Panoramica
+              href: managed-instance/management-operations-overview.md
+            - name: Informazioni di riferimento sulle API
+              href: managed-instance/api-references-create-manage-instance.md
         - name: Machine Learning Services
           items:
             - name: Panoramica
@@ -708,6 +721,8 @@
                       href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
                     - name: Eseguire il training di un modello e assegnare un punteggio
                       href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: Distribuire modelli ONNX
+                      href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
                 - name: R
                   items:
                     - name: Eseguire gli script R
@@ -857,7 +872,7 @@
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
             - name: Novità
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Creare una macchina virtuale SQL
               items: null
@@ -866,6 +881,7 @@
             - name: PowerShell
               href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
             - name: Modello ARM
+              displayName: Resource Manager
               href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
         - name: Concetti
           items:
@@ -952,8 +968,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Gruppo di disponibilità AlwaysOn
                   items:
-                    - name: Interfaccia della riga di comando delle macchine virtuali di Azure SQL
-                      href: virtual-machines/windows/availability-group-az-cli-configure.md
+                    - name: PowerShell o interfaccia della riga di comando Az
+                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Modelli di avvio rapido di Azure
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Più aree geografiche
@@ -995,7 +1011,7 @@
         - name: Informazioni di riferimento
           items:
             - name: Azure PowerShell
-              href: /powershell/azure/overview
+              href: /powershell/azure/
             - name: Interfaccia della riga di comando di Azure
               href: /cli/azure/
             - name: T-SQL
@@ -1010,6 +1026,8 @@
               href: virtual-machines/windows/frequently-asked-questions-faq.md
             - name: Prezzi
               href: virtual-machines/windows/pricing-guidance.md
+            - name: Documentazione archiviata su Resource Manager classico
+              href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
             - name: SQL Server Data Tools (SSDT)
               href: '/https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
             - name: SQL Server Management Studio (SSMS)
@@ -1028,7 +1046,7 @@
           items:
             - name: Informazioni sulle VM di SQL Server Linux
               href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Creare una macchina virtuale SQL - Portale
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md

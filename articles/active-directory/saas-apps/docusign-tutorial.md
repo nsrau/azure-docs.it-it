@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 00c2825b78d0774d3c428978ba66c957130d3737
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509364"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con DocuSign
 
@@ -38,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di DocuSign abilitata per l'accesso Single Sign-On (SSO).
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -117,10 +120,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B.Simon**.  
+   1. Nel campo **Nome** immettere **B. Simon**.  
    1. Nel campo **Nome utente** immettere `<username>@<companydomain>.<extension>`. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Create** (Crea).
+   1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 

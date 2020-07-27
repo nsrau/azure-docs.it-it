@@ -93,9 +93,14 @@
     - name: Progettare flussi di lavoro di criteri come codice
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Criteri di Azure per Kubernetes (anteprima)
-      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
-      href: ./concepts/policy-for-kubernetes.md
+    - name: Integrazione di Kubernetes
+      items:
+        - name: Criteri di Azure per Kubernetes (anteprima)
+          displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+          href: ./concepts/policy-for-kubernetes.md
+        - name: Proteggere i pod con Criteri di Azure (anteprima)
+          displayName: 'aks, psp, rego, opa'
+          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

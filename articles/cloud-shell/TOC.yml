@@ -1,6 +1,6 @@
 - name: Panoramica
   href: overview.md
-- name: Guida introduttiva
+- name: Guida rapida
   items:
     - name: Bash - Guida introduttiva
       href: quickstart.md
@@ -32,11 +32,13 @@
       href: msi-authorization.md
     - name: Incorporare Cloud Shell
       href: embed-cloud-shell.md
+    - name: Cloud Shell in Rete virtuale di Azure
+      href: private-vnet.md
 - name: Usare l'editor di Cloud Shell
   href: using-cloud-shell-editor.md
 - name: Risoluzione dei problemi e limitazioni
   href: troubleshooting.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure

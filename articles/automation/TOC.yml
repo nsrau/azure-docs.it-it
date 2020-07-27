@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Abilitare DSC (Desired State Configuration) per un computer
       href: automation-quickstart-dsc-configuration.md
+    - name: Creare un account di Automazione - Modello di Resource Manager
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Esercitazioni
   items:
     - name: Creare un runbook grafico
@@ -58,7 +61,7 @@
         - name: Creare un account di Automazione con il portale di Azure
           href: automation-create-standalone-account.md
         - name: Creare un account di Automazione con un modello di Resource Manager
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Configurare l'autenticazione con Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configurare l'autenticazione con Azure AD
@@ -177,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: Risolvere i problemi relativi a State Configuration
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenari
+              items:
+                - name: Configurare i dati in base a STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Configurare i dati su larga scala
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Creare le configurazioni da server esistenti
+                  href: automation-dsc-config-from-server.md
+                - name: Convertire le configurazioni in risorse composite
+                  href: automation-dsc-create-composite.md
+                - name: Correggere i server non conformi
+                  href: automation-dsc-remediate.md
         - name: Rilevamento modifiche e inventario
           items:
             - name: Panoramica

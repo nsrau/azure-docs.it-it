@@ -110,6 +110,9 @@
                   href: authenticate-application.md
         - name: Criteri di sicurezza integrati
           href: service-bus-messaging-security-controls.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Sicurezza di rete
           href: network-security.md
 - name: Guide pratiche

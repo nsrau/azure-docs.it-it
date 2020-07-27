@@ -81,24 +81,44 @@
     - name: REST
       href: /rest/api/resources/
     - name: Funzioni dell'interfaccia utente
-      href: create-uidefinition-functions.md
+      items:
+        - name: Tutte le funzioni
+          href: create-uidefinition-functions.md
+        - name: Funzioni di raccolta
+          href: create-ui-definition-collection-functions.md
+        - name: Funzioni di conversione
+          href: create-ui-definition-conversion-functions.md
+        - name: Funzioni di data
+          href: create-ui-definition-date-functions.md
+        - name: Funzioni logiche
+          href: create-ui-definition-logical-functions.md
+        - name: Funzioni matematiche
+          href: create-ui-definition-math-functions.md
+        - name: Funzioni di riferimento
+          href: create-ui-definition-referencing-functions.md
+        - name: Funzioni per i valori stringa
+          href: create-ui-definition-string-functions.md
     - name: Elementi dell'interfaccia utente
       href: create-uidefinition-elements.md
       items:
         - name: Comuni
           items:
+            - name: CheckBox
+              href: microsoft-common-checkbox.md
             - name: DropDown
               href: microsoft-common-dropdown.md
             - name: FileUpload
               href: microsoft-common-fileupload.md
             - name: InfoBox
               href: microsoft-common-infobox.md
-            - name: OptionsGroup
+            - name: OptionsGroup (pulsante di opzione)
               href: microsoft-common-optionsgroup.md
             - name: PasswordBox
               href: microsoft-common-passwordbox.md
             - name: Sezione
               href: microsoft-common-section.md
+            - name: Dispositivo di scorrimento
+              href: microsoft-common-slider.md
             - name: TagsByResource
               href: microsoft-common-tagsbyresource.md
             - name: TextBlock
@@ -123,6 +143,12 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: VirtualNetworkCombo
               href: microsoft-network-virtualnetworkcombo.md
+        - name: Soluzioni
+          items:
+            - name: ArmApiControl
+              href: microsoft-solutions-armapicontrol.md
+            - name: ResourceSelector
+              href: microsoft-solutions-resourceselector.md
         - name: Archiviazione
           items:
             - name: MultiStorageAccountCombo

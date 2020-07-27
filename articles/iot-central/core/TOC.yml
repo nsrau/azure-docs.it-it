@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: Che cosa sono i modelli di dispositivo?
       href: concepts-device-templates.md
+    - name: Payload dei messaggi
+      href: concepts-telemetry-properties-commands.md
     - name: Connettività dei dispositivi
       href: concepts-get-connected.md
     - name: Connettere dispositivi IoT Edge

@@ -2,19 +2,19 @@
 title: Azure Arc
 summary: Azure Arc estende le funzionalità di Azure Resource Manager ai server Linux e Windows, oltre che ai cluster Kubernetes in qualsiasi infrastruttura locale, multicloud e perimetrale. Con Azure Arc, i clienti possono anche eseguire servizi dati di Azure ovunque, sfruttando i vantaggi dell'innovazione del cloud, tra cui funzionalità di dati sempre aggiornate, distribuzione in pochi secondi (invece di ore) e scalabilità dinamica in qualsiasi infrastruttura.
 metadata:
-  title: Azure Arc per server
+  title: Azure Arc
   description: Informazioni su come gestire i computer locali in Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 8493a5d90656206c5498fafbc2b0a2743cd973a7
-  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/27/2020
-  ms.locfileid: "85482344"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87008490"
 landingContent:
 - title: Panoramica di Azure Arc
   linkLists:
@@ -22,11 +22,11 @@ landingContent:
     links:
     - text: Altre informazioni su Azure Arc
       url: https://aka.ms/Azure-Arc-Info
-- title: Connettere i computer ad Azure con Azure Arc per server
+- title: Connettere i computer ad Azure con server con abilitazione di Azure Arc
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è Azure Arc per server?
+    - text: Che cosa sono i server con abilitazione di Azure Arc?
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
@@ -42,19 +42,21 @@ landingContent:
     links:
     - text: Che cos'è Kubernetes con abilitazione di Azure Arc?
       url: ./kubernetes/overview.md
-  - linkListType: how-to-guide
+  - linkListType: quickstart
     links:
     - text: Connettere il cluster
       url: ./kubernetes/connect-cluster.md
-    - text: Usare GitOps in un cluster connesso
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire configurazioni con GitOps
       url: ./kubernetes/use-gitops-connected-cluster.md
-    - text: Usare GitOps con Helm
+    - text: Distribuire grafici Helm con GitOps
       url: ./kubernetes/use-gitops-with-helm.md
-    - text: Usare Monitoraggio di Azure per i contenitori
-      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
-    - text: Usare Criteri di Azure
+    - text: Applicare GitOps con Criteri di Azure
       url: ./kubernetes/use-azure-policy.md
+    - text: Monitorare con Monitoraggio di Azure per i contenitori
+      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+    - text: Criteri di controllo dell'ammissione con Criteri di Azure
+      url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
     - text: Distribuire i carichi di lavoro Azure IoT Edge
       url: ./kubernetes/deploy-azure-iot-edge-workloads.md
-    - text: Entità servizio di onboarding
-      url: ./kubernetes/create-onboarding-service-principal.md

@@ -68,8 +68,8 @@
           href: url-route-overview.md
         - name: Reindirizzamento
           href: redirect-overview.md
-        - name: Riscrivere le intestazioni HTTP
-          href: rewrite-http-headers.md
+        - name: Riscrivere l'URL e le intestazioni HTTP
+          href: rewrite-http-headers-url.md
     - name: SSL
       items:
         - name: Terminazione SSL e SSL end-to-end
@@ -198,14 +198,20 @@
               href: redirect-internal-site-cli.md
         - name: Reindirizzare il traffico Web con Azure PowerShell
           href: tutorial-url-redirect-powershell.md
-    - name: Riscrivere le intestazioni HTTP
+    - name: Riscrivere l'URL e le intestazioni HTTP
       items:
-        - name: Portale di Azure
-          href: rewrite-http-headers-portal.md
-        - name: Azure PowerShell
-          href: add-http-header-rewrite-rule-powershell.md
-        - name: Creare e riscrivere le intestazioni HTTP
-          href: tutorial-http-header-rewrite-powershell.md
+        - name: Riscrittura dell'intestazione
+          items:
+            - name: Portale di Azure
+              href: rewrite-http-headers-portal.md
+            - name: Azure PowerShell
+              href: add-http-header-rewrite-rule-powershell.md
+            - name: Creare e riscrivere le intestazioni HTTP
+              href: tutorial-http-header-rewrite-powershell.md
+        - name: Riscrittura URL
+          items:
+            - name: Portale di Azure
+              href: rewrite-url-portal.md
     - name: Configurare il supporto per app Web del servizio app e multi-tenant
       items:
         - name: Portale
@@ -249,7 +255,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
-      href: /powershell/azure/overview
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api
     - name: Java

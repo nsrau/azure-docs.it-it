@@ -96,6 +96,7 @@
     - name: Confronto tra edizioni Enterprise e Basic
       href: concept-editions.md
     - name: Pianificare e gestire i costi
+      displayName: low priority VM
       href: concept-plan-manage-cost.md
     - name: Finestra di progettazione (ML con trascinamento della selezione)
       items:
@@ -124,7 +125,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Data
+    - name: Dati
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -166,6 +167,9 @@
             - name: Proteggere i servizi Web con TLS
               displayName: ssl
               href: how-to-secure-web-service.md
+            - name: Aumentare la resilienza
+              displayName: 'high availability, disaster recovery'
+              href: how-to-high-availability-machine-learning.md
             - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
               href: how-to-use-azure-ad-identity.md
             - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
@@ -217,6 +221,9 @@
         - name: Configurare gli ambienti software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
+        - name: Usare pacchetti Python privati
+          displayName: 'pip, Conda, anaconda'
+          href: how-to-use-private-python-packages.md
         - name: Abilitazione della registrazione
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
@@ -356,6 +363,9 @@
           href: how-to-deploy-and-where.md
         - name: Scenari di distribuzione
           items:
+            - name: Usare i modelli esistenti
+              displayName: publish existing model
+              href: how-to-deploy-existing-model.md
             - name: Istanze di calcolo di Azure ML
               href: how-to-deploy-local-container-notebook-vm.md
             - name: Servizio Azure Kubernetes
@@ -374,18 +384,15 @@
               href: how-to-deploy-functions.md
             - name: Ricerca cognitiva di Azure
               href: how-to-deploy-model-cognitive-search.md
-            - name: Dispositivi Azure IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
+            - name: Usare l'immagine Docker personalizzata
+              href: how-to-deploy-custom-docker-image.md
+            - name: IoT Edge
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: Inferenza di FPGA
               href: how-to-deploy-fpga-web-service.md
-            - name: Immagini Docker personalizzate
-              href: how-to-deploy-custom-docker-image.md
-            - name: Modelli ML non Azure
-              displayName: publish existing model
-              href: how-to-deploy-existing-model.md
         - name: Risolvere i problemi ed eseguire il debug
           href: how-to-troubleshoot-deployment.md
-        - name: Endpoint di servizio chiamata
+        - name: Creare client
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Monitorare i modelli
@@ -393,8 +400,6 @@
             - name: Raccogliere e valutare i dati dei modelli
               displayName: track production
               href: how-to-enable-data-collection.md
-            - name: Rilevare la deriva dei dati
-              href: how-to-monitor-data-drift.md
             - name: Monitorare con Application Insights
               href: how-to-enable-app-insights.md
         - name: Distribuire il servizio di inferenza crittografato

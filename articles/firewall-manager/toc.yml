@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Gestione firewall di Azure?
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Hub virtuale protetto - Modello di Resource Manager
@@ -44,7 +44,7 @@
       href: migrate-to-policy.md
     - name: Impostazioni DNS
       href: dns-settings.md
-    - name: Distribuire più indirizzi IP pubblici
+    - name: Distribuire più indirizzi IP pubblici - PowerShell
       href: multiple-public-ip-powershell.md
 - name: Informazioni di riferimento
   items:

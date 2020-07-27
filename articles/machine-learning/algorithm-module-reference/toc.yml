@@ -68,10 +68,14 @@
           href: boosted-decision-tree-regression.md
         - name: Regressione foresta delle decisioni
           href: decision-forest-regression.md
+        - name: Regressione quantile della foresta rapida
+          href: fast-forest-quantile-regression.md
         - name: Linear Regression
           href: linear-regression.md
         - name: Regressione rete neurale
           href: neural-network-regression.md
+        - name: Regressione di Poisson
+          href: poisson-regression.md
     - name: Clustering
       items:
         - name: Clustering K-means
@@ -164,7 +168,7 @@
       href: densenet.md
     - name: ResNet
       href: resnet.md
-- name: Recommendation
+- name: Raccomandazione
   items:
     - name: Evaluate Recommender
       href: evaluate-recommender.md

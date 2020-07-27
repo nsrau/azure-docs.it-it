@@ -16,7 +16,11 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Ridimensionare un cloud privato
       href: tutorial-scale-private-cloud.md
-    - name: 6 - Creare una raccolta contenuto
+    - name: 6 - Creare un segmento di rete NSX-T
+      href: tutorial-nsx-t-network-segment.md
+    - name: 7 - Eseguire il peering dal cloud locale al cloud privato
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 8 - Distribuire la macchina virtuale tramite la raccolta contenuto
       href: tutorial-deploy-vm-content-library.md
 - name: Concetti
   items:
@@ -34,6 +38,8 @@
       href: concepts-upgrades.md
 - name: Guide pratiche
   items:
+    - name: Valutazione della migrazione della soluzione Azure VMware
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Configurare HCX
       href: hybrid-cloud-extension-installation.md
     - name: Gestire DHCP

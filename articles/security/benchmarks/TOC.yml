@@ -53,8 +53,10 @@
       href: ../../mysql/security-baseline.md
     - name: Baseline di sicurezza di Database di Azure per MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Baseline di sicurezza di Database di Azure per PostgreSQL
+    - name: Baseline di sicurezza di Database di Azure per PostgreSQL - Server singolo
       href: ../../postgresql/security-baseline.md
+    - name: Baseline di sicurezza di Database di Azure per PostgreSQL - Hyperscale
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Baseline di sicurezza di Azure Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Baseline di sicurezza di Funzioni di Azure
@@ -79,6 +81,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Baseline di sicurezza di Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Baseline di sicurezza di Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
     - name: Baseline di sicurezza di Hub eventi
       href: ../../event-hubs/security-baseline.md
     - name: Baseline di sicurezza di ExpressRoute
@@ -91,7 +95,15 @@
       href: ../../logic-apps/security-baseline.md
     - name: Baseline di sicurezza di Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Baseline di Service Fabric
+      href: ../../service-fabric/security-baseline.md
     - name: Baseline di Analisi di flusso
       href: ../../stream-analytics/security-baseline.md
     - name: Baseline di sicurezza di Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
+    - name: Baseline di sicurezza dei set di scalabilità di macchine
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Baseline di sicurezza di Macchine virtuali (Linux)
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Baseline di sicurezza di Macchine virtuali (Windows)
+      href: ../../virtual-machines/windows/security-baseline.md

@@ -10,7 +10,7 @@
       href: event-hubs-capture-overview.md
     - name: Hub eventi Dedicato
       href: event-hubs-dedicated-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un hub eventi
@@ -124,6 +124,9 @@
           href: network-security.md
         - name: Criteri di sicurezza integrati
           href: event-hubs-security-controls.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Baseline di sicurezza
           href: security-baseline.md
     - name: Guida al protocollo AMQP 1.0
@@ -196,7 +199,7 @@
         - name: Configurare i log di diagnostica
           href: event-hubs-diagnostic-logs.md
         - name: Trasmettere dati di Diagnostica di Azure usando Hub eventi
-          href: event-hubs-streaming-azure-diags-data.md
+          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
         - name: Ridimensionamento automatico delle unità elaborate
           href: event-hubs-auto-inflate.md
         - name: Librerie di gestione di Hub eventi
@@ -289,6 +292,8 @@
       href: /azure/templates/microsoft.eventhub/allversions
     - name: Quote
       href: event-hubs-quotas.md
+    - name: Configurazioni di Apache Kafka
+      href: apache-kafka-configurations.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

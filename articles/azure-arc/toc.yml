@@ -2,43 +2,45 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Arc per Kubernetes
+    - name: Informazioni su Kubernetes con abilitazione di Azure Arc
       href: ./kubernetes/overview.md
-    - name: Informazioni su Azure Arc per server
+    - name: Informazioni sui server con abilitazione di Azure Arc
       href: ./servers/overview.md
 - name: Esempi
   items:
     - name: Criteri di Azure predefiniti
       items:
-        - name: Arc per Kubernetes
+        - name: Kubernetes con abilitazione di Azure Arc
           href: ./kubernetes/policy-samples.md
-        - name: Arc per server
+        - name: Server con abilitazione di Azure Arc
           href: ./servers/policy-samples.md
 - name: Guide pratiche
   items:
-    - name: Arc per Kubernetes
+    - name: Kubernetes con abilitazione di Azure Arc
       items:
-        - name: Operazioni del cluster
+        - name: Connessione ad Azure Arc
           items:
             - name: Connettere il cluster
               href: ./kubernetes/connect-cluster.md
-            - name: Usare GitOps per i cluster connessi
+            - name: Entità servizio di onboarding
+              href: ./kubernetes/create-onboarding-service-principal.md
+        - name: Gestione
+          items:
+            - name: Distribuire configurazioni con GitOps
               href: ./kubernetes/use-gitops-connected-cluster.md
-            - name: Usare GitOps con Helm
+            - name: Distribuire grafici Helm con GitOps
               href: ./kubernetes/use-gitops-with-helm.md
             - name: Applicare GitOps con Criteri di Azure
               href: ./kubernetes/use-azure-policy.md
             - name: Monitorare con Monitoraggio di Azure per i contenitori
-              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
             - name: Criteri di controllo dell'ammissione con Criteri di Azure
-              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
             - name: Distribuire carichi di lavoro IoT
               href: ./kubernetes/deploy-azure-iot-edge-workloads.md
-            - name: Entità servizio di onboarding
-              href: ./kubernetes/create-onboarding-service-principal.md
-            - name: Risoluzione dei problemi
-              href: ./kubernetes/Troubleshooting.md
-    - name: Arc per server
+        - name: Risoluzione dei problemi
+          href: ./kubernetes/Troubleshooting.md
+    - name: Server con abilitazione di Azure Arc
       items:
         - name: Connessione ad Azure Arc
           items:
