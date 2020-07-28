@@ -121,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certificare un'immagine di macchina virtuale di Azure
+                - name: Testare la macchina virtuale distribuita dal disco rigido virtuale
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI della firma di accesso condiviso
                   items:

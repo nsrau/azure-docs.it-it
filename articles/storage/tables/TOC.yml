@@ -8,7 +8,7 @@
     - name: Scegliere l'archiviazione tabelle o l'API Tabelle
       href: /azure/cosmos-db/table-support
       maintainContext: true
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una tabella nel portale di Azure
       href: table-storage-quickstart-portal.md
@@ -127,11 +127,11 @@
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
             - name: Richiedere il trasferimento sicuro
               href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Configurare Transport Layer Security (TLS)
+            - name: Gestire Transport Layer Security (TLS)
               items:
-                - name: Configurare la versione minima di TLS per un account di archiviazione
+                - name: Applicare la versione minima di TLS per le richieste in ingresso
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-                - name: Configurare TLS per un'applicazione client
+                - name: Configurare la versione di TLS per un'applicazione client
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Gestire la ridondanza dei dati
       items:

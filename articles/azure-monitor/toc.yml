@@ -1020,6 +1020,10 @@
           href: insights/resource-group-insights.md
         - name: Risolvere i problemi relativi ai dati analitici
           href: insights/troubleshoot-workbooks.md
+    - name: Analisi dei cambiamenti
+      items:
+        - name: Analisi dei cambiamenti
+          href: app/change-analysis.md
     - name: Soluzioni
       items:
         - name: Panoramica
@@ -1073,30 +1077,6 @@
               href: insights/vmware.md
             - name: Soluzione Wire Data
               href: insights/wire-data.md
-        - name: Viste
-          items:
-            - name: Convertire le visualizzazioni in cartelle di lavoro
-              items:
-                - name: Panoramica sulla conversione
-                  href: platform/view-designer-conversion-overview.md
-                - name: Opzioni di conversione
-                  href: platform/view-designer-conversion-options.md
-                - name: Panoramica e accesso
-                  href: platform/view-designer-conversion-access.md
-                - name: Attività comuni
-                  href: platform/view-designer-conversion-tasks.md
-                - name: Conversioni di riquadri
-                  href: platform/view-designer-conversion-tiles.md
-                - name: Esempi
-                  href: platform/view-designer-conversion-examples.md
-            - name: Progettazione viste
-              href: platform/view-designer.md
-            - name: Informazioni di riferimento sui riquadri
-              href: platform/view-designer-tiles.md
-            - name: Informazioni di riferimento sulla parte di visualizzazione
-              href: platform/view-designer-parts.md
-            - name: Filtri
-              href: platform/view-designer-filters.md
     - name: Workbooks
       items:
         - name: Panoramica
@@ -1124,6 +1104,20 @@
                   href: platform/workbooks-time.md
                 - name: Parametri di testo
                   href: platform/workbooks-text.md
+        - name: Convertire le visualizzazioni in cartelle di lavoro
+          items:
+            - name: Panoramica sulla conversione
+              href: platform/view-designer-conversion-overview.md
+            - name: Opzioni di conversione
+              href: platform/view-designer-conversion-options.md
+            - name: Panoramica e accesso
+              href: platform/view-designer-conversion-access.md
+            - name: Attività comuni
+              href: platform/view-designer-conversion-tasks.md
+            - name: Conversioni di riquadri
+              href: platform/view-designer-conversion-tiles.md
+            - name: Esempi
+              href: platform/view-designer-conversion-examples.md
     - name: Altre visualizzazioni
       items:
         - name: Power BI
@@ -1217,6 +1211,8 @@
           href: app/azure-functions-supported-features.md
         - name: Note sulla versione
           items:
+            - name: SDK per il monitoraggio basato sul codice
+              href: app/release-notes.md
             - name: Estensione di app Web
               href: app/web-app-extension-release-notes.md
         - name: Modello di dati
@@ -1297,6 +1293,16 @@
           href: platform/resource-logs-blob-format.md
         - name: Analisi insieme di credenziali delle chiavi (deprecato)
           href: insights/azure-key-vault-deprecated.md
+        - name: Viste
+          items:
+            - name: Progettazione viste
+              href: platform/view-designer.md
+            - name: Informazioni di riferimento sui riquadri
+              href: platform/view-designer-tiles.md
+            - name: Informazioni di riferimento sulla parte di visualizzazione
+              href: platform/view-designer-parts.md
+            - name: Filtri
+              href: platform/view-designer-filters.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

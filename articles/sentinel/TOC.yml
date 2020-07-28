@@ -156,6 +156,8 @@
       href: customer-managed-keys.md
     - name: Creare eventi imprevisti dagli avvisi
       href: create-incidents-from-alerts.md
+    - name: Gestire meglio il Centro operazioni di sicurezza con le metriche degli eventi imprevisti
+      href: manage-soc-with-incident-metrics.md
     - name: Ricerca
       href: hunting.md
       items:

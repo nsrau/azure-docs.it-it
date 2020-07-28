@@ -10,19 +10,19 @@
       items:
         - name: Introduzione
           href: get-started.md
-        - name: Passaggio 1 - Creare un'area di lavoro di Synapse
+        - name: 1 - Creare un'area di lavoro di Synapse
           href: get-started-create-workspace.md
-        - name: Passaggio 2 - Usare un pool SQL per l'analisi
+        - name: 2 - Usare un pool SQL per l'analisi
           href: get-started-analyze-sql-pool.md
-        - name: Passaggio 3 - Usare Spark per l'analisi
+        - name: 3 - Usare Spark per l'analisi
           href: get-started-analyze-spark.md
-        - name: Passaggio 4 - Usare SQL su richiesta per l'analisi
+        - name: 4 - Usare SQL su richiesta per l'analisi
           href: get-started-analyze-sql-on-demand.md
-        - name: Passaggio 5 - Analizzare i dati in un account di archiviazione
+        - name: 5 - Analizzare i dati in un account di archiviazione
           href: get-started-analyze-storage.md
-        - name: Passaggio 6 - Orchestrare con le pipeline
+        - name: 6 - Orchestrare con le pipeline
           href: get-started-pipelines.md
-        - name: Passaggio 7 - Visualizzare con Power BI
+        - name: 7 - Visualizzare con Power BI
           href: get-started-visualize-power-bi.md
     - name: Tabella di riepilogo
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Memorizzazione nella cache dei set di risultati
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Stime di Machine Learning
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: Tabelle
               items:
                 - name: Panoramica

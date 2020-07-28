@@ -1,4 +1,4 @@
-- name: Documentazione della versione Primavera 2020 di Desktop virtuale Windows
+- name: Desktop virtuale Windows
   href: index.yml
 - name: Panoramica
   items:
@@ -6,7 +6,7 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-    - name: Documentazione sulla versione Autunno 2019
+    - name: Documentazione di Desktop virtuale Windows (classico)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Esercitazioni
   items:

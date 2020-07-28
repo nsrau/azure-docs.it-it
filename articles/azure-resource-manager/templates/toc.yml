@@ -302,6 +302,8 @@
         - name: Script di distribuzione
           displayName: custom script
           href: deployment-script-template.md
+        - name: Creare l'ambiente di sviluppo per gli script di distribuzione
+          href: deployment-script-template-configure-dev.md
         - name: Modularizzare i modelli
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

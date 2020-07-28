@@ -1,10 +1,10 @@
-- name: Documentazione della versione Autunno 2019 di Desktop virtuale Windows
+- name: Desktop virtuale Windows (classico)
   href: ../index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Desktop virtuale Windows
       href: ../overview.md
-    - name: Documentazione della versione Primavera 2020
+    - name: Documentazione di Desktop virtuale Windows
       href: ../create-host-pools-azure-marketplace.md
 - name: Esercitazioni
   items:

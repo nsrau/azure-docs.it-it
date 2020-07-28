@@ -78,6 +78,8 @@
                   href: database/authentication-mfa-ssms-configure.md
                 - name: Accesso condizionale
                   href: database/conditional-access-configure.md
+                - name: Entità servizio (applicazioni)
+                  href: database/authentication-aad-service-principal.md
             - name: Transparent Data Encryption (TDE)
               items:
                 - name: Panoramica
@@ -139,8 +141,10 @@
               href: database/temporal-tables-retention-policy.md
             - name: Configurare la conservazione dei backup con archiviazione BLOB di Azure
               href: database/long-term-backup-retention-configure.md
-        - name: Sicurezza
+        - name: Security
           items:
+            - name: Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
+              href: database/authentication-aad-guest-users.md
             - name: Configurare TDE con BYOK
               href: database/transparent-data-encryption-byok-configure.md
             - name: Archiviare le analisi delle vulnerabilità nell'archiviazione
@@ -277,6 +281,8 @@
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Rimuovere la protezione TDE
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
+            - name: Creare utenti con le entità servizio
+              href: database/authentication-aad-service-principal-tutorial.md
         - name: Spostare dati
           items:
             - name: Eseguire la migrazione con il Servizio Migrazione del database
@@ -805,7 +811,7 @@
               href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
             - name: Posta elettronica database
               href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
-        - name: Sicurezza
+        - name: Security
           items:
             - name: Proteggere gli endpoint pubblici
               href: managed-instance/public-endpoint-overview.md
