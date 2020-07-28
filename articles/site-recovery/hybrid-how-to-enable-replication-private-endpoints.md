@@ -173,7 +173,7 @@ Creare una zona DNS privata per consentire al provider Site Recovery (per comput
 
    1. Cercare "DNS privato zone" nella barra di ricerca **tutti i servizi** e selezionare "DNS privato Zones" dall'elenco a discesa.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra la ricerca della "zona DNS privata" nella pagina nuove risorse della portale di Azure.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra la ricerca della zona DNS privata nella pagina nuove risorse della portale di Azure.":::
 
    1. Nella pagina "zone DNS privato" selezionare il pulsante ** \+ Aggiungi** per avviare la creazione di una nuova zona.
 
