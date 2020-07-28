@@ -185,7 +185,7 @@
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
         - name: Dischi del sistema operativo temporanei
-          href: ephemeral-os-disks.md
+          href: ../virtual-machines/ephemeral-os-disks.md
         - name: Obiettivi di scalabilità per i dischi
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true

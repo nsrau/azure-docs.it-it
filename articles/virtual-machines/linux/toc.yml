@@ -345,7 +345,7 @@
         - name: Dischi condivisi
           href: disks-shared.md
         - name: Dischi del sistema operativo temporanei
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Rete
       href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Set di scalabilità

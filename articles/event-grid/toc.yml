@@ -8,7 +8,9 @@
       href: overview.md
     - name: Confrontare i servizi di messaggistica
       href: compare-messaging-services.md
-- name: Avvii rapidi
+    - name: Note sulla versione
+      href: whats-new.md
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: Configurare il firewall IP (anteprima)
           href: configure-firewall.md
-        - name: Proteggere WebHook con AAD
+        - name: Proteggere il webhook con Azure Active Directory
           href: secure-webhook-delivery.md
         - name: Distribuzione di eventi con Identità gestita
           href: managed-service-identity.md

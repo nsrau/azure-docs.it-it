@@ -95,14 +95,6 @@
           href: upgrade-basicInternal-standard.md
         - name: Eseguire l'aggiornamento di una risorsa Load Balancer interna - Connessione in uscita necessaria
           href: upgrade-InternalBasic-To-PublicStandard.md
-    - name: Configurare le regole in uscita
-      items:
-        - name: Portale
-          href: configure-load-balancer-outbound-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: configure-load-balancer-outbound-cli.md
-        - name: Azure PowerShell
-          href: configure-load-balancer-outbound-powershell.md
     - name: Creare un servizio di bilanciamento del carico pubblico con IPv6
       items:
         - name: Interfaccia della riga di comando di Azure

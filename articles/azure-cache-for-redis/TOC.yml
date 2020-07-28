@@ -72,7 +72,9 @@
           href: cache-how-to-geo-replication.md
         - name: Risparmiare con la capacità riservata
           href: cache-reserved-pricing.md
-        - name: Eseguire la migrazione dal Servizio cache gestita
+        - name: Eseguire la migrazione alla cache di Azure per Redis
+          href: cache-migration-guide.md
+        - name: Eseguire la migrazione dal Servizio cache gestita (deprecato)
           href: cache-migrate-to-redis.md
     - name: Automatizzare
       items:

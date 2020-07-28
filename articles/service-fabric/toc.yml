@@ -94,7 +94,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Sicurezza
+    - name: Security
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -143,6 +143,9 @@
           href: cluster-security-certificates.md
         - name: Gestione dei certificati in Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Baseline di sicurezza per Azure Security Benchmark
           href: security-baseline.md
     - name: Terminologia

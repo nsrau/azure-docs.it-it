@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115984"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169331"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione Web in Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la
 
 Al termine della registrazione dell'applicazione, abilitare il flusso di concessione implicita:
 
-1. In **Gestisci** selezionare **Autenticazione**.
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
 1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
 1. Selezionare **Salva**.
 
@@ -96,7 +96,7 @@ Se l'applicazione scambia un codice di autorizzazione con un token di accesso, �
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
 1. Nella pagina **Azure AD B2C - Registrazioni app** selezionare l'applicazione creata, ad esempio *webapp1*.
-1. In **Gestisci**, selezionare **Certificati e segreti**.
+1. Nel menu a sinistra selezionare **Certificati e segreti** in **Gestisci**.
 1. Selezionare **Nuovo segreto client**.
 1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
 1. In **Scadenza**selezionare una durata per la quale il segreto è valido, quindi selezionare **Aggiungi**.
