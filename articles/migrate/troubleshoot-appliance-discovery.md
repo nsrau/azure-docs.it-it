@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114058"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171854"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -165,13 +165,16 @@ L'individuazione dell'applicazione viene eseguita ogni 24 ore. Se si desidera vi
 ## <a name="unable-to-export-application-inventory"></a>Non è possibile esportare l'inventario delle applicazioni
 Assicurarsi che l'utente che Scarica l'inventario dal portale disponga dei privilegi di collaboratore per la sottoscrizione.
 
+## <a name="no-suitable-authentication-method-found-to-complete-authentication-publickey"></a>Non è stato trovato alcun metodo di autenticazione appropriato per completare l'autenticazione (PublicKey)
+L'autenticazione basata su chiave non funziona, usare l'autenticazione della password.
+
 ## <a name="common-app-discovery-errors"></a>Errori comuni di individuazione delle app
 
 Azure Migrate supporta l'individuazione di applicazioni, ruoli e funzionalità, utilizzando Azure Migrate: server assessment. L'individuazione delle app è attualmente supportata solo per VMware. [Altre](how-to-discover-applications.md) informazioni sui requisiti e i passaggi per la configurazione dell'individuazione delle app.
 
 I tipici errori di individuazione delle app sono riepilogati nella tabella. 
 
-**Errore** | **Causa** | **Azione**
+**Error (Errore) (Error (Errore)e)** | **Causa** | **Azione**
 --- | --- | ---
 9000: Impossibile rilevare lo stato dello strumento VMware.     |   È possibile che gli strumenti VMWare non siano installati o siano danneggiati.    |   Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale.
 9001: gli strumenti VMware non sono installati.     |   È possibile che gli strumenti VMWare non siano installati o siano danneggiati.    |   Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale.

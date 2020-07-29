@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274086"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
 
@@ -23,20 +24,20 @@ Questo articolo offre le risposte ad alcune possibili domande degli amministrato
 
 ## <a name="what-data-roams"></a>Quali tipi di dati sono disponibili in roaming?
 
-**Impostazioni di Windows**: impostazioni del computer disponibili nel sistema operativo Windows. In genere, si tratta delle impostazioni che personalizzano il computer e includono le categorie generiche seguenti:
+**Impostazioni di Windows**: impostazioni del PC compilate nel sistema operativo Windows. In genere, si tratta delle impostazioni che personalizzano il computer e includono le categorie generiche seguenti:
 
-* *Tema*, che include caratteristiche come il tema del desktop e le impostazioni della barra delle applicazioni.
-* *Impostazioni di Internet Explorer*, tra cui le schede e i Preferiti aperti di recente.
+* *Tema*, che include funzionalità quali il tema del desktop e le impostazioni della barra delle applicazioni.
+* *Impostazioni di Internet Explorer*, incluse le schede aperte di recente e i Preferiti.
 * *Impostazioni del browser Microsoft Edge*, come i Preferiti e l'elenco di lettura.
-* *Password*, tra cui le password Internet, i profili Wi-Fi e così via.
-* *Preferenze*per la lingua, incluse le impostazioni per i layout di tastiera, lingua del sistema, data e ora e altro ancora.
-* *Caratteristiche di accessibilità*, come i temi a contrasto elevato, l'Assistente vocale e la Lente di ingrandimento.
+* *Password*, incluse le password Internet, i profili Wi-Fi e altro.
+* *Preferenze di lingua*, che includono le impostazioni per i layout di tastiera, la lingua di sistema, data/ora e altro ancora.
+* *Funzionalità di accessibilità*, ad esempio tema a contrasto elevato, Assistente vocale e Lente di ingrandimento.
 * *Altre impostazioni di Windows*, ad esempio le impostazioni del mouse.
 
 > [!NOTE]
 > Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedere l' [API di archiviazione AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e il [Blog per sviluppatori roaming di Windows 8 AppData](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedere l' [API di archiviazione AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e il [Blog per sviluppatori roaming di Windows 8 AppData](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Quale account si usa per la sincronizzazione delle impostazioni?
 

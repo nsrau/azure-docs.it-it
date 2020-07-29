@@ -5,18 +5,18 @@ description: Monitorare i servizi Web distribuiti con Azure Machine Learning usa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743510"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320222"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,15 +153,20 @@ Per disabilitare applicazione Azure Insights, usare il codice seguente:
 1. Selezionare **Enable Application Insights Diagnostics and Data Collection**
 
     ![Abilita App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Valutare i dati
+
+## <a name="view-metrics-and-logs"></a>Visualizzare metriche e log
+
 I dati del servizio vengono archiviati nell'account di applicazione Azure Insights, all'interno dello stesso gruppo di risorse Azure Machine Learning.
 Per visualizzarli:
 
-1. Passare all'area di lavoro Azure Machine Learning nel [portale di Azure](https://ms.portal.azure.com/) e fare clic sul collegamento Application Insights
+1. Passare all'area di lavoro Azure Machine Learning in [Studio](https://ml.azure.com/).
+1. Selezionare **Endpoint**.
+1. Selezionare il servizio distribuito.
+1. Scorrere verso il basso per trovare l' **url Application Insights** e fare clic sul collegamento.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Individuare l'URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Nella scheda **Panoramica** o nella sezione __monitoraggio__ nell'elenco a sinistra selezionare __log__.
+1. In Application iSights, nella scheda **Overview (panoramica** ) o nella sezione __Monitoring (monitoraggio__ ) nell'elenco a sinistra, selezionare __logs (registri__).
 
     [![Scheda Panoramica del monitoraggio](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +191,7 @@ Per altre informazioni su come usare applicazione Azure Insights, vedere [che co
 
 Azure Data Factory, le pipeline di Azure ML o altri strumenti di elaborazione dati possono essere usati per trasformare i dati in base alle esigenze. Dopo aver trasformato i dati, è possibile registrarli con l'area di lavoro Azure Machine Learning come set di dati. A tale scopo, vedere [How to create and register DataSets](how-to-create-register-datasets.md).
 
-   [![Esportazione continua](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Esportazione continua":::
 
 
 ## <a name="example-notebook"></a>Notebook di esempio

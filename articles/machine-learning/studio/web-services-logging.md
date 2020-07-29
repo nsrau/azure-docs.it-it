@@ -1,6 +1,5 @@
 ---
-title: Abilita registrazione servizio Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (versione classica): abilitare la registrazione del servizio Web-Azure'
 description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705832"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326240"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
+
+**si applica a:** ![ No](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) 
+
 
 In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
 
@@ -50,7 +52,7 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
    1. Nel [portale di Azure](https://portal.azure.com) accedere all'account di archiviazione associato al servizio Web.
 
-   2. In **Servizio BLOB** fare clic su **Contenitori**.
+   2. In **servizio BLOB**fare clic su **contenitori**.
 
    3. Se il contenitore **ml-diagnostics** non esiste, fare clic su **+ Contenitore**, assegnare al contenitore il nome "ml-diagnostics" e selezionare il **Tipo di accesso** "BLOB". Fare clic su **OK**.
 

@@ -2,15 +2,15 @@
 title: Domande frequenti sul modello ARM
 description: Domande frequenti sui modelli Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296866"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327260"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
@@ -48,7 +48,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
   Per informazioni sul nuovo linguaggio del modello, [iscriversi per le notifiche](https://aka.ms/armLangUpdates).
 
-  Per l'anteprima delle specifiche del modello, [partecipare all'elenco di attesa](https://aka.ms/templateSpecsWaitlist).
+  Per informazioni sulle specifiche dei modelli, vedere [Azure Resource Manager specifiche del modello (anteprima)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Creazione e test di modelli
 
@@ -64,7 +64,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **È possibile creare un gruppo di risorse in un modello ARM e distribuirvi risorse?**
 
-  Sì, è possibile creare un gruppo di risorse in un modello quando si distribuisce il modello al livello della sottoscrizione di Azure. Per un esempio di creazione di un gruppo di risorse e di distribuzione delle risorse, vedere [risorse e gruppi](deploy-to-subscription.md#resource-group-and-resources)di risorse.
+  Sì, è possibile creare un gruppo di risorse in un modello quando si distribuisce il modello al livello della sottoscrizione di Azure. Per un esempio di creazione di un gruppo di risorse e di distribuzione delle risorse, vedere [risorse e gruppi](deploy-to-subscription.md#resource-groups)di risorse.
 
 * **È possibile creare una sottoscrizione in un modello ARM?**
 
@@ -102,7 +102,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
   Sì.
 
-## <a name="template-specs"></a>Specifiche del modello
+## <a name="template-specs"></a>Specifiche di modello
 
 * **Come si può partecipare alla versione di anteprima delle specifiche dei modelli?**
 

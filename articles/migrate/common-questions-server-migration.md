@@ -3,12 +3,12 @@ title: Domande frequenti sulla migrazione di Azure Migrate server
 description: Risposte alle domande comuni sull'uso della migrazione del server Azure Migrate per eseguire la migrazione dei computer.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321225"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
 
@@ -27,7 +27,7 @@ Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-
 
 Il metodo di replica senza agenti per VMware USA snapshot VMware e il rilevamento dei blocchi modificati VMware (CBT).
 
-È necessario eseguire le operazioni seguenti:
+Questa è la procedura:
 
 1. Quando si avvia la replica, viene pianificato un ciclo di replica iniziale. Nel ciclo iniziale viene effettuato uno snapshot della macchina virtuale. Lo snapshot viene usato per replicare le macchine virtuali VMDK (dischi). 
 2. Al termine del ciclo di replica iniziale, delta replication cicli vengono pianificati periodicamente.
@@ -80,7 +80,7 @@ No. Azure Migrate supporta solo la migrazione a Managed Disks (HDD Standard, SSD
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Quante VM è possibile replicare contemporaneamente usando la migrazione senza agenti?
 
-Attualmente, è possibile eseguire la migrazione di VM 100 per ogni istanza di server vCenter simultaneamente. Eseguire la migrazione in batch di 10 macchine virtuali.
+Attualmente, è possibile eseguire la migrazione di VM 300 per ogni istanza di server vCenter simultaneamente. Eseguire la migrazione in batch di 10 macchine virtuali.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Per la replica VMware senza agente, Ricerca per categorie la replica di limitazione delle richieste in uso Azure Migrate Appliance?  
 
@@ -106,7 +106,7 @@ La migrazione di computer come se fossero server fisici è utile in diversi scen
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Sono state distribuite due o più appliance per individuare le macchine virtuali nel server vCenter. Tuttavia, quando si tenta di eseguire la migrazione delle macchine virtuali, vengono visualizzate solo le macchine virtuali corrispondenti a una delle appliance.
 
-Sebbene possa trattarsi di un caso d'uso valido, attualmente non è supportato. La distribuzione di due o più appliance per individuare lo stesso set di macchine virtuali causa un problema di servizio in cui la proprietà della macchina virtuale continua a passare tra le due appliance. Questo è il motivo per cui le VM appaiono e scompaiono. In questi casi, per risolvere il problema, è necessario eliminare un'appliance ed eseguire un aggiornamento hardware.
+Se sono presenti più appliance configurate, è necessario che non vi sia sovrapposizione tra le macchine virtuali negli account vCenter forniti. Un'individuazione con una sovrapposizione di questo tipo è uno scenario non supportato.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione di macchine virtuali VMware?
 Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md).

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2a8683a4c9a2ff3cbe3edce5b101973cde73feb2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b40b1f23673b589cfea40bddc3f0497860a86ae3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057501"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326818"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gestire le risorse di Azure usando l'interfaccia della riga di comando
 
@@ -56,7 +56,7 @@ Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Re
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorse
 
-È possibile creare un gruppo di risorse e distribuire le risorse al gruppo. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](../templates/deploy-to-subscription.md#resource-group-and-resources).
+È possibile creare un gruppo di risorse e distribuire le risorse al gruppo. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuire le risorse a più sottoscrizioni o gruppi di risorse
 

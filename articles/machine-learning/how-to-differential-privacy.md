@@ -5,17 +5,18 @@ description: Informazioni su come applicare le procedure consigliate per la priv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206336"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320205"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>USA privacy differenziale in Azure Machine Learning (anteprima)
 

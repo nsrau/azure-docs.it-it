@@ -3,12 +3,12 @@ title: Application Insights per le app del servizio Worker (app non HTTP)
 description: Monitoraggio delle app non HTTP .NET Core/.NET Framework con Application Insights di monitoraggio di Azure.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ae146c6c010f067973c9fbae4c90bd1116d7c21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325407"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
@@ -123,7 +123,7 @@ L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationIn
 In alternativa, specificare la chiave di strumentazione in una delle variabili di ambiente seguenti.
 `APPINSIGHTS_INSTRUMENTATIONKEY` o `ApplicationInsights:InstrumentationKey`
 
-Ad esempio: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+ad esempio `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 O`SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 In genere, `APPINSIGHTS_INSTRUMENTATIONKEY` specifica la chiave di strumentazione per le applicazioni distribuite nelle app Web come processi Web.
@@ -306,7 +306,7 @@ Di seguito sono elencati i dati di telemetria completi raccolti automaticamente 
 
 I log emessi tramite un livello `ILogger` di gravità `Warning` o maggiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo](asp-net-dependencies.md#automatically-tracked-dependencies) articolo illustra le dipendenze che vengono raccolte automaticamente e contiene anche i passaggi per eseguire il rilevamento manuale.
 
@@ -542,7 +542,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare i propri eventi e metriche per una visualizzazione dettagliata delle prestazioni e dell'utilizzo dell'app.
-* [Tenere traccia delle dipendenze aggiuntive non rilevate automaticamente](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Arricchire o filtrare i dati di telemetria raccolti automaticamente](../../azure-monitor/app/api-filtering-sampling.md).
+* [Usare l'API](./api-custom-events-metrics.md) per inviare i propri eventi e metriche per una visualizzazione dettagliata delle prestazioni e dell'utilizzo dell'app.
+* [Tenere traccia delle dipendenze aggiuntive non rilevate automaticamente](./auto-collect-dependencies.md).
+* [Arricchire o filtrare i dati di telemetria raccolti automaticamente](./api-filtering-sampling.md).
 * [Inserimento delle dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+

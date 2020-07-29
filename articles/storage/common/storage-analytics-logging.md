@@ -5,15 +5,16 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675915"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276789"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
@@ -63,7 +64,7 @@ Se ogni ora vengono registrati ingenti volumi di dati memorizzati in diversi fil
 La maggior parte degli strumenti di esplorazione delle informazioni archiviate consente di visualizzare i metadati dei BLOB. È possibile anche leggere queste informazioni a livello di codice o usando PowerShell. Il seguente frammento di codice PowerShell è un esempio di filtro dell'elenco di BLOB di log in base al nome per specificare un'ora e in base ai metadati per identificare soltanto i log contenenti operazioni di **scrittura**.  
 
  ```powershell
- Get-AzureStorageBlob -Container '$logs' |  
+ Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
@@ -136,20 +137,20 @@ Nel portale di Azure usare il pannello **Impostazioni di diagnostica (versione c
 
 ### <a name="enable-storage-logging-using-powershell"></a>Abilitare Registrazione archiviazione usando PowerShell  
 
- È possibile usare PowerShell sul computer locale per configurare Registrazione archiviazione nel proprio account di archiviazione usando il cmdlet di Azure PowerShell **Get-AzureStorageServiceLoggingProperty** per recuperare le impostazioni correnti e il cmdlet **Set-AzureStorageServiceLoggingProperty** per modificarle.  
+ È possibile usare PowerShell nel computer locale per configurare la registrazione dell'archiviazione nell'account di archiviazione usando il cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** per recuperare le impostazioni correnti e il cmdlet **set-AzStorageServiceLoggingProperty** per modificare le impostazioni correnti.  
 
  I cmdlet che controllano Registrazione archiviazione usano il parametro **LoggingOperations**, costituito da una stringa contenente un elenco separato da virgole dei tipi di richiesta da registrare. I tre tipi possibili di richiesta sono **read**, **write** e **delete**. Per disattivare la registrazione, usare il valore **none** per il parametro **LoggingOperations**.  
 
  Il seguente comando attiva la registrazione per le richieste di lettura, scrittura ed eliminazione per il Servizio di accodamento nell'account di archiviazione predefinito, con periodo di conservazione di cinque giorni:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Il seguente comando disattiva la registrazione per il servizio tabelle nell'account di archiviazione predefinito:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

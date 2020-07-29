@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325203"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di crittografia dischi di Azure per macchine virtuali Linux
 
@@ -70,30 +70,54 @@ In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS d
 
 La sequenza di crittografia del disco del sistema operativo Linux smonta temporaneamente l'unità del sistema operativo, per poi eseguire la crittografia blocco per blocco dell'intero disco del sistema operativo e riportarlo allo stato crittografato. La crittografia del disco Linux non consente l'uso simultaneo della macchina virtuale mentre è in corso la crittografia. Le caratteristiche delle prestazioni della macchina virtuale possono determinare una differenza significativa nel tempo necessario per completare la crittografia. Tali caratteristiche includono le dimensioni del disco e l'archiviazione standard o premium (SSD) dell'account di archiviazione.
 
-Per controllare lo stato della crittografia, eseguire il polling del campo **ProgressMessage** restituito dal comando [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Mentre viene eseguita la crittografia dell'unità del sistema operativo, la macchina virtuale passa in stato di manutenzione e SSH viene disabilitato per impedire interruzioni del processo in corso. Mentre la crittografia è in corso, di norma viene visualizzato il messaggio **EncryptionInProgress**. Diverse ore più tardi, il messaggio **VMRestartPending** chiederà di riavviare la macchina virtuale. Ad esempio:
-
+Mentre è in corso la crittografia dell'unità del sistema operativo, la macchina virtuale entra in uno stato di manutenzione e Disabilita SSH per impedire eventuali rotture al processo in corso.  Per verificare lo stato della crittografia, usare il comando Azure PowerShell [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) e controllare il campo **ProgressMessage** . **ProgressMessage** segnalerà una serie di stati durante la crittografia dei dati e dei dischi del sistema operativo:
 
 ```azurepowershell
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings :
+ProgressMessage            : Transitioning
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for data volumes
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Provisioning succeeded
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
-
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
-OsVolumeEncrypted          : VMRestartPending
-DataVolumesEncrypted       : Encrypted
-OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-Dopo la richiesta di riavviare la macchina virtuale e il riavvio della stessa, è necessario attendere 2-3 minuti perché nella destinazione siano completati il riavvio e i passaggi finali. Una volta completata la crittografia, il messaggio di stato cambia. Quando viene visualizzato tale messaggio, l'unità del sistema operativo crittografata sarà pronta per l'uso e la macchina virtuale sarà nuovamente utilizzabile.
+Il **ProgressMessage** rimarrà nella **crittografia del disco del sistema operativo avviata** per la maggior parte del processo di crittografia.  Quando la crittografia è completata e ha esito positivo, **ProgressMessage** restituirà:
 
-Nei casi seguenti, è consigliabile ripristinare la macchina virtuale alla copia shadow o al backup eseguito immediatamente prima della crittografia:
-   - Se la sequenza di riavvio descritta in precedenza non viene completata.
-   - Se le informazioni di riavvio, il messaggio di stato di avanzamento o altri indicatori di errore indicano che la crittografia del sistema operativo all'interno di questo processo non è riuscita. Un esempio di messaggio è l'errore "Impossibile smontare" descritto in questa Guida.
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
 
-Prima del tentativo successivo, valutare nuovamente le caratteristiche della macchina virtuale e verificare che siano soddisfatti tutti i prerequisiti.
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NotMounted
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for all volumes
+```
+
+Quando viene visualizzato tale messaggio, l'unità del sistema operativo crittografata sarà pronta per l'uso e la macchina virtuale sarà nuovamente utilizzabile.
+
+Se le informazioni di avvio, il messaggio di stato o un errore segnala che la crittografia del sistema operativo ha avuto esito negativo durante il processo, ripristinare la macchina virtuale allo snapshot o al backup eseguito immediatamente prima della crittografia. Un esempio di messaggio è l'errore "Impossibile smontare" descritto in questa Guida.
+
+Prima di ritentare la crittografia, rivalutare le caratteristiche della macchina virtuale e assicurarsi che tutti i prerequisiti siano soddisfatti.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Risoluzione dei problemi di Crittografia dischi di Azure dietro un firewall
 
@@ -101,11 +125,11 @@ Vedere [crittografia del disco in una rete isolata](disk-encryption-isolated-net
 
 ## <a name="troubleshooting-encryption-status"></a>Risoluzione dei problemi relativi allo stato della crittografia 
 
-È possibile che nel portale un disco venga visualizzato come crittografato anche dopo essere stato decrittografato nella macchina virtuale.  Questo problema può verificarsi quando si usano comandi di basso livello per decrittografare il disco direttamente dalla macchina virtuale, anziché usare i comandi di gestione di livello superiore di Crittografia dischi di Azure.  I comandi di livello superiore, infatti, non solo consentono di decrittografare il disco direttamente dalla macchina virtuale ma, all'esterno della macchina virtuale, consentono anche di aggiornare al livello di piattaforma le impostazioni di estensione e di crittografia associate alla macchina virtuale.  Se le impostazioni non sono allineate, la piattaforma non sarà in grado di segnalare correttamente lo stato della crittografia o di effettuare il provisioning della macchina virtuale.   
+È possibile che nel portale un disco venga visualizzato come crittografato anche dopo essere stato decrittografato nella macchina virtuale.  Questo problema può verificarsi quando si usano comandi di basso livello per decrittografare il disco direttamente dalla macchina virtuale, anziché usare i comandi di gestione di livello superiore di Crittografia dischi di Azure.  I comandi di livello superiore, infatti, non solo consentono di decrittografare il disco direttamente dalla macchina virtuale ma, all'esterno della macchina virtuale, consentono anche di aggiornare al livello di piattaforma le impostazioni di estensione e di crittografia associate alla macchina virtuale.  Se le impostazioni non sono allineate, la piattaforma non sarà in grado di segnalare correttamente lo stato della crittografia o di effettuare il provisioning della macchina virtuale.
 
 Per disabilitare Crittografia dischi di Azure con PowerShell, usare il comando [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguito da [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). L'esecuzione del comando Remove-AzVMDiskEncryptionExtension prima di disabilitare la crittografia avrà, infatti, esito negativo.
 
-Per disabilitare Crittografia dischi di Azure con l'interfaccia della riga di comando, usare [az vm encryption disable](/cli/azure/vm/encryption). 
+Per disabilitare Crittografia dischi di Azure con l'interfaccia della riga di comando, usare [az vm encryption disable](/cli/azure/vm/encryption).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

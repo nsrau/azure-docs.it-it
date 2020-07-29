@@ -5,17 +5,18 @@ description: Informazioni su come distribuire i modelli di Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4a62b9892af661f74df5b49ff4a451fb673b4e1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325764"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
@@ -51,7 +52,7 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
     * VM notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
     * Istanza di calcolo: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    Ad esempio, 
+    ad esempio: 
     * VM notebook:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * Istanza di calcolo:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
 

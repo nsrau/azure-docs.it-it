@@ -10,11 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84169220"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276925"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Ripristino di emergenza e failover dell'account di archiviazione
 
@@ -131,7 +132,7 @@ Poiché il provider di risorse di archiviazione di Azure non esegue il failover,
 
 ### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
-Le macchine virtuali di Azure non effettuano il failover durante un failover dell'account. Se l'area primaria non è disponibile e si effettua il failover nell'area secondaria, sarà necessario ricreare le macchine virtuali dopo il failover. Inoltre, esiste una potenziale perdita di dati associata al failover dell'account. Microsoft consiglia le seguenti linee guida per la [disponibilità elevata](../../virtual-machines/windows/manage-availability.md) e il [ripristino di emergenza](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) specifiche per le macchine virtuali in Azure.
+Le macchine virtuali di Azure non effettuano il failover durante un failover dell'account. Se l'area primaria non è disponibile e si effettua il failover nell'area secondaria, sarà necessario ricreare le macchine virtuali dopo il failover. Inoltre, esiste una potenziale perdita di dati associata al failover dell'account. Microsoft consiglia le seguenti linee guida per la [disponibilità elevata](../../virtual-machines/windows/manage-availability.md) e il [ripristino di emergenza](../../virtual-machines/windows/backup-recovery.md) specifiche per le macchine virtuali in Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Dischi non gestiti di Azure
 

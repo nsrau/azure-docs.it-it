@@ -5,16 +5,18 @@ description: Informazioni su come distribuire i modelli di Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392557"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325883"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,6 +37,11 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
 > [!IMPORTANT]
 > Il processo di creazione o allegato è un'attività una sola volta. Quando un cluster AKS è connesso all'area di lavoro, è possibile usarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta scollegato o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
+
+> [!IMPORTANT]
+> È consigliabile eseguire il debug in locale prima della distribuzione nel servizio Web. per altre informazioni, vedere [debug in locale](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> È anche possibile fare riferimento a Azure Machine Learning- [Distribuisci nel notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

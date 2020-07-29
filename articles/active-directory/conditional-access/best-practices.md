@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253376"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275429"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -33,15 +33,15 @@ Quando si crea un nuovo criterio, non sono presenti utenti, gruppi, app o contro
 
 ![App cloud](./media/best-practices/02.png)
 
-Affinché il criterio funzioni, è necessario configurare quanto segue:
+Per rendere funzionanti i criteri, è necessario configurare:
 
-| Cosa           | Come                                  | Motivo |
+| Cosa           | Come                                  | Perché |
 | :--            | :--                                  | :-- |
-| **App Cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud.|
+| **App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud.|
 | **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale senza utenti e gruppi assegnati non viene mai attivato. |
-| **Controlli di accesso** | Selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte. |
+| **Controlli di accesso** | Selezionare almeno un controllo di accesso. | Se le condizioni vengono soddisfatte, l'elaboratore dei criteri deve sapere cosa fare. |
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Come vengono applicati i criteri di accesso condizionale?
 
@@ -49,14 +49,21 @@ Quando si accede a un'app Cloud, è possibile applicare più di un criterio di a
 
 Tutti i criteri vengono applicati in due fasi:
 
-- Fase 1: 
-   - Raccolta Dettagli: consente di raccogliere i dettagli per identificare i criteri che verrebbero già soddisfatti.
-   - Durante questa fase, gli utenti possono visualizzare una richiesta di certificato se la conformità del dispositivo fa parte dei criteri di accesso condizionale. Questo prompt può verificarsi per le app del browser quando il sistema operativo del dispositivo non è Windows 10.
-   - La fase 1 della valutazione dei criteri viene eseguita per tutti i criteri e i criteri abilitati in [modalità di sola segnalazione](concept-conditional-access-report-only.md).
-- Fase 2:
-   - Imposizione: prendendo in considerazione i dettagli raccolti nella fase 1, richiedere all'utente di soddisfare eventuali requisiti aggiuntivi che non sono stati soddisfatti.
-   - Applicare i risultati alla sessione. 
-   - La fase 2 della valutazione dei criteri viene eseguita per tutti i criteri abilitati.
+- Fase 1: raccogliere i dettagli della sessione 
+   - Raccogliere i dettagli della sessione, ad esempio la posizione dell'utente e l'identità del dispositivo che saranno necessari per la valutazione dei criteri. 
+   - Durante questa fase, gli utenti possono visualizzare una richiesta di certificato se la conformità del dispositivo fa parte dei criteri di accesso condizionale. Questo prompt può verificarsi per le app del browser quando il sistema operativo del dispositivo non è Windows 10. 
+   - La fase 1 della valutazione dei criteri si verifica per i criteri e i criteri abilitati in [modalità di sola segnalazione](concept-conditional-access-report-only.md).
+- Fase 2: imposizione 
+   - Usare i dettagli della sessione raccolti nella fase 1 per identificare tutti i requisiti che non sono stati soddisfatti. 
+   - Se è presente un criterio configurato per bloccare l'accesso, con il controllo di concessione blocco, l'imposizione verrà arrestata qui e l'utente verrà bloccato. 
+   - All'utente verrà richiesto di completare i requisiti di controllo di concessione aggiuntivi che non sono stati soddisfatti durante la fase 1 nell'ordine seguente, fino a quando non viene soddisfatto il criterio:  
+      - Multi-Factor Authentication 
+      - App client approvata/criterio di protezione delle app 
+      - Dispositivo gestito (join conforme o ibrido Azure AD) 
+      - Condizioni per l'utilizzo 
+      - Controlli personalizzati  
+      - Dopo aver soddisfatto i controlli di concessione, applicare i controlli della sessione (applicazione applicata, Microsoft Cloud App Security e durata del token) 
+   - La fase 2 della valutazione dei criteri viene eseguita per tutti i criteri abilitati. 
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?
 
@@ -71,7 +78,7 @@ Se è necessario configurare una condizione relativa alla località applicata a 
 
 Se si è bloccati dal portale di Azure AD a causa di un'impostazione non corretta in un criterio di accesso condizionale:
 
-- Controllare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare il criterio che impedisce l'accesso. 
+- Controllare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare i criteri che influiscano sull'accesso. 
 - Se nessun amministratore dell'organizzazione può aggiornare il criterio, è necessario inviare una richiesta di supporto. Il supporto tecnico Microsoft può rivedere e aggiornare i criteri di accesso condizionale che impediscono l'accesso.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Che cosa accade se sono configurati criteri nel portale di Azure classico e nel portale di Azure?  

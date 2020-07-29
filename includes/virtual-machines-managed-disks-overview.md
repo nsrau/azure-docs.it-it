@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102754"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -45,22 +45,30 @@ Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti
 
 ### <a name="upload-your-vhd"></a>Caricare il disco rigido virtuale
 
- Il caricamento diretto semplifica il trasferimento del disco rigido virtuale in un disco gestito di Azure. In precedenza era necessario seguire una procedura più complessa che includeva lo staging dei dati in un account di archiviazione. Ora sono richiesti meno passaggi. È più facile caricare le VM locali in Azure, anche in grandi dischi gestiti, e il processo di backup e ripristino è semplificato. I costi sono inoltre ridotti, grazie alla possibilità di caricare i dati direttamente nei dischi gestiti senza collegarli a VM. È possibile usare il caricamento diretto di dischi rigidi virtuali di dimensioni fino a 32 TiB.
+Il caricamento diretto semplifica il trasferimento del disco rigido virtuale in un disco gestito di Azure. In precedenza era necessario seguire una procedura più complessa che includeva lo staging dei dati in un account di archiviazione. Ora sono richiesti meno passaggi. È più facile caricare le VM locali in Azure, anche in grandi dischi gestiti, e il processo di backup e ripristino è semplificato. I costi sono inoltre ridotti, grazie alla possibilità di caricare i dati direttamente nei dischi gestiti senza collegarli a VM. È possibile usare il caricamento diretto di dischi rigidi virtuali di dimensioni fino a 32 TiB.
 
- Per altre informazioni su come trasferire i dischi rigidi virtuali in Azure, vedere gli articoli relativi all'[interfaccia della riga di comando](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) o a [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+Per altre informazioni su come trasferire i dischi rigidi virtuali in Azure, vedere gli articoli relativi all'[interfaccia della riga di comando](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) o a [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="encryption"></a>Crittografia
+## <a name="security"></a>Security
+
+### <a name="private-links"></a>Collegamenti privati
+
+La funzionalità Managed Disks supporta l'uso di collegamenti privati per importare o esportare un disco gestito interno alla rete. I collegamenti privati consentono di generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in altre aree per l'espansione a livello di area, il ripristino di emergenza e l'analisi per scopi legali. L'URI di firma di accesso condiviso può essere usato anche per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. È ora possibile sfruttare i [collegamenti privati](../articles/private-link/private-link-overview.md) per limitare l'esportazione e l'importazione di dischi gestiti alla rete virtuale di Azure. I collegamenti privati assicurano che il traffico dei dati rimanga all'interno della rete backbone Microsoft sicura.
+
+Per informazioni su come abilitare i collegamenti privati per l'importazione o l'esportazione di un disco gestito, vedere gli articoli relativi all'[interfaccia della riga di comando](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) o al [portale](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
+
+### <a name="encryption"></a>Crittografia
 
 Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo è la crittografia lato server e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure, che è possibile abilitare nei dischi del sistema operativo e in quelli dei dati per le VM.
 
-### <a name="server-side-encryption"></a>Modello di crittografia lato server
+#### <a name="server-side-encryption"></a>Modello di crittografia lato server
 
-La [crittografia lato server](../articles/virtual-machines/windows/disk-encryption.md) fornisce la crittografia dei dati inattivi e li salvaguarda per soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui sono disponibili dischi gestiti. I dischi temporanei, al contrario, non vengono crittografati dalla crittografia del servizio di archiviazione. Vedere [Ruoli del disco: dischi temporanei](#temporary-disk).
+La crittografia lato server esegue la crittografia dei dati inattivi e protegge i dati consentendo di soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui sono disponibili dischi gestiti. I dischi temporanei, invece, non vengono crittografati dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host. Vedere [Ruoli del disco: dischi temporanei](#temporary-disk).
 
-È possibile far gestire le chiavi ad Azure (chiavi gestite dalla piattaforma) oppure scegliere di gestirle personalmente (chiavi gestite dal cliente). Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
+È possibile far gestire le chiavi ad Azure (chiavi gestite dalla piattaforma) oppure scegliere di gestirle personalmente (chiavi gestite dal cliente). Per altre informazioni, vedere [Crittografia lato server dell'archiviazione su disco di Azure](../articles/virtual-machines/windows/disk-encryption.md).
 
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Questo tipo di crittografia include i dischi gestiti. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, Il processo di crittografia è integrato in Azure Key Vault per consentire il controllo e la gestione delle chiavi di crittografia del disco. Per altre informazioni, vedere [Crittografia dischi di Azure per VM Linux](../articles/virtual-machines/linux/disk-encryption-overview.md) o [Crittografia dischi di Azure per VM Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
@@ -82,9 +90,9 @@ Questo disco ha una capacità massima di 2,048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporaneo
 
-Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare perduti durante un [evento di manutenzione](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o durante la [ridistribuzione di una macchina virtuale](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante un riavvio standard della macchina virtuale con esito positivo, i dati nell'unità temporanea vengono mantenuti.  
+Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante un riavvio standard della macchina virtuale con esito positivo, i dati nell'unità temporanea vengono mantenuti.  
 
-Nelle VM Linux di Azure il disco temporaneo è in genere /dev/sdb e nelle VM Windows è D: per impostazione predefinita. Il disco temporaneo non viene crittografato dalla crittografia lato server. Vedere [Crittografia](#encryption).
+Nelle VM Linux di Azure il disco temporaneo è in genere /dev/sdb e nelle VM Windows è D: per impostazione predefinita. Il disco temporaneo non viene crittografato dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host.
 
 ## <a name="managed-disk-snapshots"></a>Snapshot dei dischi gestiti
 

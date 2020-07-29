@@ -2,21 +2,25 @@
 title: 'Guida introduttiva: libreria client di archiviazione BLOB di Azure V8 per Java'
 description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Usare quindi la libreria client di archiviazione di Azure V8 per Java per caricare un BLOB in archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473996"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323741"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Guida introduttiva: gestire i BLOB con Java V8 SDK
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB con Java. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Caricare, scaricare ed elencare i BLOB. Si creeranno anche le autorizzazioni per l'eliminazione e l'eliminazione dei contenitori.
+
+> [!NOTE]
+> In questo argomento di avvio rapido si usa una versione legacy della libreria client di Archiviazione BLOB di Azure. Per iniziare a usare la versione più recente, vedere [Guida introduttiva: gestire i BLOB con Java V12 SDK](storage-quickstart-blobs-java.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

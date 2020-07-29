@@ -5,17 +5,17 @@ description: Informazioni su come trasformare i dati in Azure Machine Learning D
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326988"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Trasformare i dati nella finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ In questo articolo vengono illustrate le operazioni seguenti:
 1. Visualizzare i risultati.
 
 Questa procedura è un prerequisito per l'articolo [Come ripetere il training dei modelli di progettazione](how-to-retrain-designer.md). Questo articolo offre informazioni su come usare i set di dati trasformati per eseguire il training di più modelli con parametri pipeline.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="transform-a-dataset"></a>Trasformare un set di dati
 

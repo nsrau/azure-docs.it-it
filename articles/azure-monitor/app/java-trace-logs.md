@@ -3,11 +3,12 @@ title: Esplorare i log di traccia Java in applicazione Azure Insights
 description: Eseguire la ricerca di tracce Log4J o Logback in Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
-ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 417462da431d8fe2ba878c93c6f4b467bdde2670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324166"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
@@ -125,7 +126,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 #### <a name="otherwise-"></a>In caso contrario...
 Seguire le linee guida per installare manualmente Application Insights SDK per Java, scaricare il file jar (dopo aver raggiunto la pagina del repository centrale Maven, fare clic sul collegamento "jar" nella sezione di download) per l'appender appropriato e aggiungere il file jar dell'appender scaricato al progetto.
 
-| Logger | Scarica | Libreria |
+| Logger | Download | Libreria |
 | --- | --- | --- |
 | Logback |[Jar dell'appender logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar dell'appender Log4J versione 2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
@@ -192,7 +193,6 @@ Le eccezioni inviate tramite logger vengono visualizzate nel portale come teleme
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
-
 

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327906"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
@@ -30,7 +30,7 @@ Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, A
 - Sessioni: includere l'ID di sessione.
 
 > [!NOTE]
-> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con [JavaScript SDK lato client/browser](../../azure-monitor/app/website-monitoring.md ) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](../../azure-monitor/app/website-monitoring.md ) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
+> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con [JavaScript SDK lato client/browser](./website-monitoring.md) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](./website-monitoring.md) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
 
 ## <a name="choosing-user-ids"></a>Scelta degli ID utente
 
@@ -134,4 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Utenti, Sessioni ed Eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
-    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
+    - [Cartelle di lavoro](../platform/workbooks-overview.md)
+

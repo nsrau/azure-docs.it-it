@@ -4,18 +4,19 @@ description: Questa pagina descrive alcuni limiti di risorse DTU comuni per i po
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 04/17/2020
-ms.openlocfilehash: 10b792a642f6c22ab804d6c5e5c3f7f722f0d3be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84028352"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325118"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +48,7 @@ Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le
 | eDTU per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Risorse di archiviazione incluse per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Spazio di archiviazione massimo per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | Numero massimo di database per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -65,77 +66,85 @@ Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le
 
 | eDTU per pool | **50** | **100** | **200** | **300** | **400** | **800**|
 |:---|---:|---:|---:| ---: | ---: | ---: |
-| Risorse di archiviazione incluse per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
+| Spazio di archiviazione incluso per pool (GB) <sup>1</sup> | 50 | 100 | 200 | 300 | 400 | 800 |
+| Spazio di archiviazione massimo per pool (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
 | Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
-| Numero massimo di database per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Numero massimo di sessioni simultanee per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Numero massimo di database per pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opzioni per il numero minimo di eDTU per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opzioni per il numero massimo di eDTU per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Spazio di archiviazione massimo per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+<sup>1</sup> vedere [Opzioni per i prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/elastic/) per informazioni dettagliate sui costi aggiuntivi causati da qualsiasi archiviazione aggiuntiva di cui è stato effettuato il provisioning.
 
-<sup>2</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+<sup>2</sup> per altre considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Limiti del pool elastico Standard (continua)
 
 | eDTU per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Risorse di archiviazione incluse per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Spazio di archiviazione incluso per pool (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3000 |
+| Spazio di archiviazione massimo per pool (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
 | Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D |
-| Numero massimo di database per pool <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>2</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Numero massimo di sessioni simultanee per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Numero massimo di database per pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opzioni per il numero minimo di eDTU per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opzioni per il numero massimo di eDTU per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Opzioni per lo spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+<sup>1</sup> vedere [Opzioni per i prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/elastic/) per informazioni dettagliate sui costi aggiuntivi causati da qualsiasi archiviazione aggiuntiva di cui è stato effettuato il provisioning.
 
-<sup>2</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+<sup>2</sup> per altre considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="premium-elastic-pool-limits"></a>Limiti del pool elastico Premium
 
 | eDTU per pool | **125** | **250** | **500** | **1000** | **1500**|
 |:---|---:|---:|---:| ---: | ---: |
-| Risorse di archiviazione incluse per pool (GB) | 250 | 500 | 750 | 1024 | 1536 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Spazio di archiviazione incluso per pool (GB) <sup>1</sup> | 250 | 500 | 750 | 1024 | 1536 |
+| Spazio di archiviazione massimo per pool (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
 | Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 1 | 2 | 4 | 10 | 12 |
-| Numero massimo di database per pool <sup>1</sup> | 50 | 100 | 100 | 100 | 100 |
-| Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>2</sup> | 200 | 400 | 800 | 1600 | 2400 |
-| Numero massimo di sessioni simultanee per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Numero massimo di database per pool <sup>2</sup> | 50 | 100 | 100 | 100 | 100 |
+| Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup> | 200 | 400 | 800 | 1600 | 2400 |
+| Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+<sup>1</sup> vedere [Opzioni per i prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/elastic/) per informazioni dettagliate sui costi aggiuntivi causati da qualsiasi archiviazione aggiuntiva di cui è stato effettuato il provisioning.
 
-<sup>2</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+<sup>2</sup> per altre considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limiti del pool elastico Premium (continua)
 
 | eDTU per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: |
-| Risorse di archiviazione incluse per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
+| Spazio di archiviazione incluso per pool (GB) <sup>1</sup> | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Spazio di archiviazione massimo per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
 | Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 16 | 20 | 24 | 28 | 32 |
-| Numero massimo di database per pool <sup>1</sup> | 100 | 100 | 100 | 100 | 100 |
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>2</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Numero massimo di sessioni simultanee per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Numero massimo di database per pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opzioni per il numero minimo di eDTU per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Opzioni per il numero massimo di eDTU per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> per ulteriori considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+<sup>1</sup> vedere [Opzioni per i prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/elastic/) per informazioni dettagliate sui costi aggiuntivi causati da qualsiasi archiviazione aggiuntiva di cui è stato effettuato il provisioning.
 
-<sup>2</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+<sup>2</sup> per altre considerazioni, vedere [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md) .
+
+<sup>3</sup> per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](resource-limits-vcore-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 > [!IMPORTANT]
 > Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).

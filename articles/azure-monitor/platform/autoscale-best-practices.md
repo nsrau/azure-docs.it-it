@@ -4,12 +4,12 @@ description: Modelli di scalabilità automatica in Azure per App Web, set di sca
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327056"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
   Un'impostazione di scalabilità automatica ha un valore massimo, uno minimo e uno predefinito di istanze.
 * Un processo di scalabilità automatica legge sempre la metrica associata alla scala controllando se ha superato la soglia configurata per l'aumento o la riduzione del numero di istanze. Per un elenco delle metriche in base alle quali può essere applicata la scalabilità automatica, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](autoscale-common-metrics.md).
 * Tutte le soglie vengono calcolate a livello di istanza. Ad esempio, "aumentare il numero di istanze di uno quando la media CPU > 80% quando il conteggio delle istanze è 2", significa aumentare il numero di istanze quando la media CPU in tutte le istanze è superiore all'80%.
-* Tutti gli errori di scalabilità automatica vengono registrati nel log attività. È quindi possibile configurare un [avviso di log attività](./../../azure-monitor/platform/activity-log-alerts.md) in modo da ricevere una notifica tramite posta elettronica, SMS o webhook ogni volta che si verifica un errore di scalabilità automatica.
+* Tutti gli errori di scalabilità automatica vengono registrati nel log attività. È quindi possibile configurare un [avviso di log attività](./activity-log-alerts.md) in modo da ricevere una notifica tramite posta elettronica, SMS o webhook ogni volta che si verifica un errore di scalabilità automatica.
 * Analogamente, tutte le azioni di scalabilità riuscite vengono registrate nel log attività. È quindi possibile configurare un avviso di log attività in modo da ricevere una notifica tramite posta elettronica, SMS o webhook per ogni azione di scalabilità automatica riuscita. È inoltre possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
 ## <a name="autoscale-best-practices"></a>Procedure consigliate per la scalabilità automatica
@@ -151,3 +151,4 @@ Oltre a usare gli avvisi di log attività, è possibile configurare le notifiche
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso del log attività per monitorare tutte le operazioni del motore di scalabilità automatica nella sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

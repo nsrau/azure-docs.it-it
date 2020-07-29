@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327277"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive le categorie del log attività e lo schema per ciascuna di esse. 
@@ -27,7 +27,7 @@ Lo schema può variare a seconda della modalità di accesso al log:
 ## <a name="categories"></a>Categorie
 Ogni evento nel log attività dispone di una categoria specifica descritta nella tabella seguente. Vedere le sezioni seguenti per altre informazioni su ogni categoria e il relativo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](./resource-logs.md#send-to-azure-event-hubs). Un mapping delle proprietà allo schema dei [log delle risorse](./resource-logs-schema.md) è disponibile nell'ultima sezione dell'articolo.
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 |:---|:---|
 | [Administrative](#administrative-category) | Contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Esempi di eventi amministrativi includono la _creazione di una macchina virtuale_ e l'_eliminazione di un gruppo di sicurezza di rete_.<br><br>Ogni azione eseguita da un utente o da un'applicazione che usa Resource Manager viene modellata come operazione su un particolare tipo di risorsa. Se l'operazione è di tipo _scrittura_, _eliminazione_ o _azione_, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Amministrativo. Gli eventi di tipo Amministrativo includono anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione. |
 | [Integrità dei servizi](#service-health-category) | Contiene il record degli eventi imprevisti di integrità dei servizi che si sono verificati in Azure. Un esempio di evento di tipo Integrità dei servizi è _Tempo di inattività registrato in SQL Azure negli Stati Uniti orientali_. <br><br>Gli eventi di tipo Integrità dei servizi sono di cinque tipi: _Intervento necessario_, _Recupero assistito_, _Evento imprevisto_, _Manutenzione_, _Informazioni_ o _Sicurezza_. Questi eventi vengono creati solo se si dispone di una risorsa nella sottoscrizione che potrebbe essere interessata dall'evento.
@@ -796,7 +796,7 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 Quando si trasmette il log attività di Azure a un account di archiviazione o a un hub eventi, i dati seguono lo [schema del log delle risorse](./resource-logs-schema.md). La tabella seguente fornisce un mapping delle proprietà dagli schemi precedenti allo schema dei log delle risorse.
 
 > [!IMPORTANT]
-> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](./resource-logs-append-blobs.md) .
+> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](/azure/azure-monitor/platform/resource-logs-blob-format) .
 
 
 | Proprietà dello schema dei log delle risorse | Proprietà dello schema API REST del log attività | Note |
@@ -885,3 +885,4 @@ Di seguito è riportato un esempio di un evento che utilizza questo schema.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sul log attività](platform-logs-overview.md)
 * [Creare un'impostazione di diagnostica per inviare il log attività a Log Analytics area di lavoro, archiviazione di Azure o hub eventi](diagnostic-settings.md)
+

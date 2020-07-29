@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516193"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327294"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di Monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati usando una [query di log](log-query-overview.md) è una funzionalità potente di Monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio la posizione dei dati desiderati e il modo in cui sono strutturati. Questo articolo illustra i concetti di base necessari per iniziare.
@@ -89,4 +89,5 @@ Anche se ogni tabella nei log di Monitoraggio di Azure ha un proprio schema, son
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come usare [Log Analytics per creare e modificare le ricerche nei log](./log-query-overview.md).
-- Vedere un'[esercitazione sulla scrittura di query](../log-query/get-started-queries.md) con il nuovo linguaggio di query.
+- Vedere un'[esercitazione sulla scrittura di query](./get-started-queries.md) con il nuovo linguaggio di query.
+

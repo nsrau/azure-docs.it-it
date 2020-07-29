@@ -3,19 +3,19 @@ title: Monitoraggio dell'utilizzo e delle prestazioni per le applicazioni deskto
 description: Analizzare l'uso e le prestazioni dell'applicazione desktop di Windows con Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499189"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323418"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
 
-Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfruttare i vantaggi di Application Insights. L'unica limitazione è la necessità di [consentire la comunicazione](../../azure-monitor/app/ip-addresses.md) al servizio Application Insights. Per il monitoraggio delle applicazioni della piattaforma UWP (Universal Windows Platform), è consigliabile usare [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
+Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfruttare i vantaggi di Application Insights. L'unica limitazione è la necessità di [consentire la comunicazione](./ip-addresses.md) al servizio Application Insights. Per il monitoraggio delle applicazioni della piattaforma UWP (Universal Windows Platform), è consigliabile usare [Visual Studio App Center](../learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Per inviare dati di telemetria ad Application Insights da un'applicazione di Windows classica
-1. Nel [portale di Azure](https://portal.azure.com)[creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+1. Nel [portale di Azure](https://portal.azure.com)[creare una risorsa di Application Insights](./create-new-resource.md). 
 2. Eseguire una copia della chiave di strumentazione.
 3. In Visual Studio, modificare i pacchetti NuGet del progetto dell'app e aggiungere Microsoft.ApplicationInsights.WindowsServer. In alternativa, scegliere Microsoft. ApplicationInsights se si vuole solo l'API di base, senza i moduli standard della raccolta dei dati di telemetria.
 4. Impostare la chiave di strumentazione nel codice:
@@ -27,7 +27,7 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
     `<InstrumentationKey>`*chiave*`</InstrumentationKey>` 
    
     Se si utilizza Applicationinsights.config, assicurarsi che le proprietà in Esplora soluzione siano impostate su **Build Action = Content, Copy to Output Directory = Copy**.
-5. [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare dati di telemetria.
+5. [Usare l'API](./api-custom-events-metrics.md) per inviare dati di telemetria.
 6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nella portale di Azure.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Codice di esempio
@@ -175,7 +175,8 @@ namespace WindowsFormsApp2
 > Sebbene sia tecnicamente possibile usare un processore di telemetria come descritto in precedenza anche se si usa il piano [tariffario Enterprise (per nodo) legacy](./pricing.md#legacy-enterprise-per-node-pricing-tier), questa operazione comporterà il rischio di overbilling a causa dell'impossibilità di distinguere correttamente i nodi per i prezzi per nodo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un dashboard](../../azure-monitor/app/overview-dashboard.md)
-* [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
-* [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
+* [Creare un dashboard](./overview-dashboard.md)
+* [Ricerca diagnostica](./diagnostic-search.md)
+* [Esplorare le metriche](../platform/metrics-charts.md)
 * [Scrivere query di Analisi](../log-query/log-query-overview.md)
+

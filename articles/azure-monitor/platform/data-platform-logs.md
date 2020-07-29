@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 413616034dfe7d1f13612ba12ba86014af62c704
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505278"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325628"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -42,14 +42,14 @@ La tabella seguente elenca le diverse modalità per l'uso dei log in Monitoraggi
 |  | Descrizione |
 |:---|:---|
 | **Analisi** | Usare [Log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando il potente motore di analisi Esplora dati.<br>Usare la [console di analisi Application Insights](../log-query/log-query-overview.md) nel portale di Azure per scrivere query di log e analizzare in modo interattivo i dati di log da Application Insights. |
-| **Visualizzazione** | Aggiungere i risultati delle query visualizzati come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](../platform/workbooks-overview.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati.|
+| **Visualizzazione** | Aggiungere i risultati delle query visualizzati come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](./workbooks-overview.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati.|
 | **Avviso** | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico.<br>Configurare una [regola di avviso della metrica](alerts-metric-logs.md) in determinati log di dati estratti come metriche. |
 | **Recupero** | Accedere ai risultati delle query di log da una riga di comando usando l'[interfaccia della riga di comando di Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accedere ai risultati delle query di log da una riga di comando usando i [cmdlet di PowerShell](/powershell/module/az.operationalinsights).<br>Accedere ai risultati delle query di log da un'applicazione personalizzata usando l'[API REST](https://dev.loganalytics.io/). |
-| **Export** | Compilare un flusso di lavoro per recuperare i dati di log e copiarli in una posizione esterna usando [App per la logica](~/articles/logic-apps/index.yml). |
+| **Export** | Compilare un flusso di lavoro per recuperare i dati di log e copiarli in una posizione esterna usando [App per la logica](../../logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Come sono strutturati i dati nei log di Monitoraggio di Azure?
-I dati raccolti dai log di Monitoraggio di Azure vengono archiviati in un'[area di lavoro Log Analytics](../platform/design-logs-deployment.md). Ogni area di lavoro contiene più tabelle, ognuna delle quali archivia i dati provenienti da una determinata origine. Anche se tutte le tabelle condividono [alcune proprietà comuni](log-standard-properties.md), ognuna dispone di un set univoco di proprietà che dipende dal tipo di dati archiviati. Una nuova area di lavoro ha un set di tabelle standard, e altre tabelle vengono aggiunte man mano dalle diverse soluzioni di monitoraggio e da altri servizi che scrivono nell'area di lavoro.
+I dati raccolti dai log di Monitoraggio di Azure vengono archiviati in un'[area di lavoro Log Analytics](./design-logs-deployment.md). Ogni area di lavoro contiene più tabelle, ognuna delle quali archivia i dati provenienti da una determinata origine. Anche se tutte le tabelle condividono [alcune proprietà comuni](log-standard-properties.md), ognuna dispone di un set univoco di proprietà che dipende dal tipo di dati archiviati. Una nuova area di lavoro ha un set di tabelle standard, e altre tabelle vengono aggiunte man mano dalle diverse soluzioni di monitoraggio e da altri servizi che scrivono nell'area di lavoro.
 
 I dati di log di Application Insights usano lo stesso motore di Log Analytics delle aree di lavoro, ma vengono archiviati separatamente per ogni applicazione monitorata. Ogni applicazione dispone di un set standard di tabelle, per contenere dati come richieste di applicazioni, eccezioni e visualizzazioni pagina.
 
@@ -133,3 +133,4 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 - Altre informazioni sulla [piattaforma dati Monitoraggio di Azure](data-platform.md).
 - Informazioni sulle [metriche in Monitoraggio di Azure](data-platform-metrics.md).
 - Informazioni sui [dati di monitoraggio disponibili](data-sources.md) per diverse risorse in Azure.
+

@@ -4,12 +4,12 @@ description: Verifica delle operazioni personalizzate con Azure Application Insi
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540044"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320375"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -206,7 +206,7 @@ public async Task Process(BrokeredMessage message)
 L'esempio seguente illustra come tenere traccia delle operazioni della [coda di archiviazione di Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlare i dati di telemetria tra producer, consumer e Archiviazione di Azure. 
 
 La coda di archiviazione ha un'API HTTP. Tutte le chiamate alla coda vengono tracciate dall'agente di raccolta di dipendenze Application Insights per le richieste HTTP.
-Viene configurato per impostazione predefinita nelle applicazioni ASP.NET e ASP.NET Core, con altri tipi di applicazione, è possibile fare riferimento alla [documentazione delle applicazioni console](../../azure-monitor/app/console.md)
+Viene configurato per impostazione predefinita nelle applicazioni ASP.NET e ASP.NET Core, con altri tipi di applicazione, è possibile fare riferimento alla [documentazione delle applicazioni console](./console.md)
 
 Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID di richiesta di Archiviazione. Per informazioni su come impostare e ottenere un client di richiesta di Archivazione e un ID di richiesta del server, vedere [Monitoraggio, diagnosi e risoluzione dei problemi dell'archiviazione di Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -478,8 +478,9 @@ Ogni operazione di Application Insights (richiesta o dipendenza) implica `Activi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni di base sulla [correlazione di dati di telemetria](correlation.md) in Application Insights.
-- Verificare il modo in cui i dati correlati hanno l' [esperienza di diagnostica delle transazioni](../../azure-monitor/app/transaction-diagnostics.md) e la [mappa delle applicazioni](../../azure-monitor/app/app-map.md).
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](../../azure-monitor/app/data-model.md).
-- Segnalare [metriche ed eventi](../../azure-monitor/app/api-custom-events-metrics.md) personalizzati ad Application Insights.
+- Verificare il modo in cui i dati correlati hanno l' [esperienza di diagnostica delle transazioni](./transaction-diagnostics.md) e la [mappa delle applicazioni](./app-map.md).
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](./data-model.md).
+- Segnalare [metriche ed eventi](./api-custom-events-metrics.md) personalizzati ad Application Insights.
 - Estrarre la [configurazione](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard di una raccolta di proprietà di contesto.
 - Vedere [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) (Guida dell'utente di System.Diagnostics.Activity) per informazioni su come correlare i dati di telemetria.
+

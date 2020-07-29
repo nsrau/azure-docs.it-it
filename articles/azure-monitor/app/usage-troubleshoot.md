@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670917"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323503"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
 Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi del comportamento degli utenti in Application Insights](usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](usage-flows.md), [Conservazione](usage-retention.md) e Coorti, offrendo alcune utili risposte.
@@ -18,13 +19,13 @@ Questo articolo prende in esame le domande degli utenti sugli [strumenti di anal
 ## <a name="counting-users"></a>Conteggio degli utenti
 **Gli strumenti di analisi del comportamento dell'utente mostrano che l'app dispone di un utente/sessione, ma è noto che l'app ha molti utenti/sessioni. Come è possibile risolvere questi conteggi non corretti?**
 
-Tutti gli eventi di telemetria in Application Insights hanno un [ID utente anonimo](../../azure-monitor/app/data-model-context.md) e un [ID di sessione](../../azure-monitor/app/data-model-context.md) come proprietà standard. Per impostazione predefinita, tutti gli strumenti di analisi dell'utilizzo eseguono il conteggio degli utenti e delle sessioni in base a questi ID. Se in queste proprietà standard non vengono inseriti ID univoci per ogni utente e sessione dell'app, negli strumenti di analisi dell'utilizzo si vedrà un conteggio errato degli utenti e delle sessioni.
+Tutti gli eventi di telemetria in Application Insights hanno un [ID utente anonimo](./data-model-context.md) e un [ID di sessione](./data-model-context.md) come proprietà standard. Per impostazione predefinita, tutti gli strumenti di analisi dell'utilizzo eseguono il conteggio degli utenti e delle sessioni in base a questi ID. Se in queste proprietà standard non vengono inseriti ID univoci per ogni utente e sessione dell'app, negli strumenti di analisi dell'utilizzo si vedrà un conteggio errato degli utenti e delle sessioni.
 
-Se si sta monitorando un'app Web, la soluzione più semplice consiste nell'aggiungere [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) all'app e verificare che il frammento di script sia caricato in ogni pagina da monitorare. JavaScript SDK genera automaticamente ID utente anonimi e ID di sessione e quindi li inserisce negli eventi di telemetria quando vengono inviati dall'app.
+Se si sta monitorando un'app Web, la soluzione più semplice consiste nell'aggiungere [Application Insights JavaScript SDK](./javascript.md) all'app e verificare che il frammento di script sia caricato in ogni pagina da monitorare. JavaScript SDK genera automaticamente ID utente anonimi e ID di sessione e quindi li inserisce negli eventi di telemetria quando vengono inviati dall'app.
 
 Se si sta monitorando un servizio Web (senza interfaccia utente), [creare un inizializzatore di telemetria per impostare le proprietà ID utente anonimo e ID di sessione](usage-send-user-context.md) in base alle nozioni di sessioni e utenti univoci del servizio.
 
-Se l'app invia [ID utente autenticati](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), è possibile eseguire il conteggio in base agli ID utente autenticati nello strumento Utenti. Nell'elenco a discesa "Mostra" scegliere "Utenti autenticati".
+Se l'app invia [ID utente autenticati](./api-custom-events-metrics.md#authenticated-users), è possibile eseguire il conteggio in base agli ID utente autenticati nello strumento Utenti. Nell'elenco a discesa "Mostra" scegliere "Utenti autenticati".
 
 Gli strumenti di analisi del comportamento degli utenti non supportano attualmente il conteggio di utenti o sessioni in base a proprietà diverse da ID utente anonimo, ID utente autenticato o ID di sessione.
 
@@ -47,6 +48,6 @@ Se l'app invia troppi nomi di evento personalizzato, modificare il nome nel codi
 
 * [Panoramica sugli strumenti di analisi del comportamento degli utenti](usage-overview.md)
 
-## <a name="get-help"></a>Ottieni supporto
+## <a name="get-help"></a>Ottenere aiuto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

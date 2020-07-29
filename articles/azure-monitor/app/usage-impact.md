@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041476"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323707"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -28,7 +28,7 @@ L'analisi delle prestazioni, tuttavia, è solo una parte delle funzionalità del
 ![Screenshot relativo alla conversione in base ai browser](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Per poter usare lo strumento Impatto, la risorsa di Application Insights deve contenere visualizzazioni pagina o eventi personalizzati. Vedere le [informazioni su come configurare l'app per la raccolta automatica delle visualizzazioni di pagina con Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Inoltre, tenere presente che, dal momento che si stanno analizzando le correlazioni, le dimensioni del campione sono fondamentali.
+> Per poter usare lo strumento Impatto, la risorsa di Application Insights deve contenere visualizzazioni pagina o eventi personalizzati. Vedere le [informazioni su come configurare l'app per la raccolta automatica delle visualizzazioni di pagina con Application Insights JavaScript SDK](./javascript.md). Inoltre, tenere presente che, dal momento che si stanno analizzando le correlazioni, le dimensioni del campione sono fondamentali.
 >
 >
 
@@ -85,5 +85,6 @@ Il calcolo finale dell'impatto varia a seconda che l'analisi venga eseguita in b
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
+    - [Cartelle di lavoro](../platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
+

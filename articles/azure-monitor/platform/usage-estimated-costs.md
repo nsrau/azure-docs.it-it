@@ -8,19 +8,19 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323401"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure
 
 > [!NOTE]
 > Questo articolo descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure. Gli articoli correlati per i componenti specifici di monitoraggio di Azure includono:
 > - [Gestire l'utilizzo e i costi con i log di monitoraggio di Azure](manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati e come analizzare e inviare avvisi sull'utilizzo dei dati.
-> - [Gestire l'utilizzo e i costi per Application Insights](../../azure-monitor/app/pricing.md) descrive come analizzare l'utilizzo dei dati in Application Insights.
+> - [Gestire l'utilizzo e i costi per Application Insights](../app/pricing.md) descrive come analizzare l'utilizzo dei dati in Application Insights.
 
 ## <a name="azure-monitor-pricing-model"></a>Modello di determinazione dei prezzi di monitoraggio di Azure
 
@@ -96,3 +96,4 @@ A seconda del numero di nodi della Suite acquistata dall'organizzazione, il tras
 > [!WARNING]
 > Se l'organizzazione ha Microsoft Operations Management Suite E1 ed E2 correnti, in genere è consigliabile lasciare le aree di lavoro Log Analytics nel piano tariffario "per nodo (OMS)" e le risorse Application Insights nel piano tariffario "Enterprise". 
 >
+

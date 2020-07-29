@@ -4,16 +4,16 @@ description: Modello di dati di Application Insights per la metrica dei dati di 
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540010"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320579"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrica dei dati di telemetria: modello di dati di Application Insights
 
-Esistono due tipi di telemetria della metrica supportata da [Application Insights](../../azure-monitor/app/app-insights-overview.md): la metrica a misura singola e la metrica preaggregata. La misura singola è costituita semplicemente da un nome e un valore. La metrica preaggregata specifica i valori minimo e massimo della metrica nell'intervallo di aggregazione e la relativa deviazione standard.
+Esistono due tipi di telemetria della metrica supportata da [Application Insights](./app-insights-overview.md): la metrica a misura singola e la metrica preaggregata. La misura singola è costituita semplicemente da un nome e un valore. La metrica preaggregata specifica i valori minimo e massimo della metrica nell'intervallo di aggregazione e la relativa deviazione standard.
 
 La metrica dei dati di telemetria preaggregata presuppone che il periodo di aggregazione sia di un minuto.
 
@@ -65,6 +65,7 @@ Le metriche con la proprietà personalizzata `CustomPerfCounter` impostata su `t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare l'[API di Application Insights per metriche ed eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Informazioni su come usare l'[API di Application Insights per metriche ed eventi personalizzati](./api-custom-events-metrics.md#trackmetric).
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](data-model.md).
-- Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.
+- Verificare quali [piattaforme](./platforms.md) supportano Application Insights.
+

@@ -8,17 +8,19 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.custom: mqtt
-ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327770"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
-I *dispositivi gemelli* sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. 
+I *dispositivi gemelli* sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. L'hub IoT di Azure gestisce un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -199,7 +201,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
   - Corpo
         
-    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. USA lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: Tag, Properties. reported, Properties. desired, e che contiene gli elementi "$metadata". Ad esempio,
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. USA lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: Tag, Properties. reported, Properties. desired, e che contiene gli elementi "$metadata". ad esempio:
 
     ```json
     {

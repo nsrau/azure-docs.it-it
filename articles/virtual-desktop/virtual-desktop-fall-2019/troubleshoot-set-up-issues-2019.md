@@ -1,6 +1,6 @@
 ---
-title: Creazione del pool host per desktop virtuali Windows-Azure
-description: Come risolvere i problemi e risolvere i problemi del pool di tenant e host durante l'installazione di un ambiente tenant di desktop virtuali Windows.
+title: Creazione di pool host del tenant di desktop virtuali Windows (classico)-Azure
+description: Come risolvere i problemi e risolvere i problemi relativi ai pool di tenant e host durante l'installazione di un ambiente tenant di desktop virtuali Windows (classico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269598"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creazione di tenant e pool host in un desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-set-up-issues.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-set-up-issues.md).
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
