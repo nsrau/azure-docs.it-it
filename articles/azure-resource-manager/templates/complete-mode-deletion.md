@@ -3,12 +3,12 @@ title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 5e247fc20a128b3dd8b3fe646ef956388e0d2c2d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 48a7758ce706612607b97647bc88238957b118d3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027833"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371346"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -18,7 +18,7 @@ I tipi di risorsa contrassegnati con **Sì** vengono eliminati quando il tipo no
 
 I tipi di risorsa contrassegnati con No non vengono eliminati automaticamente quando non sono **presenti** nel modello; Tuttavia, vengono eliminati se la risorsa padre viene eliminata. Per una descrizione completa del comportamento, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 
-Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-resource-group-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
+Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-scope-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
 
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]
@@ -842,7 +842,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | CloudConnectors | No |
 > | Connettori | Sì |
 > | costAllocationRules | No |
-> | Departments | No |
+> | Reparti | No |
 > | Dimensioni | No |
 > | EnrollmentAccounts | No |
 > | Esporta | No |

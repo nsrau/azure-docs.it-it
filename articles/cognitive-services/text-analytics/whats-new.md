@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103399"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371125"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -23,7 +23,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 
 ## <a name="july-2020"></a>Luglio 2020
 
-### <a name="text-analytics-for-health-container-public-gated-preview"></a>Analisi del testo per l'anteprima gestita pubblica del contenitore di integrità
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>Analisi del testo per il contenitore di integrità-anteprima pubblica gestita
 
 Il Analisi del testo per il contenitore di integrità è ora disponibile in anteprima pubblicamente gestita, che consente di estrarre informazioni da testo in lingua inglese non strutturato in documenti clinici come moduli di assunzione di pazienti, note mediche, documenti di ricerca e riepiloghi di scaricamento. Attualmente, non verranno addebitati Analisi del testo per l'utilizzo del contenitore di integrità. 
 
@@ -102,16 +102,16 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Evento
+    * Event
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organization
+    * Organizzazione
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * E-mail 
+    * Posta elettronica 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP

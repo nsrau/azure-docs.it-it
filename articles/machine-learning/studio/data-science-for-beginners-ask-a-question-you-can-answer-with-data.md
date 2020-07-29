@@ -1,6 +1,5 @@
 ---
-title: Porre una domanda a cui i dati possano rispondere
-titleSuffix: ML Studio (classic) - Azure
+title: Inviare una domanda ai dati può rispondere ML Studio (classico)-Azure
 description: Informazioni su come formulare una domanda mirata sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
 services: machine-learning
 ms.service: machine-learning
@@ -9,11 +8,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 3f0a92b86a2c18863052249d401e70fa36e17a12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff08af00649cf61134c3e27d07b329e40169ea66
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930251"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318794"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Analisi scientifica dei dati per principianti

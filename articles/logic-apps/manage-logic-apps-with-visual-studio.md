@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 9cf964b8b5ebbfe5f790a1e325b48cd4179cf4ee
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127673"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280767"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -100,7 +100,7 @@ In Visual Studio è possibile aprire app per la logica create in precedenza e di
 
 ## <a name="download-from-azure"></a>Scaricare da Azure
 
-È possibile scaricare le app per la logica dal [portale di Azure](https://portal.azure.com) e salvarle come modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md). È quindi possibile modificare i modelli in locale con Visual Studio e personalizzare le app per la logica per ambienti di distribuzione differenti.  Il download di app per la logica ne *parametrizza* automaticamente le definizioni all'interno dei [modelli di Resource Manager](../azure-resource-manager/templates/overview.md), che usano anche JavaScript Object Notation (JSON).
+È possibile [scaricare](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) le app per la logica dalla [portale di Azure](https://portal.azure.com) e salvarle come modelli [Azure Resource Manager](../azure-resource-manager/management/overview.md) . È quindi possibile modificare i modelli in locale con Visual Studio e personalizzare le app per la logica per ambienti di distribuzione differenti.  Il download di app per la logica ne *parametrizza* automaticamente le definizioni all'interno dei [modelli di Resource Manager](../azure-resource-manager/templates/overview.md), che usano anche JavaScript Object Notation (JSON).
 
 1. In Visual Studio, usando Cloud Explorer, [aprire l'app per la logica che si vuole scaricare da Azure](#open-designer).
 

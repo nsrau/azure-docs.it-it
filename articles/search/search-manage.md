@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371414"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 
@@ -123,7 +123,7 @@ Sebbene la velocità effettiva delle query aumenti quando si aggiungono repliche
 
 È più comune aggiungere repliche, ma quando l'archiviazione è vincolata, è possibile aggiungere partizioni per ottenere una maggiore capacità. Il livello in cui è stato effettuato il provisioning del servizio determina se è possibile aggiungere partizioni. Il livello Basic è bloccato in una partizione. I livelli standard e versioni successive supportano partizioni aggiuntive.
 
-Le partizioni vengono aggiunte in multipli di 12 (in particolare 1, 2, 3, 4, 6 o 12). Si tratta di un elemento del partizionamento orizzontale. Un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in 1 partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
+Le partizioni vengono aggiunte in divisori di 12 (in particolare 1, 2, 3, 4, 6 o 12). Si tratta di un elemento del partizionamento orizzontale. Un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in 1 partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
 
 ### <a name="remove-replicas"></a>Rimuovere repliche
 

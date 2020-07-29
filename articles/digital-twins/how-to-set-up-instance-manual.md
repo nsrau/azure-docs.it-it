@@ -1,5 +1,5 @@
 ---
-title: Configurare un'istanza e l'autenticazione (manuale)
+title: Configurare un'istanza e l'autenticazione (metodo manuale)
 titleSuffix: Azure Digital Twins
 description: Vedere come configurare un'istanza del servizio dispositivi digitali gemelli di Azure, inclusa l'autenticazione corretta. Versione manuale.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8d0e965360caab704bcf6c8f7d29e7bba421207e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2d5ce0bc988badc6f25726206a953d87de7eaa2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125888"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371457"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-manual"></a>Configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione (manuale)
 
@@ -35,7 +35,7 @@ In questa sezione si creerà **una nuova istanza di Azure Digital Twins** usando
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Area per la distribuzione. Per visualizzare le aree che supportano i dispositivi gemelli digitali di Azure, visitare i [*prodotti Azure disponibili in base all'area*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Nome dell'istanza. Il nome della nuova istanza deve essere univoco all'interno dell'area (vale a dire che se un'altra istanza di Azure Digital gemelli in quell'area USA già il nome scelto, verrà chiesto di selezionare un nome diverso).
+* Nome dell'istanza. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
 
 Usare questi valori nel comando seguente per creare l'istanza:
 
@@ -68,9 +68,8 @@ Questa sezione illustra come creare un'assegnazione di ruolo per un utente nell'
 
 Per concedere a un utente le autorizzazioni per la gestione di un'istanza di dispositivi gemelli digitali di Azure, è necessario assegnare loro il ruolo _**proprietario (anteprima) di Azure Digital gemelli**_ nell'istanza. 
 
-Si noti che questo ruolo è diverso da...
-* ruolo *proprietario* nell'intera sottoscrizione di Azure. Il *proprietario di Azure Digital gemelli (anteprima)* è un ruolo nei dispositivi gemelli digitali di Azure ed è limitato a questa singola istanza di Azure Digital gemelli.
-* il ruolo di *proprietario* nei dispositivi gemelli digitali di Azure. Si tratta di due ruoli di gestione distinti di Azure Digital gemelli e il *proprietario di Azure Digital gemelli (anteprima)* è il ruolo da usare per la gestione durante l'anteprima.
+> [!NOTE]
+> Si noti che questo ruolo è diverso dal ruolo *proprietario* Azure ad, che può essere assegnato anche nell'ambito dell'istanza di Azure Digital gemelli. Si tratta di due ruoli di gestione distinti e Azure AD *proprietario* non concede l'accesso alle funzionalità del piano dati concesse con il *proprietario di Azure Digital gemelli (anteprima)*.
 
 Usare il comando seguente per assegnare il ruolo (deve essere eseguito da un proprietario della sottoscrizione di Azure):
 
@@ -100,7 +99,7 @@ Quando si configura un'istanza di Azure Digital Twins, è comune interagire con 
 Questa registrazione dell'app è la posizione in cui vengono configurate le autorizzazioni di accesso alle [API di Azure Digital gemelli](how-to-use-apis-sdks.md) Successivamente, l'app client eseguirà l'autenticazione con la registrazione dell'app e, di conseguenza, le autorizzazioni di accesso configurate alle API.
 
 >[!TIP]
-> In qualità di proprietario della sottoscrizione, è preferibile impostare una nuova registrazione dell'app per ogni nuova istanza di Azure Digital gemelli *oppure* eseguire questa operazione una sola volta e stabilire una singola registrazione dell'app che verrà condivisa tra tutte le istanze dei dispositivi gemelli digitali di Azure nella sottoscrizione. Questo è il modo in cui viene eseguito nel tenant di Microsoft.
+> In qualità di proprietario della sottoscrizione, è preferibile impostare una nuova registrazione dell'app per ogni nuova istanza di Azure Digital gemelli *oppure* eseguire questa operazione una sola volta e stabilire una singola registrazione dell'app che verrà condivisa tra tutte le istanze dei dispositivi gemelli digitali di Azure nella sottoscrizione.
 
 ### <a name="create-the-registration"></a>Creare la registrazione
 

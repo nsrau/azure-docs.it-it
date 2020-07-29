@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098097"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371456"
 ---
 >[!NOTE]
 >Queste operazioni devono essere completate da un utente con un ruolo *proprietario* nella sottoscrizione di Azure. Anche se alcune parti possono essere completate senza questa autorizzazione elevata, sarà necessaria una collaborazione del proprietario per configurare completamente un'istanza utilizzabile. Per altre informazioni, vedere la sezione [*prerequisiti: autorizzazioni necessarie*](#prerequisites-permission-requirements) di seguito.
@@ -38,6 +38,6 @@ Se si è un proprietario, il `roleDefinitionName` valore nell'output è *owner*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Cloud Shell finestra che mostra l'output del comando AZ Role Assignment List":::
 
-Se si rileva che il valore è *collaboratore* o è diverso da *proprietario*, è possibile contattare il proprietario della sottoscrizione e procedere in uno dei modi seguenti:
-* Richiedere al proprietario di completare i passaggi descritti in questo articolo per conto dell'utente
-* Richiedere al proprietario di elevare l'utente al proprietario nella sottoscrizione, in modo da avere le autorizzazioni necessarie per continuare. Il fatto che sia appropriato dipende dall'organizzazione e dal ruolo al suo interno.
+Se si rileva che il valore è *collaboratore* o non è *proprietario*, è possibile procedere in uno dei modi seguenti:
+* Contattare il proprietario della sottoscrizione e richiedere al proprietario di completare i passaggi descritti in questo articolo per conto dell'utente
+* Contattare il proprietario della sottoscrizione o un utente con il ruolo amministratore accesso utenti per la sottoscrizione e richiedere che venga innalzato al proprietario della sottoscrizione, in modo da avere le autorizzazioni necessarie per procedere manualmente. Il fatto che sia appropriato dipende dall'organizzazione e dal ruolo al suo interno.

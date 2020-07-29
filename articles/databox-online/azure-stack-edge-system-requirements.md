@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569082"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371304"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Requisiti di sistema di Azure Stack Edge
 
@@ -58,7 +58,7 @@ Azure IoT Edge consente la comunicazione in uscita da un dispositivo Edge locale
 
 Usare la tabella seguente per la configurazione delle porte per i server che ospitano il runtime di Azure IoT Edge:
 
-| N. porta | In ingresso/In uscita | Ambito porta | Necessario | Indicazioni |
+| N. porta | In ingresso/In uscita | Ambito porta | Richiesto | Indicazioni |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| In uscita       | WAN        | Sì      | Aperto in uscita per il provisioning di IoT Edge. Questa configurazione è necessaria quando si usano script manuali o il servizio Device Provisioning di Azure IoT.|
 

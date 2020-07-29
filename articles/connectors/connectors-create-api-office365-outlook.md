@@ -3,15 +3,16 @@ title: Connettersi a Office 365 Outlook
 description: Automatizzare le attività e i flussi di lavoro che gestiscono la posta elettronica, i contatti e i calendari in Office 365 Outlook usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75732695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319236"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gestire posta elettronica, contatti e calendari con Outlook di Office 365 usando App per la logica di Azure
 
@@ -28,9 +29,9 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [account Office 365](https://www.office.com/)
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
+* Un [account Office 365](https://www.office.com/)
 
 * App per la logica in cui si vuole accedere all'account Office 365 Outlook. Per avviare il flusso di lavoro con un trigger Office 365 Outlook, è necessario disporre di un'app per la [logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per aggiungere un'azione di Office 365 Outlook al flusso di lavoro, l'app per la logica deve avere già un trigger.
 
@@ -45,6 +46,9 @@ Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un even
    ![Selezionare trigger per avviare l'app per la logica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà del trigger.
+
+   > [!NOTE]
+   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    Questo esempio Mostra come selezionare il calendario controllato dal trigger, ad esempio:
 
@@ -76,6 +80,9 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
 
 1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà dell'azione.
 
+   > [!NOTE]
+   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+
    Questo esempio Mostra come selezionare la cartella contatti in cui l'azione crea il nuovo contatto, ad esempio:
 
    ![Configurare le proprietà dell'azione](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -84,9 +91,9 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
 
 1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche sui trigger, sulle azioni e sui limiti descritti nel file di spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/office365connector/). 
+Per informazioni tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento](/connectors/office365/)del connettore. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

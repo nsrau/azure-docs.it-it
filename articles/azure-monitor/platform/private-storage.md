@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 78cdf1798d9176c9d3c7b3705a11dccde5e47e67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a14f7ca3e5a7b291e430db6ea536edc5396b5448
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318896"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Account di archiviazione di proprietà del cliente per l'inserimento dei log in Monitoraggio di Azure
 
@@ -54,7 +54,7 @@ L'unico metodo disponibile per la creazione e la rimozione dei collegamenti è t
 ## <a name="command-line-and-rest-api"></a>Riga di comando e API REST
 
 ### <a name="command-line"></a>Riga di comando
-Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
+Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
 
 ### <a name="request-and-cli-values"></a>Valori di richiesta e CLI
 
@@ -236,3 +236,4 @@ Se l'account di archiviazione registrato dell'area di lavoro si trova in un'altr
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla configurazione di un collegamento privato, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](private-link-security.md)
+

@@ -3,17 +3,18 @@ title: Distribuire la soluzione di monitoraggio remoto localmente-IDE IntelliJ-A
 description: Questa guida illustra come distribuire Remote Monitoring Solution Accelerator nel computer locale usando IntelliJ per il test e lo sviluppo.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319168"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 

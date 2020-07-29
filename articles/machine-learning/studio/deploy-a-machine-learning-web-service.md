@@ -1,6 +1,5 @@
 ---
-title: Distribuire un servizio Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): distribuire un servizio Web-Azure'
 description: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e quindi distribuirlo come servizio Web Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f85ef90520049aef2cb39da9c360013d6f11aca0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696389"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318709"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 Azure Machine Learning Studio (classico) consente di compilare e testare una soluzione analitica predittiva. È quindi possibile distribuire la soluzione come servizio Web.
 

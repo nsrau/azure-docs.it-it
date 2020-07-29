@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304140"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API di evasione SaaS in Microsoft Commercial Marketplace
 
@@ -45,7 +47,7 @@ Nello scenario Reseller (CSP), un CSP Acquista l'offerta SaaS per conto del clie
 
 Il server di pubblicazione non è necessario per implementare uno dei flussi delle chiamate API in modo diverso per questo scenario.
 
-Per ulteriori informazioni su CSP, consultare https://partner.microsoft.com/en-us/licensing .
+Per ulteriori informazioni su CSP, consultare https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >La versione corrente di questa API è la versione 2, che deve essere usata per tutte le nuove offerte SaaS. La versione 1 dell'API è deprecata e viene mantenuta per supportare le offerte esistenti.

@@ -7,16 +7,16 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: 4299c647a8fb454d5096eaa0444d5f4f1d2240e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081458"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318879"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi o a un partner esterno
 
-Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Nella maggior parte dei casi, il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni consiste nell'usare [Hub eventi di Azure](/azure/event-hubs/). In questo articolo viene fornita una breve descrizione su come eseguire questa operazione e vengono elencati alcuni partner in cui è possibile inviare dati. Alcuni hanno un'integrazione speciale con monitoraggio di Azure e possono essere ospitati in Azure.  
+Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Nella maggior parte dei casi, il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni consiste nell'usare [Hub eventi di Azure](../../event-hubs/index.yml). In questo articolo viene fornita una breve descrizione su come eseguire questa operazione e vengono elencati alcuni partner in cui è possibile inviare dati. Alcuni hanno un'integrazione speciale con monitoraggio di Azure e possono essere ospitati in Azure.  
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
@@ -38,7 +38,7 @@ Le [origini dei dati di monitoraggio per monitoraggio di Azure](data-sources.md)
 | [Sottoscrizione di Azure](data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività in hub eventi.  Per informazioni dettagliate, vedere [trasmettere i log della piattaforma Azure a hub eventi di Azure](./resource-logs.md#send-to-azure-event-hubs) . |
 | [Risorse di Azure](data-sources.md#azure-resources) | Metriche della piattaforma<br> Log risorse |Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. Per informazioni dettagliate, vedere [trasmettere i log delle risorse di Azure a un hub eventi](./resource-logs.md#send-to-azure-event-hubs) . |
 | [Sistema operativo (Guest)](data-sources.md#operating-system-guest) | Macchine virtuali di Azure | Installare l' [estensione diagnostica di Azure](diagnostics-extension-overview.md) in macchine virtuali Windows e Linux in Azure. Per informazioni dettagliate sulle macchine virtuali Windows e l' [uso dell'estensione di diagnostica Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) per i dettagli sulle macchine virtuali Linux, vedere [trasmettere i dati diagnostica di Azure nel percorso critico tramite hub eventi](diagnostics-extension-stream-event-hubs.md) . |
-| [Codice dell'applicazione](data-sources.md#application-code) | Application Insights | Application Insights non fornisce un metodo diretto per trasmettere dati a hub eventi. È possibile [configurare l'esportazione continua](../../azure-monitor/app/export-telemetry.md) dei dati Application Insights in un account di archiviazione e quindi usare un'app per la logica per inviare i dati a un hub eventi, come descritto in [streaming manuale con l'app per la logica](#manual-streaming-with-logic-app). |
+| [Codice dell'applicazione](data-sources.md#application-code) | Application Insights | Application Insights non fornisce un metodo diretto per trasmettere dati a hub eventi. È possibile [configurare l'esportazione continua](../app/export-telemetry.md) dei dati Application Insights in un account di archiviazione e quindi usare un'app per la logica per inviare i dati a un hub eventi, come descritto in [streaming manuale con l'app per la logica](#manual-streaming-with-logic-app). |
 
 ## <a name="manual-streaming-with-logic-app"></a>Streaming manuale con l'app per la logica
 Per i dati che non è possibile trasmettere direttamente a un hub eventi, è possibile scrivere in archiviazione di Azure e quindi usare un'app per la logica attivata in base al tempo che [estrae i dati dall'archiviazione BLOB](../../connectors/connectors-create-api-azureblobstorage.md#add-action) e [li inserisce come messaggio nell'hub eventi](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
@@ -62,5 +62,6 @@ Potrebbero essere disponibili anche altri partner. Per un elenco più completo d
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Archiviare il log attività in un account di archiviazione](./activity-log.md#legacy-collection-methods)
-* [Leggere la panoramica del log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Configurare un avviso in base a un evento del log attività](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Leggere la panoramica del log attività di Azure](./platform-logs-overview.md)
+* [Configurare un avviso in base a un evento del log attività](./alerts-log-webhook.md)
+

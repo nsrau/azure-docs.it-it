@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304191"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Classificazioni & esamina il dashboard di analisi nel centro per i partner
 
@@ -24,7 +26,7 @@ Questo articolo fornisce informazioni sulle classificazioni & dashboard di revis
 
 ## <a name="access-the-dashboard"></a>Accedere al dashboard
 
-Nel [Dashboard del Marketplace commerciale](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) del centro per i partner espandere la sezione **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selezionare **ratings & revisioni**.
+Nel [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) del centro per i partner espandere la sezione **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selezionare **ratings & revisioni**.
 
 Il dashboard Visualizza una rappresentazione grafica delle attività dei clienti seguenti:
 

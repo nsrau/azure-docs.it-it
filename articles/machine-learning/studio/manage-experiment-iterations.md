@@ -1,6 +1,5 @@
 ---
-title: Visualizza & Riesegui esperimenti
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): visualizzare & eseguire esperimenti di riesecuzione-Azure'
 description: Gestire le esecuzioni dell'esperimento in Azure Machine Learning Studio (classico). È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687396"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318522"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gestire le esecuzioni dell'esperimento in Azure Machine Learning Studio (versione classica)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.
 
@@ -42,7 +45,7 @@ Si supponga ad esempio di creare un esperimento con il modulo [Linear Regression
 | 0.1 |11/9/2014 16:18:58 |
 | 0,2 |11/9/2014 16:24:33 |
 | 0,4 |11/9/2014 16:28:36 |
-| 0.5 |11/9/2014 16:33:31 |
+| 0,5 |11/9/2014 16:33:31 |
 
 Se si fa clic su **VIEW RUN HISTORY**, verrà visualizzato un elenco di tutte le esecuzioni:
 

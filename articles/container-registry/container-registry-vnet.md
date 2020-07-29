@@ -3,11 +3,12 @@ title: Limitare l'accesso con un endpoint di servizio
 description: Limitare l'accesso a un registro contenitori di Azure usando un endpoint di servizio in una rete virtuale di Azure. L'accesso agli endpoint di servizio è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509288"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371431"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure
 
@@ -26,6 +27,7 @@ La configurazione di un endpoint di servizio del registro è disponibile nel liv
 * Non è possibile usare il portale di Azure per configurare endpoint di servizio in un registro.
 * Per accedere a un registro contenitori tramite un endpoint di servizio, è possibile usare solo un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) o una [macchina virtuale](../virtual-machines/linux/overview.md) di Azure. *Altri servizi di Azure, incluse le istanze di Container di Azure, non sono supportati.*
 * Ogni registro supporta un massimo di 100 regole di accesso alla rete.
+* Gli endpoint di servizio per Azure Container Registry non sono supportati nel Cloud Azure per enti pubblici degli Stati Uniti o nel cloud di Azure China.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371397"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -142,7 +142,7 @@ In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli 
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle risorse di archiviazione di Azure e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che desiderano applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base ai principi di sicurezza di cui è [necessario essere a conoscenza](https://en.wikipedia.org/wiki/Need_to_know) e ai [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) . Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](../../storage/blobs/security-recommendations.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che desiderano applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base ai principi di sicurezza di cui è [necessario essere a conoscenza](https://en.wikipedia.org/wiki/Need_to_know) e ai [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) . Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md), ad esempio collaboratore account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](../../storage/blobs/security-recommendations.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
 
 ### <a name="shared-access-signature"></a>Firma di accesso condiviso
 Una [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fornisce accesso delegato alle risorse nell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account.
@@ -165,7 +165,7 @@ Per molte organizzazioni, la crittografia dei dati inattivi è un passaggio obbl
 -   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
 ### <a name="storage-analytics"></a>di Analisi archiviazione
-[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e fornisce i dati di metrica per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo. Vengono registrati i seguenti tipi di richieste autenticate:
+[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e fornisce i dati di metrica per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo. Vengono registrati i tipi di richieste autenticate seguenti:
 -   Richieste riuscite
 
 -   Richieste non riuscite, tra cui timeout, limitazione, rete, autorizzazione e altri errori

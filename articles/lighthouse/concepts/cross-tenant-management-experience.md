@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 07/17/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: be4f9581e8a276b4296faedb65691232dee2ea95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090417"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371040"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -82,6 +82,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
 - Log Analytics: Eseguire query sui dati dalle aree di lavoro remote dei clienti in più tenant
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
+- Per i carichi di lavoro SAP, [monitora le metriche delle soluzioni SAP con una visualizzazione aggregata tra i tenant dei clienti](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rete di Azure](../../networking/networking-overview.md):
 

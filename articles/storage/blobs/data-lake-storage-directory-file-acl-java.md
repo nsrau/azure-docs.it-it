@@ -4,16 +4,17 @@ description: Usare le librerie di archiviazione di Azure per Java per gestire di
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
+ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 1118e584a235f90cc21c8d914f56ebcba7ea74f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0f7dfda46c7a4af8143c33b1b45001a88d3bed88
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319389"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -27,7 +28,7 @@ Questo articolo illustra come usare Java per creare e gestire directory, file e 
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni.
 
-## <a name="set-up-your-project"></a>Impostare il progetto
+## <a name="set-up-your-project"></a>Configurare il progetto
 
 Per iniziare, aprire [Questa pagina](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e trovare la versione più recente della libreria Java. Aprire quindi il file di *pom.xml* nell'editor di testo. Aggiungere un elemento dependency che faccia riferimento a tale versione.
 

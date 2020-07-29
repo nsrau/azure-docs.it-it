@@ -5,21 +5,22 @@ description: Configurare applicazioni, processi o flussi di lavoro di Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319491"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
-Questo articolo illustra come configurare applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning, ad esempio messaggi di posta elettronica di notifica di errore o esecuzioni di pipeline ML, quando vengono rilevate determinate condizioni da [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/). 
+Questo articolo illustra come configurare applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning, ad esempio messaggi di posta elettronica di notifica di errore o esecuzioni di pipeline ML, quando vengono rilevate determinate condizioni da [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning gestisce l'intero ciclo di vita del processo di apprendimento automatico, tra cui il training del modello, la distribuzione del modello e il monitoraggio. È possibile usare Griglia di eventi per rispondere a eventi di Azure Machine Learning come il completamento delle esecuzioni di training, la registrazione e distribuzione dei modelli e il rilevamento della deriva dei dati, usando architetture serverless moderne. È quindi possibile sottoscrivere e usare eventi quali modifica dello stato di esecuzione, completamento dell'esecuzione, registrazione del modello, distribuzione del modello e rilevamento della deriva dei dati in un'area di lavoro.
 

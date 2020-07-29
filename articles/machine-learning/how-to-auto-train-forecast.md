@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f27fc9542d6c4e9027c7a1a0d4daeb7cb079e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321551"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371516"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ Per le attività di previsione, Machine Learning automatizzato usa operazioni di
 
 * Rilevare la frequenza di campionamento della serie temporale (ad esempio, ogni ora, giorno, settimana) e creare nuovi record per i momenti mancanti per rendere la serie continua
 * Imputare i valori mancanti nell'oggetto di destinazione (tramite il caricamento in diretta) e nelle colonne di funzioni (usando i valori della colonna mediana)
-* Creare funzionalità basate sulla granularità per consentire effetti fissi su serie diverse
+* Creazione di funzionalità basate su identificatori di serie temporali per consentire effetti fissi su diverse serie
 * Creare funzionalità basate sul tempo per facilitare l'apprendimento di modelli stagionali
 * Codificare variabili categoriche su quantità numeriche
 
@@ -139,21 +139,21 @@ L'oggetto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-a
 | Nome&nbsp;parametro | Descrizione | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Usato per specificare la colonna datetime nei dati di input usati per compilare la serie temporale e dedurne la frequenza.|✓|
-|`grain_column_names`|Nomi che definiscono i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
-|`max_horizon`|Definisce l'orizzonte di previsione massimo desiderato in unità di frequenza di serie temporali. Le unità si basano sull'intervallo temporale dei dati di training, ad esempio mensile o settimanale, che il modulo di previsione deve prevedere.|✓|
+|`time_series_id_column_names`|Il nome o i nomi di colonna utilizzati per identificare in modo univoco la serie temporale nei dati che hanno più righe con lo stesso timestamp. Se gli identificatori delle serie temporali non sono definiti, si presuppone che il set di dati sia una serie temporale.||
+|`forecast_horizon`|Definisce il numero di periodi in cui si desidera prevedere la previsione. L'orizzonte è in unità della frequenza della serie temporale. Le unità si basano sull'intervallo temporale dei dati di training, ad esempio mensile o settimanale, che il modulo di previsione deve prevedere.|✓|
 |`target_lags`|Numero di righe riferite al ritardo dei valori di destinazione in base alla frequenza dei dati. Il ritardo è rappresentato come un elenco o un singolo Integer. È consigliabile usare il ritardo quando la relazione tra le variabili indipendenti e la variabile dipendente non corrisponde o non è correlata per impostazione predefinita. Ad esempio, quando si tenta di prevedere la richiesta di un prodotto, la richiesta per un mese specifico può dipendere dal prezzo di determinati prodotti nei tre mesi precedenti. In questo esempio, è possibile che si voglia ritardare la destinazione (richiesta) negativamente di tre mesi, in modo che il modello sia in grado di eseguire il training sulla relazione corretta.||
 |`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training. Specificare questo parametro quando si vuole considerare solo una certa quantità di dati cronologici durante il training del modello.||
 |`enable_dnn`|Abilitare le reti neurali profonde di previsione.||
 
 Per altre informazioni, vedere la [documentazione di riferimento](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare `time_column_name` sul campo `day_datetime` nel set di dati. Definire il parametro `grain_column_names`, per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati: uno per il negozio A e uno per il negozio B. Infine, impostare `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 periodi con `target_rolling_window_size` e specificare un singolo ritardo sui valori di destinazione per due periodi successivi con il parametro `target_lags`. Si consiglia di impostare `max_horizon`, `target_rolling_window_size` e `target_lags` su "automatico", che rileverà automaticamente questi valori. Nell'esempio seguente sono state usate le impostazioni "automatiche" per questi parametri. 
+Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare `time_column_name` sul campo `day_datetime` nel set di dati. Definire il parametro `time_series_id_column_names`, per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati: uno per il negozio A e uno per il negozio B. Infine, impostare `forecast_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 periodi con `target_rolling_window_size` e specificare un singolo ritardo sui valori di destinazione per due periodi successivi con il parametro `target_lags`. Si consiglia di impostare `forecast_horizon`, `target_rolling_window_size` e `target_lags` su "automatico", che rileverà automaticamente questi valori. Nell'esempio seguente sono state usate le impostazioni "automatiche" per questi parametri. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
-Definendo `grain_column_names` nel frammento di codice precedente, Machine Learning automatizzato creerà due gruppi di serie temporali distinti, noti anche come serie temporali multiple. Se non viene definita alcuna granularità, Machine Learning automatizzato presuppone che il set di dati sia una singola serie temporale. Per altre informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Definendo `time_series_id_column_names` nel frammento di codice precedente, Machine Learning automatizzato creerà due gruppi di serie temporali distinti, noti anche come serie temporali multiple. Se non è definito alcun identificatore della serie temporale, AutoML presuppone che il set di dati sia una singola serie temporale. Per altre informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 A questo punto, creare un oggetto `AutoMLConfig` standard, specificando il tipo di attività `forecasting` e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
 
@@ -221,6 +221,32 @@ Per altre informazioni sull'ambiente di calcolo di Azure Machine Learning e sull
 
 Per un esempio di codice dettagliato sull'uso delle reti neurali profonde, vedere il [notebook relativo alle previsioni della produzione di bevande](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
+### <a name="customize-featurization"></a>Personalizzare conteggi
+È possibile personalizzare le impostazioni di conteggi per assicurarsi che i dati e le funzionalità usati per il training del modello ML provochino stime pertinenti. 
+
+Per personalizzare featurizations, specificare `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Se si usa Azure Machine Learning Studio per l'esperimento, vedere l'articolo sulle [procedure](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+Le personalizzazioni supportate includono:
+
+|Personalizzazione|Definizione|
+|--|--|
+|**Aggiornamento dello scopo della colonna**|Eseguire l'override del tipo di funzionalità rilevato automaticamente per la colonna specificata.|
+|**Aggiornamento dei parametri del trasformatore** |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l' *imputatore* (fill_value e mediana).|
+|**Eliminazione delle colonne** |Specifica le colonne da eliminare dall'trasformato.|
+
+Creare l' `FeaturizationConfig` oggetto definendo le configurazioni conteggi:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>Aggregazioni della finestra mobile di destinazione
 Spesso le informazioni migliori a disposizione di un modulo di previsione sono date dal valore recente della destinazione. La creazione di statistiche cumulative della destinazione può aumentare l'accuratezza delle stime. Le aggregazioni della finestra mobile di destinazione consentono di aggiungere un'aggregazione in sequenza di valori di dati come funzionalità. Per abilitare le finestre mobili di destinazione, impostare `target_rolling_window_size` sulle dimensioni della finestra Integer desiderate. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Ora che è stata determinata l'accuratezza complessiva del modello, il passaggio successivo più realistico consiste nell'uso del modello per prevedere valori futuri sconosciuti. Fornire un set di dati nello stesso formato del set di test `test_data`, ma con datetime futuri e il set di stime risultante, corrisponde ai valori previsti per ogni passaggio della serie temporale. Si supponga che gli ultimi record della serie temporale nel set di dati si riferiscano al giorno 31/12/2018. Per prevedere la richiesta del giorno successivo (o il numero di periodi che è necessario prevedere, < = `max_horizon`), creare un singolo record della serie temporale per ogni negozio per il giorno 01/01/2019.
+Ora che è stata determinata l'accuratezza complessiva del modello, il passaggio successivo più realistico consiste nell'uso del modello per prevedere valori futuri sconosciuti. Fornire un set di dati nello stesso formato del set di test `test_data`, ma con datetime futuri e il set di stime risultante, corrisponde ai valori previsti per ogni passaggio della serie temporale. Si supponga che gli ultimi record della serie temporale nel set di dati si riferiscano al giorno 31/12/2018. Per prevedere la richiesta del giorno successivo (o il numero di periodi che è necessario prevedere, < = `forecast_horizon`), creare un singolo record della serie temporale per ogni negozio per il giorno 01/01/2019.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 Ripetere i passaggi necessari per caricare i dati futuri in un dataframe e quindi eseguire `best_run.predict(test_data)` per stimare i valori futuri.
 
 > [!NOTE]
-> Non è possibile stimare i valori per un numero di periodi maggiore di `max_horizon`. È necessario rieseguire il training del modello con un orizzonte più ampio per stimare i valori futuri oltre l'orizzonte corrente.
+> Non è possibile stimare i valori per un numero di periodi maggiore di `forecast_horizon`. È necessario rieseguire il training del modello con un orizzonte più ampio per stimare i valori futuri oltre l'orizzonte corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

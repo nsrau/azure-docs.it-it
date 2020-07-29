@@ -1,6 +1,5 @@
 ---
-title: Prevedere risposte con modelli di regressione
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): prevedere le risposte con i modelli di regressione-Azure'
 description: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ac9f4262d614b1e413f4283d3c459e60fc6634e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318743"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
+
+
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Analisi scientifica dei dati per principianti
 È possibile scoprire come creare un modello di regressione semplice per prevedere il prezzo di un diamante guardando il quarto video della serie Analisi scientifica dei dati per principianti. Verrà rappresentato un modello di regressione con i dati di destinazione.
 

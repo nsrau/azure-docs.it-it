@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319355"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
@@ -59,7 +59,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 È consigliabile attivare i log delle risorse e inviarli ai log di monitoraggio di Azure. Sono **disattivate** per impostazione predefinita. Per attivarli, attenersi alla procedura seguente:
 
-1.  [Creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) se non ne è già presente uno. Si consiglia di usare l'area di lavoro Log Analytics nella stessa area del processo di analisi di flusso.
+1.  Creare un'area di lavoro Log Analytics se non ne è già presente uno. Si consiglia di usare l'area di lavoro Log Analytics nella stessa area del processo di analisi di flusso.
 
 2.  Accedere al portale di Azure e andare al processo di Analisi di flusso. In **Monitoraggio**selezionare **Log di diagnostica**. Selezionare quindi **Attiva diagnostica**.
 
@@ -138,12 +138,9 @@ Nome | Descrizione
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
 Message| Messaggio del log.
 Type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
-ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
+ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
-* [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Errori dei dati di analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

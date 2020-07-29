@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564428"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319049"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Arricchimento tramite intelligenza artificiale con Ricerca cognitiva di Azure
 
@@ -59,7 +59,7 @@ Un insieme di [competenze](cognitive-search-defining-skillset.md) assemblato con
 
 Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview), l'integrazione dell'[API Ricerca entità Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-<a name="enrichment-steps">Passaggi # # in una pipeline di arricchimento</a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Passaggi in una pipeline di arricchimento<a name="enrichment-steps"></a>
 
 Una pipeline di arricchimento è basata sugli [*indicizzatori*](search-indexer-overview.md). Gli indicizzatori popolano un indice in base ai mapping da campo a campo tra l'indice e l'origine dati per il cracking del documento. Le competenze, ora associate agli indicizzatori, intercettano e arricchiscono i documenti secondo le competenze definite. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca usando tutti i [tipi di query supportati da Ricerca cognitiva di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
@@ -121,6 +121,6 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
 + [Guida introduttiva: provare a arricchire l'intelligenza artificiale in una procedura dettagliata per il portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API di arricchimento intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Knowledge store](knowledge-store-concept-intro.md)
++ [Archivio conoscenze](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)

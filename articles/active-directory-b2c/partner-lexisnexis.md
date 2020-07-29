@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fa4610c925429ea59eae7399094230c1370bf2a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098257"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371193"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ In questa esercitazione di esempio vengono fornite informazioni aggiuntive su co
 
 Questa integrazione esegue la profilatura in base a alcune informazioni utente, fornite dall'utente durante il flusso di iscrizione. ThreatMetrix determina se l'utente deve essere autorizzato a continuare ad accedere o meno. Gli attributi seguenti vengono presi in considerazione nell'analisi dei rischi di ThreatMetrix:
 
-- E-mail
+- Posta elettronica
 - Numero di telefono
 - Informazioni di profilatura raccolte dal computer dell'utente
 
@@ -147,7 +147,7 @@ Fare riferimento a questo [documento](https://docs.microsoft.com/azure/active-di
 
 6. Esaminare il flusso di accesso  
 
-7. Il puzzle CrossCore verrà visualizzato dopo aver immesso **continua**.
+7. Il puzzle ThreatMetrix verrà visualizzato dopo aver immesso **continua**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 05527ff456c70290a925befc9d30fb1eaf177199
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 66b0ba083dc05c10dbf001eebcbbdfa269285c2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008235"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318964"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introduzione a monitoraggio di Azure Application Insights Agent per i server locali
 
@@ -71,18 +71,19 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Visualizzare i dati di telemetria:
 
-- [Esplora le metriche](../../azure-monitor/platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
-- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
+- Eseguire [ricerche negli eventi e nei log](./diagnostic-search.md) per diagnosticare i problemi.
 - [Usare Analytics](../log-query/log-query-overview.md) per query più avanzate.
-- [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
+- [Creare dashboard](./overview-dashboard.md).
 
  Aggiungere altri dati di telemetria:
 
 - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
-- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
+- Aggiungere i dati di [telemetria del client Web](./javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- [Aggiungere il Application Insights SDK al codice per](./asp-net.md) poter inserire le chiamate di traccia e log.
 
 Eseguire altre operazioni con Application Insights Agent:
 
 - Esaminare le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per una spiegazione dei comandi disponibili qui.
 - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
+

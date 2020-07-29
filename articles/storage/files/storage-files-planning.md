@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370360"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
@@ -74,6 +75,30 @@ Per altre informazioni sulla crittografia in transito, vedere [Richiedere il tra
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="data-protection"></a>Protezione dei dati
+File di Azure offre un approccio a più livelli per garantire che i dati vengano sottoposti a backup, ripristinabili e protetti da minacce per la sicurezza.
+
+### <a name="soft-delete"></a>Eliminazione temporanea
+L'eliminazione temporanea per le condivisioni file (anteprima) è un'impostazione a livello di account di archiviazione che consente di ripristinare la condivisione file quando viene accidentalmente eliminata. Quando viene eliminata, una condivisione file passa a uno stato di eliminazione temporanea anziché essere cancellata definitivamente. È possibile configurare la quantità di tempo durante il quale i dati eliminati temporaneamente sono ripristinabili prima che vengano eliminati definitivamente ed eliminare la condivisione in qualsiasi momento durante questo periodo di conservazione. 
+
+È consigliabile attivare l'eliminazione temporanea per la maggior parte delle condivisioni file. Se si dispone di un flusso di lavoro in cui l'eliminazione della condivisione è comune e prevista, è possibile che si disponga di un periodo di conservazione molto breve o che l'eliminazione temporanea non sia abilitata.
+
+Per altre informazioni sull'eliminazione temporanea, vedere [impedire l'eliminazione accidentale di dati](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+
+### <a name="backup"></a>Backup
+È possibile eseguire il backup della condivisione file di Azure tramite [snapshot di condivisione](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), che sono copie temporizzate di sola lettura della condivisione. Gli snapshot sono incrementali, ovvero contengono solo la quantità di dati modificata rispetto allo snapshot precedente. È possibile avere fino a 200 snapshot per ogni condivisione file e conservarli per un massimo di 10 anni. È possibile eseguire manualmente questi snapshot nel portale di Azure, tramite PowerShell o l'interfaccia della riga di comando oppure è possibile usare [backup di Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Gli snapshot vengono archiviati all'interno della condivisione file, vale a dire che se si elimina la condivisione file, verranno eliminati anche gli snapshot. Per proteggere i backup di snapshot da eliminazioni accidentali, verificare che l'eliminazione temporanea sia abilitata per la condivisione.
+
+[Backup di Azure per le condivisioni file di Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) gestisce la pianificazione e la conservazione degli snapshot. Le funzionalità di nonno-padre-figlio (GFS) indicano che è possibile adottare snapshot giornalieri, settimanali, mensili e annuali, ognuno con un proprio periodo di conservazione distinto. Backup di Azure orchestra anche l'abilitazione dell'eliminazione temporanea e accetta un blocco di eliminazione su un account di archiviazione non appena viene configurata una condivisione file al suo interno per il backup. Infine, backup di Azure fornisce alcune funzionalità di monitoraggio e avviso chiave che consentono ai clienti di ottenere una visualizzazione consolidata del loro patrimonio di backup.
+
+È possibile eseguire ripristini a livello di elemento e di condivisione nel portale di Azure usando backup di Azure. È sufficiente scegliere il punto di ripristino (uno snapshot particolare), il file o la directory specifica, se pertinente, quindi il percorso (originale o alternativo) in cui si vuole eseguire il ripristino. Il servizio di backup gestisce la copia dei dati dello snapshot e Mostra lo stato di avanzamento del ripristino nel portale.
+
+Per ulteriori informazioni sul backup, vedere [informazioni sul backup di condivisioni file di Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection per File di Azure (anteprima)
+Advanced Threat Protection (ATP) per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che fornisce avvisi quando rileva attività anomale nell'account di archiviazione, ad esempio tentativi insoliti di accedere all'account di archiviazione. ATP esegue anche l'analisi della reputazione di hash malware e avvisa su malware noto. È possibile configurare ATP a livello di sottoscrizione o di account di archiviazione tramite il Centro sicurezza di Azure. 
+
+Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
 
 ## <a name="storage-tiers"></a>Livelli di archiviazione
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

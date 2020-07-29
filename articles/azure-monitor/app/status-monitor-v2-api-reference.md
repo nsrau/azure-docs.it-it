@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318998"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
 
@@ -83,7 +83,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-Esempio:
+In questo esempio:
 - `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
 - `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
@@ -113,7 +113,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-##### <a name="schema"></a>SCHEMA
+##### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
@@ -475,7 +475,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-Esempio:
+In questo esempio:
 - `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
 - `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
@@ -503,7 +503,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-##### <a name="schema"></a>SCHEMA
+##### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
@@ -638,14 +638,15 @@ Timeout Reached. Stopping...
 
   Visualizzare i dati di telemetria:
  - [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
-- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- Eseguire [ricerche negli eventi e nei log](./diagnostic-search.md) per diagnosticare i problemi.
 - Usare [Analytics](../log-query/log-query-overview.md) per query più avanzate.
-- [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
+- [Creare dashboard](./overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
-- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
+- Aggiungere i dati di [telemetria del client Web](./javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- [Aggiungere il Application Insights SDK al codice per](./asp-net.md) poter inserire le chiamate di traccia e log.
  
  Eseguire altre operazioni con Application Insights Agent:
  - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
+

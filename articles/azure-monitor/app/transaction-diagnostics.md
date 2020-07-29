@@ -4,11 +4,12 @@ description: Diagnostica della transazioni end-to-end in Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671138"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318913"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -55,15 +56,15 @@ Questo riquadro comprimibile mostra i dettagli di qualsiasi elemento selezionato
 
 ![Dettagli dell'eccezione](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Search Results
+## <a name="search-results"></a>Risultati della ricerca
 
 Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del filtro. Fare clic su qualsiasi risultato per aggiornare i rispettivi dettagli delle 3 sezioni elencate in precedenza. Tentiamo di trovare gli esempi con le maggiori possibilità di ottenere dettagli disponibili da tutti i componenti, anche se il campionamento è attivo in ognuno di essi. Questi vengono visualizzati come esempi "consigliati".
 
-![Search Results](media/transaction-diagnostics/searchResults.png)
+![Risultati della ricerca](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e Snapshot Debugger
 
-[Application Insights Profiler](../../azure-monitor/app/profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
+[Application Insights Profiler](./profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
 
 Se non è stato possibile ottenere il funzionamento del profiler, contattare **serviceprofilerhelp \@ Microsoft.com**
 
@@ -94,3 +95,4 @@ Le sequenze temporali vengono modificate in base agli sfasamenti di orario nel g
 *Perché nella nuova esperienza manca la maggior parte delle query degli elementi correlati?*
 
 Questo si verifica per motivi strutturali. Tutti gli elementi correlati in tutti i componenti sono già disponibili a sinistra (nelle sezioni in alto e in basso). La nuova esperienza presenta due elementi correlati che non sono riportati a sinistra: tutti i dati di telemetria generati nei cinque minuti precedenti e successivi a questo evento e la sequenza temporale dell'utente.
+

@@ -3,12 +3,12 @@ title: Distribuzione di eventi con l'identità del servizio gestita
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119192"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371261"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -70,8 +70,8 @@ Griglia di eventi di Azure supporta attualmente gli argomenti o i domini configu
 
 | Destination | Ruolo di controllo degli accessi in base al ruolo | 
 | ----------- | --------- | 
-| Code e argomenti del bus di servizio | [Mittente dei dati del bus di servizio di Azure](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Hub eventi di Azure | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Code e argomenti del bus di servizio | [Mittente dei dati del bus di servizio di Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Hub eventi di Azure | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Archiviazione BLOB di Azure | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
 | Archiviazione code di Azure |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 

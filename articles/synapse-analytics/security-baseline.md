@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089329"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370275"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Baseline della sicurezza di Azure per l'analisi delle sinapsi
 
@@ -314,7 +314,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 Quando si distribuisce per la prima volta SQL di Azure, è necessario specificare un account di accesso amministratore e una password associata per tale account di accesso. Questo account amministrativo è denominato amministratore del server. È possibile identificare gli account amministratore per un database aprendo il portale di Azure e passando alla scheda proprietà del server o dell'istanza gestita. È anche possibile configurare un account amministratore Azure AD con autorizzazioni amministrative complete. questa operazione è necessaria se si desidera abilitare l'autenticazione Azure Active Directory.
 
-Per le operazioni di gestione, usare i ruoli predefiniti di controllo degli accessi in base al ruolo di Azure (RBAC) che devono essere assegnati in modo esplicito. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
+Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono essere assegnati in modo esplicito. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
 * [Autenticazione per il database SQL](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ Per le operazioni di gestione, usare i ruoli predefiniti di controllo degli acce
 
 * [Come gestire gli account di accesso e gli account amministratore esistenti in SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Ruoli predefiniti di Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1026,7 +1026,7 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 Se si usa una chiave gestita dal cliente per crittografare la chiave di crittografia del database, assicurarsi che venga eseguito il backup della chiave.
 
-* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Come eseguire il backup di chiavi di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

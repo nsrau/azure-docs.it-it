@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza di Backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319304"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza in Backup di Azure
 
@@ -38,17 +38,21 @@ Il backup delle macchine virtuali di Azure richiede lo spostamento dei dati dal 
 
 ## <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per Backup di Azure
 
-È ora possibile usare gli [endpoint privati](../private-link/private-endpoint-overview.md) per eseguire il backup dei dati in modo sicuro dai server all'interno di una rete virtuale nell'insieme di credenziali di Servizi di ripristino. L'endpoint privato usa un IP dallo spazio indirizzi della VNET per l'insieme di credenziali, pertanto non è necessario esporre le reti virtuali a indirizzi IP pubblici. È possibile usare gli endpoint privati per eseguire il backup e il ripristino dei database SQL e SAP HANA in esecuzione nelle macchine virtuali di Azure. Possono anche essere usati per i server locali che usano l'agente MARS.
+È ora possibile usare gli [endpoint privati](../private-link/private-endpoint-overview.md) per eseguire il backup dei dati in modo sicuro dai server all'interno di una rete virtuale nell'insieme di credenziali di Servizi di ripristino. L'endpoint privato usa un IP dallo spazio di indirizzi della VNET per l'insieme di credenziali, quindi non è necessario esporre le reti virtuali a tutti gli indirizzi IP pubblici. È possibile usare gli endpoint privati per eseguire il backup e il ripristino dei database SQL e SAP HANA in esecuzione nelle macchine virtuali di Azure. Possono anche essere usati per i server locali che usano l'agente MARS.
 
 Altre informazioni sugli endpoint privati per Backup di Azure sono disponibili [qui](./private-endpoints.md).
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>Crittografia dei dati in transito e inattivi
+## <a name="encryption-of-data"></a>Crittografia dei dati
 
-La crittografia protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. All'interno di Azure i dati in transito tra Archiviazione di Azure e l'insieme di credenziali sono protetti con HTTPS. Questi dati rimangono all'interno della rete backbone di Azure.
+La crittografia protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. La crittografia dei dati viene eseguita in molte fasi di backup di Azure:
 
-* I dati di backup vengono crittografati automaticamente usando chiavi gestite da Microsoft. È anche possibile crittografare le macchine virtuali con dischi gestiti di cui è stato eseguito il backup nell'insieme di credenziali di Servizi di ripristino usando [chiavi gestite dal cliente](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) archiviate in Azure Key Vault. Non è necessario eseguire alcuna azione esplicita per abilitare la crittografia: si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di Servizi di ripristino.
+* In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono [protetti da https](backup-support-matrix.md#network-traffic-to-azure). Questi dati rimangono all'interno della rete backbone di Azure.
 
-* Backup di Azure supporta il backup e il ripristino delle VM di Azure i cui dischi del sistema operativo e dei dati sono crittografati con Crittografia dischi di Azure. [Altre informazioni sulle VM di Azure crittografate e su Backup di Azure](./backup-azure-vms-encryption.md).
+* I dati di backup vengono crittografati automaticamente usando [chiavi gestite da Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)e non è necessario intraprendere alcuna azione esplicita per abilitarla. È anche possibile crittografare i dati di cui è stato eseguito il backup usando [chiavi gestite dal cliente](encryption-at-rest-with-cmk.md) archiviate nel Azure Key Vault. si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di Servizi di ripristino.
+
+* Backup di Azure supporta il backup e il ripristino di macchine virtuali di Azure con i dischi del sistema operativo/dati crittografati con [crittografia dischi di Azure (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) e le [VM con dischi crittografati CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Per altre informazioni, vedere [altre informazioni sulle macchine virtuali di Azure crittografate e backup di Azure](./backup-azure-vms-encryption.md).
+
+* Quando si esegue il backup dei dati dai server locali con l'agente MARS, i dati vengono crittografati con una passphrase prima del caricamento in backup di Azure e decrittografati solo dopo essere stati scaricati da backup di Azure. Scopri di più sulle [funzionalità di sicurezza per proteggere i backup ibridi](#security-features-to-help-protect-hybrid-backups).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protezione dei dati di backup da eliminazioni accidentali
 
