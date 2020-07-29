@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: ec516ac1cd9c2a6201bfc77bd1169bcd8ea83e44
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f64c7aa45b748bdb8174bd69dbfc25f43329c10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285340"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicare le macchine virtuali di Azure in esecuzione nei gruppi di posizionamento di prossimità in un'altra area
 
@@ -28,14 +28,21 @@ In uno scenario tipico, è possibile che le macchine virtuali siano in esecuzion
 -  Se un set di disponibilità viene aggiunto a un gruppo di posizionamento di prossimità e durante il failover/failback le macchine virtuali nel set di disponibilità hanno un vincolo di allocazione, le macchine virtuali verranno create al di fuori del set di disponibilità e del gruppo di posizionamento di prossimità.
 -  Site Recovery per i gruppi di posizionamento di prossimità non è supportato per i dischi non gestiti.
 
-> [!Note]
+> [!NOTE]
 > Azure Site Recovery non supporta il failback da dischi gestiti per scenari da Hyper-V ad Azure. Di conseguenza, il failback dal gruppo di posizionamento di prossimità in Azure a Hyper-V non è supportato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. Verificare che sia installato il modulo Az di Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+2. Il valore minimo Azure PowerShell AZ Version dovrebbe essere 4.1.0. Per controllare la versione corrente, usare il comando seguente:
+    ```
+    Get-InstalledModule -Name Az
+    ```
 
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurare Site Recovery per le macchine virtuali nel gruppo di posizionamento di prossimità
+
+> [!NOTE]
+> Assicurarsi di avere a portata di mano l'ID univoco del gruppo di posizionamento di prossimità di destinazione. Se si sta creando un nuovo gruppo di posizionamento di prossimità, controllare il comando [qui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) e, se si usa un gruppo di posizionamento di prossimità esistente, usare il comando [qui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>Da Azure ad Azure
 
@@ -48,7 +55,7 @@ In uno scenario tipico, è possibile che le macchine virtuali siano in esecuzion
 7. Creare un mapping del contenitore di protezione tra il contenitore di protezione primario e quello di ripristino usando [questi](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) passaggi e un mapping del contenitore di protezione per il failback come indicato [qui](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
 8. Creare un account di archiviazione della cache seguendo [questi](./azure-to-azure-powershell.md#create-cache-storage-account-and-target-storage-account) passaggi.
 9. Creare i mapping di rete necessari come indicato [qui](./azure-to-azure-powershell.md#create-network-mappings).
-10. Per replicare una macchina virtuale di Azure con dischi gestiti, usare il cmdlet di PowerShell seguente: 
+10. Per replicare la macchina virtuale di Azure con Managed disks, usare il cmdlet di PowerShell seguente-
 
 ```azurepowershell
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -77,7 +84,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 
-$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $recPpg.Id
+$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 Quando l'operazione di avvio della replica ha esito positivo, i dati della macchina virtuale vengono replicati nell'area di ripristino.
 
@@ -85,7 +92,7 @@ Il processo di replica inizia eseguendo il seeding di una copia dei dischi repli
 
 Al termine della replica iniziale, la replica passa alla fase di sincronizzazione differenziale. A questo punto la macchina virtuale è protetta ed è possibile eseguire un'operazione di failover di test. Al termine della replica iniziale, lo stato della replica dell'elemento replicato che rappresenta la macchina virtuale passa allo stato Protetto.
 
-Per monitorare lo stato e l'integrità della replica della macchina virtuale, ottenere i dettagli dell'elemento della macchina virtuale protetto dalla replica. 
+Per monitorare lo stato e l'integrità della replica della macchina virtuale, ottenere i dettagli dell'elemento della macchina virtuale protetto dalla replica.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -130,7 +137,7 @@ $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $Protection
 
 # Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $recPpg.Id
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 8. Per controllare lo stato di replica e l'integrità della replica della macchina virtuale, è possibile usare il cmdlet Get-ASRReplicationProtectedItem.
 
@@ -161,7 +168,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
     
     ```azurepowershell
     $OSType = "Windows"          # "Windows" or "Linux"
-    $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId   $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $recPpg.Id
+    $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId   $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $targetPpg.Id
     ```
     c. Attendere che le macchine virtuali raggiungano uno stato protetto dopo la replica iniziale. L’operazione può richiedere un certo tempo a seconda di fattori quali la quantità di dati da replicare e la larghezza di banda upstream disponibile in Azure. Quando viene raggiunto lo stato protetto, i valori State e StateDescription del processo vengono aggiornati come segue: 
     

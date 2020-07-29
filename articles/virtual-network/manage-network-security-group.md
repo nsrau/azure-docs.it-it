@@ -1,7 +1,7 @@
 ---
 title: Creare, modificare o eliminare un gruppo di sicurezza di rete di Azure
 titlesuffix: Azure Virtual Network
-description: Informazioni su come creare, modificare o eliminare un gruppo di sicurezza di rete.
+description: Informazioni su dove trovare informazioni sulle regole di sicurezza e su come creare, modificare o eliminare un gruppo di sicurezza di rete.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281260"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -63,7 +63,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al [r
 
 5. Dopo aver visualizzato il messaggio **convalida superata** , selezionare **Crea**.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -74,7 +74,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al [r
 
 Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gruppi di sicurezza di rete. Cercare e selezionare **gruppi di sicurezza di rete**. Viene visualizzato l'elenco dei gruppi di sicurezza di rete per la sottoscrizione.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -99,7 +99,7 @@ Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli a
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script di automazione](../azure-resource-manager/templates/export-template-portal.md)
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -114,7 +114,7 @@ Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli a
 
 Le modifiche più comuni sono l' [aggiunta di una regola di sicurezza](#create-a-security-rule), la [rimozione di una regola](#delete-a-security-rule)e l' [associazione o l'associazione di un gruppo di sicurezza di rete a o da una subnet o un'interfaccia di rete](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -135,7 +135,7 @@ Se un gruppo di sicurezza di rete è associato ad alcuna subnet o interfaccia di
 
 3. Nella barra degli strumenti del gruppo di sicurezza di rete selezionare **Elimina**. Quindi, selezionare **Sì** nella finestra di dialogo di conferma.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -174,11 +174,11 @@ Esiste un limite al numero di regole per gruppo di sicurezza di rete che è poss
     | **Intervalli di porte di destinazione** | Uno dei valori possibili:<ul><li>Una singola porta, ad esempio`80`</li><li>Un intervallo di porte, ad esempio`1024-65535`</li><li>Elenco delimitato da virgole di porte singole e/o intervalli di porte, ad esempio`80, 1024-65535`</li><li>Un asterisco ( `*` ) per consentire il traffico su qualsiasi porta</li></ul> | Come per gli **intervalli di porte di origine**, è possibile specificare una o più porte e intervalli. Sono previsti limiti al numero che è possibile specificare. Per informazioni dettagliate, vedere [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
     | **Protocollo** | **Any**, **TCP**, **UDP**o **ICMP** | È possibile limitare la regola alla Transmission Control Protocol (TCP), al protocollo UDP (User Datagram Protocol) o Internet Control Message Protocol (ICMP). Per impostazione predefinita, la regola viene applicata a tutti i protocolli. |
     | **Azione** | **Consenti** o **Nega** | Questa impostazione specifica se questa regola consente o nega l'accesso per la configurazione di origine e destinazione fornita. |
-    | **Priority** | Valore compreso tra 100 e 4096 univoco per tutte le regole di sicurezza all'interno del gruppo di sicurezza di rete | Azure elabora le regole di sicurezza in ordine di priorità. Più è basso il numero, maggiore sarà la priorità. Si consiglia di lasciare uno spazio tra i numeri di priorità quando si creano regole, ad esempio 100, 200 e 300. Lasciando Gap rende più semplice l'aggiunta di regole in futuro, in modo da poter assegnare loro una priorità più alta o più bassa rispetto alle regole esistenti. |
+    | **Priorità** | Valore compreso tra 100 e 4096 univoco per tutte le regole di sicurezza all'interno del gruppo di sicurezza di rete | Azure elabora le regole di sicurezza in ordine di priorità. Più è basso il numero, maggiore sarà la priorità. Si consiglia di lasciare uno spazio tra i numeri di priorità quando si creano regole, ad esempio 100, 200 e 300. Lasciando Gap rende più semplice l'aggiunta di regole in futuro, in modo da poter assegnare loro una priorità più alta o più bassa rispetto alle regole esistenti. |
     | **Nome** | Un nome univoco per la regola all'interno del gruppo di sicurezza di rete | Il nome può contenere fino a 80 caratteri. Deve iniziare con una lettera o un numero e deve terminare con una lettera, un numero o un carattere di sottolineatura. Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. |
     | **Descrizione** | Una descrizione di testo | Facoltativamente, è possibile specificare una descrizione di testo per la regola di sicurezza. |
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -197,7 +197,7 @@ Un gruppo di sicurezza di rete contiene zero o più regole. Per saperne di più 
 
 L'elenco contiene le regole create e le [regole di sicurezza predefinite](security-overview.md#default-security-rules)del gruppo di sicurezza di rete.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -217,7 +217,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non funziona se si sceglie una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -233,7 +233,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non è consentito modificare una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -249,7 +249,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non è possibile eliminare una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -281,7 +281,7 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
 
 6. Nella scheda **Verifica e crea** , dopo aver visualizzato il messaggio **convalida superata** , selezionare **Crea**.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -292,7 +292,7 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
 
 Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gruppi di sicurezza delle applicazioni. Cercare e selezionare **gruppi di sicurezza delle applicazioni**. Il portale di Azure Visualizza un elenco dei gruppi di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -305,7 +305,7 @@ Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gru
 
 2. Selezionare il nome del gruppo di sicurezza delle applicazioni per cui si desidera visualizzare i dettagli.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -325,7 +325,7 @@ Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gru
 
     Nella barra dei menu è anche possibile selezionare **controllo di accesso (IAM)**. Nella pagina **controllo di accesso (IAM)** è possibile assegnare o rimuovere le autorizzazioni per il gruppo di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -342,7 +342,7 @@ Non è possibile eliminare un gruppo di sicurezza dell'applicazione se contiene 
 
 3. Selezionare **Elimina**, quindi selezionare **Sì** per eliminare il gruppo di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -355,7 +355,7 @@ Per eseguire attività sui gruppi di sicurezza di rete, le regole di sicurezza e
 
 ### <a name="network-security-group"></a>Gruppo di sicurezza di rete
 
-| Action                                                        |   Nome                                                                |
+| Azione                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Ottenere un gruppo di sicurezza di rete                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Creare o aggiornare un gruppo di sicurezza di rete                             |
@@ -364,7 +364,7 @@ Per eseguire attività sui gruppi di sicurezza di rete, le regole di sicurezza e
 
 ### <a name="network-security-group-rule"></a>Regola del gruppo di sicurezza di rete
 
-| Action                                                        |   Nome                                                                |
+| Azione                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   Ottenere una regola                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   Creare o aggiornare una regola                                               |
@@ -372,7 +372,7 @@ Per eseguire attività sui gruppi di sicurezza di rete, le regole di sicurezza e
 
 ### <a name="application-security-group"></a>Gruppo di sicurezza dell'applicazione
 
-| Action                                                                     | Nome                                                     |
+| Azione                                                                     | Nome                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Aggiungere una configurazione IP a gruppi di sicurezza dell'applicazione|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Aggiungere una regola di sicurezza a un gruppo di sicurezza dell'applicazione    |

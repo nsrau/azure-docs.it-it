@@ -7,20 +7,28 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9be44d29ab08a7404bfb14d691bb5bb339284714
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3d03588230cd0fb959807cd8f19930792d9846f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285595"
 ---
-# <a name="integrate-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali con Azure Time Series Insights
+# <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali di Azure con Azure Time Series Insights
 
-In questo riferimento si apprenderà come integrare i dispositivi gemelli digitali di Azure con [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Questa soluzione consentirà di raccogliere e analizzare i dati cronologici sulla soluzione Internet delle cose. I dispositivi gemelli digitali di Azure sono ideali per inserire i dati in Time Series Insights, perché consentono di correlare più flussi di dati e standardizzare le informazioni prima di inviarle ai Time Series Insights. 
+In questo articolo si apprenderà come integrare i dispositivi gemelli digitali di Azure con [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md).
+
+La soluzione descritta in questo articolo consente di raccogliere e analizzare i dati cronologici sulla soluzione Internet delle cose. I dispositivi gemelli digitali di Azure sono ideali per inserire i dati in Time Series Insights, perché consentono di correlare più flussi di dati e standardizzare le informazioni prima di inviarle ai Time Series Insights. 
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Prima di poter configurare una relazione con Time Series Insights, è necessario avere un'istanza di **Azure Digital gemelli**. Questa istanza deve essere configurata con la possibilità di aggiornare le informazioni sui dispositivi gemelli digitali in base ai dati, in quanto è necessario aggiornare le informazioni gemelle alcune volte per vedere che i dati sono stati rilevati in Time Series Insights. 
+
+Se questa operazione non è già stata configurata, è possibile crearla seguendo l'esercitazione sui dispositivi gemelli di Azure Digital [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md). Questa esercitazione illustra la configurazione di un'istanza di Azure Digital gemelli che funziona con un dispositivo di Internet delle cose virtuali per attivare gli aggiornamenti dei dispositivi gemelli digitali.
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
-Verrà collegato Time Series Insights a dispositivi digitali gemelli di Azure tramite il percorso riportato di seguito.
+Si collegherà Time Series Insights ai dispositivi gemelli digitali di Azure tramite il percorso riportato di seguito.
 
 :::row:::
     :::column:::
@@ -30,53 +38,52 @@ Verrà collegato Time Series Insights a dispositivi digitali gemelli di Azure tr
     :::column-end:::
 :::row-end:::
 
-## <a name="prerequisites"></a>Prerequisiti
-
-* È necessaria un'istanza di Azure Digital Twins che è possibile aggiornare le informazioni gemelle più volte per vedere che i dati sono stati rilevati in Time Series Insights. 
-    * Se non è presente, seguire l'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) per configurare un'istanza di dispositivi gemelli digitali di Azure e un dispositivo dell'intero virtuale per generare modifiche dei dispositivi gemelli.
-
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare le notifiche di aggiornamento del dispositivo gemello
 
-Le istanze dei dispositivi gemelli digitali di Azure possono generare [eventi di aggiornamento gemelli](how-to-interpret-event-data.md) ogni volta che viene aggiornato lo stato di un dispositivo Verrà creata una route che indirizza gli eventi di aggiornamento a un hub eventi per un'ulteriore elaborazione.
+Le istanze dei dispositivi gemelli digitali di Azure possono generare [eventi di aggiornamento gemelli](how-to-interpret-event-data.md) ogni volta che viene aggiornato lo stato di un dispositivo In questa sezione verrà creata una [**Route di eventi**](concepts-route-events.md) di Azure Digital gemelli che indirizza gli eventi di aggiornamento a [Hub eventi](../event-hubs/event-hubs-about.md) di Azure per l'ulteriore elaborazione.
 
-Esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) illustra uno scenario in cui viene usato un termometro per aggiornare un attributo di temperatura collegato al dispositivo gemello di una stanza. Questo modello usa gli aggiornamenti dei dispositivi gemelli, anziché l'invio di dati di telemetria da un dispositivo Internet delle cose, che offre la flessibilità necessaria per modificare l'origine dati sottostante senza dover aggiornare la logica del Time Series Insights.
+Esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) illustra uno scenario in cui viene usato un termometro per aggiornare un attributo di temperatura in un dispositivo gemello digitale che rappresenta una stanza. Questo modello si basa sugli aggiornamenti dei dispositivi gemelli anziché sull'invio di dati di telemetria da un dispositivo Internet delle cose, che offre la flessibilità necessaria per modificare l'origine dati sottostante senza dover aggiornare la logica del Time Series Insights.
 
-1. Creare uno spazio dei nomi dell'hub eventi che riceverà gli eventi dall'istanza di Azure Digital gemelli. È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: creare un hub eventi usando portale di Azure*](../event-hubs/event-hubs-create.md).
+1. Prima di tutto, creare uno spazio dei nomi dell'hub eventi, che riceverà gli eventi dall'istanza di Azure Digital gemelli. È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: creare un hub eventi usando portale di Azure*](../event-hubs/event-hubs-create.md).
 
     ```azurecli-interactive
     # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
     ```
 
-2. Creare un hub eventi.
+2. Creare un hub eventi nello spazio dei nomi.
 
     ```azurecli-interactive
     # Create an event hub to receive twin change events. Specify a name for the event hub. 
-    az eventhubs eventhub create --name <event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
+    az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
 3. Creare una [regola di autorizzazione](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) con le autorizzazioni di invio e ricezione.
 
     ```azurecli-interactive
     # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <twins event hub name> --name <twins auth rule>
+    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
-4. Creare un endpoint per collegare l'argomento di griglia di eventi ai dispositivi gemelli digitali di Azure.
+4. Creare un [endpoint](concepts-route-events.md#create-an-endpoint) di Azure Digital Twins che collega l'argomento di griglia di eventi all'istanza di Azure Digital gemelli.
 
     ```azurecli
-    az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace> --eventhub <twins event hub name> --eventhub-policy <twins auth rule> -n <your-Azure-Digital-Twins-instance-name>
+    az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
     ```
 
-5. Creare una route nei dispositivi gemelli digitali di Azure per inviare eventi di aggiornamento dei dispositivi gemelli all'endpoint. Il filtro in questa route consente di passare solo i messaggi di aggiornamento gemelli all'endpoint.
+5. Creare una [Route](concepts-route-events.md#create-an-event-route) nei dispositivi gemelli digitali di Azure per inviare eventi di aggiornamento dei dispositivi gemelli all'endpoint. Il filtro in questa route consente di passare solo i messaggi di aggiornamento gemelli all'endpoint.
 
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Hub-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
+
+Prima di procedere, prendere nota dello *spazio dei nomi* e del *gruppo di risorse*dell'hub eventi, perché verranno usati di nuovo per creare un altro hub eventi più avanti in questo articolo.
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure 
 
-Successivamente, si creerà una funzione attivata da Hub eventi all'interno di una nuova app per le funzioni, l'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione converte gli aggiornamenti dal formato originale come documenti patch JSON in oggetti JSON che contengono solo valori aggiornati e aggiunti dai dispositivi gemelli.
+Successivamente, verrà creata una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)) o personalizzata. 
+
+Questa funzione convertirà gli eventi di aggiornamento dei dispositivi gemelli dal formato originale come documenti patch JSON in oggetti JSON, che contengono solo valori aggiornati e aggiunti dai dispositivi gemelli.
 
 Per altre informazioni sull'uso di hub eventi con funzioni di Azure, vedere [*trigger di hub eventi di Azure per funzioni di Azure*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
@@ -98,8 +105,8 @@ namespace SampleFunctionsApp
     { 
         [FunctionName("ProcessDTUpdatetoTSI")]
         public static async Task Run(
-            [EventHubTrigger("twins-fx-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
-            [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
+            [EventHubTrigger("twins-event-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
+            [EventHub("tsi-event-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
             ILogger log)
         {
             JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
@@ -128,48 +135,50 @@ namespace SampleFunctionsApp
 
 Da qui, la funzione invierà gli oggetti JSON creati a un secondo hub eventi, a cui ci si connetterà Time Series Insights.
 
+Successivamente, si imposteranno anche alcune variabili di ambiente che verranno usate da questa funzione per connettersi ai propri hub eventi.
+
 ## <a name="send-telemetry-to-an-event-hub"></a>Inviare dati di telemetria a un hub eventi
 
-Si creerà ora un secondo hub eventi e si configurerà la funzione per trasmettere il relativo output a tale hub eventi. Questo hub eventi verrà quindi connesso a Time Series Insights.
+A questo punto si creerà un secondo hub eventi e si configurerà la funzione per trasmettere il relativo output a tale hub eventi. Questo hub eventi verrà quindi connesso a Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Creare un hub eventi
 
-È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: creare un hub eventi usando portale di Azure*](../event-hubs/event-hubs-create.md).
+Per creare il secondo hub eventi, è possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: creare un hub eventi usando portale di Azure*](../event-hubs/event-hubs-create.md).
 
-1. Preparare lo spazio dei nomi dell'hub eventi e il nome del gruppo di risorse precedente 
+1. Preparare *lo spazio dei nomi di hub eventi* e il nome del *gruppo di risorse* precedente in questo articolo
 
-2. Creare un hub eventi
+2. Creare un nuovo hub eventi
     ```azurecli-interactive
     # Create an event hub. Specify a name for the event hub. 
-    az eventhubs eventhub create --name <TSI event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
+    az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
 3. Creare una [regola di autorizzazione](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) con le autorizzazioni di invio e ricezione
     ```azurecli-interactive
     # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <TSI auth rule>
+    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
-### <a name="configure-your-function"></a>Configurare la funzione
+## <a name="configure-your-function"></a>Configurare la funzione
 
-È necessario impostare una variabile di ambiente nell'app per le funzioni precedente, contenente la stringa di connessione dell'hub eventi.
+A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenenti le stringhe di connessione per gli hub eventi creati.
 
-#### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Impostare la stringa di connessione dell'hub eventi Time Series Insights
+### <a name="set-the-twins-event-hub-connection-string"></a>Impostare la stringa di connessione dell'hub eventi gemelli
 
-1. Ottenere la [stringa di connessione dell'hub eventi](../event-hubs/event-hubs-get-connection-string.md) per le regole di autorizzazione create in precedenza per l'hub Time Series Insights:
+1. Ottenere la [stringa di connessione dell'hub eventi](../event-hubs/event-hubs-get-connection-string.md)gemelli, usando le regole di autorizzazione create in precedenza per l'hub gemelli.
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <twins event hub name> --name <twins auth rule>
+    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. Nell'app per le funzioni creare un'impostazione dell'app contenente la stringa di connessione:
+2. Usare la stringa di connessione che si ottiene come risultato per creare un'impostazione dell'app nell'app per le funzioni che contiene la stringa di connessione:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 
-#### <a name="set-the-twins-event-hub-connection-string"></a>Impostare la stringa di connessione dell'hub eventi gemelli
+### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Impostare la stringa di connessione dell'hub eventi Time Series Insights
 
-1. Ottenere la [stringa di connessione dell'hub eventi](../event-hubs/event-hubs-get-connection-string.md) per le regole di autorizzazione create in precedenza per l'hub gemelli.
+1. Ottenere la [stringa di connessione dell'hub eventi](../event-hubs/event-hubs-get-connection-string.md)di TSI, usando le regole di autorizzazione create in precedenza per l'hub Time Series Insights:
 
     ```azurecli-interactive
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
@@ -178,16 +187,16 @@ Si creerà ora un secondo hub eventi e si configurerà la funzione per trasmette
 2. Nell'app per le funzioni creare un'impostazione dell'app contenente la stringa di connessione:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Creazione e connessione di un'istanza di Time Series Insights
 
-Si procederà quindi alla configurazione di un'istanza di Time Series Insights per ricevere i dati dal secondo hub eventi. Per ulteriori informazioni su questo processo [ *, vedere Esercitazione: configurazione di un ambiente Azure Time Series Insights Gen2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md)
+Si procederà quindi alla configurazione di un'istanza di Time Series Insights per ricevere i dati dal secondo hub eventi. Seguire questa procedura e per altre informazioni su questo processo, vedere [*esercitazione: configurare un ambiente Azure Time Series Insights PAYG Gen2*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
 1. Nella portale di Azure iniziare a creare una risorsa Time Series Insights. 
     1. Selezionare il piano tariffario **PAYG (anteprima)** .
-    2. È necessario scegliere un ID della serie temporale per questo ambiente. L'ID della serie temporale può essere composto da un massimo di tre valori che verranno usati per la ricerca dei dati in Time Series Insights. Per questa esercitazione, è possibile usare **$dtId**. Per altre informazioni sulla selezione di un valore ID, vedere [*procedure consigliate per la scelta di un ID di serie temporale*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
+    2. È necessario scegliere un ID della **serie temporale** per questo ambiente. L'ID della serie temporale può essere composto da un massimo di tre valori che verranno usati per la ricerca dei dati in Time Series Insights. Per questa esercitazione, è possibile usare **$dtId**. Per altre informazioni sulla selezione di un valore ID, vedere [*procedure consigliate per la scelta di un ID di serie temporale*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Il portale di creazione UX per un ambiente Time Series Insights. Il piano tariffario PAYG (anteprima) è selezionato e il nome della proprietà ID della serie temporale è $dtId":::
 
@@ -197,23 +206,23 @@ Si procederà quindi alla configurazione di un'istanza di Time Series Insights p
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Iniziare a inviare i dati dell'Internet di Azure ai dispositivi gemelli digitali
 
-Per iniziare a inviare dati a Time Series Insights, è necessario avviare l'aggiornamento delle proprietà dei dispositivi gemelli digitali con la modifica dei valori dei dati. Usare il comando [AZ DT Twin Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
+Per iniziare a inviare dati a Time Series Insights, è necessario avviare l'aggiornamento delle proprietà dei dispositivi gemelli digitali nei dispositivi gemelli digitali di Azure con valori di dati modificabili. Usare il comando [AZ DT Twin Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
 
-Se si usa l'esercitazione end-to-end per semplificare la configurazione dell'ambiente, è possibile iniziare a inviare i dati delle cose simulate eseguendo il `DeviceSimulator` progetto dall'esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Le istruzioni sono disponibili nella sezione [*configurare ed eseguire la simulazione*](tutorial-end-to-end.md#configure-and-run-the-simulation) dell'esercitazione.
+Se si usa l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) per facilitare la configurazione dell'ambiente, è possibile iniziare a inviare i dati delle cose simulate eseguendo il progetto *DeviceSimulator* dall'esempio. Le istruzioni sono disponibili nella sezione [*configurare ed eseguire la simulazione*](tutorial-end-to-end.md#configure-and-run-the-simulation) dell'esercitazione.
 
 ## <a name="visualize-your-data-in-time-series-insights"></a>Visualizza i dati in Time Series Insights
 
 A questo punto, i dati devono essere propagati nell'istanza di Time Series Insights, pronti per essere analizzati. Per esplorare i dati in arrivo, attenersi alla procedura riportata di seguito.
 
-1. Aprire l'istanza di Time Series Insights nel portale di Azure. Visitare l'URL di Time Series Insights Explorer illustrato nella panoramica.
+1. Aprire l'istanza di Time Series Insights nell' [portale di Azure](https://portal.azure.com) (è possibile cercare il nome dell'istanza nella barra di ricerca del portale). Visitare l' *URL di Time Series Insights Explorer* visualizzato nella panoramica dell'istanza.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Fare clic sull'URL di Time Series Insights Explorer nella scheda Panoramica dell'ambiente Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selezionare l'URL di Time Series Insights Explorer nella scheda Panoramica dell'ambiente Time Series Insights":::
 
-2. Nella finestra di esplorazione si vedranno i tre gemelli visualizzati a sinistra. Fare clic su **thermostat67**, selezionare **patch_value**e fare clic su **Aggiungi**.
+2. Nella finestra di esplorazione si vedranno i tre gemelli di Azure Digital gemelli mostrati a sinistra. Selezionare _**thermostat67**_, selezionare **temperatura**e quindi fare clic su **Aggiungi**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Fare clic su * * thermostat67 * *, selezionare * * temperature * * e fare clic su * * Aggiungi * *":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Selezionare * * thermostat67 * *, selezionare * * temperature * * e quindi premere * * Aggiungi * *":::
 
-3. Si dovrebbero ora visualizzare le letture della temperatura iniziali dal termostato, come mostrato di seguito. La stessa lettura della temperatura viene aggiornata per room21 e floor1 ed è possibile visualizzare i flussi di dati in parallelo.
+3. Si dovrebbero ora visualizzare le letture della temperatura iniziali dal termostato, come mostrato di seguito. La stessa lettura della temperatura viene aggiornata per *room21* e *floor1*ed è possibile visualizzare i flussi di dati in parallelo.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="I dati relativi alla temperatura iniziale sono grafici in TSI Explorer. Si tratta di una riga di valori casuali compresa tra 68 e 85":::
 

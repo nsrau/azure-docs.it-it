@@ -5,18 +5,18 @@ description: Usare una rete virtuale di Azure isolata con Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072617"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320171"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -82,7 +82,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Aggiungere risorse alla rete virtuale 
 
@@ -206,7 +206,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 
@@ -304,8 +304,8 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 - Negare la connessione Internet in uscita usando le regole del gruppo di sicurezza di rete.
 
 - Per un'__istanza di calcolo__ o un __cluster di elaborazione__, limitare il traffico in uscita agli elementi seguenti:
-   - Archiviazione di Azure, usando un __tag di servizio__ di __archiviazione__.
-   - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry__.
+   - Archiviazione di Azure, usando __tag del servizio__ di __Storage.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
+   - Registro Azure Container, usando il __tag del servizio__ di __AzureContainerRegistry.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
    - Azure Machine Learning, usando il __tag del servizio__ di __AzureMachineLearning__
    - Azure Resource Manager, usando il __tag del servizio__ di __AzureResourceManager__
    - Azure Active Directory, usando il __tag del servizio__ di __AzureActiveDirectory__

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ff7d088a80ceaf01e9434ef62beb0e771cdf6b55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081662"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309682"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -24,9 +24,9 @@ Per domande sulla determinazione dei prezzi per Application Insights, è possibi
 
 ## <a name="pricing-model"></a>Modello di prezzi
 
-L'impostazione dei prezzi per [Azure Application Insights][start] è un modello **con pagamento in base al consumo** basato sul volume di dati inserito e, facoltativamente, per la conservazione dei dati più a lungo termine. Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Non è previsto alcun addebito relativo al volume di dati per l'utilizzo di [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
+L'impostazione dei prezzi per [Azure Application Insights][start] è un modello **con pagamento in base al consumo** basato sul volume di dati inserito e, facoltativamente, per la conservazione dei dati più a lungo termine. Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Non è previsto alcun addebito relativo al volume di dati per l'utilizzo di [Live Metrics Stream](./live-stream.md).
 
-È prevista una tariffa aggiuntiva per i [test Web in più passi](../../azure-monitor/app/availability-multistep.md). I test Web in più passi sono test Web che eseguono una sequenza di azioni. Non è prevista una tariffa separata per i *test del ping* di una singola pagina. I dati di telemetria dei test del ping e dei test in più passi vengono addebitai allo stesso costo di altri dati di telemetria provenienti dall'app.
+È prevista una tariffa aggiuntiva per i [test Web in più passi](./availability-multistep.md). I test Web in più passi sono test Web che eseguono una sequenza di azioni. Non è prevista una tariffa separata per i *test del ping* di una singola pagina. I dati di telemetria dei test del ping e dei test in più passi vengono addebitai allo stesso costo di altri dati di telemetria provenienti dall'app.
 
 L'opzione Application Insights per [abilitare gli avvisi sulle dimensioni delle metriche personalizzate](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) può anche generare costi aggiuntivi, in quanto può comportare la creazione di metriche di preaggregazione aggiuntive. Sono disponibili [altre informazioni](./pre-aggregated-metrics-log-metrics.md) sulle metriche preaggregate e basate su log in Application Insights e sui [prezzi](https://azure.microsoft.com/pricing/details/monitor/) per le metriche personalizzate di Monitoraggio di Azure.
 
@@ -48,7 +48,7 @@ Per gli SDK che non supportano il campionamento adattivo, è possibile usare il 
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Dati raccolti da clienti analoghi
 
-Nel calcolatore dei prezzi di Monitoraggio di Azure per Application Insights, se si abilita la funzionalità di stima del volume di dati in base all'attività dell'applicazione, è possibile fornire input sull'applicazione (richieste al mese e visualizzazioni di pagina al mese, nel caso in cui vengano raccolti i dati di telemetria sul lato client) e quindi il calcolatore consente di visualizzare il livello mediano e il 90° percentile dei dati raccolti da applicazioni simili. Queste applicazioni coprono l'intero spettro di configurazione di Application Insights (ad esempio, alcune hanno il [campionamento](../../azure-monitor/app/sampling.md) predefinito, altre sono sprovviste di campionamento e così via), quindi è comunque possibile ridurre il volume di dati inseriti al di sotto del livello mediano usando il campionamento. Si tratta tuttavia di un punto di partenza per capire cosa accade altri clienti simili.
+Nel calcolatore dei prezzi di Monitoraggio di Azure per Application Insights, se si abilita la funzionalità di stima del volume di dati in base all'attività dell'applicazione, è possibile fornire input sull'applicazione (richieste al mese e visualizzazioni di pagina al mese, nel caso in cui vengano raccolti i dati di telemetria sul lato client) e quindi il calcolatore consente di visualizzare il livello mediano e il 90° percentile dei dati raccolti da applicazioni simili. Queste applicazioni coprono l'intero spettro di configurazione di Application Insights (ad esempio, alcune hanno il [campionamento](./sampling.md) predefinito, altre sono sprovviste di campionamento e così via), quindi è comunque possibile ridurre il volume di dati inseriti al di sotto del livello mediano usando il campionamento. Si tratta tuttavia di un punto di partenza per capire cosa accade altri clienti simili.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Comprendere l'utilizzo e stimare i costi
 
@@ -56,10 +56,10 @@ Application Insights offre informazioni per comprendere con facilità i possibil
 
 ![Scegliere i prezzi](./media/pricing/pricing-001.png)
 
-R. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](../../azure-monitor/app/sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
-B. I costi per i [test Web in più passaggi](../../azure-monitor/app/availability-multistep.md) vengono addebitati separatamente. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.  
+R. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](./sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
+B. Viene effettuato un addebito separato per i [test Web](./availability-multistep.md)in più passaggi. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.  
 C. Visualizzare le tendenze del volume dei dati relative all'ultimo mese.  
-D. Abilitare il [campionamento](../../azure-monitor/app/sampling.md) per l'inserimento dei dati.
+D. Abilitare il [campionamento](./sampling.md) per l'inserimento dei dati.
 E. Impostare il limite giornaliero di utilizzo per volume dati.  
 
 Si noti che tutti i prezzi visualizzati negli screenshot in questo articolo sono solo a scopo esemplificativo. Per i prezzi correnti nella valuta e nell'area locali, consultare [Prezzi di Application Insights][pricing].
@@ -183,11 +183,11 @@ Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni ri
 
 Il volume dei dati inviati può essere gestito con le tecniche seguenti:
 
-* **Campionamento**: È possibile usare il campionamento per ridurre la quantità di dati di telemetria inviati dal server e dalle app client, con una distorsione minima delle metriche. Si tratta dello strumento principale da usare per ottimizzare la quantità di dati inviati. Altre informazioni sulle [funzionalità di campionamento](../../azure-monitor/app/sampling.md).
+* **Campionamento**: È possibile usare il campionamento per ridurre la quantità di dati di telemetria inviati dal server e dalle app client, con una distorsione minima delle metriche. Si tratta dello strumento principale da usare per ottimizzare la quantità di dati inviati. Altre informazioni sulle [funzionalità di campionamento](./sampling.md).
 
-* **Limitare le chiamate Ajax**: è possibile [limitare il numero di chiamate Ajax che possono essere segnalate](../../azure-monitor/app/javascript.md#configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
+* **Limitare le chiamate Ajax**: è possibile [limitare il numero di chiamate Ajax che possono essere segnalate](./javascript.md#configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
 
-* **Disabilitare i moduli non necessari**: Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
+* **Disabilitare i moduli non necessari**: Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 
 * **Preaggregare metriche**: Se sono state inserite chiamate a TrackMetric nell'app, è possibile ridurre il traffico usando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs).
  
@@ -207,7 +207,7 @@ Il volume dei dati inviati può essere gestito con le tecniche seguenti:
 
 È possibile usare il limite di utilizzo giornaliero di volume per limitare i dati raccolti. Tuttavia se si raggiunge questo limite, tutti i dati di telemetria inviati dall'applicazione per la restante parte del giorno andranno persi. *Non è consigliabile* raggiungere il limite di utilizzo giornaliero dell'applicazione. Dopo averlo raggiunto non sarà possibile monitorare l'integrità e le prestazioni dell'applicazione.
 
-Anziché usare il limite di volume giornaliero, usare il [campionamento](../../azure-monitor/app/sampling.md) per impostare il volume di dati al livello desiderato. Usare quindi il limite di utilizzo giornaliero solo se "strettamente necessario" nel caso in cui l'applicazione inizi a inviare volumi più elevati di dati di telemetria in modo imprevisto.
+Anziché usare il limite di volume giornaliero, usare il [campionamento](./sampling.md) per impostare il volume di dati al livello desiderato. Usare quindi il limite di utilizzo giornaliero solo se "strettamente necessario" nel caso in cui l'applicazione inizi a inviare volumi più elevati di dati di telemetria in modo imprevisto.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 
@@ -219,7 +219,7 @@ Per modificare il limite di utilizzo giornaliero, nella sezione **Configura** de
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
-Per [modificare il limite di utilizzo giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare `dailyQuotaResetTime` e la proprietà `warningThreshold` del limite di utilizzo giornaliero.
+Per [modificare il limite di utilizzo giornaliero tramite Azure Resource Manager](./powershell.md), la proprietà da modificare è `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare `dailyQuotaResetTime` e la proprietà `warningThreshold` del limite di utilizzo giornaliero.
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Crea avvisi per il limite di utilizzo giornaliero
 
@@ -230,13 +230,13 @@ Il limite di utilizzo giornaliero di Application Insights crea un evento nel log
 * È stato raggiunto il limite giornaliero per il componente Application Insights
 
 ## <a name="sampling"></a>campionamento
-Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
+il [campionamento](./sampling.md) è un metodo per ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare eventi correlati durante le ricerche diagnostiche. e il conteggio corretto degli eventi.
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene anche i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.
 
 Sono disponibili diversi tipi di campionamento.
 
-* Il [campionamento adattivo](../../azure-monitor/app/sampling.md) è il valore predefinito per l'SDK di ASP.NET. Il campionamento adattivo si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Viene eseguito automaticamente nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. 
+* Il [campionamento adattivo](./sampling.md) è il valore predefinito per l'SDK di ASP.NET. Il campionamento adattivo si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Viene eseguito automaticamente nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. 
 * *campionamento per inserimento* è un'alternativa che opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Il campionamento per inserimento non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce il volume mantenuto dal servizio. È possibile usarlo per ridurre la quota che i dati di telemetria usano dal browser e da altri SDK.
 
 Per impostare il campionamento per inserimento, visitare il riquadro **Prezzi**:
@@ -310,7 +310,7 @@ Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operati
   * Un *nodo* è un computer server fisico o virtuale oppure un'istanza del ruolo piattaforma distribuita come servizio che ospita l'app.
   * Computer di sviluppo, browser client e dispositivi mobili non sono conteggiati come nodi.
   * Se l'app ha diversi componenti che inviano dati di telemetria, ad esempio un servizio Web e un ruolo di lavoro back-end, i componenti vengono conteggiati separatamente.
-  * I dati [Live Metrics Stream](../../azure-monitor/app/live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo. In una sottoscrizione gli addebiti si applicano per nodo, non per app. Se si hanno cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
+  * I dati [Live Metrics Stream](./live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo. In una sottoscrizione gli addebiti si applicano per nodo, non per app. Se si hanno cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
 * Sebbene gli addebiti siano fatturati mensilmente, quelli effettivi hanno luogo solo nelle ore durante le quali un nodo invia dati di telemetria da un'app. La tariffa oraria è la tariffa mensile fatturata divisa per 744 (il numero di ore in un mese di 31 giorni).
 * Viene fornita un'allocazione di volume di dati di 200 MB al giorno per ogni nodo rilevato (con granularità oraria). L'allocazione di dati non usata non viene trasferita al giorno successivo.
   * Scegliendo il piano tariffario Per Node, ogni sottoscrizione ottiene una quantità di dati giornaliera inclusa in base al numero di nodi che inviano dati di telemetria alle risorse di Application Insights in quella sottoscrizione. Se si hanno quindi cinque nodi che inviano dati tutto il giorno, sarà applicata una quantità inclusa di 1 GB a tutte le risorse di Application Insights in quella sottoscrizione. Non è importante se determinati nodi inviano più dati di altri, perché i dati inclusi vengono condivisi tra tutti i nodi. Se un determinato giorno le risorse di Application Insights ricevono più dati di quelli inclusi nell'allocazione giornaliera per la sottoscrizione, si applicheranno gli addebiti di dati in eccedenza per GB. 
@@ -339,10 +339,11 @@ Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operati
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Campionamento](../../azure-monitor/app/sampling.md)
+* [campionamento](./sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+

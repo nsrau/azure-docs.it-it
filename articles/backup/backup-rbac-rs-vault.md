@@ -4,12 +4,12 @@ description: Usare il controllo degli accessi in base al ruolo per gestire l'acc
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: dd6930a0228829f376140d515a3035afebad0f27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032426"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371703"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 
@@ -18,7 +18,7 @@ Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente un
 > [!IMPORTANT]
 > I ruoli forniti da backup di Azure sono limitati alle azioni che possono essere eseguite in portale di Azure o tramite l'API REST o i cmdlet di PowerShell per l'insieme di credenziali di servizi di ripristino. Non rientrano sotto il controllo di questi ruoli le azioni eseguite nell'interfaccia utente client di Azure Backup Agent, nell'interfaccia utente di System Center Data Protection Manager o nell'interfaccia utente del server di Backup di Azure.
 
-Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup. Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
+Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup. Scopri di più sui [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md)
 
 * [Collaboratore backup](../role-based-access-control/built-in-roles.md#backup-contributor) : questo ruolo dispone di tutte le autorizzazioni per creare e gestire il backup, eccetto l'eliminazione dell'insieme di credenziali dei servizi di ripristino e l'accesso ad altri. Si immagini questo ruolo come amministratore della gestione di backup autorizzato a eseguire ogni operazione in tale ambito.
 * [Operatore di backup](../role-based-access-control/built-in-roles.md#backup-operator): questo ruolo dispone delle autorizzazioni per tutte le operazioni svolte da un collaboratore, tranne per la rimozione di backup e la gestione dei criteri di backup. Questo ruolo è equivalente al collaboratore, ma non può eseguire operazioni distruttive, ad esempio interrompere il backup con eliminazione dei dati o rimuovere la registrazione di risorse locali.

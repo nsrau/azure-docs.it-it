@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 8aebcfc2a46de3922dbc41942e63e71844de6e83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319746"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
@@ -202,10 +202,10 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. 
 
-|Area|Percorso|
+|Area|Path|
 |-|-|
-|Artifacts|artefatto/v 2.0/|
-|Archivi dati|archivio dati/v 1.0/|
+|Artifacts|/rest/api/azureml|
+|Archivi dati|/azure/machine-learning/how-to-access-data|
 |Ottimizzazione degli iperparametri|iperguida/v 1.0/|
 |Modelli|Modelmanagement/v 1.0/|
 |Cronologia di esecuzione|esecuzione/v 1.0/e cronologia/v 1.0/|

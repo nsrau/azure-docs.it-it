@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202537"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372018"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
@@ -35,7 +35,7 @@ L'articolo include le esercitazioni seguenti:
 
 Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto per il supporto, seguire questa procedura:
 
-1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e fare clic su **Crea pacchetto per il supporto**.
+1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e selezionare **Crea pacchetto**per il supporto.
 
     ![Creare un pacchetto per il supporto 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
     ![Creare un pacchetto per il supporto 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Una volta completata la creazione del pacchetto di supporto, fare clic su **Scarica pacchetto per il supporto**. 
+3. Al termine della creazione del pacchetto di supporto, selezionare **Scarica pacchetto**per il supporto.
 
     ![Creare un pacchetto per il supporto 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Individuare e scegliere il percorso di download. Aprire la cartella per visualizzarne il contenuto.
 
     ![Creare un pacchetto per il supporto 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrestare o riavviare il dispositivo
 
@@ -59,7 +58,7 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 Per arrestare il dispositivo, seguire questa procedura.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
-2. Fare clic su **Spegni**.
+2. Selezionare **Arresta**.
 
     ![Arrestare Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Una volta arrestato il dispositivo, usare il pulsante di alimentazione sul panne
 Per riavviare Data Box seguire questa procedura.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
-2. Fare clic su **Riavvia**.
+2. Selezionare **Restart** (Riavvia).
 
     ![Riavviare Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Alla richiesta di conferma fare clic su **OK** per continuare.
+3. Quando viene richiesta la conferma, selezionare **OK** per continuare.
 
    Il dispositivo si arresta e quindi si riavvia.
 
@@ -90,9 +89,9 @@ Prima di iniziare, verificare che il dispositivo abbia completato **prepara per 
 
     ![Dispositivo pronto per la spedizione](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Fare clic su **Scarica elenco file** per scaricare l'elenco dei file che sono stati copiati nel Data Box.
+2. Selezionare **Scarica l'elenco dei file** per scaricare l'elenco dei file copiati nel data box.
 
-    ![Fare clic su Scarica elenco file](media/data-box-portal-admin/download-list-of-files.png)
+    ![Selezionare l'elenco di download dei file](media/data-box-portal-admin/download-list-of-files.png)
 
 3. In Esplora file si noterà che vengono generati elenchi di file diversi a seconda del protocollo usato per la connessione al dispositivo e del tipo di archiviazione di Azure usata.
 
@@ -179,10 +178,51 @@ Il calcolo del checksum durante la preparazione alla spedizione viene eseguito s
     ![Disabilitare i checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Disabilitare** la convalida dei checksum
-3. Fare clic su **Applica**.
+3. Selezionare **Applica**.
 
 > [!NOTE]
 > L'opzione di calcolo ignora checksum è disponibile solo quando il Azure Data Box è sbloccato. Questa opzione non viene visualizzata quando il dispositivo è bloccato.
 
-- Informazioni su come [gestire il data box e data box Heavy tramite il portale di Azure](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Abilita firma SMB
 
+La firma SMB (Server Message Block) è una funzionalità tramite la quale le comunicazioni che usano SMB possono essere firmate digitalmente a livello di pacchetto. Questa firma impedisce gli attacchi che modificano i pacchetti SMB in transito.
+
+Per ulteriori informazioni sulla firma SMB, vedere la pagina relativa alla [Panoramica della firma di Server Message Block](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Per abilitare la firma SMB nel dispositivo Azure:
+
+1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo selezionare **Impostazioni**.
+
+    ![Aprire le impostazioni](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Abilita** Firma SMB.
+
+    ![Abilita firma SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Selezionare **Applica**.
+4. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
+5. Selezionare **Restart** (Riavvia).
+
+## <a name="enable-tls-11"></a>Abilitare TLS 1,1
+
+Per impostazione predefinita, Azure Data Box usa Transport Layer Security (TLS) 1,2 per la crittografia perché è più sicuro di TSL 1,1. Tuttavia, se l'utente o i client utilizzano un browser per accedere ai dati che non supportano TLS 1,2, è possibile abilitare TLS 1,1.
+
+Per altre informazioni relative a TLS, vedere [Azure Data Box Gateway sicurezza](../databox-online/data-box-gateway-security.md).
+
+Per abilitare TLS 1,1 nel dispositivo Azure:
+
+1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo selezionare **Impostazioni**.
+
+    ![Aprire le impostazioni](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Abilita** TLS 1,1.
+
+    ![Abilitare TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Selezionare **Applica**.
+4. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
+5. Selezionare **Restart** (Riavvia).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Informazioni su come [gestire il data box e data box Heavy tramite il portale di Azure](data-box-portal-admin.md).

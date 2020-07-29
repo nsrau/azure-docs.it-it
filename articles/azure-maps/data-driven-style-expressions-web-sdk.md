@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: aaf974eca4b307fc122cf0ee5fdb0ddbcf75088a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285714"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -84,13 +84,13 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
-| `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['geometry-type']` | Stringa | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
 | `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
 | `['id']` | value | Ottiene l'ID della funzionalità se ne è presente uno. |
-| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
+| `['length', string | array]` | Numero | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
 
@@ -143,32 +143,32 @@ Le espressioni matematiche forniscono operatori matematici per eseguire calcoli 
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | d'acquisto | Calcola la somma dei numeri specificati. |
-| `['-', number]` | d'acquisto | Sottrae 0 per il numero specificato. |
-| `['-', number, number]` | d'acquisto | Sottrae i primi numeri per il secondo numero. |
-| `['*', number, number, …]` | d'acquisto | Moltiplica i numeri specificati insieme. |
-| `['/', number, number]` | d'acquisto | Divide il primo numero per il secondo numero. |
-| `['%', number, number]` | d'acquisto | Calcola il resto quando si divide il primo numero per il secondo numero. |
-| `['^', number, number]` | d'acquisto | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
-| `['abs', number]` | d'acquisto | Calcola il valore assoluto del numero specificato. |
-| `['acos', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
-| `['asin', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
-| `['atan', number]` | d'acquisto | Calcola l'arcotangente del numero specificato. |
-| `['ceil', number]` | d'acquisto | Arrotonda il numero per eccesso al numero intero successivo. |
-| `['cos', number]` | d'acquisto | Calcola il coseno del numero specificato. |
-| `['e']` | d'acquisto | Restituisce la costante matematica `e` . |
-| `['floor', number]` | d'acquisto | Arrotonda il numero per difetto all'intero intero precedente. |
-| `['ln', number]` | d'acquisto | Calcola il logaritmo naturale del numero specificato. |
-| `['ln2']` | d'acquisto | Restituisce la costante matematica `ln(2)` . |
-| `['log10', number]` | d'acquisto | Calcola il logaritmo in base 10 del numero specificato. |
-| `['log2', number]` | d'acquisto | Calcola il logaritmo in base due del numero specificato. |
-| `['max', number, number, …]` | d'acquisto | Calcola il numero massimo nel set di numeri specificato. |
-| `['min', number, number, …]` | d'acquisto | Calcola il numero minimo nel set di numeri specificato. |
-| `['pi']` | d'acquisto | Restituisce la costante matematica `PI` . |
-| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
-| `['sin', number]` | d'acquisto | Calcola il seno del numero specificato. |
-| `['sqrt', number]` | d'acquisto | Calcola la radice quadrata del numero specificato. |
-| `['tan', number]` | d'acquisto | Calcola la tangente del numero specificato. |
+| `['+', number, number, …]` | Numero | Calcola la somma dei numeri specificati. |
+| `['-', number]` | Numero | Sottrae 0 per il numero specificato. |
+| `['-', number, number]` | Numero | Sottrae i primi numeri per il secondo numero. |
+| `['*', number, number, …]` | Numero | Moltiplica i numeri specificati insieme. |
+| `['/', number, number]` | Numero | Divide il primo numero per il secondo numero. |
+| `['%', number, number]` | Numero | Calcola il resto quando si divide il primo numero per il secondo numero. |
+| `['^', number, number]` | Numero | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
+| `['abs', number]` | Numero | Calcola il valore assoluto del numero specificato. |
+| `['acos', number]` | Numero | Calcola l'arcoseno del numero specificato. |
+| `['asin', number]` | Numero | Calcola l'arcoseno del numero specificato. |
+| `['atan', number]` | Numero | Calcola l'arcotangente del numero specificato. |
+| `['ceil', number]` | Numero | Arrotonda il numero per eccesso al numero intero successivo. |
+| `['cos', number]` | Numero | Calcola il coseno del numero specificato. |
+| `['e']` | Numero | Restituisce la costante matematica `e` . |
+| `['floor', number]` | Numero | Arrotonda il numero per difetto all'intero intero precedente. |
+| `['ln', number]` | Numero | Calcola il logaritmo naturale del numero specificato. |
+| `['ln2']` | Numero | Restituisce la costante matematica `ln(2)` . |
+| `['log10', number]` | Numero | Calcola il logaritmo in base 10 del numero specificato. |
+| `['log2', number]` | Numero | Calcola il logaritmo in base due del numero specificato. |
+| `['max', number, number, …]` | Numero | Calcola il numero massimo nel set di numeri specificato. |
+| `['min', number, number, …]` | Numero | Calcola il numero minimo nel set di numeri specificato. |
+| `['pi']` | Numero | Restituisce la costante matematica `PI` . |
+| `['round', number]` | Numero | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
+| `['sin', number]` | Numero | Calcola il seno del numero specificato. |
+| `['sqrt', number]` | Numero | Calcola la radice quadrata del numero specificato. |
+| `['tan', number]` | Numero | Calcola la tangente del numero specificato. |
 
 ## <a name="aggregate-expression"></a>Espressione di aggregazione
 
@@ -402,12 +402,12 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | \|oggetto Array | Restituisce una matrice di valori letterali o un valore dell'oggetto. Utilizzare questa espressione per impedire la valutazione di una matrice o di un oggetto come espressione. Questa operazione è necessaria quando un'espressione deve restituire una matrice o un oggetto. |
-| `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
+| `['image', string]` | Stringa | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota,,, `0` `false` `null` o `NaN` ; in caso contrario, `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | d'acquisto | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-string', value]` | string | Converte il valore di input in una stringa. Se l'input è `null` , il risultato è `""` . Se l'input è un valore booleano, il risultato è `"true"` o `"false"` . Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"` . In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
-| `['typeof', value]` | string | Restituisce una stringa che descrive il tipo del valore specificato. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | Numero | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
+| `['to-string', value]` | Stringa | Converte il valore di input in una stringa. Se l'input è `null` , il risultato è `""` . Se l'input è un valore booleano, il risultato è `"true"` o `"false"` . Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"` . In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
+| `['typeof', value]` | Stringa | Restituisce una stringa che descrive il tipo del valore specificato. |
 
 > [!TIP]
 > Se `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` nella console del browser viene visualizzato un messaggio di errore simile a, significa che nel codice è presente un'espressione che contiene una matrice che non dispone di una stringa per il primo valore. Se si desidera che l'espressione restituisca una matrice, eseguire il wrapping della matrice con l' `literal` espressione. Nell'esempio seguente viene impostata l' `offset` opzione Icon di un livello Symbol, che deve essere una matrice contenente due numeri, usando un' `match` espressione per scegliere tra due valori di offset in base al valore della `entityType` proprietà della funzionalità punto.
@@ -466,8 +466,8 @@ Le espressioni dell'operatore String eseguono operazioni di conversione su strin
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena più stringhe insieme. Ogni valore deve essere una stringa. `to-string`Se necessario, utilizzare l'espressione di tipo per convertire altri tipi valore in stringa. |
-| `['downcase', string]` | string | Converte la stringa specificata in minuscolo. |
-| `['upcase', string]` | string | Converte la stringa specificata in maiuscolo. |
+| `['downcase', string]` | Stringa | Converte la stringa specificata in minuscolo. |
+| `['upcase', string]` | Stringa | Converte la stringa specificata in maiuscolo. |
 
 **Esempio**
 

@@ -3,12 +3,12 @@ title: Come testare l'app in Azure | Microsoft Docs
 description: Informazioni su come creare una condivisione file in un lab e montarla nel computer locale; su come creare una macchina virtuale nel lab, quindi distribuire le applicazioni desktop o Web alla condivisione file e testarli.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282246"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
 Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. Si usa quindi Visual Studio 2019 per distribuire l'app nella condivisione file, in modo che sia possibile eseguire l'app nella macchina virtuale nel Lab.  
@@ -18,7 +18,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 ## <a name="prerequisites"></a>Prerequisiti 
 1. [Creare una sottoscrizione di Azure](https://azure.microsoft.com/free/) se non se ne possiede già una e accedere al [portale di Azure](https://portal.azure.com).
 2. Seguire le istruzioni contenute in [questo articolo](devtest-lab-create-lab.md) per creare un lab tramite Azure DevTest Labs. Aggiungere il lab alla dashboard in modo da poterla ritrovare facilmente al prossimo accesso. Azure DevTest Labs consente di creare rapidamente risorse in Azure riducendo al minimo gli sprechi e controllando i costi. Per altre informazioni su DevTest Labs, vedere la [panoramica](devtest-lab-overview.md). 
-3. Creare un account di Archiviazione di Azure nel gruppo di risorse del lab seguendo le istruzioni dell'articolo: [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). All'interno della pagina **Creare un account di archiviazione**, selezionare **Usa esistente** per **Gruppo di risorse** e selezionare il **gruppo di risorse del lab**. 
+3. Creare un account di Archiviazione di Azure nel gruppo di risorse del lab seguendo le istruzioni dell'articolo: [Creare un account di archiviazione](../storage/common/storage-account-create.md). All'interno della pagina **Creare un account di archiviazione**, selezionare **Usa esistente** per **Gruppo di risorse** e selezionare il **gruppo di risorse del lab**. 
 4. Creare una condivisione file in archiviazione di Azure seguendo le istruzioni dell'articolo [Creare una condivisione file in File di Azure](../storage/files/storage-how-to-create-file-share.md). 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Montare la condivisione file nel computer locale
@@ -66,7 +66,7 @@ In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una 
 
     **App Web:**
 
-    ![App Web](media/test-app-in-azure/web-app.png)
+    ![app Web](media/test-app-in-azure/web-app.png)
 
 1. Selezionare **Avanti** per completare il flusso di lavoro e selezionare **Fine**. Al termine della procedura guidata, Visual Studio compila l'applicazione e la pubblica nella condivisione file. 
 

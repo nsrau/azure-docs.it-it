@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118937"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320052"
 ---
 # <a name="managed-application-metered-billing"></a>Fatturazione a consumo delle applicazioni gestite 
 
@@ -109,21 +111,13 @@ Il numero massimo di dimensioni che possono essere configurate per una singola o
 
 ## <a name="get-support"></a>Ottenere supporto
 
-Se si verifica uno dei casi seguenti, è possibile aprire un ticket di supporto.
+Se si verifica uno dei problemi seguenti, è possibile aprire un ticket di supporto.
 
 * Problemi tecnici relativi all'API del servizio di misurazione del Marketplace.
 * Un problema che deve essere inoltrato a causa di un errore o di un bug da parte dell'utente (ad esempio, evento di utilizzo errato).
 * Eventuali altri problemi relativi alla fatturazione a consumo.
 
-Per inviare il ticket di supporto, attenersi alla procedura seguente:
-
-1. Andare alla [pagina del supporto](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). I primi menu a discesa vengono compilati automaticamente. Per il supporto del Marketplace, identificare la famiglia di prodotti come **servizi cloud e online**, il prodotto come **editore del Marketplace**. Non modificare le selezioni del menu a discesa pre-popolato.
-2. In "selezionare la versione del prodotto" selezionare **gestione offerta dinamica**.
-3. In "selezionare una categoria che descriva meglio il problema" scegliere **offerta applicazioni Azure**.
-4. In "selezionare un problema che descrive meglio il problema" selezionare **fatturazione a consumo**.
-5. Selezionando il pulsante **Avanti** , si verrà indirizzati alla pagina dei **Dettagli del problema** , in cui è possibile immettere ulteriori dettagli sul problema.
-
-Per altre opzioni di supporto per gli editori, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](support.md).
+Seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](./support.md) per comprendere le opzioni di supporto dell'editore e aprire il ticket di supporto con Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

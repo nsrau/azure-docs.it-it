@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539704"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326189"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure
 Questo articolo descrive come usare Monitoraggio di Azure per raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure e mantenerne l'integrità. Con Monitoraggio di Azure è possibile monitorare la disponibilità e le prestazioni delle macchine virtuali come per qualsiasi [altra risorsa di Azure](monitor-azure-resource.md). Le macchine virtuali sono però diverse rispetto ad altre risorse perché è necessario monitorare anche il sistema operativo guest e i carichi di lavoro in esecuzione in esso. 
@@ -134,7 +134,7 @@ Dopo aver configurato la raccolta dei dati di monitoraggio per una macchina virt
 |:---|:---|
 | Panoramica | Visualizza le [metriche della piattaforma](../platform/data-platform-metrics.md) per l'host macchina virtuale. Fare clic su un grafico per usare questi dati in [Esplora metriche](../platform/metrics-getting-started.md). |
 | Log attività | Voci del [log attività](../platform/activity-log.md#view-the-activity-log) filtrate in base alla macchina virtuale corrente. |
-| Informazioni dettagliate | Apre [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) con il mapping per la macchina virtuale corrente selezionata. |
+| Informazioni dettagliate | Apre [Monitoraggio di Azure per le macchine virtuali](./vminsights-overview.md) con il mapping per la macchina virtuale corrente selezionata. |
 | Avvisi | Visualizza gli [avvisi](../platform/alerts-overview.md) per la macchina virtuale corrente.  |
 | Metriche | Aprire [Esplora metriche](../platform/metrics-getting-started.md) con l'ambito impostato sulla macchina virtuale corrente. |
 | Impostazioni di diagnostica | Consente di abilitare e configurare l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per la macchina virtuale corrente. |
@@ -242,3 +242,4 @@ Per informazioni dettagliate sulla connessione del gruppo di gestione di SCOM es
 
 * [Informazioni su come analizzare i dati nei log di Monitoraggio di Azure usando le query su log.](../log-query/get-started-queries.md)
 * [Informazioni sugli avvisi su metriche e log in Monitoraggio di Azure.](../platform/alerts-overview.md)
+

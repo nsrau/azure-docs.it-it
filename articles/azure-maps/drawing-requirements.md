@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242475"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374321"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -210,11 +210,11 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 | Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|levelName    |string    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
+|levelName    |Stringa    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
 |ordinal | integer |    true | Viene usato per determinare l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
 |heightAboveFacilityAnchor | NUMERIC | false |    Altezza del livello superiore all'ancoraggio in metri. |
 | verticalExtent | NUMERIC | false | Altezza da pavimento a soffitto (spessore) del livello, in metri. |
-|filename |    string |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
+|filename |    Stringa |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
 
 ### <a name="georeference"></a>georeference
 
@@ -242,7 +242,7 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 | Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|unitName    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
+|unitName    |Stringa    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Matrice di stringhe |    false    |Indica i tipi di agenti mobili che possono attraversare l'unità. Ad esempio, "pedone". Questa proprietà informa le funzionalità di orientamento.  I valori consentiti sono `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` e `disallowed`.|
 |routeThroughBehavior|    string|    false    |Il comportamento del percorso attraverso l'unità. I calori consentiti sono `disallowed`, `allowed` e `preferred`. Il valore predefinito è `allowed`.|
@@ -262,7 +262,7 @@ L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
 | Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
+|zoneName        |Stringa    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo della zona.  |
 |zoneNameSubtitle|    string |    false    |Sottotitolo della zona. |
@@ -279,7 +279,7 @@ Di seguito è riportato un file manifesto di esempio per il pacchetto di disegni
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

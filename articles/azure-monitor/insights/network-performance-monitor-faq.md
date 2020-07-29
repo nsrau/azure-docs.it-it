@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326138"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "86539670"
 
 Questo articolo presenta le domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure.
 
-[Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) è una soluzione di [monitoraggio della rete ibrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) basata sul cloud che consente di monitorare le prestazioni di rete tra i vari punti nell'infrastruttura di rete. Con questa soluzione è anche possibile monitorare la connettività di rete agli [endpoint di servizio e applicazione](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md), nonché [monitorare le prestazioni di Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) è una soluzione di [monitoraggio della rete ibrida](./network-performance-monitor-performance-monitor.md) basata sul cloud che consente di monitorare le prestazioni di rete tra i vari punti nell'infrastruttura di rete. Con questa soluzione è anche possibile monitorare la connettività di rete agli [endpoint di servizio e applicazione](./network-performance-monitor-service-connectivity.md), nonché [monitorare le prestazioni di Azure ExpressRoute](./network-performance-monitor-expressroute.md). 
 
 Monitoraggio prestazioni rete rileva i problemi di rete come i buchi neri del traffico, gli errori di routing e i problemi che i metodi di monitoraggio delle reti tradizionali non sono in grado di rilevare. La soluzione genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Garantisce anche una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un dispositivo o segmento di rete specifico. 
 
@@ -40,7 +40,7 @@ La funzionalità di monitoraggio delle reti tramite nodi basati su Linux è attu
 Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per l'esecuzione di NPM. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione è in grado di arrestare il processo di monitoraggio se utilizza più del 5% di CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Per usare Monitoraggio prestazioni rete è necessario connettersi ai nodi come agente diretto o tramite System Center Operations Manager?
-Le funzionalità di monitoraggio delle prestazioni e della connettività del servizio supportano sia i nodi [connessi come agenti diretti](../../azure-monitor/platform/agent-windows.md) che quelli [connessi tramite Operations Manager](../../azure-monitor/platform/om-agents.md).
+Le funzionalità di monitoraggio delle prestazioni e della connettività del servizio supportano sia i nodi [connessi come agenti diretti](../platform/agent-windows.md) che quelli [connessi tramite Operations Manager](../platform/om-agents.md).
 
 Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere connessi solo come agenti diretti. Quelli connessi tramite Operations Manager non sono supportati. Per i nodi locali, i nodi connessi come agenti diretti e tramite Operations Manager sono supportati per il monitoraggio di un circuito ExpressRoute.
 
@@ -49,12 +49,12 @@ Se si sta monitorando la rete con i nodi basati su Windows Server, è consigliab
 
 Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Questa piattaforma non consente l'invio di dati TCP su socket non elaborati, che NPM USA per individuare la topologia di rete.
 
-È possibile ottenere [qui](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol) altre informazioni sui vantaggi dei vari protocolli.
+È possibile ottenere [qui](./network-performance-monitor-performance-monitor.md#choose-the-protocol) altre informazioni sui vantaggi dei vari protocolli.
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Come è possibile configurare un nodo per supportare il monitoraggio tramite il protocollo TCP?
 Per configurare un nodo per supportare il monitoraggio tramite il protocollo TCP: 
 * Assicurarsi che la piattaforma del nodo sia Windows Server (2008 SP1 o versione successiva).
-* Eseguire lo script [EnableRules.ps1](https://aka.ms/npmpowershellscript) di PowerShell sul nodo. Per altre informazioni, vedere queste [istruzioni](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
+* Eseguire lo script [EnableRules.ps1](https://aka.ms/npmpowershellscript) di PowerShell sul nodo. Per altre informazioni, vedere queste [istruzioni](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Come è possibile modificare la porta TCP usata da Monitoraggio prestazioni rete per il monitoraggio?
@@ -182,15 +182,15 @@ NetworkMonitoring
 ```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quali aree sono supportate per la funzionalità Performance Monitor di Monitoraggio prestazioni rete?
-Monitoraggio prestazioni rete può monitorare la connettività tra reti in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
+Monitoraggio prestazioni rete può monitorare la connettività tra reti in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](./network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio connettività servizio di Monitoraggio prestazioni rete?
-Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
+Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](./network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](../../expressroute/how-to-npm.md).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -299,4 +299,5 @@ Monitoraggio prestazioni rete arrotonda in millisecondi i valori di latenza visu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su Monitoraggio prestazioni rete sono disponibili in [Soluzione Monitoraggio prestazioni rete in Azure](../../azure-monitor/insights/network-performance-monitor.md).
+- Altre informazioni su Monitoraggio prestazioni rete sono disponibili in [Soluzione Monitoraggio prestazioni rete in Azure](./network-performance-monitor.md).
+

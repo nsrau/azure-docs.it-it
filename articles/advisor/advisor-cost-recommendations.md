@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284371"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -89,7 +89,7 @@ Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot nell'
 Con l'intelligence sul numero di oggetti di archiviazione BLOB di Azure, sulle dimensioni totali e sulle transazioni, Advisor rileva se è necessario abilitare la gestione del ciclo di vita per i dati di livello su uno o più account di archiviazione. Viene richiesto di creare regole di gestione del ciclo di vita per la suddivisione automatica dei dati in livelli di archiviazione ad accesso sporadico o Archivio per ottimizzare i costi di archiviazione mantenendo i dati nell'archiviazione BLOB di Azure per la compatibilità delle applicazioni.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Creare una raccomandazione del disco del sistema operativo temporaneo
-Il [disco del sistema operativo temporaneo](../virtual-machines/windows/ephemeral-os-disks.md) consente di: 
+Il [disco del sistema operativo temporaneo](../virtual-machines/ephemeral-os-disks.md) consente di: 
 - Risparmiare sui costi di archiviazione per i dischi del sistema operativo. 
 - Ottenere una latenza di lettura/scrittura più bassa per i dischi del sistema operativo. 
 - Ottenere più velocemente operazioni di ricreazione dell'immagine della macchina virtuale reimpostando il sistema operativo e il disco temporaneo sullo stato originale.

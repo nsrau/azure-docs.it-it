@@ -4,16 +4,16 @@ description: Questo articolo contiene una raccolta di comandi di esempio AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282450"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -63,7 +63,7 @@ Questa sezione contiene gli esempi seguenti:
 > |Scenario|Flag|
 > |---|---|
 > |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
-> |Caricare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
+> |Effettuare il caricamento in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
@@ -111,7 +111,7 @@ Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy 
 
 ### <a name="upload-specific-files"></a>Carica file specifici
 
-È possibile specificare nomi di file completi oppure utilizzare nomi parziali con caratteri jolly (*).
+È possibile caricare file specifici usando nomi di file completi, nomi parziali con caratteri jolly (*) o con date e ore.
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
@@ -140,6 +140,18 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Caricare i file che sono stati modificati dopo una data e un'ora 
+
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-after` opzione. Specificare una data e un'ora in formato ISO-8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Esempio** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+Per informazioni di riferimento dettagliate, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="download-files"></a>Scaricare i file
 
@@ -202,7 +214,7 @@ Questo esempio genera una directory denominata `C:\myDirectory\myBlobDirectory` 
 
 ### <a name="download-specific-files"></a>Scarica file specifici
 
-È possibile specificare nomi di file completi oppure utilizzare nomi parziali con caratteri jolly (*).
+È possibile scaricare file specifici usando nomi di file completi, nomi parziali con caratteri jolly (*) o con date e ore. 
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
@@ -231,6 +243,18 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Scaricare i file che sono stati modificati dopo una data e un'ora 
+
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-after` opzione. Specificare una data e un'ora in formato ISO-8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+Per informazioni di riferimento dettagliate, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra account di archiviazione
 
@@ -332,7 +356,7 @@ Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file sen
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con modifiche a una file system locale
 
-In questo caso, il contenitore è la destinazione e la file system locale è l'origine. 
+In questo caso, il contenitore è la destinazione e il file system locale è l'origine. 
 
 |    |     |
 |--------|-----------|

@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036710"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281889"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiare dati da Amazon S3 ad archiviazione di Azure usando AzCopy
 
@@ -50,9 +50,6 @@ Raccogliere la chiave di accesso di AWS e la chiave di accesso segreta, quindi i
 
 AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra AWS S3 e i server di archiviazione. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer.
 
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Se si decide di rimuovere i dati dai bucket S3 dopo un'operazione di copia, assicurarsi di verificare che i dati siano stati copiati correttamente nell'account di archiviazione prima di rimuovere i dati.
-
 > [!TIP]
 > Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
@@ -84,6 +81,19 @@ Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account ch
 | **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
+> [!NOTE]
+> In questo esempio viene aggiunto il `--recursive` flag per copiare i file in tutte le sottodirectory.
+
+### <a name="copy-the-contents-of-a-directory"></a>Copiare il contenuto di una directory
+
+È possibile copiare il contenuto di una directory senza copiare la directory che lo contiene usando il carattere jolly (*).
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copiare un bucket
 

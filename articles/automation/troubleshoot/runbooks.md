@@ -2,19 +2,16 @@
 title: Risolvere i problemi relativi ai runbook di Automazione di Azure
 description: Questo articolo descrive come risolvere i problemi relativi ai runbook di Automazione di Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187184"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337297"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -511,6 +508,24 @@ Se si desidera poter usare più di 500 minuti di elaborazione al mese, è necess
 1. Selezionare **Impostazioni** e quindi **Prezzi**.
 1. Selezionare **Abilita** nella parte inferiore della pagina per aggiornare l'account al livello Basic.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenario: flusso di output di Runbook maggiore di 1 MB
+
+### <a name="issue"></a>Problema
+
+Il Runbook in esecuzione in Azure sandbox non riesce con l'errore seguente:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Causa
+
+Questo errore si verifica perché il Runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
+
+### <a name="resolution"></a>Soluzione
+
+Il flusso di output del processo prevede un limite di 1 MB. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo. Per i processi di lavoro ibrido per Runbook eseguiti, il flusso di output troncato a 1 MB viene visualizzato senza messaggio di errore.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Scenario: avvio del processo del runbook tentato tre volte con esito negativo ogni volta
 
 ### <a name="issue"></a>Problema
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Questo errore si verifica per uno dei problemi seguenti:
 
 * **Limite di memoria**. Un processo può aver esito negativo se usa più di 400 MB di memoria. I limiti documentati per la quantità di memoria allocata a una sandbox sono riportati in [Limiti del servizio Automazione](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
-* **Socket di rete**. Il limite per le sandbox di Azure è di 1.000 socket di rete simultanei. Per altre informazioni, vedere [Limiti del servizio Automazione](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
-* **Modulo incompatibile**. Le dipendenze del modulo potrebbero non essere corrette. In questo caso, il runbook restituisce in genere un messaggio `Command not found` o `Cannot bind parameter`.
-* **Nessuna autenticazione con Active Directory per sandbox**. Il runbook ha tentato di chiamare un eseguibile o un sottoprocesso in esecuzione in una sandbox di Azure. La configurazione dei runbook per l'autenticazione con Azure AD tramite la libreria ADAL (Active Directory Authentication Library) di Azure non è supportata.
-* **Troppi dati di eccezione**. Il runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
 
-### <a name="resolution"></a>Risoluzione
+* **Socket di rete**. Il limite per le sandbox di Azure è di 1.000 socket di rete simultanei. Per altre informazioni, vedere [Limiti del servizio Automazione](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
+* **Modulo incompatibile**. Le dipendenze del modulo potrebbero non essere corrette. In questo caso, il runbook restituisce in genere un messaggio `Command not found` o `Cannot bind parameter`.
+
+* **Nessuna autenticazione con Active Directory per sandbox**. Il runbook ha tentato di chiamare un eseguibile o un sottoprocesso in esecuzione in una sandbox di Azure. La configurazione dei runbook per l'autenticazione con Azure AD tramite la libreria ADAL (Active Directory Authentication Library) di Azure non è supportata.
+
+### <a name="resolution"></a>Soluzione
 
 * **Limite di memoria, socket di rete**. Per assicurarsi di rispettare i limiti di memoria, è ad esempio consigliabile dividere il carico di lavoro tra diversi runbook, elaborare una quantità minore di dati in memoria, evitare di scrivere di output non necessari dai runbook, tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell. Usare il metodo di cancellazione, ad esempio `$myVar.clear`, per cancellare la variabile e usare `[GC]::Collect` per eseguire immediatamente Garbage Collection, in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
+
 * **Modulo incompatibile**. Aggiornare i moduli di Azure eseguendo i passaggi descritti in [Aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
+
 * **Nessuna autenticazione con Active Directory per sandbox**. Quando si esegue l'autenticazione per Azure AD con un runbook, verificare che il modulo di Azure AD sia disponibile nell'account di Automazione. Assicurarsi di concedere all'account RunAs le autorizzazioni necessarie per eseguire le attività automatizzate dal runbook.
 
   Se il runbook non è in grado di chiamare un eseguibile o un sottoprocesso in esecuzione in una sandbox di Azure, usare il runbook in un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non sono soggetti ai limiti di memoria e di rete applicati alle sandbox di Azure.
-
-* **Troppi dati di eccezione**. È previsto un limite di 1 MB per il flusso di output di un processo. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Scenario: il processo di PowerShell ha esito negativo e viene visualizzato il messaggio di errore "Impossibile richiamare il metodo"
 
@@ -555,7 +572,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Questo errore può indicare che i runbook in esecuzione in una sandbox di Azure non possono essere eseguiti in [modalità FullLanguage](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 È possibile risolvere questo problema in due modi:
 
@@ -580,7 +597,7 @@ Si tratta di un comportamento predefinito nelle sandbox di Azure, determinato da
 
 Il runbook ha superato il limite di esecuzione di tre ore consentito dalla condivisione equa in una sandbox di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Una soluzione consigliata consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non sono vincolati al limite di tre ore che la condivisione equa impone sui runbook nelle sandbox di Azure. I runbook che vengono eseguiti in ruoli di lavoro ibridi dovrebbero essere sviluppati per supportare comportamenti di riavvio nel caso in cui si verifichino problemi imprevisti nell'infrastruttura locale.
 
@@ -613,7 +630,7 @@ At line:16 char:1
 
 Questo errore si è probabilmente verificato perché è stata usata una migrazione incompleta da AzureRM ai moduli Az nel runbook. A causa di questa situazione, è possibile che Automazione di Azure avvii un processo del runbook usando solo moduli AzureRM e quindi un altro processo usando solo moduli Az, con un conseguente arresto anomalo della sandbox.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Non è consigliabile usare i cmdlet AZ e AzureRM nello stesso runbook. Per altre informazioni sull'uso corretto dei moduli, vedere [Eseguire la migrazione a moduli Az](../shared-resources/modules.md#migrate-to-az-modules).
 
@@ -627,7 +644,7 @@ Quando viene tentata l'esecuzione del runbook o dell'applicazione in una sandbox
 
 Questo problema può verificarsi perché le sandbox di Azure impediscono l'accesso a tutti i server COM out-of-process. Un'applicazione o un runbook in modalità sandbox, ad esempio, non può eseguire chiamate né in Strumentazione gestione Windows (WMI) né nel servizio Windows Installer (MSIServer. exe). 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per informazioni dettagliate sull'uso delle sandbox di Azure, vedere [Ambiente di esecuzione runbook](../automation-runbook-execution.md#runbook-execution-environment).
 
