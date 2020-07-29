@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024368"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322551"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare Monitoraggio di Azure per l'applicazione Python
 
@@ -474,13 +474,14 @@ Per informazioni più dettagliate su come usare le query e i log, vedere [Log in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Rilevamento delle richieste in ingresso](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Rilevamento delle richieste in uscita](./../../azure-monitor/app/opencensus-python-request.md)
-* [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
-* [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)
+* [Rilevamento delle richieste in ingresso](./opencensus-python-dependency.md)
+* [Rilevamento delle richieste in uscita](./opencensus-python-request.md)
+* [Mappa delle applicazioni](./app-map.md)
+* [Monitoraggio delle prestazioni end-to-end](../learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>Avvisi
 
-* [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per assicurarsi che il sito sia visibile sul Web.
-* [Diagnostica intelligente](../../azure-monitor/app/proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
-* [Avvisi delle metriche](../../azure-monitor/platform/alerts-log.md): Impostare avvisi per essere avvertiti se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
+* [Test di disponibilità](./monitor-web-app-availability.md): creare test per assicurarsi che il sito sia visibile sul Web.
+* [Diagnostica intelligente](./proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
+* [Avvisi delle metriche](../platform/alerts-log.md): Impostare avvisi per essere avvertiti se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
+

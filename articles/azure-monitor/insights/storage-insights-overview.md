@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327345"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -242,7 +242,7 @@ Per il numero di account di archiviazione selezionati esiste un limite di 200, i
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Come si fa a modificare la colorazione e la soglia per la disponibilità?
 
-Per la procedura dettagliata su come modificare la colorazione e le soglie per la disponibilità, vedere la sezione [Modificare la soglia di disponibilità](storage-insights-overview.md#modify-the-availability-threshold).
+Per la procedura dettagliata su come modificare la colorazione e le soglie per la disponibilità, vedere la sezione [Modificare la soglia di disponibilità](#modify-the-availability-threshold).
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Come si fa ad analizzare e risolvere i problemi relativi ai dati visualizzati in Monitoraggio di Azure per l'archiviazione?
 
@@ -274,3 +274,4 @@ Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è st
 * Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
 
 * Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

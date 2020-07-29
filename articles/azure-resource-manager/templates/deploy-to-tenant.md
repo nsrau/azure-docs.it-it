@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321752"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
@@ -16,15 +16,32 @@ Con la maturità dell'organizzazione, potrebbe essere necessario definire e asse
 
 ## <a name="supported-resources"></a>Risorse supportate
 
-A livello di tenant è possibile distribuire i tipi di risorse seguenti:
+Non tutti i tipi di risorse possono essere distribuiti a livello di tenant. Questa sezione elenca i tipi di risorse supportati.
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - Per modelli annidati che vengono distribuiti in gruppi di gestione o sottoscrizioni.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+Per i criteri di Azure, usare:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Per il controllo degli accessi in base al ruolo, usare:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Per i modelli annidati che si distribuiscono in gruppi di gestione, sottoscrizioni o gruppi di risorse, usare:
+
+* [distribuzioni](/azure/templates/microsoft.resources/deployments)
+
+Per la creazione di gruppi di gestione, usare:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+Per la gestione dei costi, usare:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [istruzioni](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Schema
 
@@ -93,6 +110,56 @@ Per le distribuzioni a livello di tenant, è necessario specificare un percorso 
 È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in un tenant, è possibile usare come destinazione il tenant o i gruppi di gestione, le sottoscrizioni e i gruppi di risorse nel tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Le risorse definite all'interno della sezione Resources del modello vengono applicate al tenant.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 

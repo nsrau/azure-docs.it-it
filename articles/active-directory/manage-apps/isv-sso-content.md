@@ -12,11 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cabcaacbdc7e3e94e62c8fb45274c4d4f9390ddd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763279"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273406"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Abilitare l'accesso Single Sign-on per l'applicazione multi-tenant  
 
@@ -60,4 +61,4 @@ L'abilitazione dell'accesso SSO nell'applicazione multi-tenant presenta molti va
 1. [Creare il tenant di Azure](isv-tenant-multi-tenant-app.md) e testare l'applicazione
 1. [Creare e pubblicare la documentazione SSO sul sito](isv-create-sso-documentation.md).
 1. [Inviare l'elenco di applicazioni e il](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) partner con Microsoft per creare la documentazione sul sito di Microsoft.
-1. [Unisciti alla Microsoft Partner Network (gratuita) e crea il tuo piano di marketing Vai a](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Unisciti alla Microsoft Partner Network (gratuita) e crea il tuo piano di marketing Vai a](https://partner.microsoft.com/explore/commercial#gtm).

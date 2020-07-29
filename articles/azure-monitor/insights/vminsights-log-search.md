@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803975"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325186"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
 
-Monitoraggio di Azure per le macchine virtuali raccoglie le metriche delle prestazioni e della connessione, i dati di inventario del computer e del processo e le informazioni sullo stato di integrità e le invia all'area di lavoro Log Analytics in monitoraggio di Azure.  Questi dati sono disponibili per le [query](../../azure-monitor/log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+Monitoraggio di Azure per le macchine virtuali raccoglie le metriche delle prestazioni e della connessione, i dati di inventario del computer e del processo e le informazioni sullo stato di integrità e le invia all'area di lavoro Log Analytics in monitoraggio di Azure.  Questi dati sono disponibili per le [query](../log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="map-records"></a>Record della mappa
 
@@ -51,7 +51,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 |:--|:--|
 |Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Computer |FQDN del computer |
-|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -130,7 +130,7 @@ Ogni record in VMBoundPort è identificato dai campi seguenti:
 
 | Proprietà | Descrizione |
 |:--|:--|
-|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|Process | Identità del processo o dei gruppi di processi a cui è associata la porta.|
 |IP | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
 |Porta |Numero di porta |
 |Protocollo | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
@@ -159,7 +159,7 @@ I record con un tipo di *VMComputer* includono dati di inventario per i server c
 | Proprietà | Descrizione |
 |:--|:--|
 |TenantId | Identificatore univoco per l'area di lavoro |
-|SourceSystem | *Informazioni dettagliate* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp del record (UTC) |
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
@@ -221,16 +221,16 @@ I record con un tipo di *VMProcess* includono dati di inventario per i processi 
 | Proprietà | Descrizione |
 |:--|:--|
 |TenantId | Identificatore univoco per l'area di lavoro |
-|SourceSystem | *Informazioni dettagliate* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp del record (UTC) |
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
 |Computer | Nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}*, dove *GUID* è lo stesso GUID di AgentId. | 
-|Processo | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
+|Process | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
 |Eseguibile | Nome dell'eseguibile del processo | 
 |DisplayName | Nome visualizzato del processo |
 |Ruolo | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
-|Gruppo | Nome del gruppo di processi. I processi nello stesso gruppo sono correlati logicamente, ad esempio, parte dello stesso prodotto o componente di sistema. |
+|Group | Nome del gruppo di processi. I processi nello stesso gruppo sono correlati logicamente, ad esempio, parte dello stesso prodotto o componente di sistema. |
 |StartTime | Ora di inizio del pool del processo |
 |FirstPid | Primo PID nel pool del processo |
 |Descrizione | Descrizione del processo |
@@ -437,7 +437,7 @@ I record con un tipo di *InsightsMetrics* hanno dati sulle prestazioni del siste
 | Proprietà | Descrizione |
 |:--|:--|
 |TenantId | Identificatore univoco per l'area di lavoro |
-|SourceSystem | *Informazioni dettagliate* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Ora di raccolta del valore (UTC) |
 |Computer | FQDN del computer | 
 |Origine | *vm.azm.ms* |
@@ -473,6 +473,7 @@ Nella tabella seguente sono elencati i contatori delle prestazioni attualmente r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../../azure-monitor/log-query/get-started-portal.md) nel portale di Azure per scrivere query di log.
+* Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere query di log.
 
-* Informazioni sulla [scrittura di query di ricerca](../../azure-monitor/log-query/search-queries.md).
+* Informazioni sulla [scrittura di query di ricerca](../log-query/search-queries.md).
+

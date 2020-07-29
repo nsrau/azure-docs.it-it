@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283855"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320511"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilizzare la funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali per comprendere i componenti dell'applicazione
 In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. È possibile osservare le macchine virtuali in due modi. Visualizzare una mappa direttamente da una macchina virtuale o visualizzare una mappa da monitoraggio di Azure per visualizzare i componenti tra gruppi di macchine virtuali. Questo articolo consente di comprendere questi due metodi di visualizzazione e come usare la funzionalità mappa. 
@@ -49,7 +49,7 @@ Per fare in modo che la funzionalità mappa visualizzi gli avvisi rilevanti, cre
 - Includere una clausola per raggruppare gli avvisi per computer (ad esempio, **in base all'intervallo del computer 1 minuto**).
 - Basare l'avviso su una metrica.
 
-Per altre informazioni sugli avvisi di Azure e sulla creazione di regole di avviso, vedere [avvisi unificati in monitoraggio di Azure](../../azure-monitor/platform/alerts-overview.md).
+Per altre informazioni sugli avvisi di Azure e sulla creazione di regole di avviso, vedere [avvisi unificati in monitoraggio di Azure](../platform/alerts-overview.md).
 
 Nell'angolo in alto a destra, l'opzione **Legenda** descrive i simboli e i ruoli sulla mappa. Per un esame più approfondito della mappa e per spostarlo, usare i controlli zoom nell'angolo in basso a destra. È possibile impostare il livello di zoom e adattare la mappa alle dimensioni della pagina.  
 
@@ -128,10 +128,11 @@ In monitoraggio di Azure, la funzionalità mappa fornisce una visualizzazione gl
 
 Scegliere un'area di lavoro usando il selettore dell' **area di lavoro** nella parte superiore della pagina. Se si dispone di più di un'area di lavoro Log Analytics, scegliere l'area di lavoro abilitata con la soluzione e con macchine virtuali che vi fanno riferimento. 
 
-Il selettore di **gruppo** restituisce sottoscrizioni, gruppi di risorse, [gruppi di computer](../../azure-monitor/platform/computer-groups.md)e set di scalabilità di macchine virtuali di computer correlati all'area di lavoro selezionata. La selezione viene applicata solo alla funzionalità della mappa e non a prestazioni o integrità.
+Il selettore di **gruppo** restituisce sottoscrizioni, gruppi di risorse, [gruppi di computer](../platform/computer-groups.md)e set di scalabilità di macchine virtuali di computer correlati all'area di lavoro selezionata. La selezione viene applicata solo alla funzionalità della mappa e non a prestazioni o integrità.
 
 Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si desidera visualizzare le dipendenze in passato, è possibile eseguire una query per gli intervalli di tempo cronologici fino a un'ora. Per eseguire la query, usare il selettore **TimeRange** . È possibile eseguire una query, ad esempio, durante un evento imprevisto o visualizzare lo stato prima di una modifica.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per identificare i colli di bottiglia, verificare le prestazioni e comprendere l'utilizzo complessivo delle macchine virtuali, vedere [visualizzare lo stato delle prestazioni per monitoraggio di Azure per le macchine virtuali](vminsights-performance.md). 
+

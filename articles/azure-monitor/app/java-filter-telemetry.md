@@ -3,11 +3,12 @@ title: Filtrare i dati di telemetria applicazione Azure Insights nell'app Web Ja
 description: Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322585"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 
@@ -22,7 +23,7 @@ I filtri pronti da usare includono:
 
 > [!NOTE]
 > I filtri alterano le metriche dell'app. Ad esempio, si potrebbe decidere che, per diagnosticare un problema di risposte lente, verrà impostato un filtro per ignorare i tempi di risposta rapidi. È necessario però tenere presente che i tempi medi di risposta segnalati da Application Insights saranno così più lenti rispetto alla velocità effettiva e che il numero di richieste sarà inferiore rispetto al numero reale.
-> Se questo rappresenta un problema, usare il [campionamento](../../azure-monitor/app/sampling.md).
+> Se questo rappresenta un problema, usare il [campionamento](./sampling.md).
 
 ## <a name="setting-filters"></a>Impostazione di filtri
 
@@ -151,7 +152,7 @@ Escludere i dati di telemetria per le origini sintetiche specifiche:
 
 ### <a name="telemetry-event-filter"></a>Filtro Eventi di telemetria
 
-Esclude gli eventi personalizzati (registrati tramite [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Esclude gli eventi personalizzati (registrati tramite [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -167,7 +168,7 @@ Esclude gli eventi personalizzati (registrati tramite [TrackEvent()](../../azure
 
 ### <a name="trace-telemetry-filter"></a>Filtro Dati di telemetria traccia
 
-Esclude le tracce di log (registrate tramite [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) o un [agente di raccolta del framework di registrazione](java-trace-logs.md)).
+Esclude le tracce di log (registrate tramite [TrackTrace()](./api-custom-events-metrics.md#tracktrace) o un [agente di raccolta del framework di registrazione](java-trace-logs.md)).
 
 ```XML
 
@@ -267,4 +268,5 @@ Sarà necessario creare i propri parametri di filtro in `application.properties`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Campionamento](../../azure-monitor/app/sampling.md): prendere in considerazione il campionamento come un'alternativa che non altera le metriche.
+* [Campionamento](./sampling.md): prendere in considerazione il campionamento come un'alternativa che non altera le metriche.
+

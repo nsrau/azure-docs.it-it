@@ -5,21 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101709"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327396"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Elenco di controllo per la creazione di un'offerta SaaS nel centro
 
-Il processo di creazione di offerte SaaS si estende in più pagine.  Di seguito sono illustrati i dettagli che è possibile fornire in ogni pagina, con collegamenti per ottenere maggiori informazioni su ogni elemento.
+Il processo di creazione dell'offerta SaaS Visualizza più pagine.  Questo articolo descrive i dettagli che è possibile fornire in ogni pagina, con collegamenti per ottenere ulteriori informazioni su ogni elemento.
 
-Di seguito sono indicati gli elementi che è obbligatorio fornire o specificare.  Alcune aree sono facoltative o prevedono valori predefiniti che è possibile modificare come si desidera.  Non è necessario esaminare le sezioni nell'ordine indicato.
+> [!NOTE]
+> Se si sta creando un'offerta SaaS transazionale, assicurarsi di implementare l'integrazione con le [API di evasione Saas](./pc-saas-fulfillment-apis.md).  L'integrazione con le API è l'unico modo per garantire il corretto funzionamento della transazione nel Marketplace. È anche necessario assicurarsi che l'app usi Azure AD autenticazione con Single Sign-on (SSO). Vedere [Azure ad e le offerte SaaS transazionali nel Marketplace commerciale](../azure-ad-saas.md).
 
->[!Note]
->Per creare un'offerta SaaS transazionale, assicurarsi di implementare l'integrazione con le [API di evasione Saas](./pc-saas-fulfillment-apis.md).  L'integrazione con le API è l'unico modo per garantire il corretto funzionamento della transazione nel Marketplace.
+Gli elementi che è necessario fornire o specificare sono indicati di seguito.  Alcune aree sono facoltative o prevedono valori predefiniti che è possibile modificare come si desidera.  Non è necessario esaminare le sezioni nell'ordine indicato.
 
 | **Elemento**    | **Scopo**  |
 | :---------- | :-------------------|
@@ -28,7 +30,7 @@ Di seguito sono indicati gli elementi che è obbligatorio fornire o specificare.
 | [Pagina Proprietà](#properties-page) | Consente di definire le categorie e i settori usati per raggruppare l'offerta nei marketplace, i contratti legali che supportano l'offerta e la versione dell'app. |
 | [Pagina Presentazione dell'offerta](#offer-listing-page) | Consente di definire i dettagli dell'offerta da visualizzare nel marketplace, tra cui le descrizioni dell'offerta e gli asset di marketing.|
 | [Pagina Anteprima](#preview-page) | Consente di definire un numero di destinatari limitato per l'anteprima per il rilascio dell'offerta prima di pubblicarla e renderla disponibile a un pubblico del marketplace più ampio.|
-| [Pagina Configurazione tecnica per l'offerta](#technical-configuration-page)  |  Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Definire i dettagli tecnici (URL della pagina di destinazione, URL del webhook di connessione, ID tenant Azure AD e ID app Azure AD) usati da Marketplace per connettersi all'offerta.  Questi parametri sono necessari per integrarsi correttamente con l'evasione SaaS e le API per la fatturazione a consumo del Marketplace.|
+| [Pagina configurazione tecnica](#technical-configuration-page)  |  Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Definire i dettagli tecnici (URL della pagina di destinazione, URL del webhook di connessione, ID tenant Azure AD e ID app Azure AD) usati da Marketplace per connettersi all'offerta.  Questi parametri sono necessari per integrarsi correttamente con l'evasione SaaS e le API per la fatturazione a consumo del Marketplace.|
 | [**Finestra modale Nuovo piano**](#plan-identity-modal) | Raccoglie le informazioni relative all'identità del piano.  |
 | [Pagina Elenco piani](#plan-listing-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Consente di definire i dettagli usati per la presentazione del piano nel marketplace.  |
 | [Pagina Plan Pricing & Availability](#plan-pricing--availability-page) (Disponibilità e prezzi del piano)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Raccoglie le caratteristiche di business (modello di determinazione prezzi), i destinatari e la disponibilità di mercato per ogni piano (versione) dell'offerta.  |
@@ -36,10 +38,9 @@ Di seguito sono indicati gli elementi che è obbligatorio fornire o specificare.
 | Pagina Configurazione tecnica del test drive  | Disponibile solo se si sceglie di offrire un test drive per l'offerta. Consente di definire i dettagli tecnici per la dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di impegnarsi ad acquistarla.  |
 | [Pagina Rivedi e pubblica](#review-and-publish-page)  | Consente di selezionare le modifiche da pubblicare, visualizzare lo stato di ogni pagina e specificare note per il team di certificazione.  |
 
+## <a name="new-offer-modal"></a>Finestra modale Nuova offerta
 
-## <a name="new-offer-modal"></a>Finestra modale Nuova offerta 
-
-Le prime informazioni che è necessario fornire sono un ID e un alias per l'offerta. 
+Le prime informazioni che è necessario fornire sono un ID e un alias per l'offerta.
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
@@ -56,8 +57,8 @@ Nella pagina di configurazione dell'offerta è possibile acconsentire esplicitam
 | Come si vuole che i potenziali clienti interagiscano con questa offerta? (Invito all'azione)  | Obbligatorio se non si vende tramite Microsoft. Predefinito: Versione di prova gratuita. Opzioni: "Scarica ora", "Versione di prova gratuita", "Contatta". |
 | URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "Versione di prova gratuita" come modo in cui i clienti devono interagire con la presentazione dell'offerta. |
 | URL dell'offerta  | Obbligatorio se è selezionata l'opzione "Scarica ora" come modo in cui i clienti devono interagire con la presentazione dell'offerta. |
-| Canali  | Facoltativa. Predefinito: nessun consenso esplicito per il canale CSP (rivenditore).  |
-| Test drive | Facoltativa. Predefinito: nessun test drive abilitato.  |
+| Canali  | facoltativo. Predefinito: nessun consenso esplicito per il canale CSP (rivenditore).  |
+| Test drive | facoltativo. Predefinito: nessun test drive abilitato.  |
 | Tipo di test drive | Obbligatorio se è abilitato un test drive. Predefinito: nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, App per la logica, Power BI.  |
 | Customer leads - connect to a CRM system (Lead cliente - connessione a un sistema CRM) | Obbligatorio se si vende tramite Microsoft o se la presentazione dell'offerta prevede l'opzione "Contatta". Impostazione predefinita: nessun sistema CRM connesso. Opzioni CRM: Tabella di Azure, BLOB di Azure, Dynamics CRM Online, Endpoint HTTPS, Marketo, Salesforce  |
 
@@ -68,8 +69,8 @@ La pagina Proprietà consente di definire le categorie e i settori usati per rag
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
 | Categoria e sottocategoria | Obbligatorio, minimo 1 valore e massimo 3. Predefinito: nessuna selezione. |
-| Industries and subindustries (Settori e sottosettori) | Facoltativa. Massimo 2 settori di livello 1 e 2 sottosettori in ogni settore di livello 1. Impostazione predefinita: nessuna selezione. |
-| Versione dell'app  | Facoltativa. Predefinito: No. |
+| Industries and subindustries (Settori e sottosettori) | facoltativo. Massimo 2 settori di livello 1 e 2 sottosettori in ogni settore di livello 1. Impostazione predefinita: nessuna selezione. |
+| Versione dell'app  | facoltativo. Predefinito: No. |
 | Use Standard Contract (Usa contratto standard)  | Facoltativa. Impostazione predefinita: nessuna selezione.  | |
 | Condizioni per l'utilizzo  | Obbligatorio se non è selezionato il contratto standard.  |
 
@@ -86,8 +87,8 @@ Nella pagina di presentazione dell'offerta è possibile fornire il testo e le im
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Search Keywords (Parole chiave di ricerca)  | Facoltativo, consigliato, massimo 3 parole chiave. |
 | URL dell'informativa sulla privacy  | Obbligatorio. |
-| URL Materiale marketing del programma CSP  | Facoltativa. |
-| Collegamenti utili (titolo + URL)  | Facoltativa. |
+| URL Materiale marketing del programma CSP  | facoltativo. |
+| Collegamenti utili (titolo + URL)  | facoltativo. |
 | Documenti di supporto (titolo + file)  | Obbligatorio, minimo 1 e massimo 3. Il formato di file deve essere PDF. |
 | Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e massimo 5, consigliati quattro o più. Il formato deve essere PNG con dimensioni 1280 x 720. |
 | Logo dello Store (piccolo, medio, grande, largo)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115). Deve essere in. Formato PNG. |
@@ -106,6 +107,9 @@ La pagina di anteprima consente di specificare i destinatari che possono acceder
 ## <a name="technical-configuration-page"></a>Pagina Configurazione tecnica 
 
 Nella pagina relativa alla configurazione tecnica è possibile specificare i dettagli tecnici usati da Microsoft per connettersi all'offerta. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
+
+> [!NOTE]
+> Per le offerte transazionali, è necessario creare una pagina di destinazione e l'app deve usare Azure AD autenticazione con Single Sign-on (SSO). Per ulteriori informazioni, vedere la pagina relativa alle [offerte SaaS Azure ad e transazionali nel Marketplace commerciale](../azure-ad-saas.md).
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 

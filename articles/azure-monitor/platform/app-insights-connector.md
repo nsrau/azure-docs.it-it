@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073641"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327107"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
 ![Simbolo Application Insights](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Con il supporto delle [query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md), la soluzione di gestione Connettore di Application Insights non è più necessaria. È stata quindi deprecata e rimossa da Azure Marketplace, insieme al portale OMS che è stato deprecato il 15 gennaio 2019 per il cloud commerciale di Azure. Verrà ritirata il 30 marzo 2019 dal cloud Azure US Government.
+> Con il supporto delle [query tra risorse](../log-query/cross-workspace-query.md), la soluzione di gestione Connettore di Application Insights non è più necessaria. È stata quindi deprecata e rimossa da Azure Marketplace, insieme al portale OMS che è stato deprecato il 15 gennaio 2019 per il cloud commerciale di Azure. Verrà ritirata il 30 marzo 2019 dal cloud Azure US Government.
 >
 >Le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019.  Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Vedere [Rimozione del connettore con PowerShell](#removing-the-connector-with-powershell) più avanti per uno script sull'uso di PowerShell per rimuovere connessioni esistenti.
 >
->Per indicazioni sull'esecuzione di query sui dati dei log di Application Insights per più applicazioni, vedere [Unificare più risorse di Application Insights in Monitoraggio di Azure](../log-query/unify-app-resource-data.md). Per altre informazioni sulla deprecazione del portale OMS, vedere [Portale di OMS che si sposta in Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>Per indicazioni sull'esecuzione di query sui dati dei log di Application Insights per più applicazioni, vedere [Unificare più risorse di Application Insights in Monitoraggio di Azure](../log-query/unify-app-resource-data.md). Per altre informazioni sulla deprecazione del portale OMS, vedere [Portale di OMS che si sposta in Azure](./oms-portal-transition.md).
 >
 > 
 
-La soluzione Connettore di Application Insights consente di diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di [Application Insights](../../azure-monitor/app/app-insights-overview.md). In Log Analytics sono disponibili alcune viste della stessa telemetria dell'applicazione visualizzate dagli sviluppatori in Application Insights. Tuttavia, quando le app di Application Insights vengono integrate con Log Analytics, la visibilità delle applicazioni aumenta grazie al fatto che i dati operativi e quelli applicativi si trovano in un'unica posizione. Con le stesse viste è possibile collaborare con gli sviluppatori delle app. Le viste comuni consentono di ridurre il tempo necessario a rilevare e risolvere i problemi delle piattaforme e delle applicazioni.
+La soluzione Connettore di Application Insights consente di diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di [Application Insights](../app/app-insights-overview.md). In Log Analytics sono disponibili alcune viste della stessa telemetria dell'applicazione visualizzate dagli sviluppatori in Application Insights. Tuttavia, quando le app di Application Insights vengono integrate con Log Analytics, la visibilità delle applicazioni aumenta grazie al fatto che i dati operativi e quelli applicativi si trovano in un'unica posizione. Con le stesse viste è possibile collaborare con gli sviluppatori delle app. Le viste comuni consentono di ridurre il tempo necessario a rilevare e risolvere i problemi delle piattaforme e delle applicazioni.
 
 Quando si usa la soluzione, è possibile:
 
@@ -44,9 +44,9 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 | Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Agenti di Windows](./agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](./om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](./resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -57,7 +57,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 ## <a name="configuration"></a>Configurazione
 
-1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../insights/solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
 4. Fare clic su **Salva**.
@@ -144,7 +144,7 @@ A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla f
 
 ### <a name="sample-corrected-data"></a>Dati con correzione di campionamento
 
-Application Insights offre *[dati con correzione di campionamento](../../azure-monitor/app/sampling.md)* per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
+Application Insights offre *[dati con correzione di campionamento](../app/sampling.md)* per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
 
 Di seguito è riportato un esempio di correzione di campionamento in una query di ricerca log:
 
@@ -163,8 +163,8 @@ La soluzione riceve i tipi seguenti di telemetria di dati dalle app Application 
 - Disponibilità
 - Eccezioni
 - Requests
-- Visualizzazioni di pagine: per l'area di lavoro per la ricezione di visualizzazioni di pagina, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
-- Eventi personalizzati: per l'area di lavoro per la ricezione di eventi personalizzati, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+- Visualizzazioni di pagine: per l'area di lavoro per la ricezione di visualizzazioni di pagina, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [PageViews](../app/api-custom-events-metrics.md#page-views).
+- Eventi personalizzati: per l'area di lavoro per la ricezione di eventi personalizzati, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [TrackEvent](../app/api-custom-events-metrics.md#trackevent).
 
 I dati vengono ricevuti da Log Analytics da Application Insights appena disponibili.
 
@@ -225,7 +225,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Tipo | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -318,4 +318,5 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Usare la [ricerca log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare informazioni dettagliate per le app Application Insights.
+- Usare la [ricerca log](../log-query/log-query-overview.md) per visualizzare informazioni dettagliate per le app Application Insights.
+

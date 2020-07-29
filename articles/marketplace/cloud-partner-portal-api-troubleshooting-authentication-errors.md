@@ -4,15 +4,15 @@ description: Offre assistenza relativamente agli errori di autenticazione freque
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfcee6a6d9a8448315d59009ea8a6ef62fa71da0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aa4269d68a176db97e36e6fbae4eba32041d7e05
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271468"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Risoluzione dei problemi: errori di autenticazione frequenti
 

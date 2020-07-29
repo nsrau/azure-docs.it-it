@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275480"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
@@ -84,7 +85,7 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è necessario a
 
 1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
 1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client**.
-1. Selezionare **Aggiungi filtri** > **App client** e quindi tutti i protocolli di autenticazione legacy e fare clic su **Applica**.
+1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo di filtro Blox per applicare le selezioni e chiudere la finestra di dialogo.
 
 Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
 

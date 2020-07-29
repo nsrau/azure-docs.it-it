@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321888"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -19,7 +19,7 @@ Questo articolo illustra come configurare e attivare un'app per la logica per cr
 
 ## <a name="overview"></a>Panoramica
 
-Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](../../azure-monitor/platform/action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
+Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](./action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
 
 Il processo generale è il seguente:
 
@@ -294,6 +294,7 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
 App per la logica dispone di una serie di connettori diversi che consentono di attivare azioni in un'ampia gamma di applicazioni e database. Slack, SQL Server, Oracle e Salesforce sono solo alcuni esempi. Per altre informazioni sui connettori, vedere [Connettori di App per la logica](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
+* Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi quando viene inviata una notifica sull'integrità dei servizi di Azure](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).
+* Altre informazioni sui [gruppi di azione](./action-groups.md).
+

@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797824"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323724"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Informazioni sulle modalità d'uso dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 
@@ -36,7 +37,7 @@ Lo screenshot seguente mostra un esempio del tipo di dati generato dallo strumen
 ### <a name="funnels-features"></a>Funzionalità Imbuti
 Lo screenshot precedente include cinque aree evidenziate. Queste sono funzionalità dello strumento Imbuti. L'elenco seguente spiega in maggiore dettaglio ogni area nello screenshot:
 1. Se l'app è campionata, verrà visualizzato un banner di campionamento. Selezionando l'intestazione viene aperto un riquadro di contesto che descrive come disattivare il campionamento. 
-2. È possibile esportare l'imbuto in [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. È possibile esportare l'imbuto in [Power BI](./export-power-bi.md).
 3. Selezionare un passaggio per visualizzare ulteriori dettagli sulla destra. 
 4. Il grafico di conversione cronologica mostra i tassi di conversione negli ultimi 90 giorni. 
 5. Accedendo allo strumento Utenti, è possibile comprendere meglio il comportamento degli utenti. È possibile usare i filtri in ogni passaggio. 
@@ -45,7 +46,7 @@ Lo screenshot precedente include cinque aree evidenziate. Queste sono funzionali
   * [Panoramica sull'uso](usage-overview.md)
   * [Utenti, Sessioni ed Eventi](usage-segmentation.md)
   * [Conservazione](usage-retention.md)
-  * [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
+  * [Cartelle di lavoro](../platform/workbooks-overview.md)
   * [Aggiungere il contesto utente](usage-send-user-context.md)
-  * [Esportare in Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Esportare in Power BI](./export-power-bi.md)
 

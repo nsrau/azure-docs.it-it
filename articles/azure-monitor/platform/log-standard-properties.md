@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325271"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Proprietà standard in Log di Monitoraggio di Azure
 I dati in Log di Monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro Log Analytics o in un'applicazione di Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati a cui è assegnato un set di proprietà univoco. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
@@ -210,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](../log-query/log-query-overview.md).
-- Seguire una lezione sulla [scrittura di query di log](../../azure-monitor/log-query/get-started-queries.md).
-- Seguire una lezione sul [join di tabelle nelle query di log](../../azure-monitor/log-query/joins.md).
+- Seguire una lezione sulla [scrittura di query di log](../log-query/get-started-queries.md).
+- Seguire una lezione sul [join di tabelle nelle query di log](../log-query/joins.md).
+

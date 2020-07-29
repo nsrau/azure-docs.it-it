@@ -4,15 +4,15 @@ description: Per informazioni sui requisiti tecnici e di configurazione, è nece
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101172"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324642"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
@@ -114,7 +114,7 @@ Usare uno dei metodi seguenti dagli SDK dei moduli di Internet delle cose per im
 
 Per i moduli che non usano l'SDK del modulo Internet, sono disponibili informazioni dettagliate meno precise tramite il centro per i partner, ad esempio il numero di download.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 IoT Edge moduli devono evitare i [moduli con privilegi](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). In alternativa, è possibile richiedere l'accesso con privilegi minimi all'host.
 
@@ -130,7 +130,7 @@ I partner ricevono una notifica ogni volta che viene apportata una modifica sost
 
 - Matrice del supporto del sistema operativo/Arch di livello 1 supportata da IoT Edge
 - SDK dei moduli IoT
-- Runtime di IoT Edge
+- Runtime IoT Edge
 - Linee guida per la certificazione del modulo IoT Edge
 
 I partner devono aggiornare e ricertificare le offerte ripubblicando tali offerte nel centro per i [partner](https://partner.microsoft.com/dashboard/commercial-marketplace).

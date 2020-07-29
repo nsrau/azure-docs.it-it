@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2da00b44be7018bef80e466231efb75a8eb99754
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081543"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326002"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 
@@ -125,7 +125,7 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Installare una soluzione con l'interfaccia della riga di comando di Azure
 
-Quando si installa una soluzione, è necessario selezionare un'[area di lavoro Log Analytics](/azure/azure-monitor/platform/manage-access) in cui la soluzione verrà installata e in cui verranno raccolti i dati.  Con l'interfaccia della riga di comando di Azure, è possibile gestire le aree di lavoro usando i comandi [AZ monitor log-Analytics](/cli/azure/monitor/log-analytics/workspace) Reference.  Seguire la procedura descritta in [area di lavoro Log Analytics e account di Automazione](#log-analytics-workspace-and-automation-account) per collegare un'area di lavoro e un account.
+Quando si installa una soluzione, è necessario selezionare un'[area di lavoro Log Analytics](../platform/manage-access.md) in cui la soluzione verrà installata e in cui verranno raccolti i dati.  Con l'interfaccia della riga di comando di Azure, è possibile gestire le aree di lavoro usando i comandi [AZ monitor log-Analytics](/cli/azure/monitor/log-analytics/workspace) Reference.  Seguire la procedura descritta in [area di lavoro Log Analytics e account di Automazione](#log-analytics-workspace-and-automation-account) per collegare un'area di lavoro e un account.
 
 Usare la [soluzione AZ monitor log-Analytics create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) per installare una soluzione di monitoraggio.  I parametri tra parentesi quadre sono facoltativi.
 
@@ -192,6 +192,7 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ottenere un [elenco di soluzioni di monitoraggio da Microsoft](solutions-inventory.md).
+* Ottenere un [elenco di soluzioni di monitoraggio da Microsoft](/azure/azure-monitor/monitor-reference).
 * Informazioni su come [creare query](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle soluzioni di monitoraggio.
 * Vedere tutti i [comandi dell'interfaccia della riga di comando di Azure per Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
+

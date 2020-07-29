@@ -1,18 +1,18 @@
 ---
 title: Informazioni dettagliate sui proventi per area geografica - Marketplace commerciale Microsoft
 description: Informazioni sul tempo stimato per il trasferimento dei pagamenti e sulle vetrine Microsoft da cui è possibile ricevere pagamenti, variabili a seconda del paese/area geografica e del tipo di account relativo ai proventi.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327328"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
@@ -75,7 +75,7 @@ Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metod
 | Repubblica Democratica del Congo | Sì | Sì | Sì | No |
 | Repubblica del Congo | Sì | Sì | Sì | No |
 | Costa Rica | Sì | Sì | Sì | Sì |
-| Côte d’Ivoire (Costa d'Avorio) | Sì | Sì | Sì | No |
+| Costa d'Avorio | Sì | Sì | Sì | No |
 | Croazia | Sì | Sì | Sì | No |
 | Cipro | Sì | Sì | Sì | Sì |
 | Repubblica ceca | Sì | Sì | Sì | Sì |

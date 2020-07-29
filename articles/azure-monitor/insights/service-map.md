@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326070"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
-Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. Per informazioni sulla configurazione dei prerequisiti per questa soluzione, vedere [Enable the monitoraggio di Azure per le macchine virtuali Overview](vminsights-enable-overview.md#prerequisites). Per riepilogare, sono necessari gli elementi seguenti:
+Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. I prerequisiti della soluzione sono i seguenti:
 
-* Un'area di lavoro Log Analytics per abilitare questa soluzione.
+* Area di lavoro Log Analytics in un' [area supportata](vminsights-configure-workspace.md#supported-regions).
 
-* L'agente di Log Analytics installato nel computer Windows o nel server Linux configurato per segnalare la stessa area di lavoro in cui è stata abilitata la soluzione.
+* L' [agente di log Analytics](vminsights-enable-overview.md#agents) installato nel computer Windows o nel server Linux connesso alla stessa area di lavoro in cui è stata abilitata la soluzione.
 
-* Dependency Agent installato nel computer Windows o nel server Linux.
+* [Dependency Agent](vminsights-enable-overview.md#agents) installato nel computer Windows o nel server Linux.
 
 >[!NOTE]
->Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms)riportate di seguito.
+>Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](./vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms)riportate di seguito.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -304,7 +304,7 @@ Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenien
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 
-I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando un processo o computer viene avviato o caricato in Mapping dei servizi. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
 
@@ -550,7 +550,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
+Altre informazioni sulle [ricerche nei log](../log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -603,3 +603,4 @@ Controllare `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` 
 ## <a name="suggestions"></a>Suggerimenti
 
 Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+

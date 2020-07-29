@@ -4,12 +4,12 @@ description: Automatizzare i report personalizzati giornalieri/settimanali/mensi
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320409"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -150,7 +150,8 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla creazione di [query di Analisi](../../azure-monitor/log-query/get-started-queries.md).
+* Altre informazioni sulla creazione di [query di Analisi](../log-query/get-started-queries.md).
 * Altre informazioni sull'[esecuzione di query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/)
 * Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 * Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
+

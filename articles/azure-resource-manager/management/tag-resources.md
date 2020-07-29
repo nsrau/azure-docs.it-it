@@ -2,13 +2,13 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056923"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323877"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -438,7 +438,7 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 
 ### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
 
-Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](../templates/template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, usare la `tags[tag-name]` sintassi invece della `tags.tag-name` sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup ()](../templates/template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, usare la `tags[tag-name]` sintassi invece della `tags.tag-name` sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
 
 ```json
 {
@@ -578,7 +578,7 @@ I tag applicati al gruppo di risorse o alla sottoscrizione non vengono ereditati
 
 È possibile usare i tag per raggruppare i dati di fatturazione. Se, ad esempio, sono in esecuzione più macchine virtuali per organizzazioni diverse, usare i tag per raggrupparne l'uso in base al centro di costo. È anche possibile usare i tag per classificare i costi in base all'ambiente di runtime; ad esempio, l'uso di fatturazione per le macchine virtuali in esecuzione nell'ambiente di produzione.
 
-Le informazioni sui tag possono essere recuperate tramite l' [API di utilizzo della risorsa di Azure e della Rate Card](../../cost-management-billing/manage/usage-rate-card-overview.md) o il file di utilizzo con valori delimitati da virgole (CSV). Il file d'uso può essere scaricato dal [Centro account di Azure](https://account.azure.com/Subscriptions) o dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
+È possibile recuperare informazioni sui tag tramite le [API di utilizzo delle risorse di Azure e delle schede tariffarie](../../cost-management-billing/manage/usage-rate-card-overview.md) oppure il file con valori delimitati da virgole (CSV) di utilizzo. Il file d'uso può essere scaricato dal [Centro account di Azure](https://account.azure.com/Subscriptions) o dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
 
 Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Azure](/rest/api/billing/).
 
@@ -596,6 +596,8 @@ Ai tag si applicano le limitazioni seguenti:
    > Attualmente, le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag.
    >
    > La porta anteriore di Azure non supporta l'uso di `#` nel nome del tag.
+   >
+   > Automazione di Azure e la rete CDN di Azure supportano solo 15 tag sulle risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Visualizzare e usare il modello di Azure Resource Manager di una macchina
 description: Informazioni su come usare un modello di Azure Resource Manager di una macchina virtuale per creare altre macchine virtuali
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476615"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272692"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
 
@@ -35,7 +35,7 @@ Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello
 
 Il resto di questo articolo illustra i modelli di Resource Manager che usano Microsoft.DevTestLab/labs/virtualmachines. Questi vengono usati dagli amministratori dei lab per automatizzare la creazione di VM (ad esempio, macchine virtuali richiedibili) o la generazione dell'immagine predefinita (ad esempio, una factory di immagini).
 
-[Procedure consigliate per la creazione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) offre molti suggerimenti e linee guida per creare modelli di Azure Resource Manager affidabili e semplici da usare.
+[Procedure consigliate per la creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md) offre molti suggerimenti e linee guida per creare modelli di Azure Resource Manager affidabili e semplici da usare.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visualizzare e usare un modello di Resource Manager di Azure di una macchina virtuale
 1. Seguire i passaggi in [Creare la prima macchina virtuale in un lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) per iniziare a creare una macchina virtuale.

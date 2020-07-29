@@ -4,17 +4,17 @@ description: Informazioni su come installare e configurare PostgreSQL in una mac
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 6efc8a7e6478ed874caf925e10ef43c04343d254
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133245"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267252"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
 PostgreSQL è un database open source avanzato simile a Oracle e DB2. Questo database include funzionalità aziendali quali la conformità ACID completa, l'elaborazione transazionale affidabile e il controllo della concorrenza per più versioni. Supporta anche standard come ANSI SQL e SQL/MED (compresi wrapper di dati esterni per Oracle, MySQL, MongoDB e molti altri). È inoltre altamente estendibile, supportando oltre 12 linguaggi procedurali, gli indici GIN e GIST, i dati spaziali e più funzionalità di tipo NoSQL per le applicazioni basate su chiave-valore o JSON.
@@ -259,7 +259,7 @@ Inserire innanzitutto le informazioni in una riga:
 INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 ```
 
-Dovrebbe venire visualizzato questo output:
+Verrà visualizzato questo output:
 
 ![image](./media/postgresql-install/no6.png)
 
@@ -280,7 +280,7 @@ Per mostrare una tabella, usare il comando seguente:
 select * from potluck;
 ```
 
-L'output è:
+L'output è il seguente:
 
 ![image](./media/postgresql-install/no7.png)
 
@@ -291,7 +291,7 @@ Per eliminare dati in una tabella, usare il comando seguente:
 delete from potluck where name=’John’;
 ```
 
-Consente di eliminare tutte le informazioni nella riga "John". L'output è:
+Consente di eliminare tutte le informazioni nella riga "John". L'output è il seguente:
 
 ![image](./media/postgresql-install/no8.png)
 

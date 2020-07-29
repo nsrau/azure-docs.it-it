@@ -3,18 +3,18 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 159a1c5554c0ac017bc9eeb2e9df65fddba334ba
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326546"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
-Quando si sviluppa la versione successiva di un'applicazione Web, non è desiderabile combinare la telemetria di [Application Insights](../../azure-monitor/app/app-insights-overview.md) della nuova versione con quella della versione già rilasciata. Per evitare confusione, inviare i dati di telemetria da diverse fasi di sviluppo per separare le risorse di Application Insights, con chiavi di strumentazione separate (iKey). Per rendere più semplice la modifica della chiave di strumentazione man mano che una versione si sposta da una fase all'altra, può essere utile impostare il valore ikey nel codice anziché nel file di configurazione.
+Quando si sviluppa la versione successiva di un'applicazione Web, non è desiderabile combinare la telemetria di [Application Insights](./app-insights-overview.md) della nuova versione con quella della versione già rilasciata. Per evitare confusione, inviare i dati di telemetria da diverse fasi di sviluppo per separare le risorse di Application Insights, con chiavi di strumentazione separate (iKey). Per rendere più semplice la modifica della chiave di strumentazione man mano che una versione si sposta da una fase all'altra, può essere utile impostare il valore ikey nel codice anziché nel file di configurazione.
 
-Se il sistema è un servizio cloud di Azure, è disponibile [un altro metodo di impostazione di valori iKey separati](../../azure-monitor/app/cloudservices.md).)
+Se il sistema è un servizio cloud di Azure, è disponibile [un altro metodo di impostazione di valori iKey separati](./cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Sulle risorse e le chiavi di strumentazione
 
@@ -58,7 +58,7 @@ protected void Application_Start()
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
 ### <a name="web-pages"></a>Pagina Web
-Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riquadro Avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
+Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riquadro Avvio rapido](./javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
 ```javascript
 <script type="text/javascript">
@@ -86,14 +86,14 @@ Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invi
 ## <a name="filter-on-build-number"></a>Filtrare in base al numero di build
 Quando si pubblica una nuova versione dell'app, potrebbe essere opportuno separare i dati telemetrici delle diverse build.
 
-È possibile impostare la proprietà della versione dell'applicazione in modo che sia possibile filtrare i risultati della [ricerca](../../azure-monitor/app/diagnostic-search.md) e di [Esplora metriche](../../azure-monitor/platform/metrics-charts.md).
+È possibile impostare la proprietà della versione dell'applicazione in modo che sia possibile filtrare i risultati della [ricerca](./diagnostic-search.md) e di [Esplora metriche](../platform/metrics-charts.md).
 
 Esistono diversi metodi di impostazione della proprietà della versione dell'applicazione.
 
 * Impostare direttamente:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Eseguire il wrapping di tale riga in un [inizializzatore di telemetria](../../azure-monitor/app/api-custom-events-metrics.md#defaults) per assicurarsi che tutte le istanze di TelemetryClient siano impostate in modo coerente.
+* Eseguire il wrapping di tale riga in un [inizializzatore di telemetria](./api-custom-events-metrics.md#defaults) per assicurarsi che tutte le istanze di TelemetryClient siano impostate in modo coerente.
 * [ASP.NET] Impostare la versione `BuildInfo.config`. Il modulo Web selezionerà la versione dal nodo BuildLabel. Includere questo file nel progetto e ricordarsi di impostare la proprietà Copia sempre in Esplora soluzioni.
 
     ```XML
@@ -132,14 +132,15 @@ Per tenere traccia della versione dell'applicazione, assicurarsi che il processo
 </PropertyGroup>
 ```
 
-Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/platform/metrics-charts.md).
+Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](./diagnostic-search.md) o quando si [esaminano le metriche](../platform/metrics-charts.md).
 
 Si noti tuttavia che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore di Visual Studio.
 
 ### <a name="release-annotations"></a>Annotazioni sulle versioni
-Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](../../azure-monitor/app/annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. 
+Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](./annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risorse condivise da più ruoli](../../azure-monitor/app/app-map.md)
-* [Creare un inizializzatore di telemetria per distinguere le varianti A|B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)
+* [Risorse condivise da più ruoli](./app-map.md)
+* [Creare un inizializzatore di telemetria per distinguere le varianti A|B](./api-filtering-sampling.md#add-properties)
+

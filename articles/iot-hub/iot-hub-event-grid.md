@@ -11,15 +11,17 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732508"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327651"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
-L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile.Ad esempio, creare un'applicazione per l'aggiornamento di un database, creare un ticket di lavoro e recapitare una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo Internet nell'hub Internet.
+L'hub IoT di Azure si integra con Griglia di eventi di Azure per consentire l'invio di notifiche degli eventi ad altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo da poter reagire a eventi critici in modo affidabile, scalabile e sicuro.Creare ad esempio un'applicazione che aggiorna un database, crea un ticket di lavoro e recapita una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT nell'hub IoT.
 
 [Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
@@ -39,13 +41,13 @@ L'hub IoT pubblica i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. |
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. |
-| Microsoft. Devices. DeviceTelemetry | Pubblicato quando un messaggio di telemetria del dispositivo viene inviato a un hub Internet |
+| Microsoft.Devices.DeviceTelemetry | Pubblicato quando viene inviato un messaggio di telemetria del dispositivo a un hub IoT |
 
 Usare il portale di Azure o l'interfaccia della riga di comando di Azure per configurare gli eventi da pubblicare da ogni hub IoT. Per un esempio, provare l'esercitazione [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) (Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica).
 
 ## <a name="event-schema"></a>Schema di eventi
 
-Gli eventi dell'hub IoT contengono tutte le informazioni necessarie per rispondere alle modifiche del ciclo di vita del dispositivo. Per identificare un evento dell'hub IoT, controllare se la proprietà eventType inizia con **Microsoft.Devices**. Per altre informazioni su come usare le proprietà degli eventi di Griglia di eventi, vedere lo [schema di eventi di Griglia di eventi](../event-grid/event-schema.md).
+Gli eventi dell'hub IoT contengono tutte le informazioni necessarie per rispondere alle modifiche del ciclo di vita del dispositivo. È possibile identificare un evento dell'hub IoT controllando che la proprietà eventType inizi con **Microsoft.Devices**. Per altre informazioni su come usare le proprietà degli eventi di Griglia di eventi, vedere lo [schema di eventi di Griglia di eventi](../event-grid/event-schema.md).
 
 ### <a name="device-connected-schema"></a>Schema di dispositivo connesso
 
@@ -196,11 +198,11 @@ Se la connessione del dispositivo è tremolante, il che significa che il disposi
 
 Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste procedure consigliate:
 
-* È possibile configurare più sottoscrizioni per indirizzare gli eventi allo stesso gestore eventi, quindi non presupporre che gli eventi provengano da un'origine particolare. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'hub IoT previsto.
+* È possibile configurare più sottoscrizioni per indirizzare gli eventi allo stesso gestore, quindi non presupporre che gli eventi provengano da un'origine particolare. Controllare sempre l'argomento del messaggio per assicurarsi che provenga dall'hub IoT previsto.
 
 * Non presupporre che tutti gli eventi ricevuti siano del tipo previsto. Controllare sempre eventType prima di elaborare il messaggio.
 
-* I messaggi possono arrivare senza ordine o dopo un ritardo. Usare il campo ETag per capire se le informazioni sugli oggetti sono aggiornate per gli eventi creati dal dispositivo o eliminati dal dispositivo.
+* I messaggi possono arrivare non in ordine o dopo un ritardo. Usare il campo ETag per capire se le informazioni sugli oggetti sono aggiornate per gli eventi creati dal dispositivo o eliminati dal dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

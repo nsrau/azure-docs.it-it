@@ -7,12 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 30573eb3b35152ab5769c1aab9c4af052cb454a6
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171024"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327838"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 
@@ -54,7 +55,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -72,7 +73,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientDirectOverrideAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -140,7 +141,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API Sync di Java SDK v4 (Maven com.azure::azure-cosmos)
 
@@ -281,7 +282,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -297,7 +298,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API Sync di Java SDK v4 (Maven com.azure::azure-cosmos)
 
@@ -338,7 +339,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
-    # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
+    # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
     API Sync di Java SDK v4 (Maven com.azure::azure-cosmos)
 

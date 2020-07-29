@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321871"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log attività di Azure in monitoraggio di Azure tra Azure Active Directory tenant (legacy)
 
@@ -127,7 +127,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
    |Impostazione | Descrizione  |
    |:---|:---|
    | Nome           | Nome univoco per l'app per la logica. |
-   | Subscription   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
+   | Sottoscrizione   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
    | Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
    | Location       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
    | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro Log Analytics.  |
@@ -340,4 +340,5 @@ Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per 
 In questo articolo è stata creata un'app per la logica per leggere i log attività di Azure da un hub eventi e inviarli all'area di lavoro Log Analytics per l'analisi. Per altre informazioni sulla visualizzazione dei dati in un'area di lavoro, inclusa la creazione di dashboard, vedere l'esercitazione per visualizzare i dati.
 
 > [!div class="nextstepaction"]
-> [Esercitazione per la visualizzazione dei dati di ricerca log](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Esercitazione per la visualizzazione dei dati di ricerca log](../learn/tutorial-logs-dashboards.md)
+
