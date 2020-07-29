@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f12771e55ced3b8783b6c7497b83e6b041c66b75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074467"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -42,7 +42,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
     Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 
@@ -125,7 +125,7 @@ In questa sezione vengono inviate le richieste rilevanti per la codifica e la cr
 
 ### <a name="start-a-streaming-endpoint"></a>Avviare un endpoint di streaming
 
-Per abilitare lo streaming, occorre prima avviare l['endpoint di streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) da cui si vuole trasmettere il video.
+Per abilitare lo streaming, occorre prima avviare l['endpoint di streaming](./streaming-endpoint-concept.md) da cui si vuole trasmettere il video.
 
 > [!NOTE]
 > Il costo viene addebitato solo quando l'endpoint di streaming è in stato di esecuzione.
@@ -147,11 +147,11 @@ Per abilitare lo streaming, occorre prima avviare l['endpoint di streaming](http
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
+        L'articolo [Tenere traccia delle operazioni asincrone](../../azure-resource-manager/management/async-operations.md) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
 
 ### <a name="create-an-output-asset"></a>Creare un asset di output
 
-L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo di codifica. 
+L'[asset](/rest/api/media/assets) di output archivia il risultato del processo di codifica. 
 
 1. Nella finestra sinistra dell'app Postman selezionare "Assets".
 2. Selezionare quindi "Create or update an Asset" (Crea o aggiorna un asset).
@@ -175,14 +175,14 @@ L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia i
 
 ### <a name="create-a-transform"></a>Creare una trasformazione
 
-Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](transform-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
+Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
 
-Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è un oggetto **TransformOutput**. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'esempio descritto in questo articolo è basato su un set di impostazioni predefinito denominato **AdaptiveStreaming**. Il set di impostazioni codifica il video di input in una tabella di coppie velocità in bit-risoluzione generata automaticamente in base alla risoluzione e alla velocità in bit dell'input e genera file ISO MP4 con standard video H.264 e audio AAC corrispondente a ogni coppia velocità in bit-risoluzione. Per informazioni su questo set di impostazioni, vedere [Generazione automatica di una tabella di coppie velocità in bit-risoluzione](autogen-bitrate-ladder.md).
+Quando si crea una nuova istanza dell'oggetto [Transform](/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è un oggetto **TransformOutput**. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'esempio descritto in questo articolo è basato su un set di impostazioni predefinito denominato **AdaptiveStreaming**. Il set di impostazioni codifica il video di input in una tabella di coppie velocità in bit-risoluzione generata automaticamente in base alla risoluzione e alla velocità in bit dell'input e genera file ISO MP4 con standard video H.264 e audio AAC corrispondente a ogni coppia velocità in bit-risoluzione. Per informazioni su questo set di impostazioni, vedere [Generazione automatica di una tabella di coppie velocità in bit-risoluzione](autogen-bitrate-ladder.md).
 
 È possibile usare un set di impostazioni predefinito EncoderNamedPreset oppure usare set di impostazioni personalizzati. 
 
 > [!Note]
-> Quando si crea un oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è prima necessario verificare se ne esiste già uno tramite il metodo **Get**. In questa esercitazione si presuppone che la trasformazione venga creata con un nome univoco.
+> Quando si crea un oggetto [Transform](/rest/api/media/transforms), è prima necessario verificare se ne esiste già uno tramite il metodo **Get**. In questa esercitazione si presuppone che la trasformazione venga creata con un nome univoco.
 
 1. Nella finestra sinistra dell'app Postman selezionare "Encoding and Analysis" (Codifica e analisi).
 2. Selezionare quindi "Create Transform" (Crea trasformazione).
@@ -215,7 +215,7 @@ Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft
 
 ### <a name="create-a-job"></a>Creare un processo
 
-L'oggetto [Job](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** creato a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output.
+L'oggetto [Job](/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** creato a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output.
 
 In questo esempio l'input del processo è basato su un URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
@@ -256,18 +256,18 @@ L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Q
 
 #### <a name="job-error-codes"></a>Codici di errore dei processi
 
-Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Vedere i [codici di errore](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
-Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'**asset** di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
+Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'**asset** di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un oggetto [StreamingLocator](/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
 
 Il processo di creazione di un localizzatore di streaming è denominato pubblicazione. Per impostazione predefinita, il localizzatore di streaming è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea uno [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, "Predefined_ClearStreamingOnly".
+Quando si crea uno [StreamingLocator](/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
-> Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. 
+> Quando si usa un oggetto [StreamingPolicy](/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. 
 
 L'account di Servizi multimediali prevede una quota per il numero di occorrenze di **criteri di streaming**. Evitare quindi di creare nuovi **criteri di streaming** per ogni localizzatore di streaming.
 
@@ -297,7 +297,7 @@ L'account di Servizi multimediali prevede una quota per il numero di occorrenze 
 
 #### <a name="list-paths"></a>Elencare i percorsi
 
-Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming
+Ora che è stato creato il [localizzatore di streaming](/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming
 
 1. Nella finestra sinistra dell'app Postman selezionare "Streaming Policies" (Criteri di streaming).
 2. Selezionare quindi "List Paths" (Elenca percorsi).

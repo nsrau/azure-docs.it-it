@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85443877"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324268"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Avvio rapido: Monitorare una risorsa di Azure con Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle risorse di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una risorsa e come visualizzare tali dati nel portale di Azure per una determinata risorsa. In un secondo momento, si potrà aggiungere la configurazione necessaria per raccogliere altri dati nonché passare al menu di Monitoraggio di Azure per usare gli stessi strumenti per accedere ai dati raccolti per tutte le risorse nella sottoscrizione.
@@ -70,4 +70,5 @@ Le metriche sono valori numerici che descrivono alcuni aspetti della risorsa in 
 In questa guida di avvio rapido si sono visualizzati il log attività e le metriche per una risorsa di Azure che vengono raccolti automaticamente da Monitoraggio di Azure. Continuare con la guida di avvio rapido successiva, che illustra come raccogliere il log attività in un'area di lavoro Log Analytics in cui può essere analizzato usando [query di log](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Inviare il log attività di Azure all'area di lavoro Log Analytics](quick-monitor-azure-resource.md)
+> [Inviare il log attività di Azure all'area di lavoro Log Analytics]()
+

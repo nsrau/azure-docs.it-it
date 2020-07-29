@@ -3,12 +3,12 @@ title: Hub eventi di Azure - Elaborare eventi di Apache Kafka
 description: 'Esercitazione: Questo articolo illustra come elaborare gli eventi di Kafka che vengono inseriti tramite hub eventi usando Analisi di flusso di Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074906"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come eseguire lo streaming dei dati in Hub eventi ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -129,7 +129,7 @@ La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseg
  
 
 ### <a name="define-a-query"></a>Definire una query
-Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di dati in ingresso, il passaggio successivo consiste nel creare una trasformazione che analizza i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). In questa procedura dettagliata si definisce una query che attraversa i dati senza apportare alcuna trasformazione.
+Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di dati in ingresso, il passaggio successivo consiste nel creare una trasformazione che analizza i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference). In questa procedura dettagliata si definisce una query che attraversa i dati senza apportare alcuna trasformazione.
 
 1. Selezionare **Query**.
 2. Nella finestra della query sostituire `[YourOutputAlias]` con l'alias di output creato in precedenza.

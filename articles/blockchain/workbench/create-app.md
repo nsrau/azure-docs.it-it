@@ -4,12 +4,12 @@ description: Esercitazione su come creare un'applicazione blockchain per l'antep
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
-ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74324815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073104"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Esercitazione: Creare un'applicazione blockchain per Azure Blockchain Workbench
 
@@ -329,7 +329,7 @@ Per aggiungere un'applicazione blockchain a Blockchain Workbench, caricare i fil
 La distribuzione dell'applicazione blockchain richiede alcuni minuti. Al termine dell'installazione la nuova applicazione è visualizzata in **Applicazioni**. 
 
 > [!NOTE]
-> È possibile creare applicazioni blockchain anche usando l'[API REST di Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+> È possibile creare applicazioni blockchain anche usando l'[API REST di Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench).
 
 ## <a name="add-blockchain-application-members"></a>Aggiungere membri a un'applicazione blockchain
 

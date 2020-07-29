@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018775"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -75,7 +75,7 @@ Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, 
  
 ## <a name="access-data"></a>Accedere ai dati  
 
-Questa sezione illustra come ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi. Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/overview).
+Questa sezione illustra come ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi. Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/).
 
 In primo luogo, si userà l'identità gestita assegnata dal sistema della macchina virtuale per ottenere un token di accesso per l'autenticazione a Key Vault:
  

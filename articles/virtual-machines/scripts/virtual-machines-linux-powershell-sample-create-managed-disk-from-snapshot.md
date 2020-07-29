@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 2faa98ec21d260e6a7cbdf9eceba24baf4b13c61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 844bff9a363fb9734159e892006dd61440132a34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079962"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell-linux"></a>Creare un disco gestito da uno snapshot con PowerShell (Linux)
 
@@ -47,6 +47,6 @@ Questo script usa i comandi seguenti per creare un disco gestito da snapshot. Og
 
 [Creare una macchina virtuale da un disco gestito](./virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di script PowerShell per la macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

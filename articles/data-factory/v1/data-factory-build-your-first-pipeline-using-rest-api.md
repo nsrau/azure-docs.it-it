@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15c388336efc92381ac5ebd84df9145c1890cfcc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007215"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ La pipeline in questa esercitazione include un'attività, l'**attività Hive di 
   2. Ottenere i valori per l'**ID client** e la **chiave privata**.
   3. Ottenere l' **ID tenant**.
   4. Assegnare l'applicazione **ADFGetStartedApp** al ruolo **Collaboratore Data Factory**.
-* Installare [Azure PowerShell](/powershell/azure/overview).
+* Installare [Azure PowerShell](/powershell/azure/).
 * Avviare **Azure PowerShell** ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
   1. Eseguire **Connect-AzAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.
   2. Eseguire **Get-AzSubscription** per visualizzare tutte le sottoscrizioni per l'account.

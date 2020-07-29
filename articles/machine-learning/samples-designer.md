@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206321"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318828"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning (anteprima)
 
@@ -25,6 +25,8 @@ Usare gli esempi incorporati nella finestra di progettazione di Azure Machine Le
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree).
 * Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-sample-pipelines"></a>Usare le pipeline di esempio
 

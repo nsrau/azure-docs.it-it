@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006433"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Esercitazione: Creare una pipeline di dati end-to-end per derivare le informazioni dettagliate di vendita in Azure HDInsight
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Membro del [ruolo predefinito di Azure - proprietario](../role-based-access-control/built-in-roles.md).
 
-* Se si usa PowerShell per attivare la pipeline di Data Factory, sarà necessario il [modulo az](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell per attivare la pipeline di Data Factory, sarà necessario il [modulo az](https://docs.microsoft.com/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) per visualizzare le informazioni aziendali dettagliate al termine dell'esercitazione.
 

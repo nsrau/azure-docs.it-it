@@ -2,16 +2,17 @@
 title: Connettere la funzione Java ad archiviazione di Azure
 description: Informazioni su come connettere una funzione Java attivata da HTTP ad archiviazione di Azure usando il binding dell'output di archiviazione code.
 author: KarlErickson
+ms.custom: devx-track-java
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: e5b1250170830af24ddc1f2e3b78965ebcea051e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f512e3bbf7947361fa9890e9514693610c9f99d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540316"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321956"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connettere la funzione Java ad archiviazione di Azure
 

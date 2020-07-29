@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539636"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324319"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Raccogliere dati da un computer Windows in un ambiente ibrido con Monitoraggio di Azure
 
-[Monitoraggio di Azure](../overview.md) può raccogliere i dati direttamente dai computer fisici o virtuali Windows dell'ambiente in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'[agente di Log Analytics](../platform/log-analytics-agent.md) consente a Monitoraggio di Azure di raccogliere dati da un data center o da un altro ambiente cloud. Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi. Per informazioni sulle macchine virtuali Windows di Azure, vedere [Raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Monitoraggio di Azure](../overview.md) può raccogliere i dati direttamente dai computer fisici o virtuali Windows dell'ambiente in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'[agente di Log Analytics](../platform/log-analytics-agent.md) consente a Monitoraggio di Azure di raccogliere dati da un data center o da un altro ambiente cloud. Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi. Per informazioni sulle macchine virtuali Windows di Azure, vedere [Raccogliere dati sulle macchine virtuali di Azure](./quick-collect-azurevm.md).  
 
-Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](../platform/log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](../platform/log-analytics-agent.md#network-requirements).
  
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -166,3 +166,4 @@ Per informazioni su come visualizzare e analizzare i dati, passare all'esercitaz
 
 > [!div class="nextstepaction"]
 > [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../log-query/get-started-portal.md)
+
