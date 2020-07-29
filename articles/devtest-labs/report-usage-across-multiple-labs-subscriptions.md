@@ -3,16 +3,16 @@ title: Azure DevTest Labs l'utilizzo in più laboratori e sottoscrizioni
 description: Informazioni su come creare report Azure DevTest Labs utilizzo in più laboratori e sottoscrizioni.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483432"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287278"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Segnala l'utilizzo di Azure DevTest Labs tra più laboratori e sottoscrizioni
 
-Molte organizzazioni di grandi dimensioni vogliono tenere traccia dell'utilizzo delle risorse in modo da renderle più efficaci grazie alla visualizzazione delle tendenze e degli outlier nell'utilizzo. In base all'utilizzo delle risorse, i proprietari o i responsabili del Lab possono personalizzare i Lab per [migliorare l'utilizzo delle risorse e i costi](https://docs.microsoft.com/azure/billing/billing-getting-started). In Azure DevTest Labs, è possibile scaricare l'utilizzo delle risorse per Lab consentendo di esaminare in modo più approfondito i modelli di utilizzo. Questi modelli di utilizzo possono contribuire a individuare le modifiche per migliorare l'efficienza. La maggior parte delle aziende desiderano sia l'utilizzo del singolo Lab sia l'utilizzo complessivo in [più laboratori e sottoscrizioni](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Molte organizzazioni di grandi dimensioni vogliono tenere traccia dell'utilizzo delle risorse in modo da renderle più efficaci grazie alla visualizzazione delle tendenze e degli outlier nell'utilizzo. In base all'utilizzo delle risorse, i proprietari o i responsabili del Lab possono personalizzare i Lab per [migliorare l'utilizzo delle risorse e i costi](../cost-management-billing/manage/getting-started.md). In Azure DevTest Labs, è possibile scaricare l'utilizzo delle risorse per Lab consentendo di esaminare in modo più approfondito i modelli di utilizzo. Questi modelli di utilizzo possono contribuire a individuare le modifiche per migliorare l'efficienza. La maggior parte delle aziende desiderano sia l'utilizzo del singolo Lab sia l'utilizzo complessivo in [più laboratori e sottoscrizioni](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Questo articolo illustra come gestire le informazioni sull'utilizzo delle risorse in più laboratori e sottoscrizioni.
 
@@ -24,8 +24,8 @@ Questa sezione illustra come esportare l'utilizzo delle risorse per un singolo L
 
 Prima di poter esportare l'utilizzo delle risorse di DevTest Labs, è necessario configurare un account di archiviazione di Azure per consentire l'archiviazione dei diversi file che contengono i dati di utilizzo. Esistono due modi comuni per eseguire l'esportazione dei dati:
 
-* [API REST di DevTest Labs](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* PowerShell AZ. Resource Module [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) con l'azione di `exportResourceUsage` , l'ID della risorsa lab e i parametri necessari. 
+* [API REST di DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
+* PowerShell AZ. Resource Module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) con l'azione di `exportResourceUsage` , l'ID della risorsa lab e i parametri necessari. 
 
     L'articolo [esportare o eliminare dati personali](personal-data-delete-export.md) contiene uno script di PowerShell di esempio con informazioni dettagliate sui dati esportati. 
 
@@ -48,8 +48,8 @@ Questi file vengono archiviati nel contenitore BLOB *labresourceusage* con il no
 
 Per esportare le informazioni di utilizzo per più Lab, provare a usare 
 
-* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/), disponibili in molti linguaggi, tra cui PowerShell o 
-* [Runbook di automazione di Azure](https://docs.microsoft.com/azure/automation/), usare PowerShell, Python o una finestra di progettazione grafica personalizzata per scrivere il codice di esportazione.
+* [Funzioni di Azure](../azure-functions/index.yml), disponibili in molti linguaggi, tra cui PowerShell o 
+* [Runbook di automazione di Azure](../automation/index.yml), usare PowerShell, Python o una finestra di progettazione grafica personalizzata per scrivere il codice di esportazione.
 
 Utilizzando queste tecnologie, è possibile eseguire le singole esportazioni di Lab in tutti i Lab in una data e a un orario specifici. 
 
@@ -69,7 +69,7 @@ Di seguito sono riportate alcune soluzioni di archiviazione comuni: [SQL Server]
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualizzazione dei dati e raccolta di informazioni dettagliate
 
-Usare uno strumento di visualizzazione dei dati di propria scelta per connettersi all'archiviazione a lungo termine per visualizzare i dati di utilizzo e raccogliere informazioni dettagliate per verificare l'efficienza dell'utilizzo. È ad esempio possibile utilizzare [Power bi](https://docs.microsoft.com/power-bi/power-bi-overview) per organizzare e visualizzare i dati di utilizzo. 
+Usare uno strumento di visualizzazione dei dati di propria scelta per connettersi all'archiviazione a lungo termine per visualizzare i dati di utilizzo e raccogliere informazioni dettagliate per verificare l'efficienza dell'utilizzo. È ad esempio possibile utilizzare [Power bi](/power-bi/power-bi-overview) per organizzare e visualizzare i dati di utilizzo. 
 
 È possibile usare [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) per creare, collegare e gestire le risorse all'interno di un'unica interfaccia di posizione. Se è necessario un maggiore controllo, la singola risorsa può essere creata all'interno di un singolo gruppo di risorse e gestita in modo indipendente dal servizio Data Factory.  
 

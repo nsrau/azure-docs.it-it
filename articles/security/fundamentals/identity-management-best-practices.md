@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367402"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -204,7 +204,7 @@ Il team di sicurezza deve avere visibilità sulle risorse di Azure per valutare 
 È possibile usare [Controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
 
 **Procedura consigliata**: separare i compiti all'interno del team e concedere agli utenti l'accesso solo nella misura necessaria per consentire loro di svolgere il proprio lavoro. Anziché concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, consentire solo determinate azioni in un particolare ambito.
-**Dettagli**: sfruttare i [ruoli predefiniti di Controllo degli accessi in base al ruolo](/azure/role-based-access-control/built-in-roles) in Azure per assegnare privilegi agli utenti.
+**Dettagli**: usare i [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles) in Azure per assegnare privilegi agli utenti.
 
 > [!Note]
 > Le autorizzazioni specifiche creano complessità e confusione non richieste e si accumulano in una configurazione "legacy" difficile da correggere senza il rischio di danneggiare qualcosa. Evitare di definire autorizzazioni specifiche per le risorse. In alternativa, usare gruppi di gestione per autorizzazioni a livello aziendale e gruppi di risorse per autorizzazioni nell'ambito delle sottoscrizioni. Evitare di definire autorizzazioni specifiche per gli utenti. Assegnare piuttosto l'accesso a gruppi in Azure AD.

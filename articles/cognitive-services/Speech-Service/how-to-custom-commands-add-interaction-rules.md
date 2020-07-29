@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851306"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289046"
 ---
 # <a name="add-interaction-rules"></a>Aggiungere regole di interazione
 
-Questo articolo illustra *le regole di interazione*. Queste regole aggiuntive gestiscono situazioni più specifiche o complesse. È possibile creare regole di interazione personalizzate, ma in questo articolo si usano le regole di interazione per gli scenari di destinazione seguenti:
+Questo articolo illustra **le regole di interazione**. Si tratta di regole aggiuntive per gestire situazioni più specifiche o complesse. Sebbene sia possibile creare regole di interazione personalizzate, in questo articolo si utilizzano le regole di interazione per gli scenari di destinazione seguenti:
 
 * Conferma di comandi
 * Aggiunta di una correzione in un passaggio ai comandi
@@ -30,8 +30,8 @@ Per altre informazioni sulle regole di interazione, vedere la sezione [riferimen
 
 È necessario avere completato i passaggi descritti negli articoli seguenti:
 > [!div class="checklist"]
-> * [Creare un'applicazione con comandi semplici](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Aggiungere parametri ai comandi](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Procedura: creare un'applicazione con semplici comandi](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Procedura: aggiungere parametri ai comandi](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Aggiungere conferme a un comando
 
@@ -40,7 +40,7 @@ Per aggiungere una conferma, utilizzare il comando **setemperature** . Per otten
 1. Selezionare il comando **setemperature** nel riquadro sinistro.
 1. Aggiungere regole di interazione selezionando **Aggiungi** nel riquadro centrale. Quindi selezionare **Interaction rules**il  >  **comando conferma**regole di interazione.
 
-    Questa azione aggiunge tre regole di interazione. Questa regola chiede all'utente di confermare la data e l'ora dell'allarme e prevede una conferma (sì/no) per la prossima volta.
+    Questa azione aggiunge tre regole di interazione che chiederanno all'utente di confermare la data e l'ora dell'allarme ed è prevista una conferma (sì/no) per la prossima volta.
 
     1. Modificare la regola di interazione del **comando Confirm** in base alla configurazione seguente:
         1. Rinominare il **nome** per **confermare la temperatura**.
@@ -75,14 +75,14 @@ Per aggiungere una conferma, utilizzare il comando **setemperature** . Per otten
 
 Selezionare **Train**, attendere il completamento del training e selezionare **test**.
 
-- **Input**: impostare la temperatura su 80 gradi.
-- **Output**: OK 80?
-- **Input**: No.
+- **Input**: impostare la temperatura su 80 gradi
+- **Output**: impostare la temperatura su 80 gradi?
+- **Input**: No
 - **Output**: nessun problema. Quale temperatura?
-- **Input**: 83 gradi.
-- **Output**: OK 83?
-- **Input**: Sì.
-- **Output**: OK, impostazione della temperatura su 83 gradi.
+- **Input**: 72 gradi
+- **Output**: impostare la temperatura su 72 gradi?
+- **Input**: Sì
+- **Output**: OK, impostazione della temperatura su 83 gradi
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implementare le correzioni in un comando

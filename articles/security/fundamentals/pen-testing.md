@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 413ec8b121838a4ffac4119421ec3266e141618b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6e25b6304ee9ac41ca95d5a3a6eac0e91eb41b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80549259"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287776"
 ---
 # <a name="penetration-testing"></a>Test di penetrazione
 Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
@@ -41,8 +41,6 @@ I test standard che è possibile eseguire includono:
 * Test sugli endpoint per scoprire le [prime 10 vulnerabilità OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [Test con dati casuali](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) degli endpoint
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) degli endpoint
-
-Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

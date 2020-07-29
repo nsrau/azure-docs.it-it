@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 06/16/2020
-ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: d07681798cadf1d983942d681b910e26ea48d6d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147255"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285935"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -30,124 +30,16 @@ Con Python è possibile eseguire attività che i moduli esistenti non supportano
 + Lettura, caricamento e manipolazione di dati da origini non supportate dal modulo [Import Data](./import-data.md) .
 + Esegui il tuo codice di apprendimento avanzato. 
 
+## <a name="supported-python-packages"></a>Pacchetti Python supportati
 
 Azure Machine Learning usa la distribuzione anaconda di Python, che include molte utilità comuni per l'elaborazione dei dati. La versione Anaconda verrà aggiornata automaticamente. La versione corrente è:
  -  Distribuzione di Anaconda 4.5 + per Python 3,6 
 
-I pacchetti preinstallati sono:
--    adal==1.2.2
--    applicationinsights==0.11.9
--    attrs = = 19.3.0
--    Azure-comune = = 1.1.25
--    Azure-Core = = 1.3.0
--    azure-graphrbac==0.61.1
--    Azure-Identity = = 1.3.0
--    azure-mgmt-authorization==0.60.0
--    azure-mgmt-containerregistry==2.8.0
--    Azure-Mgmt-insieme di credenziali delle credenziali = = 2.2.0
--    Azure-Mgmt-Resource = = 8.0.1
--    Azure-Mgmt-storage = = 8.0.0
--    Azure-storage-BLOB = = 1.5.0
--    Azure-storage-comune = = 1.4.2
--    azureml-Core = = 1.1.5.5
--    azureml-dataprep-native = = 14.1.0
--    azureml-dataprep = = 1.3.5
--    azureml-defaults = = 1.1.5.1
--    azureml-Designer-Classic-Modules = = 0.0.118
--    azureml-designer-Core = = 0.0.31
--    azureml-designer-Internal = = 0.0.18
--    azureml-Model-Management-SDK = = 1.0.1 B6. post1
--    azureml-pipeline-Core = = 1.1.5
--    azureml-telemetria = = 1.1.5.3
--    backports.tempfile==1.0
--    backports.weakref==1.0.post1
--    boto3 = = 1.12.29
--    botocore = = 1.15.29
--    cachetools = = 4.0.0
--    Certified = = 2019.11.28
--    cffi==1.12.3
--    chardet==3.0.4
--    fare clic = = 7.1.1
--    cloudpickle = = 1.3.0
--    ConfigParser = = 3.7.4
--    contextlib2 = = 0.6.0. post1
--    crittografia = = 2.8
--    cycler==0.10.0
--    dill==0.3.1.1
--    distro==1.4.0
--    Docker = = 4.2.0
--    docutils==0.15.2
--    dotnetcore2 = = 2.1.13
--    Flask = = 1.0.3
--    fusepy==3.0.1
--    gensim==3.8.1
--    Google-API-Core = = 1.16.0
--    Google-auth = = 1.12.0
--    Google-Cloud-Core = = 1.3.0
--    Google-Cloud-Storage = = 1.26.0
--    Google-ripristinabile-media = = 0.5.0
--    googleapis-Common-Protos = = 1.51.0
--    gunicorn = = 19.9.0
--    IDNA = = 2.9
--    sbilanciato-Learn = = 0.4.3
--    isodate==0.6.0
--    itsdangerous = = 1.1.0
--    Jeepney = = 0.4.3
--    jinja2 = = 2.11.1
--    jmespath = = 0.9.5
--    joblib = = 0.14.0
--    JSON-Logging-py = = 0.2
--    jsonpickle = = 1.3
--    jsonschema = = 3.0.1
--    kiwisolver==1.1.0
--    Liac-ARFF = = 2.4.0
--    lightgbm==2.2.3
--    markupsafe = = 1.1.1
--    Matplotlib = = 3.1.3
--    altro-itertools = = 6.0.0
--    MSAL-Extensions = = 0.1.3
--    MSAL = = 1.1.0
--    msrest = = 0.6.11
--    msrestazure = = 0.6.3
--    ndg-httpsclient==0.5.1
--    nimbusml = = 1.6.1
--    NumPy = = 1.18.2
--    oauthlib==3.1.0
--    Pandas = = 0.25.3
--    pathspec = = 0.7.0
--    PIP = = 20.0.2
--    portalocker = = 1.6.0
--    protobuf = = 3.11.3
--    pyarrow = = 0.16.0
--    pyasn1-Modules = = 0.2.8
--    pyasn1 = = 0.4.8
--    pycparser = = 2.20
--    pycryptodomex = = 3.7.3
--    pyjwt = = 1.7.1
--    pyopenssl = = 19.1.0
--    PyParsing = = 2.4.6
--    pyrsistent = = 0.16.0
--    Python-dateutil = = 2.8.1
--    pytz==2019.3
--    richieste-oauthlib = = 1.3.0
--    richieste = = 2.23.0
--    RSA = = 4.0
--    ruamel.yaml==0.15.89
--    s3transfer = = 0.3.3
--    Scikit-learn = = 0.22.2
--    SciPy = = 1.4.1
--    secretstorage = = 3.1.2
--    setuptools = = 46.1.1. post20200323
--    Sei = = 1.14.0
--    Smart-Open = = 1.10.0
--    urllib3 = = 1.25.8
--    WebSocket-client = = 0.57.0
--    Werkzeug = = 0.16.1
--    Wheel = = 0.34.2
+Per un elenco completo, vedere la sezione [pacchetti Python preinstallati](#preinstalled-python-packages).
 
- Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie*), aggiungere il codice seguente allo script: 
+Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie*), aggiungere il codice seguente allo script: 
 
- ```python
+```python
 import os
 os.system(f"pip install scikit-misc")
 ```
@@ -262,6 +154,117 @@ Il modulo restituisce due set di impostazioni:
 
 + Set di dati di **risultati 2**, definito dal secondo frame di dati Pandas restituito in uno script Python.
 
+## <a name="preinstalled-python-packages"></a>Pacchetti Python preinstallati
+I pacchetti preinstallati sono:
+-    adal==1.2.2
+-    applicationinsights==0.11.9
+-    attrs = = 19.3.0
+-    Azure-comune = = 1.1.25
+-    Azure-Core = = 1.3.0
+-    azure-graphrbac==0.61.1
+-    Azure-Identity = = 1.3.0
+-    azure-mgmt-authorization==0.60.0
+-    azure-mgmt-containerregistry==2.8.0
+-    Azure-Mgmt-insieme di credenziali delle credenziali = = 2.2.0
+-    Azure-Mgmt-Resource = = 8.0.1
+-    Azure-Mgmt-storage = = 8.0.0
+-    Azure-storage-BLOB = = 1.5.0
+-    Azure-storage-comune = = 1.4.2
+-    azureml-Core = = 1.1.5.5
+-    azureml-dataprep-native = = 14.1.0
+-    azureml-dataprep = = 1.3.5
+-    azureml-defaults = = 1.1.5.1
+-    azureml-Designer-Classic-Modules = = 0.0.118
+-    azureml-designer-Core = = 0.0.31
+-    azureml-designer-Internal = = 0.0.18
+-    azureml-Model-Management-SDK = = 1.0.1 B6. post1
+-    azureml-pipeline-Core = = 1.1.5
+-    azureml-telemetria = = 1.1.5.3
+-    backports.tempfile==1.0
+-    backports.weakref==1.0.post1
+-    boto3 = = 1.12.29
+-    botocore = = 1.15.29
+-    cachetools = = 4.0.0
+-    Certified = = 2019.11.28
+-    cffi==1.12.3
+-    chardet==3.0.4
+-    fare clic = = 7.1.1
+-    cloudpickle = = 1.3.0
+-    ConfigParser = = 3.7.4
+-    contextlib2 = = 0.6.0. post1
+-    crittografia = = 2.8
+-    cycler==0.10.0
+-    dill==0.3.1.1
+-    distro==1.4.0
+-    Docker = = 4.2.0
+-    docutils==0.15.2
+-    dotnetcore2 = = 2.1.13
+-    Flask = = 1.0.3
+-    fusepy==3.0.1
+-    gensim==3.8.1
+-    Google-API-Core = = 1.16.0
+-    Google-auth = = 1.12.0
+-    Google-Cloud-Core = = 1.3.0
+-    Google-Cloud-Storage = = 1.26.0
+-    Google-ripristinabile-media = = 0.5.0
+-    googleapis-Common-Protos = = 1.51.0
+-    gunicorn = = 19.9.0
+-    IDNA = = 2.9
+-    sbilanciato-Learn = = 0.4.3
+-    isodate==0.6.0
+-    itsdangerous = = 1.1.0
+-    Jeepney = = 0.4.3
+-    jinja2 = = 2.11.1
+-    jmespath = = 0.9.5
+-    joblib = = 0.14.0
+-    JSON-Logging-py = = 0.2
+-    jsonpickle = = 1.3
+-    jsonschema = = 3.0.1
+-    kiwisolver==1.1.0
+-    Liac-ARFF = = 2.4.0
+-    lightgbm==2.2.3
+-    markupsafe = = 1.1.1
+-    Matplotlib = = 3.1.3
+-    altro-itertools = = 6.0.0
+-    MSAL-Extensions = = 0.1.3
+-    MSAL = = 1.1.0
+-    msrest = = 0.6.11
+-    msrestazure = = 0.6.3
+-    ndg-httpsclient==0.5.1
+-    nimbusml = = 1.6.1
+-    NumPy = = 1.18.2
+-    oauthlib==3.1.0
+-    Pandas = = 0.25.3
+-    pathspec = = 0.7.0
+-    PIP = = 20.0.2
+-    portalocker = = 1.6.0
+-    protobuf = = 3.11.3
+-    pyarrow = = 0.16.0
+-    pyasn1-Modules = = 0.2.8
+-    pyasn1 = = 0.4.8
+-    pycparser = = 2.20
+-    pycryptodomex = = 3.7.3
+-    pyjwt = = 1.7.1
+-    pyopenssl = = 19.1.0
+-    PyParsing = = 2.4.6
+-    pyrsistent = = 0.16.0
+-    Python-dateutil = = 2.8.1
+-    pytz==2019.3
+-    richieste-oauthlib = = 1.3.0
+-    richieste = = 2.23.0
+-    RSA = = 4.0
+-    ruamel.yaml==0.15.89
+-    s3transfer = = 0.3.3
+-    Scikit-learn = = 0.22.2
+-    SciPy = = 1.4.1
+-    secretstorage = = 3.1.2
+-    setuptools = = 46.1.1. post20200323
+-    Sei = = 1.14.0
+-    Smart-Open = = 1.10.0
+-    urllib3 = = 1.25.8
+-    WebSocket-client = = 0.57.0
+-    Werkzeug = = 0.16.1
+-    Wheel = = 0.34.2
 
 ## <a name="next-steps"></a>Passaggi successivi
 

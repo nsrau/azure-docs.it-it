@@ -3,12 +3,12 @@ title: Integrare Azure DevTest Labs nel Azure Pipelines
 description: Informazioni su come integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Azure Pipelines
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288920"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrare Azure DevTest Labs nella pipeline CI/CD Azure Pipelines
 
@@ -109,7 +109,7 @@ Per aggiungere variabili per i valori:
    
 1. Per ogni variabile, selezionare **Aggiungi** e immettere il nome e il valore:
    
-   |Nome|Valore|
+   |Nome|valore|
    |---|---|
    |*vmName*|Nome della macchina virtuale assegnato nel modello di Gestione risorse|
    |*userName*|Nome utente per accedere alla macchina virtuale|
@@ -127,7 +127,7 @@ Il passaggio successivo consiste nel creare la macchina virtuale dell'immagine d
 
 1. Nel riquadro destro completare il modulo come segue:
    
-   |Campo|Valore|
+   |Campo|valore|
    |---|---|
    |**Sottoscrizione di Azure RM**|Selezionare una connessione al servizio o una sottoscrizione dalle **connessioni al servizio di Azure disponibili** o dalle **sottoscrizioni di Azure disponibili** nell'elenco a discesa e selezionare **autorizza** se necessario.<br /><br />**Nota:** Per informazioni sulla creazione di una connessione con autorizzazioni più limitate alla sottoscrizione di Azure, vedere [Azure Resource Manager endpoint del servizio](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nome Lab**|Selezionare il nome di un lab esistente in cui verrà creata la macchina virtuale Lab.|
@@ -147,7 +147,7 @@ Eseguire lo script creato in precedenza per raccogliere i dettagli della macchin
    
 1. Nel riquadro destro completare il modulo come segue:
    
-   |Campo|Valore|
+   |Campo|valore|
    |---|---|
    |**Tipo di connessione di Azure**|Selezionare **Azure Resource Manager**.|
    |**Sottoscrizione di Azure**|Selezionare la sottoscrizione o la connessione al servizio.| 
@@ -167,7 +167,7 @@ L'attività successiva consiste nel creare un'immagine della macchina virtuale a
    
 1. Configurare le attività in questo modo:
    
-   |Campo|Valore|
+   |Campo|valore|
    |---|---|
    |**Sottoscrizione di Azure RM**|Selezionare la sottoscrizione o la connessione al servizio.|
    |**Nome Lab**|Consente di selezionare il nome di un lab esistente in cui verrà creata l'immagine.|
@@ -218,5 +218,5 @@ Per creare ed eseguire una versione usando la nuova pipeline:
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [Creare un ambiente con più VM con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 - È possibile esplorare altri modelli di avvio rapido di Resource Manager per l'automazione di DevTest Labs nel [repository pubblico GitHub per DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-- Se necessario, vedere la pagina relativa alla [risoluzione dei problemi di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) .
+- Se necessario, vedere la pagina relativa alla [risoluzione dei problemi di Azure DevOps](/azure/devops/pipelines/troubleshooting) .
  

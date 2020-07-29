@@ -10,11 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337858"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Inviare messaggi a un server MQTT
 
@@ -59,7 +60,7 @@ Digitare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task device-upload`. Una volta 
 > [!NOTE]
 > È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo errore, vedere la [sezione sullo sviluppo delle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
-## <a name="test-the-project"></a>Verificare il progetto
+## <a name="test-the-project"></a>Testare il progetto
 
 In Visual Studio Code seguire questa procedura per aprire e configurare il monitor seriale:
 
@@ -87,7 +88,4 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come configurare il dispositivo MXChip Iot DevKit come client MQTT e come usare la libreria client MQTT per inviare messaggi a un broker MQTT, ecco i passaggi successivi consigliati:
-
-* [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)
+A questo punto, dopo aver appreso come configurare il MXChip Internet DevKit come client MQTT e come usare la libreria client MQTT per inviare messaggi a un broker di MQTT, ecco il passaggio successivo suggerito: [Panoramica dell'acceleratore della soluzione di monitoraggio remoto di Azure](https://docs.microsoft.com/azure/iot-suite/) .

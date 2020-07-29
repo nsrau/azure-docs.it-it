@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287798"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Protezione DDoS di Azure-progettazione di soluzioni resilienti
 
@@ -48,9 +48,9 @@ Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un
 
 La scalabilità è la capacità di un sistema di gestire carichi elevati. progettare le applicazioni con [scalabilità orizzontale](/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.
 
-Per [Servizio app di Azure](/azure/app-service/app-service-value-prop-what-is) selezionare un [piano di servizio app](/azure/app-service/overview-hosting-plans) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](/azure/cloud-services/cloud-services-choose-me). Per [Macchine virtuali di Microsoft Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](/azure/virtual-machines/virtual-machines-windows-manage-availability). È consigliabile usare i [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) per le funzionalità di scalabilità automatica.
+Per [Servizio app di Azure](/azure/app-service/app-service-value-prop-what-is) selezionare un [piano di servizio app](/azure/app-service/overview-hosting-plans) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](/azure/cloud-services/cloud-services-choose-me). Per [Macchine virtuali di Microsoft Azure](../../virtual-machines/index.yml) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](../../virtual-machines/windows/tutorial-availability-sets.md). È consigliabile usare i [set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/overview.md) per le funzionalità di scalabilità automatica.
 
-### <a name="defense-in-depth"></a>Informazioni dettagliate sulla difesa
+### <a name="defense-in-depth"></a>Difesa avanzata
 
 L'idea che sta dietro alla difesa in profondità consiste nel gestire i rischi con diverse strategie difensive. La disposizione delle difese su più livelli in un'applicazione riduce le probabilità di riuscita degli attacchi. È consigliabile implementare progettazioni sicure per le applicazioni tramite le funzionalità integrate della piattaforma di Azure.
 

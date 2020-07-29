@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171117"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285952"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -80,9 +80,9 @@ Quando si valutano i modelli di classificazione binaria, vengono restituite le m
   
 -   **Accuratezza**: misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
   
--   **Precisione**: rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi.  
+-   **Precisione**: rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi. Precisione = TP/(TP + FP)  
   
--   **Richiamo**: corrisponde alla percentuale di tutti i risultati corretti restituiti dal modello.  
+-   **Richiama** è la frazione della quantità totale di istanze rilevanti effettivamente recuperate. Richiamo = TP/(TP + FN)  
   
 -   Il **Punteggio F1** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore del Punteggio F1 ideale è 1.  
   

@@ -3,12 +3,12 @@ title: Tipi di entità-LUIS
 description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676489"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337620"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
 
@@ -77,6 +77,12 @@ Per compilare efficacemente le entità apprese dal computer:
 * Le etichette devono essere coerenti tra gli Intent. Sono incluse anche le espressioni fornite nell'intento **None** che includono questa entità. In caso contrario, il modello non sarà in grado di determinare in modo efficace le sequenze.
 * Se si dispone di un'entità Machine learned con sottoentità, assicurarsi che i diversi ordini e varianti delle entità e delle sottoentità siano presentati nelle espressioni con etichetta. Le espressioni di esempio con etichetta devono includere tutti i moduli validi e includere le entità che vengono visualizzate e sono assenti e riordinate all'interno dell'espressione.
 * È consigliabile evitare di sovramontare le entità a un set molto fisso. L' **overfitting** si verifica quando il modello non generalizza correttamente ed è un problema comune nei modelli di machine learning. Ciò implica che l'app non funzionerà in modo adeguato ai nuovi dati. A sua volta, è necessario variare le espressioni di esempio con etichetta in modo che l'app possa generalizzare oltre gli esempi limitati forniti. È necessario variare le diverse sottoentità con un numero sufficiente di modifiche affinché il modello pensi a un maggior numero di concetti anziché solo agli esempi mostrati.
+
+## <a name="effective-prebuilt-entities"></a>Entità predefinite valide
+
+Per compilare entità efficaci che estraggono dati comuni, ad esempio quelli forniti dalle [entità predefinite](luis-reference-prebuilt-entities.md), è consigliabile eseguire la procedura seguente.
+
+Migliorare l'estrazione dei dati portando i propri dati a un'entità come funzionalità. In questo modo, tutte le etichette aggiuntive dei dati apprenderanno il contesto in cui si trovano i nomi di persona nell'applicazione.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

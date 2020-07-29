@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81383090"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289025"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -30,7 +30,7 @@ Quando si usa il servizio di riconoscimento vocale con i contenitori, utilizzare
 
 **Risposta:** Quando si configura il cluster di produzione, è necessario prendere in considerazione diversi aspetti. Per prima cosa, la configurazione di un singolo linguaggio, più contenitori, nello stesso computer, non dovrebbe essere un problema di grandi dimensioni. Se si verificano problemi, potrebbe trattarsi di un problema relativo all'hardware, quindi è opportuno esaminare prima di tutto la risorsa. Specifiche della CPU e della memoria.
 
-Prendere in considerazione per un attimo `ja-JP` il contenitore e il modello più recente. Il modello acustico è la parte più impegnativa della CPU, mentre il modello di linguaggio richiede la maggior parte della memoria. Quando l'uso è stato sottoposto a benchmark, sono necessari circa 0,6 core CPU per elaborare una singola richiesta di riconoscimento vocale quando l'audio viene propagata in tempo reale, ad esempio dal microfono. Se l'audio viene alimentato più velocemente rispetto a quello in tempo reale, ad esempio da un file, tale utilizzo può raddoppiare (1,2 x Core). Nel frattempo, la memoria elencata di seguito è memoria operativa per la decodifica del riconoscimento vocale. *Non vengono prese in* considerazione le dimensioni effettive effettive del modello di lingua, che risiederà nella cache dei file. Per `ja-JP` gli altri 2 GB. per `en-US`, può essere maggiore (6-7 GB).
+Prendere in considerazione per un attimo il `ja-JP` contenitore e il modello più recente. Il modello acustico è la parte più impegnativa della CPU, mentre il modello di linguaggio richiede la maggior parte della memoria. Quando l'uso è stato sottoposto a benchmark, sono necessari circa 0,6 core CPU per elaborare una singola richiesta di riconoscimento vocale quando l'audio viene propagata in tempo reale, ad esempio dal microfono. Se l'audio viene alimentato più velocemente rispetto a quello in tempo reale, ad esempio da un file, tale utilizzo può raddoppiare (1,2 x Core). Nel frattempo, la memoria elencata di seguito è memoria operativa per la decodifica del riconoscimento vocale. *Non vengono prese in* considerazione le dimensioni effettive effettive del modello di lingua, che risiederà nella cache dei file. Per `ja-JP` questo è un 2 GB aggiuntivo, per `en-US` , può essere maggiore (6-7 GB).
 
 Se si dispone di un computer in cui la memoria è limitata e si sta tentando di distribuire più lingue, è possibile che la cache dei file sia piena e che il sistema operativo venga forzato a eseguire il paging dei modelli. Per una trascrizione in esecuzione, questo potrebbe essere disastroso e può causare rallentamenti e altre implicazioni sulle prestazioni.
 
@@ -42,23 +42,23 @@ Inoltre, gli eseguibili pre-pacchetto vengono preconfezionati per i computer con
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Infine, è possibile impostare il numero di decodificatori desiderati all'interno *single* di un singolo `DECODER MAX_COUNT` contenitore utilizzando la variabile. Fondamentalmente, è consigliabile iniziare con lo SKU (CPU/memoria) ed è possibile suggerire come sfruttare al meglio le proprie esigenze. Un ottimo punto di partenza si riferisce alle specifiche delle risorse del computer host consigliate.
+Infine, è possibile impostare il numero di decodificatori desiderati all'interno di un *singolo* contenitore utilizzando la `DECODER MAX_COUNT` variabile. Fondamentalmente, è consigliabile iniziare con lo SKU (CPU/memoria) ed è possibile suggerire come sfruttare al meglio le proprie esigenze. Un ottimo punto di partenza si riferisce alle specifiche delle risorse del computer host consigliate.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>È possibile contribuire alla pianificazione della capacità e alla stima dei costi di contenitori di sintesi vocale locali?</b>
+<b>È possibile semplificare la pianificazione della capacità e la stima dei costi per i contenitori di sintesi vocale locali?</b>
 </summary>
 
 **Risposta:** Per la capacità del contenitore in modalità di elaborazione batch, ogni decodificatore può gestire 2-3x in tempo reale, con due core CPU, per un singolo riconoscimento. Non è consigliabile mantenere più di due riconoscimenti simultanei per ogni istanza di contenitore, ma è consigliabile eseguire più istanze di contenitori per motivi di affidabilità e disponibilità, dietro un servizio di bilanciamento del carico.
 
-Sebbene sia possibile eseguire ogni istanza del contenitore con più decodificatori. Ad esempio, potrebbe essere possibile configurare 7 decodificatori per ogni istanza di contenitore in un computer con otto core (a più di 2x ciascuno), ottenendo una velocità effettiva di 15x. È necessario tenere presente `DECODER_MAX_COUNT` un parametro. Per il caso estremo, si verificano problemi di affidabilità e latenza, con una velocità effettiva aumentata significativamente. Per un microfono, sarà in tempo reale. L'utilizzo complessivo deve essere di circa un core per un singolo riconoscimento.
+Sebbene sia possibile eseguire ogni istanza del contenitore con più decodificatori. Ad esempio, potrebbe essere possibile configurare 7 decodificatori per ogni istanza di contenitore in un computer con otto core (a più di 2x ciascuno), ottenendo una velocità effettiva di 15x. È `DECODER_MAX_COUNT` necessario tenere presente un parametro. Per il caso estremo, si verificano problemi di affidabilità e latenza, con una velocità effettiva aumentata significativamente. Per un microfono, sarà in tempo reale. L'utilizzo complessivo deve essere di circa un core per un singolo riconoscimento.
 
 Per lo scenario di elaborazione di 1 K ore al giorno in modalità di elaborazione batch, in un caso estremo, 3 VM possono gestirla entro 24 ore, ma non garantita. Per gestire i giorni di picco, il failover, l'aggiornamento e per fornire il backup/BCP minimo, si consigliano 4-5 computer anziché 3 per cluster e con 2 cluster +.
 
-Per l'hardware, viene usata una macchina `DS13_v2` virtuale di Azure standard come riferimento (ogni core deve essere 2,6 GHz o superiore, con il set di istruzioni AVX2 abilitato).
+Per l'hardware, viene usata una macchina virtuale di Azure standard `DS13_v2` come riferimento (ogni core deve essere 2,6 GHz o superiore, con il set di istruzioni AVX2 abilitato).
 
 | Istanza  | vCPU | RAM    | Archiviazione temporanea | Pagamento in base al consumo con vantaggio Azure Hybrid | riserva di 1 anno con vantaggio Azure Hybrid (% di risparmio) | 3 anni riservati con vantaggio Azure Hybrid (% di risparmio) |
 |-----------|---------|--------|--------------|------------------------|-------------------------------------|--------------------------------------|
@@ -168,7 +168,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Risposta 2:** È necessario specificare il nome della voce corretto nella richiesta, che fa distinzione tra maiuscole e minuscole. Fare riferimento al mapping del nome completo del servizio. È necessario usare `en-US-JessaRUS`, poiché `en-US-JessaNeural` non è disponibile in questo momento nella versione contenitore di sintesi vocale.
+**Risposta 2:** È necessario specificare il nome della voce corretto nella richiesta, che fa distinzione tra maiuscole e minuscole. Fare riferimento al mapping del nome completo del servizio. È necessario usare `en-US-JessaRUS` , poiché `en-US-JessaNeural` non è disponibile in questo momento nella versione contenitore di sintesi vocale.
 
 **Errore 3:**
 
@@ -299,9 +299,9 @@ Il carbonio è stato risolto nella versione 1,8.
 **Risposta:** Si tratta di una fusione tra:
 - Gli utenti che provano l'endpoint di dettatura per i contenitori non sono certo di come hanno ottenuto tale URL.
 - L'endpoint dell'entità 1<sup>St</sup> è quello in un contenitore.
-- L'endpoint<sup>di 1 di</sup> terze parti restituisce messaggi di sintesi vocale `speech.hypothesis` anziché i messaggi restituiti dagli endpoint della parte 3<sup>Rd</sup> per l'endpoint di dettatura.
-- Tutte le guide introduttive per `RecognizeOnce` i carboni (modalità interattiva)
-- Il carbonio con un'asserzione `speech.fragment` che per i messaggi che richiedono che non vengano restituiti in modalità interattiva.
+- L'endpoint di<sup>1 di</sup> terze parti restituisce messaggi di sintesi vocale anziché i `speech.hypothesis` messaggi restituiti dagli endpoint della parte 3<sup>Rd</sup> per l'endpoint di dettatura.
+- Tutte le guide introduttive per i carboni `RecognizeOnce` (modalità interattiva)
+- Il carbonio con un'asserzione che per `speech.fragment` i messaggi che richiedono che non vengano restituiti in modalità interattiva.
 - Il carbonio con le asserzioni viene attivato nelle build di rilascio (terminando il processo).
 
 La soluzione alternativa è passare all'uso del riconoscimento continuo nel codice o (più veloce) connettersi agli endpoint interattivi o continui nel contenitore.
@@ -366,7 +366,7 @@ Il piano corrente consiste nel prendere un file audio esistente e suddividerlo i
 
 Il documento dice di esporre una porta diversa, ma il contenitore LUIS è ancora in ascolto sulla porta 5000?
 
-**Risposta:** Provare `-p <outside_unique_port>:5000`. Ad esempio: `-p 5001:5000`.
+**Risposta:** Provare `-p <outside_unique_port>:5000` . Ad esempio: `-p 5001:5000`.
 
 
 <br>
@@ -376,10 +376,10 @@ Il documento dice di esporre una porta diversa, ma il contenitore LUIS è ancora
 
 <details>
 <summary>
-<b>Come è possibile ottenere API non batch per la gestione di &lt;15 secondi di audio?</b>
+<b>Come è possibile ottenere API non batch per la gestione di &lt; 15 secondi di audio?</b>
 </summary>
 
-**Risposta:** `RecognizeOnce()` in modalità interattiva solo elabora fino a 15 secondi di audio, perché la modalità è destinata a comandi vocali in cui le espressioni dovrebbero essere brevi. Se si usa `StartContinuousRecognition()` per la dettatura o la conversazione, non esiste un limite di 15 secondi.
+**Risposta:** `RecognizeOnce()` in modalità interattiva elabora solo fino a 15 secondi di audio, perché la modalità è destinata a comandi vocali in cui si prevede che le espressioni siano brevi. Se si usa `StartContinuousRecognition()` per la dettatura o la conversazione, non esiste un limite di 15 secondi.
 
 
 <br>
@@ -392,29 +392,29 @@ Il documento dice di esporre una porta diversa, ma il contenitore LUIS è ancora
 
 Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessario gestire, ad esempio, 50 richieste simultanee, quante core e RAM sono consigliate?
 
-**Risposta:** In tempo reale, 8 con la versione `en-US`più recente, è consigliabile usare più contenitori Docker oltre 6 richieste simultanee. Si ottiene un aspetto più folle oltre 16 core e diventa sensibile al nodo NUMA (non-Uniform Memory Access). La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
+**Risposta:** In tempo reale, 8 con la versione più recente `en-US` , è consigliabile usare più contenitori Docker oltre 6 richieste simultanee. Si ottiene un aspetto più folle oltre 16 core e diventa sensibile al nodo NUMA (non-Uniform Memory Access). La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore      | Minima             | Consigliato         |
+| Contenitore      | Minima             | Implementazione consigliata         |
 |----------------|---------------------|---------------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore             | Minima             | Consigliato         |
+| Contenitore             | Minima             | Implementazione consigliata         |
 |-----------------------|---------------------|---------------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore      | Minima             | Consigliato         |
+| Contenitore      | Minima             | Implementazione consigliata         |
 |----------------|---------------------|---------------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore             | Minima             | Consigliato         |
+| Contenitore             | Minima             | Implementazione consigliata         |
 |-----------------------|---------------------|---------------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -422,7 +422,7 @@ Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessari
 
 - Ogni core deve essere almeno 2,6 GHz o superiore.
 - Per i file, la limitazione sarà nell'SDK di riconoscimento vocale, a 2x (i primi 5 secondi di audio non sono limitati).
-- Il decodificatore è in grado di eseguire circa 2-3x in tempo reale. A tale fine, l'utilizzo complessivo della CPU sarà prossimo a due core per un singolo riconoscimento. Per questo motivo non è consigliabile mantenere più di due connessioni attive, per ogni istanza di contenitore. Il lato estremo è quello di inserire circa 10 decodificatori in tempo reale 2x in un computer con otto core `DS13_V2`, ad esempio. Per il contenitore versione 1,3 e successive, è possibile provare a impostare `DECODER_MAX_COUNT=20`un parametro.
+- Il decodificatore è in grado di eseguire circa 2-3x in tempo reale. A tale fine, l'utilizzo complessivo della CPU sarà prossimo a due core per un singolo riconoscimento. Per questo motivo non è consigliabile mantenere più di due connessioni attive, per ogni istanza di contenitore. Il lato estremo è quello di inserire circa 10 decodificatori in tempo reale 2x in un computer con otto core `DS13_V2` , ad esempio. Per il contenitore versione 1,3 e successive, è possibile provare a impostare un parametro `DECODER_MAX_COUNT=20` .
 - Per il microfono, sarà in tempo reale. L'utilizzo complessivo deve essere di circa un core per un singolo riconoscimento.
 
 Prendere in considerazione il numero totale di ore di audio disponibili. Se il numero è elevato, per migliorare l'affidabilità e la disponibilità, è consigliabile eseguire più istanze di contenitori, in una singola casella o in più caselle, dietro un servizio di bilanciamento del carico. L'orchestrazione può essere eseguita usando Kubernetes (K8S) e Helm oppure con Docker compose.
@@ -439,7 +439,7 @@ Ad esempio, per gestire 1000 ore/24 ore, è stata tentata la configurazione di m
 
 **Risposta:** Nel contenitore locale sono disponibili le maiuscole e le maiuscole (ITN). La punteggiatura dipende dal linguaggio e non è supportata per alcune lingue, tra cui il cinese e il giapponese.
 
-Sono *disponibili* supporto per la punteggiatura implicita e di base per i contenitori esistenti, `off` ma è per impostazione predefinita. Ciò significa che è possibile ottenere il `.` carattere nell'esempio, ma non il `。` carattere. Per abilitare questa logica implicita, di seguito è riportato un esempio di come eseguire questa operazione in Python usando l'SDK di riconoscimento vocale (sarebbe simile in altre lingue):
+Sono *disponibili* supporto per la punteggiatura implicita e di base per i contenitori esistenti, ma è per `off` impostazione predefinita. Ciò significa che è possibile ottenere il `.` carattere nell'esempio, ma non il `。` carattere. Per abilitare questa logica implicita, di seguito è riportato un esempio di come eseguire questa operazione in Python usando l'SDK di riconoscimento vocale (sarebbe simile in altre lingue):
 
 ```python
 speech_config.set_service_property(
@@ -514,7 +514,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-I contenitori meno recenti non hanno l'endpoint necessario per il funzionamento del `FromHost` carbonio con l'API. Se i contenitori usati per la versione 1,3, è necessario usare questo codice:
+I contenitori meno recenti non hanno l'endpoint necessario per il funzionamento del carbonio con l' `FromHost` API. Se i contenitori usati per la versione 1,3, è necessario usare questo codice:
 
 ```cpp
 const auto host = "http://localhost:5000";
@@ -525,7 +525,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Di seguito è riportato un esempio di `FromEndpoint` utilizzo dell'API:
+Di seguito è riportato un esempio di utilizzo dell' `FromEndpoint` API:
 
 ```cpp
 const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
@@ -553,14 +553,14 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 Sono destinati a scopi diversi e vengono usati in modo diverso.
 
 [Esempi](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py)di Python:
-- Per il riconoscimento singolo (modalità interattiva) con un endpoint personalizzato, ovvero `SpeechConfig` con un parametro endpoint), vedere `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
-- Per il riconoscimento continuo (modalità conversazione) ed è sufficiente modificare per usare un endpoint personalizzato come descritto in `speech_recognize_continuous_from_file()`precedenza, vedere.
-- Per abilitare la dettatura in campioni come sopra (solo se effettivamente necessario), subito dopo la creazione `speech_config`aggiungere il codice. `speech_config.enable_dictation()`
+- Per il riconoscimento singolo (modalità interattiva) con un endpoint personalizzato `SpeechConfig` , ovvero con un parametro endpoint, vedere `speech_recognize_once_from_file_with_custom_endpoint_parameters()` .
+- Per il riconoscimento continuo (modalità conversazione) ed è sufficiente modificare per usare un endpoint personalizzato come descritto in precedenza, vedere `speech_recognize_continuous_from_file()` .
+- Per abilitare la dettatura in campioni come sopra (solo se effettivamente necessario), subito dopo la creazione `speech_config` aggiungere il codice `speech_config.enable_dictation()` .
 
-Per abilitare la dettatura in C#, richiamare `SpeechConfig.EnableDictation()` la funzione.
+Per abilitare la dettatura in C#, richiamare la `SpeechConfig.EnableDictation()` funzione.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint`API
-| Linguaggio | Dettagli dell'API |
+| Lingua | Dettagli dell'API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -581,7 +581,7 @@ Per abilitare la dettatura in C#, richiamare `SpeechConfig.EnableDictation()` la
 
 ### <a name="fromhost-apis"></a>`FromHost`API
 
-| Linguaggio | Dettagli dell'API |
+| Lingua | Dettagli dell'API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -592,15 +592,15 @@ Per abilitare la dettatura in C#, richiamare `SpeechConfig.EnableDictation()` la
 
 > Parameters: host (obbligatorio), chiave di sottoscrizione (facoltativo, se è possibile utilizzare il servizio senza di esso).
 
-Il formato per l' `protocol://hostname:port` host `:port` è dove è facoltativo (vedere di seguito):
-- Se il contenitore è in esecuzione localmente, il nome `localhost`host è.
+Il formato per l'host è `protocol://hostname:port` dove `:port` è facoltativo (vedere di seguito):
+- Se il contenitore è in esecuzione localmente, il nome host è `localhost` .
 - Se il contenitore è in esecuzione in un server remoto, utilizzare il nome host o l'indirizzo IPv4 del server.
 
 Esempi di parametri host per la sintesi vocale:
 - `ws://localhost:5000`-connessione non sicura a un contenitore locale con la porta 5000
 - `ws://some.host.com:5000`-connessione non sicura a un contenitore in esecuzione in un server remoto
 
-Esempi di Python precedenti, ma usare `host` il parametro invece `endpoint`di:
+Esempi di Python precedenti, ma usare il `host` parametro invece di `endpoint` :
 
 ```python
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")

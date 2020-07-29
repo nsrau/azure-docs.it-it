@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289339"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Come eseguire la migrazione dell'account dal portale Cloud Partner al Centro per i partner
 
@@ -59,7 +59,7 @@ Le aziende che vogliono collaborare con Microsoft devono partecipare al programm
 
 Se non si è membri del Microsoft Partner Network, è possibile [iscriversi qui](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) per ottenere un ID MPN. Prendere nota dell'ID MPN, perché sarà necessario immetterlo durante il processo di attivazione dell'account.
 
-Per altre informazioni su Microsoft Partner Network, vedere [Unisciti al Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) nel sito Web dei partner. Per altre informazioni sui vantaggi ISV offerti da Microsoft Partner Network, vedere l'[hub di risorse ISV](https://partner.microsoft.com/isv-resource-hub).  
+Per altre informazioni su Microsoft Partner Network, vedere [Unisciti al Microsoft Partner Network](https://partner.microsoft.com/membership) nel sito Web dei partner. Per altre informazioni sui vantaggi ISV offerti da Microsoft Partner Network, vedere l'[hub di risorse ISV](https://partner.microsoft.com/isv-resource-hub).  
 
 ## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Spostare le offerte Dynamics 365 e PowerApps nel Centro per i partner
 

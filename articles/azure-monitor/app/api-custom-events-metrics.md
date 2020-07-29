@@ -3,12 +3,13 @@ title: API di Application Insights per metriche ed eventi personalizzati | Micro
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: d263c99af7793acbe1f939f64c5cc2dcadd3a054
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323231"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366873"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -1109,7 +1110,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

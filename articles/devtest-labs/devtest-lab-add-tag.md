@@ -3,12 +3,12 @@ title: Aggiungere tag a un lab in Azure DevTest Labs | Microsoft Docs
 description: Informazioni su come aggiungere un tag a un lab in Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287584"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Ai tag si applicano le limitazioni seguenti:
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
 * I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse.
 
-[Usare tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) fornisce maggiori dettagli sull'utilizzo di tag in Azure, inclusa la modalità in cui gestire i tag usando PowerShell o l'interfaccia della riga di comando di Azure.
+[Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md) fornisce maggiori dettagli sull'utilizzo di tag in Azure, inclusa la modalità in cui gestire i tag usando PowerShell o l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

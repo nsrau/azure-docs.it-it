@@ -3,12 +3,12 @@ title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127997"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366773"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -23,7 +23,7 @@ Per configurare una delle impostazioni di gerarchia è necessarie eseguire le du
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Queste operazioni consentono a un solo utente di leggere e aggiornare le impostazioni di gerarchia. Le operazioni non forniscono nessun altro accesso alla gerarchia del gruppo di gestione o alle risorse nella gerarchia. Entrambe le operazioni sono disponibili nel ruolo Controllo degli accessi in base al ruolo di **amministratore delle impostazioni di gerarchia** predefinito.
+Queste operazioni consentono a un solo utente di leggere e aggiornare le impostazioni di gerarchia. Le operazioni non forniscono nessun altro accesso alla gerarchia del gruppo di gestione o alle risorse nella gerarchia. Entrambe queste operazioni sono disponibili nell' **amministratore delle impostazioni della gerarchia**dei ruoli predefiniti di Azure.
 
 ## <a name="setting---default-management-group"></a>Impostazione - Gruppo di gestione predefinito
 

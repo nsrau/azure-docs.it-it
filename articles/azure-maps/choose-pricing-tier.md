@@ -1,29 +1,31 @@
 ---
-title: Scegliere il piano tariffario giusto | Mappe Microsoft Azure
-description: In questo articolo vengono illustrati i piani tariffari offerti dalle mappe Microsoft Azure.
+title: Scegliere il piano tariffario adatto per Microsoft Azure Maps
+description: Questo articolo illustra i piani tariffari offerti dalle mappe Microsoft Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/15/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 4b32706822ff16780388f4acb5d59bf3d91e6d91
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 359c2270f3de269adae13ce976cedeb4248935d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133334"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285765"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
-Azure Maps offre due piani tariffari, S0 e S1. Lo scopo di questo articolo è aiutare l'utente a scegliere il piano tariffario corretto secondo le proprie esigenze. Per scegliere il piano tariffario corretto, è possibile porsi le due domande riportate di seguito.
+Azure Maps offre due piani tariffari: S0 e S1. Lo scopo di questo articolo è aiutare l'utente a scegliere il piano tariffario corretto secondo le proprie esigenze. Per scegliere il piano tariffario corretto, è possibile porsi le due domande riportate di seguito.
 
-## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quanti utenti simultanei si prevede di supportare? 
+## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quanti utenti simultanei si prevede di supportare?
+
 I piani tariffari S0 e S1 possono gestire diverse quantità di velocità effettive dei dati. Il piano tariffario S0 gestisce fino a **50 query al secondo**. Mentre il livello S1 gestisce **più di 50 query al secondo**.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quali funzionalità geospaziali si prevede di usare?
-Il piano tariffario s0 è adatto all'utente, se le API geospaziali principali soddisfano i requisiti del servizio. Se si desiderano funzionalità più avanzate per l'applicazione, prendere in considerazione il piano tariffario S1. Le funzionalità avanzate includono: Aerial Plus immagini ibride, ottenere l'intervallo di route e la geocodifica batch. Esaminare la tabella delle funzionalità del piano **tariffario** per selezionare il piano tariffario più adatto all'applicazione.
+
+Se le API geospaziali principali soddisfano i requisiti del servizio, scegliere il piano tariffario s0. Se si desiderano funzionalità più avanzate per l'applicazione, è consigliabile scegliere il piano tariffario S1. Le funzionalità avanzate includono: Aerial Plus immagini ibride, ottenere l'intervallo di route e la geocodifica batch. Per selezionare il piano tariffario più adatto per l'applicazione, vedere la tabella delle funzionalità del piano **tariffario** riportato di seguito:
 
 ### <a name="pricing-tier-capabilities"></a>Funzionalità dei piani tariffari
 
@@ -31,7 +33,7 @@ Il piano tariffario s0 è adatto all'utente, se le API geospaziali principali so
 |-----------------------------------------|:-------------------:|:--------:|
 | Rendering mappa                              | ✓                   | ✓       |
 | Immagini satellite                       |                     | ✓        |
-| Cerca                                  | ✓                    | ✓        |
+| Ricerca                                  | ✓                    | ✓        |
 | Ricerca batch                            |                     | ✓        |
 | Route                                   | ✓                    |✓        |
 | Routing batch                            |                    | ✓        |
@@ -47,6 +49,7 @@ Il piano tariffario s0 è adatto all'utente, se le API geospaziali principali so
 | Meteo (anteprima)                        |✓                    |✓        |
 
 Prendere in considerazione questi punti aggiuntivi:
+
 * Quale tipo di azienda si ha?
 * Quanto è importante l'applicazione?
 
@@ -56,12 +59,12 @@ Vedere la tabella contenente **Clienti di destinazione del piano tariffario** pe
 
 | Piano tariffario  |     Clienti di destinazione                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Il piano tariffario s0 funziona per le applicazioni in tutte le fasi di produzione: dallo sviluppo di modelli di prova e dalla fase iniziale di test per la produzione e la distribuzione di applicazioni. Tuttavia, questo livello è progettato per lo sviluppo su scala ridotta o per i clienti con utenti simultanei di basso livello o entrambi. <p>|
-| S1            |    <p>Il piano tariffario S1 è per i clienti con applicazioni aziendali su larga scala, applicazioni cruciali o volumi elevati di utenti simultanei. È l'ideale anche per clienti che richiedono servizi geospaziali avanzati.</p>|
+| S0            |    Il piano tariffario s0 funziona per le applicazioni in tutte le fasi di produzione: dallo sviluppo di modelli di prova e dalla fase iniziale di test per la produzione e la distribuzione di applicazioni. Tuttavia, questo livello è progettato per lo sviluppo su scala ridotta o per i clienti con utenti simultanei di basso livello o entrambi. 
+| S1            |    Il piano tariffario S1 è per i clienti con applicazioni aziendali su larga scala, applicazioni cruciali o volumi elevati di utenti simultanei. È l'ideale anche per clienti che richiedono servizi geospaziali avanzati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come visualizzare e modificare i piani tariffari:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Gestire un piano tariffario](how-to-manage-pricing-tier.md)

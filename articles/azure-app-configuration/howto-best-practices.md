@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367521"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
@@ -42,7 +42,7 @@ Le *etichette* sono un attributo delle chiavi. Sono usati per creare varianti di
 
 La configurazione dell'app considera tutte le chiavi archiviate come entità indipendenti. La configurazione dell'app non tenta di dedurre alcuna relazione tra le chiavi o di ereditare i valori delle chiavi in base alla gerarchia. È possibile aggregare più insiemi di chiavi, tuttavia, usando etichette abbinate al corretto stack di configurazione nel codice dell'applicazione.
 
-Ecco un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Development" nel secondo.
+Esaminiamo un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Development" nel secondo.
 
 Nel codice è necessario innanzitutto recuperare i valori della chiave senza alcuna etichetta e quindi recuperare la stessa serie di valori di chiave una seconda volta con l'etichetta "Development". Quando si recuperano i valori la seconda volta, i valori precedenti delle chiavi vengono sovrascritti. Il sistema di configurazione di .NET Core consente di "stack" più set di dati di configurazione uno sull'altro. Se una chiave è presente in più di un set, viene usato l'ultimo set che lo contiene. Con un Framework di programmazione moderno, ad esempio .NET Core, questa funzionalità di stacking è disponibile gratuitamente se si usa un provider di configurazione nativo per accedere alla configurazione dell'app. Il frammento di codice seguente mostra come è possibile implementare lo stack in un'applicazione .NET Core:
 
@@ -81,7 +81,7 @@ Richieste eccessive alla configurazione dell'app possono comportare una limitazi
 
 * Osservare una singola *chiave Sentinel*, anziché osservare le singole chiavi. Aggiornare tutte le configurazioni solo se la chiave Sentinel viene modificata. Per un esempio, vedere [usare la configurazione dinamica in un'app ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) .
 
-* Usare griglia di eventi di Azure per ricevere notifiche in caso di modifiche alla configurazione, anziché eseguire costantemente il polling delle modifiche. Per ulteriori informazioni, vedere [Route app Azure Configuration Events to a Web endpoint](./howto-app-configuration-event.md) .
+* Usare griglia di eventi di Azure per ricevere notifiche in caso di modifiche alla configurazione, anziché eseguire costantemente il polling delle modifiche. Per altre informazioni, vedere [Route app Azure Configuration Events to a Web endpoint](./howto-app-configuration-event.md)
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importazione dei dati di configurazione nella configurazione dell'app
 

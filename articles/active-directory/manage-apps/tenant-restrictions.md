@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019251"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285901"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -69,6 +69,11 @@ Per abilitare Restrizioni del tenant nell'infrastruttura proxy è necessaria la 
 
 Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com e login.windows.net, inserire due intestazioni HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
+> [!NOTE]
+> Quando si configurano l'intercettazione e l'inserimento di intestazioni SSL, assicurarsi che il traffico a https://device.login.microsoftonline.com venga escluso. Questo URL viene usato per l'autenticazione del dispositivo e l'esecuzione di interruzioni e ispezione TLS può interferire con l'autenticazione del certificato client, che può causare problemi di registrazione del dispositivo e di accesso condizionale basato su dispositivo.
+
+
+
 Le intestazioni devono includere gli elementi seguenti:
 
 - Per *Restrict-Access-to-Tenants*, usare un valore di \<permitted tenant list\> , ovvero un elenco delimitato da virgole di tenant a cui si vuole consentire agli utenti di accedere. È possibile usare qualsiasi dominio registrato con un tenant per individuare il tenant nell'elenco. Ad esempio, per consentire l'accesso ai tenant Contoso e Fabrikam, la coppia nome/valore è simile a questa: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -81,6 +86,9 @@ Le intestazioni devono includere gli elementi seguenti:
 Per impedire agli utenti di inserire le proprie intestazioni HTTP con tenant non approvati, il proxy deve sostituire l'intestazione *Restrict-Access-To-Tenants* se questa è già presente nella richiesta in ingresso.
 
 È necessario forzare l'uso del proxy nei client per tutte le richieste a login.microsoftonline.com, login.microsoft.com e login.windows.net. Ad esempio, se vengono usati file PAC per reindirizzare i client all'uso del proxy, gli utenti finali non devono poter modificare o disabilitare tali file.
+
+> [!NOTE]
+> Non includere sottodomini in *. login.microsoftonline.com nella configurazione del proxy. Questa operazione includerà device.login.microsoftonline.com e potrebbe interferire con l'autenticazione del certificato client, che viene usata negli scenari di registrazione dei dispositivi e di accesso condizionale basato su dispositivo. Configurare il server proxy in modo da escludere device.login.microsoftonline.com da TLS break-and-ispezionate e l'inserimento di intestazioni.
 
 ## <a name="the-user-experience"></a>Esperienza utente
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129730"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367437"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrare i dispositivi gemelli digitali di Azure con altri servizi
 
@@ -20,11 +20,11 @@ I dispositivi gemelli digitali di Azure vengono in genere usati insieme ad altri
 
 ## <a name="data-ingress"></a>Ingresso dei dati
 
-I dispositivi gemelli digitali di Azure possono essere basati sui dati dell'hub Internet. In questo modo è possibile raccogliere dati di telemetria da dispositivi fisici nell'ambiente in uso ed elaborarli usando il grafo dei gemelli digitali di Azure nel cloud.
+I dispositivi gemelli digitali di Azure possono essere gestiti con dati ed eventi da qualsiasi servizio, ovvero l'hub delle cose, le app per la logica, il servizio personalizzato e altro ancora. In questo modo è possibile raccogliere dati di telemetria da dispositivi fisici nell'ambiente in uso ed elaborarli usando il grafo dei gemelli digitali di Azure nel cloud.
 
 I dispositivi gemelli digitali di Azure non dispongono di un hub Internet integrato. È possibile usare un hub Internet esistente attualmente in produzione o distribuirne uno nuovo. Questo consente l'accesso completo a tutte le funzionalità di gestione dei dispositivi dell'hub Internet.
 
-Per inserire i dati dall'hub di gestione delle cose in dispositivi gemelli digitali di Azure, usare una [funzione di Azure](../azure-functions/functions-overview.md). Per altre informazioni su questo modello, vedere [*procedura: inserire dati di telemetria dall'hub*](how-to-ingest-iot-hub-data.md)Internet o provarli nell'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md).
+Per inserire i dati da qualsiasi origine in dispositivi gemelli digitali di Azure, usare una [funzione di Azure](../azure-functions/functions-overview.md). Per altre informazioni su questo modello, vedere [*procedura: inserire dati di telemetria dall'hub*](how-to-ingest-iot-hub-data.md)Internet o provarli nell'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Servizi di uscita dati
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537495"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337926"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
@@ -28,7 +28,7 @@ I dispositivi gemelli digitali di Azure forniscono funzionalità di query comple
 > Tutte le operazioni di query di Azure Digital Twins fanno distinzione tra maiuscole e minuscole.
 
 Di seguito sono riportate le operazioni disponibili in Azure Digital Gemells Query Store lingua:
-* Ottiene i gemelli dalle proprietà dei gemelli digitali.
+* Ottiene i gemelli per le proprietà dei gemelli digitali (inclusi i [tag](how-to-use-tags.md)).
 * Ottiene i dispositivi gemelli per le interfacce dei gemelli digitali.
 * Ottiene i gemelli in base alle proprietà della relazione.
 * Ottenere i gemelli su più tipi di relazione ( `JOIN` query). Esistono limitazioni sul numero di istanze `JOIN` consentite (un livello per l'anteprima pubblica).

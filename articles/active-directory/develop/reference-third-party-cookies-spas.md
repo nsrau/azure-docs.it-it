@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 1478ee1396390e26d333230b0254578ec748ef6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477261"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311756"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Gestire ITP in Safari e in altri browser in cui i cookie di terze parti sono bloccati
 
@@ -46,7 +46,7 @@ Per Microsoft Identity Platform, le applicazioni a pagina singola e i client nat
 
 Le applicazioni a pagina singola prevedono due restrizioni aggiuntive:
 
-* [L'URI di reindirizzamento deve essere contrassegnato come tipo `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) per abilitare CORS sugli endpoint di accesso.
+* [L'URI di reindirizzamento deve essere contrassegnato come tipo `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) per abilitare CORS sugli endpoint di accesso.
 * I token di aggiornamento rilasciati tramite il flusso del codice di autorizzazione agli URI di reindirizzamento `spa` prevedono una durata di 24 ore anziché una durata di 90 giorni.
 
 ![Flusso del codice per le applicazioni a pagina singola](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/28/2020
+ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337824"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
@@ -41,6 +41,9 @@ Prima di esportare i dati, è necessario prima registrare un archivio dati nell'
 1. Selezionare **Esporta dati** per aprire il riquadro **Proprietà** .
 
 1. Per **archivio dati**selezionare un archivio dati esistente dall'elenco a discesa. È anche possibile creare un nuovo archivio dati. Per informazioni, vedere [accesso ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
+
+    > [!NOTE]
+    > L'esportazione di dati di un determinato tipo di dati in una colonna del database SQL specificata come un altro tipo di dati non è supportata.
 
 1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 

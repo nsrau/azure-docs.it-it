@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi di connettività tra macchine virtuali di Azure | Documenti Microsoft
-description: Informazioni su come risolvere i problemi di connettività tra macchine virtuali di Azure.
+description: Informazioni su come risolvere i problemi di connettività che possono verificarsi tra le macchine virtuali di Azure.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130680"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286088"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Risoluzione dei problemi di connettività tra macchine virtuali di Azure
 

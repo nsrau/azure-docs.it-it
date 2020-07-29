@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012887"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366928"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -75,7 +75,7 @@ La tabella seguente elenca alcune delle principali operazioni di Azure Machine L
 | Visualizzare modelli o immagini | ✓ | ✓ | ✓ |
 | Chiamare un servizio Web | ✓ | ✓ | ✓ |
 
-Se i ruoli predefiniti non soddisfano le esigenze personali, è possibile creare ruoli personalizzati. I ruoli personalizzati sono supportati solo per le operazioni nell'area di lavoro e nell'ambiente di calcolo di Machine Learning. I ruoli personalizzati possono avere autorizzazioni di lettura, scrittura o eliminazione nell'area di lavoro e nella risorsa di calcolo in tale area di lavoro. È possibile rendere il ruolo disponibile per un livello di area di lavoro specifico, per un livello di gruppo di risorse specifico o per un livello di sottoscrizione specifico. Per altre informazioni, vedere [Gestire gli utenti e i ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md).
+Se i ruoli predefiniti non soddisfano le esigenze personali, è possibile creare ruoli personalizzati. I ruoli personalizzati sono supportati per controllare tutte le operazioni all'interno di un'area di lavoro, ad esempio la creazione di un calcolo, l'invio di un'esecuzione, la registrazione di un archivio dati o la distribuzione di un modello. I ruoli personalizzati possono disporre di autorizzazioni di lettura, scrittura o eliminazione per le varie risorse di un'area di lavoro, ad esempio cluster, archivi dati, modelli ed endpoint. È possibile rendere il ruolo disponibile per un livello di area di lavoro specifico, per un livello di gruppo di risorse specifico o per un livello di sottoscrizione specifico. Per altre informazioni, vedere [Gestire gli utenti e i ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning è supportata con la collaborazione Business to Business di Azure Machine Learning, ma attualmente non è supportata con la collaborazione Business to Consumer di Azure Active Directory.
@@ -154,10 +154,6 @@ Per usare le chiavi personali, ovvero gestite dal cliente, per crittografare l'i
 Per abilitare il provisioning di un'istanza di Cosmos DB nella sottoscrizione con le chiavi gestite dal cliente, eseguire le operazioni seguenti:
 
 * Registrare i provider di risorse Microsoft. MachineLearning e Microsoft.DocumentDB nella sottoscrizione, se non è già stato fatto.
-
-* Autorizzare l'app Machine Learning nella gestione delle identità e degli accessi con le autorizzazioni di collaboratore per la sottoscrizione.
-
-    ![Autorizzare l'"app Azure Machine Learning" nella gestione delle identità e degli accessi nel portale](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Usare i parametri seguenti quando si crea l'area di lavoro Azure Machine Learning. Entrambi i parametri sono obbligatori e supportati in SDK, interfaccia della riga di comando, API REST e nei modelli di Resource Manager.
 

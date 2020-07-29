@@ -1,6 +1,5 @@
 ---
-title: Creare & distribuire moduli R personalizzati
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): creare & distribuire moduli R personalizzati-Azure'
 description: Informazioni su come creare e distribuire un modulo R personalizzato in ML Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957325"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287240"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Azure Machine Learning Studio (versione classica)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Machine Learning Studio (versione classica)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
 
 Questo argomento descrive come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
@@ -234,7 +236,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 * Il valore dell'attributo **name** dell'elemento **Output** non deve superare i 64 caratteri.
 * Il valore dell'attributo **type** dell'elemento **Output** deve essere *Visualization*.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro.
 Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue, possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati nella sezione successiva. Gli argomenti con la proprietà **isOptional** impostata su **"true"** non richiedono che l'utente immetta un valore. Se non viene fornito un valore per l'argomento, l'argomento non verrà passato alla funzione del punto di ingresso. Gli argomenti della funzione del punto di ingresso facoltativi devono essere gestiti in modo esplicito dalla funzione, ad esempio viene assegnato un valore predefinito NULL nella definizione della funzione del punto di ingresso. Un argomento facoltativo imporrà gli altri vincoli dell'argomento, ad esempio min o max, solo se l'utente fornisce un valore.
 Come per gli input e gli output, è fondamentale che a ogni parametro siano associati valori ID univoci. Nell'esempio di avvio rapido l'ID/parametro associato era *swap*.
@@ -303,14 +305,14 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * Numeric
     * Boolean
     * Categorical
-    * string
+    * Stringa
     * Label
     * Funzionalità
     * Punteggio
     * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * nessuno
+    * Nessuno
     * NumericFeature
     * NumericLabel
     * NumericScore
