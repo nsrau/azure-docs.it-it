@@ -3,12 +3,12 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093035"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320664"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -34,7 +34,7 @@ Per poter creare annotazioni sulla versione, è necessario installare una delle 
 
 Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e aprire la risorsa Application Insights che monitora l'applicazione. In alternativa, se non è presente, [creare una nuova risorsa Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire la risorsa Application Insights che monitora l'applicazione. In alternativa, se non è presente, [creare una nuova risorsa Application Insights](./app-insights-overview.md).
    
 1. Aprire la scheda **accesso all'API** e copiare l' **ID Application Insights**.
    
@@ -115,5 +115,6 @@ Selezionare un marcatore di annotazione per aprire i dettagli della versione, in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare elementi di lavoro](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automazione con PowerShell](../../azure-monitor/app/powershell.md)
+* [Creare elementi di lavoro](./diagnostic-search.md#create-work-item)
+* [Automazione con PowerShell](./powershell.md)
+

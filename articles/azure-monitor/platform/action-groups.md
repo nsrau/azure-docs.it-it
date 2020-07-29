@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516176"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321854"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -26,7 +26,7 @@ Ogni azione è composta dalle seguenti proprietà:
 * **Tipo di azione**: L'azione eseguita. Gli esempi includono l'invio di una chiamata vocale, un SMS o un messaggio di posta elettronica oppure l'attivazione di vari tipi di azioni automatizzate. Vedere i tipi più avanti in questo articolo.
 * **Dettagli**: i corrispondenti dettagli che variano in base al *tipo di azione*.
 
-Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare i gruppi di azione: [Modelli di Resource Manager per il gruppo di azione](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare i gruppi di azione: [Modelli di Resource Manager per il gruppo di azione](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Creare un gruppo di azione usando il portale di Azure
 
@@ -86,12 +86,12 @@ I messaggi di posta elettronica verranno inviati dagli indirizzi di posta elettr
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 
 ### <a name="email-azure-resource-manager-role"></a>Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager
 Inviare il messaggio di posta elettronica ai membri del ruolo della sottoscrizione. Il messaggio di posta elettronica verrà inviato solo ai membri **utente di Azure AD** del ruolo. Il messaggio di posta elettronica non verrà inviato a gruppi di Azure AD o entità servizio.
 
-Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Funzione
 Chiama un endpoint di trigger HTTP esistente in [Funzioni di Azure](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
@@ -99,7 +99,7 @@ Chiama un endpoint di trigger HTTP esistente in [Funzioni di Azure](../../azure-
 Un Gruppo di azioni può contenere un numero limitato di funzioni.
 
 ### <a name="itsm"></a>Gestione dei servizi IT
-L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../../azure-monitor/platform/itsmc-overview.md).
+L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](./itsmc-overview.md).
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di gestione dei servizi IT. 
 
@@ -109,8 +109,8 @@ Un Gruppo di azioni può contenere un numero limitato di azioni dell'app per la 
 ### <a name="secure-webhook"></a>Webhook protetto
 L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directory per proteggere la connessione tra il gruppo di azioni e l'API Web protetta (endpoint webhook). Di seguito è descritto il flusso di lavoro generale per sfruttare questa funzionalità. Per una panoramica delle applicazioni Azure AD e delle entità servizio, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere [API Web protetta: registrazione dell'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
-    - Configurare l'API protetta affinché venga [chiamata da un'app daemon](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere [API Web protetta: registrazione dell'app](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
+    - Configurare l'API protetta affinché venga [chiamata da un'app daemon](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
 2. Abilitare i gruppi di azioni per l'uso dell'applicazione Azure AD.
 
@@ -196,7 +196,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-Per altre informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) e sul [comportamento degli avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md). 
+Per altre informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md) e sul [comportamento degli avvisi SMS](./alerts-sms-behavior.md). 
 
 Un Gruppo di azioni può contenere un numero limitato di azioni SMS.
 
@@ -207,7 +207,7 @@ I prezzi per i paesi/regioni supportati sono elencati nella [pagina relativa ai 
   
 
 ### <a name="voice"></a>Chiamata vocale
-Per altre informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Per altre informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 
 Un Gruppo di azioni può contenere un numero limitato di azioni Voce.
 
@@ -248,9 +248,10 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Webhook.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sul [Comportamento degli avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Leggere le [informazioni sullo schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Altre informazioni sul [connettore ITSM](../../azure-monitor/platform/itsmc-overview.md).
-* Altre informazioni sulla [limitazione della frequenza](../../azure-monitor/platform/alerts-rate-limiting.md) degli avvisi.
-* Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
+* Altre informazioni sul [Comportamento degli avvisi SMS](./alerts-sms-behavior.md).  
+* Leggere le [informazioni sullo schema webhook degli avvisi del log attività](./activity-log-alerts-webhook.md).  
+* Altre informazioni sul [connettore ITSM](./itsmc-overview.md).
+* Altre informazioni sulla [limitazione della frequenza](./alerts-rate-limiting.md) degli avvisi.
+* Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).
+

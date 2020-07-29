@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: asrastog
-ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610150"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323010"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
 
@@ -193,7 +196,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
   - Corpo
         
-    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". ad esempio:
 
     ```json
     {

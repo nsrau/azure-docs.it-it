@@ -1,6 +1,6 @@
 ---
-title: Pool host per desktop virtuali Windows Azure Resource Manager-Azure
-description: Come creare un pool host in un desktop virtuale Windows con un modello di Azure Resource Manager.
+title: Pool di host per desktop virtuali Windows (classico) Azure Resource Manager-Azure
+description: Come creare un pool host in un desktop virtuale Windows (classico) con un modello di Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88027db54f9b7d4a7ef2ef32d4ea0434d8a26a10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204762"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270261"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Creare un pool host in un desktop virtuale Windows (classico) con un modello di Azure Resource Manager
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 

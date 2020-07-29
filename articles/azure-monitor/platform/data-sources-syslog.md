@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 983091ac0d1f9fdcb33e64d2af521ec3442a040b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515513"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322313"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
@@ -54,7 +54,7 @@ Configurare Syslog usando il [menu Dati in Impostazioni avanzate](agent-data-sou
 Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Se si vuole configurare syslog manualmente in ogni agente Linux, deselezionare la casella *applica la configurazione seguente alle macchine virtuali*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurare Syslog sull'agente Linux
-Durante l'[installazione dell'agente di Log Analytics in un client Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti. È possibile modificare questo file per cambiare la configurazione. Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.
+Durante l'[installazione dell'agente di Log Analytics in un client Linux](../learn/quick-collect-linux-computer.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti. È possibile modificare questo file per cambiare la configurazione. Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.
 
 > [!NOTE]
 > Se si modifica la configurazione di SysLog, è necessario riavviare il daemon SysLog per rendere effettive le modifiche.
@@ -227,6 +227,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Numero di record Syslog per funzionalità. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulle [query di log](../../azure-monitor/log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
-* Usare [campi personalizzati](../../azure-monitor/platform/custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
-* [Configurare agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) per raccogliere altri tipi di dati.
+* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Usare [campi personalizzati](./custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
+* [Configurare agenti Linux](../learn/quick-collect-linux-computer.md) per raccogliere altri tipi di dati.
+

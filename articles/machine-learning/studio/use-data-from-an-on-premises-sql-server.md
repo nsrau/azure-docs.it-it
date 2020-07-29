@@ -1,6 +1,5 @@
 ---
-title: Server SQL locale
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): SQL Server locale-Azure'
 description: Usare i dati di un database di SQL Server per eseguire analisi avanzate con Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706053"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324846"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Eseguire analisi con Azure Machine Learning Studio (classico) usando un database SQL Server
+
+**si applica a:** ![ No](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) 
+
 
 In molti casi, le aziende che si avvalgono di dati locali vogliono sfruttare la scalabilità e l'agilità del cloud per i propri carichi di lavoro di Machine Learning. Non intendono tuttavia abbandonare i carichi di lavoro e i processi aziendali correnti spostando nel cloud tutti i propri dati locali. Azure Machine Learning Studio (versione classica) supporta ora la lettura dei dati da un database SQL Server e quindi il training e il Punteggio di un modello con questi dati. Non è più necessario copiare e sincronizzare manualmente i dati tra il cloud e il server locale. Al contrario, il modulo **Import Data** in Azure Machine Learning Studio (classico) può ora leggere direttamente dal database SQL Server per i processi di training e assegnazione dei punteggi.
 

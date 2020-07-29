@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202562"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325339"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -31,8 +31,8 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 
 | | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|
-| **Ambienti supportati** | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
-| **Requisiti dell'agente**  | nessuno | nessuno | Richiede Log Analytics Agent |
+| **Ambienti supportati** | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>In locale | 
+| **Requisiti dell'agente**  | Nessuna | Nessuna | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<IIS logs><br>Log basati su file<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
 | **Dati inviati a** | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
@@ -41,8 +41,8 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 
 | | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
-| **Ambienti supportati** | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
+| **Ambienti supportati** | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>In locale |
+| **Requisiti dell'agente**  | Nessuna | Nessuna | Nessuna | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
 | **Dati inviati a** | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
@@ -76,7 +76,7 @@ L' [estensione diagnostica di Azure](diagnostics-extension-overview.md) raccogli
 Usare l'estensione diagnostica di Azure se è necessario:
 
 - Inviare i dati ad archiviazione di Azure per l'archiviazione o analizzarli con strumenti come [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Inviare dati alle [metriche di monitoraggio di Azure](data-platform-metrics.md) per analizzarli con [Esplora metriche](metrics-getting-started.md) e per sfruttare i vantaggi offerti dalle funzionalità, ad esempio gli [avvisi delle metriche](../../azure-monitor/platform/alerts-metric-overview.md) near Real Time e la [scalabilità](autoscale-overview.md) automatica (solo Windows).
+- Inviare dati alle [metriche di monitoraggio di Azure](data-platform-metrics.md) per analizzarli con [Esplora metriche](metrics-getting-started.md) e per sfruttare i vantaggi offerti dalle funzionalità, ad esempio gli [avvisi delle metriche](./alerts-metric-overview.md) near Real Time e la [scalabilità](autoscale-overview.md) automatica (solo Windows).
 - Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](diagnostics-extension-stream-event-hubs.md).
 - Raccogliere la [diagnostica di avvio](../../virtual-machines/troubleshooting/boot-diagnostics.md) per esaminare i problemi di avvio della macchina virtuale.
 
@@ -91,7 +91,7 @@ L' [agente Telegraf InfluxData](collect-custom-metrics-linux-telegraf.md) viene 
 
 Usare l'agente Telegraf se è necessario:
 
-* Inviare dati alle [metriche di monitoraggio di Azure](data-platform-metrics.md) per analizzarli con [Esplora metriche](metrics-getting-started.md) e per sfruttare le funzionalità, ad esempio gli [avvisi delle metriche](../../azure-monitor/platform/alerts-metric-overview.md) near Real Time e la [scalabilità](autoscale-overview.md) automatica (solo Linux). 
+* Inviare dati alle [metriche di monitoraggio di Azure](data-platform-metrics.md) per analizzarli con [Esplora metriche](metrics-getting-started.md) e per sfruttare le funzionalità, ad esempio gli [avvisi delle metriche](./alerts-metric-overview.md) near Real Time e la [scalabilità](autoscale-overview.md) automatica (solo Linux). 
 
 
 
@@ -120,3 +120,4 @@ Per ulteriori informazioni su ciascuno degli agenti, fare quanto segue:
 - [Panoramica dell'agente di Log Analytics](log-analytics-agent.md)
 - [Panoramica dell’estensione Diagnostica di Azure](diagnostics-extension-overview.md)
 - [Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
+

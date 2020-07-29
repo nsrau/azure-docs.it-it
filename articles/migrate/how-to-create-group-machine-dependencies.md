@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate 
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321208"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -31,7 +31,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
     - È possibile aggiungere un'area di lavoro solo dopo aver configurato il dispositivo Azure Migrate e individuando i computer nel progetto Azure Migrate.
     - Assicurarsi di disporre di un'area di lavoro nella sottoscrizione che contiene il progetto Azure Migrate.
     - L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sud-orientale o Europa occidentale. Non è possibile associare a un progetto aree di lavoro di altre regioni.
-    - L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi è supportata](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi è supportata](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - È possibile associare un'area di lavoro Log Analytics nuova o esistente a un progetto Azure Migrate.
     - L'area di lavoro viene collegata la prima volta che si configura la visualizzazione delle dipendenze per un computer. Non è possibile modificare l'area di lavoro per un progetto Azure Migrate dopo che è stata aggiunta.
     - In Log Analytics, l'area di lavoro associata ad Azure Migrate è contrassegnata con la chiave di migrazione progetto e con il nome del progetto.

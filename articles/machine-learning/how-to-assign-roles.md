@@ -5,18 +5,18 @@ description: Informazioni su come accedere a un'area di lavoro di Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.reviewer: jmartens
-ms.author: larryfr
-author: Blackmist
-ms.date: 06/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.reviewer: Blackmist
+ms.author: nigup
+author: nishankgu
+ms.date: 07/24/2020
+ms.custom: how-to, seodec18
+ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125174"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321616"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,14 +29,15 @@ Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogament
 
 | Ruolo | Livello di accesso |
 | --- | --- |
-| **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset (incluse le credenziali dell' [archivio dati](how-to-access-data.md) ) in un'area di lavoro, ma non possono creare o aggiornare tali asset. |
+| **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare le risorse, incluse le credenziali dell' [archivio dati](how-to-access-data.md) , in un'area di lavoro. I lettori non possono creare o aggiornare tali asset. |
 | **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono, ad esempio, creare un esperimento, creare o allegare un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
 | **Proprietario** | Accesso completo all'area di lavoro, inclusa la possibilità di visualizzare, creare, modificare o eliminare le risorse (ove applicabile) in un'area di lavoro. Inoltre, è possibile modificare le assegnazioni di ruolo. |
+| **Ruolo personalizzato** | Consente di personalizzare l'accesso a specifiche operazioni di controllo o piano dati all'interno di un'area di lavoro. Ad esempio, l'invio di un'esecuzione, la creazione di un calcolo, la distribuzione di un modello o la registrazione di un set di dati. |
 
 > [!IMPORTANT]
 > L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per ulteriori informazioni [, vedere funzionamento](/azure/role-based-access-control/overview#how-rbac-works)del controllo degli accessi in base al ruolo.
 
-Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti per Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Gestisci l'accesso all'area di lavoro
 
@@ -47,7 +48,7 @@ Se si è proprietari di un'area di lavoro, è possibile aggiungere e rimuovere r
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Modelli di Gestione risorse di Azure](/azure/role-based-access-control/role-assignments-template)
 
-Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)della riga di comando di Azure Machine Learning, è anche possibile usare un comando dell'interfaccia della riga di comando per assegnare ruoli agli utenti.
+Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)della riga di comando Azure Machine Learning, è possibile usare i comandi dell'interfaccia della riga di comando per assegnare ruoli agli utenti
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -74,17 +75,18 @@ Se i ruoli predefiniti non sono sufficienti, è possibile creare ruoli personali
 > [!NOTE]
 > Per creare ruoli personalizzati all'interno di tale risorsa, è necessario essere un proprietario della risorsa a tale livello.
 
-Per creare un ruolo personalizzato, creare prima di tutto un file JSON di definizione del ruolo che specifichi l'autorizzazione e l'ambito per il ruolo. Nell'esempio seguente viene definito un ruolo personalizzato denominato "Data Scientist" con ambito a un livello specifico dell'area di lavoro:
+Per creare un ruolo personalizzato, creare prima di tutto un file JSON di definizione del ruolo che specifichi l'autorizzazione e l'ambito per il ruolo. Nell'esempio seguente viene definito un ruolo personalizzato denominato "data scientist Custom" con ambito a un livello specifico dell'area di lavoro:
 
-`data_scientist_role.json` :
+`data_scientist_custom_role.json` :
 ```json
 {
-    "Name": "Data Scientist",
+    "Name": "Data Scientist Custom",
     "IsCustom": true,
     "Description": "Can run experiment but can't create or delete compute.",
     "Actions": ["*"],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
         "Microsoft.Authorization/*/write"
@@ -97,6 +99,7 @@ Per creare un ruolo personalizzato, creare prima di tutto un file JSON di defini
 
 > [!TIP]
 > È possibile modificare il `AssignableScopes` campo per impostare l'ambito di questo ruolo personalizzato a livello di sottoscrizione, a livello di gruppo di risorse o a livello di area di lavoro specifico.
+> Il ruolo personalizzato precedente è solo un esempio, vedere alcuni [ruoli personalizzati suggeriti per il servizio Azure Machine Learning](#customroles).
 
 Questo ruolo personalizzato può eseguire tutte le operazioni nell'area di lavoro, ad eccezione delle azioni seguenti:
 
@@ -117,25 +120,235 @@ Dopo la distribuzione, questo ruolo diventa disponibile nell'area di lavoro spec
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](/azure/role-based-access-control/custom-roles).
+Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](/azure/role-based-access-control/custom-roles). Per altre informazioni sulle operazioni (azioni e non azioni) utilizzabili con i ruoli personalizzati, vedere [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quali sono le autorizzazioni necessarie per eseguire varie azioni nel servizio Azure Machine Learning?
+### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>D: Quali sono le autorizzazioni necessarie per eseguire alcuni scenari comuni nel servizio Azure Machine Learning?
 
-La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente. Tutti i percorsi in questa tabella sono **percorsi relativi** a `Microsoft.MachineLearningServices/` .
+La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente:
+
+> [!IMPORTANT]
+> Tutti i percorsi della tabella che iniziano con `/` sono **percorsi relativi** a `Microsoft.MachineLearningServices/` :
 
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
-|---|---|---|---|
-| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
-| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Creare una nuova macchina virtuale notebook | Facoltativo | Proprietario o collaboratore | Non consentita |
-| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Attività del piano dati, ad esempio l'invio dell'esecuzione, l'accesso ai dati, la distribuzione di modelli o la pipeline di pubblicazione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/*/write` <br/> È anche necessario un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
+| ----- | ----- | ----- | ----- |
+| Creare una nuova area di lavoro | Non richiesto | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Aggiornare l'edizione dell'area di lavoro | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/write` |
+| Richiedi quota Amlcompute a livello di sottoscrizione o imposta quota a livello di area di lavoro | Proprietario, collaboratore o ruolo personalizzato </br>permettendo`/locations/updateQuotas/action`</br> nell'ambito della sottoscrizione | Non autorizzato | Non autorizzato |
+| Crea nuovo cluster di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
+| Crea nuova istanza di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
+| Invio di qualsiasi tipo di esecuzione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Pubblicazione di un endpoint della pipeline | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Distribuzione di un modello registrato su una risorsa AKS/ACI | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Assegnazione dei punteggi a un endpoint AKS distribuito | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando non si usa l'autenticazione AAD) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
+| Accesso all'archiviazione tramite notebook interattivi | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente`Microsoft.Authorization/roleDefinitions/write` | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
 
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
+### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>D: Si pubblicano i ruoli predefiniti di Azure per il servizio Machine Learning?
+
+Attualmente non vengono pubblicati i [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles) per il servizio Machine Learning. Un ruolo incorporato dopo la pubblicazione non può essere aggiornato e le definizioni di ruolo vengono ancora stabilite in base agli scenari e ai commenti dei clienti. 
+
+<a id="customroles"></a>
+
+### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>D: Esistono alcuni modelli di ruolo personalizzati per gli scenari più comuni nel servizio Machine Learning?
+
+Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizzate che è possibile usare come base per definire ruoli personalizzati:
+
+* __Custom Data Scientist__: consente a un data scientist di eseguire tutte le operazioni all'interno di un'area di lavoro, **ad eccezione**di:
+
+    * Creazione di calcolo
+    * Distribuzione di modelli in un cluster AKS di produzione
+    * Distribuzione di un endpoint della pipeline nell'ambiente di produzione
+
+    `data_scientist_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.MachineLearningServices/workspaces/*/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Custom Data Scientist con restrizioni__: una definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite. Può eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto**:
+
+    * Creazione di calcolo
+    * Distribuzione di modelli in un cluster AKS di produzione
+    * Distribuzione di un endpoint della pipeline nell'ambiente di produzione
+
+    `data_scientist_restricted_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Restricted Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/modules/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/write",
+            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __MLOps Custom__: consente di assegnare un ruolo a un'entità servizio e usarlo per automatizzare le pipeline MLOps. Ad esempio, per inviare le esecuzioni in una pipeline già pubblicata:
+
+    `mlops_custom_role.json` :
+    ```json
+    {
+        "Name": "MLOps Custom",
+        "IsCustom": true,
+        "Description": "Can run pipelines against a published pipeline endpoint",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/read",    
+            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+            "Microsoft.MachineLearningServices/workspaces/modules/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Area di lavoro amministratore__: consente di eseguire tutte le operazioni nell'ambito di un'area di lavoro, **ad eccezione**di:
+
+    * Creazione di una nuova area di lavoro
+    * Assegnazione delle quote a livello di sottoscrizione o area di lavoro
+    * Aggiornamento dell'edizione dell'area di lavoro
+
+    L'amministratore dell'area di lavoro non è inoltre in grado di creare un nuovo ruolo. Può assegnare i ruoli predefiniti o personalizzati esistenti solo nell'ambito dell'area di lavoro:
+
+    `workspace_admin_custom_role.json` :
+    ```json
+    {
+        "Name": "Workspace Admin Custom",
+        "IsCustom": true,
+        "Description": "Can perform all operations except quota management and upgrades",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/write",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.Authorization/roleAssignments/*"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+<a name="labeler"></a>
+* __Labeler Custom__: consente di definire un ruolo con ambito solo per l'assegnazione di etichette ai dati:
+
+    `labeler_custom_role.json` :
+    ```json
+    {
+        "Name": "Labeler Custom",
+        "IsCustom": true,
+        "Description": "Can label data for Labeling",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>D: Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 
@@ -143,7 +356,40 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
+### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>D: Ricerca per categorie individuare le operazioni supportate dal servizio Machine Learning?
+
+Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
+
+```azurecli-interactive
+az provider operation show –n Microsoft.MachineLearningServices
+```
+
+Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>D: Quali sono alcuni problemi comuni relativi all'uso di RBAC di Azure?
+
+Di seguito sono riportati alcuni aspetti da tenere presente quando si usano i controlli di accesso basati sui ruoli di Azure:
+
+- Quando si crea una risorsa in Azure, ad indicare un'area di lavoro, non si è direttamente il proprietario dell'area di lavoro. Il ruolo viene ereditato dal ruolo con ambito più elevato su cui si è autorizzati in tale sottoscrizione. Ad esempio, se si è un amministratore di rete e si dispone delle autorizzazioni per creare un'area di lavoro Machine Learning, a tale area di lavoro verrà assegnato il ruolo di amministratore di rete e non il ruolo proprietario.
+- Quando sono presenti due assegnazioni di ruolo per lo stesso utente di AAD con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Per distribuire le risorse di calcolo all'interno di una VNet, è necessario avere esplicitamente le autorizzazioni per "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa VNet.
+- A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
+
+
+### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>D: Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
+
+Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo con le identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+
+
+### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>D: Sono supportati i controlli degli accessi in base al ruolo nel portale di studio?
+
+Azure Machine Learning Studio supporta i controlli degli accessi in base al ruolo. 
+
+> [!IMPORTANT]
+> Dopo aver assegnato un ruolo personalizzato con autorizzazioni specifiche a un data scientist nell'area di lavoro, le azioni corrispondenti, ad esempio l'aggiunta di un pulsante di calcolo, vengono automaticamente nascoste agli utenti. Nascondendo questi elementi si evitano confusione nella visualizzazione dei controlli che restituiscono una notifica di accesso non autorizzato dal servizio quando vengono utilizzati.
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>D: Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. `<role-name>`Deve avere lo stesso formato restituito dal comando precedente.
 
@@ -151,7 +397,7 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. `<
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>Q. Ricerca per categorie aggiornare una definizione di ruolo?
+### <a name="q-how-do-i-update-a-role-definition"></a>D: Ricerca per categorie aggiornare una definizione di ruolo?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 
@@ -163,13 +409,13 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 > [!NOTE]
 > Gli aggiornamenti dei ruoli possono richiedere da 15 minuti a un'ora per essere applicati a tutte le assegnazioni di ruolo in tale ambito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>D: È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
 
 Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH nell'oggetto dell'area di lavoro, è possibile eseguire questa operazione inserendo l'azione seguente nella `"NotActions"` matrice nella definizione JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>D: Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
 
 È necessario disporre delle autorizzazioni a livello di sottoscrizione per eseguire qualsiasi operazione relativa alla quota nell'area di lavoro. Ciò significa che l'impostazione della quota a livello di sottoscrizione o della quota a livello di area di lavoro per le risorse di calcolo gestite può verificarsi solo se si dispone di autorizzazioni di scrittura nell'ambito della sottoscrizione. 
 

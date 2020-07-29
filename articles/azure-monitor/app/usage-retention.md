@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323537"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
-La funzionalità di conservazione in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
+La funzionalità di conservazione in [Azure Application Insights](./app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -54,7 +54,7 @@ O nel codice server di ASP.NET:
    telemetry.TrackEvent("won game");
 ```
 
-[Altre informazioni sulla scrittura di eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[Altre informazioni sulla scrittura di eventi personalizzati](./api-custom-events-metrics.md#trackevent).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -63,5 +63,6 @@ O nel codice server di ASP.NET:
     - [Utenti, sessioni ed eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
+    - [Cartelle di lavoro](../platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
+

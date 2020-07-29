@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80755274"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274664"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -29,7 +30,7 @@ Questo elenco di utenti include in genere tutti gli utenti a cui è destinata un
 
 Quando si creano criteri di accesso condizionale, è possibile includere le opzioni seguenti.
 
-- nessuno
+- Nessuno
    - Nessun utente selezionato
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
@@ -39,7 +40,10 @@ Quando si creano criteri di accesso condizionale, è possibile includere le opzi
    - Ruoli della directory
       - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
    - Utenti e gruppi
-      - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
+      - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati. I criteri verranno applicati a utenti e gruppi annidati.
+
+> [!WARNING]
+> Se gli utenti o i gruppi sono membri di oltre 2048 gruppi, l'accesso potrebbe essere bloccato. Questo limite si applica sia all'appartenenza a gruppi diretta che al gruppo annidato.
 
 ## <a name="exclude-users"></a>Escludi utenti
 

@@ -3,12 +3,12 @@ title: Contatori delle prestazioni in Application Insights | Documentazione Micr
 description: Sistema di monitoraggio e contatori delle prestazioni .NET personalizzati in Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024419"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322517"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
@@ -131,7 +131,7 @@ Come altri dati di telemetria, **performanceCounters** contiene anche una colonn
 
 * *Tasso di eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
 
-* *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](./asp-net-exceptions.md). 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Contatori delle prestazioni per le applicazioni in esecuzione in App Web di Azure
 
@@ -147,9 +147,10 @@ Il supporto dei contatori delle prestazioni nelle applicazioni ASP.NET Core è l
 * Le versioni di SDK 2.8.0 e successive supportano il contatore della cpu/memoria in Linux. Linux non supporta nessun altro contatore. Per ottenere i contatori di sistema in Linux (e in altri ambienti non Windows), usare [Contatore eventi](eventcounters.md)
 
 ## <a name="alerts"></a>Avvisi
-Come per altre metriche, è possibile [impostare un avviso](../../azure-monitor/platform/alerts-log.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
+Come per altre metriche, è possibile [impostare un avviso](../platform/alerts-log.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 
-* [Rilevamento delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)
-* [Rilevamento delle eccezioni](../../azure-monitor/app/asp-net-exceptions.md)
+* [Rilevamento delle dipendenze](./asp-net-dependencies.md)
+* [Rilevamento delle eccezioni](./asp-net-exceptions.md)
+

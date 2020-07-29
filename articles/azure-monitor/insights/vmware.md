@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091182"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322908"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
 
@@ -27,7 +27,7 @@ La soluzione usa la funzionalità nativa di SysLog dell'host ESXi per eseguire i
 ## <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-* Aggiungere la soluzione di monitoraggio VMware alla sottoscrizione tramite il processo descritto in [Installazione di una soluzione di monitoraggio](../insights/solutions.md#install-a-monitoring-solution).
+* Aggiungere la soluzione di monitoraggio VMware alla sottoscrizione tramite il processo descritto in [Installazione di una soluzione di monitoraggio](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Host ESXi VMware supportati
 vSphere ESXi Host 5.5, 6.0 e 6.5
@@ -66,7 +66,7 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
 
 1. Nella portale di Azure eseguire una query di log per `VMware_CL` . Quando monitoraggio di Azure raccoglie i dati di syslog, conserva il formato syslog. Nel portale vengono acquisiti alcuni campi specifici, come *Hostname* e *ProcessName*.  
 
-    ![tipo](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     Se i risultati della ricerca nei log sono simili all'immagine sopra, è tutto pronto per usare il dashboard della soluzione di monitoraggio VMware.  
 
@@ -200,3 +200,4 @@ Possono esserci diversi motivi:
 * Usare le [query nei log](../log-query/log-query-overview.md) in Log Analytics per visualizzare i dati dettagliati dell'host VMware.
 * [Creare dashboard personalizzati](../learn/tutorial-logs-dashboards.md) che mostrino i dati dell'host VMware.
 * [Creare avvisi](../platform/alerts-overview.md) quando si verificano eventi specifici relativi all'host VMware.
+

@@ -1,7 +1,7 @@
 ---
 title: Associare un indirizzo IP pubblico a una macchina virtuale
 titlesuffix: Azure Virtual Network
-description: Informazioni su come associare un indirizzo IP pubblico a una macchina virtuale.
+description: Associare un indirizzo IP pubblico a una macchina virtuale (VM) usando il portale di Azure o l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: ''
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: cc09cec1e6df9ec671fa98ae35562a639dce4cd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4ca5b067a1afe4225fe0e2e4c42c827e1eaedf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707617"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265229"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associare un indirizzo IP pubblico a una macchina virtuale
 

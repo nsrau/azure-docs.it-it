@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103624"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323265"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrare l'inserzione del marketplace commerciale con Azure Active Directory
 
@@ -40,10 +40,11 @@ I diversi [tipi di offerta e opzioni di inserzione](determine-your-listing-type.
 | Contenitori  | N/D | N/D | N/D | No |
 | Servizi di consulenza  | No | N/D | N/D | N/D |
 
-Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](marketplace-saas-applications-technical-publishing-guide.md).
+Per ulteriori informazioni sui requisiti tecnici SaaS, vedere [Azure ad e le offerte SaaS transazionali nel Marketplace commerciale](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Integrazione di Azure AD
 
+- Per informazioni dettagliate su come integrare Azure AD per le offerte SaaS (Software as a Service transazionale), vedere [Azure ad e le offerte SaaS transazionali nel Marketplace commerciale](./azure-ad-saas.md).
 - Per informazioni su come abilitare l'accesso Single Sign-On mediante l'integrazione di Azure AD nell'inserzione, vedere [Azure Active Directory per sviluppatori](../active-directory/develop/index.yml).
 - Per informazioni dettagliate sull'accesso Single Sign-On di Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md).
 

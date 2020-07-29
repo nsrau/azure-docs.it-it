@@ -3,12 +3,12 @@ title: Contatori degli eventi in Application Insights | Microsoft Docs
 description: È possibile monitorare i contatori degli eventi di sistema e di .NET/.NET Core personalizzati in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539942"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324404"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione di EventCounter
 
@@ -124,7 +124,7 @@ customMetrics
 Come altri dati di telemetria, **customMetrics** contiene anche una colonna `cloud_RoleInstance` che indica l'identità dell'istanza del server host in cui viene eseguita l'app. La query precedente mostra il valore del contatore per ogni istanza e può essere usata per confrontare le prestazioni di diverse istanze del server.
 
 ## <a name="alerts"></a>Avvisi
-Come per altre metriche, è possibile [impostare un avviso](../../azure-monitor/platform/alerts-log.md) per ricevere una notifica se un contatore degli eventi supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
+Come per altre metriche, è possibile [impostare un avviso](../platform/alerts-log.md) per ricevere una notifica se un contatore degli eventi supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -148,4 +148,5 @@ EventCounter non richiede autorizzazioni speciali ed è supportato in tutte le p
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 
-* [Rilevamento delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)
+* [Rilevamento delle dipendenze](./asp-net-dependencies.md)
+

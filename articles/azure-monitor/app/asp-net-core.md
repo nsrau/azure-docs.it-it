@@ -3,12 +3,12 @@ title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft 
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321395"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -128,7 +128,7 @@ Eseguire l'applicazione e creare richieste. I dati di telemetria dovrebbero ora 
 
 I log emessi tramite un livello `ILogger` di gravità `Warning` o maggiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo](asp-net-dependencies.md#automatically-tracked-dependencies) articolo illustra le dipendenze che vengono raccolte automaticamente e contiene anche i passaggi per eseguire il rilevamento manuale.
 
@@ -221,7 +221,7 @@ Per l'elenco più aggiornato, vedere le [impostazioni configurabili in `Applicat
 
 Il Application Insights SDK per ASP.NET Core supporta sia il campionamento a frequenza fissa che quello adattivo. Il campionamento adattivo è abilitato per impostazione predefinita. 
 
-Per altre informazioni, vedere [configurare il campionamento adattivo per ASP.NET Core applicazioni](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Per altre informazioni, vedere [configurare il campionamento adattivo per ASP.NET Core applicazioni](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Aggiunta di TelemetryInitializers
 
@@ -459,8 +459,9 @@ Questo SDK richiede `HttpContext` e pertanto non funziona in alcuna applicazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare i flussi utente](../../azure-monitor/app/usage-flows.md) per comprendere in che modo gli utenti si spostano nell'app.
+* [Esplorare i flussi utente](./usage-flows.md) per comprendere in che modo gli utenti si spostano nell'app.
 * [Configurare una raccolta di snapshot](./snapshot-debugger.md) per visualizzare lo stato del codice sorgente e delle variabili nel momento in cui viene generata un'eccezione.
-* [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare i propri eventi e metriche per una visualizzazione dettagliata delle prestazioni e dell'utilizzo dell'app.
-* Usare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per controllare costantemente l'app da ogni parte del mondo.
+* [Usare l'API](./api-custom-events-metrics.md) per inviare i propri eventi e metriche per una visualizzazione dettagliata delle prestazioni e dell'utilizzo dell'app.
+* Usare [test di disponibilità](./monitor-web-app-availability.md) per controllare costantemente l'app da ogni parte del mondo.
 * [Inserimento di dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+

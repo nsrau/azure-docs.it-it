@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320630"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
-Questo articolo illustra come creare una funzione di Azure con TrackAvailability () che verrà eseguito periodicamente in base alla configurazione specificata nella funzione TimerTrigger con la logica di business personalizzata. I risultati di questo test verranno inviati alla risorsa Application Insights, in cui sarà possibile eseguire una query e inviare un avviso sui dati dei risultati di disponibilità. In questo modo è possibile creare test personalizzati simili a quelli che è possibile eseguire tramite il [monitoraggio della disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) nel portale. I test personalizzati consentiranno di scrivere test di disponibilità più complessi rispetto a quanto possibile tramite l'interfaccia utente del portale, monitorare un'app all'interno della VNET di Azure, modificare l'indirizzo dell'endpoint o creare un test di disponibilità anche se questa funzionalità non è disponibile nella propria area.
+Questo articolo illustra come creare una funzione di Azure con TrackAvailability () che verrà eseguito periodicamente in base alla configurazione specificata nella funzione TimerTrigger con la logica di business personalizzata. I risultati di questo test verranno inviati alla risorsa Application Insights, in cui sarà possibile eseguire una query e inviare un avviso sui dati dei risultati di disponibilità. In questo modo è possibile creare test personalizzati simili a quelli che è possibile eseguire tramite il [monitoraggio della disponibilità](./monitor-web-app-availability.md) nel portale. I test personalizzati consentiranno di scrivere test di disponibilità più complessi rispetto a quanto possibile tramite l'interfaccia utente del portale, monitorare un'app all'interno della VNET di Azure, modificare l'indirizzo dell'endpoint o creare un test di disponibilità anche se questa funzionalità non è disponibile nella propria area.
 
 > [!NOTE]
 > Questo esempio è progettato esclusivamente per illustrare i meccanismi di funzionamento della chiamata API TrackAvailability () all'interno di una funzione di Azure. Non viene illustrato come scrivere il codice di test HTTP sottostante o la logica di business necessaria per trasformarla in un test di disponibilità pienamente funzionante. Per impostazione predefinita, se si esamina questo esempio verrà creato un test di disponibilità che genererà sempre un errore.
@@ -177,7 +177,7 @@ Se è stato eseguito tutto come è (senza aggiungere la logica di business), si 
 
 ## <a name="query-in-logs-analytics"></a>Eseguire query nei log (analisi)
 
-È possibile usare i log (Analytics) per visualizzare i risultati della disponibilità, le dipendenze e altro ancora. Per altre informazioni sui log, vedere [Cenni preliminari sulle query di log](../../azure-monitor/log-query/log-query-overview.md).
+È possibile usare i log (Analytics) per visualizzare i risultati della disponibilità, le dipendenze e altro ancora. Per altre informazioni sui log, vedere [Cenni preliminari sulle query di log](../log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Risultati della disponibilità](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ Se è stato eseguito tutto come è (senza aggiungere la logica di business), si 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Mappa delle applicazioni](../../azure-monitor/app/app-map.md)
-- [Diagnostica delle transazioni](../../azure-monitor/app/transaction-diagnostics.md)
+- [Mappa delle applicazioni](./app-map.md)
+- [Diagnostica delle transazioni](./transaction-diagnostics.md)
+

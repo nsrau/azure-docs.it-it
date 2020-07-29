@@ -10,12 +10,12 @@ ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086014"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276687"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
@@ -97,7 +97,7 @@ Quando si configura la crittografia con chiavi gestite dal cliente, è possibile
 
 ### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente
 
-Per configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente, installare l'interfaccia della riga di comando di [Azure versione 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) o successiva. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/azure/install-azure-cli).
+Per configurare la crittografia per la rotazione automatica delle chiavi gestite dal cliente, installare l'interfaccia della riga di comando di [Azure versione 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) o successiva. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Per ruotare automaticamente le chiavi gestite dal cliente, omettere la versione della chiave quando si configurano le chiavi gestite dal cliente per l'account di archiviazione. Chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente. Includere il `--encryption-key-source` parametro e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 

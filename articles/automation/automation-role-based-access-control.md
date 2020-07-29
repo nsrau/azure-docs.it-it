@@ -1,17 +1,17 @@
 ---
 title: Gestire le autorizzazioni dei ruoli e la sicurezza in Automazione di Azure
-description: Questo articolo descrive come usare il controllo degli accessi in base al ruolo, che consente di gestire gli accessi per le risorse di Azure.
+description: Questo articolo descrive come usare il controllo degli accessi in base al ruolo (RBAC), che consente la gestione degli accessi per le risorse di Azure.
 keywords: controllo degli accessi in base al ruolo di Automazione, controllo degli accessi in base al ruolo, controllo degli accessi in base al ruolo di Azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186147"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279883"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gestire le autorizzazioni e la sicurezza dei ruoli
 
@@ -69,7 +69,12 @@ Un lettore può visualizzare tutte le risorse in un account di Automazione, ma n
 
 ### <a name="automation-operator"></a>Operatore di automazione
 
-Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Nota: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.
+
+>[!NOTE]
+>Se si vuole controllare l'accesso dell'operatore a singoli manuali operativi, non impostare questo ruolo. Usare invece i ruoli operatore **processo di automazione** e **operatore Runbook di automazione** in combinazione.
+
+La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -96,7 +101,9 @@ Il ruolo Operatore di automazione può creare e gestire i processi, oltre che le
 
 ### <a name="automation-job-operator"></a>Operatore processo di automazione
 
-Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'account di Automazione. In questo modo vengono concesse all'operatore le autorizzazioni per creare e gestire i processi per tutti i runbook nell'account. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'account di Automazione. In questo modo vengono concesse all'operatore le autorizzazioni per creare e gestire i processi per tutti i runbook nell'account. Se al ruolo Operatore processo vengono concesse le autorizzazioni di lettura per il gruppo di risorse contenente l'account di automazione, i membri del ruolo potranno avviare manuali operativi. Tuttavia, non hanno la possibilità di crearli, modificarli o eliminarli.
+
+La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -114,7 +121,7 @@ Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'accou
 
 ### <a name="automation-runbook-operator"></a>Operatore runbook di automazione
 
-Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook. Un ruolo Operatore runbook di automazione può visualizzare il nome e le proprietà del runbook.  Questo ruolo, combinato con il ruolo "Operatore processo di automazione" consente all'operatore anche di creare e gestire i processi per il runbook. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook. Un ruolo Operatore runbook di automazione può visualizzare il nome e le proprietà del runbook.Questo ruolo combinato con il ruolo **operatore processo di automazione** consente all'operatore anche di creare e gestire i processi per il Runbook. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -213,7 +220,7 @@ Le sezioni seguenti descrivono le autorizzazioni minime necessarie per abilitare
 |**Azione**  |**Autorizzazione**  |**Ambito minimo**  |
 |---------|---------|---------|
 |Scrivere una nuova distribuzione      | Microsoft.Resources/deployments/*          |Subscription          |
-|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Sottoscrizione          |
 |Creare una nuova area di lavoro predefinita      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Creare un nuovo account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Collegare un'area di lavoro e un account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Area di lavoro</br>Account di Automazione
@@ -235,7 +242,7 @@ Le sezioni seguenti descrivono le autorizzazioni minime necessarie per abilitare
 |**Azione**  |**Autorizzazione** |**Ambito minimo**  |
 |---------|---------|---------|
 |Creare una nuova distribuzione     | Microsoft.Resources/deployments/*        | Subscription         |
-|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Sottoscrizione        |
 |Pannello AutomationOnboarding - Creare una nuova area di lavoro     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Pannello AutomationOnboarding - Leggere un'area di lavoro collegata     | Microsoft.Automation/automationAccounts/read        | Account di Automazione       |
 |Pannello AutomationOnboarding - Leggere una soluzione     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Soluzione        |
@@ -290,6 +297,7 @@ La sezione seguente illustra come configurare il controllo degli accessi in base
    ![Elencare gli utenti](media/automation-role-based-access-control/automation-05-list-users.png)
 
    È anche possibile assegnare un ruolo all'utente dalla pagina Ruoli.
+
 4. Fare clic su **Ruoli** nella pagina Controllo di accesso (IAM) per aprire la pagina Ruoli. È possibile visualizzare il nome del ruolo e il numero di utenti e gruppi assegnati al ruolo.
 
     ![Assegnare un ruolo dalla pagina Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Usare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) per assegnare l'accesso a utenti, gruppi e applicazioni in un determinato ambito.
-    
+
 **Esempio:** usare il comando seguente per assegnare il ruolo "Operatore di automazione" a un utente nell'ambito dell'account di Automazione.
 
 ```azurepowershell-interactive

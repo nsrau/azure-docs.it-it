@@ -4,12 +4,12 @@ description: Esempi di uso del provider ILogger di applicazione Azure Insights c
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 419813eba371def9eeeb43e45b51b38d1f20c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322636"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log ILogger di .NET Core
 
@@ -218,7 +218,7 @@ Le versioni dell'SDK Microsoft. ApplicationInsights. AspNet precedenti a 2.7.1 s
 ## <a name="console-application"></a>Applicazione console
 
 > [!NOTE]
-> È disponibile un nuovo Application Insights SDK denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights (ILogger e altri dati di telemetria Application Insights) per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md).
+> È disponibile un nuovo Application Insights SDK denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights (ILogger e altri dati di telemetria Application Insights) per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](./worker-service.md).
 
 Il codice seguente illustra un'applicazione console di esempio configurata per l'invio di tracce ILogger a Application Insights.
 
@@ -392,7 +392,7 @@ Se si verifica una doppia registrazione quando si esegue il debug da Visual Stud
 
 ### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Ho aggiornato a [Microsoft. ApplicationInsights. AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versione 2.7.1 e i log da ILogger vengono acquisiti automaticamente. Ricerca per categorie disattivare completamente questa funzionalità?
 
-Vedere la sezione [controllo del livello di registrazione](../../azure-monitor/app/ilogger.md#control-logging-level) per vedere come filtrare i log in generale. Per disattivare ApplicationInsightsLoggerProvider, usare `LogLevel.None` :
+Vedere la sezione [controllo del livello di registrazione](#control-logging-level) per vedere come filtrare i log in generale. Per disattivare ApplicationInsightsLoggerProvider, usare `LogLevel.None` :
 
 **Nel codice:**
 
@@ -499,4 +499,5 @@ Questo codice è necessario solo quando si usa un provider di registrazione auto
 Altre informazioni su:
 
 * [Registrazione in ASP.NET Core](/aspnet/core/fundamentals/logging)
-* [Log di traccia .NET in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Log di traccia .NET in Application Insights](./asp-net-trace-logs.md)
+

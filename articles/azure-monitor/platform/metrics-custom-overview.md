@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081492"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321276"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
@@ -28,7 +28,7 @@ Le metriche personalizzate di monitoraggio di Azure sono attualmente disponibili
 - Instrumentare l'applicazione usando Azure Application Insights SDK e inviare i dati di telemetria personalizzati a Monitoraggio di Azure. 
 - Installare l'estensione Diagnostica di Azure per Windows (WAD) nella [macchina virtuale di Azure](collect-custom-metrics-guestos-resource-manager-vm.md), nel [set di scalabilità di macchine virtuali](collect-custom-metrics-guestos-resource-manager-vmss.md), nella [macchina virtuale classica](collect-custom-metrics-guestos-vm-classic.md) o nel [servizio cloud classico](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e inviare i contatori delle prestazioni a Monitoraggio di Azure. 
 - Installare l'[agente InfluxDB Telegraf](collect-custom-metrics-linux-telegraf.md) nella macchina virtuale Linux di Azure e inviare le metriche tramite il plug-in di output di Monitoraggio di Azure.
-- Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
+- Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-retention"></a>Modello di determinazione dei prezzi e conservazione
 
@@ -44,7 +44,7 @@ Le metriche personalizzate vengono mantenute per la [stessa quantità di tempo d
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
 1. [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
 2. [Azure ad entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
@@ -53,14 +53,14 @@ Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'appl
 > [!TIP]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia `https://monitoring.azure.com/`. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Oggetto
+### <a name="subject"></a>Subject
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
 > Non è possibile generare metriche personalizzate in base all'ID risorsa di un gruppo di risorse o di una sottoscrizione.
 
 
-### <a name="region"></a>Area
+### <a name="region"></a>Region
 Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la risorsa per cui si generano le metriche. Le metriche devono essere inviate allo stesso endpoint regionale di Monitoraggio di Azure dell'area in cui la risorsa è distribuita. Per una macchina virtuale distribuita negli Stati Uniti occidentali, ad esempio, le metriche personalizzate devono essere inviate all'endpoint di Monitoraggio di Azure in tale area. Le informazioni sulle aree sono codificate anche nell'URL della chiamata API.
 
 > [!NOTE]  
@@ -221,7 +221,7 @@ Se si elimina una metrica o si rimuove una dimensione, la modifica può richiede
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
 
-|Category|Limite|
+|Categoria|Limite|
 |---|---|
 |Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|
@@ -235,6 +235,7 @@ Usare le metriche personalizzate da servizi diversi:
  - [Set di scalabilità di macchine virtuali](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Macchine virtuali di Azure (versione classica)](collect-custom-metrics-guestos-vm-classic.md)
  - [Macchina virtuale Linux con agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](./metrics-store-custom-rest-api.md)
  - [Servizi cloud classici](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

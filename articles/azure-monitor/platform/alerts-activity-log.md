@@ -4,12 +4,12 @@ description: Creare avvisi del log attività usando il portale di Azure, un mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516057"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322415"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure  
 
@@ -92,7 +92,7 @@ Seguire la procedura indicata di seguito.
     - **Descrizione**: descrizione della nuova regola di avviso.
     - **Salva avviso nel gruppo di risorse**: selezionare il gruppo di risorse in cui salvare la nuova regola.
 
-5. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](../../azure-monitor/platform/action-groups.md) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare **+ Nuovo gruppo**.
+5. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](./action-groups.md) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare **+ Nuovo gruppo**.
 
 6. Per abilitare le regole dopo averle create, selezionare **Sì** per l'opzione **Abilita regola alla creazione**.
 7. Selezionare **Crea regola di avviso**.
@@ -285,7 +285,8 @@ Le risorse di regola di avviso del log attività possono essere rimosse usando i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sullo [schema dei webhook per i log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Leggere una [panoramica dei log attività](../../azure-monitor/platform/activity-log-alerts.md).
-- Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).  
+- Altre informazioni sullo [schema dei webhook per i log attività](./activity-log-alerts-webhook.md).
+- Leggere una [panoramica dei log attività](./activity-log-alerts.md).
+- Altre informazioni sui [gruppi di azione](./action-groups.md).  
 - Informazioni sulle [notifiche per l'integrità del servizio](../../service-health/service-notifications.md).
+

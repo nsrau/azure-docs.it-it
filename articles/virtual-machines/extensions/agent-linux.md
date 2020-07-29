@@ -1,26 +1,19 @@
 ---
 title: Panoramica dell'agente VM Linux di Azure
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029077"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269122"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -72,7 +65,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 I sistemi seguenti sono stati testati e funzionano con l'agente Linux di Azure:
 
 > [!NOTE]
-> Questo elenco può differire dall'elenco ufficiale dei sistemi supportati nella piattaforma Microsoft Azure, come descritto di seguito:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Questo elenco può differire dall'elenco ufficiale delle [distribuzioni supportate](../linux/endorsed-distros.md).
 > 
 > 
 
@@ -110,7 +103,7 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 * verbose: aumenta il livello di dettaglio del comando specificato
 * force: ignora la conferma interattiva per determinati comandi
 
-### <a name="commands"></a>Comandi
+### <a name="commands"></a>Comandi:
 * help: elenca i flag e i comandi supportati.
 * deprovision: tenta di pulire il sistema per renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
   

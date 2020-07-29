@@ -4,15 +4,16 @@ description: Modello di dati di Application Insights per la telemetria delle ric
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807656"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320562"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
-In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
+In [Application Insights](./app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
@@ -26,7 +27,7 @@ Lunghezza massima: 1024 caratteri
 
 ## <a name="id"></a>ID
 
-Identificatore dell'istanza di una chiamata di richiesta. Usato per la correlazione tra richiesta e altri elementi di telemetria. L'ID deve essere globalmente univoco. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
+Identificatore dell'istanza di una chiamata di richiesta. Usato per la correlazione tra richiesta e altri elementi di telemetria. L'ID deve essere globalmente univoco. Per altre informazioni vedere la pagina relativa alla [correlazione](./correlation.md).
 
 Lunghezza massima: 128 caratteri
 
@@ -38,11 +39,11 @@ Lunghezza massima: 2048 caratteri
 
 ## <a name="source"></a>Source (Sorgente)
 
-Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
+Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](./correlation.md).
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>Durata
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere un valore positivo e inferiore a `1000` giorni. Questo campo è obbligatorio in quanto la telemetria delle richieste rappresenta l'operazione con un inizio e una fine.
 
@@ -72,7 +73,8 @@ Altre informazioni sui codici di stato e dei risultati della richiesta sono disp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scrivere dati di telemetria della richiesta personalizzata](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Scrivere dati di telemetria della richiesta personalizzata](./api-custom-events-metrics.md#trackrequest)
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](data-model.md).
-- Informazioni su come [configurare un'applicazione ASP.NET Core](../../azure-monitor/app/asp-net.md) con Application Insights.
-- Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.
+- Informazioni su come [configurare un'applicazione ASP.NET Core](./asp-net.md) con Application Insights.
+- Verificare quali [piattaforme](./platforms.md) supportano Application Insights.
+

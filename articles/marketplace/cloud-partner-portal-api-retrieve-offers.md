@@ -4,15 +4,15 @@ description: API per recuperare un elenco riepilogato di offerte in uno spazio d
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535893"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271961"
 ---
 # <a name="retrieve-offers"></a>Recuperare le offerte
 
@@ -91,7 +91,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  NotStarted                  | L'offerta è nuova, ma non è stata attivata.                 |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
-|  Operazione completata                   | Invio dell'offerta completato.       |
+|  Completato                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
-|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
+|  Non riuscito                      | Invio dell'offerta non riuscito.                         |
 |  |  |

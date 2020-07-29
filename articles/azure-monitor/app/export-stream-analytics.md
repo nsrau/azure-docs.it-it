@@ -3,12 +3,12 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539959"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324353"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -16,7 +16,7 @@ L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analy
 In questo esempio verrà creato un adattatore che recupera dati da Application Insights, rinomina ed elabora alcuni dei campi e invia tramite pipe i dati in Power BI.
 
 > [!WARNING]
-> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../azure-monitor/app/export-power-bi.md ). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
+> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](./export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
 > 
 > 
 
@@ -55,7 +55,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Scegliere i tipi di eventi](./media/export-stream-analytics/080.png)
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
 2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
@@ -186,7 +186,7 @@ Attendere fino al termine dell'esecuzione del processo.
 
 ## <a name="see-results-in-power-bi"></a>Visualizzare i risultati in Power BI
 > [!WARNING]
-> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../azure-monitor/app/export-power-bi.md ). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
+> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](./export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
 > 
 > 
 
@@ -211,4 +211,5 @@ Noam Ben Zeev mostra come elaborare dati esportati usando l'analisi di flusso.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esportazione continua](export-telemetry.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
+

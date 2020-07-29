@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505789"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322126"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
 
@@ -120,7 +120,7 @@ app('Contoso-app5').requests
 
 
 
-A questo punto è possibile [usare questa funzione](../../azure-monitor/log-query/functions.md#use-a-function) in una query tra risorse come la seguente. L'alias di funzione _applicationsScoping_ restituisce l'unione della tabella delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione. L'operatore _parse_ è facoltativo in questo esempio. Estrae il nome dell'applicazione dalla proprietà _SourceApp_.
+A questo punto è possibile [usare questa funzione](./functions.md#use-a-function) in una query tra risorse come la seguente. L'alias di funzione _applicationsScoping_ restituisce l'unione della tabella delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione. L'operatore _parse_ è facoltativo in questo esempio. Estrae il nome dell'applicazione dalla proprietà _SourceApp_.
 
 ```Kusto
 applicationsScoping 
@@ -141,3 +141,4 @@ applicationsScoping
 
 - Vedere [Analizzare i dati di log in Monitoraggio di Azure](log-query-overview.md) per una panoramica delle query di log e di come sono strutturati i dati di log di Monitoraggio di Azure.
 - Vedere [Query di log di Monitoraggio di Azure](query-language.md) per visualizzare tutte le risorse per le query di log di Monitoraggio di Azure.
+

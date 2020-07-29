@@ -3,19 +3,20 @@ title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663998"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324370"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
-[Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](./app-insights-overview.md).
 
 Esistono tre metodi per esportare i dati di Application Insights in Power BI:
 
 * [**Esportare le query di analisi**](#export-analytics-queries). Questo è il metodo preferito. Scrivere le query desiderate ed esportarle in Power BI. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
-* [**Esportazione continua e Analisi di flusso di Azure**](../../azure-monitor/app/export-stream-analytics.md). Questo metodo è utile se i dati devono essere archiviati per lunghi periodi. Se non si dispone di un requisito di conservazione dati esteso, usare il metodo di esportazione query di analisi. Esportazione continua e analisi di flusso comportano una configurazione più impegnativa e un overhead di archiviazione aggiuntivo.
+* [**Esportazione continua e Analisi di flusso di Azure**](./export-stream-analytics.md). Questo metodo è utile se i dati devono essere archiviati per lunghi periodi. Se non si dispone di un requisito di conservazione dati esteso, usare il metodo di esportazione query di analisi. Esportazione continua e analisi di flusso comportano una configurazione più impegnativa e un overhead di archiviazione aggiuntivo.
 * **Adattatore Power BI**. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
 
 > [!NOTE]
@@ -30,7 +31,7 @@ Per importare la query di Application Insights, usare la versione desktop di Pow
 Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
-1. [Aprire Analisi e scrivere la query](../../azure-monitor/log-query/get-started-portal.md).
+1. [Aprire Analisi e scrivere la query](../log-query/get-started-portal.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
@@ -55,7 +56,7 @@ Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
 
 ### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
-1. [Creare un imbuto](../../azure-monitor/app/usage-funnels.md).
+1. [Creare un imbuto](./usage-funnels.md).
 2. Selezionare **Power BI**.
 
    ![Screenshot del pulsante Power BI](./media/export-power-bi/button.png)
@@ -111,7 +112,7 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
  ```
 
 ## <a name="about-sampling"></a>Informazioni sul campionamento
-A seconda della quantità di dati inviati dall'applicazione, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento](../../azure-monitor/app/sampling.md).
+A seconda della quantità di dati inviati dall'applicazione, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento](./sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adattatore Power BI (deprecato)
 Con questo metodo si crea un dashboard di dati di telemetria completo per l'utente. Il set di dati iniziale è predefinito, ma è possibile aggiungere altri dati.
@@ -145,5 +146,5 @@ Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggior
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](https://www.powerbi.com/learning/)
-* [Esercitazione su Analisi](../../azure-monitor/log-query/get-started-portal.md)
+* [Esercitazione su Analisi](../log-query/get-started-portal.md)
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77116159"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279220"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: domande frequenti
 
@@ -62,7 +63,7 @@ Sono disponibili più soluzioni:
 - I partner possono anche scoprire nuovi modelli aziendali fornendo servizi gestiti.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quali sono gli incentivi disponibili per i partner StorSimple CSP? Come si diventa idonei a tali incentivi?
-Per informazioni sugli incentivi, vedere incentivi per il [programma CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Per informazioni sugli incentivi, vedere incentivi per il [programma CSP](https://partner.microsoft.com/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Distribuire e gestire StorSimple come partner

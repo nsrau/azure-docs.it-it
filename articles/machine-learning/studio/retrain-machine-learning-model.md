@@ -1,6 +1,5 @@
 ---
-title: Ripetere il training di un servizio Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): ripetere il training di un servizio Web-Azure'
 description: Informazioni su come aggiornare un servizio Web per l'uso di un modello di apprendimento automatico appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ee2a830d8d87ff2d82825791cb4d3554232cfa12
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c86612e41dfb6d1460306fba8c89e579b1023581
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086161"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324965"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
+
+**si applica a:** ![ No](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) 
+
 
 La ripetizione del training è un modo per garantire che i modelli di Machine Learning rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustra come ripetere il training e distribuire un modello di machine learning come nuovo servizio Web in studio (classico). Se si sta cercando di ripetere il training di un servizio Web classico, [vedere questo articolo delle procedure](retrain-classic-web-service.md).
 

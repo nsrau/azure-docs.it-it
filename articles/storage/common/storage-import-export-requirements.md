@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087238"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276398"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive i requisiti essenziali per il servizio Importazione/Esp
 Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supportati i **sistemi operativi a 64 bit seguenti che supportano Crittografia unità BitLocker**.
 
 
-|Piattaforma |Version |
+|Piattaforma |Versione |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
@@ -50,7 +50,7 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica degli 
 Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 
 > [!IMPORTANT]
-> Per gli account di archiviazione in cui è stata abilitata la funzionalità degli [endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)   , usare l'impostazione **Consenti servizi Microsoft attendibili** per abilitare il servizio [importazione/esportazione](/storage-network-security.md) per eseguire l'importazione/esportazione dei dati da e verso Azure.
+> Per gli account di archiviazione in cui è stata abilitata la funzionalità degli [endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)   , usare l'impostazione **Consenti servizi Microsoft attendibili** per abilitare il servizio [importazione/esportazione](/azure/storage/common/storage-network-security) per eseguire l'importazione/esportazione dei dati da e verso Azure.
 
 ## <a name="supported-storage-types"></a>Tipi di archivio supportati
 
@@ -72,7 +72,7 @@ Per il servizio Importazione/Esportazione di Azure è necessario usare dischi pe
 Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'elenco seguente.
 
 
-|Tipo di disco  |Dimensioni  |Funzionalità supportata |
+|Tipo di disco  |Dimensione  |Supportato |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |

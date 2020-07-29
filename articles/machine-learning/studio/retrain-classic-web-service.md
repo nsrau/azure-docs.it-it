@@ -1,6 +1,5 @@
 ---
-title: Ripetere il training di un servizio Web classico
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): ripetere il training di un servizio Web classico-Azure'
 description: Informazioni su come ripetere il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080313"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324948"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
+
+**si applica a:** ![ No](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) 
+
 
 La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
@@ -46,7 +48,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 1. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci endpoint anteprima**.
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [abilitare la registrazione per i servizi web Machine Learning](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto

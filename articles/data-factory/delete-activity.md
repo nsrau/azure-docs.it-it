@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4680d989cc1befe50955af408aec79a14031481e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321242"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,9 +46,6 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Archiviazione file di Azure](connector-azure-file-storage.md)
-
-### <a name="file-system-data-stores"></a>Archivi dati del file system
-
 -   [File system](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
@@ -82,7 +79,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Sì |
 | ricorsiva | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
@@ -118,7 +115,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>File di log di esempio dell'attività Delete
 
-| Nome | Category | Stato | Errore |
+| Nome | Categoria | Stato | Errore |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.jsin | File | Deleted |  |
 | test2/hello789.txt | File | Deleted |  |

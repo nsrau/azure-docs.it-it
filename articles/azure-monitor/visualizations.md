@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c5290d9f5ec47969ae43e5986d31484927a0ac5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325526"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -19,7 +19,7 @@ Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i 
 Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitoraggio per il drill-down dei problemi e per identificare i criteri. A seconda dello strumento usato, potrebbe essere possibile anche condividere visualizzazioni con altri utenti all'interno e all'esterno dell'organizzazione.
 
 ## <a name="workbooks"></a>Workbooks
-Le [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
+Le [cartelle di lavoro](./platform/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Cartella di lavoro](media/visualizations/workbook.png)
 
@@ -141,7 +141,7 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Informazioni sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
-- Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
-- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
+- Informazioni sulle [cartelle di lavoro](./platform/workbooks-overview.md).
+- Informazioni sull'[importazione dei dati di log in Power BI](./platform/powerbi.md).
+- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](./platform/grafana-plugin.md).
 

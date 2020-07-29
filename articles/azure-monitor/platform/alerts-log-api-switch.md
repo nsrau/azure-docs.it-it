@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324081"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
 
@@ -115,4 +115,5 @@ Altrimenti, se l'area di lavoro di Log Analytics specificata non è ancora stata
 
 - Informazioni sugli [Avvisi del log - Monitoraggio di Azure](alerts-unified-log.md).
 - Informazioni su come creare [avvisi del log in Avvisi di Azure](alerts-log.md).
-- Altre informazioni sull'[esperienza di Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
+- Altre informazioni sull'[esperienza di Avvisi di Azure](./alerts-overview.md).
+

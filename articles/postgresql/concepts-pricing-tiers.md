@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b99e5f7d079e580ad8fcd30a311c24a55ef7fc5b
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 77ce6c8112e8c694b4ccb6a657b24649437d2f07
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279237"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel Database di Azure per PostgreSQL: server singolo
 
@@ -39,7 +39,7 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Cina orientale 1, Cina settentrionale 1, US DoD (area centrale) e US DoD (area orientale) utilizzano le CPU logiche di generazione 4 basate sui processori Intel E5-2673 V3 (Haswell) a 2,4 GHz. Tutte le altre aree utilizzano le CPU logiche di generazione 5 basate sui processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz.
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
@@ -85,7 +85,7 @@ Se, ad esempio, è stato effettuato il provisioning di 1000 GB di spazio di arch
 
 Tenere presente che lo spazio di archiviazione può essere scalato solo, non inattivo.
 
-## <a name="backup-storage"></a>Archiviazione dei backup
+## <a name="backup-storage"></a>Archiviazione di backup
 
 Database di Azure per PostgreSQL offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Qualsiasi spazio di archiviazione di backup utilizzato in eccedenza rispetto a questo importo viene addebitato in GB al mese. Se, ad esempio, si esegue il provisioning di un server con 250 GB di spazio di archiviazione, saranno disponibili 250 GB di spazio di archiviazione aggiuntivo per i backup del server senza alcun costo aggiuntivo. Lo spazio di archiviazione per i backup in eccesso rispetto a 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/postgresql/). Per comprendere i fattori che influenzano l'utilizzo dell'archiviazione di backup, il monitoraggio e il controllo dei costi di archiviazione di backup, è possibile fare riferimento alla [documentazione di backup](concepts-backup.md).
 
