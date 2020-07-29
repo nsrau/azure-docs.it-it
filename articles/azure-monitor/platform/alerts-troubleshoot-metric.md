@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327481"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -108,7 +108,7 @@ Gli avvisi delle metriche sono con stato per impostazione predefinita e pertanto
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definire una regola di avviso per una metrica personalizzata che non è ancora stata emessa
 
-Quando si crea una regola di avviso per la metrica, il nome della metrica viene convalidato in base all' [API delle definizioni delle metriche](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) per assicurarsi che esista. In alcuni casi, si vuole creare una regola di avviso su una metrica personalizzata anche prima che venga emessa. Ad esempio, quando si crea (usando un modello ARM) una risorsa Application Insights che emetterà una metrica personalizzata, insieme a una regola di avviso che monitora tale metrica.
+Quando si crea una regola di avviso per la metrica, il nome della metrica viene convalidato in base all' [API delle definizioni delle metriche](/rest/api/monitor/metricdefinitions/list) per assicurarsi che esista. In alcuni casi, si vuole creare una regola di avviso su una metrica personalizzata anche prima che venga emessa. Ad esempio, quando si crea (usando un modello ARM) una risorsa Application Insights che emetterà una metrica personalizzata, insieme a una regola di avviso che monitora tale metrica.
 
 Per evitare che la distribuzione abbia esito negativo quando si tenta di convalidare le definizioni della metrica personalizzata, è possibile usare il parametro *skipMetricValidation* nella sezione criteri della regola di avviso, che causerà l'omissione della convalida della metrica. Vedere l'esempio seguente per informazioni su come usare questo parametro in un modello ARM (per esempi completi di modelli ARM per la creazione di regole di avviso delle metriche, vedere [qui]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
 
@@ -247,3 +247,4 @@ Ad esempio:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni generali sulla risoluzione dei problemi relativi a avvisi e notifiche, vedere [risoluzione dei problemi negli avvisi di monitoraggio di Azure](alerts-troubleshoot.md).
+

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515530"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325577"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati Monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Le [metriche](data-platform-metrics.md) sono valori numerici che descrivono alcu
 
 Le metriche in Monitoraggio di Azure sono archiviate in un database di serie temporale ottimizzato per l'analisi dei dati con timestamp. Ciò le rende particolarmente adatte alla creazione di avvisi e al rilevamento rapido dei problemi. Le metriche consentono di visualizzare le prestazioni del sistema, ma in genere devono essere combinate con i log per identificare la causa radice dei problemi.
 
-Le metriche sono disponibili per l'analisi interattiva nel portale di Azure con [Esplora metriche di Azure](../platform/metrics-getting-started.md). È possibile aggiungerle a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per visualizzarle in combinazione con altri dati e usarle per la [creazione di avvisi](alerts-metric.md) quasi in tempo reale.
+Le metriche sono disponibili per l'analisi interattiva nel portale di Azure con [Esplora metriche di Azure](./metrics-getting-started.md). È possibile aggiungerle a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per visualizzarle in combinazione con altri dati e usarle per la [creazione di avvisi](alerts-metric.md) quasi in tempo reale.
 
 Per altre informazioni sulle metriche di Monitoraggio di Azure, incluse le relative origini dei dati, vedere [Metriche in Monitoraggio di Azure](data-platform-metrics.md).
 
@@ -90,3 +90,4 @@ Oltre a usare gli strumenti in Azure per analizzare i dati di monitoraggio, potr
 - Altre informazioni sulle [Metriche in Monitoraggio di Azure](data-platform-metrics.md).
 - Altre informazioni sui [Log in Monitoraggio di Azure](data-platform-logs.md).
 - Informazioni sui [dati di monitoraggio disponibili](data-sources.md) per diverse risorse in Azure.
+

@@ -4,13 +4,14 @@ description: Aggiornare le applicazioni Java meno recenti che usano Service Fabr
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
+ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: 0e8154039dde3de571e7960b244ab1d43cc764c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327311"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
 Service Fabric i file binari Java sono stati spostati da Service Fabric SDK Java all'hosting di Maven. È possibile usare **mavencentral** per recuperare le dipendenze Service Fabric Java più recenti. Questa guida consentirà di aggiornare le applicazioni Java esistenti create per il Service Fabric Java SDK usando il modello di attende o Eclipse per essere compatibile con la compilazione basata su Maven.

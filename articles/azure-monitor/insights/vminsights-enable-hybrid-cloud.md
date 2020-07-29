@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092848"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325968"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente ibrido
 
@@ -24,7 +24,7 @@ Prima di iniziare, esaminare i [prerequisiti](vminsights-enable-overview.md) e v
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../../azure-monitor/platform/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
+>Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../platform/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
 
 I passaggi per completare questa attività sono riepilogati come segue:
 
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>Abilitare i contatori delle prestazioni
 
 Se l'area di lavoro Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, sarà necessario abilitare i contatori. Questa operazione può essere eseguita in uno dei due modi seguenti:
-* Manualmente, come descritto in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manualmente, come descritto in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../platform/data-sources-performance-counters.md)
 * Scaricando ed eseguendo uno script di PowerShell disponibile dalla raccolta di [Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Distribuire Monitoraggio di Azure per le macchine virtuali
@@ -259,3 +259,4 @@ Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazio
 - Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
 
 - Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).
+

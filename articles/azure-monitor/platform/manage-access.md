@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105926"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327889"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
 Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics. Un'area di lavoro è un contenitore che include informazioni sui dati e sulla configurazione. Per gestire l'accesso ai dati di log, è necessario eseguire diverse attività amministrative correlate all'area di lavoro.
 
@@ -106,7 +106,7 @@ A ogni area di lavoro possono essere associati più account, ognuno dei quali pu
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
-|Action |Autorizzazioni di Azure necessarie |Note |
+|Azione |Autorizzazioni di Azure necessarie |Note |
 |-------|-------------------------|------|
 | Aggiunta e rimozione di soluzioni di monitoraggio | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Queste autorizzazioni devono essere concesse a livello di gruppo di risorse o di sottoscrizione. |
 | Modifica del piano tariffario | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -136,10 +136,10 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
 | Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
-| Action | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Action | `Microsoft.Support/*` | Consente di aprire casi di supporto |
+| Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
+| Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Azione | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Azione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
 |Non azione | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impedisce la lettura della chiave dell'area di lavoro, necessaria per l'uso dell'API di raccolta dati e per l'installazione degli agenti. Ciò impedisce all'utente di aggiungere nuove risorse all'area di lavoro |
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
@@ -310,6 +310,7 @@ Talvolta i log personalizzati provengono da origini non direttamente associate a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) (Panoramica dell'agente di Log Analytics) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
+* Vedere [Log Analytics agent overview](./log-analytics-agent.md) (Panoramica dell'agente di Log Analytics) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
 
-* Vedere [raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md) per configurare la raccolta dati dalle macchine virtuali di Azure.
+* Vedere [raccogliere dati sulle macchine virtuali di Azure](../learn/quick-collect-azurevm.md) per configurare la raccolta dati dalle macchine virtuali di Azure.
+

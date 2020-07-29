@@ -5,17 +5,17 @@ description: Informazioni su come importare dati in Azure Machine Learning Desig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
-ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207511"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327005"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importare dati in Azure Machine Learning Designer (anteprima)
 
@@ -23,6 +23,8 @@ In questo articolo si spiega come importare dati nella finestra di progettazione
 
 * **Set di dati in Azure Machine Learning**: registrare i [set di dati](concept-data.md#datasets) in Azure Machine Learning per abilitare le funzionalità avanzate che consentono di gestire i dati.
 * **Importare il modulo dati**: usare il modulo [Import Data](algorithm-module-reference/import-data.md) per accedere direttamente ai dati dalle origini dati online.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-azure-machine-learning-datasets"></a>Uso dei set di dati di Azure Machine Learning
 

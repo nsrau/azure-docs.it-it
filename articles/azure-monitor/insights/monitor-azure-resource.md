@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326172"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con Monitoraggio di Azure
 Quando si usano applicazioni e processi aziendali critici basati sulle risorse di Azure, è consigliabile monitorare tali risorse per verificarne disponibilità, prestazioni e funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di Monitoraggio di Azure per analizzare e creare avvisi su tali dati.
@@ -96,7 +96,7 @@ Molti servizi includeranno i dati di monitoraggio nella pagina **Panoramica** co
 
 
 ### <a name="insights-and-solutions"></a>Informazioni dettagliate e soluzioni 
-Alcuni servizi forniranno strumenti aggiuntivi oltre alle funzionalità standard di Monitoraggio di Azure. Le [informazioni dettagliate](../insights/insights-overview.md) offrono un'esperienza di monitoraggio personalizzata basata sulla piattaforma dati e sulle funzionalità standard di Monitoraggio di Azure. Le [soluzioni](../insights/solutions.md) offrono la logica di monitoraggio predefinita integrata nei log di Monitoraggio di Azure. 
+Alcuni servizi forniranno strumenti aggiuntivi oltre alle funzionalità standard di Monitoraggio di Azure. Le [informazioni dettagliate](./insights-overview.md) offrono un'esperienza di monitoraggio personalizzata basata sulla piattaforma dati e sulle funzionalità standard di Monitoraggio di Azure. Le [soluzioni](./solutions.md) offrono la logica di monitoraggio predefinita integrata nei log di Monitoraggio di Azure. 
 
 Se un servizio dispone di informazioni dettagliate di Monitoraggio di Azure, è possibile accedervi dalla voce **Monitoraggio** del menu di ogni risorsa. È possibile accedere a tutte le soluzioni e le informazioni dettagliate dal menu **Monitoraggio di Azure**.
 
@@ -164,3 +164,4 @@ Selezionare **Avvisi** dal menu di una risorsa per visualizzare e gestire le reg
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sui log delle risorse di vari servizi di Azure, vedere [Servizi, schemi e categorie supportati per i log delle risorse di Azure](../platform/resource-logs-schema.md).  
+

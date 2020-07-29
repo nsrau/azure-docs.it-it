@@ -5,17 +5,17 @@ description: Informazioni su come usare un modello di Azure Resource Manager per
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: db0b87787e34796e9dd7c91d6e4b53738145a25a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031117"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326376"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -118,6 +118,9 @@ New-AzResourceGroupDeployment `
 ---
 
 Per impostazione predefinita, tutte le risorse create come parte del modello sono nuove. Tuttavia, è anche possibile usare le risorse esistenti. Fornendo parametri aggiuntivi al modello, è possibile usare le risorse esistenti. Se ad esempio si vuole usare un account di archiviazione esistente, impostare il valore **storageAccountOption** su **existing** e specificare il nome dell'account di archiviazione nel parametro **storageAccountName** .
+
+> [!IMPORTANT]
+> Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione predefinito dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 
@@ -374,7 +377,7 @@ Impostando il `vnetOption` valore del parametro su `new` o `existing` , è possi
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Distribuisci solo l'area di lavoro dietro l'endpoint privato
 
-Se le risorse associate non sono dietro una rete virtuale, è possibile impostare il parametro **privateEndpointType** su `AutoAproval` o `ManualApproval` per distribuire l'area di lavoro dietro un endpoint privato.
+Se le risorse associate non sono dietro una rete virtuale, è possibile impostare il parametro **privateEndpointType** su `AutoAproval` o `ManualApproval` per distribuire l'area di lavoro dietro un endpoint privato. Questa operazione può essere eseguita per le aree di lavoro nuove ed esistenti. Quando si aggiorna un'area di lavoro esistente, compilare i parametri del modello con le informazioni dell'area di lavoro esistente.
 
 > [!IMPORTANT]
 > La distribuzione è valida solo nelle aree che supportano gli endpoint privati.
@@ -753,3 +756,4 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 * [Distribuire le risorse con i modelli Resource Manager e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
 * [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Per altri modelli correlati a Azure Machine Learning, vedere il repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates)

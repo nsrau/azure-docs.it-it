@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327753"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
@@ -121,7 +124,7 @@ Messaggio di notifica per il dispositivo:
 |operationTimestamp | Timestamp ISO8601 dell'operazione |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità dispositivo creata. Ad esempio,
+Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità dispositivo creata. ad esempio:
 
 ```json
 {
@@ -157,7 +160,7 @@ moduleId | ID del modulo |
 operationTimestamp | Timestamp ISO8601 dell'operazione |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità modulo creata. Ad esempio,
+Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità modulo creata. ad esempio:
 
 ```json
 {

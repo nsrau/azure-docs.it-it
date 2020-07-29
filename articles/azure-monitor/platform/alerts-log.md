@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505602"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327498"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -77,8 +77,8 @@ Il termine **avviso di log** descrive gli avvisi in cui viene valutata una query
 1. Scegliere la frequenza con cui l'avviso viene eseguito in **frequenza**. 
 
     Gli **avvisi di log** possono basarsi su:
-    - [Numero di record](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): viene creato un avviso se il numero di record restituiti dalla query è maggiore o minore del valore specificato.
-    - [Unità di misura della metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): viene creato un avviso se ogni *valore di aggregazione* nei risultati supera il valore di soglia specificato ed è *raggruppato* in base al valore scelto. Il numero di violazioni per un avviso è il numero di volte in cui viene superata la soglia nel periodo di tempo scelto. È possibile specificare le violazioni totali per qualsiasi combinazione di violazioni nei set di risultati o le violazioni consecutive necessarie che devono verificarsi in campioni consecutivi.
+    - [Numero di record](./alerts-unified-log.md#number-of-results-alert-rules): viene creato un avviso se il numero di record restituiti dalla query è maggiore o minore del valore specificato.
+    - [Unità di misura della metrica](./alerts-unified-log.md#metric-measurement-alert-rules): viene creato un avviso se ogni *valore di aggregazione* nei risultati supera il valore di soglia specificato ed è *raggruppato* in base al valore scelto. Il numero di violazioni per un avviso è il numero di volte in cui viene superata la soglia nel periodo di tempo scelto. È possibile specificare le violazioni totali per qualsiasi combinazione di violazioni nei set di risultati o le violazioni consecutive necessarie che devono verificarsi in campioni consecutivi.
 
 
 1. Fare clic su **Done**. 
@@ -100,7 +100,7 @@ Il termine **avviso di log** descrive gli avvisi in cui viene valutata una query
     Alcune funzionalità aggiuntive sono disponibili per eseguire l'override delle azioni predefinite:
 
     - **Notifica tramite posta elettronica**: sostituisce l'oggetto del messaggio di *posta* elettronica inviato tramite il gruppo di azioni. Non è possibile modificare il corpo del messaggio e questo campo **non** è destinato agli indirizzi di posta elettronica.
-    - **Includi payload JSON personalizzato**: esegue l'override del JSON webhook usato dai gruppi di azioni presupponendo che il gruppo di azioni contenga un tipo di webhook. Per altre informazioni sui formati dei webhook, vedere [azione webhook per gli avvisi del log](../../azure-monitor/platform/alerts-log-webhook.md). L'opzione di visualizzazione Webhook consente di verificare il formato tramite i dati JSON di esempio.
+    - **Includi payload JSON personalizzato**: esegue l'override del JSON webhook usato dai gruppi di azioni presupponendo che il gruppo di azioni contenga un tipo di webhook. Per altre informazioni sui formati dei webhook, vedere [azione webhook per gli avvisi del log](./alerts-log-webhook.md). L'opzione di visualizzazione Webhook consente di verificare il formato tramite i dati JSON di esempio.
 
         ![Override dell'azione per gli avvisi del log](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ Per usare il codice JSON di esempio in questa procedura dettagliata, è possibil
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Avviso di log con query tra risorse in cui viene usato il modello di risorse di Azure
 
-Di seguito viene riportata la struttura per la [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) basate su modello di risorse in cui viene usata una [query di ricerca log tra risorse](../../azure-monitor/log-query/cross-workspace-query.md) di [avviso di log di tipo Unità di misura della metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) con un set di dati di esempio come variabili.
+Di seguito viene riportata la struttura per la [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) basate su modello di risorse in cui viene usata una [query di ricerca log tra risorse](../log-query/cross-workspace-query.md) di [avviso di log di tipo Unità di misura della metrica](./alerts-unified-log.md#metric-measurement-alert-rules) con un set di dati di esempio come variabili.
 
 ```json
 
@@ -319,7 +319,7 @@ Monitoraggio di Azure: l' [API per le regole di query pianificate](/rest/api/mon
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri di azione per un avviso del log. Usato come input mediante il cmdlet [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri dei gruppi di azioni per un avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione trigger per l'avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione del trigger di metrica per l' [Avviso del log di tipo misurazione metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usato come input dal cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione del trigger di metrica per l' [Avviso del log di tipo misurazione metrica](./alerts-unified-log.md#metric-measurement-alert-rules). Usato come input dal cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : cmdlet di PowerShell per elencare le regole di avviso del log esistenti o una regola di avviso del log specifica
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : cmdlet di PowerShell per abilitare o disabilitare la regola di avviso del log
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): cmdlet di PowerShell per eliminare una regola di avviso del log esistente
@@ -363,7 +363,8 @@ Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sugli [avvisi del log in avvisi di Azure](../../azure-monitor/platform/alerts-unified-log.md)
-* Comprendere le [azioni webhook per gli avvisi del log](../../azure-monitor/platform/alerts-log-webhook.md)
+* Informazioni sugli [avvisi del log in avvisi di Azure](./alerts-unified-log.md)
+* Comprendere le [azioni webhook per gli avvisi del log](./alerts-log-webhook.md)
 * Altre informazioni su [Application Insights](../log-query/log-query-overview.md)
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
+

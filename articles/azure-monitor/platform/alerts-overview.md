@@ -4,12 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327124"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -52,11 +52,11 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 - Gravità 3 = Informativa
 - SEV 4 = verbose 
 
-**Azione**: azione specifica eseguita quando viene attivato l'avviso. Per ulteriori informazioni, vedere [gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+**Azione**: azione specifica eseguita quando viene attivato l'avviso. Per ulteriori informazioni, vedere [gruppi di azioni](./action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
-È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources.md). Sono incluse, ad esempio:
+È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](./data-sources.md). Sono incluse, ad esempio:
 
 - Valori delle metriche
 - Query di ricerca log
@@ -68,8 +68,8 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** |
 |-------------|----------------|-------------|
-| Service Health | Log attività  | Non supportato. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Test di disponibilità Web | Non supportato. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+| Service Health | Log attività  | Non supportata. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
+| Application Insights | Test di disponibilità Web | Non supportata. Vedere [Avvisi di test Web](../app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 ## <a name="manage-alerts"></a>Gestire gli avvisi
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso e il relativo stato è *nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
@@ -80,7 +80,7 @@ Sono supportati i tipi di avviso seguenti.
 |:---|:---|
 | Nuovo | Il problema è stato appena rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
-| Chiuso | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
+| Chiusa | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
 Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *attivato*. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *risolto*. Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
 
@@ -105,7 +105,7 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 | Colonna | Descrizione |
 |:---|:---|
-| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Intervallo di ore | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
@@ -137,9 +137,9 @@ Ecco come creare una nuova regola di avviso:
  
 Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata. In base a tale destinazione, viene visualizzata una procedura per definire automaticamente la logica della regola di avviso.  
 
-Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
+Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](./alerts-metric.md).
 
-Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../../azure-monitor/overview.md). 
+Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Pagina Tutti gli avvisi 
@@ -151,7 +151,7 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 
 | Colonna | Descrizione |
 |:---|:---|
-| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
 | Risorsa | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
@@ -172,7 +172,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 | Sezione | Descrizione |
 |:---|:---|
-| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
@@ -208,7 +208,8 @@ Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups)
-- [Informazioni sui gruppi di azioni](../../azure-monitor/platform/action-groups.md)
+- [Informazioni sui gruppi di azioni](./action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
 - [Gestione di gruppi intelligenti](https://aka.ms/managing-smart-groups)
 - [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)
+

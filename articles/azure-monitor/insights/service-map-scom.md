@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067562"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326036"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
@@ -126,7 +126,7 @@ Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodica
 * **TimeoutSeconds**: specifica l'intervallo di tempo prima del timeout della richiesta.
 * **TimeWindowMinutes**: specifica l'intervallo di tempo per l'esecuzione di query sui dati. Il valore predefinito è 60 minuti, ovvero l'intervallo massimo consentito.
 
-## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
 
@@ -139,9 +139,10 @@ La progettazione attuale presenta i problemi e le limitazioni seguenti:
 Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio, vedere:
 
 * [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) (Creare un'entità servizio usando PowerShell)
-* [Create a service principal by using Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
+* [Create a service principal by using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) (Creare un'entità servizio usando Azure CLI)
 * [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) (Creare un'entità servizio usando il portale di Azure)
 
 ### <a name="suggestions"></a>Suggerimenti
 
 Ci sono commenti e suggerimenti per l'integrazione con Monitoraggio di Azure per le macchine virtuali funzionalità mappa o questa documentazione? Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+

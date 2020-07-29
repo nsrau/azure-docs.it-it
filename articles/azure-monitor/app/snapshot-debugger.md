@@ -4,15 +4,15 @@ description: Gli snapshot di debug vengono raccolti automaticamente quando vengo
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049679"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325645"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
-Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](../../azure-monitor/app/app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale di Application Insights.
+Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](./app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](./asp-net-exceptions.md) nel portale di Application Insights.
 
 È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per ottenere un'esperienza di debug più potente con il codice sorgente, aprire gli snapshot con Visual Studio 2019 Enterprise. In Visual Studio è anche possibile [impostare ancoraggio per eseguire](https://aka.ms/snappoint) in modo interattivo gli snapshot senza attendere un'eccezione.
 
@@ -62,7 +62,7 @@ Dopo che si è verificata un'eccezione nell'applicazione ed è stato creato uno 
 
 ![Pagina errori](./media/snapshot-debugger/failures-page.png)
 
-Selezionare un'operazione o un'eccezione nel riquadro destro per aprire il riquadro **Dettagli transazione end-to-end** , quindi selezionare l'evento di eccezione. Se è disponibile uno snapshot per l'eccezione specificata, nel riquadro destro verrà visualizzato un pulsante **Apri snapshot di debug** con i dettagli relativi all' [eccezione](../../azure-monitor/app/asp-net-exceptions.md).
+Selezionare un'operazione o un'eccezione nel riquadro destro per aprire il riquadro **Dettagli transazione end-to-end** , quindi selezionare l'evento di eccezione. Se è disponibile uno snapshot per l'eccezione specificata, nel riquadro destro verrà visualizzato un pulsante **Apri snapshot di debug** con i dettagli relativi all' [eccezione](./asp-net-exceptions.md).
 
 ![Pulsante Open Debug Snapshot per l'eccezione](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -85,8 +85,8 @@ Lo snapshot scaricato contiene tutti i file di simboli trovati nel server applic
 
 ## <a name="how-snapshots-work"></a>Funzionamento degli snapshot
 
-L'agente di raccolta snapshot viene implementato come un [processore di Application Insights Telemetry](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando l'applicazione viene eseguita, il processore di telemetria dell'agente di raccolta snapshot viene aggiunto alla pipeline di telemetria dell'applicazione.
-Ogni volta che l'applicazione chiama [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions), l'agente di raccolta snapshot consente di calcolare un ID problema dal tipo di eccezione generata e dal metodo generante.
+L'agente di raccolta snapshot viene implementato come un [processore di Application Insights Telemetry](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando l'applicazione viene eseguita, il processore di telemetria dell'agente di raccolta snapshot viene aggiunto alla pipeline di telemetria dell'applicazione.
+Ogni volta che l'applicazione chiama [TrackException](./asp-net-exceptions.md#exceptions), l'agente di raccolta snapshot consente di calcolare un ID problema dal tipo di eccezione generata e dal metodo generante.
 Ogni volta che l'applicazione chiama TrackException, un contatore viene incrementato con l'ID problema appropriato. Quando il contatore raggiunge il valore `ThresholdForSnapshotting`, l'ID problema viene aggiunto a un piano di raccolta.
 
 Snapshot Collector monitora anche le eccezioni quando vengono generate sottoscrivendo l'evento [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception). Quando viene generato l'evento, l'ID problema dell'eccezione viene calcolato e confrontato con gli ID problema inclusi nel piano di raccolta.
@@ -139,5 +139,6 @@ Abilitare Application Insights Snapshot Debugger per l'applicazione:
 Oltre Application Insights Snapshot Debugger:
  
 * [Impostare punti di ancoraggio nel codice](/visualstudio/debugger/debug-live-azure-applications) per ottenere gli snapshot senza attendere un'eccezione.
-* L'articolo [Diagnosticare eccezioni nelle app Web](../../azure-monitor/app/asp-net-exceptions.md) spiega come rendere visibile un maggior numero di eccezioni in Application Insights.
-* Il [rilevamento intelligente](../../azure-monitor/app/proactive-diagnostics.md) rileva automaticamente le anomalie delle prestazioni.
+* L'articolo [Diagnosticare eccezioni nelle app Web](./asp-net-exceptions.md) spiega come rendere visibile un maggior numero di eccezioni in Application Insights.
+* Il [rilevamento intelligente](./proactive-diagnostics.md) rileva automaticamente le anomalie delle prestazioni.
+

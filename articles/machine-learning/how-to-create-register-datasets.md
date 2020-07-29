@@ -5,18 +5,19 @@ description: Informazioni su come creare set di dati di Azure Machine Learning p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326393"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -53,7 +54,7 @@ Il fattore principale è la dimensione del set di dati in memoria, ad esempio un
  
 Se si usano Pandas, non c'è alcun motivo per avere più di 1 vCPU, perché questo è tutto ciò che verrà usato. È possibile parallelizzare facilmente a molti vCPU in un singolo Azure Machine Learning istanza/nodo di calcolo tramite Modin e Dask/Ray e scalabilità orizzontale in un cluster di grandi dimensioni, se necessario, semplicemente passando `import pandas as pd` a `import modin.pandas as pd` . 
  
-Se non è possibile ottenere un valore virtuale sufficientemente grande per i dati, sono disponibili due opzioni: usare un Framework come Spark o Dask per eseguire l'elaborazione sulla memoria insufficiente dei dati, ovvero il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale raccolto alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare in orizzontale un cluster che può essere ancora usato in modo interattivo. 
+Se non è possibile ottenere una macchina virtuale sufficientemente grande per i dati, sono disponibili due opzioni: usare un Framework come Spark o Dask per eseguire l'elaborazione sulla memoria insufficiente dei dati, ovvero il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale raccolto alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare in orizzontale un cluster che può essere ancora usato in modo interattivo. 
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
@@ -82,7 +83,7 @@ Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) usa
 
 #### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
 
-Usare il [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) Metodo sulla `TabularDatasetFactory` classe per leggere i file in formato CSV o TSV e per creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare. 
+Usare il [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) Metodo sulla `TabularDatasetFactory` classe per leggere i file in formato CSV o TSV e per creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare. 
 
 Il codice seguente ottiene l'area di lavoro esistente e l'archivio dati desiderato in base al nome. Quindi passa l'archivio dati e i percorsi dei file al `path` parametro per creare un nuovo TabularDataset `weather_ds` .
 
@@ -124,9 +125,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 |Indice|PassengerId|Survived|Pclass|Nome|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|Falso|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|Vero|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un volume CSV, e creare il set di dati da tale file. Il codice seguente illustra questo flusso di lavoro.
 
