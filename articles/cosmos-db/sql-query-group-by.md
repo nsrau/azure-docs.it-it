@@ -8,6 +8,7 @@ ms.date: 05/19/2020
 ms.author: tisande
 ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
 ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83700998"

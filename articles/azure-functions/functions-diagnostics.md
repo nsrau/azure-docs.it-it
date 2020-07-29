@@ -8,6 +8,7 @@ ms.author: yunjchoi
 ms.custom: na
 ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
 ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
 ms.locfileid: "83122367"
