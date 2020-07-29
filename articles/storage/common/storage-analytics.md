@@ -11,6 +11,7 @@ ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
 ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83684471"
