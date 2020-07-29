@@ -6,14 +6,25 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 234da921b4f0d1243ca8cfdb12ba2d851db2b43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289115"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guida alla transizione da Progettazione viste di monitoraggio di Azure a cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. Questo articolo fornisce una panoramica del processo di conversione delle visualizzazioni esistenti in cartelle di lavoro di.
+
+## <a name="retirement-schedule"></a>Pianificazione del ritiro
+
+| Modifica | Cosa significa | Data prevista |
+|:---|:---|:---|
+| Disabilitare la creazione di nuove viste create tramite Progettazione viste. | Non sarà più possibile creare e salvare nuove viste personalizzate nel portale di Azure.| 2020 novembre |
+| Disabilitare la funzione di modifica per le viste esistenti con Progettazione viste. | Non sarà più possibile modificare e salvare le modifiche apportate alle visualizzazioni personalizzate esistenti. | 2020 novembre |
+| Disabilitare la distribuzione di viste per aree di lavoro Log Analytics | Non sarà più possibile distribuire visualizzazioni personalizzate usando ARM per Log Analytics le aree di lavoro. | 2021 marzo |
+| Progettazione viste non è più disponibile nella portale di Azure | L'esperienza del portale non supporterà più Progettazione viste. | 2021 giugno |
+| Visualizzazioni personalizzate rimosse dal riepilogo dell'area di lavoro | Non sarà più possibile accedere ai dati della visualizzazione personalizzata. | 2021 dicembre |
 
 ## <a name="workbooks-overview"></a>Cenni preliminari sulle cartelle di lavoro
 Le [cartelle di lavoro](../insights/vminsights-workbooks.md) combinano testo, query di [log](../log-query/query-language.md), metriche e parametri in report interattivi avanzati. I membri del team con lo stesso accesso alle risorse di Azure possono anche modificare le cartelle di lavoro.

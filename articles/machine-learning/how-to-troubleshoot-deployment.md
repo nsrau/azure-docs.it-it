@@ -5,18 +5,18 @@ description: Informazioni su come risolvere, risolvere e risolvere i problemi re
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 47daf331c717ebb9752644deac826330681bb31a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
+ms.openlocfilehash: dcb2a50a91bec70dfe5d9adda7518f3510a8c973
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320817"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373199"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
 

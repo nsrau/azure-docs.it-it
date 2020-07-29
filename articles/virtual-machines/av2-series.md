@@ -4,15 +4,15 @@ description: Specifiche per le macchine virtuali della serie AV2.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288580"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -28,7 +28,6 @@ Live Migration: Supportato
 
 Manutenzione con mantenimento della memoria: Supportato
 
-Calcolatore prezzi e informazioni sulla disponibilità dell'area: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Calcolatore prezzi</a>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | Numero massimo di dischi dati/velocità effettiva: IOPS | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps)
 |---|---|---|---|---|---|---|---|
@@ -51,9 +50,9 @@ Calcolatore prezzi e informazioni sulla disponibilità dell'area: <a href="https
 - [High Performance Computing (HPC)](sizes-hpc.md)
 - [Generazioni precedenti](sizes-previous-gen.md)
 
-Calcolatore prezzi e informazioni sulla disponibilità dell'area: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Calcolatore prezzi</a>
+Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">tipi di disco</a>
+Altre informazioni sui tipi di dischi: [tipi di disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

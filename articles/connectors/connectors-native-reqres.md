@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289442"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
@@ -24,7 +24,7 @@ Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), assieme 
 
 * Riceva e risponda a una chiamata HTTPS da un'altra app per la logica.
 
-Il trigger di richiesta supporta [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Il trigger di richiesta supporta [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,7 @@ Il trigger di richiesta supporta [Azure Active Directory Open Authentication](/a
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-* Le chiamate in ingresso supportano *solo* Transport Layer Security (TLS) 1,2. Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Le chiamate in uscita supportano TLS 1,0, 1,1 e 1,2, in base alla funzionalità dell'endpoint di destinazione.
+* Le chiamate in ingresso supportano *solo* Transport Layer Security (TLS) 1,2. Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](/security/solving-tls1-problem). Le chiamate in uscita supportano TLS 1,0, 1,1 e 1,2, in base alla funzionalità dell'endpoint di destinazione.
 
 * Le chiamate in ingresso supportano questi pacchetti di crittografia:
 
@@ -287,3 +287,4 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Connettori per App per la logica](../connectors/apis-list.md)
+

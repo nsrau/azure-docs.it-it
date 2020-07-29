@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074337"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374066"
 ---
 # <a name="azure-serial-console"></a>Console seriale di Azure
 
@@ -27,8 +27,7 @@ La console seriale nel portale di Azure fornisce l'accesso a una console basata 
 
 La console seriale funziona allo stesso modo per istanze di macchine virtuali e set di scalabilità di macchine virtuali. In questo documento, se non diversamente specificato, ogni riferimento a macchine virtuali include in modo implicito le istanze dei set di scalabilità di macchine virtuali.
 
-> [!NOTE]
-> La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
+La console seriale è disponibile a livello generale nelle aree globali di Azure e in versione di anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Prerequisiti per accedere alla console seriale di Azure
 Per accedere alla console seriale nell'istanza della macchina virtuale o del set di scalabilità di macchine virtuali, è necessario:
@@ -36,9 +35,10 @@ Per accedere alla console seriale nell'istanza della macchina virtuale o del set
 - Abilitare la diagnostica di avvio per la macchina virtuale
 - Un account utente che usi l'autenticazione della password deve esistere all'interno della macchina virtuale. È possibile creare un utente basato su password con la funzione di [reimpostazione della password](../extensions/vmaccess.md#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
 - L'account di Azure che accede alla console seriale deve disporre del [ruolo di Collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) sia per la macchina virtuale che per l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md)
+- Le distribuzioni classiche non sono supportate. L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione Azure Resource Manager.
 
 > [!NOTE]
-> Le distribuzioni classiche non sono supportate. L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione Azure Resource Manager.
+> La console seriale non è attualmente compatibile con un account di archiviazione di diagnostica di avvio gestito. Per usare la console seriale, assicurarsi di usare un account di archiviazione personalizzato.
 
 ## <a name="get-started-with-the-serial-console"></a>Introduzione alla console seriale
 La console seriale per macchine virtuali e set di scalabilità di macchine virtuali è accessibile solo tramite il portale di Azure:

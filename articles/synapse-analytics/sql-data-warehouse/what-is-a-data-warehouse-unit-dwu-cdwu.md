@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374134"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità di data warehouse (DWU)
 
@@ -100,7 +100,7 @@ Per verificare le effettive capacità nell'ottica della scalabilità, in partico
 
 Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU.
+I ruoli predefiniti di Azure come collaboratore database SQL e collaboratore SQL Server possono modificare le impostazioni di DWU.
 
 ## <a name="view-current-dwu-settings"></a>Visualizzare le impostazioni DWU correnti
 

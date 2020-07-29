@@ -3,12 +3,13 @@ title: Monitora le applicazioni Java ovunque-monitoraggio di Azure Application I
 description: Application Performance Monitoring senza codice per applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Trovare la causa radice dei problemi d usando la traccia distribuita e la mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014202"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374287"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d067d4a7fff385deea946ffa5475e1eb83548a50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098765"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288805"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Effettuare il provisioning e gestire Azure Time Series Insights Gen2
 
@@ -93,7 +93,7 @@ Per creare un ambiente Azure Time Series Insights generazione 2:
 
 * Il pannello **Configura** del portale di Azure viene rimosso perché le unità di scala non si applicano agli ambienti Azure Time Series Insights Gen2. Tuttavia, è possibile usare la **configurazione di archiviazione** per configurare l'archivio warm appena introdotto.
 
-* Il pannello **dei dati di riferimento** portale di Azure è stato rimosso in Azure Time Series Insights Gen2 perché il concetto di dati di riferimento è stato sostituito dal [modello Time Series (TSM)](./time-series-insights-update-how-to-tsm.md).
+* Il pannello **dei dati di riferimento** portale di Azure è stato rimosso in Azure Time Series Insights Gen2 perché il concetto di dati di riferimento è stato sostituito dal [modello Time Series (TSM)](/azure/time-series-insights/concepts-model-overview).
 
 [![Azure Time Series Insights ambiente Gen2 nell'portale di Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 

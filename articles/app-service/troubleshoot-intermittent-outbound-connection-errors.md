@@ -4,14 +4,15 @@ description: Risolvere gli errori di connessione intermittenti e i problemi di p
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289141"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
@@ -36,6 +37,8 @@ Una causa principale di questi sintomi è che l'istanza dell'applicazione non è
 Quando le applicazioni o funzioni aprono rapidamente una nuova connessione, possono esaurire rapidamente la quota preallocata delle porte 128. Vengono quindi bloccati fino a quando non diventa disponibile una nuova porta SNAT, tramite l'allocazione dinamica di porte SNAT aggiuntive o il riutilizzo di una porta SNAT recuperata. Le applicazioni o le funzioni bloccate a causa dell'impossibilità di creare nuove connessioni inizieranno a riscontrare uno o più dei problemi descritti nella sezione relativa ai **sintomi** di questo articolo.
 
 ## <a name="avoiding-the-problem"></a>Evitare il problema
+
+Se la destinazione è un servizio di Azure che supporta gli endpoint di servizio, è possibile evitare i problemi di esaurimento delle porte SNAT usando gli endpoint di servizio e l' [integrazione di VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) . Quando si usa l'integrazione VNet e si inseriscono gli endpoint di servizio nella subnet di integrazione, il traffico in uscita dell'app per tali servizi non avrà restrizioni per le porte SNAT in uscita.
 
 Evitare il problema della porta SNAT significa evitare la creazione ripetuta di nuove connessioni allo stesso host e alla stessa porta.
 

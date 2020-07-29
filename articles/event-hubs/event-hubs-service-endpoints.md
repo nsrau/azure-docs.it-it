@@ -3,12 +3,12 @@ title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288014"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
 
@@ -25,7 +25,6 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Analisi di flusso di Azure
-> - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
 >
@@ -60,7 +59,7 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 2. Nel menu a sinistra selezionare l'opzione **Rete**. Se si seleziona l'opzione **Tutte le reti**, l'hub eventi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione equivale a una regola che accetti l'intervallo di indirizzi IP 0.0.0.0/0. 
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Per restrct l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina.
+1. Per limitare l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina.
 2. Nella sezione **rete virtuale** della pagina selezionare * * + Aggiungi rete virtuale esistente * * *. Selezionare **+ Crea nuova rete virtuale** se si vuole creare una nuova VNet. 
 
     ![aggiungi rete virtuale esistente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -85,9 +84,9 @@ Il modello di Resource Manager seguente consente di aggiungere una regola di ret
 
 Parametri del modello:
 
-* **namespaceName**: spazio dei nomi di Hub eventi.
-* **vnetRuleName**: nome per la regola di rete virtuale da creare.
-* **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
+* `namespaceName`: Spazio dei nomi di hub eventi.
+* `vnetRuleName`: Nome della regola della rete virtuale da creare.
+* `virtualNetworkingSubnetId`: Percorso Gestione risorse completo della subnet della rete virtuale. ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.

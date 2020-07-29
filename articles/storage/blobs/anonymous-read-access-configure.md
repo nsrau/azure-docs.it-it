@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289242"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB
 
-Archiviazione di Azure supporta l'accesso in lettura pubblico anonimo facoltativo per contenitori e BLOB. Per impostazione predefinita, l'accesso anonimo ai dati non è mai consentito. A meno che non si abiliti in modo esplicito l'accesso anonimo, tutte le richieste a un contenitore e ai relativi BLOB devono essere autorizzate mediante l'autorizzazione Azure Active Directory (Azure AD) o la chiave condivisa. Quando si configura l'impostazione del livello di accesso pubblico di un contenitore per consentire l'accesso anonimo, i client possono leggere i dati in tale contenitore senza autorizzare la richiesta.
+Archiviazione di Azure supporta l'accesso in lettura pubblico anonimo facoltativo per contenitori e BLOB. Per impostazione predefinita, l'accesso anonimo ai dati non è mai consentito. A meno che non si abiliti in modo esplicito l'accesso anonimo, tutte le richieste a un contenitore e ai relativi BLOB devono essere autorizzate. Quando si configura l'impostazione del livello di accesso pubblico di un contenitore per consentire l'accesso anonimo, i client possono leggere i dati in tale contenitore senza autorizzare la richiesta.
 
 > [!WARNING]
 > Quando un contenitore è configurato per l'accesso pubblico, qualsiasi client può leggere i dati in tale contenitore. L'accesso pubblico presenta un potenziale rischio per la sicurezza, pertanto se lo scenario non lo richiede, Microsoft consiglia di non consentirlo per l'account di archiviazione. Per altre informazioni, vedere [impedire l'accesso in lettura pubblico anonimo a contenitori e BLOB](anonymous-read-access-prevent.md).
@@ -41,7 +41,7 @@ La tabella seguente riepiloga il modo in cui entrambe le impostazioni influiscon
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Consentire o impedire l'accesso in lettura pubblico per un account di archiviazione
 
-Per impostazione predefinita, l'accesso pubblico è consentito per i singoli contenitori in un account di archiviazione. Quando è consentito l'accesso pubblico, un utente con le autorizzazioni appropriate può modificare l'impostazione di accesso pubblico di un contenitore per consentire l'accesso pubblico anonimo ai dati in tale contenitore.
+Per impostazione predefinita, un account di archiviazione è configurato per consentire a un utente con le autorizzazioni appropriate di abilitare l'accesso pubblico a un contenitore. Quando è consentito l'accesso pubblico, un utente con le autorizzazioni appropriate può modificare l'impostazione di accesso pubblico di un contenitore per consentire l'accesso pubblico anonimo ai dati in tale contenitore. I dati BLOB non sono mai disponibili per l'accesso pubblico, a meno che l'utente non accetti il passaggio aggiuntivo per configurare in modo esplicito l'impostazione di accesso pubblico del contenitore.
 
 Tenere presente che l'accesso pubblico a un contenitore è sempre disattivato per impostazione predefinita e deve essere configurato in modo esplicito per consentire richieste anonime. Indipendentemente dall'impostazione dell'account di archiviazione, i dati non saranno mai disponibili per l'accesso pubblico, a meno che un utente con le autorizzazioni appropriate accetti questo passaggio aggiuntivo per abilitare l'accesso pubblico sul contenitore.
 
@@ -52,7 +52,7 @@ Non consentire l'accesso pubblico per l'account di archiviazione impedisce l'acc
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione, usare l'portale di Azure o l'interfaccia della riga di comando di Azure per configurare la proprietà **blobPublicAccess** dell'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni, vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md).
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
@@ -135,7 +135,7 @@ Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. 
 
 Per impostare il livello di accesso pubblico di un contenitore, usare l'portale di Azure o l'interfaccia della riga di comando di Azure. È possibile impostare il livello di accesso pubblico del contenitore quando si crea il contenitore oppure aggiornare questa impostazione in un contenitore esistente.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per aggiornare il livello di accesso pubblico per uno o più contenitori esistenti nel portale di Azure, attenersi alla procedura seguente:
 

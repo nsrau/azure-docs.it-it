@@ -1,6 +1,6 @@
 ---
-title: Dimensionare gli host di sessioni con Automazione di Azure - Azure
-description: Come dimensionare automaticamente gli host di sessioni di Desktop virtuale Windows con Automazione di Azure.
+title: La sessione di ridimensionamento ospita il desktop virtuale Windows di automazione di Azure (versione classica)-Azure
+description: Come ridimensionare automaticamente gli host di sessione desktop virtuale (classica) di Windows con automazione di Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172066"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288643"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Dimensionare gli host di sessioni con Automazione di Azure
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione desktop virtuali Windows (classico) usando automazione di Azure
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
 
 È possibile ridurre il costo totale di distribuzione di Desktop virtuale Windows dimensionando le macchine virtuali (VM). Ciò significa arrestare e deallocare le VM host di sessioni nelle ore non di punta, quindi riattivarle e riallocarle nelle ore di punta.
 

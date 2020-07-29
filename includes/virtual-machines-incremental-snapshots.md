@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: includere file
+description: File di inclusione
 services: storage
 author: roygara
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74014539"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374835"
 ---
 ## <a name="overview"></a>Panoramica
-Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. Questo articolo illustra uno scenario che permette di mantenere backup dei dischi delle macchine virtuali tramite snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
+Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. Questo articolo illustra uno scenario che permette di mantenere backup dei dischi delle macchine virtuali tramite snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia. Per le macchine virtuali che eseguono carichi di lavoro aziendali o mission-critical, è consigliabile usare [backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) come parte della strategia di backup.  
 
 I dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine in Archiviazione di Azure. L'articolo descrive la strategia di backup per i dischi delle macchine virtuali e si fa riferimento agli snapshot nel contesto dei BLOB di pagine. Per ulteriori informazioni sugli snapshot, fare riferimento a [Creazione di uno snapshot di un BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -57,7 +57,8 @@ A condizione che siano soddisfatte le condizioni seguenti:
 * Il BLOB è stato creato il 1° gennaio 2016 o in seguito.
 * Il BLOB non è stato sovrascritto con [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) o [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) tra due snapshot.
 
-**Nota**: questa funzionalità è disponibile per i BLOB di pagine di Azure Standard e Premium.
+>[!NOTE]
+>Questa funzionalità è disponibile per i BLOB di pagine di Azure standard e Premium.
 
 Quando si ha una strategia di backup personalizzata che usa gli snapshot, copiare gli snapshot da un account di archiviazione a un altro può richiedere molto tempo e utilizzare molto spazio di archiviazione. Anziché copiare l'intero snapshot in un account di archiviazione di backup, è possibile scrivere la differenza tra snapshot consecutivi in un BLOB di pagine di backup. In questo modo, il tempo di esecuzione della copia e lo spazio di archiviazione dei backup risultano notevolmente ridotti.
 

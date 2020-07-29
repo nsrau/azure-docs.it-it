@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: keferna
+author: keferna
+ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287945"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -68,12 +70,12 @@ Tuttavia, test drive funziona automaticamente, senza interazione umana, pertanto
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipi di metadati di parametro accettati
 
-| Tipo di metadati   | Tipo di parametro  | Description     | Valore di esempio    |
+| Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
 |---|---|---|---|
-| **baseUri**     | string          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nome utente**    | string          | Nuovo nome utente casuale.| admin68876      |
+| **baseUri**     | Stringa          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **nome utente**    | Stringa          | Nuovo nome utente casuale.| admin68876      |
 | **password**    | stringa sicura    | Nuova password casuale | Lp!ACS\^2kh     |
-| **ID sessione**   | string          | ID di sessione test drive univoco (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID sessione**   | Stringa          | ID di sessione test drive univoco (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseUri
 

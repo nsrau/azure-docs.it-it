@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261952"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288167"
 ---
-# <a name="add-a-bar-chart-layer"></a>Aggiungere un livello grafico a barre
+# <a name="add-a-bar-chart-layer"></a>Aggiungere un livello per il grafico a barre
 
-Il **livello grafico a barre** è utile per l'acquisizione dei dati nella dimensione successiva, consentendo la visualizzazione dei dati della posizione come barre o cilindri 3D sulla mappa. Analogamente al livello Bubble, il grafico a barre in un secondo momento può visualizzare facilmente due metriche contemporaneamente usando il colore e l'altezza relativa. Affinché le barre abbiano altezza, è necessario aggiungere una misura al bucket **dimensioni** del riquadro **campi** . Se non viene specificata alcuna misura, le barre senza altezza sono rettangolari o cerchi, a seconda dell'opzione della **forma a barre** .
+Il **livello grafico a barre** è utile per l'acquisizione dei dati nella dimensione successiva, consentendo la visualizzazione dei dati della posizione come barre o cilindri 3D sulla mappa. Analogamente al livello Bubble, il grafico a barre in un secondo momento può visualizzare facilmente due metriche contemporaneamente usando il colore e l'altezza relativa. Affinché le barre abbiano altezza, è necessario aggiungere una misura al bucket **dimensioni** del riquadro **campi** . Se non viene specificata alcuna misura, le barre senza altezza vengono visualizzate come quadrati o cerchi, a seconda dell'opzione della **forma a barre** .
 
 > [!div class="mx-imgBorder"]
 > ![Mappa che Visualizza i dati punto utilizzando il livello grafico A barre](media/power-bi-visual/bar-chart-layer-styled.png)
@@ -60,13 +60,13 @@ Di seguito sono riportate tutte le impostazioni del riquadro **formato** disponi
 Aggiungere altro contesto alla mappa:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di riferimento](power-bi-visual-add-reference-layer.md)
+> [Aggiungere un livello per i riferimenti](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i riquadri](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Mostra traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
+> [Visualizzare il traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
 
 Personalizzare l'oggetto visivo:
 

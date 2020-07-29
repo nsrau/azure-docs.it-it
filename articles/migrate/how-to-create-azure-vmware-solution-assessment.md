@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 8c06365531a4977b6b792e136e515b5b56c2c930
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110029"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288853"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creare una valutazione della soluzione VMware di Azure (AVS)
 
@@ -23,7 +23,7 @@ Questo articolo descrive come creare una valutazione della soluzione VMware di A
 
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md), che individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure migrate: valutazione del server. [Altre informazioni](migrate-appliance.md)
+- Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md), che individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure migrate: valutazione del server. [Altre informazioni](migrate-appliance.md).
 - È anche possibile [importare i metadati del server](tutorial-assess-import.md) nel formato con valori delimitati da virgole (CSV).
 
 
@@ -34,7 +34,7 @@ Questo articolo descrive come creare una valutazione della soluzione VMware di A
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > La valutazione della soluzione VMware di Azure (AVS) è attualmente in anteprima e può essere creata solo per le macchine virtuali VMware.
@@ -60,17 +60,17 @@ Eseguire una valutazione della soluzione VMware di Azure (AVS) come indicato di 
 
 3. In **valuta Server**selezionare il tipo di valutazione come "soluzione VMware di Azure (AVS)", selezionare l'origine di individuazione e specificare il nome della valutazione.
 
-    ![Nozioni fondamentali sulla valutazione](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    ![Informazioni di base sulla valutazione](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
 4. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
 
     ![Proprietà AVS Assessment](./media/how-to-create-avs-assessment/avs-view-all.png)
 
-5. Fare clic su **Avanti** per **selezionare le macchine virtuali da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
+5. Fare clic su **Avanti** per **selezionare i computer da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
 
 6. In **Aggiungere le macchine virtuali al gruppo** selezionare le VM da aggiungere al gruppo.
 
-7. Fare clic su **Avanti** per **rivedere + crea valutazione** per esaminare i dettagli della valutazione.
+7. Fare clic su **Avanti** per passare a **Rivedi e crea valutazione** e rivedere i dettagli della valutazione.
 
 8. Fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
 
@@ -111,7 +111,7 @@ Una valutazione della soluzione VMware di Azure (AVS) descrive:
 
 3. Esaminare lo strumento consigliato:
     - **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
-    - **Sconosciuto**: per i computer importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Per i computer VMware, tuttavia, è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX). 
+    - **Sconosciuto**: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Per i computer VMware, tuttavia, è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX). 
 
 4. Fare clic su uno stato di idoneità **AVS** . È possibile visualizzare i dettagli sull'idoneità delle VM ed eseguire il drill-down per visualizzare i dettagli delle VM, incluse le impostazioni di calcolo, archiviazione e rete.
 

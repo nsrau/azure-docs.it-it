@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289416"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creare un assistente vocale con comandi personalizzati
 
 Questa Guida introduttiva illustra come creare e testare un'applicazione di comandi personalizzati di base tramite speech studio. Sarà anche possibile accedere a questa applicazione da un'app client di Windows. I **comandi personalizzati** semplificano la creazione di app avanzate per i comandi vocali ottimizzate per esperienze di interazione vocali-First. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore, che ti aiuta a concentrarti sulla creazione della soluzione migliore per gli scenari di comandi vocali.
 
+## <a name="region-availability"></a>Disponibilità a livello di area
+A questo punto, i comandi personalizzati supportano le sottoscrizioni vocali create in queste aree:
+* Stati Uniti occidentali
+* Stati Uniti occidentali 2
+* Stati Uniti orientali
+* Stati Uniti Orientali 2
+* Europa settentrionale
+* Europa occidentale
+* Stati Uniti centro-occidentali
+* India centrale
+* Asia orientale
+* Asia sud-orientale
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa vocale di Azure in un'area che supporta i comandi personalizzati.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa vocale di Azure in un'area che supporta i comandi personalizzati.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Per un elenco delle aree supportate, vedere la sezione relativa alla **disponibilità dell'area** precedente.
 > * Scaricare il file JSON di esempio di [Smart Room Lite](https://aka.ms/speech/cc-quickstart) .
 > * Scaricare la versione più recente del [client Windows Voice Assistant](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> A questo punto, i comandi personalizzati supportano solo le sottoscrizioni vocali nelle aree westus, westus2 e northeurope.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Vai a speech studio per i comandi personalizzati
 
@@ -93,7 +103,7 @@ Prima di poter accedere a questa applicazione dall'esterno di speech studio, è 
 
 1. Selezionare **Settings (impostazioni** ) nel riquadro sinistro e selezionare **risorse Luis** nel riquadro centrale.
 1. Selezionare una risorsa di stima o crearne una selezionando **Crea nuova risorsa**.
-1. Seleziona **Salva**.
+1. Selezionare **Salva**.
     
     > [!div class="mx-imgBorder"]
     > ![Imposta risorse LUIS](media/custom-commands/set-luis-resources.png)

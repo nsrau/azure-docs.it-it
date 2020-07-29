@@ -4,15 +4,15 @@ description: AzCopy è un'utilità da riga di comando che è possibile usare per
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289237"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -65,8 +65,8 @@ Usare questa tabella come guida:
 
 | Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
-|**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
-|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Firma di accesso condiviso Azure AD & |
+|**Archiviazione BLOB** | Azure AD e firma di accesso condiviso |
+|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Azure AD e firma di accesso condiviso |
 |**Archiviazione file** | Solo SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opzione 1: usare Azure Active Directory
@@ -111,7 +111,7 @@ Dopo aver verificato che all'identità utente è stato assegnato il livello di a
 azcopy login
 ```
 
-Se si appartiene a più di un'organizzazione, includere l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione.
+Se viene visualizzato un errore, provare ad includere l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

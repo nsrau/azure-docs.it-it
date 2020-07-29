@@ -1,6 +1,6 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure-rete
-description: Esempi dell'interfaccia della riga di comando di Azure
+description: Informazioni sugli esempi di interfaccia della riga di comando di Azure per la rete, inclusi esempi per la connettività tra le risorse di Azure ed esempi per il bilanciamento del carico e direzione del traffico
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 9d503e4c8eacd27ac7495ad56c4256455cf3885e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287830"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Esempi dell'interfaccia della riga di comando di Azure per la rete
 
