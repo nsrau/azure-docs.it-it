@@ -3,7 +3,7 @@ title: Configurare un SQL Server Always On gruppo di disponibilità in aree dive
 description: Questo articolo illustra come configurare un SQL Server Always On gruppo di disponibilità nelle macchine virtuali di Azure con una replica in un'area diversa.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284269"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurare un gruppo di disponibilità SQL Server Always On tra diverse aree di Azure
 

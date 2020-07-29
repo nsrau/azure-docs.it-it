@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319984"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API di fatturazione a consumo del Marketplace
 
@@ -36,7 +38,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 
 *Parametri di query:*
 
-| Parametro | Recommendation          |
+| Parametro | Raccomandazione          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Utilizzare 2018-08-31. |
 | | |
@@ -149,7 +151,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi√
 
 *Parametri di query:*
 
-| Parametro  | Recommendation     |
+| Parametro  | Raccomandazione     |
 | ---------- | -------------------- |
 | `ApiVersion` | Utilizzare 2018-08-31. |
 

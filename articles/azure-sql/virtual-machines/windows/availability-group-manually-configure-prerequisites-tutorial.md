@@ -3,7 +3,7 @@ title: 'Esercitazione: prerequisiti per un gruppo di disponibilità'
 description: Questa esercitazione illustra come configurare i prerequisiti per la creazione di un SQL Server Always On gruppo di disponibilità nelle macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284303"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
@@ -129,7 +130,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
 | **Campo** | valore |
 | --- | --- |
-| **Nome** |**autoHAVNET** |
+| **Name** (Nome) |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
 | **Nome della subnet** |**admin** |
 | **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/24 |
@@ -286,7 +287,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 3. Sostituire l'indirizzo del server DNS preferito con l'indirizzo del controller di dominio.
 4. In **Centro rete e condivisione**selezionare l'interfaccia di rete.
 
-   ![interfaccia di rete](./media/availability-group-manually-configure-prerequisites-tutorial-/26-networkinterface.png)
+   ![Interfaccia di rete](./media/availability-group-manually-configure-prerequisites-tutorial-/26-networkinterface.png)
 
 5. Selezionare **Proprietà**.
 6. Selezionare **protocollo Internet versione 4 (TCP/IPv4)** e quindi selezionare **Proprietà**.
@@ -319,7 +320,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
     >Nella pagina **Opzioni DNS** è possibile che venga visualizzato un avviso indicante che non è possibile creare una delega per questo server DNS. È possibile ignorare questo avviso in ambienti non di produzione.
     >
 
-22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Selezionare quindi **Installa**.
+22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Quindi selezionare **Installa**.
 
 Quando il server completa le modifiche alla configurazione, riavviare il server.
 

@@ -3,12 +3,12 @@ title: Elenco di controllo per l'idoneità per la produzione di Azure Service Fa
 description: Preparare l'applicazione e il cluster di Service Fabric per la produzione seguendo le procedure consigliate.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610031"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282059"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -22,7 +22,7 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 1. Per il tipo di nodo primario usare uno SKU D2v2 o superiore. È consigliabile scegliere uno SKU con capacità del disco rigido di almeno 50 GB.
 1. I cluster di produzione devono essere [sicuri](service-fabric-cluster-security.md). Per un esempio di configurazione di un cluster sicuro, vedere questo [modello di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Usare nomi comuni per i certificati ed evitare i certificati autofirmati.
 1. Applicare [vincoli di risorse a contenitori e servizi](service-fabric-resource-governance.md) per evitare che utilizzino più del 75% delle risorse dei nodi. 
-1. Comprendere la finalità del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) e impostarlo. Un livello di durabilità Silver o superiore è consigliato per i tipi di nodo che eseguono carichi di lavoro con stato. Per il tipo di nodo primario il livello di durabilità deve essere impostato su Silver o superiore.
+1. Comprendere la finalità del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) e impostarlo. Un livello di durabilità Silver o superiore è consigliato per i tipi di nodo che eseguono carichi di lavoro con stato.
 1. Comprendere la finalità del [livello di affidabilità](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) del tipo di nodo e selezionarlo. È consigliabile impostare un livello di affidabilità Silver o superiore.
 1. Eseguire i test di carico e scalabilità dei carichi di lavoro per identificare i [requisiti di capacità](service-fabric-cluster-capacity.md) per il cluster. 
 1. I servizi e le applicazioni sono sottoposti a monitoraggio e vengono generati e archiviati log delle applicazioni, con funzionalità di avviso. Vedere ad esempio [aggiungere la registrazione all'applicazione Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorare i contenitori con i log di monitoraggio di Azure](service-fabric-diagnostics-oms-containers.md).

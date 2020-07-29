@@ -4,16 +4,16 @@ description: Questo articolo è l'appendice per la crittografia del disco Micros
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: dce46fd5de4eb4584af32c24738ebbdc2282ef83
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9dc6acf33208de44eec2b5b9706b9f0b176f0d7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088479"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284473"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
 
@@ -43,13 +43,13 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 |Parametro|Descrizione|Obbligatorio?|
 |------|------|------|
-|$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| Vero|
-|$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| Vero|
-|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzLocation`.|Vero|
-|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.|Vero|
-|$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Viene creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|Falso|
-|$aadClientSecret|Segreto client dell'applicazione Azure AD che è stato creato in precedenza.|Falso|
-|$keyEncryptionKeyName|Nome della chiave di crittografia della chiave facoltativa nell'insieme di credenziali delle chiavi. Verrà creata una nuova chiave con questo nome, se non esiste già.|Falso|
+|$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| True|
+|$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| True|
+|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzLocation`.|True|
+|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.|True|
+|$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Viene creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|False|
+|$aadClientSecret|Segreto client dell'applicazione Azure AD che è stato creato in precedenza.|False|
+|$keyEncryptionKeyName|Nome della chiave di crittografia della chiave facoltativa nell'insieme di credenziali delle chiavi. Verrà creata una nuova chiave con questo nome, se non esiste già.|False|
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 

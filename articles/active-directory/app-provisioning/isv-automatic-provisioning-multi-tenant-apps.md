@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781617"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283096"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Abilitare il provisioning utenti automatico per l'applicazione multi-tenant
 
@@ -114,4 +115,4 @@ SAML JIT usa le informazioni sulle attestazioni nel token SAML per creare e aggi
 
 * [Inviare l'elenco di applicazioni e il](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) partner con Microsoft per creare la documentazione sul sito di Microsoft.
 
-* [Unisciti alla Microsoft Partner Network (gratuita) e crea il tuo piano di marketing Vai a](https://partner.microsoft.com/en-us/explore/commercial).
+* [Unisciti alla Microsoft Partner Network (gratuita) e crea il tuo piano di marketing Vai a](https://partner.microsoft.com/explore/commercial).

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133113"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372298"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
 
@@ -26,7 +26,7 @@ Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Il p
 
 Microsoft fornisce due API REST per l'uso delle risorse di archiviazione di Azure. Queste API costituiscono la base di tutte le azioni che è possibile eseguire nell'archiviazione di Azure. L'API REST di archiviazione di Azure consente di usare i dati nell'account di archiviazione, inclusi i dati di BLOB, code, file e tabelle. L'API REST del provider di risorse di archiviazione di Azure consente di lavorare con l'account di archiviazione e le risorse correlate.
 
-Una richiesta di lettura o scrittura di dati BLOB richiede autorizzazioni diverse rispetto a una richiesta che esegue un'operazione di gestione. Il controllo degli accessi in base al ruolo offre un controllo granulare sulle autorizzazioni per entrambi i tipi di risorse. Quando si assegna un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, verificare di avere compreso le autorizzazioni concesse a tale entità. Per un riferimento dettagliato che descrive le azioni associate a ogni ruolo predefinito di controllo degli accessi in base al ruolo, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
+Una richiesta di lettura o scrittura di dati BLOB richiede autorizzazioni diverse rispetto a una richiesta che esegue un'operazione di gestione. Il controllo degli accessi in base al ruolo offre un controllo granulare sulle autorizzazioni per entrambi i tipi di risorse. Quando si assegna un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, verificare di avere compreso le autorizzazioni concesse a tale entità. Per un riferimento dettagliato che descrive le azioni associate a ogni ruolo predefinito di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 Archiviazione di Azure supporta l'uso di Azure AD per autorizzare le richieste sull'archiviazione BLOB e di Accodamento. Per informazioni sui ruoli di controllo degli accessi in Active Directory base al ruolo per le operazioni sui dati BLOB e di Accodamento, vedere [autorizzare l'accesso a BLOB e code](storage-auth-aad.md)
 

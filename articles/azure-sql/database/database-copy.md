@@ -10,25 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031472"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309257"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Il database SQL di Azure offre diversi metodi per la creazione di una copia coerente a livello di transazioni di un [database](single-database-overview.md) esistente nello stesso server o in un server diverso. È possibile copiare un database usando il portale di Azure, PowerShell o T-SQL.
+Il database SQL di Azure offre diversi metodi per la creazione di una copia di un [database](single-database-overview.md) esistente nello stesso server o in un server diverso. È possibile copiare un database usando portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o T-SQL.
 
 ## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso. È anche possibile scegliere di mantengono il livello di servizio e le dimensioni di calcolo oppure utilizzare una dimensione di calcolo diversa nello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente. La copia viene creata usando la tecnologia di replica geografica e, una volta completato il seeding, il collegamento di replica geografica viene terminato automaticamente. Tutti i requisiti per l'uso della replica geografica si applicano all'operazione di copia del database. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
-
-> [!NOTE]
-> I [backup automatici del database](automated-backups-overview.md) vengono utilizzati quando si crea una copia del database.
+Una copia del database è uno snapshot coerente a livello di transazione del database di origine al momento dell'avvio della richiesta di copia. È possibile selezionare lo stesso server o un server diverso per la copia. È anche possibile scegliere di proteggere il livello di servizio e le dimensioni di calcolo del database di origine oppure usare una dimensione di calcolo diversa nello stesso livello di servizio o in un altro. Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni nel database copiato vengono gestiti in modo indipendente dal database di origine. La copia viene creata usando la tecnologia di replica geografica. Al termine del seeding della replica, il collegamento di replica geografica viene terminato automaticamente. Tutti i requisiti per l'uso della replica geografica si applicano all'operazione di copia del database. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
 
 ## <a name="logins-in-the-database-copy"></a>Account di accesso nella copia del database
 

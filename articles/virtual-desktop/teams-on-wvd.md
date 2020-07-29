@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129305"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372842"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
 >[!IMPORTANT]
->L'ottimizzazione dei supporti per Microsoft teams è attualmente disponibile in anteprima pubblica. È consigliabile valutare l'esperienza utente dei team ottimizzati prima di distribuire i team per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+>L'ottimizzazione dei supporti per i team non è supportata per gli ambienti Microsoft 365 enti pubblici.
 
 >[!NOTE]
 >L'ottimizzazione dei supporti per Microsoft teams è disponibile solo per il client desktop di Windows nei computer Windows 10. Per le ottimizzazioni dei supporti è necessario Windows desktop client versione 1.2.1026.0 o successiva.
@@ -47,21 +47,27 @@ Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente ch
 1. Dal menu Start eseguire **Regedit** come amministratore. Passare a **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Creare il valore seguente per la chiave teams:
 
-| Nome             | Tipo   | Dati/valore  |
+| Nome             | Type   | Dati/valore  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>Installare il servizio WebSocket Teams
 
-Installare il [servizio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) nell'immagine di macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
+Installare il [servizio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) più recente nell'immagine della macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
 
 #### <a name="latest-websocket-service-versions"></a>Versioni più recenti del servizio WebSocket
 
-Nella tabella seguente sono elencate le versioni correnti disponibili per ogni gruppo di utenti:
+La tabella seguente elenca le versioni più recenti del servizio WebSocket:
 
-|Versione    |Data di rilascio  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|Versione        |Data di rilascio  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Aggiornamenti per la versione 1.0.2006.11001
+
+- È stato risolto un problema per cui la riduzione dell'app team durante una chiamata o una riunione causava il calo del video in arrivo.
+- Aggiunta del supporto per la selezione di un monitoraggio da condividere nelle sessioni desktop con più monitor.
 
 ### <a name="install-microsoft-teams"></a>Installare Microsoft Teams
 
@@ -117,9 +123,9 @@ Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla
 
 3. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
 
-      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, tornare a [installare Microsoft teams](#install-microsoft-teams) e assicurarsi di aver completato il processo di installazione.
+      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le **Settings**  >  **Privacy**  >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano **On**attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
 
-## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team in un ambiente non virtualizzato. Per ulteriori informazioni sulle limitazioni dei team negli ambienti virtualizzati, consultare i [team per l'infrastruttura desktop virtualizzata](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
 
@@ -133,9 +139,7 @@ L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team
 ### <a name="calls-and-meetings"></a>Chiamate e riunioni
 
 - Il client desktop dei team negli ambienti desktop virtuali Windows non supporta gli eventi live. Per il momento, è consigliabile unire gli eventi live dal [client Web teams](https://teams.microsoft.com) nella sessione remota.
-- Per ridurre al minimo l'app per i team durante una chiamata o una riunione potrebbe verificarsi la scomparsa del feed video in arrivo quando si espande l'app.
 - Le chiamate o le riunioni non supportano attualmente la condivisione delle applicazioni. Le sessioni desktop supportano la condivisione desktop.
-- Quando si esegue la condivisione desktop in una configurazione a più monitor, tutti i monitoraggi sono condivisi.
 - Dare al controllo e assumere il controllo non sono attualmente supportati.
 - I team nel desktop virtuale Windows supportano solo un input video in entrata alla volta. Ciò significa che ogni volta che un utente tenta di condividere lo schermo, viene visualizzata la schermata invece della schermata del leader della riunione.
 - A causa delle limitazioni di WebRTC, la risoluzione del flusso video in entrata e in uscita è limitata a 720p.

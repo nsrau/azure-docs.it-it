@@ -8,14 +8,15 @@ ms.author: luquinta
 ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 07/09/2020
-ms.openlocfilehash: 2deb939745647636cc04ae124d1e843db0bef7f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206500"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306146"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gestire le risorse di Azure Machine Learning con l'estensione VS Code (anteprima)
 
@@ -215,7 +216,7 @@ Per visualizzare l'esperimento in Azure Machine Learning Studio:
 1. Espandere il nodo sottoscrizione che contiene l'area di lavoro.
 1. Espandere il nodo **esperimenti** nell'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sull'esperimento che si desidera visualizzare e selezionare **Visualizza esperimento**. 
-1. Viene visualizzato un messaggio in cui viene chiesto di aprire l'URL dell'esperimento in Azure Machine Learning Studio. Selezionare **Open** (Apri).
+1. Viene visualizzato un messaggio in cui viene chiesto di aprire l'URL dell'esperimento in Azure Machine Learning Studio. Seleziona **Apri**.
 
 ### <a name="track-run-progress"></a>Traccia stato esecuzione
 
@@ -225,7 +226,7 @@ Quando si esegue l'esperimento, è possibile che si desideri visualizzarne lo st
 1. Espandere il nodo **esperimenti** nell'area di lavoro.
 1. Espandere il nodo dell'esperimento per cui si vuole tenere traccia dello stato di avanzamento.
 1. Fare clic con il pulsante destro del mouse su Esegui e selezionare **Visualizza esecuzione in portale di Azure**.
-1. Viene visualizzato un messaggio in cui viene chiesto di aprire l'URL di esecuzione in Azure Machine Learning Studio. Selezionare **Open** (Apri).
+1. Viene visualizzato un messaggio in cui viene chiesto di aprire l'URL di esecuzione in Azure Machine Learning Studio. Seleziona **Apri**.
 
 ### <a name="download-run-logs--outputs"></a>Scaricare i log di esecuzione & output
 

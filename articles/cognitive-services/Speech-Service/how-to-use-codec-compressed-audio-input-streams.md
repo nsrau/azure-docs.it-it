@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+zone_pivot_groups: programming-languages-set-twenty-two
+ms.openlocfilehash: 14f87dff680fb72654d1d3e20fe2f0516f9709aa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282740"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usare l'input audio compresso di codec con l'SDK di riconoscimento vocale
 
 L'API del **flusso di input audio compresso** dell'SDK per servizi vocali fornisce un modo per trasmettere l'audio compresso al servizio di riconoscimento vocale usando `PullStream` o `PushStream` .
 
-Il flusso audio di input compresso è attualmente supportato per C#, C++, Java in Windows (le applicazioni UWP non sono supportate) e Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). È supportata anche per Java in Android e Objective-C nella piattaforma iOS.
+Il flusso audio di input compresso è attualmente supportato per C#, C++, Java e Python in Windows (le applicazioni UWP non sono supportate) e Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). È supportata anche per Java in Android.
 * Speech SDK versione 1.10.0 o successiva è necessario per RHEL 8 e CentOS 8
 * Per Windows è necessaria la versione 1.11.0 o successiva di Speech SDK.
 
@@ -42,8 +42,8 @@ Il flusso audio di input compresso è attualmente supportato per C#, C++, Java i
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio con input audio compresso codec
@@ -60,8 +60,8 @@ Il flusso audio di input compresso è attualmente supportato per C#, C++, Java i
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Passaggi successivi

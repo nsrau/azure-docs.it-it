@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117198"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326087"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -113,7 +113,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
 ### <a name="configure-the-solution"></a>Configurare la soluzione 
 
-1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md). 
+1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md). 
 2. Aprire l'area di lavoro Log Analytics e selezionare il riquadro **Panoramica**. 
 3. Selezionare il riquadro **monitoraggio prestazioni rete** con la *soluzione Message richiede una configurazione aggiuntiva*.
 
@@ -283,7 +283,7 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Inviare commenti e suggerimenti 
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
@@ -291,3 +291,4 @@ Le informazioni sui prezzi sono disponibili [online](network-performance-monitor
 
 ## <a name="next-steps"></a>Passaggi successivi 
 Per altre informazioni, vedere [Monitoraggio prestazioni rete](network-performance-monitor-performance-monitor.md), [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md) e [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md). 
+

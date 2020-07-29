@@ -1,6 +1,6 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il peering di due reti virtuali | Documentazione Microsoft
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il peering di due reti virtuali
+description: Usare un esempio di script dell'interfaccia della riga di comando di Azure per creare e connettere due reti virtuali nella stessa area tramite la rete di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4c3c353e87ad88d7bae10ae011bdd59e7992309
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030403"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282093"
 ---
 # <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Usare uno script di esempio dell'interfaccia della riga di comando di Azure per connettere due reti virtuali
 

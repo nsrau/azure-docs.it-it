@@ -4,15 +4,15 @@ description: Viene descritto il funzionamento del rilevamento delle anomalie, qu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122031"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320086"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servizio di rilevamento anomalie per la fatturazione a consumo
 
@@ -58,9 +58,9 @@ Se si conferma che le anomalie rilevate sono di normale utilizzo, non è necessa
 
 ## <a name="when-and-how-to-get-support"></a>Quando e come ottenere supporto
 
-Se l'utilizzo di Microsoft è stato inviato in modo errato e questo ha comportato un addebito del cliente, Microsoft non avvierà una fattura per il cliente per l'utilizzo sottoposto a segnalazioni oppure il pagamento dell'utilizzo. È necessario che si verifichi la perdita dei ricavi dovuti alla funzionalità di creazione di report.
+Se l'utilizzo di Microsoft è stato inviato in modo errato e questo ha comportato un addebito del cliente, Microsoft non avvierà una fattura per il cliente per l'utilizzo sottoposto a segnalazioni oppure il pagamento dell'utilizzo. L'utente dovrà sostenere la perdita dei ricavi dovuta alla segnalazione di valori di utilizzo inferiori.
 
-Se si verifica uno dei casi seguenti, è possibile aprire un ticket di supporto per richiedere la modifica della fatturazione o del rimborso per i clienti:
+Se si verifica uno dei casi seguenti, è possibile aprire un ticket di supporto per richiedere il rimborso o la correzione della fatturazione per i clienti:
 
 - Si è verificato che una delle anomalie rilevate è un problema reale e l'utilizzo errato comporta un **addebito** del cliente.
 - Si scopre che è stato inviato un utilizzo errato a Microsoft e l'utilizzo errato comporta un **addebito** del cliente.

@@ -4,16 +4,16 @@ description: Informazioni sull'uso di Python per creare e gestire una macchina v
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088326"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284456"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 

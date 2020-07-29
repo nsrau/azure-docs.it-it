@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322976"
+ms.locfileid: "87336498"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -59,9 +59,10 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | contentEncoding | Stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
 | iothub-connection-device-id | Stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
 | iothub-enqueuedtime | Stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| iothub-interface-name | Stringa | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
+| DT-DataSchema | Stringa |  Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). Per la query, usare `$dt-dataschema`. |
+| DT-Subject | Stringa | Nome del componente che invia i messaggi da dispositivo a cloud. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). Per la query, usare `$dt-subject`. |
 
-Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **ContentType**, **ContentEncoding**e **enqueuedTime**, è anche possibile eseguire query su **connectionDeviceId** e **connectionModuleId** .
+Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà sopra elencate nella tabella precedente, è anche possibile eseguire una query su **connectionDeviceId**, **connectionModuleId**.
 
 ### <a name="application-properties"></a>Proprietà dell'applicazione
 

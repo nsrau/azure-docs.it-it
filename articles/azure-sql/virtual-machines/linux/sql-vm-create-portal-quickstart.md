@@ -10,11 +10,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ce3ab92be33b378aeb6694efe181ee19da5d3f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284354"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux che esegue SQL Server nel portale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +72,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Digitare o selezionare quindi i valori seguenti:
    * **Area**: selezionare l'area di Azure appropriata.
    * **Opzioni di disponibilità**: scegliere l'opzione di ridondanza e disponibilità più appropriata per le app e i dati in uso.
-   * **Modifica dimensioni**: selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona**. Per altre informazioni sulle dimensioni di VM, vedere [Dimensioni delle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Modifica dimensioni**: selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona**. Per altre informazioni sulle dimensioni delle macchine virtuali, vedere [dimensioni](../../../virtual-machines/sizes.md)delle macchine virtuali.
 
      ![Scegliere le dimensioni per la macchina virtuale](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
@@ -81,7 +82,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    * **Tipo di autenticazione**: selezionare **Chiave pubblica SSH**.
 
      > [!Note]
-     > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
    * **Nome utente**: immettere il nome dell'amministratore della macchina virtuale.
    * **Chiave pubblica SSH**: immettere la chiave pubblica RSA.
@@ -121,7 +122,7 @@ Se l'esecuzione avviene in Windows e non si ha una shell BASH, installare un cli
 
 1. Selezionare **Apri** e immettere nome utente e password quando richiesto.
 
-Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su come [creare una VM Linux in Azure con il portale](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su come [creare una VM Linux in Azure con il portale](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No**. Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.

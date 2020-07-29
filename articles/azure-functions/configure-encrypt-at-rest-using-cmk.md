@@ -3,19 +3,19 @@ title: Crittografare l'origine dell'applicazione inattiva
 description: Crittografare i dati dell'applicazione in archiviazione di Azure e distribuirli come file di pacchetto.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081883"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282331"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Crittografare i dati dell'applicazione inattivi usando chiavi gestite dal cliente
 
 Per crittografare i dati dell'applicazione dell'app per le funzioni è necessario un account di archiviazione di Azure e un Azure Key Vault. Questi servizi vengono usati quando si esegue l'app da un pacchetto di distribuzione.
 
   - [Archiviazione di Azure fornisce la crittografia](../storage/common/storage-service-encryption.md)inattiva. È possibile usare chiavi fornite dal sistema o chiavi personalizzate gestite dal cliente. Questa è la posizione in cui vengono archiviati i dati dell'applicazione quando non è in esecuzione in un'app per le funzioni in Azure.
-  - [Esecuzione da un pacchetto di distribuzione] ((run-functions-from-deployment-package.md) è una funzionalità di distribuzione del servizio app. Consente di distribuire il contenuto del sito da un account di archiviazione di Azure usando un URL di firma di accesso condiviso (SAS).
+  - L' [esecuzione da un pacchetto di distribuzione](run-functions-from-deployment-package.md) è una funzionalità di distribuzione del servizio app. Consente di distribuire il contenuto del sito da un account di archiviazione di Azure usando un URL di firma di accesso condiviso (SAS).
   - I [riferimenti Key Vault](../app-service/app-service-key-vault-references.md) sono una funzionalità di sicurezza del servizio app. Consente di importare i segreti in fase di esecuzione come impostazioni dell'applicazione. Usare questa operazione per crittografare l'URL SAS dell'account di archiviazione di Azure.
 
 ## <a name="set-up-encryption-at-rest"></a>Configurare la crittografia inattiva

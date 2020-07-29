@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283487"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
@@ -62,7 +62,7 @@ Eseguire questa operazione sul server, non sul lato client o sul server e sul la
 
 ### <a name="verify-your-applications-outputs"></a>Verificare l'output dell'applicazione
 
-Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L'[escape](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output*, viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
+Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L'[escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output*, viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
 
 L'escape garantisce che tutti gli elementi vengano visualizzati come *output*. L'escape consente inoltre all'interprete di tenere presente che i dati non sono destinati a essere eseguiti e questo impedisce il funzionamento degli attacchi. Si tratta di un'altra tecnica di attacco comune denominata *cross-site scripting* (XSS).
 

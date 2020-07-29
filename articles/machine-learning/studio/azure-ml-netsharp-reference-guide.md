@@ -1,6 +1,5 @@
 ---
-title: 'NET # reti neurali personalizzate'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): NET # reti neurali personalizzate-Azure'
 description: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92fd68be6f2611b01be7f2b262de53597c452596
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85129518"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282569"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
+# <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Machine Learning Studio (versione classica)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
 
 NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 

@@ -4,12 +4,13 @@ description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 636df121ea5b09a421ae7bedaf9e30cbbd1966f5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082971"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280869"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -17,7 +18,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Apprendimento guidato |
+| Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
 | <ul><li>[Node.js funzione utilizzando Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[FunzioneNode.js con terminale/prompt dei comandi](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 

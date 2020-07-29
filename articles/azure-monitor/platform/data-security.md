@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319797"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -70,10 +70,10 @@ La tabella seguente mostra esempi di tipi di dati:
 | --- | --- |
 | Avviso |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configurazione |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
+| Event |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
 | Metadati |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Prestazioni |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| Stato |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Sicurezza fisica
 Il servizio Log Analytics è gestito da personale Microsoft e tutte le attività vengono registrate e possono essere controllate. Log Analytics viene gestito come servizio di Azure e soddisfa tutti i requisiti di conformità e di sicurezza di Azure. È possibile verificare i dettagli sulla sicurezza fisica delle risorse di Azure a pagina 18 della [panoramica della sicurezza in Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). I diritti di accesso fisici per proteggere le aree vengono modificati nell'arco della giornata lavorativa per chi non è più responsabile del servizio Log Analytics, includendo il trasferimento e la chiusura. Altre informazioni sull'infrastruttura fisica globale sono disponibili nei [data center di Microsoft](https://azure.microsoft.com/global-infrastructure/).
@@ -148,7 +148,7 @@ Per Operations Manager, il gruppo di gestione di Operations Manager stabilisce u
 
 Tutte le comunicazioni tra i sistemi connessi e il servizio di Log Analytics sono crittografate. Il protocollo TLS (HTTPS) viene usato per la crittografia.  Viene seguita la procedura di Microsoft SDL per assicurare che Log Analytics sia aggiornato con i più recenti progressi nel campo dei protocolli di crittografia.
 
-Ogni tipo di agente raccoglie dati per Log Analytics. Il tipo di dati raccolti dipende dai tipi di soluzioni usati. È possibile visualizzare un riepilogo della raccolta di dati in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md). Inoltre, per la maggior parte delle soluzioni sono disponibili altre informazioni dettagliate sulla raccolta. Una soluzione è costituita da un bundle di visualizzazioni, query di ricerca, regole di raccolta dati e logica di elaborazione predefinite. Solo gli amministratori possono usare Log Analytics per importare una soluzione. Dopo l'importazione, la soluzione viene spostata nei server di gestione di Operations Manager (se usati) e quindi negli agenti scelti. Gli agenti raccoglieranno quindi i dati.
+Ogni tipo di agente raccoglie dati per Log Analytics. Il tipo di dati raccolti dipende dai tipi di soluzioni usati. È possibile visualizzare un riepilogo della raccolta di dati in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../insights/solutions.md). Inoltre, per la maggior parte delle soluzioni sono disponibili altre informazioni dettagliate sulla raccolta. Una soluzione è costituita da un bundle di visualizzazioni, query di ricerca, regole di raccolta dati e logica di elaborazione predefinite. Solo gli amministratori possono usare Log Analytics per importare una soluzione. Dopo l'importazione, la soluzione viene spostata nei server di gestione di Operations Manager (se usati) e quindi negli agenti scelti. Gli agenti raccoglieranno quindi i dati.
 
 ## <a name="2-send-data-from-agents"></a>2. Invio dei dati dagli agenti
 Si registrano tutti i tipi di agente con una chiave di registrazione e viene stabilita una connessione sicura tra l'agente e il servizio Log Analytics usando l'autenticazione basata su certificati e TLS con la porta 443. Log Analytics usa un archivio segreto per generare e gestire le chiavi. Le chiavi private sono soggette a rotazione ogni 90 giorni, vengono archiviate in Azure e sono gestite dalle operazioni di Azure in ottemperanza alle procedure consigliate in materia di conformità e normative.
@@ -172,6 +172,7 @@ Il periodo di conservazione dei dati raccolti archiviati nel database varia a se
 Per accedere all'area di lavoro Log Analytics, accedere al portale di Azure usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale e il servizio Log Analytics viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale, viene generato un ID di sessione nel client utente (Web browser) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie sul lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale di Azure termina.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* È possibile ottenere informazioni su come raccogliere i dati con Log Analytics per le macchine virtuali di Azure seguendo la [guida introduttiva alle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+* È possibile ottenere informazioni su come raccogliere i dati con Log Analytics per le macchine virtuali di Azure seguendo la [guida introduttiva alle macchine virtuali di Azure](../learn/quick-collect-azurevm.md).  
 
-*  Se si desidera raccogliere dati da computer Windows o Linux fisici o virtuali nell'ambiente in uso, vedere [Avvio rapido per i computer Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) o la [Avvio rapido per i computer Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Se si desidera raccogliere dati da computer Windows o Linux fisici o virtuali nell'ambiente in uso, vedere [Avvio rapido per i computer Linux](../learn/quick-collect-linux-computer.md) o la [Avvio rapido per i computer Windows](../learn/quick-collect-windows-computer.md)
+

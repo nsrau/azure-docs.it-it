@@ -9,14 +9,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886178"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282382"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform e flusso dell'asserzione SAML Bearer di OAuth 2.0
 Il flusso dell'asserzione SAML Bearer di OAuth 2.0 consente di richiedere un token di accesso OAuth tramite un'asserzione SAML quando un client deve usare una relazione di trust esistente. La firma applicata all'asserzione SAML fornisce l'autenticazione dell'app autorizzata. Un'asserzione SAML è un token di sicurezza XML rilasciato da un provider di identità e usato da un provider di servizi. Il provider di servizi si basa sul contenuto del token per identificare l'oggetto dell'asserzione per finalità correlate alla sicurezza.

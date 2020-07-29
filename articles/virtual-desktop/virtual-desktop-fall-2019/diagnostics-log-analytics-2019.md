@@ -1,6 +1,6 @@
 ---
-title: Log Analytics di diagnostica desktop virtuale di Windows (2019)-Azure
-description: Informazioni su come usare log Analytics con la funzionalità di diagnostica desktop virtuale di Windows (versione 2019).
+title: Log Analytics di diagnostica di Windows Virtual Desktop (classico)-Azure
+description: Come usare log Analytics con la funzionalità di diagnostica desktop virtuale di Windows (classica).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285068"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Usare Log Analytics per la funzionalità di diagnostica (versione 2019)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Usare Log Analytics per la funzionalità di diagnostica in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../diagnostics-log-analytics.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../diagnostics-log-analytics.md).
 
 Desktop virtuale Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi usando un'unica interfaccia. Questa funzionalità registra le informazioni di diagnostica ogni volta che un utente assegna un ruolo desktop virtuale Windows utilizza il servizio. Ogni log contiene informazioni sul ruolo di desktop virtuale di Windows incluso nell'attività, i messaggi di errore visualizzati durante la sessione, le informazioni sul tenant e le informazioni sull'utente. La funzionalità di diagnostica crea log attività per le azioni utente e amministrative. Ogni log attività rientra in tre categorie principali:
 

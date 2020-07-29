@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337348"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -29,7 +30,7 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
     $PSVersionTable.PSVersion
     ```
 
-    Se il valore di PSVersion è minore di 5.1.\*, come nella maggior parte delle installazioni recenti di Windows Server 2012 R2, è possibile eseguire facilmente l'aggiornamento scaricando e installando [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Il pacchetto appropriato da scaricare e installare per Windows Server 2012 R2 è **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
+    Se il valore di **psversion** è minore di 5,1. \* , come avviene con le installazioni più recenti di Windows Server 2012 R2, è possibile eseguire facilmente l'aggiornamento scaricando e installando [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Il pacchetto appropriato da scaricare e installare per Windows Server 2012 R2 è **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
 
     PowerShell 6 + può essere usato con qualsiasi sistema supportato e può essere scaricato tramite la [pagina GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -214,6 +215,8 @@ La registrazione di Windows Server con un servizio di sincronizzazione archiviaz
 
 > [!Note]
 > La registrazione server usa le credenziali di Azure per creare una relazione di trust tra il servizio di sincronizzazione archiviazione e Windows Server. Tuttavia, il server crea e usa successivamente la propria identità, che rimane valida fino a quando il server risulta registrato e il token di firma di accesso condiviso (SAS di archiviazione) corrente è valido. Non è possibile rilasciare un nuovo token di firma di accesso condiviso per il server dopo l'annullamento della registrazione del server, quindi il server non può più accedere alle condivisioni file di Azure con il conseguente arresto di ogni attività di sincronizzazione.
+
+L'amministratore che registra il server deve essere un membro del **proprietario** o del **collaboratore** dei ruoli di gestione per il servizio di sincronizzazione archiviazione specificato. Questa configurazione può essere configurata in **controllo di accesso (IAM)** nel portale di Azure per il servizio di sincronizzazione archiviazione.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 L'interfaccia utente di Registrazione server viene visualizzata automaticamente al termine dell'installazione dell'agente Sincronizzazione file di Azure. In caso contrario, è possibile aprirla manualmente dal percorso: c:\Programmi\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe. Dopo avere aperto l'interfaccia utente di Registrazione server fare clic su **Accesso** per iniziare.

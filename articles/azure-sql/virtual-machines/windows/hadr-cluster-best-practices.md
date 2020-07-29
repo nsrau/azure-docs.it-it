@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965647"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285629"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle VM di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Tecnicamente, un cluster a tre nodi può sopravvivere a una perdita a nodo singo
 
 La risorsa quorum protegge il cluster in base a uno di questi problemi. 
 
-Per configurare la risorsa quorum con SQL Server nelle macchine virtuali di Azure, è possibile usare i tipi di controllo seguenti: 
+La tabella seguente elenca le opzioni del quorum disponibili nell'ordine consigliato per l'uso con una macchina virtuale di Azure, con il disco di controllo che è la scelta preferita: 
 
 
 ||[Disco di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness)  |[Condivisione file di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Sistema operativo supportato**| Tutti |Windows Server 2016+| Windows Server 2012 +|
-|**Versione SQL Server supportata**|SQL Server 2019|SQL Server 2016 +|SQL Server 2016 +|
+
 
 
 
 ### <a name="disk-witness"></a>Disco di controllo
 
-Un disco di controllo è un disco di dimensioni ridotte del cluster nel gruppo di archiviazione disponibile nel cluster. Questo disco è a disponibilità elevata ed è in grado di eseguire il failover tra i nodi. Contiene una copia del database del cluster, con dimensioni predefinite generalmente inferiori a 1 GB. 
+Un disco di controllo è un disco di dimensioni ridotte del cluster nel gruppo di archiviazione disponibile nel cluster. Questo disco è a disponibilità elevata ed è in grado di eseguire il failover tra i nodi. Contiene una copia del database del cluster, con dimensioni predefinite generalmente inferiori a 1 GB. Il disco di controllo è l'opzione quorum preferita per una macchina virtuale di Azure perché può risolvere il problema della partizione in tempo, a differenza del server di controllo del cloud e della condivisione file di controllo. 
 
 Configurare un disco condiviso di Azure come disco di controllo. 
 
 Per iniziare, vedere [configurare un disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
-**Sistema operativo supportato**: tutti    
-**Versione SQL supportata**: SQL Server 2019   
+**Sistema operativo supportato**: tutti   
 
 
 ### <a name="cloud-witness"></a>Cloud di controllo
@@ -73,21 +72,18 @@ Per iniziare, vedere [configurare un cloud](/windows-server/failover-clustering/
 
 
 **Sistema operativo supportato**: Windows Server 2016 e versioni successive   
-**Versione SQL supportata**: SQL Server 2016 e versioni successive     
 
 
 ### <a name="file-share-witness"></a>Condivisione file di controllo
 
 Una condivisione file di controllo è una condivisione file SMB che in genere è configurata in un file server che esegue Windows Server. Mantiene le informazioni di clustering in un file witness. log, ma non archivia una copia del database del cluster. In Azure è possibile configurare una [condivisione file di Azure](../../../storage/files/storage-how-to-create-file-share.md) da usare come condivisione file di controllo oppure è possibile usare una condivisione file in una macchina virtuale separata.
 
-Se si intende usare un'altra condivisione file di Azure, è possibile montarla con lo stesso processo usato per [montare la condivisione file Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Se si intende usare una condivisione file di Azure, è possibile montarla con lo stesso processo usato per [montare la condivisione file Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Per iniziare, vedere [configurare una condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
 **Sistema operativo supportato**: Windows Server 2012 e versioni successive   
-**Versione SQL supportata**: SQL Server 2016 e versioni successive   
-
 
 ## <a name="connectivity"></a>Connettività
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84032072"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372094"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Ridimensionare le risorse dei pool elastici nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +56,17 @@ La latenza stimata per modificare il livello di servizio o ridimensionare le dim
 >
 > - In caso di modifica del livello di servizio o di ridimensionamento del calcolo per un pool elastico, è necessario usare la somma dello spazio usato in tutti i database nel pool per calcolare la stima.
 > - Nel caso in cui si sposti un database da e verso un pool elastico, solo lo spazio usato dal database influisca sulla latenza, non sullo spazio usato dal pool elastico.
->
+> - Per i pool elastici standard e per utilizzo generico, la latenza di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il pool elastico usa l'archiviazione di condivisione file Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Per determinare se un pool utilizza l'archiviazione PFS, eseguire la query seguente nel contesto di qualsiasi database nel pool. Se il valore nella colonna AccountType è `PremiumFileStorage` , il pool utilizza l'archiviazione PFS.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > Per monitorare le operazioni in corso, vedere: [gestire le operazioni tramite l'API REST di SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gestire le operazioni tramite l'interfaccia](/cli/azure/sql/db/op)della riga di comando, [monitorare le operazioni usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e questi due comandi di PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285425"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -22,7 +22,7 @@ La crittografia dei dati con chiavi gestite dal cliente per il servizio Database
 Key Vault è un sistema esterno di gestione delle chiavi basato sul cloud. Offre disponibilità elevata e fornisce una risorsa di archiviazione scalabile e sicura per le chiavi di crittografia RSA, supportata facoltativamente da moduli di protezione hardware (HSM) con convalida di tipo FIPS 140-2 Livello 2. Non consente l'accesso diretto a una chiave archiviata, ma offre servizi di crittografia e decrittografia per le entità autorizzate. Key Vault può generare la chiave, importarla o fare in modo che venga [trasferita da un dispositivo HSM locale](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL supporta i piani tariffari per utilizzo generico e ottimizzati per la memoria.
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL supporta i piani tariffari per utilizzo generico e ottimizzati per la memoria. Per altre limitazioni, vedere la sezione [limitazione](concepts-data-encryption-mysql.md#limitations) .
 
 ## <a name="benefits"></a>Vantaggi
 

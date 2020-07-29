@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759095"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337076"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere dispositivi Azure IoT Edge a un'applicazione Azure IoT Central
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere un dispositivo Azure IoT Edge a un'applicazione Azure IoT Central
 
 *Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
@@ -57,7 +58,7 @@ In IoT Central di Azure è possibile importare un manifesto di distribuzione per
 
 ![Diagramma di flusso del ciclo di vita del manifesto della distribuzione](./media/concepts-iot-edge/dmflow.png)
 
-Plug and Play di Internet delle cose (anteprima) modella un dispositivo IoT Edge come indicato di seguito:
+IoT Central modella un dispositivo IoT Edge come segue:
 
 * Ogni modello di dispositivo IoT Edge ha un modello di funzionalità di dispositivo.
 * Per ogni modulo personalizzato elencato nel manifesto della distribuzione viene generato un modello di funzionalità del modulo.

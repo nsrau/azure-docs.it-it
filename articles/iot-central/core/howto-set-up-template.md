@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337212"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -36,9 +36,7 @@ Da questo modello di dispositivo, un operatore può creare e connettere disposit
 > [!NOTE]
 > Solo i generatori e gli amministratori possono creare, modificare ed eliminare i modelli di dispositivo. Qualsiasi utente può creare dispositivi nella pagina **Dispositivi** dai modelli di dispositivi esistenti.
 
-Internet delle cose [plug and Play (anteprima)](../../iot-pnp/overview-iot-plug-and-play.md) consente IOT Central di integrare i dispositivi senza scrivere codice dispositivo incorporato. La parte centrale di Plug and Play IoT (anteprima) è costituita da uno schema del modello di funzionalità di dispositivo che descrive le funzionalità dei dispositivi. In un'applicazione IoT Central i modelli di dispositivo usano questi modelli di funzionalità di dispositivo di Plug and Play IoT (anteprima).
-
-I generatori hanno a disposizione numerose opzioni per creare modelli di dispositivo:
+In un'applicazione IoT Central un modello di dispositivo usa un modello di funzionalità del dispositivo per descrivere le funzionalità di un dispositivo. I generatori hanno a disposizione numerose opzioni per creare modelli di dispositivo:
 
 - Progettare il modello di dispositivo in IoT Central e quindi implementarne il modello di funzionalità di dispositivo nel codice del dispositivo.
 - Importare un modello di funzionalità di dispositivo dal [catalogo dei dispositivi Azure Certified per IoT](https://aka.ms/iotdevcat). Aggiungere quindi al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
@@ -122,12 +120,12 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Nome | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Telemetria. |
 | Tipo semantico | Tipo semantico dei dati di telemetria, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
-| SCHEMA | Tipo di dati di telemetria, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
+| Schema | Tipo di dati di telemetria, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
-| Commento | Eventuali commenti sulla funzionalità di telemetria. |
+| Comment | Eventuali commenti sulla funzionalità di telemetria. |
 | Descrizione | Descrizione della funzionalità di telemetria. |
 
 ### <a name="properties"></a>Proprietà
@@ -142,16 +140,16 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Nome | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
-| SCHEMA | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
+| Schema | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
 | Scrivibile | Se la proprietà non è scrivibile, il dispositivo può segnalare i valori della proprietà a IoT Central. Se la proprietà è scrivibile, il dispositivo può segnalare i valori della proprietà a IoT Central e IoT Central può inviare gli aggiornamenti sulla proprietà al dispositivo.
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
-| Commento | Eventuali commenti sulla funzionalità della proprietà. |
+| Comment | Eventuali commenti sulla funzionalità della proprietà. |
 | Descrizione | Descrizione della funzionalità della proprietà. |
 
-### <a name="commands"></a>Comandi
+### <a name="commands"></a>Comandi:
 
 È possibile chiamare i comandi del dispositivo da IoT Central. I comandi passano facoltativamente i parametri al dispositivo e ricevono una risposta dal dispositivo. Ad esempio, è possibile chiamare un comando per riavviare un dispositivo entro 10 secondi.
 
@@ -163,7 +161,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Comando | `SynchronousExecutionType`. |
-| Commento | Eventuali commenti sulla funzionalità del comando. |
+| Comment | Eventuali commenti sulla funzionalità del comando. |
 | Descrizione | Descrizione della funzionalità del comando. |
 | Richiesta | Se abilitata, una definizione del parametro della richiesta, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 | Risposta | Se abilitata, una definizione della risposta del comando, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
@@ -174,7 +172,7 @@ Se l'interfaccia non è stata pubblicata, è possibile modificare le funzionalit
 
 È anche possibile esportare l'interfaccia come file JSON se si vuole riutilizzarla in un altro modello di funzionalità.
 
-## <a name="add-cloud-properties"></a>Aggiungere proprietà cloud
+## <a name="add-cloud-properties"></a>Aggiungere le proprietà cloud
 
 Usare le proprietà cloud per archiviare le informazioni sui dispositivi in IoT Central. Le proprietà cloud non vengono mai inviate a un dispositivo. Ad esempio, è possibile usare le proprietà cloud per archiviare il nome del cliente che ha installato il dispositivo o la data dell'ultimo intervento sul dispositivo.
 
@@ -185,7 +183,7 @@ La tabella seguente illustra le impostazioni di configurazione per una propriet�
 | Nome visualizzato | Nome visualizzato per il valore della proprietà cloud usato nei dashboard e nei moduli. |
 | Nome | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
-| SCHEMA | Tipo di dati della proprietà cloud, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. |
+| Schema | Tipo di dati della proprietà cloud, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. |
 
 ## <a name="add-customizations"></a>Aggiungere personalizzazioni
 

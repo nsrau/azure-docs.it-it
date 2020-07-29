@@ -3,12 +3,12 @@ title: 'Funzioni di modello: risorse'
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044959"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372383"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -324,9 +324,9 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |string |Spazio dei nomi del provider |
+| providerNamespace |Sì |Stringa |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -399,9 +399,9 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della stessa è ambiguo, fornire l'ID della risorsa. |
+| resourceName o resourceIdentifier |Sì |Stringa |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della stessa è ambiguo, fornire l'ID della risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. **Questo parametro è obbligatorio quando non viene eseguito il provisioning della risorsa nello stesso modello.** In genere il formato è **aaaa-mm-gg**. Per le versioni delle API valide per la risorsa, vedere la [documentazione di riferimento per il modello](/azure/templates/). |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -665,7 +665,7 @@ La proprietà **managedBy** viene restituita solo per gruppi di risorse che cont
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione `resourceGroup()` non può essere usata in un modello che viene [distribuito a livello di sottoscrizione](deploy-to-subscription.md). Può essere usata solo nei modelli distribuiti in un gruppo di risorse. È possibile usare la funzione `resourceGroup()` in un [modello collegato o annidato (con ambito interno)](linked-templates.md) destinato a un gruppo di risorse, anche quando il modello padre viene distribuito nella sottoscrizione. In tale scenario, il modello collegato o annidato viene distribuito al livello del gruppo di risorse. Per altre informazioni sulla destinazione di un gruppo di risorse in una distribuzione a livello di sottoscrizione, vedere [Distribuire le risorse di Azure in più di una sottoscrizione o gruppo di risorse](cross-resource-group-deployment.md).
+La funzione `resourceGroup()` non può essere usata in un modello che viene [distribuito a livello di sottoscrizione](deploy-to-subscription.md). Può essere usata solo nei modelli distribuiti in un gruppo di risorse. È possibile usare la funzione `resourceGroup()` in un [modello collegato o annidato (con ambito interno)](linked-templates.md) destinato a un gruppo di risorse, anche quando il modello padre viene distribuito nella sottoscrizione. In tale scenario, il modello collegato o annidato viene distribuito al livello del gruppo di risorse. Per altre informazioni sulla destinazione di un gruppo di risorse in una distribuzione a livello di sottoscrizione, vedere [Distribuire le risorse di Azure in più di una sottoscrizione o gruppo di risorse](cross-scope-deployment.md).
 
 Un utilizzo comune della funzione resourceGroup consiste nel creare risorse nello stesso percorso del gruppo di risorse. L'esempio seguente usa la posizione del gruppo di risorse per un valore di parametro predefinito.
 
@@ -680,7 +680,7 @@ Un utilizzo comune della funzione resourceGroup consiste nel creare risorse nell
 
 È inoltre possibile usare la funzione resourceGroup per applicare tag a una risorsa dal gruppo di risorse. Per altre informazioni, vedere [Applicare tag da un gruppo di risorse](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Quando si usano i modelli annidati per distribuire più gruppi di risorse, è possibile specificare l'ambito per la valutazione della funzione resourceGroup. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
+Quando si usano i modelli annidati per distribuire più gruppi di risorse, è possibile specificare l'ambito per la valutazione della funzione resourceGroup. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-scope-deployment.md).
 
 ### <a name="resource-group-example"></a>Esempio di gruppo di risorse
 
@@ -722,12 +722,12 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. Fornire questo valore solo quando si distribuisce nell'ambito di un gruppo di risorse o di una sottoscrizione. |
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si distribuisce nell'ambito di un gruppo di risorse. |
-| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceType |Sì |Stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |Stringa |Nome della risorsa. |
 | resourceName2 |No |string |Segmento successivo del nome della risorsa, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
@@ -890,7 +890,7 @@ La funzione restituisce il formato seguente:
 
 ### <a name="remarks"></a>Osservazioni
 
-Quando si usano i modelli annidati per distribuire più sottoscrizioni è possibile specificare l'ambito per la valutazione della funzione subscription. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
+Quando si usano i modelli annidati per distribuire più sottoscrizioni è possibile specificare l'ambito per la valutazione della funzione subscription. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-scope-deployment.md).
 
 ### <a name="subscription-example"></a>Esempio della funzione subscription
 
@@ -918,11 +918,11 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di so
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
-| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceType |Sì |Stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |Stringa |Nome della risorsa. |
 | resourceName2 |No |string |Segmento successivo del nome della risorsa, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
@@ -1000,10 +1000,10 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di te
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceType |Sì |Stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |Stringa |Nome della risorsa. |
 | resourceName2 |No |string |Segmento successivo del nome della risorsa, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.

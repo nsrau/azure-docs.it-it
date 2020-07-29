@@ -11,11 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336923"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -48,7 +49,7 @@ Di seguito è riportata una panoramica di esempio del ciclo di vita CI/CD in una
 
 1.  Una volta che una richiesta pull è stata approvata e le modifiche sono state unite nel ramo principale, queste vengono pubblicate nella factory di sviluppo.
 
-1.  Quando il team è pronto a distribuire le modifiche in una factory di test o di test di accettazione utente, passa alla propria versione di Azure Pipelines e distribuisce la versione desiderata della factory di sviluppo nel test di accettazione utente. Questa distribuzione viene eseguita come parte di un'attività di Azure Pipelines e usa i parametri di modello di Resource Manager per applicare la configurazione appropriata.
+1.  Quando il team è pronto a distribuire le modifiche a una factory di test o UAT (test di accettazione utente), il team passa alla versione Azure Pipelines e distribuisce la versione desiderata della factory di sviluppo in UAT. Questa distribuzione viene eseguita come parte di un'attività di Azure Pipelines e usa i parametri di modello di Resource Manager per applicare la configurazione appropriata.
 
 1.  Una volta verificate le modifiche nella factory di test, eseguire la distribuzione nella factory di produzione usando l'attività successiva della versione delle pipeline.
 

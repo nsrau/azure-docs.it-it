@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285459"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -136,7 +136,7 @@ Per risolvere il problema:
     ```
 1. Verificare che siano installate le estensioni seguenti. Al momento della pubblicazione di questo articolo, le estensioni e le relative versioni sono:
 
-    | Estensione | Version |
+    | Estensione | Versione |
     |---|---|
     |azure-cli   |      2.5.1|
     |moduli di comando-nspkg         |   2.0.3|
@@ -265,6 +265,9 @@ Si consiglia di *non* chiamare metodi diretti in parallelo. Chiamarli in modo se
 ### <a name="collect-logs-for-submitting-a-support-ticket"></a>Raccolta dei log per l'invio di un ticket di supporto
 
 Quando i passaggi per la risoluzione dei problemi autoguidati non risolvono il problema, passare alla portale di Azure e [aprire un ticket di supporto](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!WARNING]
+> I log possono contenere informazioni personali, ad esempio l'indirizzo IP. Tutte le copie locali dei log verranno eliminate non appena viene completata l'analisi e la chiusura del ticket di supporto.  
 
 Per raccogliere i log rilevanti che devono essere aggiunti al ticket, seguire le istruzioni riportate nelle sezioni successive. È possibile caricare i file di log nel riquadro dei **Dettagli** della richiesta di supporto.
 

@@ -1,79 +1,117 @@
 ---
 title: Implementare l'individuazione del modello Plug and Play di anteprima | Microsoft Docs
-description: Gli sviluppatori di soluzioni possono scoprire come implementare l'individuazione dei modelli Plug and Play nella soluzione.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+description: In qualità di generatore di soluzioni, informazioni su come implementare l'individuazione dei modelli Plug and Play nella soluzione.
+author: prashmo
+ms.author: prashmo
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
-ms.openlocfilehash: 74eb38269a3c7fbdc6d95554a8a8cef14eb0b787
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364b85a8ead09858b97d5d7e6ca8c130b9960b2c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770466"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337382"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementare l'individuazione del modello di Plug and Play di anteprima in una soluzione Internet delle cose
 
-Questo articolo descrive come gli sviluppatori di soluzioni possono implementare l'individuazione del modello di Plug and Play di anteprima in una soluzione Internet delle cose.  Il Plug and Play di individuazione dei modelli è il modo in cui i dispositivi Plug and Play identificano i modelli e le interfacce di funzionalità supportate e il modo in cui una soluzione Internet delle cose recupera tali modelli e interfacce.
+Questo articolo descrive come un generatore di soluzioni può implementare l'individuazione del modello di Plug and Play di anteprima in una soluzione Internet delle cose. L'individuazione del modello descrive come:
 
-Sono disponibili due categorie generali di soluzioni Internet, ovvero soluzioni progettate per lo scopo che funzionano con un set noto di dispositivi Plug and Play e soluzioni basate su modelli che funzionano con qualsiasi dispositivo Plug and Play.
+- Dispositivi Plug and Play i dispositivi registrano l'ID del modello.
+- Una soluzione Internet delle cose recupera le interfacce implementate dal dispositivo.
+
+Esistono due categorie generali di soluzioni Internet:
+
+- Una *soluzione* di Internet delle cose basata su uno scopo funziona con un set noto di tipi di dispositivi Plug and Play.
+
+- Una *soluzione* di gestione delle cose basata su modelli può funzionare con qualsiasi plug and Play dispositivo. La creazione di una soluzione basata su modelli è più complessa, ma il vantaggio è che la soluzione funziona con tutti i dispositivi aggiunti in futuro.
+
+    Per creare una soluzione di Internet delle cose basata su modelli, è necessario compilare la logica rispetto alle primitive dell'interfaccia Plug and Play: telemetria, proprietà e comandi. La logica della soluzione rappresenta un dispositivo combinando più funzionalità di telemetria, proprietà e comando.
 
 Questo articolo descrive come implementare l'individuazione del modello in entrambi i tipi di soluzione.
 
 ## <a name="model-discovery"></a>Individuazione dei modelli
 
-Quando un utente Plug and Play dispositivo si connette per la prima volta all'hub Internet delle cose, invia un messaggio di telemetria per informazioni sul modello. Questo messaggio include gli ID delle interfacce implementate dal dispositivo. Affinché la soluzione funzioni con il dispositivo, è necessario risolvere gli ID e recuperare le definizioni per ciascuna interfaccia.
+Per individuare il modello implementato da un dispositivo, una soluzione può ottenere l'ID modello usando l'individuazione basata su eventi o l'individuazione basata su gemelli:
 
-Di seguito sono riportati i passaggi necessari per un dispositivo Plug and Play quando usa il servizio Device provisioning (DPS) per connettersi a un hub:
+### <a name="event-based-discovery"></a>Individuazione basata su eventi
 
-1. Quando il dispositivo è acceso, si connette all'endpoint globale per DPS ed esegue l'autenticazione usando uno dei metodi consentiti.
-1. DPS esegue quindi l'autenticazione del dispositivo e cerca la regola che indica a quale hub Internet è necessario assegnare il dispositivo. DPS registra quindi il dispositivo con tale hub.
-1. DPS restituisce una stringa di connessione dell'hub Internet al dispositivo.
-1. Il dispositivo invia quindi un messaggio di telemetria di individuazione all'hub Internet. Il messaggio di telemetria di individuazione contiene gli ID delle interfacce implementate dal dispositivo.
-1. Il dispositivo Plug and Play è ora pronto per lavorare con una soluzione che usa l'hub Internet delle cose.
+Quando un Plug and Play dispositivo si connette all'hub Internet, registra il modello che implementa. Questa registrazione comporta una notifica degli [eventi di modifica digitale del dispositivo gemello](concepts-digital-twin.md#digital-twin-change-events) . Per informazioni su come abilitare il routing per gli eventi gemelli digitali, vedere [usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a diversi endpoint](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
 
-Se il dispositivo si connette direttamente all'hub Internet, si connette usando una stringa di connessione incorporata nel codice del dispositivo. Il dispositivo invia quindi un messaggio di telemetria di individuazione all'hub Internet.
+La soluzione può usare l'evento illustrato nel frammento di codice seguente per ottenere informazioni sugli elementi Plug and Play dispositivo connesso e ottenere il relativo ID modello:
 
-Per ulteriori informazioni sul messaggio di telemetria delle informazioni sul modello, vedere l'interfaccia [ModelInformation](concepts-common-interfaces.md) .
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
 
-### <a name="purpose-built-iot-solutions"></a>Soluzioni Internet delle cose basate su scopo
+Questo evento viene generato quando viene aggiunto o aggiornato l'ID del modello di dispositivo.
 
-Una soluzione di Internet delle cose basata su uno scopo funziona con un set noto di Internet delle cose Plug and Play modelli e interfacce per le funzionalità dei dispositivi.
+### <a name="twin-based-discovery"></a>Individuazione basata su gemelli
 
-Il modello di funzionalità e le interfacce per i dispositivi che si connetteranno alla soluzione saranno disponibili in anticipo. Per preparare la soluzione, attenersi alla procedura seguente:
+Se la soluzione vuole conoscere le funzionalità di un determinato dispositivo, può usare l'API di [Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) per recuperare le informazioni.
 
-1. Archiviare i file JSON dell'interfaccia in un [repository del modello](./howto-manage-models.md) in cui la soluzione può leggerli.
-1. Scrivi la logica nella tua soluzione Internet delle cose in base ai modelli di capacità e all'interfaccia del Plug and Play.
-1. Sottoscrivere le notifiche dall'hub di Internet delle cose usato dalla soluzione.
+Nel frammento di codice gemello digitale seguente `$metadata.$model` contiene l'ID del modello di un dispositivo Plug and Play:
 
-Quando si riceve una notifica per una nuova connessione del dispositivo, attenersi alla procedura seguente:
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
 
-1. Leggere il messaggio di telemetria di individuazione per recuperare gli ID del modello di funzionalità e delle interfacce implementate dal dispositivo.
-1. Confrontare l'ID del modello di funzionalità con gli ID dei modelli di funzionalità archiviati in anticipo.
-1. A questo punto si conosce il tipo di dispositivo connesso. Usare la logica scritta in precedenza per consentire agli utenti di interagire con il dispositivo in modo appropriato.
+La soluzione può anche usare **Get gemelle** per recuperare l'ID modello dal dispositivo gemello, come illustrato nel frammento di codice seguente:
 
-### <a name="model-driven-solutions"></a>Soluzioni basate su modelli
+```json
+{
+    "deviceId": "sample-device",
+    "etag": "AAAAAAAAAAc=",
+    "deviceEtag": "NTk0ODUyODgx",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "2020-07-17T06:12:26.8402249Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {...}
+    }
+}
+```
 
-Una soluzione di gestione delle cose basata su modelli può funzionare con qualsiasi Plug and Play dispositivo. La creazione di una soluzione basata su modelli di tipo Internet è più complessa, ma il vantaggio è che la soluzione funziona con tutti i dispositivi aggiunti in futuro.
+## <a name="model-resolution"></a>Risoluzione del modello
 
-Per creare una soluzione di Internet delle cose basata su modelli, è necessario compilare la logica rispetto alle primitive dell'interfaccia Plug and Play: telemetria, proprietà e comandi. La logica della soluzione Internet delle cose rappresenta un dispositivo combinando più funzionalità di telemetria, proprietà e comandi.
+Una soluzione USA la risoluzione del modello per ottenere l'accesso alle interfacce che compongono un modello dall'ID del modello. 
 
-La soluzione deve anche sottoscrivere le notifiche dall'hub Internet it usato.
-
-Quando la soluzione riceve una notifica per una nuova connessione a un dispositivo, seguire questa procedura:
-
-1. Leggere il messaggio di telemetria di individuazione per recuperare gli ID del modello di funzionalità e delle interfacce implementate dal dispositivo.
-1. Per ogni ID, leggere il file JSON completo per trovare le funzionalità del dispositivo.
-1. Verificare che ogni interfaccia sia presente in tutte le cache create per archiviare i file JSON recuperati in precedenza dalla soluzione.
-1. Quindi, controllare se un'interfaccia con tale ID è presente nel repository del modello pubblico. Per altre informazioni, vedere [repository di modelli pubblici](howto-manage-models.md).
-1. Se l'interfaccia non è presente nel repository del modello pubblico, provare a cercarla in tutti i repository del modello aziendale noti alla soluzione. Per accedere a un repository del modello aziendale è necessaria una stringa di connessione. Per altre informazioni, vedere [repository del modello aziendale](howto-manage-models.md).
-1. Se non è possibile trovare tutte le interfacce nel repository del modello pubblico o in un repository del modello aziendale, è possibile verificare se il dispositivo è in grado di fornire la definizione dell'interfaccia. Un dispositivo può implementare l'interfaccia [ModelDefinition](concepts-common-interfaces.md) standard per pubblicare informazioni su come recuperare i file di interfaccia con un comando.
-1. Se sono stati trovati file JSON per ogni interfaccia implementata dal dispositivo, è possibile enumerare le funzionalità del dispositivo. Usare la logica scritta in precedenza per consentire agli utenti di interagire con il dispositivo.
-1. In qualsiasi momento, è possibile chiamare l'API Digital Twins per recuperare l'ID del modello di funzionalità e gli ID di interfaccia per il dispositivo.
+- Le soluzioni possono scegliere di archiviare queste interfacce come file in una cartella locale. 
+- Le soluzioni possono usare il [repository del modello](concepts-model-repository.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come individuare una soluzione Internet delle cose, è possibile ottenere altre informazioni sulla [piattaforma Azure](overview-iot-plug-and-play.md) per sfruttare le altre funzionalità della soluzione.
+Ora che si è appreso come individuare la soluzione di individuazione dei modelli, è possibile ottenere altre informazioni sulla [piattaforma Azure](overview-iot-plug-and-play.md) per usare altre funzionalità per la soluzione.
+
+- [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
+- [API REST Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Esplora risorse di Azure](howto-use-iot-explorer.md)

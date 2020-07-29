@@ -7,11 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284048"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere e gestire le risorse IBM DB2 usando app per la logica di Azure
 
@@ -41,7 +42,7 @@ Il connettore IBM DB2 supporta queste operazioni di database, associabili alle a
 | Visualizzazione di un elenco delle tabelle di database | Ottieni tabelle |
 | Lettura di una riga con SELECT | Ottenere la riga |
 | Lettura di tutte le righe con SELECT | Ottieni righe |
-| Aggiunta di una riga con INSERT | Inserisci riga |
+| Aggiunta di una riga con INSERT | Inserimento di una riga |
 | Modifica di una riga con UPDATE | Aggiorna riga |
 | Rimozione di una riga con DELETE | Elimina riga |
 |||
@@ -216,7 +217,7 @@ Espandere l'azione **Ottieni righe**.
 
    ![Visualizzare le righe di output](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="insert-row"></a>Inserisci riga
+## <a name="insert-row"></a>Inserimento di una riga
 
 Per aggiungere un singolo record in una tabella di database DB2, usare l'azione **Ottieni riga** nell'app per la logica. Questa azione esegue un'istruzione `INSERT` DB2, ad esempio `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
@@ -358,7 +359,7 @@ Espandere l'azione **Elimina riga**.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/db2/).
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/db2/).
 
 > [!NOTE]
 > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -366,3 +367,4 @@ Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+

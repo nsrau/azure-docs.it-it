@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: f12a137d4cf182837e2f2212923b97cb7dc5f34a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d1a11ac42a7fb280ba96229f0f67b9c45999b310
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285374"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Elenco di riferimento di domini di Azure (non completo)
 
 Questa pagina è un elenco parziale dei domini di Azure in uso. Alcuni di essi sono endpoint API REST.
 
 
-|Servizio  |Sottodominio  |
+|Service  |Sottodominio  |
 |---------|---------|
 |[Servizio di controllo di accesso di Azure](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (ritirato)|*.accesscontrol.windows.net|
 |[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)|*. graph.windows.net/*. onmicrosoft.com|
 |[Gestione API di Azure](https://azure.microsoft.com/services/api-management/)|*. azure-api.net|
 |[Servizi BizTalk di Azure](https://azure.microsoft.com/pricing/details/biztalk-services/) (ritirati)|*. biztalk.windows.net|
-|[Archivio BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/)|*.blob.core.windows.net|
+|[Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/)|*.blob.core.windows.net|
 |[Servizi cloud di Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) e [macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/)|*.cloudapp.net|
 |[Servizi cloud di Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)|*. cloudapp.azure.com|
 |[Registro Azure Container](https://azure.microsoft.com/services/container-registry/)|*. azurecr.io|
@@ -48,5 +48,5 @@ Questa pagina è un elenco parziale dei domini di Azure in uso. Alcuni di essi s
 |[Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) e [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
 |[Archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*.table.core.windows.net|
 |[Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
-|[Siti Web di Azure](https://azure.microsoft.com/resources/videos/playlists/websites/)|*.azurewebsites.net|
+|[Siti Web di Azure](https://azure.microsoft.com/resources/videos/home/)|*.azurewebsites.net|
 |[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|, ma non per gli indirizzi|

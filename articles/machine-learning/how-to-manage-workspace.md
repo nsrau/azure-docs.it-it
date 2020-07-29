@@ -5,17 +5,17 @@ description: Informazioni su come creare, visualizzare ed eliminare aree di lavo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: dccf8b2e9608de4f22f9782eb9f3cdb489e18be3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045706"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319712"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Subscription |Selezionare la sottoscrizione di Azure da usare.
+   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
    Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
    Location | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
    Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
@@ -102,7 +102,7 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 1. Selezionare un'area di lavoro per visualizzarne le proprietà.
 
-## <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
+## <a name="delete-a-workspace"></a>Eliminare un'area di lavoro
 
 Nella [portale di Azure](https://portal.azure.com/)selezionare **Elimina** nella parte superiore dell'area di lavoro che si vuole eliminare.
 

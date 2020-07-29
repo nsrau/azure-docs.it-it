@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695335"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337144"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -29,7 +30,7 @@ I dispositivi scambiano dati con l'applicazione Azure IoT Central. Un dispositiv
 - Inviare misure, ad esempio dati di telemetria.
 - Sincronizzare le impostazioni con l'applicazione.
 
-In Azure IoT Central i dati che un dispositivo può scambiare con l'applicazione sono specificati in un modello di dispositivo. Per altre informazioni sui modelli di dispositivo, vedere [Gestione dei metadati](#metadata-management).
+In Azure IoT Central, i dati che un dispositivo può scambiare con l'applicazione sono specificati in un modello di dispositivo. Per altre informazioni sui modelli di dispositivo, vedere [Gestione dei metadati](#metadata-management).
 
 Per altre informazioni sul modo in cui i dispositivi si connettono all'applicazione Azure IoT Central, vedere [Connettività dei dispositivi](concepts-get-connected.md).
 
@@ -134,7 +135,7 @@ I modelli di dispositivo in un'applicazione Azure IoT Central definiscono il com
 
 In un modello di dispositivo IoT Central applicazione contiene:
 
-- I **modelli di funzionalità del dispositivo** specificano le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce. Per ulteriori informazioni sui modelli di funzionalità del dispositivo, vedere la documentazione relativa all'Plug and Play degli stessi [(anteprima)](../../iot-pnp/overview-iot-plug-and-play.md) .
+- I **modelli di funzionalità del dispositivo** specificano le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce.
 - Le **proprietà del cloud** specificano le proprietà IOT Central archivi per un dispositivo. Queste proprietà vengono archiviate solo in IoT Central e non vengono mai inviate a un dispositivo.
 - Le **visualizzazioni** specificano i dashboard e i moduli creati dal generatore per consentire all'operatore di monitorare e gestire i dispositivi.
 - Le **personalizzazioni** consentono al generatore di eseguire l'override di alcune definizioni nel modello di funzionalità del dispositivo per renderle più rilevanti per l'applicazione IoT Central.

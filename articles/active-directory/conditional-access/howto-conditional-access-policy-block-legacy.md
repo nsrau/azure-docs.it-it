@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995191"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283011"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -35,7 +36,7 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
    1. Selezionare **Operazione completata**.
 1. In **App Cloud o azioni** selezionare **Tutte le app Cloud**.
    1. Selezionare **Operazione completata**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì**.
+1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri**:
    1. Controllare solo le caselle **App per dispositivi mobili e client desktop** > **Altri client**.
    1. Selezionare **Operazione completata**.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**.

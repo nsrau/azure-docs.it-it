@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
-ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281158"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione Azure AD con SQL di Azure
 
@@ -237,8 +237,6 @@ Le due procedure seguenti illustrano come eseguire il provisioning di un amminis
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) scegliere la connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio consente di collegare il Active Directory associato alla sottoscrizione con il server assicurandosi che la stessa sottoscrizione venga utilizzata sia per Azure AD che per il server.
-
-    ! [Scegli-ad] 8
 
 2. Cercare e selezionare **SQL Server**.
 
@@ -538,8 +536,11 @@ Informazioni aggiuntive sulla risoluzione dei problemi relativi all'autenticazio
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](firewall-configure.md).
+- Per informazioni sull'impostazione di un Azure AD utente guest come amministratore Azure AD, vedere [creare Azure ad utenti guest e impostare come amministratore Azure ad](authentication-aad-guest-users.md).
+- Per informazioni su come usare le entità servizio con SQL di Azure, vedere [creare Azure ad utenti con Azure ad applicazioni](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337110"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -28,6 +28,9 @@ Un modello di dispositivo include le sezioni seguenti:
 - _Proprietà del cloud_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di specificare i metadati del dispositivo da archiviare. Le proprietà del cloud non vengono mai sincronizzate con i dispositivi e esistono solo nell'applicazione. Le proprietà del cloud non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
 - _Personalizzazioni_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di eseguire l'override di alcune delle definizioni in DCM. Le personalizzazioni sono utili se lo sviluppatore della soluzione vuole perfezionare il modo in cui l'applicazione gestisce un valore, ad esempio modificando il nome visualizzato per una proprietà o il colore usato per visualizzare un valore di telemetria. Le personalizzazioni non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
 - _Viste_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di definire le visualizzazioni per visualizzare i dati dal dispositivo e i moduli per gestire e controllare un dispositivo. Le visualizzazioni utilizzano le proprietà DCM, cloud e customizations. Le visualizzazioni non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
+
+> [!NOTE]
+> La [versione dell'aggiornamento plug and Play dell'anteprima pubblica](../../iot-pnp/overview-iot-plug-and-play.md) è destinata agli sviluppatori di dispositivi e agli OEM per iniziare a creare i dispositivi che possono certificare per le cose plug and Play prima del lancio della GA.
 
 ## <a name="device-capability-models"></a>Modelli di funzionalità del dispositivo
 
@@ -182,7 +185,7 @@ IoT Central consente di visualizzare i dati di telemetria nei dashboard e nei gr
 
 È possibile usare la funzionalità di esportazione dei dati IoT Central per trasmettere i dati di telemetria ad altre destinazioni, ad esempio archiviazione o hub eventi.
 
-### <a name="commands"></a>Comandi
+### <a name="commands"></a>Comandi:
 
 I comandi sono sincroni o asincroni. Per impostazione predefinita, un comando sincrono deve essere eseguito entro 30 secondi e il dispositivo deve essere connesso all'arrivo del comando. Se il dispositivo risponde nel tempo o il dispositivo non è connesso, il comando ha esito negativo.
 

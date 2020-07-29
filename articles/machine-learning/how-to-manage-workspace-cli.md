@@ -5,16 +5,17 @@ description: Informazioni su come usare l’interfaccia della riga di comando di
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392710"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319695"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità seguenti di Azure:
 
 > [!IMPORTANT]
-> Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È necessario specificare sempre un gruppo di risorse. Quando si collega il proprio account di archiviazione, assicurarsi che siano abilitate le funzionalità BLOB di Azure e file di Azure e che lo spazio dei nomi gerarchico (ADLS gen 2) sia disabilitato. È sempre possibile alleghi il proprio account di archiviazione in un secondo momento dopo la creazione dell'area di lavoro come archivio dati.
+> Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È necessario specificare sempre un gruppo di risorse. Quando si collega il proprio account di archiviazione, verificare che soddisfi i criteri seguenti:
+>
+> * L'account di archiviazione _non_ è un account premium (Premium_LRS e Premium_GRS)
+> * Sia il BLOB di Azure che le funzionalità file di Azure sono abilitati
+> * Lo spazio dei nomi gerarchico (ADLS gen 2) è disabilitato
+>
+> Questi requisiti sono solo per l'account di archiviazione _predefinito_ usato dall'area di lavoro.
 
 | Service | Parametro per specificare un'istanza esistente |
 | ---- | ---- |
@@ -147,6 +154,9 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'account di archiviazione:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
 
 + **Azure Application Insights**:
 

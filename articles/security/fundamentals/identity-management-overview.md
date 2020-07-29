@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d6c82b1070f76cedcd84b8cd8a0a7bb6f683110d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124137"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285323"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -38,7 +38,7 @@ L'obiettivo di questo articolo è offrire informazioni generali sulle funzionali
 
 Questo articolo è incentrato sulle seguenti funzionalità principali di gestione delle identità di Azure:
 
-* Accesso Single Sign-On
+* Single sign-on
 * Proxy inverso
 * Multi-Factor Authentication
 * Controllo degli accessi in base al ruolo (RBAC)
@@ -50,7 +50,7 @@ Questo articolo è incentrato sulle seguenti funzionalità principali di gestion
 * Soluzione ibrida di gestione delle identità/Azure AD Connect
 * Verifiche di accesso di Azure AD
 
-## <a name="single-sign-on"></a>Accesso Single Sign-On
+## <a name="single-sign-on"></a>Single sign-on
 
 L'accesso SSO consente di accedere a tutte le applicazioni e le risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -91,10 +91,10 @@ Altre informazioni:
 
 Il controllo degli accessi in base al ruolo è un sistema di autorizzazione basato su Azure Resource Manager che garantisce una gestione con granularità fine degli accessi alle risorse in Azure. Il controllo degli accessi in base al ruolo consente di controllare in modo granulare il livello di accesso da parte degli utenti. Ad esempio, è possibile definire che un utente può gestire solo le reti virtuali mentre un altro utente può gestire tutte le risorse di un gruppo. Azure include diversi ruoli predefiniti che è possibile usare. Di seguito sono elencati quattro fondamentali ruoli predefiniti. I primi tre si applicano a tutti i tipi di risorse.
 
-- [Proprietario](/azure/role-based-access-control/built-in-roles.md#owner): ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. 
-- [Collaboratore](/azure/role-based-access-control/built-in-roles.md#contributor): può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.
-- [Lettore](/azure/role-based-access-control/built-in-roles.md#reader): può visualizzare le risorse di Azure esistenti.
-- [Amministratore Accesso utenti](/azure/role-based-access-control/built-in-roles.md#administrator): consente di gestire l'accesso degli utenti alle risorse di Azure.
+- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. 
+- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.
+- [Lettore](/azure/role-based-access-control/built-in-roles#reader): può visualizzare le risorse di Azure esistenti.
+- [Amministratore Accesso utenti](/azure/role-based-access-control/built-in-roles#user-access-administrator): consente di gestire l'accesso degli utenti alle risorse di Azure.
 
 Altre informazioni:
 
