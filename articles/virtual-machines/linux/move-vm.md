@@ -4,14 +4,15 @@ description: Spostare una VM in un'altra sottoscrizione o gruppo di risorse di A
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291106"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Spostare una macchina virtuale in un'altra sottoscrizione o gruppo di risorse
 Questo articolo illustra come spostare una macchina virtuale (VM) tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.

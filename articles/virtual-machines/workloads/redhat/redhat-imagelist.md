@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4ebf433237193c0db7859b029bb224c72c92eae
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291026"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure
 Azure offre un'ampia gamma di immagini RHEL per diversi casi d'uso.
@@ -88,9 +88,17 @@ RHEL-SAP-HA   | 7.4          | LVM    | Agente Linux | RHEL 7,4 per SAP con disp
 rhel-byos     |RHEL-lvm74| LVM    | Agente Linux | Le immagini RHEL 7,4 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm75| LVM    | Agente Linux | Le immagini RHEL 7,5 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm76| LVM    | Agente Linux | Le immagini RHEL 7,6 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm76-Gen2| LVM    | Agente Linux | Le immagini RHEL 7,6 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |rhel-lvm77| LVM    | Agente Linux | Le immagini RHEL 7,7 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm77-Gen2| LVM    | Agente Linux | Le immagini RHEL 7,7 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm78| LVM    | Agente Linux | Le immagini RHEL 7,8 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm78-Gen2| LVM    | Agente Linux | Le immagini RHEL 7,8 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm8 | LVM    | Agente Linux | Le immagini RHEL 8,0 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm8-Gen2 | LVM    | Agente Linux | Le immagini RHEL 8,0 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm81 | LVM    | Agente Linux | Le immagini RHEL 8,1 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm81-Gen2 | LVM    | Agente Linux | Le immagini RHEL 8,1 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm82 | LVM    | Agente Linux | Le immagini RHEL 8,2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
+|             |RHEL-lvm82-Gen2 | LVM    | Agente Linux | Le immagini RHEL 8,2 Generation 2 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 
 > [!NOTE]
 > L'offerta di prodotto RHEL-SAP-HANA è considerata la fine del ciclo di vita di Red Hat. Le distribuzioni esistenti continueranno a funzionare normalmente, ma Red Hat consiglia ai clienti di eseguire la migrazione dalle immagini RHEL-SAP-HANA alle immagini RHEL-SAP-HA, che include i repository SAP HANA e il componente aggiuntivo a disponibilità elevata. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).

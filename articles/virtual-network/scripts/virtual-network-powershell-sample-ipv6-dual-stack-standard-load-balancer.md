@@ -1,7 +1,7 @@
 ---
 title: Esempio di script Azure PowerShell-configurare front-end IPv6 con Load Balancer Standard (anteprima)
 titlesuffix: Azure Virtual Network
-description: Abilitare gli endpoint IPv6 usando PowerShell in rete virtuale di Azure
+description: Informazioni sulla configurazione di un front-end IPv6 in un esempio di script di rete virtuale con Load Balancer Standard.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2de93f66bdb2647bcc612322d90eb9197e0ad63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24057c494d76cf9435ed60ecf2a13db4eab36fbf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068675"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291897"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurare il front-end IPv6 nell'esempio di script di rete virtuale con Load Balancer Standard (anteprima)
 

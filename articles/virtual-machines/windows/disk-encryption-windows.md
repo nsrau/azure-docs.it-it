@@ -4,16 +4,16 @@ description: Questo articolo fornisce istruzioni sull'abilitazione della crittog
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036132"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291963"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -140,6 +140,33 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
 | posizione | Posizione per tutte le risorse. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Abilitare la crittografia nei dischi NVMe per le macchine virtuali Lsv2
+
+Questo scenario descrive l'abilitazione di crittografia dischi di Azure nei dischi NVMe per le VM serie Lsv2.  La serie Lsv2 offre archiviazione NVMe locale. I dischi NVMe locali sono temporanei e i dati andranno persi su questi dischi se si arresta/dealloca la VM (vedere: [serie Lsv2](../lsv2-series.md)).
+
+Per abilitare la crittografia nei dischi NVMe:
+
+1. Inizializzare i dischi NVMe e creare volumi NTFS.
+1. Abilitare la crittografia nella macchina virtuale con il parametro VolumeType impostato su All. In questo modo verrà abilitata la crittografia per tutti i dischi del sistema operativo e dei dati, inclusi i volumi supportati dai dischi NVMe. Per informazioni, vedere [abilitare la crittografia in una VM Windows esistente o in esecuzione](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+La crittografia viene mantenute nei dischi NVMe negli scenari seguenti:
+- Riavvio VM
+- Ricreazione dell'immagine di VMSS
+- Scambia sistema operativo
+
+I dischi NVMe verranno non inizializzati negli scenari seguenti:
+
+- Avvia macchina virtuale dopo la deallocazione
+- Correzione del servizio
+- Backup
+
+In questi scenari, i dischi NVMe devono essere inizializzati dopo l'avvio della macchina virtuale. Per abilitare la crittografia nei dischi NVMe, eseguire il comando per abilitare di nuovo crittografia dischi di Azure dopo l'inizializzazione dei dischi NVMe.
+
+Oltre agli scenari elencati nella sezione [scenari](#unsupported-scenarios) non supportati, la crittografia dei dischi NVMe non è supportata per:
+
+- VM crittografate con crittografia dischi di Azure con AAD (versione precedente)
+- Dischi NVMe con spazi di archiviazione
+- Azure Site Recovery di SKU con dischi NVMe (vedere la [matrice di supporto per il ripristino di emergenza delle VM di Azure tra aree di Azure: macchine replicate-archiviazione](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a> Nuove macchine virtuali IaaS create da chiavi di crittografia e disco rigido virtuale crittografato dal cliente
 
@@ -236,7 +263,6 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 - Trasferimento di macchine virtuali crittografate in un'altra sottoscrizione o in un'altra area.
 - Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
 - Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md))
 - VM serie M con dischi acceleratore di scrittura.
 - Applicazione di ADE a una macchina virtuale con un disco dati crittografato con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK) o applicazione di SSE + CMK a un disco dati in una VM crittografata con Ade.
 - Migrazione di una macchina virtuale crittografata con ADE alla [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).

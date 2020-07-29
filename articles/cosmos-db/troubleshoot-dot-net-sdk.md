@@ -8,11 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dd6bdc66146eb7dfe155e7d1091eee5cca450a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290915"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 
@@ -48,27 +49,40 @@ Vedere la [sezione relativa ai problemi di GitHub](https://github.com/Azure/azur
 * È possibile che si verifichino problemi di connettività/disponibilità a causa di risorse insufficienti nel computer client. È consigliabile monitorare l'utilizzo della CPU nei nodi che eseguono il client di Azure Cosmos DB e aumentare o ridurre le prestazioni se sono in esecuzione con un carico elevato.
 
 ### <a name="check-the-portal-metrics"></a>Controllare le metriche del portale
-Il controllo delle [metriche del portale](monitor-accounts.md) consente di determinare se si tratta di un problema sul lato client o se si verifica un problema con il servizio. Se, ad esempio, le metriche contengono una frequenza elevata di richieste con limitazioni di frequenza (codice di stato HTTP 429) che indica che la richiesta è soggetta a limitazioni, controllare la sezione frequenza delle richieste [troppo grande] . 
+Il controllo delle [metriche del portale](monitor-accounts.md) consente di determinare se si tratta di un problema sul lato client o se si verifica un problema con il servizio. Se, ad esempio, le metriche contengono una frequenza elevata di richieste con limitazioni di frequenza (codice di stato HTTP 429) che indica che la richiesta è soggetta a limitazioni, controllare la sezione frequenza delle richieste [troppo grande](troubleshoot-request-rate-too-large.md) . 
 
-### <a name="requests-timeouts"></a><a name="request-timeouts"></a>Timeout richieste
-RequestTimeout in genere si verifica quando si usa Direct/TCP, ma può verificarsi in modalità gateway. Questi errori sono le cause note comuni e suggerimenti su come risolvere il problema.
+## <a name="common-error-status-codes"></a>Codici di stato di errore comuni<a id="error-codes"></a>
 
-* L'utilizzo della CPU è elevato, che provocherà timeout di latenza e/o richiesta. Il cliente può scalare verticalmente il computer host in modo da fornire più risorse oppure il carico può essere distribuito tra più computer.
-* La disponibilità del socket/porta potrebbe essere bassa. Quando è in esecuzione in Azure, i client che usano .NET SDK possono raggiungere l'esaurimento delle porte di Azure SNAT (PAT). Per ridurre la possibilità di raggiungere questo problema, usare la versione 2. x o 3. x più recente di .NET SDK. Questo è un esempio del motivo per cui è consigliabile eseguire sempre la versione più recente dell'SDK.
-* La creazione di più istanze di DocumentClient può comportare problemi di conflitti e conflitti di connessione. Seguire i [suggerimenti](performance-tips.md)per le prestazioni e usare una singola istanza di DocumentClient in un intero processo.
-* Gli utenti talvolta visualizzano i timeout di richieste o latenze elevate perché il provisioning delle raccolte viene effettuato in modo insufficiente, il back-end limita le richieste e il client ritenta internamente. Controllare le [metriche del portale](monitor-accounts.md).
-* Azure Cosmos DB distribuisce in modo uniforme la velocità effettiva di provisioning complessiva tra le partizioni fisiche. Controllare le metriche del portale per verificare se il carico di lavoro sta riscontrando una [chiave di partizione](partition-data.md)attiva. In questo modo, la velocità effettiva aggregata utilizzata (UR/sec) verrà visualizzata sotto le UR sottoposte a provisioning, ma una singola partizione utilizzata (UR/sec) supererà la velocità effettiva con provisioning. 
-* Inoltre, 2,0 SDK aggiunge la semantica del canale alle connessioni dirette/TCP. Una connessione TCP viene utilizzata per più richieste allo stesso tempo. Questo può causare due problemi in casi specifici:
-    * Un elevato livello di concorrenza può causare conflitti sul canale.
-    * Le richieste o le risposte di grandi dimensioni possono compromettere il blocco del canale ed esacerbare i conflitti, anche con un livello di concorrenza relativamente basso.
-    * Se il case rientra in una di queste due categorie (o se si sospetta un utilizzo elevato della CPU), si tratta di possibili mitigazioni:
-        * Provare a ridimensionare l'applicazione.
-        * Inoltre, i log SDK possono essere acquisiti tramite il [listener di traccia](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) per ottenere maggiori dettagli.
+| Codice di stato | Descrizione | 
+|----------|-------------|
+| 400 | Richiesta non valida (dipende dal messaggio di errore)| 
+| 401 | [Non autorizzato](troubleshoot-unauthorized.md) | 
+| 404 | [La risorsa non è stata trovata](troubleshoot-not-found.md) |
+| 408 | [Timeout della richiesta](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 409 | Un errore di conflitto si verifica quando l'ID fornito per una risorsa in un'operazione di scrittura è stato accettato da una risorsa esistente. Usare un altro ID per la risorsa per risolvere questo problema perché l'ID deve essere univoco all'interno di tutti i documenti con lo stesso valore della chiave di partizione. |
+| 410 | Eccezioni finite (errore temporaneo che non deve violare il contratto di contratto) |
+| 412 | L'errore di precondizione è il punto in cui l'operazione ha specificato un valore eTag diverso dalla versione disponibile nel server. Si tratta di un errore di concorrenza ottimistica. Riprovare a eseguire la richiesta dopo aver letto la versione più recente della risorsa e aver aggiornato l'ETag sulla richiesta.
+| 413 | [Entità della richiesta troppo grande](concepts-limits.md#per-item-limits) |
+| 429 | [Numero eccessivo di richieste](troubleshoot-request-rate-too-large.md) |
+| 449 | Errore temporaneo che si verifica solo durante le operazioni di scrittura ed è sicuro da riprovare |
+| 500 | L'operazione non è riuscita a causa di un errore imprevisto del servizio. Contattare il supporto tecnico. Vedere presentazione di un [problema di supporto tecnico di Azure](https://aka.ms/azure-support). |
+| 503 | [Servizio non disponibile](troubleshoot-service-unavailable.md) | 
+
+### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
+
+Se l'app viene distribuita in [macchine virtuali di Azure senza un indirizzo IP pubblico](../load-balancer/load-balancer-outbound-connections.md), per impostazione predefinita le [porte SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) stabiliscono connessioni a qualsiasi endpoint esterno alla macchina virtuale. Il numero di connessioni consentite dalla macchina virtuale all'endpoint di Azure Cosmos DB è limitato dalla [configurazione SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Questa situazione può causare la limitazione della connessione, la chiusura della connessione o il [timeout della richiesta](troubleshoot-dot-net-sdk-request-timeout.md)menzionato in precedenza.
+
+ Le porte di Azure SNAT vengono usate solo quando la macchina virtuale ha un indirizzo IP privato che si connette a un indirizzo IP pubblico. Esistono due soluzioni alternative per evitare la limitazione di Azure SNAT (purché si stia già usando una singola istanza client nell'intera applicazione):
+
+* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
+    Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](../virtual-network/virtual-networks-acl.md).
+* Assegnare un [indirizzo IP pubblico alla macchina virtuale di Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latenza di rete elevata
 Una latenza di rete elevata può essere identificata usando la [stringa di diagnostica](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) nell'SDK v2 o [diagnostica](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
 
-Se non sono presenti [timeout](#request-timeouts) e la diagnostica Mostra singole richieste in cui la latenza elevata è evidente sulla differenza tra `ResponseTime` e `RequestStartTime` , ad esempio (>300 millisecondi in questo esempio):
+Se non sono presenti [timeout](troubleshoot-dot-net-sdk-request-timeout.md) e la diagnostica Mostra singole richieste in cui la latenza elevata è evidente sulla differenza tra `ResponseTime` e `RequestStartTime` , ad esempio (>300 millisecondi in questo esempio):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -84,59 +98,18 @@ Questa latenza può avere più cause:
     * Abilitare [la rete accelerata in una macchina virtuale esistente](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Provare a usare una [macchina virtuale di fascia superiore](../virtual-machines/windows/sizes.md).
 
-### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
-
-Se l'app viene distribuita in [macchine virtuali di Azure senza un indirizzo IP pubblico](../load-balancer/load-balancer-outbound-connections.md), per impostazione predefinita le [porte SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) stabiliscono connessioni a qualsiasi endpoint esterno alla macchina virtuale. Il numero di connessioni consentite dalla macchina virtuale all'endpoint di Azure Cosmos DB è limitato dalla [configurazione SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Questa situazione può causare la limitazione della connessione, la chiusura della connessione o il [timeout della richiesta](#request-timeouts)menzionato in precedenza.
-
- Le porte di Azure SNAT vengono usate solo quando la macchina virtuale ha un indirizzo IP privato che si connette a un indirizzo IP pubblico. Esistono due soluzioni alternative per evitare la limitazione di Azure SNAT (purché si stia già usando una singola istanza client nell'intera applicazione):
-
-* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
-    Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](../virtual-network/virtual-networks-acl.md).
-* Assegnare un [indirizzo IP pubblico alla macchina virtuale di Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
-
-### <a name="http-proxy"></a>Proxy HTTP
-Se si usa un proxy HTTP, assicurarsi che possa supportare il numero di connessioni configurate in `ConnectionPolicy` dell'SDK.
-In caso contrario, verranno riscontrati problemi di connessione.
-
-### <a name="request-rate-too-large"></a><a name="request-rate-too-large"></a>La frequenza delle richieste è troppo elevata
-' Frequenza richieste troppo grande ' o codice di errore 429 indica che le richieste sono in fase di limitazione, perché la velocità effettiva utilizzata (UR/sec) ha superato la [velocità effettiva con provisioning](set-throughput.md). L'SDK tenterà automaticamente di ritentare le richieste in base ai [criteri di ripetizione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)specificati. Se questo errore si verifica spesso, è consigliabile aumentare la velocità effettiva della raccolta. Controllare le [metriche del portale](use-metrics.md) per vedere se si ricevono errori 429. Esaminare la [chiave di partizione](partitioning-overview.md#choose-partitionkey) per assicurarsi che venga generata una distribuzione uniforme del volume di archiviazione e di richiesta. 
-
 ### <a name="slow-query-performance"></a>Rallentamento delle prestazioni delle query
 La [metrica della query](sql-api-query-metrics.md) consente di determinare la posizione in cui la query sta spendendo la maggior parte del tempo. Dalla metrica della query è possibile vedere la quantità di spazio dedicato al back-end rispetto al client.
 * Se la query back-end viene restituita rapidamente e trascorre molto tempo sul client, controllare il carico sul computer. È probabile che la risorsa non sia sufficiente e che l'SDK sia in attesa della disponibilità di risorse per la gestione della risposta.
 * Se la query back-end è lenta, provare a [ottimizzare la query](optimize-cost-queries.md) e a esaminare i [criteri di indicizzazione](index-overview.md) correnti 
 
-### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: la firma MAC trovata nella richiesta HTTP non corrisponde alla firma calcolata
-Se è stato ricevuto il messaggio di errore 401 seguente: "La firma MAC trovata nella richiesta HTTP non corrisponde alla firma calcolata." Questo problema può essere causato dagli scenari seguenti.
+## <a name="next-steps"></a>Passaggi successivi
 
-1. La chiave è stata ruotata senza seguire le [procedure consigliate](secure-access-to-data.md#key-rotation). Questa è la causa più comune. La rotazione della chiave dell'account Cosmos DB può richiedere da pochi secondi fino a qualche giorno a seconda delle dimensioni dell'account Cosmos DB.
-   1. Poco dopo la rotazione di una chiave viene visualizzata la firma MAC 401 e infine la rotazione si interrompe senza modifiche. 
-1. La chiave non è configurata correttamente nell'applicazione, quindi non corrisponde all'account.
-   1. Il problema 401 - Firma MAC sarà costante e si verificherà per tutte le chiamate
-1. L'applicazione usa le [chiavi di sola lettura](secure-access-to-data.md#master-keys) per le operazioni di scrittura.
-   1. Il problema 401 - Firma MAC si verificherà solo quando l'applicazione esegue richieste di scrittura, tuttavia queste richieste avranno esito positivo.
-1. È presente una race condition con la creazione del contenitore. Un'istanza dell'applicazione sta provando ad accedere al contenitore prima del completamento della creazione del contenitore. Questo problema si verifica più di frequente se l'applicazione è in esecuzione e il contenitore viene eliminato e poi ricreato con lo stesso nome mentre l'applicazione è in esecuzione. L'SDK tenterà di usare il nuovo contenitore, ma la creazione del contenitore è ancora in corso, quindi non contiene le chiavi.
-   1. Il problema 401 - Firma MAC viene visualizzato poco dopo la creazione di un contenitore e si verifica solo fino al termine della creazione del contenitore.
- 
- ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Errore HTTP 400. Le dimensioni delle intestazioni della richiesta sono troppo lunghe.
- Le dimensioni dell'intestazione sono aumentate fino a grandi dimensioni e superano le dimensioni massime consentite. È sempre consigliabile usare l'SDK più recente. Assicurarsi di usare almeno la versione [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) o [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), che aggiunge la traccia della dimensione dell'intestazione al messaggio dell'eccezione.
-
-Cause
- 1. Il token di sessione è diventato troppo grande. Il token di sessione aumenta con l'aumentare del numero di partizioni nel contenitore.
- 2. Il token di continuazione è cresciuto fino a grandi dimensioni. Diverse query avranno dimensioni diverse per i token di continuazione.
- 3. È causata da una combinazione del token di sessione e del token di continuazione.
-
-Soluzione:
-   1. Seguire i [suggerimenti](performance-tips.md) per le prestazioni e convertire l'applicazione in modalità di connessione diretta + TCP. Direct + TCP non ha la restrizione delle dimensioni dell'intestazione, ad esempio HTTP, che evita questo problema.
-   2. Se il token di sessione è la provocazione, una mitigazione temporanea prevede il riavvio dell'applicazione. Il riavvio dell'istanza dell'applicazione reimposterà il token di sessione. Se le eccezioni vengono interrotte dopo il riavvio, viene confermata la presenza del token di sessione. Fino alla dimensione che genererà l'eccezione.
-   3. Se l'applicazione non può essere convertita in Direct + TCP e il token di sessione è la ragione, la mitigazione può essere eseguita modificando il [livello di coerenza](consistency-levels.md)del client. Il token di sessione viene usato solo per la coerenza di sessione, che è l'impostazione predefinita per Cosmos DB. Qualsiasi altro livello di coerenza non utilizzerà il token di sessione. 
-   4. Se l'applicazione non può essere convertita in Direct + TCP e il token di continuazione è la ragione, provare a impostare l'opzione ResponseContinuationTokenLimitInKb. L'opzione è disponibile in FeedOptions per v2 o QueryRequestOptions in V3.
+* Informazioni sulle linee guida sulle prestazioni per [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) e [.NET v2](performance-tips.md)
+* Informazioni sugli [SDK Java basati su Reactor](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[La frequenza delle richieste è troppo elevata]: #request-rate-too-large
-[Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289919"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Pianificare l'ambiente Gen2 Azure Time Series Insights
 
@@ -78,7 +78,7 @@ Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodament
 
 È ora possibile configurare il modello Time Series dell'ambiente Azure Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa ID Time Series, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Per altre informazioni, vedere Panoramica del [modello Time Series](./concepts-model-overview.md) .
 
-Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilare e caricarlo prima di eseguire il push dei dati in Azure Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](./time-series-insights-update-how-to-tsm.md).
+Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilare e caricarlo prima di eseguire il push dei dati in Azure Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](/azure/time-series-insights/concepts-model-overview).
 
 Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo).
 

@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291609"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payload di dati di telemetria, proprietà e comandi
 
@@ -30,6 +30,9 @@ L'articolo non descrive tutti i possibili tipi di dati di telemetria, proprietà
 
 Ogni esempio mostra un frammento di codice del modello di funzionalità del dispositivo (DCM) che definisce il tipo e i payload JSON di esempio per illustrare il modo in cui il dispositivo deve interagire con l'applicazione IoT Central.
 
+> [!NOTE]
+> IoT Central accetta qualsiasi JSON valido, ma può essere usato solo per le visualizzazioni Se corrisponde a una definizione in DCM. È possibile esportare i dati che non corrispondono a una definizione, vedere [esportare i dati delle cose in destinazioni in Azure](howto-export-data.md).
+
 Il file JSON che definisce il DCM usa il [linguaggio DTDL (Digital Twin Definition Language) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Questa specifica include la definizione del `@id` formato della proprietà.
 
 Per il codice del dispositivo di esempio che mostra alcuni payload in uso, vedere l'applicazione [creare e connettere un'applicazione client all'applicazione azure IOT Central (Node.js)](tutorial-connect-device-nodejs.md) e [creare e connettere un'applicazione client alle esercitazioni di Azure IOT Central Application (Python)](tutorial-connect-device-python.md) .
@@ -43,9 +46,8 @@ IoT Central consente di visualizzare i dati non elaborati inviati da un disposit
 1. Selezionare la scheda **dati non elaborati** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Visualizzazione dati non elaborati":::
-    
-    In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna di **dati non modellata** Mostra i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
 
+    In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna di **dati non modellata** Mostra i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 
@@ -766,7 +768,7 @@ IoT Central prevede una risposta dal dispositivo agli aggiornamenti delle propri
 
 `ac`è un campo numerico che usa i valori riportati nella tabella seguente:
 
-| Valore | Etichetta | Descrizione |
+| valore | Etichetta | Descrizione |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completi | L'operazione di modifica della proprietà è stata completata correttamente. |
 | `'ac': 202`o`'ac': 201` | In sospeso | L'operazione di modifica della proprietà è in sospeso o in corso |
@@ -885,7 +887,7 @@ Il dispositivo deve inviare il payload JSON seguente per IoT Central dopo l'elab
 }
 ```
 
-## <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 ### <a name="synchronous-command-types"></a>Tipi di comando sincroni
 

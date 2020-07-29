@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132159"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287738"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -66,7 +66,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 
 ## <a name="import-the-template-in-vmware"></a>Importare il modello in VMware
 
-1. Accedere al server VMware vCenter o all'host vSphere ESXi usando il client VMWare vSphere.
+1. Accedere al server VMware vCenter o all'host vSphere ESXi usando il client VMware vSphere.
 2. Nel menu **file** selezionare **Distribuisci modello OVF** per avviare la procedura guidata **Distribuisci modello OVF** .
 
      ![Distribuisci modello OVF](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -92,13 +92,13 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di configurazione, eseguire questa operazione prima di registrare il server nell'insieme di credenziali. L'aggiunta di altre schede non è supportata dopo la registrazione.
 
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
-2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Selezionare quindi **Avanti**.
+2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Fare quindi clic su **Avanti**.
 3. Selezionare un tipo di scheda e una rete.
 4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi fare clic su fine **Avanti**  >  **Finish**  >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrare il server di configurazione con i servizi Azure Site Recovery
 
-1. Accendere la macchina virtuale dalla console del client VMWare vSphere.
+1. Dalla console client di VMware vSphere, accendere la macchina virtuale.
 2. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore.
 4. La prima volta che si accede, entro pochi secondi viene avviato lo strumento di configurazione Azure Site Recovery.

@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986284"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290105"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database SQL, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -51,7 +51,7 @@ Account di **accesso e utenti**: un account utente in un database può essere as
 - Un account di **accesso** è un account singolo nel database master, al quale è possibile collegare un account utente in uno o più database. Con un account di accesso di, le informazioni sulle credenziali per l'account utente vengono archiviate con l'account di accesso.
 - Un **account utente** è un account singolo in qualsiasi database che può essere, ma non deve essere collegato a un account di accesso. Con un account utente non collegato a un account di accesso, le informazioni sulle credenziali vengono archiviate con l'account utente.
 
-L' [**autorizzazione**](security-overview.md#authorization) per accedere ai dati ed eseguire varie azioni viene gestita tramite ruoli del database e autorizzazioni esplicite. L'autorizzazione si riferisce alle autorizzazioni assegnate a un utente e determina le operazioni che l'utente è autorizzato a eseguire. L'autorizzazione viene controllata dalle [appartenenze ai ruoli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) del database e dalle [autorizzazioni a livello di oggetto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari.
+L' [**autorizzazione**](security-overview.md#authorization) per accedere ai dati ed eseguire varie azioni viene gestita tramite ruoli del database e autorizzazioni esplicite. L'autorizzazione si riferisce alle autorizzazioni assegnate a un utente e determina le operazioni che l'utente è autorizzato a eseguire. L'autorizzazione viene controllata dalle [appartenenze ai ruoli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) del database e dalle [autorizzazioni a livello di oggetto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)dell'account utente. È consigliabile concedere agli utenti i privilegi minimi necessari.
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Account di accesso e account utente esistenti dopo la creazione di un nuovo database
 
@@ -108,7 +108,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 - **Creazione di un account di accesso**
 
   Creare un account di accesso SQL nel database master. Creare quindi un account utente in ogni database a cui l'utente deve accedere e associare l'account utente a tale account. Questo approccio è preferibile quando l'utente deve accedere a più database e si desidera che le password vengano sincronizzate. Questo approccio, tuttavia, presenta complessità quando viene usato con la replica geografica perché è necessario creare l'account di accesso sia nel server primario che nel server secondario. Per altre informazioni, vedere [configurare e gestire la sicurezza del database SQL di Azure per il ripristino geografico o il failover](active-geo-replication-security-configure.md).
-- **Crea un account utente**
+- **Creare un account utente**
 
   Creare un account utente nel database a cui un utente deve accedere (detto anche [utente indipendente](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 

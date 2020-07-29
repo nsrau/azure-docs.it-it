@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707515"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289574"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Distribuire un'applicazione IPv6 dual stack usando Load Balancer interni standard in Azure-PowerShell (anteprima)
 
 Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale e una subnet dual stack, un Load Balancer interno standard con configurazioni dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, un gruppo di sicurezza di rete e indirizzi IP pubblici.
-
-> [!Important]
-> Il supporto IPv6 per la rete virtuale di Azure è attualmente disponibile in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La procedura per creare un Load Balancer interno in grado di supportare IPv6 è quasi identica al processo di creazione di un IPv6 con connessione Internet Load Balancer descritto [qui](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). Le uniche differenze per la creazione di un servizio di bilanciamento del carico interno sono nella configurazione front-end, come illustrato nell'esempio di PowerShell seguente:
 

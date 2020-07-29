@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791732"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290079"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Migrazione di Cosmos DB NoSQL e partner di sviluppo delle applicazioni
 
@@ -25,8 +25,7 @@ Dalla migrazione NoSQL allo sviluppo di applicazioni, è possibile scegliere tra
 | [10thMagnitude](https://www.10thmagnitude.com/) | Internet delle cose, vendite al dettaglio (inventario), analisi operativa (Spark), architettura senza server, sviluppo di app | USA |
 |[Altoros Development LLC](https://www.altoros.com/)  |  Internet delle cose, personalizzazione al dettaglio (inventario), architetture senza server NoSQL migrazione, sviluppo di app|   USA |
 |[Avanade](https://www.avanade.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app | Austria, Germania, Svizzera, Italia, Norvegia, Spagna, Regno Unito, Canada |
-|[Accenture](https://www.accenture.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app |Globale|
-|[Bluemetal](https://www.bluemetal.com/)     |  Internet delle cose, personalizzazione (inventario), analisi operativa per Enterprise & SMC, annotazione immagine intelligenza artificiale, controllo asset, migrazione NoSQL, sviluppo app     |    America del Nord, Asia-Pacifico     |
+|[Accenture](https://www.accenture.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app |Global|
 |[Capax Global LLC](https://www.capaxglobal.com/) | Internet delle cose, personalizzazione, vendita al dettaglio (inventario), analisi operativa (Spark), architettura senza server, sviluppo di app|    USA     |  
 | [Capgemini](https://www.capgemini.com/) | Vendita al dettaglio (inventario), Internet delle cose, analisi operativa (Spark), sviluppo di app | Stati Uniti, Francia, Regno Unito, Paesi Bassi, Finlandia  |
 | [Cognizant](https://www.cognizant.com/) | Internet delle cose, personalizzazione, vendite al dettaglio (inventario), analisi operativa (Spark), sviluppo di app |Stati Uniti, Canada, Regno Unito, Danimarca, Paesi Bassi, Svizzera, Australia, Giappone |
@@ -51,13 +50,12 @@ Dalla migrazione NoSQL allo sviluppo di applicazioni, è possibile scegliere tra
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su alcuni degli altri partner Microsoft, vedere il [sito dei partner di Microsoft](https://partner.microsoft.com/en-US/).
+Per altre informazioni su alcuni degli altri partner Microsoft, vedere il [sito dei partner di Microsoft](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[5]: ./media/partners-migration-cosmosdb/bluemetal_logo.png
 [6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
 [7]: ./media/partners-migration-cosmosdb/coeo_logo.png
 [8]: ./media/partners-migration-cosmosdb/infosys_logo.png

@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi dell'host sessione desktop virtuale Windows 2019-Azure
-description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows.
+title: Risolvere i problemi relativi a host sessione desktop virtuale di Windows (versione classica)-Azure
+description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows (classica).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,21 +8,21 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527660"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291255"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Risolvere i problemi di configurazione della macchina virtuale host sessione
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configurazione macchina virtuale host sessione desktop virtuale di Windows (classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-vm-configuration.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-vm-configuration.md).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 

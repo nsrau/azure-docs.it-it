@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067902"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290984"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
@@ -40,16 +40,12 @@ Utilizzando un carattere jolly nel nome host, è possibile associare più nomi h
 >[!NOTE]
 > Questa funzionalità è disponibile in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In [portale di Azure](create-multiple-sites-portal.md), è possibile definirli in caselle di testo separate, come illustrato nella schermata seguente.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Configurazione di esempio di listener con caratteri jolly":::
-
 >[!NOTE]
->Se si sta creando un nuovo listener multisito o aggiungendo più nomi host al listener multisito esistente dal portale di Azure, questo verrà aggiunto per impostazione predefinita al `HostNames` parametro della configurazione del listener, che aggiunge più funzionalità al `HostName` parametro esistente nella configurazione.
+>Questa funzionalità è attualmente disponibile solo tramite [Azure PowerShell](tutorial-multiple-sites-powershell.md) e l'interfaccia della riga di comando di [Azure](tutorial-multiple-sites-cli.md). Il supporto del portale sarà presto disponibile.
 
-In [Azure PowerShell](tutorial-multiple-sites-powershell.md), è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio: `-HostNames "*.contoso.com,*.fabrikam.com"`
+In [Azure PowerShell](tutorial-multiple-sites-powershell.md), è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio, usare `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-Nell' [interfaccia](tutorial-multiple-sites-cli.md)della riga di comando di Azure è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio: `--host-names "*.contoso.com,*.fabrikam.com"`
+Nell' [interfaccia](tutorial-multiple-sites-cli.md)della riga di comando di Azure è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio, usare `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Caratteri consentiti nel campo nomi host:
 
@@ -77,7 +73,7 @@ Nell' [interfaccia](tutorial-multiple-sites-cli.md)della riga di comando di Azur
 *   Le proprietà "hostname" accetta una stringa come input, in cui è possibile menzionare solo un nome di dominio non con caratteri jolly e "hostnames" accetta una matrice di stringhe come input, in cui è possibile menzionare fino a 5 nomi di dominio con caratteri jolly. Tuttavia, entrambe le proprietà non possono essere usate contemporaneamente.
 *   Non è possibile creare una regola di [Reindirizzamento](redirect-overview.md) con un listener di destinazione che usa caratteri jolly o più nomi host.
 
-Vedere [creare più siti usando portale di Azure](create-multiple-sites-portal.md) o [usando Azure PowerShell](tutorial-multiple-sites-powershell.md) o l' [interfaccia](tutorial-multiple-sites-cli.md) della riga di comando di Azure per la guida dettagliata su come configurare i nomi host con caratteri jolly in un listener multisito.
+Vedere [creare più siti usando Azure PowerShell](tutorial-multiple-sites-powershell.md) o l' [interfaccia](tutorial-multiple-sites-cli.md) della riga di comando di Azure per la guida dettagliata su come configurare i nomi host con caratteri jolly in un listener multisito.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Intestazioni host e indicazione nome server (SNI)
 
@@ -95,6 +91,9 @@ Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver acquisito [familiarità con](create-multiple-sites-portal.md) l'hosting di più siti, passare a creare più siti usando portale di Azure o [usando Azure PowerShell](tutorial-multiple-sites-powershell.md) o l'interfaccia della riga di comando di [Azure](tutorial-multiple-sites-cli.md) per la guida dettagliata alla creazione di un gateway applicazione per ospitare più siti Web.
+Informazioni su come configurare l'hosting di più siti nel gateway applicazione
+* [Uso del portale di Azure](create-multiple-sites-portal.md)
+* [Uso di Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Utilizzare l'interfaccia della riga di comando di Azure](tutorial-multiple-sites-cli.md)
 
 Per una distribuzione basata su modello end-to-end, vedere il [modello di Resource Manager con hosting di più siti](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting).

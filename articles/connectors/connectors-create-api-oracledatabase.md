@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039987"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290618"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -122,10 +122,11 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 ## <a name="get-some-help"></a>Ottenere aiuto
 
-La [pagina di domande Microsoft per le App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) è il posto ideale per porre domande, aggiungere risposte e vedere cosa stanno facendo gli altri utenti delle App per la logica. 
+La [pagina di domande Microsoft per le App per la logica di Azure](/answers/topics/azure-logic-apps.html) è il posto ideale per porre domande, aggiungere risposte e vedere cosa stanno facendo gli altri utenti delle App per la logica. 
 
 È possibile migliorare App per la logica e i connettori votando e inviando le idee nella pagina [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e scoprire i connettori disponibili in App per la logica nell'[elenco di API](apis-list.md).
+

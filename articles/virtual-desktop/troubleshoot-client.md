@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059140"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291329"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi del client Desktop remoto
 
@@ -64,7 +64,7 @@ Se il browser inizia a funzionare o smette di funzionare mentre si usa il client
 
 Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario firmare o usare una finestra del browser privata.
 
-Se si usa la versione dell'autunno 2019 di Desktop virtuale Windows, usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
+Se si usa il desktop virtuale di Windows (classico), usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web smette di rispondere o si disconnette
 

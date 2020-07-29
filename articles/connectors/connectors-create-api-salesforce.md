@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 73aeef24fde9fe58b89f1aa7789970e77e985d50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9950951ab5189c8c7b72de78bca9465ec5f22748
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834833"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290586"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorare, creare e gestire le risorse di Salesforce con App per la logica di Azure
 
@@ -59,7 +60,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 
 ## <a name="get-support"></a>Supporto
 
-* Per domande, visitare la [pagina delle domande di Domande e risposte Microsoft per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Per domande, visitare la [pagina delle domande di Domande e risposte Microsoft per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
