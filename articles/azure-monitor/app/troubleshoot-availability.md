@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041391"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318148"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -81,7 +81,7 @@ Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" in
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Non vengono visualizzati dati di telemetria sul lato server correlati per diagnosticare gli errori dei test? *
 
-Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](../../azure-monitor/app/sampling.md). Selezionare un risultato di disponibilità diverso.
+Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](./sampling.md). Selezionare un risultato di disponibilità diverso.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>È possibile chiamare codice da un test Web?
 
@@ -96,7 +96,7 @@ I due termini vengono usati in modo intercambiabile. Test di disponibilità è u
 
    Esistono due possibili soluzioni:
 
-   * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](../../azure-monitor/app/ip-addresses.md).
+   * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](./ip-addresses.md).
    * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati verranno visualizzati nei pannelli dei test Web di disponibilità, anche se l'esperienza sarà leggermente semplificata rispetto a quanto disponibile per i test creati tramite il portale. I test di disponibilità personalizzati verranno visualizzati anche come risultati della disponibilità in analisi, ricerca e metriche.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Non è possibile caricare un test Web in più passi
@@ -134,3 +134,4 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 * [Test Web in più passaggi](availability-multistep.md)
 * [Test ping URL](monitor-web-app-availability.md)
+

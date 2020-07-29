@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-ms.openlocfilehash: 7926e3b8aedde63c3a1a5a57c42b3d4f29cb9797
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076240"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369034"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Eseguire la migrazione di applicazioni Java Message Service (JMS) 2,0 esistenti da Apache ActiveMQ al bus di servizio di Azure
 
@@ -34,7 +35,7 @@ Il bus di servizio di Azure e Apache ActiveMQ sono entrambi broker di messaggi, 
 
 Anche in questo caso, esistono alcune differenze tra le due, come illustrato nella tabella seguente:
 
-| Category | ActiveMQ | Bus di servizio di Azure |
+| Categoria | ActiveMQ | Bus di servizio di Azure |
 | --- | --- | --- |
 | Suddivisione in livelli dell'applicazione | Monolith cluster | A due livelli <br> (gateway + back-end) |
 | Supporto dei protocolli | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |

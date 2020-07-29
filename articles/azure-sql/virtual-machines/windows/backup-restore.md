@@ -3,7 +3,7 @@ title: Backup e ripristino per SQL Server in macchine virtuali di Azure | Micros
 description: Vengono descritte considerazioni sul backup e sul ripristino per i database di SQL Server in esecuzione in macchine virtuali di Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 27438b0729aa309878eb54a346f04754cb983af1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073268"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293040"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e ripristino per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -130,12 +130,12 @@ La tabella seguente riepiloga le funzionalità di ogni opzione di backup e ripri
 | Opzione | Backup automatizzato | Backup di Azure per SQL | Backup manuale |
 |---|---|---|---|
 | Richiede altri servizi di Azure |   | ![Sì](./media/backup-restore/yes.png) |   |
-| Configurare i criteri di backup nel portale di Azure | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |   |
+| Configurare i criteri di backup nel portale di Azure | ![Sì](./media/backup-restore/yes.png) | ![sì](./media/backup-restore/yes.png) |   |
 | Ripristinare i database nel portale di Azure |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Gestire più server in un unico dashboard |   | ![Sì](./media/backup-restore/yes.png) |   |
-| Ripristino temporizzato | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |
-| Obiettivo del punto di ripristino (RPO) di 15 minuti | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |
-| Criteri di conservazione dei backup a breve termine (giorni) | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |   |
+| Ripristino temporizzato | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) | ![sì](./media/backup-restore/yes.png) |
+| Obiettivo del punto di ripristino (RPO) di 15 minuti | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) | ![sì](./media/backup-restore/yes.png) |
+| Criteri di conservazione dei backup a breve termine (giorni) | ![Sì](./media/backup-restore/yes.png) | ![sì](./media/backup-restore/yes.png) |   |
 | Criteri di conservazione dei backup a lungo termine (mesi, anni) |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Supporto predefinito per SQL Server Always On |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Backup in account di archiviazione di Azure | ![Sì](./media/backup-restore/yes.png)(automatico) | ![Sì](./media/backup-restore/yes.png)(automatico) | ![Sì](./media/backup-restore/yes.png)(gestito dal cliente) |
@@ -145,7 +145,7 @@ La tabella seguente riepiloga le funzionalità di ogni opzione di backup e ripri
 | Avvisi tramite posta elettronica consolidati per gli errori |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Personalizzazione del monitoraggio in base ai log di Monitoraggio di Azure |   | ![Sì](./media/backup-restore/yes.png) |   |
 | Monitoraggio dei processi di backup con SSMS o script Transact-SQL | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) | ![Sì](./media/backup-restore/yes.png) |
-| Ripristino dei database con SSMS o script Transact-SQL | ![Sì](./media/backup-restore/yes.png) |   | ![Sì](./media/backup-restore/yes.png) |
+| Ripristino dei database con SSMS o script Transact-SQL | ![Sì](./media/backup-restore/yes.png) |   | ![sì](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

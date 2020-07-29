@@ -1,6 +1,5 @@
 ---
-title: Raccolta di intelligenza artificiale per Azure
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (versione classica): Azure AI Gallery-Azure'
 description: Condividere e scoprire risorse di analisi e altro in Azure AI Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbece33d443139c9f1b1384c1a9e0b3c4da0d08
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709029"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318556"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,7 +28,7 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
-Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Tra queste sono incluse:
+Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Sono inclusi:
 
 * **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
@@ -95,7 +98,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
    * Screenshot del grafico dell'esperimento
    * Origini dati e spiegazione
    * Elaborazione dati
-   * Progettazione delle funzioni
+   * Progettazione di caratteristiche
    * Descrizione del modello
    * Risultati e valutazione delle prestazioni del modello
 
@@ -122,7 +125,7 @@ Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, pa
 * Nome dell'esperimento
 * Riepilogo o descrizione
 * Tag
-* Image
+* Immagine
 * Impostazione di visibilità, tra **Public** (Pubblico) e **Unlisted** (Non in elenco)
 
 È anche possibile eliminare l'esperimento da Gallery.
@@ -150,9 +153,9 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 1. Selezionare **Nuovo elemento**.
 
-1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Fare quindi clic su **Avanti**.
+1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
 
-1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Fare quindi clic su **Avanti**.
+1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Next**.
 
 1. Nella pagina **Impostazioni**, per **Visibilità**, selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
 

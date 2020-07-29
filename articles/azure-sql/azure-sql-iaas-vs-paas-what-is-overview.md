@@ -12,13 +12,13 @@ keywords: SQL Server Cloud, SQL Server nel cloud, database PaaS, cloud SQL Serve
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/27/2020
-ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 07/27/2020
+ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080177"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280852"
 ---
 # <a name="what-is-azure-sql"></a>Che cos'è SQL di Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -72,7 +72,7 @@ Come illustrato nel diagramma, ogni offerta di servizio può essere caratterizza
 
 In Azure è possibile fare in modo che i carichi di lavoro di SQL Server siano in esecuzione come servizio ospitato ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) o come infrastruttura host ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). In PaaS sono disponibili più opzioni di prodotto e livelli di servizio all'interno di ogni opzione. La domanda principale da porre quando si decide di scegliere tra PaaS o IaaS è quella di gestire il database, applicare patch ed eseguire backup oppure delegare queste operazioni ad Azure?
 
-### <a name="azure-sql-database"></a>database SQL di Azure
+### <a name="azure-sql-database"></a>Database SQL di Azure
 
 Il [database SQL di Azure](database/sql-database-paas-overview.md) è un database relazionale come servizio (DBaaS) ospitato in Azure che rientra nella categoria Industry della piattaforma distribuita *come servizio (PaaS)*. 
 - Ideale per le applicazioni cloud moderne che vogliono usare le funzionalità di SQL Server stabili più recenti e presentano vincoli temporali per lo sviluppo e il marketing. 
@@ -107,15 +107,15 @@ In generale, il database SQL e il Istanza gestita SQL possono aumentare signific
 
 ### <a name="comparison-table"></a>Tabella di confronto
 
-| database SQL di Azure | Istanza gestita di SQL di Azure | SQL Server in una macchina virtuale Azure |
+| Database SQL di Azure | Istanza gestita di SQL di Azure | SQL Server in una macchina virtuale Azure |
 | :--- | :--- | :--- |
 |Supporta la maggior parte delle funzionalità a livello di database locali. Sono disponibili le funzionalità di SQL Server più usate.<br/>È garantita la disponibilità del 99,995%.<br/>Backup predefiniti, applicazione di patch, ripristino.<br/>Ultima versione stabile del motore di database.<br/>Possibilità di assegnare le risorse necessarie (CPU/archiviazione) a singoli database.<br/>Avanzate funzionalità integrate di intelligence e sicurezza.<br/>Modifica online delle risorse (CPU/archiviazione).| Supporta quasi tutte le funzionalità a livello di database e a livello di istanza locali. Compatibilità elevata con SQL Server.<br/>Disponibilità garantita al 99,99%.<br/>Backup predefiniti, applicazione di patch, ripristino.<br/>Ultima versione stabile del motore di database.<br/>Facilità di migrazione da SQL Server.<br/>Indirizzo IP privato all'interno della rete virtuale di Azure.<br/>Avanzate funzionalità integrate di intelligence e sicurezza.<br/>Modifica online delle risorse (CPU/archiviazione).| Pieno controllo sul motore di SQL Server. Supporta tutte le funzionalità locali.<br/>Disponibilità fino al 99,99%.<br/>Stesse funzionalità della versione corrispondente di SQL Server in locale.<br/>Correzione di una versione di motore di database ben nota.<br/>Facilità di migrazione da SQL Server.<br/>Indirizzo IP privato all'interno della rete virtuale di Azure.<br/>Si ha la possibilità di distribuire applicazioni o servizi nell'host in cui viene inserito SQL Server.|
-|La migrazione da SQL Server potrebbe essere complessa.<br/>Alcune funzionalità di SQL Server non sono disponibili.<br/>Nessun tempo di manutenzione garantito (ma quasi trasparente).<br/>La compatibilità con la versione di SQL Server può essere ottenuta solo tramite i livelli di compatibilità del database.<br/>Non è possibile assegnare un indirizzo IP privato (è possibile limitare l'accesso usando le regole del firewall).|È ancora presente un numero limitato di funzionalità di SQL Server che non sono disponibili.<br/>Nessun tempo di manutenzione garantito (ma quasi trasparente).<br/>La compatibilità con la versione di SQL Server può essere ottenuta solo tramite i livelli di compatibilità del database.|È necessario gestire i backup e le patch.<br>È necessario implementare una soluzione a disponibilità elevata.<br/>Tempo di inattività durante la modifica delle risorse (CPU/archiviazione)|
+|La migrazione da SQL Server potrebbe essere complessa.<br/>Alcune funzionalità di SQL Server non sono disponibili.<br/>Nessun tempo di manutenzione garantito (ma quasi trasparente).<br/>La compatibilità con la versione di SQL Server può essere ottenuta solo tramite i livelli di compatibilità del database.<br/>Supporto di indirizzi IP privati con [collegamento privato di Azure](database/private-endpoint-overview.md).|È ancora presente un numero limitato di funzionalità di SQL Server che non sono disponibili.<br/>Nessun tempo di manutenzione garantito (ma quasi trasparente).<br/>La compatibilità con la versione di SQL Server può essere ottenuta solo tramite i livelli di compatibilità del database.|È necessario gestire i backup e le patch.<br>È necessario implementare una soluzione a disponibilità elevata.<br/>Tempo di inattività durante la modifica delle risorse (CPU/archiviazione)|
 | Database fino a 100 TB. | Fino a 8 TB. | SQL Server istanze con un massimo di 256 TB di spazio di archiviazione. L'istanza può supportare tutti i database necessari. |
 | L'applicazione locale può accedere ai dati nel database SQL di Azure. | L' [implementazione della rete virtuale nativa](managed-instance/vnet-existing-add-subnet.md) e la connettività all'ambiente locale mediante Azure Express route o gateway VPN. | Con le macchine virtuali SQL è possibile avere applicazioni eseguite in parte nel cloud e in parte in locale. Ad esempio, è possibile estendere la rete locale e un dominio di Active Directory nel cloud tramite la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per altre informazioni sulle soluzioni di cloud ibrido, vedere [Estensione di soluzioni dati locali nel cloud](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Costo
 
 Che si tratti di un avvio vincolato per denaro o di un team di una società stabilita che opera con vincoli di budget limitati, un finanziamento limitato è spesso il driver principale quando si decide come ospitare i database. Questa sezione illustra le nozioni di base relative a fatturazione e licenze in Azure associate alla famiglia di servizi SQL di Azure.  oltre a informazioni su come calcolare il costo totale dell'applicazione.
 

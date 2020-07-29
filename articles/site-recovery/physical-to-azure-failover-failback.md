@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497864"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292816"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -83,7 +84,7 @@ Dopo il failover in Azure, è necessario riproteggere le macchine virtuali di Az
 10. Verificare i seguenti scenari in cui non è possibile eseguire il failback:
     - Se si usa l'edizione gratuita ESXi 5,5 o vSphere 6 hypervisor. Eseguire l'aggiornamento a una versione diversa.
     - Se si dispone di un server fisico Windows Server 2008 R2 SP1.
-    - Macchine virtuali di cui è [stata eseguita la migrazione](migrate-overview.md#what-do-we-mean-by-migration).
+    - Macchine virtuali di cui è stata eseguita la migrazione.
     - Una macchina virtuale che è stata spostata in un altro gruppo di risorse.
     - Una macchina virtuale di Azure di replica che è stata eliminata.
     - Una macchina virtuale di Azure di replica non protetta (replica nel sito locale).

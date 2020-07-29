@@ -4,15 +4,15 @@ description: Trasferire i dati con AzCopy e archiviazione file.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527881"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292714"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
@@ -54,7 +54,7 @@ Questa sezione contiene gli esempi seguenti:
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
 > |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
-> |Caricare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
+> |Effettuare il caricamento in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
@@ -101,7 +101,7 @@ Se si specifica il nome di una directory che non esiste nella condivisione file,
 
 ### <a name="upload-specific-files"></a>Carica file specifici
 
-È possibile specificare nomi di file completi oppure utilizzare nomi parziali con caratteri jolly (*).
+È possibile caricare file specifici usando nomi di file completi, nomi parziali con caratteri jolly (*) o con date e ore.
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
@@ -128,6 +128,17 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Caricare i file che sono stati modificati dopo una data e un'ora 
+
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-after` opzione. Specificare una data e un'ora in formato ISO 8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Esempio** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+Per informazioni di riferimento dettagliate, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="download-files"></a>Scaricare i file
 
@@ -185,7 +196,7 @@ Questo esempio genera una directory denominata `C:\myDirectory\myFileShareDirect
 
 ### <a name="download-specific-files"></a>Scarica file specifici
 
-È possibile specificare nomi di file completi oppure utilizzare nomi parziali con caratteri jolly (*).
+È possibile scaricare file specifici usando nomi di file completi, nomi parziali con caratteri jolly (*) o con date e ore.
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
@@ -212,6 +223,18 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Scaricare i file che sono stati modificati dopo una data e un'ora 
+
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-after` opzione. Specificare una data e un'ora in formato ISO-8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Esempio** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+Per informazioni di riferimento dettagliate, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="copy-files-between-storage-accounts"></a>Copiare file tra account di archiviazione
 

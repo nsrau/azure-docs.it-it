@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 06c8949be681d13b9dc7d5c433197dd9371aeef8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318097"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Monitoraggio di Azure
 
@@ -45,9 +46,9 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
 
 Per eseguire il controllo integrità dei controller di dominio che sono membri del dominio da valutare, ciascun controller di dominio in quel dominio richiede un agente e la connettività a Monitoraggio di Azure tramite uno dei metodi supportati seguenti:
 
-1. Installare l'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) se il controller di dominio non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
+1. Installare l'[agente di Log Analytics per Windows](../platform/agent-windows.md) se il controller di dominio non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
 2. Se si esegue il monitoraggio con System Center 2016 Operations Manager oppure Operations Manager 2012 R2 e il gruppo di gestione non è integrato con Monitoraggio di Azure, è possibile usare una configurazione multihomed del controller di dominio con Monitoraggio di Azure per raccogliere i dati e inoltrarli al servizio, mantenendo il monitoraggio tramite Operations Manager.  
-3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
+3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
 
 L'agente nel controller di dominio che fa riferimento a un gruppo di gestione di Operations Manager raccoglie i dati e li inoltra al server di gestione assegnato, quindi viene eseguito l'invio direttamente da un server di gestione a Monitoraggio di Azure.  I dati non vengono scritti nei database di Operations Manager.  
 
@@ -215,3 +216,4 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere [Query di log di Monitoraggio di Azure](../log-query/log-query-overview.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità AD.
+

@@ -1,6 +1,5 @@
 ---
-title: Valutazione & la convalida incrociata di modelli
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): valutazione & Cross-Validate Models-Azure'
 description: Informazioni sulle metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2308b57859a7f8eb0aa6519246fbb52ffdf9e81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945104"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318641"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Valutare le prestazioni del modello in Azure Machine Learning Studio (classico)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 Questo articolo illustra le metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).  La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. Azure Machine Learning Studio (classico) supporta la valutazione del modello tramite due dei moduli principali di Machine Learning: 
 + [Evaluate Model][evaluate-model] (Valuta modello) 

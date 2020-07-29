@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081475"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315446"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 
@@ -19,7 +19,7 @@ Log Analytics le aree di lavoro in monitoraggio di Azure possono aiutare i provi
 
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
-Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle sottoscrizioni di Azure CSP.
+Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/membership/cloud-solution-provider) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle sottoscrizioni di Azure CSP.
 
 Log Analytics in monitoraggio di Azure può essere usato anche da un provider di servizi che gestisce le risorse dei clienti tramite la funzionalità di gestione delle risorse delegate di Azure nel [Faro di Azure](../../lighthouse/overview.md).
 
@@ -36,7 +36,7 @@ In questa architettura l'area di lavoro viene distribuita nel tenant del cliente
 Ci sono due modi in cui gli amministratori del provider di servizi possono accedere a un'area di lavoro Log Analytics in un tenant del cliente:
 
 - Un cliente può aggiungere singoli utenti dal provider di servizi come [Azure Active Directory utenti Guest (B2B)](../../active-directory/b2b/what-is-b2b.md). Gli amministratori del provider di servizi dovranno accedere alla directory di ogni cliente nel portale di Azure per poter accedere a queste aree di lavoro. Questa operazione richiede inoltre ai clienti di gestire l'accesso singolo per ogni amministratore del provider di servizi.
-- Per una maggiore scalabilità e flessibilità, i provider di servizi possono usare la funzionalità di [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) di [Azure Lighthouse](../../lighthouse/overview.md) per accedere al tenant del cliente. Con questo metodo, gli amministratori del provider di servizi sono inclusi in un gruppo di utenti Azure AD nel tenant del provider di servizi e a questo gruppo viene concesso l'accesso durante il processo di onboarding per ogni cliente. Questi amministratori possono quindi accedere alle aree di lavoro di ogni cliente dall'interno del proprio tenant del provider di servizi, anziché dover accedere singolarmente al tenant di ogni cliente. L'accesso alle risorse dell'area di lavoro Log Analytics dei clienti in questo modo riduce il lavoro necessario sul lato cliente e può semplificare la raccolta e l'analisi dei dati tra più clienti gestiti dallo stesso provider di servizi tramite strumenti come le [cartelle](../..//azure-monitor/platform/workbooks-overview.md)di lavoro di monitoraggio di Azure. Per altre informazioni, vedere [monitorare le risorse dei clienti su larga scala](../../lighthouse/how-to/monitor-at-scale.md).
+- Per una maggiore scalabilità e flessibilità, i provider di servizi possono usare la funzionalità di [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) di [Azure Lighthouse](../../lighthouse/overview.md) per accedere al tenant del cliente. Con questo metodo, gli amministratori del provider di servizi sono inclusi in un gruppo di utenti Azure AD nel tenant del provider di servizi e a questo gruppo viene concesso l'accesso durante il processo di onboarding per ogni cliente. Questi amministratori possono quindi accedere alle aree di lavoro di ogni cliente dall'interno del proprio tenant del provider di servizi, anziché dover accedere singolarmente al tenant di ogni cliente. L'accesso alle risorse dell'area di lavoro Log Analytics dei clienti in questo modo riduce il lavoro necessario sul lato cliente e può semplificare la raccolta e l'analisi dei dati tra più clienti gestiti dallo stesso provider di servizi tramite strumenti come le [cartelle](./workbooks-overview.md)di lavoro di monitoraggio di Azure. Per altre informazioni, vedere [monitorare le risorse dei clienti su larga scala](../../lighthouse/how-to/monitor-at-scale.md).
 
 I vantaggi dell'architettura distribuita sono:
 
@@ -75,18 +75,19 @@ La terza architettura è una combinazione delle due opzioni. Tale architettura s
 
 Sono disponibili due opzioni per implementare i log in una posizione centrale:
 
-1. Area di lavoro centrale: il provider di servizi può creare un'area di lavoro nel proprio tenant e usare uno script che usi l'[API di query](https://dev.loganalytics.io/) con l'[API di raccolta dati](../../azure-monitor/platform/data-collector-api.md) per spostare i dati dalle diverse aree di lavoro nella posizione centrale. Un'alternativa all'uso degli script consiste nell'usare le [app per la logica di Azure](../../logic-apps/logic-apps-overview.md).
+1. Area di lavoro centrale: il provider di servizi può creare un'area di lavoro nel proprio tenant e usare uno script che usi l'[API di query](https://dev.loganalytics.io/) con l'[API di raccolta dati](./data-collector-api.md) per spostare i dati dalle diverse aree di lavoro nella posizione centrale. Un'alternativa all'uso degli script consiste nell'usare le [app per la logica di Azure](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI come posizione centrale: Power BI può fungere da posizione centrale quando le varie aree di lavoro esportano i dati usando l'integrazione tra l'area di lavoro di Log Analytics e [Power bi](../../azure-monitor/platform/powerbi.md).
+2. Power BI come posizione centrale: Power BI può fungere da posizione centrale quando le varie aree di lavoro esportano i dati usando l'integrazione tra l'area di lavoro di Log Analytics e [Power bi](./powerbi.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](template-workspace-configuration.md)
 
-* Automatizzare la creazione delle aree di lavoro usando [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
+* Automatizzare la creazione delle aree di lavoro usando [PowerShell](./powershell-workspace-configuration.md)
 
-* Usare la funzione [Avvisi](../../azure-monitor/platform/alerts-overview.md) per l'integrazione con i sistemi esistenti
+* Usare la funzione [Avvisi](./alerts-overview.md) per l'integrazione con i sistemi esistenti
 
-* Generare report di riepilogo usando [Power BI](../../azure-monitor/platform/powerbi.md)
+* Generare report di riepilogo usando [Power BI](./powerbi.md)
 
 * Caricare i clienti nella [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+

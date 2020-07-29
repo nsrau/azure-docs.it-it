@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744126"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318165"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
 Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo degli eventi di telemetria importanti dell'app Web, consentendo di identificare rapidamente problemi e anomalie. Collegando l'utente a informazioni di diagnostica più dettagliate, Tendenze consente di migliorare le prestazioni dell'app, ricostruire le cause delle eccezioni e individuare informazioni utili dagli eventi personalizzati.
@@ -21,7 +21,7 @@ Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Configurare l'app Web per Application Insights
 
-Se non è ancora stato fatto, [configurare l'app Web per Application Insights](../../azure-monitor/app/app-insights-overview.md). Questa operazione consente all'app di inviare dati di telemetria al portale di Application Insights, dove lo strumento Tendenze legge i dati di telemetria.
+Se non è ancora stato fatto, [configurare l'app Web per Application Insights](./app-insights-overview.md). Questa operazione consente all'app di inviare dati di telemetria al portale di Application Insights, dove lo strumento Tendenze legge i dati di telemetria.
 
 Tendenze di Application Insights è disponibile in Visual Studio 2015 Update 3 e versioni successive.
 
@@ -48,7 +48,7 @@ Per iniziare, scegliere una di cinque analisi comuni delle tendenze, ognuna dell
 Queste analisi predefinite sono accessibili successivamente dal pulsante **Visualizza tipi comuni di analisi dei dati di telemetria** nell'angolo superiore sinistro della finestra Tendenze.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualizzare le tendenze nell'applicazione
-Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese/area geografica di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
+Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese/regione di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
 
 Usare i controlli nella parte superiore della finestra per modificare i tipi di dati di telemetria visualizzati. Prima di tutto, scegliere i tipi di dati di telemetria a cui si è interessati.
 
@@ -98,7 +98,7 @@ Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano ano
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 |  |  |
 | --- | --- |
-| **[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/visual-studio-trends/34.png) |
-| **[Aggiungere altri dati](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Uso del portale Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Uso di Application Insights in Visual Studio](./visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/visual-studio-trends/34.png) |
+| **[Aggiungere altri dati](./asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/visual-studio-trends/64.png) |
+| **[Uso del portale Application Insights](./overview-dashboard.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

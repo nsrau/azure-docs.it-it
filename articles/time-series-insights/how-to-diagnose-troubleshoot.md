@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099565"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289923"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticare e risolvere i problemi relativi a un ambiente Gen2 Azure Time Series Insights
 
@@ -121,7 +121,7 @@ Se la proprietà timestamp non è specificata in modo esplicito, come timestamp 
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problema: tutte le istanze di Gen2 Explorer non dispongono di un elemento padre
 
-Questo problema può verificarsi se nell'ambiente non è definita una gerarchia del modello Time Series. Per altre informazioni, vedere informazioni su come [usare i modelli Time Series](./time-series-insights-update-how-to-tsm.md).
+Questo problema può verificarsi se nell'ambiente non è definita una gerarchia del modello Time Series. Per altre informazioni, vedere informazioni su come [usare i modelli Time Series](/azure/time-series-insights/time-series-insights-overview).
 
   [![Nelle istanze con non padre verrà visualizzato un avviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Questo problema può verificarsi se non si usa la versione più recente del conn
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere le informazioni su come [usare i modelli Time Series](./time-series-insights-update-how-to-tsm.md).
+- Leggere le informazioni su come [usare i modelli Time Series](/azure/time-series-insights/time-series-insights-overview).
 
 - Informazioni sulle [forme JSON supportate](./how-to-shape-query-json.md).
 

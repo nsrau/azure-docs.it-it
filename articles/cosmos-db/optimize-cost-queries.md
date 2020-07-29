@@ -5,26 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445125"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318267"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle query in Azure Cosmos DB
 
-Azure Cosmos DB offre un set completo di operazioni di database, incluse query relazionali e gerarchiche che operano sugli elementi in un contenitore. Il costo associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie a eseguire diverse operazioni di database e rispondere a una richiesta. Questo articolo illustra come valutare gli addebiti delle unità di richiesta per una query e ottimizzare la query in termini di prestazioni e costi. 
+Azure Cosmos DB offre un set completo di operazioni di database, incluse query relazionali e gerarchiche che operano sugli elementi in un contenitore. Il costo associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie a eseguire diverse operazioni di database e rispondere a una richiesta. Questo articolo illustra come valutare gli addebiti delle unità di richiesta per una query e ottimizzare la query in termini di prestazioni e costi.
 
-Le query in Azure Cosmos DB vengono in genere ordinate dalla più veloce/più efficiente alla più lenta/meno efficiente in termini di velocità effettiva, come indicato di seguito:  
+Le letture in Azure Cosmos DB vengono in genere ordinate dal più veloce/più efficiente al più lento o meno efficiente in termini di velocità effettiva, come indicato di seguito:  
 
-* Operazione get su una singola chiave di partizione e chiave di elemento.
+* Letture di punti (ricerca chiave/valore su un ID singolo elemento e una chiave di partizione).
 
 * Query con una clausola di filtro in una singola chiave di partizione.
 
 * Query senza una clausola di filtro di uguaglianza o intervallo su qualsiasi proprietà.
 
 * Query senza filtri.
+
+Poiché le ricerche chiave/valore sull'ID elemento sono il tipo di lettura più efficiente, è necessario assicurarsi che l'ID elemento abbia un valore significativo.
 
 Le query che leggono i dati da una o più partizioni comportano una latenza maggiore e usano un numero maggiore di unità richiesta. Poiché ogni partizione dispone dell'indicizzazione automatica per tutte le proprietà, la query può essere fornita in modo efficiente dall'indice. È possibile eseguire più velocemente le query che interessano partizioni multiple usando le opzioni di parallelismo. Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
@@ -35,7 +38,7 @@ Dopo che sono stati memorizzati alcuni dati nei contenitori di Azure Cosmos, è 
 È anche possibile ottenere il costo delle query a livello programmatico tramite gli SDK. Per misurare l'overhead di qualunque operazione, ad esempio creazione, aggiornamento o eliminazione, ispezionare l'intestazione `x-ms-request-charge` quando si usa l'API REST. Se si usa .NET o Java SDK, la `RequestCharge` proprietà è la proprietà equivalente per ottenere l'addebito della richiesta e questa proprietà è presente in ResourceResponse o FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

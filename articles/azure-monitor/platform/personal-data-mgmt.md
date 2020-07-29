@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539330"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318318"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -48,7 +48,7 @@ Log Analytics è un archivio flessibile che, pur definendo uno schema per i dati
     ```
   Ricordarsi di cercare non solo i nomi utente in un formato leggibile, ma anche gli identificatori univoci globali (GUID) che è possibile far risalire direttamente a un determinato utente.
 * *ID dispositivo*: come gli ID utente, gli ID dispositivo in alcuni casi sono considerati "privati". Usare lo stesso approccio riportato in precedenza per gli ID utente per identificare le tabelle in cui questo aspetto potrebbe costituire un problema. 
-* *Dati personalizzati*: Log Analytics consente la raccolta con diversi metodi: log personalizzati e campi personalizzati, l'[API di raccolta dati HTTP](../../azure-monitor/platform/data-collector-api.md) e dati personali raccolti come parte dei log eventi di sistema. Tutti questi elementi potrebbero contenere dati privati e devono essere esaminati per verificare la presenza di dati di questo tipo.
+* *Dati personalizzati*: Log Analytics consente la raccolta con diversi metodi: log personalizzati e campi personalizzati, l'[API di raccolta dati HTTP](./data-collector-api.md) e dati personali raccolti come parte dei log eventi di sistema. Tutti questi elementi potrebbero contenere dati privati e devono essere esaminati per verificare la presenza di dati di questo tipo.
 * *Dati acquisiti dalle soluzioni*: dato che il meccanismo delle soluzioni è aperto, è consigliabile esaminare tutte le tabelle generate dalle soluzioni per garantire la conformità.
 
 ### <a name="application-data"></a>Dati dell'applicazione
@@ -124,5 +124,6 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 >  Anche se la maggior parte delle operazioni di ripulitura possono essere completate molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Application Insights, **il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni su come i dati di Log Analitica sono raccolti, elaborati e protetti, vedere [la protezione dei dati di Log Analitica](../../azure-monitor/platform/data-security.md).
-- Per altre informazioni sul modo in cui i dati vengono raccolti, elaborati e protetti, vedere [Sicurezza dei dati di Application Insights](../../azure-monitor/app/data-retention-privacy.md).
+- Per altre informazioni su come i dati di Log Analitica sono raccolti, elaborati e protetti, vedere [la protezione dei dati di Log Analitica](./data-security.md).
+- Per altre informazioni sul modo in cui i dati vengono raccolti, elaborati e protetti, vedere [Sicurezza dei dati di Application Insights](../app/data-retention-privacy.md).
+

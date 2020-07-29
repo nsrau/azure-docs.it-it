@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516788"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318080"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
 
@@ -34,13 +34,13 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Installare agenti nei controller di dominio
-È necessario installare agenti nei controller di dominio membri del dominio da valutare. In alternativa, è necessario installare gli agenti nei server membri e configurare gli agenti per inviare dati di replica di Active Directory a Monitoraggio di Azure. Per informazioni su come connettere i computer Windows a Monitoraggio di Azure, vedere [Connettere computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md). Se il controller di dominio fa già parte di un ambiente System Center Operations Manager esistente che si intende connettere a Monitoraggio di Azure, vedere [Connettere Operations Manager a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md).
+È necessario installare agenti nei controller di dominio membri del dominio da valutare. In alternativa, è necessario installare gli agenti nei server membri e configurare gli agenti per inviare dati di replica di Active Directory a Monitoraggio di Azure. Per informazioni su come connettere i computer Windows a Monitoraggio di Azure, vedere [Connettere computer Windows a Monitoraggio di Azure](../platform/agent-windows.md). Se il controller di dominio fa già parte di un ambiente System Center Operations Manager esistente che si intende connettere a Monitoraggio di Azure, vedere [Connettere Operations Manager a Monitoraggio di Azure](../platform/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Abilitare controller non di dominio
 Se non si intende connettere i controller di dominio direttamente a Monitoraggio di Azure, è possibile usare qualsiasi altro computer del dominio connesso a Monitoraggio di Azure per raccogliere i dati per il pacchetto della soluzione Stato replica di Active Directory e abilitarlo per l'invio dei dati.
 
 1. Verificare che il computer sia membro del dominio da monitorare con la soluzione Stato replica di Active Directory.
-2. [Connettere il computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md), se non è già connesso.
+2. [Connettere il computer Windows a Monitoraggio di Azure](../platform/om-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente a Monitoraggio di Azure](../platform/om-agents.md), se non è già connesso.
 3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE gruppi \System\currentcontrolset\services\healthservice\parameters\management \<ManagementGroupName> \Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
@@ -110,7 +110,7 @@ Quando si fa clic su un elemento in uno degli elenchi, è possibile accedere ad 
 
 ![Errori di stato replica di Active Directory nei risultati della query](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-A questo punto è possibile filtrare ulteriormente, modificare la query di log e così via. Per altre informazioni sull'uso di query di log in Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+A questo punto è possibile filtrare ulteriormente, modificare la query di log e così via. Per altre informazioni sull'uso di query di log in Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
 
 Il campo **HelpLink** indica l'URL di una pagina di TechNet con altre informazioni sullo specifico errore. È possibile copiare e incollare il collegamento nella finestra del browser per visualizzare le informazioni sulla risoluzione dei problemi e la correzione dell'errore.
 
@@ -150,9 +150,10 @@ R: le normali autorizzazioni utente in Active Directory sono sufficienti.
 ## <a name="troubleshoot-data-collection-problems"></a>Risolvere i problemi di raccolta dati
 Per raccogliere i dati, il pacchetto della soluzione Stato replica di Active Directory richiede la connessione di almeno un controller di dominio all'area di lavoro Log Analytics. Fino a quando non ci si connette a un controller di dominio, viene visualizzato un messaggio che indica che **la raccolta di dati è ancora in corso**.
 
-Se occorre assistenza per la connessione di uno dei controller di dominio è possibile vedere il documento [Connettere computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md). In alternativa, se il controller di dominio è già connesso a un ambiente System Center Operations Manager esistente, è possibile vedere il documento [Connettere System Center Operations Manager a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md).
+Se occorre assistenza per la connessione di uno dei controller di dominio è possibile vedere il documento [Connettere computer Windows a Monitoraggio di Azure](../platform/om-agents.md). In alternativa, se il controller di dominio è già connesso a un ambiente System Center Operations Manager esistente, è possibile vedere il documento [Connettere System Center Operations Manager a Monitoraggio di Azure](../platform/om-agents.md).
 
 Se non si intende connettere i controller di dominio direttamente a Monitoraggio di Azure o a System Center Operations Manager, vedere [Abilitare un controller non di dominio](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [query di log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.
+* Usare le [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.
+

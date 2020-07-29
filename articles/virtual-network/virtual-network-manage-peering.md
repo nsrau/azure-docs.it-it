@@ -1,6 +1,6 @@
 ---
 title: Creare, modificare o eliminare un peering reti virtuali di Azure | Microsoft Docs
-description: Informazioni su come creare, modificare o eliminare un peering reti virtuali.
+description: Creare, modificare o eliminare un peering di rete virtuale. Con il peering di rete virtuale, si connettono le reti virtuali nella stessa area e tra le aree.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711103"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291864"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -72,7 +72,7 @@ Prima di creare un peering, acquisire familiarità con i requisiti e i vincoli e
 
 Per istruzioni dettagliate sull'implementazione di peering tra reti virtuali in sottoscrizioni e modelli di distribuzione diversi, vedere [Passaggi successivi](#next-steps).
 
-### <a name="commands"></a>Comandi
+### <a name="commands"></a>Comandi:
 
 - **Interfaccia della riga di comando di Azure**: [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
@@ -146,7 +146,7 @@ L'account usato per il peering della rete virtuale deve essere assegnato ai ruol
 
 Se l'account non è assegnato a uno dei ruoli precedenti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) al quale vengono assegnate le azioni richieste indicate nella tabella seguente:
 
-| Action                                                          | Nome |
+| Azione                                                          | Nome |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessaria per creare un peering dalla rete virtuale A alla rete virtuale B. La rete virtuale A deve essere una rete virtuale (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessaria per creare un peering dalla rete virtuale B (Resource Manager) alla rete virtuale A                                                       |
@@ -158,7 +158,7 @@ Se l'account non è assegnato a uno dei ruoli precedenti, deve essere assegnato 
 
 - Un peering di reti virtuali viene generato tra reti virtuali create tramite modelli di distribuzione uguali o diversi esistenti in sottoscrizioni uguali o diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-  |Modello di distribuzione di Azure             | Subscription  |
+  |Modello di distribuzione di Azure             | Sottoscrizione  |
   |---------                          |---------|
   |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diversa](create-peering-different-subscriptions.md)|

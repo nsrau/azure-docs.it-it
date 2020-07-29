@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091301"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291371"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
 
 >[!IMPORTANT]
-> Se stai visitando questa pagina dalla documentazione di 2019, assicurati di [tornare alla documentazione relativa al crollo 2019 al termine dell'](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) operazione.
+> Se si visita questa pagina dalla documentazione di Windows Virtual Desktop (classica), assicurarsi di [tornare alla documentazione di Windows Virtual Desktop (classica)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) al termine dell'operazione.
 
 Il desktop virtuale Windows client per Windows è un'ottima opzione per l'integrazione di desktop virtuali Windows con il computer locale. Tuttavia, quando si configura l'account desktop virtuale di Windows nel client Windows, è necessario adottare alcune misure per proteggere gli utenti.
 
@@ -50,10 +50,10 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 7. Selezionare **Fine**.
 8. In **app Cloud o azioni**  >  **Includi**selezionare **Seleziona app**.
 9. Selezionare uno dei seguenti gruppi di app in base alla versione di desktop virtuale di Windows in uso.
-   - Se si usa la versione 2019, scegliere le due app seguenti:
+   - Se si usa desktop virtuale di Windows (versione classica), scegliere le due app seguenti:
        - **Desktop virtuale Windows** (ID app 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Client desktop virtuale Windows** (ID app fa4345a4-A730-4230-84a8-7d9651b86739)
-   - Se si usa la versione Spring 2020, scegliere le due app seguenti:
+   - Se si usa desktop virtuale di Windows, scegliere le due app seguenti:
        -  **Desktop virtuale Windows** (ID app 9cdead84-A844-4324-93f2-b2e6bb768d07)
        -  **Client desktop virtuale Windows** (ID app a85cf173-4192-42F8-81fa-777a763e6e2c)
 

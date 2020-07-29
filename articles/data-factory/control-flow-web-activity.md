@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280801"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +25,7 @@ ms.locfileid: "84017665"
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 
 > [!NOTE]
-> L'attività Web può chiamare solo URL esposti pubblicamente. Non è supportata per gli URL ospitati in una rete virtuale privata.
+> L'attività Web è supportata per richiamare URL ospitati anche in una rete virtuale privata, sfruttando il runtime di integrazione self-hosted. Il runtime di integrazione deve avere una linea di visibilità per l'endpoint dell'URL. 
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,6 +36,10 @@ L'attività Web può essere usata per chiamare un endpoint REST personalizzato d
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -76,6 +81,7 @@ Corpo | Rappresenta il payload inviato all'endpoint.  | Stringa (o espressione c
 autenticazione | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No
 set di dati | Elenco di set di dati passato all'endpoint. | Matrice di riferimenti a set di dati. Può essere una matrice vuota. | Sì
 linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di riferimenti a servizi collegati. Può essere una matrice vuota. | Sì
+connectVia | [Runtime di integrazione](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. | Riferimento al runtime di integrazione. | No 
 
 > [!NOTE]
 > Gli endpoint REST che l'attività Web richiama devono restituire una risposta di tipo JSON. L'attività raggiungerà il timeout a 1 minuto con un errore se non riceve una risposta dall'endpoint.
@@ -84,7 +90,7 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 
 | Tipo di valore | Corpo della richiesta | Corpo della risposta |
 |---|---|---|
-|Oggetto JSON | Supportato | Supportato |
+|Oggetto JSON | Funzionalità supportata | Supportato |
 |Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Non supportato |
 | Valore JSON | Supportato | Non supportato |
 | Tipo non JSON | Non supportato | Non supportato |
@@ -94,7 +100,7 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività Web.
 
-### <a name="none"></a>nessuno
+### <a name="none"></a>Nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 

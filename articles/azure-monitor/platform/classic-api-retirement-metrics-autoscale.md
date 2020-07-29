@@ -4,12 +4,12 @@ description: Ritiro delle API classiche di metrica e scalabilità automatica, ch
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505432"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317383"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 
@@ -21,7 +21,7 @@ Le stesse operazioni sono state supportate tramite un set di API basate su Azure
 
 Se si sta gestendo la scalabilità automatica tramite il portale di Azure, il [nuovo SDK di Monitoraggio di Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, l’interfaccia della riga di comando o i modelli di Gestione risorse, non è necessaria alcuna azione.  
 
-Se si utilizzano le metriche tramite il portale di Azure o tramite vari [servizi dei partner di monitoraggio](../../azure-monitor/platform/partners.md), non è necessaria alcuna azione. Microsoft sta lavorando con partner di monitoraggio per eseguire la migrazione alle nuove API.
+Se si utilizzano le metriche tramite il portale di Azure o tramite vari [servizi dei partner di monitoraggio](./partners.md), non è necessaria alcuna azione. Microsoft sta lavorando con partner di monitoraggio per eseguire la migrazione alle nuove API.
 
 ## <a name="who-is-affected"></a>Chi è interessato
 
@@ -85,7 +85,8 @@ Per le metriche: *questa API è stata deprecata. Usare la portale di Azure, Azur
 
 Per eventuali domande, contattarci a MonitorClassicAPIhelp@microsoft.com.  
 
-## <a name="references"></a>Bibliografia
+## <a name="references"></a>Riferimenti
 
 - [Nuove API REST per Monitoraggio di Azure](/rest/api/monitor/) 
 - [Nuovo SDK per Monitoraggio di Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

@@ -1,6 +1,5 @@
 ---
-title: Interpretare i risultati del modello
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): interpretare i risultati del modello-Azure'
 description: Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +8,17 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: a99c1d71ed7e718d4d47ba55573a16466f62de5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77704750344df7ae24b7f81bde6088762a00c86d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687770"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318590"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio (versione classica)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
