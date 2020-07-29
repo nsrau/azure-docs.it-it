@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61bd162baf6f079b625dc07d4faa397493ba618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015868"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728827"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
@@ -78,8 +78,8 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
-* [Come installare e configurare Azure PowerShell](/powershell/azure/)
-* [Azure PowerShell](/powershell/azure/)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Chiudere l'account aziendale o dell'istituto di istruzione in una directory non gestita](users-close-account.md)
