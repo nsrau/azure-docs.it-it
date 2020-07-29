@@ -7,6 +7,7 @@ description: Descrive i requisiti di rete per l'esecuzione di Azure Dev Spaces n
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, CNI, kubenet, SDN, rete
 ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300692"
