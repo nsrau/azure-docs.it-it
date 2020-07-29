@@ -1,6 +1,6 @@
 ---
-title: Distribuire la macchina virtuale Windows 7 macchina virtuale Windows 2019-Azure
-description: Come configurare e distribuire una macchina virtuale Windows 7 su desktop virtuale di Windows.
+title: Distribuire la macchina virtuale Windows 7 per desktop virtuale Windows (classico)-Azure
+description: Come configurare e distribuire una macchina virtuale Windows 7 in Windows Virtual Desktop Windows Desktop (classico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d8ce67f129844c09a93b29c8100fe28096c520c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99c82f63e88815edba13bf88ba23c18493649dd9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085878"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285085"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop---fall-2019"></a>Distribuire una macchina virtuale Windows 7 in un desktop virtuale Windows-calo 2019
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Distribuire una macchina virtuale Windows 7 in un desktop virtuale Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../deploy-windows-7-virtual-machine.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali Windows introdotti nella versione corrente di desktop virtuale di Windows, vedere [questo articolo](../deploy-windows-7-virtual-machine.md).
 
 Il processo di distribuzione di una macchina virtuale (VM) Windows 7 in un desktop virtuale Windows è leggermente diverso rispetto a quello delle macchine virtuali che eseguono versioni successive di Windows. Questa guida illustra come distribuire Windows 7.
 

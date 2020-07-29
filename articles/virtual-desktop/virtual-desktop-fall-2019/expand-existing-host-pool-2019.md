@@ -1,6 +1,6 @@
 ---
-title: Espandi pool host esistente con nuovi host sessione rientri 2019-Azure
-description: Come espandere un pool di host esistente con nuovi host di sessione nel desktop virtuale di Windows.
+title: Espandi pool di host desktop virtuali Windows (classico) esistente con nuovi host sessione-Azure
+description: Come espandere un pool host esistente con nuovi host di sessione in desktop virtuale di Windows (versione classica).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527541"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285034"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Espandi un pool di host esistente con nuovi host sessione (2019)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Espandere un pool di host esistente con nuovi host sessione in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../expand-existing-host-pool.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../expand-existing-host-pool.md).
 
 Quando si aumenta l'utilizzo all'interno del pool host, potrebbe essere necessario espandere il pool host esistente con nuovi host di sessione per gestire il nuovo carico.
 
@@ -76,7 +76,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 [Per eseguire il provisioning di un nuovo pool host](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](create-host-pools-azure-marketplace-2019.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni scheda:
 
-### <a name="basics"></a>Informazioni di base
+### <a name="basics"></a>Nozioni di base
 
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 

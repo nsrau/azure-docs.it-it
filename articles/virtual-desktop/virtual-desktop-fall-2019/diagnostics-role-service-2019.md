@@ -1,6 +1,6 @@
 ---
-title: Problemi di diagnostica del desktop virtuale di Windows-2019-calo di Azure
-description: Come utilizzare la funzionalità di diagnostica di Desktop virtuale Windows per diagnosticare i problemi.
+title: Problemi di diagnostica di Windows Virtual Desktop (classico)-Azure
+description: Come usare la funzionalità di diagnostica desktop virtuale di Windows (classica) per diagnosticare i problemi.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285051"
 ---
-# <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificare e diagnosticare i problemi in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../diagnostics-role-service.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../diagnostics-role-service.md).
 
 Desktop virtuale Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi usando un'unica interfaccia. I ruoli di Desktop virtuale Windows registrano un'attività di diagnostica ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli di Desktop virtuale Windows coinvolti nella transazione, i messaggi di errore, le informazioni sul tenant e le informazioni sull'utente. Le attività di diagnostica vengono create sia da azioni dell'utente finale sia da azioni amministrative e possono essere raggruppate in tre categorie principali:
 

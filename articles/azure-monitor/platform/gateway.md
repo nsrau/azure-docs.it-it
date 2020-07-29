@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305211"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -89,7 +89,7 @@ Il gateway Log Analytics è disponibile nelle lingue seguenti:
 
 Il gateway Log Analytics supporta solo Transport Layer Security (TLS) 1,0, 1,1 e 1,2.  Non supporta Secure Sockets Layer (SSL).  Per garantire la sicurezza dei dati in transito per Log Analytics, configurare il gateway per l'uso di almeno TLS 1,2. Le versioni precedenti di TLS o SSL sono vulnerabili. Sebbene consentano attualmente la compatibilità con le versioni precedenti, evitarne l'uso.  
 
-Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
 
@@ -114,7 +114,7 @@ Per ottenere il gateway Log Analytics dal portale di Azure, seguire questa proce
  
    ![Screenshot dei passaggi per scaricare il gateway Log Analytics](./media/gateway/download-gateway.png)
 
-oppure 
+o 
 
 1. Nel pannello dell'area di lavoro in **Impostazioni** selezionare **Impostazioni avanzate**.
 1. Passare a **origini connesse**  >  **server Windows** e selezionare **Scarica log Analytics gateway**.
@@ -141,7 +141,7 @@ Per installare un gateway usando l'installazione guidata, seguire questa procedu
    ![Screenshot della configurazione per il proxy del gateway](./media/gateway/gateway-wizard02.png)
 
 1. Se Microsoft Update non è abilitato, viene visualizzata la pagina Microsoft Update ed è possibile scegliere di abilitarla. Effettuare una selezione e quindi fare clic su **Avanti**. In caso contrario, continuare con il passaggio successivo.
-1. Nella pagina **cartella di destinazione** , lasciare la cartella predefinita C:\Program c:\programmi\oms gateway o immettere il percorso in cui si vuole installare il gateway. Selezionare quindi **Avanti**.
+1. Nella pagina **cartella di destinazione** , lasciare la cartella predefinita C:\Program c:\programmi\oms gateway o immettere il percorso in cui si vuole installare il gateway. Fare quindi clic su **Avanti**.
 1. Nella pagina **pronto per l'installazione** selezionare **Installa**. Se il controllo dell'account utente richiede l'autorizzazione per l'installazione, selezionare **Sì**.
 1. Al termine dell'installazione, fare clic su **fine**. Per verificare che il servizio sia in esecuzione, aprire lo snap-in Services. msc e verificare che il **gateway OMS** sia visualizzato nell'elenco dei servizi e che lo stato sia in **esecuzione**.
 
@@ -248,7 +248,7 @@ Per usare il gateway OMS per supportare Operations Manager, è necessario dispor
 
 Se il gruppo di gestione Operations Manager viene registrato con un'area di lavoro di Log Analytics per la prima volta, non verrà visualizzata l'opzione per specificare la configurazione proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
 
-Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. Seguire questa procedura:
+Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. A tale scopo, seguire questa procedura:
 
 1. Aprire un prompt dei comandi con privilegi elevati:
 
@@ -305,13 +305,13 @@ Vedere la sezione [configurare la rete](../../automation/automation-hybrid-runbo
 
 Se il computer è registrato automaticamente come ruolo di lavoro ibrido per Runbook, ad esempio se la soluzione Gestione aggiornamenti è abilitata per una o più macchine virtuali, attenersi alla procedura seguente:
 
-1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Riavviare il servizio gateway di Log Analytics usando il cmdlet di PowerShell seguente: `Restart-Service OMSGatewayService`
 
 Se il computer è stato aggiunto ad automazione di Azure usando il cmdlet di registrazione del ruolo di lavoro ibrido per Runbook, seguire questa procedura:
 
-1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. ad esempio `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Riavviare il servizio gateway di Log Analytics.
     `Restart-Service OMSGatewayService`
 
@@ -330,7 +330,7 @@ Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore 
 | **Cmdlet** | **Parameters** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password (stringa sicura) |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Ottiene l'host attualmente consentito (solo l'host consentito configurato localmente, non gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 
@@ -388,4 +388,5 @@ Per ottenere assistenza, selezionare l'icona del punto interrogativo nell'angolo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Aggiungere origini dati](../../azure-monitor/platform/agent-data-sources.md) per raccogliere dati da origini connesse e archiviare i dati nell'area di lavoro log Analytics.
+[Aggiungere origini dati](./agent-data-sources.md) per raccogliere dati da origini connesse e archiviare i dati nell'area di lavoro log Analytics.
+

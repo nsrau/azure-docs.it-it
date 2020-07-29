@@ -3,16 +3,17 @@ title: Monitorare i servizi Node.js con Azure Application Insights | Microsoft D
 description: Monitorare le prestazioni e diagnosticare i problemi dei servizi Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024385"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371618"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora i servizi e i componenti back-end dopo la distribuzione, per facilitare l'individuazione e la diagnosi rapida delle prestazioni e di altri problemi. È possibile usare Application Insights per i servizi Node.js ospitati nel Data Center, nelle macchine virtuali di Azure e nelle app Web e anche in altri cloud pubblici.
+[Application Insights](./app-insights-overview.md) monitora i servizi e i componenti back-end dopo la distribuzione, per facilitare l'individuazione e la diagnosi rapida delle prestazioni e di altri problemi. È possibile usare Application Insights per i servizi Node.js ospitati nel Data Center, nelle macchine virtuali di Azure e nelle app Web e anche in altri cloud pubblici.
 
 Per ricevere, archiviare ed esplorare i dati di monitoraggio, includere l'SDK nel codice e quindi configurare una risorsa di Application Insights corrispondente in Azure. L'SDK invia i dati a tale risorsa per ulteriori attività di analisi ed esplorazione.
 
@@ -80,8 +81,8 @@ Dato che l'SDK esegue l'invio dei dati in batch, potrebbe verificarsi un ritardo
 
 * Continuare a usare l'applicazione. Eseguire altre azioni per generare dati di telemetria aggiuntivi.
 * Fare clic su **Aggiorna** nella visualizzazione della risorsa nel portale. I grafici si aggiornano periodicamente in automatico, ma l'aggiornamento manuale ha effetto immediato.
-* Verificare che le [porte in uscita necessarie](../../azure-monitor/app/ip-addresses.md) siano aperte.
-* Usare l'opzione [Cerca](../../azure-monitor/app/diagnostic-search.md) per cercare eventi specifici.
+* Verificare che le [porte in uscita necessarie](./ip-addresses.md) siano aperte.
+* Usare l'opzione [Cerca](./diagnostic-search.md) per cercare eventi specifici.
 * Vedere le [domande frequenti][FAQ].
 
 ## <a name="basic-usage"></a>Utilizzo di base
@@ -216,7 +217,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>API TelemetryClient
 
-Per una descrizione completa dell'API TelemetryClient, vedere [API di Application Insights per metriche ed eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
+Per una descrizione completa dell'API TelemetryClient, vedere [API di Application Insights per metriche ed eventi personalizzati](./api-custom-events-metrics.md).
 
 Con Application Insights Node.js SDK è possibile tenere traccia di qualsiasi richiesta, evento, metrica o eccezione. L'esempio di codice seguente illustra alcune API che è possibile usare:
 
@@ -414,10 +415,11 @@ Queste proprietà sono specifiche del client, pertanto è possibile configurare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Monitorare i dati di telemetria nel portale](../../azure-monitor/app/overview-dashboard.md)
-* [Presentazione dello strumento Analisi in Application Insights](../../azure-monitor/log-query/get-started-portal.md)
+* [Monitorare i dati di telemetria nel portale](./overview-dashboard.md)
+* [Presentazione dello strumento Analisi in Application Insights](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
+

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026510"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311569"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione delle app
 
 Per registrare un'applicazione a pagina singola (SPA) in Microsoft Identity Platform, seguire questa procedura. La procedura di registrazione è diversa tra MSAL.js 1.0, che supporta il flusso di concessione implicita, e MSAL.js 2.0, che supporta il flusso del codice di autorizzazione con PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Creare la registrazione dell'app
 
@@ -67,7 +69,7 @@ Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app a 
 
 A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Selezionando uno o entrambi i **Token ID** e i **Token di accesso**, è stato abilitato il flusso di concessione implicita.
 
-Seguire l' [esercitazione](tutorial-v2-javascript-spa.md) per altre istruzioni. 
+Seguire l' [esercitazione](tutorial-v2-javascript-spa.md) per altre istruzioni.
 
 ## <a name="note-about-authorization-flows"></a>Nota sui flussi di autorizzazione
 

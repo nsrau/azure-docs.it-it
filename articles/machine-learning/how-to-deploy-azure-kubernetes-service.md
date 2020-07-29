@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325883"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372111"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,6 +34,8 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
 * Creare il cluster AKS usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o [Azure Machine Learning Studio](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
 * Alleghi un cluster AKS esistente all'area di lavoro Azure Machine Learning. È possibile collegare un cluster usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o Azure Machine Learning Studio.
+
+Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse diversi.
 
 > [!IMPORTANT]
 > Il processo di creazione o allegato è un'attività una sola volta. Quando un cluster AKS è connesso all'area di lavoro, è possibile usarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta scollegato o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
@@ -61,11 +63,28 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
 - I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
+- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli di indirizzi IP del piano di AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS
+ 
+ - Il nome di calcolo deve essere univoco all'interno di un'area di lavoro
+   - Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.
+   - I caratteri validi sono lettere maiuscole e minuscole, cifre e il carattere.
+   - Il nome deve iniziare con una lettera
+   - Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso
+   
+ - Se si desidera distribuire modelli a nodi GPU o a nodi FPGA (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
+ 
+ - Se è necessario un Load Balancer Standard (SLB) distribuito nel cluster anziché una Load Balancer di base (BLB), creare un cluster nel portale AKS/CLI/SDK e quindi collegarlo all'area di lavoro AML. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster AKS
 
-**Tempo stimato**: circa 20 minuti.
+**Tempo stimato**: circa 10 minuti.
 
 La creazione o il fissaggio di un cluster AKS è un processo di tipo One-Time per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster la volta successiva che è necessario distribuire. È possibile collegare più cluster AKS all'area di lavoro.
+ 
+Azure Machine Learning supporta ora l'uso di un servizio Azure Kubernetes con collegamento privato abilitato.
+Per creare un cluster AKS privato, seguire i documenti [qui](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > Se si vuole proteggere il cluster AKS con una rete virtuale di Azure, è necessario creare prima la rete virtuale. Per altre informazioni, vedere la pagina relativa a [sperimentazione e inferenza sicure con rete virtuale di Azure](how-to-enable-virtual-network.md#aksvnet).

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309270"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analizzare i modelli di spostamento degli utenti con Flussi utente in Application Insights
 
@@ -27,7 +27,7 @@ Lo strumento Flussi utente permette di visualizzare il modo in cui gli utenti si
 Lo strumento Flussi utente parte da un'eccezione, un evento personalizzato o una visualizzazione pagina iniziale specificata. Una volta specificato questo evento iniziale, Flussi utente mostra gli eventi che si sono verificati prima e successivamente durante le sessioni utente. Le linee di spessore variabile mostrano quante volte ogni percorso è stato seguito dagli utenti. I nodi speciali **Sessione avviata** mostrano il punto in cui i nodi successivi hanno avviato una sessione. I nodi **Sessione terminata** mostrano il numero di utenti che non hanno inviato visualizzazioni pagina o eventi personalizzati dopo il nodo precedente, evidenziando il punto in cui probabilmente gli utenti hanno lasciato il sito.
 
 > [!NOTE]
-> Per poter usare lo strumento Flussi utente, la risorsa di Application Insights deve contenere visualizzazioni di pagina o eventi personalizzati. Vedere le [informazioni su come configurare l'app per la raccolta automatica delle visualizzazioni di pagina con Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> Per poter usare lo strumento Flussi utente, la risorsa di Application Insights deve contenere visualizzazioni di pagina o eventi personalizzati. Vedere le [informazioni su come configurare l'app per la raccolta automatica delle visualizzazioni di pagina con Application Insights JavaScript SDK](./javascript.md).
 >
 >
 
@@ -52,7 +52,7 @@ Se la visualizzazione non include visualizzazioni di pagina o eventi personalizz
 * Selezionare la sezione **eventi esclusi** nel menu **modifica** .
 * Usare i pulsanti più (+) sui nodi **Altri** per includere eventi meno frequenti nella visualizzazione.
 * Se la visualizzazione pagina o l'evento personalizzato previsto viene inviato raramente dagli utenti, provare ad aumentare l'intervallo di tempo della visualizzazione nel menu **modifica** .
-* Assicurarsi che la visualizzazione pagina, l'evento personalizzato o l'eccezione prevista sia configurata per la raccolta da parte di Application Insights SDK nel codice sorgente del sito. [Altre informazioni sulla raccolta di eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
+* Assicurarsi che la visualizzazione pagina, l'evento personalizzato o l'eccezione prevista sia configurata per la raccolta da parte di Application Insights SDK nel codice sorgente del sito. [Altre informazioni sulla raccolta di eventi personalizzati](./api-custom-events-metrics.md).
 
 Per vedere più passaggi nella visualizzazione, usare gli elenchi a discesa **Passaggi precedenti** e **Passaggi successivi** sopra la visualizzazione.
 
@@ -92,4 +92,5 @@ Usare le opzioni **Dividi per** nel menu **Modifica**:
 * [Panoramica sull'uso](usage-overview.md)
 * [Utenti, Sessioni ed Eventi](usage-segmentation.md)
 * [Conservazione](usage-retention.md)
-* [Aggiunta di eventi personalizzati all'app](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Aggiunta di eventi personalizzati all'app](./api-custom-events-metrics.md)
+

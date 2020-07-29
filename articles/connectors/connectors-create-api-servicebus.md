@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84141994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283997"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -155,7 +156,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 ## <a name="send-correlated-messages-in-order"></a>Invia messaggi correlati in ordine
 
-Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
+Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
 
 Quando si crea un'app per la logica, è possibile selezionare il modello **di recapito correlato nell'ordine usando le sessioni del bus di servizio** , che implementa il modello di serie di istruzioni sequenziali. Per ulteriori informazioni, vedere [inviare messaggi correlati in ordine](../logic-apps/send-related-messages-sequential-convoy.md).
 
@@ -170,3 +171,4 @@ Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+

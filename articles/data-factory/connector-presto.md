@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 261bdedee56bb4de2dfbbef27358fae5ae8fdc3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416738"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372502"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiare dati da Presto tramite Azure Data Factory (anteprima)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,9 +50,9 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Presto**. | Sì |
-| host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160.  | Sì |
-| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Sì |
-| Catalogo | Il contesto del catalogo di tutte le richieste sul server.  | Sì |
+| host | Indirizzo IP o nome host del server Presto, (ad esempio 192.168.222.160)  | Sì |
+| serverVersion | Versione del server Presto, (ad esempio, 0,148-t)  | Sì |
+| catalogo | Il contesto del catalogo di tutte le richieste sul server.  | Sì |
 | port | Porta TCP che il server Presto usa per l'ascolto delle connessioni client. Il valore predefinito è 8080.  | No |
 | authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono: **Anonima**, **LDAP**. | Sì |
 | username | Nome utente usato per connettersi al server Presto.  | No |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 39f564bea8d300d2966afe27ff0239c527f038cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092814"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305806"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights
 I servizi cloud, le macchine virtuali, il set di scalabilità di macchine virtuali e Service Fabric usano l'estensione Diagnostica di Azure per raccogliere i dati.  La diagnostica di Azure invia i dati alle tabelle di Archiviazione di Azure.  Tuttavia, è possibile anche inviare pipe o un subset di dati ad altri percorsi con l'estensione Diagnostica di Azure 1.5 o versione successiva.
@@ -59,8 +59,8 @@ Esempio di configurazione di un sink per Application Insights:
 - L'attributo **Sink** *name* è un valore della stringa che identifica in modo univoco il sink.
 
 - L'elemento **ApplicationInsights** specifica la chiave di strumentazione della risorsa di Application Insights a cui verranno inviati i dati di Diagnostica di Azure.
-    - Se non si ha una risorsa di Application Insights, vedere [Creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ) per altre informazioni sulla creazione di una risorsa e l'acquisizione della chiave di strumentazione.
-    - Se si sviluppa un servizio Cloud con Azure SDK 2.8 e versioni successive, questa chiave di strumentazione viene compilata automaticamente. Il valore si basa sull'impostazione di configurazione del servizio **APPINSIGHTS_INSTRUMENTATIONKEY** quando si crea il pacchetto del progetto del servizio cloud. Vedere [Utilizzo di Application Insights con i Servizi cloud](../../azure-monitor/app/cloudservices.md).
+    - Se non si ha una risorsa di Application Insights, vedere [Creare una risorsa di Application Insights](../app/create-new-resource.md) per altre informazioni sulla creazione di una risorsa e l'acquisizione della chiave di strumentazione.
+    - Se si sviluppa un servizio Cloud con Azure SDK 2.8 e versioni successive, questa chiave di strumentazione viene compilata automaticamente. Il valore si basa sull'impostazione di configurazione del servizio **APPINSIGHTS_INSTRUMENTATIONKEY** quando si crea il pacchetto del progetto del servizio cloud. Vedere [Utilizzo di Application Insights con i Servizi cloud](../app/cloudservices.md).
 
 - L'elemento **Channels** contiene uno o più elementi **Channel**.
     - L'attributo *name* fa riferimento in modo univoco a tale canale.
@@ -216,3 +216,4 @@ Nella configurazione precedente, le righe riportate di seguito hanno i significa
 * Informazioni su come [visualizzare le informazioni di diagnostica di Azure](../app/cloudservices.md) in Application Insights.
 * Usare [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.
 * Usare [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.
+

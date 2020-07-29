@@ -3,12 +3,13 @@ title: Raccolta di indirizzi IP di applicazione Azure Insights | Microsoft Docs
 description: Informazioni su come gestire gli indirizzi IP e la georilevazione con applicazione Azure Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 28a7fa50a06dc8b80c7d8dd284cd88ebe4645da6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014440"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371652"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 

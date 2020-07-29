@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099296"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281192"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione
 
@@ -109,25 +109,25 @@ Il gateway applicazione supporta le variabili server seguenti:
 | add_x_forwarded_for_proxy | Il campo di intestazione della richiesta client X-Inoltred-for con la `client_ip` variabile (vedere la spiegazione più avanti in questa tabella) aggiunto ad esso nel formato IP1, IP2, IP3 e così via. Se il campo X-Inoltred-for non è incluso nell'intestazione della richiesta client, la `add_x_forwarded_for_proxy` variabile è uguale alla `$client_ip` variabile.   Questa variabile è particolarmente utile quando si vuole riscrivere l'intestazione X-Inoltred-for impostata dal gateway applicazione in modo che l'intestazione contenga solo l'indirizzo IP senza le informazioni sulla porta. |
 | ciphers_supported         | Elenco di crittografie supportate dal client.               |
 | ciphers_used              | Stringa di crittografie utilizzata per una connessione TLS stabilita. |
-| client_ip                 | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima del gateway applicazione e del client di origine, *Client_IP* restituirà l'indirizzo IP del proxy inverso. |
+| client_ip                 | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima del gateway applicazione e del client di origine, `client_ip` restituirà l'indirizzo IP del proxy inverso. |
 | client_port               | Porta client.                                             |
 | client_tcp_rtt            | Informazioni sulla connessione TCP del client. Disponibile nei sistemi che supportano l'opzione socket TCP_INFO. |
 | client_user               | Quando si usa l'autenticazione HTTP, il nome utente specificato per l'autenticazione. |
-| host                      | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , il valore host sarà *contoso.com* |
+| host                      | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , il valore dell'host sarà`contoso.com` |
 | *nome* cookie_             | Cookie del *nome* .                                           |
 | http_method               | Metodo utilizzato per effettuare la richiesta dell'URL. Ad esempio, GET o POST. |
 | http_status               | Stato della sessione. Ad esempio, 200, 400 o 403.           |
 | http_version              | Protocollo della richiesta. In genere HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string              | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING valore sarà *ID = 123&title = Fabrikam* |
+| query_string              | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING valore sarà`id=123&title=fabrikam` |
 | received_bytes            | Lunghezza della richiesta, incluse la riga della richiesta, l'intestazione e il corpo della richiesta. |
 | request_query             | Argomenti nella riga della richiesta.                           |
 | request_scheme            | Schema di richiesta: http o HTTPS.                           |
-| request_uri               | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI valore sarà */article.aspx? ID = 123&title = Fabrikam* |
+| request_uri               | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI valore sarà`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Numero di byte inviati a un client.                        |
 | server_port               | Porta del server che ha accettato una richiesta.              |
 | ssl_connection_protocol   | Protocollo di una connessione TLS stabilita.               |
 | ssl_enabled               | "On" se la connessione funziona in modalità TLS. In caso contrario, una stringa vuota. |
-| uri_path                  | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path valore sarà */article.aspx* |
+| uri_path                  | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path valore sarà`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ A questo punto, se l'utente richiede *contoso.com/Listing?Category=any*, viene c
 
 Si consideri uno scenario di un sito Web di acquisti in cui il collegamento visibile all'utente deve essere semplice e leggibile, ma il server back-end necessita dei parametri della stringa di query per visualizzare il contenuto corretto.
 
-In tal caso, il gateway applicazione può acquisire parametri dall'URL e aggiungere coppie chiave-valore della stringa di query da quelle dell'URL. Si immagini, ad esempio, che l'utente desideri riscrivere, https://www.contoso.com/fashion/shirts in https://www.contoso.com/buy.aspx?category=fashion&product=shirts , può essere eseguito tramite la configurazione di riscrittura URL seguente.
+In tal caso, il gateway applicazione può acquisire parametri dall'URL e aggiungere coppie chiave-valore della stringa di query da quelle dell'URL. Si immagini, ad esempio, che l'utente desideri riscrivere, `https://www.contoso.com/fashion/shirts` in `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` , può essere eseguito tramite la configurazione di riscrittura URL seguente.
 
 **Condition** -se la variabile server `uri_path` è uguale al modello`/(.+)/(.+)`
 

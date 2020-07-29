@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337263"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima)
 L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro alla cache di Azure per il collegamento di redis basato su Azure privato. 
@@ -69,29 +69,29 @@ Questa sezione illustra come creare una rete virtuale e una subnet.
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
-    | **Dettagli progetto**  |                                                                 |
-    | Sottoscrizione     | Nell'elenco a discesa selezionare la sottoscrizione.                                  |
+    | **Dettagli del progetto**  |                                                                 |
+    | Subscription     | Nell'elenco a discesa selezionare la sottoscrizione.                                  |
     | Gruppo di risorse   | Elenco a discesa e selezionare un gruppo di risorse. |
     | **Dettagli istanza** |                                                                 |
-    | Nome             | Entrare**\<virtual-network-name>**                                    |
-    | Area           | Selezionare**\<region-name>** |
+    | Nome             | Immettere **\<virtual-network-name>**                                    |
+    | Region           | Selezionare**\<region-name>** |
 
 4. Selezionare la scheda **indirizzi IP** oppure fare clic sul pulsante **Avanti: indirizzi IP** nella parte inferiore della pagina.
 
 5. Nella scheda **indirizzi IP** immettere queste informazioni:
 
-    | Impostazione            | Valore                      |
+    | Impostazione            | valore                      |
     |--------------------|----------------------------|
-    | Spazio indirizzi IPv4 | Entrare**\<IPv4-address-space>** |
+    | Spazio indirizzi IPv4 | Immettere **\<IPv4-address-space>** |
 
 6. In **nome subnet**selezionare la parola **default**.
 
 7. In **modifica subnet**immettere queste informazioni:
 
-    | Impostazione            | Valore                      |
+    | Impostazione            | valore                      |
     |--------------------|----------------------------|
-    | Nome della subnet | Entrare**\<subnet-name>** |
-    | Intervallo di indirizzi subnet | Entrare**\<subnet-address-range>**
+    | Nome della subnet | Immettere **\<subnet-name>** |
+    | Intervallo di indirizzi subnet | Immettere **\<subnet-address-range>**
 
 8. Selezionare **Salva**.
 
@@ -121,11 +121,11 @@ In questa sezione si creerà un endpoint privato che verrà connesso alla cache 
     | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Subscription | Nell'elenco a discesa selezionare la sottoscrizione. |
-    | Gruppo di risorse | Elenco a discesa e selezionare un gruppo di risorse. |
+    | Sottoscrizione | Nell'elenco a discesa selezionare la sottoscrizione. |
+    | Resource group | Elenco a discesa e selezionare un gruppo di risorse. |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome |Immettere un nome per l'endpoint privato.  |
-    | Area |Nell'elenco a discesa selezionare una località. |
+    | Region |Nell'elenco a discesa selezionare una località. |
     |||
 
 5. Selezionare il pulsante **Next: Resource (risorsa** ) nella parte inferiore della pagina.
@@ -149,3 +149,9 @@ In questa sezione si creerà un endpoint privato che verrà connesso alla cache 
 11. Selezionare **Rivedi e crea**. Si passa alla scheda **Rivedi e crea**in   cui Azure convalida la configurazione.
 
 12. Una volta visualizzato il messaggio di **convalida** verde, selezionare **Crea**.
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni sul collegamento privato, vedere la [documentazione del collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+

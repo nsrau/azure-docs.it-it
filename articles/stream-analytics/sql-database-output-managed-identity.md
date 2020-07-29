@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305925"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure da un processo di Analisi di flusso di Azure (anteprima)
 
@@ -102,7 +102,7 @@ Successivamente, occorre creare un utente di un database indipendente nel databa
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Concedere autorizzazioni al processo di Analisi di flusso
 
-Dopo aver creato un utente del database indipendente e dato accesso ai servizi di Azure nel portale, come descritto nella sezione precedente, il processo di Analisi di flusso dispone dell'autorizzazione dall'identità gestita per connettersi **(CONNECT)** alla risorsa del Database SQL tramite identità gestita. Si consiglia di concedere le autorizzazioni SELECT e INSERT al processo di Analisi di flusso, perché saranno necessarie in un secondo momento nel flusso di lavoro di Analisi di flusso. L'autorizzazione **SELECT** consente al processo di testare la connessione alla tabella nel database SQL. L'autorizzazione **INSERT** consente di testare le query di Analisi di flusso end-to-end dopo aver configurato un input e l'output del database SQL. È possibile concedere queste autorizzazioni al processo di Analisi di flusso usando SQL Server Management Studio. Per altre informazioni, vedere la guida di riferimento a [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+Dopo aver creato un utente del database indipendente e dato accesso ai servizi di Azure nel portale, come descritto nella sezione precedente, il processo di Analisi di flusso dispone dell'autorizzazione dall'identità gestita per connettersi **(CONNECT)** alla risorsa del Database SQL tramite identità gestita. Si consiglia di concedere le autorizzazioni SELECT e INSERT al processo di Analisi di flusso, perché saranno necessarie in un secondo momento nel flusso di lavoro di Analisi di flusso. L'autorizzazione **SELECT** consente al processo di testare la connessione alla tabella nel database SQL. L'autorizzazione **INSERT** consente di testare le query di Analisi di flusso end-to-end dopo aver configurato un input e l'output del database SQL. È possibile concedere queste autorizzazioni al processo di Analisi di flusso usando SQL Server Management Studio. Per ulteriori informazioni, vedere la Guida di riferimento a GRANT (Transact-SQL).
 
 Per concedere solo l'autorizzazione a una determinata tabella od oggetto nel database, utilizzare la sintassi T-SQL seguente ed eseguire la query. 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067055"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283861"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Restituire il dispositivo Azure Stack Edge
 
@@ -117,14 +117,14 @@ Per pianificare un prelievo, seguire questa procedura.
 
 Dopo la ricezione nel data center di Azure, il dispositivo viene controllato per escludere la presenza di danni o segnali di manomissione.
 
-- Se il dispositivo arriva intatto ed è in forma corretta, il contatore della fatturazione si interrompe per la risorsa. Si verrà contattati dal supporto tecnico Microsoft per confermare la restituzione del dispositivo. È quindi possibile eliminare la risorsa associata al dispositivo nel portale di Azure.
+- Se il dispositivo arriva intatto ed è in forma corretta, il contatore della fatturazione si interrompe per la risorsa. Il team operativo di Azure Stack Edge contatterà l'utente per verificare che il dispositivo sia stato restituito. È quindi possibile eliminare la risorsa associata al dispositivo nel portale di Azure.
 - Se il dispositivo arriva notevolmente danneggiato, è possibile che vengano applicate ammende. Per altre informazioni, vedere le [domande frequenti sul dispositivo perso o danneggiato](https://azure.microsoft.com/pricing/details/databox/edge/) e le [condizioni d'uso del servizio](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 È possibile eliminare il dispositivo nel portale di Azure:
 
 - Dopo aver effettuato l'ordine e prima che il dispositivo venga preparato da Microsoft.
-- Dopo la restituzione a Microsoft, il dispositivo viene sottoposto a un'ispezione fisica presso il data center di Azure, quindi il supporto tecnico Microsoft chiama per confermare che il dispositivo è stato restituito.
+- Dopo che il dispositivo è stato restituito a Microsoft, il controllo fisico viene passato al Data Center di Azure e il team operativo Azure Stack Edge chiama per verificare che il dispositivo sia stato restituito.
 
 Se il dispositivo è stato attivato in un'altra sottoscrizione o località, Microsoft sposterà l'ordine nella nuova sottoscrizione o località entro un giorno lavorativo. Una volta spostato l'ordine, è possibile eliminare questa risorsa.
 

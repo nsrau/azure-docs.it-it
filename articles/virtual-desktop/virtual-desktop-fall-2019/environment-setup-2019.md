@@ -1,6 +1,6 @@
 ---
-title: Ambiente desktop virtuale Windows (rientri 2019)-Azure
-description: Informazioni sugli elementi di base di un ambiente desktop virtuale Windows (versione 2019), come tenant e pool host.
+title: Ambiente desktop virtuale Windows (classico)-Azure
+description: Elementi di base di un ambiente desktop virtuale Windows (classico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082648"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285017"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Ambiente desktop virtuale Windows (versione 2019)
+# <a name="windows-virtual-desktop-classic-environment"></a>Ambiente desktop virtuale Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../environment-setup.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../environment-setup.md).
 
 Desktop virtuale di Windows è un servizio che consente agli utenti di accedere in modo semplice e sicuro ai propri desktop e RemoteApp virtualizzati. In questo argomento viene illustrata la struttura generale dell'ambiente desktop virtuale di Windows.
 

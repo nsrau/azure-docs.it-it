@@ -5,16 +5,17 @@ description: Informazioni su come ripetere il training dei modelli con le pipeli
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.custom: designer
-ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430066"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319627"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ripetere il training dei modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 * Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
 * Completare la parte 1 di questa serie di procedure [Trasformare i dati nella finestra di progettazione](how-to-designer-transform-data.md).
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 Questo articolo presuppone anche che l'utente abbia una conoscenza di base della creazione di pipeline nella finestra di progettazione. Per un'introduzione guidata, eseguire l'[esercitazione](tutorial-designer-automobile-price-train-score.md). 
 

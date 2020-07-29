@@ -4,16 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 754baa66d79d169f830332f3c39660f1d71f608a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527915"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285272"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -26,8 +26,6 @@ Accedere a Azure Active Directory per accedere alle risorse di archiviazione di 
 Per essere autorizzati all'account di archiviazione di Azure, è necessario assegnare il ruolo di **collaboratore dati BLOB di archiviazione** all'account utente nel contesto dell'account di archiviazione, del gruppo di risorse padre o della sottoscrizione padre.
 
 Questo comando memorizza nella cache le informazioni di accesso crittografate per l'utente corrente usando i meccanismi predefiniti del sistema operativo.
-
-Per ulteriori informazioni, fare riferimento agli esempi.
 
 > [!IMPORTANT]
 > Se si imposta una variabile di ambiente tramite la riga di comando, tale variabile sarà leggibile nella cronologia della riga di comando. Si consiglia di cancellare le variabili che contengono credenziali dalla cronologia della riga di comando. Per evitare che le variabili vengano visualizzate nella cronologia, è possibile utilizzare uno script per richiedere le credenziali dell'utente e per impostare la variabile di ambiente.
@@ -64,11 +62,11 @@ azcopy login --identity
 ```
 
 Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID client dell'identità del servizio:
-
+  
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
-
+ 
 Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID oggetto dell'identità del servizio:
 
 ```azcopy
@@ -76,48 +74,56 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID risorsa dell'identità del servizio:
-
+ 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```
 
-Accedere come entità servizio usando un segreto client. Impostare la variabile di ambiente AZCOPY_SPA_CLIENT_SECRET al segreto client per l'autenticazione dell'entità servizio basata su segreto.
+Accedere come entità servizio usando un segreto client: impostare la variabile di ambiente AZCOPY_SPA_CLIENT_SECRET al segreto client per l'autenticazione dell'entità servizio basata su segreto.
 
 ```azcopy
-azcopy login --service-principal --application-id "YOUR_APP_ID" --tenant-id "YOUR_TENANT_ID"
+azcopy login --service-principal --application-id <your service principal's application ID>
 ```
 
-Accedere come entità servizio usando un certificato e una password. Impostare la variabile di ambiente AZCOPY_SPA_CERT_PASSWORD sulla password del certificato per l'autorizzazione dell'entità servizio basata su certificato.
+Accedere come entità servizio usando un certificato e la relativa password:
+
+Impostare la variabile di ambiente AZCOPY_SPA_CERT_PASSWORD sulla password del certificato per l'autenticazione dell'entità servizio basata su certificato:
 
 ```azcopy
-azcopy login --service-principal --certificate-path /path/to/my/cert
+azcopy login --service-principal --certificate-path /path/to/my/cert --application-id <your service principal's application ID>
 ```
 
-Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12. AzCopy non raggiunge l'archivio certificati di sistema per ottenere il certificato.
+Trattare `/path/to/my/cert` come un percorso di un file PEM o Pkcs12. AzCopy non raggiunge l'archivio certificati di sistema per ottenere il certificato.
 
---Certificate-Path è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificati.
+`--certificate-path`è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificato.
 
 ## <a name="options"></a>Opzioni
 
-|Opzione|Descrizione|
-|--|--|
-|--AAD-endpoint|Endpoint Azure Active Directory da utilizzare. Il valore predefinito ( `https://login.microsoftonline.com` ) è corretto per il cloud di Azure pubblico. Impostare questo parametro quando si esegue l'autenticazione in un cloud nazionale. Vedere [Azure ad endpoint di autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
-Questo flag non è necessario per identità del servizio gestita.|
-|--Application-ID stringa|ID applicazione dell'identità assegnata dall'utente. Obbligatorio per l'autenticazione dell'entità servizio.|
-|--certificate-percorso stringa|Percorso del certificato per l'autenticazione del nome SPN. Obbligatorio per l'autenticazione dell'entità servizio basata su certificato.|
-|-h, --help|Mostra il contenuto della Guida per il comando login.|
-|--Identity|eseguire l'accesso con l'identità della macchina virtuale, nota anche come identità del servizio gestito (MSI).|
-|--Identity-client-ID stringa|ID client dell'identità assegnata dall'utente.|
-|--Identity-Object-ID stringa|ID oggetto dell'identità assegnata dall'utente.|
-|--Identity-Resource-ID stringa|ID risorsa dell'identità assegnata dall'utente.|
-|--Service-Principal|Accedere tramite SPN (nome dell'entità servizio) usando un certificato o un segreto. Il segreto client o la password del certificato deve essere inserita nella variabile di ambiente appropriata. Digitare `AzCopy env` per visualizzare i nomi e le descrizioni delle variabili di ambiente.|
-|--Tenant-ID stringa| ID del tenant di Azure Active Directory da usare per l'accesso interattivo al dispositivo OAuth.|
+**--AAD-endpoint** stringa l'endpoint Azure Active Directory da usare. Il valore predefinito https://login.microsoftonline.com) è corretto per il cloud di Azure globale. Impostare questo parametro quando si esegue l'autenticazione in un cloud nazionale. Non necessario per identità del servizio gestita.
+
+**--Application-ID** stringa ID applicazione dell'identità assegnata dall'utente. Obbligatorio per l'autenticazione dell'entità servizio.
+
+**--Certificate-percorso** stringa percorso del certificato per l'autenticazione del nome SPN. Obbligatorio per l'autenticazione dell'entità servizio basata su certificato.
+
+**--** guida per il `azcopy login` comando.
+
+**--Identity**   Accedere usando l'identità della macchina virtuale, nota anche come identità del servizio gestito.
+
+**--Identity-client-ID** stringa ID client dell'identità assegnata dall'utente.
+
+**--Identity-Object-ID** oggetto stringa ID dell'identità assegnata dall'utente.
+
+**--Identity-Resource-ID** stringa ID risorsa dell'identità assegnata dall'utente.
+
+**--Service-Principal**   Accedere tramite un nome dell'entità servizio (SPN) utilizzando un certificato o un segreto. Il segreto client o la password del certificato deve essere inserita nella variabile di ambiente appropriata. Digitare AzCopy ENV per visualizzare i nomi e le descrizioni delle variabili di ambiente.
+
+**--Tenant-ID** stringa il Azure Active Directory ID tenant da usare per l'accesso interattivo al dispositivo OAuth.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
 |Opzione|Descrizione|
 |---|---|
-|--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
+|--Cap-Mbps float|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 |--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 

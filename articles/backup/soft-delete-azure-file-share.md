@@ -4,18 +4,16 @@ description: Informazioni su come l'eliminazione temporanea può proteggere le c
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282705"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminare accidentalmente la protezione per le condivisioni file di Azure con backup di Azure
 
-Per garantire la protezione contro attacchi cibernetici o l'eliminazione accidentale, l' [eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea è abilitata per tutte le condivisioni file in un account di archiviazione quando si configura il backup per qualsiasi condivisione file nel rispettivo account di archiviazione. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per almeno 14 giorni aggiuntivi, consentendo il ripristino delle condivisioni file senza perdita di dati.  
-
-L'eliminazione temporanea è supportata solo per gli account di archiviazione standard e Premium ed è attualmente abilitata dal lato backup di Azure in [queste aree](azure-file-share-support-matrix.md).
+Per garantire la protezione contro attacchi cibernetici o l'eliminazione accidentale, l' [eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea è abilitata per tutte le condivisioni file in un account di archiviazione quando si configura il backup per qualsiasi condivisione file nel rispettivo account di archiviazione. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per almeno 14 giorni aggiuntivi, consentendo il ripristino delle condivisioni file senza perdita di dati.  L'eliminazione temporanea è supportata per gli account di archiviazione standard e Premium e l'impostazione è abilitata da backup di Azure per tutti gli account di archiviazione che ospitano condivisioni file di cui è stato eseguito il backup.
 
 Il diagramma di flusso seguente mostra i diversi passaggi e Stati di un elemento di backup quando l'eliminazione temporanea è abilitata per le condivisioni file in un account di archiviazione:
 

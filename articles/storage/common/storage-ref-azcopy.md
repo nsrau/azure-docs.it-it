@@ -4,15 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74038084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285187"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -33,11 +34,13 @@ Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [htt
 
 ## <a name="options"></a>Opzioni
 
-**--Cap-Mbps UInt32**   Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--Cap-Mbps** (float) termina la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
 
-**-h,--Help** Guida per azcopy
+**--Guida** Guida per azcopy
       
-**--output-tipo**  Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
+**--output-Type** (String) formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è `text`. (impostazione predefinita `text` )
+
+**--trusted-Microsoft-suffissi** (String) specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
 ## <a name="see-also"></a>Vedere anche
 

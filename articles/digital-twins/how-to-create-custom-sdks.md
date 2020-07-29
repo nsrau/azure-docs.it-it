@@ -7,23 +7,26 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e7533b87e28fa2bb95aaaddd31f7871e8ccdb600
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285612"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
-Attualmente, l'unico SDK del piano dati pubblicato per interagire con le API dei dispositivi gemelli digitali di Azure è per .NET (C#). Per informazioni generali su .NET SDK e sulle API, vedere [*procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un proprio SDK nel linguaggio preferito, usando autorest.
+Attualmente, l'unico SDK del piano dati pubblicato per interagire con le API dei dispositivi gemelli digitali di Azure è per .NET (C#). Per informazioni generali su .NET SDK e sulle API, vedere [*procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un SDK del piano dati personalizzato nel linguaggio desiderato, usando autorest.
+
+>[!NOTE]
+> È anche possibile usare autorest per generare un SDK del piano di controllo, se lo si desidera. A tale scopo, completare la procedura descritta in questo articolo usando il [file openapi (Control Plane spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) invece del piano dati.
 
 ## <a name="set-up-your-machine"></a>Configurare il computer
 
 Per generare un SDK, sarà necessario:
 * [Autorest](https://github.com/Azure/autorest), versione 2.0.4413 (la versione 3 non è attualmente supportata)
 * [Node.js](https://nodejs.org) come prerequisito di autorest
-* Il [file spavalderia (openapi) di Azure Digital gemelli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) ha diritto *digitaltwins.js*e la relativa cartella di esempi. Scaricare il file spavalderia e la relativa cartella degli esempi nel computer locale.
+* Il [file openapi (Digital Gemini Data Plane)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) di Azure ha diritto *digitaltwins.json*e la relativa cartella di esempi. Scaricare il file spavalderia e la relativa cartella degli esempi nel computer locale.
 
 Quando il computer è dotato di tutti gli elementi dall'elenco precedente, è possibile usare autorest per creare l'SDK.
 
@@ -53,7 +56,7 @@ Autorest supporta un'ampia gamma di generatori di codice della lingua.
 
 In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e che può essere incluso in altri progetti. Questa procedura si basa su **Visual Studio** (è possibile installare la versione più recente da [qui](https://visualstudio.microsoft.com/downloads/)).
 
-Ecco i passaggi necessari:
+Seguire questa procedura:
 
 1. Creare una nuova soluzione di Visual Studio per una libreria di classi
 2. Usare *ADTApi* come nome del progetto
