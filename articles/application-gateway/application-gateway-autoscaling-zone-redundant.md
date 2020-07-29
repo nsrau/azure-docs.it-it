@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088107"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273202"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
-In uno SKU Standard_v2 e WAF_v2 sono disponibili anche il gateway applicazione e Web Application Firewall (WAF). Lo SKU V2 offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per indirizzi VIP statici. Le funzionalità disponibili nello SKU Standard e WAF continuano a essere supportate anche nel nuovo SKU v2, con alcune eccezioni elencate nella sezione di [confronto](#differences-from-v1-sku).
+Il gateway applicazione è disponibile in uno SKU Standard_v2. Il Web Application Firewall (WAF) è disponibile in uno SKU WAF_v2. Lo SKU V2 offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per indirizzi VIP statici. Le funzionalità disponibili nello SKU Standard e WAF continuano a essere supportate anche nel nuovo SKU v2, con alcune eccezioni elencate nella sezione di [confronto](#differences-from-v1-sku).
 
 Il nuovo SKU v2 include i miglioramenti seguenti:
 
@@ -178,11 +178,11 @@ Questa sezione descrive le funzionalità e le limitazioni dello SKU v2 che lo di
 
 |Differenza|Dettagli|
 |--|--|
-|Autenticazione del certificato|Non supportato.<br>Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
+|Autenticazione del certificato|Non supportata.<br>Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
 |Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supportata (scenari specifici). In anteprima.<br> Per altre informazioni sugli scenari supportati, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Contatori delle prestazioni in Diagnostica di Azure|Non supportato.<br>Usare le metriche di Azure.|
+|Contatori delle prestazioni in Diagnostica di Azure|Non supportata.<br>Usare le metriche di Azure.|
 |Fatturazione|Inizio della fatturazione pianificato per il 1° luglio 2019.|
 |Modalità FIPS|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|

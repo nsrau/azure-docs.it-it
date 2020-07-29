@@ -7,11 +7,12 @@ manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: f9b3cde8ff0f3a1b97d53a1de72cb6c5c48a800c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c2de10f5fbacd689a9ae92eb1f7295cccea3fb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289782"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279262"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Partner della migrazione di Database di Azure per PostgreSQL
 Per supportare su vasta scala la soluzione Database di Azure per PostgreSQL, è possibile scegliere tra un'ampia gamma di strumenti e partner leader del settore. Questo articolo presenta i partner di Microsoft che offrono soluzioni di migrazione con supporto per Database di Azure per PostgreSQL.
@@ -27,7 +28,7 @@ Per supportare su vasta scala la soluzione Database di Azure per PostgreSQL, è 
 | ![Pactera][6] |**Pactera**<br>Pactera è una società globale che offre servizi di consulenza, digitali, tecnologici e operativi ad aziende leader a livello mondiale. Dall'esperienza consolidata nella progettazione alle più recenti soluzioni di trasformazione digitale, Pactera consente ai clienti di acquisire un notevole vantaggio competitivo. Grazie a metodologie e strumenti collaudati, garantisce sicurezza, autenticità e precisione dei dati.|[Sito Web][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su alcuni degli altri partner Microsoft, vedere il [sito dei partner di Microsoft](https://partner.microsoft.com/en-US/).
+Per altre informazioni su alcuni degli altri partner Microsoft, vedere il [sito dei partner di Microsoft](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-postgresql/SNP_Logo.png

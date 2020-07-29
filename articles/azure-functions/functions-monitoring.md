@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273374"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -596,6 +596,9 @@ Funzioni V2 raccoglie automaticamente le dipendenze per le richieste HTTP, Servi
 È possibile scrivere codice personalizzato per visualizzare le dipendenze, come il codice di esempio nella [sezione relativa ai dati di telemetria personalizzati C#](#log-custom-telemetry-in-c-functions). Il codice di esempio crea una *mappa dell'applicazione* in Application Insights simile all'immagine seguente:
 
 ![Mappa delle applicazioni](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Le dipendenze vengono scritte a livello di informazioni. Se si applica un filtro a Warning o versione successiva, non verrà visualizzato alcun dato. Inoltre, la raccolta automatica delle dipendenze si verifica in ambito non utente. Assicurarsi quindi che il livello sia impostato almeno su **informazioni** al di fuori dell'ambito utente nell'host.json, ad esempio all'esterno della funzione. <YOUR_FUNCTION_NAME>. Chiave utente) se si desidera che tali dipendenze vengano acquisite.
 
 ## <a name="enable-application-insights-integration"></a>Abilitare l'integrazione di Application Insights
 

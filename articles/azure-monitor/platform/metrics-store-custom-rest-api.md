@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662265"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321259"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
 Questo articolo illustra come inviare metriche personalizzate per le risorse di Azure nell'archivio delle metriche di Monitoraggio di Azure usando un'API REST. Una volta che le metriche sono nel Monitoraggio di Azure, è possibile eseguire tutte le operazioni eseguibili con le metriche standard. Esempi sono la creazione di grafici, avvisi e il routing verso altri strumenti esterni.  
 
 >[!NOTE]  
->L'API REST consente solo l'invio delle metriche personalizzate per le risorse di Azure. Per inviare metriche per le risorse in ambienti diversi o in locale, è possibile usare [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>L'API REST consente solo l'invio delle metriche personalizzate per le risorse di Azure. Per inviare metriche per le risorse in ambienti diversi o in locale, è possibile usare [Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Creare e autorizzare un'entità servizio a generare metriche 
@@ -92,7 +93,7 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
 1. Non è possibile generare metriche rispetto a una sottoscrizione o a un gruppo di risorse come risorsa di Azure. 
 1. Non è possibile inserire nell'archivio una metrica più vecchia di 20 minuti. L'archivio delle metriche è ottimizzato per la creazione di avvisi e di grafici in tempo reale. 
 2. Il numero di nomi delle dimensioni deve corrispondere ai valori e viceversa. Controllare i valori. 
-2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [aree supportate](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [aree supportate](./metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -116,5 +117,5 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
 
  
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md).
+- Altre informazioni sulle [metriche personalizzate](./metrics-custom-overview.md).
 

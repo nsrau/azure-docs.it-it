@@ -1,6 +1,6 @@
 ---
-title: 'Connessione a desktop virtuale Windows: 2019 Windows 10 o 7-Azure'
-description: Come connettersi al desktop virtuale di Windows tramite il client desktop di Windows.
+title: Connettersi a desktop virtuale Windows (classico) Windows 10 o 7-Azure
+description: Come connettersi a desktop virtuale Windows (classico) utilizzando il client desktop di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270329"
 ---
-# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Connettersi con il client desktop di Windows-Fall 2019
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Connettersi con il client Windows Desktop (classico)
 
 > Si applica a: Windows 7, Windows 10 e Windows 10 le aziende
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../connect-windows-7-10.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../connect-windows-7-10.md).
 
 È possibile accedere alle risorse del desktop virtuale di Windows nei dispositivi con Windows 7, Windows 10 e Windows 10, Enterprise usando il client desktop di Windows. Il client non supporta Windows 8 o Windows 8.1.
 
 >[!NOTE]
->Per impostazione predefinita, il client Windows viene impostato automaticamente su Windows Virtual Desktop Fall 2019 release. Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili.
+>Il client Windows si imposta automaticamente sul desktop virtuale Windows (classico). Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili.
 
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
@@ -63,8 +63,8 @@ Esistono due modi per sottoscrivere un'area di lavoro. Il client può provare a 
 1. Dalla pagina principale del client selezionare **Sottoscrivi con URL**.
 2. Immetti l'URL dell'area di lavoro o il tuo indirizzo e-mail:
    - Nel caso dell'**URL dell'area di lavoro**, usa quello fornito dall'amministratore. Se accedi alle risorse da Desktop virtuale Windows, puoi usare uno degli URL seguenti:
-     - Desktop virtuale Windows Autunno 2019: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Desktop virtuale Windows Primavera 2020: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Desktop virtuale Windows (classico):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Desktop virtuale di Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Se invece si usa il campo **posta elettronica** , immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato l' [individuazione della posta elettronica](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selezionare **Avanti**.
 4. Accedi con l'account utente quando richiesto.

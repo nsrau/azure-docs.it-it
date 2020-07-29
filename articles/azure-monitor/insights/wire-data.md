@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424466"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325152"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -155,7 +156,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 
 ### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-| File | OS | Versione | SHA-256 |
+| File | Sistema operativo | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -166,7 +167,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 
 Per configurare la soluzione Wire Data per le proprie aree di lavoro, seguire questa procedura.
 
-1. Abilitare la soluzione Analisi log attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o seguendo la procedura descritta in [aggiungere soluzioni di monitoraggio dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md).
+1. Abilitare la soluzione Analisi log attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o seguendo la procedura descritta in [aggiungere soluzioni di monitoraggio dalla raccolta di soluzioni](./solutions.md).
 2. Installare Dependency Agent in ogni computer in cui si desidera ottenere i dati. Dependency Agent è in grado di monitorare le connessioni ai vicini immediatamente, quindi potrebbe non essere necessario un agente in ogni computer.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ Dependency Agent viene installato nei computer che eseguono Windows con InstallD
 
 Usare la procedura seguente per installare Dependency Agent in ogni computer che esegue Windows:
 
-1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../../azure-monitor/platform/agent-windows.md).
+1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../platform/agent-windows.md).
 2. Scaricare Windows Dependency Agent usando il collegamento nella sezione precedente e quindi eseguirlo con il comando seguente:`InstallDependencyAgent-Windows.exe`
 3. Seguire la procedura guidata per installare l'agente.
 4. Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
@@ -192,7 +193,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Bandiera** | **Descrizione** |
+| **Flag** | **Descrizione** |
 | --- | --- |
 | <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -207,7 +208,7 @@ Dependency Agent viene installato nei computer Linux tramite Installdependencyag
 
 Per installare Dependency Agent in ogni computer Linux, seguire questa procedura:
 
-1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Linux ospitati nell'ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Linux ospitati nell'ambiente](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Scaricare Dependency Agent per Linux usando il collegamento riportato nella sezione precedente e quindi installarlo come radice con questo comando: sh InstallDependencyAgent-Linux64.bin
 3. Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux, la directory di log è /var/opt/microsoft/dependency-agent/log.
 
@@ -217,7 +218,7 @@ Per visualizzare un elenco dei flag di installazione, eseguire il programma di i
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Bandiera** | **Descrizione** |
+| **Flag** | **Descrizione** |
 | --- | --- |
 | <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -415,4 +416,5 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i record di ricerca dettagliati su Wire Data.
+- [Ricerche nei log](../log-query/log-query-overview.md) per visualizzare i record di ricerca dettagliati su Wire Data.
+

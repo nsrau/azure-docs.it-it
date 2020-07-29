@@ -3,12 +3,12 @@ title: Esportazione continua dei dati di telemetria da Application Insights | Mi
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014525"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324336"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -22,11 +22,11 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 * Il pulsante Esporta nella parte superiore di una scheda di metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 
 * [Dati di analisi](../log-query/log-query-overview.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
-* Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
+* Se si vogliono [esplorare i dati in Power BI](./export-power-bi.md), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
 * È anche possibile accedere [all'esportazione continua](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.
 
-Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](../../azure-monitor/app/data-retention-privacy.md) usuale.
+Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](./data-retention-privacy.md) usuale.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configurazione dell'archiviazione avanzata per l'esportazione continua
 
@@ -52,7 +52,7 @@ L'esportazione continua **non supporta** le funzionalità/configurazioni di arch
 4. Creare o selezionare un contenitore nella risorsa di archiviazione.
 
 > [!NOTE]
-> Dopo aver creato l'esportazione, i dati appena inseriti inizieranno a fluire nell'archivio BLOB di Azure. L'esportazione continua trasmette solo i nuovi dati di telemetria creati/inseriti dopo l'abilitazione dell'esportazione continua. Tutti i dati esistenti prima dell'abilitazione dell'esportazione continua non verranno esportati e non esiste alcun modo supportato per esportare in modo retroattivo i dati creati in precedenza usando l'esportazione continua.
+> Dopo aver creato l'esportazione, i dati appena inseriti inizieranno a fluire nell'archivio BLOB di Azure. L'esportazione continua trasmette solo i nuovi dati di telemetria creati/inseriti dopo l'abilitazione dell'esportazione continua. Tutti i dati esistenti prima di abilitare l'esportazione continua non verranno esportati e non esiste un modo supportato per esportare in modo retroattivo i dati creati in precedenza con l'esportazione continua.
 
 Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nella risorsa di archiviazione.
 
@@ -60,13 +60,13 @@ Una volta completata la prima esportazione, nel contenitore di archiviazione BLO
 
 |Nome | Descrizione |
 |:----|:------|
-| [Disponibilità](export-data-model.md#availability) | Segnala i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Event](export-data-model.md#events) | Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Eccezioni](export-data-model.md#exceptions) |Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server e nel browser.
-| [Messaggi](export-data-model.md#trace-messages) | Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Disponibilità](export-data-model.md#availability) | Segnala i [test Web di disponibilità](./monitor-web-app-availability.md).  |
+| [Event](export-data-model.md#events) | Eventi personalizzati generati da [TrackEvent()](./api-custom-events-metrics.md#trackevent). 
+| [Eccezioni](export-data-model.md#exceptions) |Segnala le [eccezioni](./asp-net-exceptions.md) nel server e nel browser.
+| [Messaggi](export-data-model.md#trace-messages) | Inviati da [TrackTrace](./api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](./asp-net-trace-logs.md).
 | [Metriche](export-data-model.md#metrics) | Generato dalle chiamate delle API di metrica.
 | [PerformanceCounters](export-data-model.md) | Contatori delle prestazioni raccolti da Application Insights.
-| [Richieste](export-data-model.md#requests)| Inviate da [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.| 
+| [Richieste](export-data-model.md#requests)| Inviate da [TrackRequest](./api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.| 
 
 ### <a name="to-edit-continuous-export"></a>Per modificare l'esportazione continua
 
@@ -84,14 +84,14 @@ Per interrompere l'esportazione in modo permanente, eliminare l'esportazione. Qu
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a> Quali eventi si ottengono?
 I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client.
 
-I dati che il [campionamento](../../azure-monitor/app/sampling.md) ha rimosso non sono inclusi nei dati esportati.
+I dati che il [campionamento](./sampling.md) ha rimosso non sono inclusi nei dati esportati.
 
 Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
-I dati includono anche i risultati di ogni [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) impostato.
+I dati includono anche i risultati di ogni [test Web di disponibilità](./monitor-web-app-availability.md) impostato.
 
 > [!NOTE]
-> **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
+> **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](./sampling.md)
 >
 >
 
@@ -210,5 +210,6 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

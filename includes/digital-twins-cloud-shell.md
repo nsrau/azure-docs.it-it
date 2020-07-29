@@ -3,30 +3,24 @@ author: baanders
 description: file di inclusione per Gemelli digitali di Azure - configurare Cloud Shell e l'estensione IoT
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 6f472865c131b873f1ae0a21fa9ec55865fb2b29
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
-ms.translationtype: MT
+ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032213"
 ---
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
-### <a name="set-up-cloud-shell-session"></a>Configurare una sessione di Cloud Shell
-
-Dopo aver aperto una finestra di Cloud Shell, la prima cosa da fare è accedere e impostare il contesto della shell sulla sottoscrizione per questa sessione. Eseguire questi comandi nell'istanza di Cloud Shell:
+Per iniziare a usare Gemelli digitali di Azure in una finestra di [Azure Cloud Shell](https://shell.azure.com) aperta, la prima cosa da fare è accedere e impostare il contesto della shell sulla sottoscrizione per questa sessione. Eseguire questi comandi nell'istanza di Cloud Shell:
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> È anche possibile impostare la sottoscrizione usando il nome della sottoscrizione. Usare questo comando: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
-> 
+> Nel comando riportato sopra si può anche usare il nome della sottoscrizione invece dell'ID. 
+
 Se è la prima volta che si usa questa sottoscrizione con Gemelli digitali di Azure, eseguire questo comando per registrarsi con lo spazio dei nomi di Gemelli digitali di Azure. In caso di dubbi, è possibile eseguirlo di nuovo anche se è stato già completato nel passato.
 
 ```azurecli
@@ -35,28 +29,28 @@ az provider register --namespace 'Microsoft.DigitalTwins'
 
 A questo punto, si aggiungerà l'[**estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) all'istanza di Cloud Shell, per abilitare i comandi per l'interazione con Gemelli digitali di Azure e altri servizi IoT. 
 
-Eseguire innanzitutto questo comando per visualizzare un elenco di tutte le estensioni già installate.
+Eseguire prima di tutto questo comando per visualizzare un elenco di tutte le estensioni già installate.
 
 ```azurecli-interactive
 az extension list
 ```
 
-Nell'output cercare il `"name"` campo per ogni voce di elenco per visualizzare i nomi delle estensioni.
+L'output è una matrice di tutte le estensioni attualmente presenti. Cercare il campo `"name"` per ogni voce di elenco per vedere i nomi delle estensioni.
 
 Usare l'output per determinare quale dei comandi seguenti eseguire per la configurazione dell'estensione (è possibile eseguirne più di uno).
-* Se l'elenco contiene `azure-iot` già l'estensione, Eseguire questo comando per verificare che sia installato l'aggiornamento più recente:
+* Se l'elenco contiene `azure-iot`: L'estensione è già installata. Eseguire questo comando per verificare di avere l'aggiornamento più recente e che non siano disponibili altri aggiornamenti:
 
    ```azurecli-interactive
    az extension update --name azure-iot
    ```
 
-* Se l'elenco non **contiene** `azure-iot` : è necessario installare l'estensione. Usare questo comando:
+* Se l'elenco **non** contiene `azure-iot`: È necessario installare l'estensione. Usare questo comando:
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-* Se l'elenco contiene `azure-iot-cli-ext` : questa è la versione legacy dell'estensione. È necessario installare una sola versione dell'estensione alla volta, quindi è necessario disinstallare l'estensione Legacy. Usare questo comando:
+* Se l'elenco contiene `azure-iot-cli-ext`: È installata la versione legacy dell'estensione. Occorre installare una sola versione dell'estensione alla volta, quindi l'estensione legacy deve essere disinstallata. Usare questo comando:
 
    ```azurecli-interactive
    az extension remove --name azure-cli-iot-ext

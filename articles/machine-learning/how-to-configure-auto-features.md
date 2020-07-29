@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321586"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
@@ -64,7 +64,7 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 | ------------- | ------------- |
 |**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
 |**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi.|
+|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
 |**Trasformare e codificare***|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
 |**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
 |**Codifiche di destinazione**|Per le funzionalità categoriche, questo passaggio esegue il mapping di ogni categoria con un valore di destinazione medio per i problemi di regressione e la probabilità della classe per ogni classe per i problemi di classificazione. Viene applicata la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'overfitting del mapping e del rumore causato dalle categorie di dati di tipo sparse.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>Integrazione con BERT 
+[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) viene usato nel livello conteggi di Machine Learning automatico. In questo livello viene rilevato se una colonna contiene testo libero o altri tipi di dati come timestamp o numeri semplici e si trasforma di conseguenza. Per il BERT è possibile ottimizzare/eseguire il training del modello usando le etichette fornite dall'utente, quindi vengono restituiti gli incorporamenti dei documenti (per BERT si tratta dello stato nascosto finale associato al token [CLS] speciale) come funzionalità insieme ad altre funzionalità come le funzionalità basate su timestamp (ad esempio, il giorno della settimana) o i numeri di molti set di dati tipici. 
+
+Per abilitare BERT, è consigliabile usare il calcolo GPU per il training. Se viene usato un calcolo della CPU, anziché BERT, AutoML consentirà a BiLSTM DNN featurizer. Per richiamare BERT, è necessario impostare "enable_dnn: true" in automl_settings e usare il calcolo GPU (ad esempio, vm_size = "STANDARD_NC6" o una GPU più elevata). Vedere [questo notebook per un esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+AutoML esegue i passaggi seguenti, per il caso di BERT (si noti che è necessario impostare "enable_dnn: true" in automl_settings per eseguire questi elementi):
+
+1. Pre-elaborazione, inclusa la suddivisione in token di tutte le colonne di testo (il trasformatore "StringCast" viene visualizzato nel riepilogo conteggi del modello finale. Visitare il [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) per vedere un esempio di come produrre il riepilogo conteggi del modello usando il `get_featurization_summary()` metodo.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Concatena tutte le colonne di testo in una singola colonna di testo, di conseguenza sarà visualizzato "StringConcatTransformer" nel modello finale. 
+
+> [!NOTE]
+> La nostra implementazione di BERT limita la lunghezza totale del testo di un campione di training a 128 token. Ciò significa che tutte le colonne di testo concatenate devono avere una lunghezza massima di 128 token. Idealmente, se sono presenti più colonne, ogni colonna deve essere eliminata in modo tale che questa condizione venga soddisfatta. Se, ad esempio, sono presenti due colonne di testo nei dati, entrambe le colonne di testo devono essere eliminate ogni 64 token (presupponendo che entrambe le colonne siano ugualmente rappresentate nella colonna di testo concatenata finale) prima di inserire i dati in AutoML. Per le colonne concatenate di lunghezza >token 128, il livello tokenizer di BERT tronca questo input a 128 token.
+
+3. Nel passaggio della funzionalità di sweep, AutoML confronta BERT con la linea di base (elenco di parole funzionalità + incorporamenti di parole con training) su un campione dei dati e determina se BERT darebbe miglioramenti all'accuratezza. Se determina che il BERT garantisce prestazioni migliori rispetto alla linea di base, AutoML usa quindi BERT per il testo conteggi come strategia conteggi ottimale e procede con conoscenze l'intero dato. In tal caso, nel modello finale viene visualizzato "PretrainedTextDNNTransformer".
+
+AutoML supporta attualmente circa 100 lingue e, a seconda della lingua del set di dati, AutoML sceglie il modello BERT appropriato. Per i dati in tedesco, viene usato il modello di BERT tedesco. Per la lingua inglese, viene usato il modello di BERT inglese. Per tutti gli altri linguaggi, viene usato il modello di BERT multilingue.
+
+Nel codice riportato di seguito viene attivato il modello tedesco BERT, perché il linguaggio del set di dati viene specificato in "DEU", il codice della lingua di 3 lettere per il tedesco in base alla [classificazione ISO](https://iso639-3.sil.org/code/hbs):
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

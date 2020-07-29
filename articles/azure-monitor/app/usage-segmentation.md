@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d605286df70988852d1650be58cfb2c395de814
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539806"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323520"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 
-Scoprire quando le persone usano l'app Web, a quali pagine sono più interessati, dove si trovano, quali browser e sistemi operativi usano. Analizzare i dati di telemetria sull'utilizzo e sull'azienda con [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Scoprire quando le persone usano l'app Web, a quali pagine sono più interessati, dove si trovano, quali browser e sistemi operativi usano. Analizzare i dati di telemetria sull'utilizzo e sull'azienda con [Azure Application Insights](./app-insights-overview.md).
 
 ![Screenshot della pagina Utenti di Application Insights](./media/usage-segmentation/0001-users.png)
 
@@ -29,9 +29,9 @@ Tre pannelli d'uso usano lo stesso strumento per effettuare un'analisi approfond
 
 * **Strumento Utenti**: numero di persone che hanno usato l'app e le relative funzionalità.  Gli utenti vengono conteggiati tramite ID anonimi memorizzati nei cookie del browser. Una singola persona che usa browser o computer diversi verrà conteggiata più di una volta.
 * **Strumento Sessioni**: numero di sessioni delle attività dell'utente che include determinate pagine e funzionalità dell'app. Una sessione viene conteggiata dopo mezz'ora di inattività dell'utente o in seguito a 24 ore di utilizzo continuo.
-* **Strumento Eventi**: frequenza con cui vengono usate alcune pagine e funzionalità dell'app. La visualizzazione di una pagina viene conteggiata quando un browser carica la pagina dell'app, purché sia stata [instrumentata](../../azure-monitor/app/javascript.md). 
+* **Strumento Eventi**: frequenza con cui vengono usate alcune pagine e funzionalità dell'app. La visualizzazione di una pagina viene conteggiata quando un browser carica la pagina dell'app, purché sia stata [instrumentata](./javascript.md). 
 
-    Un evento personalizzato indica che nell'app si verifica un'operazione, spesso si tratta di un'interazione dell'utente ad esempio il clic su un pulsante o il completamento di alcune attività. Inserire codice nell'app per [generare eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+    Un evento personalizzato indica che nell'app si verifica un'operazione, spesso si tratta di un'interazione dell'utente ad esempio il clic su un pulsante o il completamento di alcune attività. Inserire codice nell'app per [generare eventi personalizzati](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Esecuzione di query per determinati utenti
 
@@ -62,5 +62,6 @@ La sezione **Meet your users** (Conosci gli utenti) mostra informazioni relative
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md)
+    - [Cartelle di lavoro](../platform/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
+

@@ -4,15 +4,15 @@ description: API per recuperare lo stato corrente dell'offerta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535876"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272012"
 ---
 # <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
 
@@ -152,9 +152,9 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Operazione completata                   | Invio dell'offerta completato.               |
+|  Completato                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
-|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
+|  Non riuscito                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Stato del passaggio
@@ -166,7 +166,7 @@ Recupera lo stato corrente dell'offerta.
 |  WaitingForPublisherReview   | Il passaggio è in attesa di approvazione da parte dell'editore.      |
 |  WaitingForApproval          | Il passaggio è in attesa di approvazione da parte del processo.        |
 |  Bloccato                     | Il passaggio è bloccato.                             |
-|  Rifiutato                    | Il passaggio è stato rifiutato.                            |
+|  Rifiutata                    | Il passaggio è stato rifiutato.                            |
 |  Operazione completata                    | Il passaggio è stato completato.                            |
 |  Cancellati                    | Il passaggio è stato annullato.                           |
 |  |  |

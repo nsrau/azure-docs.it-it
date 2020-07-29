@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati di syslog ad Azure Sentinel | Microsoft Docs
-description: Connettere qualsiasi appliance locale che supporta syslog ad Azure Sentinel usando un agente in un computer Linux tra il dispositivo e Sentinel. 
+description: Connettere un computer o un dispositivo che supporta syslog ad Azure Sentinel usando un agente in un computer Linux tra il dispositivo e Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,66 +12,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076259"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322840"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
+# <a name="collect-data-from-linux-based-sources-using-syslog"></a>Raccogliere dati da origini basate su Linux usando syslog
 
-È possibile connettere qualsiasi appliance locale che supporta syslog in Azure Sentinel. Questa operazione viene eseguita usando un agente basato su un computer Linux tra il dispositivo e la sentinella di Azure. Se il computer Linux è in Azure, è possibile trasmettere i log dal dispositivo o dall'applicazione a un'area di lavoro dedicata creata in Azure e connetterla. Se il computer Linux non è in Azure, è possibile trasmettere i log dall'appliance a una macchina virtuale locale dedicata o a un computer in cui si installa l'agente per Linux. 
+È possibile trasmettere gli eventi da computer o appliance di supporto Syslog basati su Linux in Azure Sentinel, usando l'agente di Log Analytics per Linux (noto in precedenza come agente OMS). Questa operazione può essere eseguita per qualsiasi computer che consente di installare l'agente di Log Analytics direttamente nel computer. Il daemon syslog nativo del computer raccoglierà gli eventi locali dei tipi specificati e li inoltrerà localmente all'agente, che li trasmetterà all'area di lavoro Log Analytics.
 
 > [!NOTE]
-> Se il dispositivo supporta syslog CEF, la connessione è più completa ed è consigliabile scegliere questa opzione e seguire le istruzioni in [connessione dei dati da CEF](connect-common-event-format.md).
+> - Se l'Appliance supporta il **formato CEF (Common Event Format) su syslog**, viene raccolto un set di dati più completo e i dati vengono analizzati in corrispondenza della raccolta. È consigliabile scegliere questa opzione e seguire le istruzioni riportate in [connettere la soluzione esterna utilizzando CEF](connect-common-event-format.md).
+>
+> - Log Analytics supporta la raccolta di messaggi inviati dai daemon **rsyslog** o **syslog-ng** , dove rsyslog è il valore predefinito. Il daemon predefinito syslog nella versione 5 di Red Hat Enterprise Linux (RHEL), CentOS e Oracle Linux Version (**sysklog**) non è supportato per la raccolta di eventi syslog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il daemon rsyslog in modo da sostituire sysklog.
 
 ## <a name="how-it-works"></a>Come funziona
 
-Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.
+**Syslog** è un protocollo di registrazione eventi comune a Linux. Quando l' **agente di log Analytics per Linux** è installato nella macchina virtuale o nel dispositivo, la routine di installazione configura il daemon syslog locale per l'invio di messaggi all'agente sulla porta TCP 25224. L'agente invia quindi il messaggio all'area di lavoro di Log Analytics su HTTPS, dove viene analizzato in una voce del registro eventi nella tabella syslog in **Azure Sentinel > log**.
 
 Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](../azure-monitor/platform/data-sources-syslog.md).
 
-> [!NOTE]
-> - L'agente può raccogliere log da più origini, ma deve essere installato nel computer proxy dedicato.
-> - Per supportare i connettori sia per CEF che per syslog nella stessa VM, seguire questa procedura per evitare la duplicazione dei dati:
->    1. Seguire le istruzioni per [connettere il CEF](connect-common-event-format.md).
->    2. Per connettere i dati di syslog, passare a **Impostazioni**  >  **area di lavoro**impostazioni  >  **Avanzate**  >  **dati**  >  **syslog** e impostare le funzionalità e le relative priorità in modo che non siano le stesse proprietà usate nella configurazione CEF. <br></br>Se si seleziona **applica la configurazione seguente ai computer**, questi vengono applicati a tutte le VM connesse a questa area di lavoro.
+## <a name="configure-syslog-collection"></a>Configurare la raccolta syslog
 
-
-## <a name="connect-your-syslog-appliance"></a>Connettere l'appliance syslog
+### <a name="configure-your-linux-machine-or-appliance"></a>Configurare il computer o l'appliance Linux
 
 1. In Sentinel di Azure selezionare **connettori dati** , quindi selezionare il connettore **syslog** .
 
-2. Nel pannello **syslog** selezionare **Apri connettore pagina**.
+1. Nel pannello **syslog** selezionare **Apri connettore pagina**.
 
-3. Installare l'agente Linux:
+1. Installare l'agente Linux. In **scegliere il percorso di installazione dell'agente:**
     
-    - Se la macchina virtuale Linux è in Azure, selezionare **scaricare e installare l'agente nella macchina virtuale Linux di Azure**. Nel pannello **macchine virtuali** selezionare le macchine virtuali in cui installare l'agente e quindi fare clic su **Connetti**.
-    - Se il computer Linux non è in Azure, selezionare **scaricare e installare l'agente in un computer Linux non Azure**. Nel pannello **agente diretto** copiare il comando per **scaricare e caricare l'agente per Linux** ed eseguirlo nel computer. 
+    **Per una VM Linux di Azure:**
+      
+    1. Selezionare **Installa agente nella macchina virtuale Linux di Azure**.
+    
+    1. Fare clic sul collegamento **scarica & installa agente per macchine virtuali Linux di Azure >** . 
+    
+    1. Nel pannello **macchine virtuali** fare clic su una macchina virtuale in cui installare l'agente, quindi fare clic su **Connetti**. Ripetere questo passaggio per ogni macchina virtuale che si vuole connettere.
+    
+    **Per qualsiasi altro computer Linux:**
+
+    1. Selezionare **Installa agente in un computer Linux non Azure**
+
+    1. Fare clic sul collegamento **scarica & installa agente per computer Linux non Azure >** . 
+
+    1. Nel pannello **Gestione agenti** fare clic sulla scheda **server Linux** , quindi copiare il comando per **scaricare e caricare l'agente per Linux** ed eseguirlo nel computer Linux. 
     
    > [!NOTE]
    > Assicurarsi di configurare le impostazioni di sicurezza per questi computer in base ai criteri di sicurezza dell'organizzazione. È ad esempio possibile configurare le impostazioni di rete in modo che siano allineate con i criteri di sicurezza di rete dell'organizzazione e modificare le porte e i protocolli nel daemon per allinearli ai requisiti di sicurezza.
 
-4. Selezionare **Apri la configurazione impostazioni avanzate dell'area di lavoro**.
+### <a name="configure-the-log-analytics-agent"></a>Configurare l'agente di Log Analytics
 
-5. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  **Syslog**. Aggiungere quindi le funzionalità per il connettore da raccogliere.
+1. Nella parte inferiore del pannello del connettore syslog fare clic sul collegamento **aprire la configurazione impostazioni avanzate dell'area di lavoro >** .
+
+1. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  **Syslog**. Aggiungere quindi le funzionalità per il connettore da raccogliere.
     
-    Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. È possibile visualizzare questa configurazione nel dispositivo syslog in **syslog-d** nella `/etc/rsyslog.d/security-config-omsagent.conf` cartella e in **r-syslog** da `/etc/syslog-ng/security-config-omsagent.conf` .
+    - Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. 
     
-    Se si vuole usare il rilevamento anomalo degli accessi SSH con i dati raccolti, aggiungere **AUTH** e **authpriv**. Per ulteriori informazioni, vedere la [sezione seguente](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
+    - Se si vuole usare il rilevamento anomalo degli accessi SSH con i dati raccolti, aggiungere **AUTH** e **authpriv**. Per ulteriori informazioni, vedere la [sezione seguente](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
-6. Quando sono state aggiunte tutte le funzionalità che si desidera monitorare e sono state modificate le opzioni di gravità per ciascuna di esse, selezionare la casella **di controllo applica la configurazione seguente alle macchine virtuali**.
+1. Quando sono state aggiunte tutte le funzionalità che si desidera monitorare e sono state modificate le opzioni di gravità per ciascuna di esse, selezionare la casella **di controllo applica la configurazione seguente alle macchine virtuali**.
 
-7. Selezionare **Salva**. 
+1. Selezionare **Salva**. 
 
-8. Nel dispositivo syslog verificare che siano state inviate le funzionalità specificate.
+1. Nella macchina virtuale o nel dispositivo verificare che siano state inviate le funzionalità specificate.
 
-9. Per usare lo schema pertinente in monitoraggio di Azure per i log syslog, cercare **syslog**.
+1. Per eseguire una query sui dati del log syslog nei **log**, digitare `Syslog` nella finestra query.
 
-10. È possibile usare la funzione kusto descritta in [uso di funzioni nelle query log di monitoraggio di Azure](../azure-monitor/log-query/functions.md) per analizzare i messaggi syslog. È quindi possibile salvarli come una nuova funzione Log Analytics da usare come nuovo tipo di dati.
+1. È possibile usare i parametri di query descritti in [uso delle funzioni nelle query log di monitoraggio di Azure](../azure-monitor/log-query/functions.md) per analizzare i messaggi syslog. È quindi possibile salvare la query come nuova funzione Log Analytics e utilizzarla come nuovo tipo di dati.
+
+> [!NOTE]
+>
+> È possibile utilizzare il [computer del server d'avanzamento del log CEF](connect-cef-agent.md) esistente per raccogliere e trasmettere log da origini syslog semplici. Tuttavia, è necessario eseguire la procedura seguente per evitare di inviare eventi in entrambi i formati ad Azure Sentinel, in quanto ciò comporta la duplicazione degli eventi.
+>
+>    La configurazione della [raccolta dati dalle origini CEF](connect-common-event-format.md)è già stata configurata e l'agente di log Analytics è stato configurato come descritto in precedenza:
+>
+> 1. In ogni computer che invia log in formato CEF è necessario modificare il file di configurazione Syslog per rimuovere le funzionalità usate per inviare i messaggi CEF. In questo modo, le funzionalità inviate in CEF non verranno inviate anche in syslog. Per istruzioni dettagliate su come eseguire questa operazione, vedere [configurare syslog nell'agente Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) .
+>
+> 1. È necessario eseguire il comando seguente in questi computer per disabilitare la sincronizzazione dell'agente con la configurazione di syslog in Sentinel di Azure. In questo modo si garantisce che la modifica della configurazione apportata nel passaggio precedente non venga sovrascritta.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Configurare il connettore syslog per il rilevamento anomalo degli accessi SSH
 

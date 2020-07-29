@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325067"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,7 +83,7 @@ Per le aree in cui è disponibile Gen4/quinta generazione, vedere [disponibilit�
 - A seconda del carico di lavoro, la serie Fsv2 è in grado di fornire più prestazioni della CPU per ogni vCore rispetto a Quinta generazione e le dimensioni 72 vCore possono fornire più prestazioni della CPU per un costo inferiore rispetto a 80 Vcore in quinta generazione. 
 - Fsv2 fornisce meno memoria e tempdb per vCore rispetto ad altri componenti hardware, quindi i carichi di lavoro sensibili a tali limiti possono invece considerare la serie quinta generazione o M.  
 
-La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della serie Fsv2](#fsv2-series).
+La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della serie Fsv2](#fsv2-series-1).
 
 
 ### <a name="m-series"></a>Serie M
@@ -91,7 +91,7 @@ La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree 
 - La serie M è un'opzione hardware con ottimizzazione per la memoria per carichi di lavoro che richiedono più memoria e limiti di calcolo superiori rispetto a quelli forniti da Quinta generazione.
 - La serie M offre 29 GB per vCore e fino a 128 Vcore, che aumenta il limite di memoria rispetto a Quinta generazione da 8x a circa 4 TB.
 
-La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA). Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
+La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA). Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

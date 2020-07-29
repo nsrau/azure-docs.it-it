@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321922"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitoraggio dell'applicazione senza strumentazione per applicazioni ospitate in Kubernetes con Istio: DEPRECATO
 
@@ -18,10 +18,10 @@ ms.locfileid: "87075292"
 > Questa funzionalità è attualmente deprecata e non verrà più supportata dopo il 1 agosto 2020.
 > Attualmente il monitoraggio senza codice può essere abilitato solo per [Java tramite agente autonomo](./java-in-process-agent.md). Per altri linguaggi, usare gli SDK per monitorare le app in servizio Azure Kubernetes: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md) e [Python](./opencensus-python.md).
 
-Monitoraggio di Azure usa ora la tecnologia della rete mesh di servizi nel cluster Kubernetes per fornire il monitoraggio delle applicazioni predefinito per qualsiasi applicazione ospitata in Kubernetes. Con funzionalità predefinite di Application Insight come la [mappa delle applicazioni](../../azure-monitor/app/app-map.md) per modellare le dipendenze, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) per il monitoraggio in tempo reale, le visualizzazioni avanzate con il [dashboard predefinito](../../azure-monitor/app/overview-dashboard.md), [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md) e [cartelle di lavoro](../../azure-monitor/platform/workbooks-overview.md). Questa funzionalità consente agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno dello spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti nella rete mesh di servizi esistenti con tecnologie come Istio, Monitoraggio di Azure consente di monitorare le app con strumentazione automatica senza apportare modifiche al codice dell'applicazione.
+Monitoraggio di Azure usa ora la tecnologia della rete mesh di servizi nel cluster Kubernetes per fornire il monitoraggio delle applicazioni predefinito per qualsiasi applicazione ospitata in Kubernetes. Con funzionalità predefinite di Application Insight come la [mappa delle applicazioni](./app-map.md) per modellare le dipendenze, [Live Metrics Stream](./live-stream.md) per il monitoraggio in tempo reale, le visualizzazioni avanzate con il [dashboard predefinito](./overview-dashboard.md), [Esplora metriche](../platform/metrics-getting-started.md) e [cartelle di lavoro](../platform/workbooks-overview.md). Questa funzionalità consente agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno dello spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti nella rete mesh di servizi esistenti con tecnologie come Istio, Monitoraggio di Azure consente di monitorare le app con strumentazione automatica senza apportare modifiche al codice dell'applicazione.
 
 > [!NOTE]
-> Si tratta di uno dei numerosi metodi per eseguire il monitoraggio delle applicazioni in Kubernetes. È anche possibile instrumentare qualsiasi app ospitata in Kubernetes usando [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) senza la necessità di una rete mesh di servizi. Per monitorare Kubernetes senza instrumentare l'applicazione con un SDK è possibile usare il metodo seguente.
+> Si tratta di uno dei numerosi metodi per eseguire il monitoraggio delle applicazioni in Kubernetes. È anche possibile instrumentare qualsiasi app ospitata in Kubernetes usando [Application Insights SDK](../azure-monitor-app-hub.yml) senza la necessità di una rete mesh di servizi. Per monitorare Kubernetes senza instrumentare l'applicazione con un SDK è possibile usare il metodo seguente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,12 +34,12 @@ Monitoraggio di Azure usa ora la tecnologia della rete mesh di servizi nel clust
 
 Usando il monitoraggio dell'applicazione senza strumentazione per le applicazioni ospitate in Kubernetes, sarà possibile usare:
 
-- [Mappa delle applicazioni](../../azure-monitor/app/app-map.md)
-- [Metriche di Live Stream](../../azure-monitor/app/live-stream.md)
-- [Dashboard](../../azure-monitor/app/overview-dashboard.md)
-- [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md)
-- [Analisi distribuita](../../azure-monitor/app/distributed-tracing.md)
-- [Rilevamento delle transazioni end-to-end](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [Mappa delle applicazioni](./app-map.md)
+- [Metriche di Live Stream](./live-stream.md)
+- [Dashboard](./overview-dashboard.md)
+- [Esplora metriche](../platform/metrics-getting-started.md)
+- [Analisi distribuita](./distributed-tracing.md)
+- [Rilevamento delle transazioni end-to-end](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>Procedura di installazione
 
@@ -141,4 +141,5 @@ kubectl delete -f <filename.yaml>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul funzionamento congiunto di Monitoraggio di Azure e dei contenitori, visita la pagina [Panoramica di Monitoraggio di Azure per i contenitori](../../azure-monitor/insights/container-insights-overview.md)
+Per altre informazioni sul funzionamento congiunto di Monitoraggio di Azure e dei contenitori, visita la pagina [Panoramica di Monitoraggio di Azure per i contenitori](../insights/container-insights-overview.md)
+

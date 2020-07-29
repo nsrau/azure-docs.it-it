@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 18d3460804528d736cfc74c1c2d358eb08013513
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092967"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323112"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Risorse di Application Insights basate sull'area di lavoro (anteprima)
 
@@ -197,10 +197,11 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
+* [Esplorare le metriche](../platform/metrics-charts.md)
 * [Scrivere query di Analisi](../log-query/log-query-overview.md)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+

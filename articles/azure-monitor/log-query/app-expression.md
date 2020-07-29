@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cb8073d048118e704dafb0c70fe7cdb6774344a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201113"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324540"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
@@ -24,7 +25,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 `app(`*Identificatore*`)`
 
 
-## <a name="arguments"></a>Arguments
+## <a name="arguments"></a>Argomenti
 
 - *Identificatore*: identifica l'app usando uno dei formati indicati nella tabella seguente.
 
@@ -72,5 +73,6 @@ union
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'[espressione workspace](workspace-expression.md) per fare riferimento a un'area di lavoro Log Analytics.
-- Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+- Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](./log-query-overview.md).
 - Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).
+

@@ -4,17 +4,17 @@ description: Gli avvisi classici sono in fase di deprecazione. Gli avvisi consen
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56dd601e8d961d65ec21eefcc2dd5fed5c75f9fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322364"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
 > [!NOTE]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](./alerts-overview.md). Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
 >
 
 Gli avvisi consentono di configurare le condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.
@@ -40,8 +40,8 @@ Gli avvisi delle metriche più recenti presentano i seguenti vantaggi rispetto a
 - **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
 - **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
 - **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
-- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](../../azure-monitor/platform/action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni. 
-- **Metriche dai log** (anteprima pubblica): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. Vedere [Avvisi (versione classica)](alerts-classic.overview.md) per la terminologia degli avvisi classici. 
+- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](./action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni. 
+- **Metriche dai log** (anteprima pubblica): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. Vedere [Avvisi (versione classica)]() per la terminologia degli avvisi classici. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Avvisi classici sui dati di Monitoraggio di Azure
@@ -51,7 +51,7 @@ Sono disponibili due tipi di avvisi classici, vale a dire gli avvisi delle metri
 
 * **Avvisi classici del log attività**: un avviso di log in streaming che si attiva per una voce di evento del log attività corrispondente ai criteri di filtro. Questi avvisi hanno solo lo stato "Attivato". Il motore degli avvisi applica semplicemente i criteri di filtro a tutti i nuovi eventi. Non esegue una ricerca per trovare voci meno recenti. Questi avvisi possono notificare quando si verifica un nuovo evento imprevisto relativo all'integrità dei servizi o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale."
 
-Per i dati dei log delle risorse disponibili tramite monitoraggio di Azure, indirizzare i dati in Log Analytics e usare un avviso di query di log. Log Analytics ora usa il [nuovo metodo di avviso](../../azure-monitor/platform/alerts-overview.md) 
+Per i dati dei log delle risorse disponibili tramite monitoraggio di Azure, indirizzare i dati in Log Analytics e usare un avviso di query di log. Log Analytics ora usa il [nuovo metodo di avviso](./alerts-overview.md) 
 
 Il diagramma seguente riepiloga le origini dei dati in Monitoraggio di Azure e, a livello concettuale, i modi per avvisare di tali dati.
 
@@ -68,7 +68,7 @@ Azure usa i termini seguenti per descrivere gli avvisi classici e le relative fu
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Come si riceve una notifica da un avviso classico di Monitoraggio di Azure?
 Gli avvisi di Azure nelle versioni precedenti da servizi diversi usano metodi di notifica predefiniti propri. 
 
-Monitoraggio di Azure ha creato un raggruppamento di notifiche riutilizzabili denominato *gruppi di azioni*. I gruppi di azioni specificano un set di destinatari di una notifica. Ogni volta che viene attivato un avviso che fa riferimento al gruppo di azioni, tutti i destinatari ricevono la notifica. I gruppi di azioni consentono di riutilizzare un raggruppamento di destinatari, ad esempio un elenco di tecnici su richiesta, in molti oggetti avviso. I gruppi di azioni supportano la notifica, oltre ad altre azioni, tramite la registrazione a un URL di webhook, agli indirizzi di posta elettronica e ai numeri SMS.  Per altre informazioni, vedere [Gruppi di azioni](../../azure-monitor/platform/action-groups.md). 
+Monitoraggio di Azure ha creato un raggruppamento di notifiche riutilizzabili denominato *gruppi di azioni*. I gruppi di azioni specificano un set di destinatari di una notifica. Ogni volta che viene attivato un avviso che fa riferimento al gruppo di azioni, tutti i destinatari ricevono la notifica. I gruppi di azioni consentono di riutilizzare un raggruppamento di destinatari, ad esempio un elenco di tecnici su richiesta, in molti oggetti avviso. I gruppi di azioni supportano la notifica, oltre ad altre azioni, tramite la registrazione a un URL di webhook, agli indirizzi di posta elettronica e ai numeri SMS.  Per altre informazioni, vedere [Gruppi di azioni](./action-groups.md). 
 
 Gli avvisi classici precedenti del log attività usano i gruppi di azioni.
 
@@ -96,3 +96,4 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md)
 * Altre informazioni sui [gruppi di azioni](action-groups.md)
 * Configurare [avvisi più recenti](alerts-metric.md)
+

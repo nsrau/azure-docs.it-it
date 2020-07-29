@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024450"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275004"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
 
@@ -64,6 +64,9 @@ Altre informazioni sulle località sono disponibili nell'articolo, [Qual è la c
 
 Per impostazione predefinita, i criteri di accesso condizionale si applicano alle applicazioni basate su browser e alle applicazioni che utilizzano protocolli di autenticazione moderni. Oltre a queste applicazioni, gli amministratori possono scegliere di includere i client di Exchange ActiveSync e altri client che usano protocolli legacy.
 
+> [!NOTE]
+> L'interruttore configura sì/no nella condizione app client è stato rimosso per semplificare la visualizzazione delle app client selezionate. Ciò non influisca sulle app client a cui si applica un criterio esistente.
+
 - Browser
    - Sono incluse le applicazioni basate sul Web che usano protocolli quali SAML, WS-Federation, OpenID Connect o i servizi registrati come client Confidential OAuth.
 - App per dispositivi mobili e client desktop
@@ -92,7 +95,7 @@ Queste condizioni vengono comunemente usate quando si richiede un dispositivo ge
 
 Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un criterio dei dispositivi, ad esempio un requisito di un dispositivo conforme, sono supportati i sistemi operativi e browser seguenti:
 
-| OS | Browser |
+| Sistema operativo | Browser |
 | :-- | :-- |
 | Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8/8.1 | Internet Explorer, Chrome |
@@ -102,7 +105,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| R2 per Windows Server 2012 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 

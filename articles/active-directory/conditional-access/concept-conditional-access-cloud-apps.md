@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014350"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275273"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -116,6 +117,7 @@ Oltre alle app Microsoft, gli amministratori possono aggiungere ai criteri di ac
 - [Applicazioni aggiunte dalla raccolta](../manage-apps/add-application-portal.md)
 - [Applicazioni personalizzate non presenti nella raccolta](../manage-apps/add-non-gallery-app.md)
 - [Applicazioni legacy pubblicate tramite controller e reti per la distribuzione di app](../manage-apps/secure-hybrid-access.md)
+- Applicazioni che usano [Single Sing-on basato su password](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Poiché i criteri di accesso condizionale consentono di impostare i requisiti per l'accesso a un servizio, non è possibile applicarli a un'applicazione client (pubblica/nativa). In altre parole, il criterio non è impostato direttamente su un'applicazione client (pubblica/nativa), ma viene applicato quando un client chiama un servizio. I criteri impostati nel servizio SharePoint, ad esempio, vengono applicati ai client che chiamano SharePoint. Un criterio impostato in Exchange si applica al tentativo di accedere alla posta elettronica tramite il client Outlook. Questo è il motivo per cui le applicazioni client (pubbliche/native) non sono disponibili nella selezione delle app cloud e l'opzione di accesso condizionale non è disponibile nelle impostazioni dell'applicazione client (pubblica/nativa) registrata nel tenant. 

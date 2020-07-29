@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505806"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324761"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transizione dalla ricerca log di Log Analytics ai log di Monitoraggio di Azure
 La ricerca log in Log Analytics di recente è stata sostituita da una nuova esperienza per l'analisi dei log di Monitoraggio di Azure. La pagina Ricerca log attualmente è ancora accessibile mediante la voce di menu **Log (versione classica)** nella pagina **Aree di lavoro di Log Analytics** del portale di Azure, ma verrà rimossa il 15 febbraio 2019. Questo articolo descrive le differenze tra le due esperienze allo scopo di agevolare la transizione dalla ricerca log. 
@@ -44,7 +44,7 @@ Per salvare la query corrente nei log di Monitoraggio di Azure, selezionare **Sa
 ![Salvataggio della query di log](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Query salvate
-In Ricerca log le query salvate sono disponibili mediante la voce **Ricerche salvate** della barra delle azioni. Nei log di Monitoraggio di Azure è possibile accedere alle query salvate da [Esplora query](../log-query/get-started-portal.md#save-queries).
+In Ricerca log le query salvate sono disponibili mediante la voce **Ricerche salvate** della barra delle azioni. Nei log di Monitoraggio di Azure è possibile accedere alle query salvate da [Esplora query](./get-started-portal.md#save-queries).
 
 ![Esplora query](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ Nei log di Monitoraggio di Azure [creare un avviso dalla query di log](../platfo
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulla nuova [esperienza dei log di Monitoraggio di Azure](get-started-portal.md).
+

@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2de83be023c32df067712146937f880092025a44
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537310"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172111"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -39,7 +39,7 @@ La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP ri
 
 ![Hub eventi](./media/event-hubs-features/partition_keys.png)
 
-Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario si verificherà un errore.
+Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario si verifica un errore.
 
 ### <a name="publisher-policy"></a>Criteri di autore
 
@@ -118,7 +118,7 @@ Quando ci si connette alle partizioni, è pratica comune usare un meccanismo di 
 - [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) per .NET
 - [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) per Java
 - [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) per Python
-- [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) per JavaScript/typescript
+- [EventHubConsumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) per JavaScript/typescript
 
 #### <a name="read-events"></a>Leggere gli eventi
 

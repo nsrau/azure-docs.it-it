@@ -3,11 +3,12 @@ title: Dashboard panoramica di Azure Application Insights| Microsoft Docs
 description: Monitorare le applicazioni con la funzionalità Dashboard panoramica di Azure Application Insights.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669897"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322534"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -56,6 +57,7 @@ Se si seleziona **Configura le impostazioni del riquadro** e si imposta un inter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Grafici a imbuto](../../azure-monitor/app/usage-funnels.md)
-- [Conservazione](../../azure-monitor/app/usage-retention.md)
-- [Flussi degli utenti](../../azure-monitor/app/usage-flows.md)
+- [Grafici a imbuto](./usage-funnels.md)
+- [Conservazione](./usage-retention.md)
+- [Flussi degli utenti](./usage-flows.md)
+

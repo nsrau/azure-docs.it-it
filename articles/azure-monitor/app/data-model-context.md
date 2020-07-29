@@ -4,11 +4,12 @@ description: Modello di contesto dei dati di telemetria di Application Insights
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671864"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322670"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
 
@@ -38,14 +39,14 @@ Lunghezza massima: 64
 
 ## <a name="operation-id"></a>ID operazione
 
-Un identificatore univoco dell'operazione di root. Questo identificatore univoco consente di raggruppare i dati di telemetria tra componenti multipli. Per informazioni dettagliate, vedere [Correlazione di dati di telemetria](../../azure-monitor/app/correlation.md). L'ID operazione viene creato da una richiesta o da una visualizzazione pagina. Tutti gli altri dati di telemetria impostano questo campo sul valore per la richiesta o la visualizzazione pagina che lo contiene. 
+Un identificatore univoco dell'operazione di root. Questo identificatore univoco consente di raggruppare i dati di telemetria tra componenti multipli. Per informazioni dettagliate, vedere [Correlazione di dati di telemetria](./correlation.md). L'ID operazione viene creato da una richiesta o da una visualizzazione pagina. Tutti gli altri dati di telemetria impostano questo campo sul valore per la richiesta o la visualizzazione pagina che lo contiene. 
 
 Lunghezza massima: 128
 
 
 ## <a name="parent-operation-id"></a>ID operazione padre
 
-L'identificatore univoco dell'elemento padre diretto dell'elemento di telemetria. Per informazioni dettagliate, vedere [Correlazione di dati di telemetria](../../azure-monitor/app/correlation.md).
+L'identificatore univoco dell'elemento padre diretto dell'elemento di telemetria. Per informazioni dettagliate, vedere [Correlazione di dati di telemetria](./correlation.md).
 
 Lunghezza massima: 128
 
@@ -75,7 +76,7 @@ Lunghezza massima: 64
 
 ID utente anonimo. Rappresenta l'utente finale dell'applicazione. Quando i dati di telemetria vengono inviati da un servizio, il contesto utente si riferisce all'utente che ha avviato l'operazione nel servizio.
 
-Il [campionamento](../../azure-monitor/app/sampling.md) è una delle tecniche usate per ridurre al minimo la quantità di dati di telemetria raccolti. L'algoritmo di campionamento tenta di sondare tutti i dati di telemetria correlati in ingresso o in uscita. L'ID utente anonimo viene usato per generare un punteggio di campionamento. L'ID utente anonimo deve essere quindi un valore sufficientemente casuale. 
+Il [campionamento](./sampling.md) è una delle tecniche usate per ridurre al minimo la quantità di dati di telemetria raccolti. L'algoritmo di campionamento tenta di sondare tutti i dati di telemetria correlati in ingresso o in uscita. L'ID utente anonimo viene usato per generare un punteggio di campionamento. L'ID utente anonimo deve essere quindi un valore sufficientemente casuale. 
 
 L'uso di un ID utente anonimo per archiviare il nome utente rappresenta un uso improprio del campo. Usare un ID utente autenticato.
 
@@ -126,6 +127,7 @@ Lunghezza massima: 256
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [estendere e filtrare i dati di telemetria](../../azure-monitor/app/api-filtering-sampling.md).
+- Informazioni su come [estendere e filtrare i dati di telemetria](./api-filtering-sampling.md).
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](data-model.md).
-- Estrarre la [configurazione](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) di una raccolta di proprietà di contesto standard.
+- Estrarre la [configurazione](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) di una raccolta di proprietà di contesto standard.
+

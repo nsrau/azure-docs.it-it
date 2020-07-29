@@ -1,7 +1,7 @@
 ---
 title: Aggiungere, modificare o eliminare una rete virtuale di Azure
 titlesuffix: Azure Virtual Network
-description: Informazioni su come creare, modificare o eliminare una rete virtuale in Azure.
+description: Creare ed eliminare una rete virtuale e modificare le impostazioni, ad esempio i server DNS e gli spazi di indirizzi IP, per una rete virtuale esistente.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265246"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -170,7 +171,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 
 Per eseguire attività nelle reti virtuali, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Action                                  |   Nome                                |
+| Azione                                  |   Nome                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Leggere una rete virtuale              |
 |Microsoft.Network/virtualNetworks/write  |   Creare o aggiornare una rete virtuale  |

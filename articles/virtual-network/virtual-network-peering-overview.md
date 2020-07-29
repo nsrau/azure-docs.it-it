@@ -1,7 +1,7 @@
 ---
-title: Peering di rete virtuale di Azure
+title: Peering di Rete virtuale di Azure
 titlesuffix: Azure Virtual Network
-description: Informazioni sul peering reti virtuali in Azure.
+description: Informazioni sul peering di rete virtuale in Azure, incluso il modo in cui è possibile connettere le reti nella rete virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232959"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265161"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -109,7 +110,7 @@ Il transito del gateway è una proprietà di peering che consente a una rete vir
 
 * È possibile creare un peering tra due reti virtuali. Le reti possono appartenere alla stessa sottoscrizione, a modelli di distribuzione diversi nella stessa sottoscrizione o a sottoscrizioni diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-    |Modello di distribuzione di Azure             | Subscription  |
+    |Modello di distribuzione di Azure             | Sottoscrizione  |
     |---------                          |---------|
     |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diversa](create-peering-different-subscriptions.md)|

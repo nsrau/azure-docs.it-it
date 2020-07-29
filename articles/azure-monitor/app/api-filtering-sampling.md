@@ -3,12 +3,12 @@ title: Filtro e pre-elaborazione in Application Insights SDK | Microsoft Docs
 description: Scrivere processori di telemetria e inizializzatori di telemetria per l'SDK per filtrare o aggiungere proprietà ai dati prima di inviare i dati di telemetria al portale di Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323214"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrare e pre-elaborare i dati di telemetria in Application Insights SDK
 
@@ -17,7 +17,7 @@ ms.locfileid: "87014627"
 * [campionamento](sampling.md) riduce il volume della telemetria senza effetti sulle statistiche. Consente di raggruppare i punti dati correlati in modo che sia possibile spostarsi tra di essi quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
 * L'applicazione di filtri con processori di telemetria consente di filtrare i dati di telemetria nell'SDK prima che vengano inviati al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Il filtro è un approccio più semplice per ridurre il traffico rispetto al campionamento. Consente un maggiore controllo su ciò che viene trasmesso, ma influiscono sulle statistiche. Ad esempio, è possibile filtrare tutte le richieste riuscite.
 * Gli [inizializzatori di telemetria aggiungono o modificano le proprietà](#add-properties) ai dati di telemetria inviati dall'app, inclusi i dati di telemetria dei moduli standard. Ad esempio, è possibile aggiungere i valori calcolati o i numeri di versione in base ai quali filtrare i dati nel portale.
-* [L'API SDK](../../azure-monitor/app/api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
+* [L'API SDK](./api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
 
 Prima di iniziare:
 
@@ -34,7 +34,7 @@ Per filtrare i dati di telemetria, scrivere un processore di telemetria e regist
 > [!WARNING]
 > Il filtraggio dei dati di telemetria inviati dall'SDK usando i processori può alterare le statistiche visualizzate nel portale e rendere difficile seguire gli elementi correlati.
 >
-> In alternativa, valutare la possibilità di usare il [campionamento](../../azure-monitor/app/sampling.md).
+> In alternativa, valutare la possibilità di usare il [campionamento](./sampling.md).
 >
 >
 
@@ -352,7 +352,7 @@ Inserire un inizializzatore di telemetria immediatamente dopo il codice di inizi
 </script>
 ```
 
-Per un riepilogo delle proprietà non personalizzate disponibili nell'elemento di telemetria, vedere [Application Insights esportare il modello di dati](../../azure-monitor/app/export-data-model.md).
+Per un riepilogo delle proprietà non personalizzate disponibili nell'elemento di telemetria, vedere [Application Insights esportare il modello di dati](./export-data-model.md).
 
 È possibile aggiungere tutti gli inizializzatori desiderati. Vengono chiamati nell'ordine in cui sono stati aggiunti.
 
@@ -542,7 +542,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Panoramica delle API](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Panoramica delle API](./api-custom-events-metrics.md)
 * [Riferimento ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Codice SDK
@@ -552,6 +552,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
-* [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md)
-* [Campionamento](../../azure-monitor/app/sampling.md)
+* [Cercare eventi e log](./diagnostic-search.md)
+* [campionamento](./sampling.md)
 * [Risoluzione dei problemi](../faq.md)
+

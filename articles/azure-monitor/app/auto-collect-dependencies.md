@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087986"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324183"
 ---
 # <a name="dependency-auto-collection"></a>Raccolta automatica delle dipendenze
 
@@ -23,7 +23,7 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | Web Form ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | WebAPI ASP.NET | 4.5+ |
-| Risultato dell'azione di | 1.1+ |
+| ASP.NET Core | 1.1+ |
 | <b>Librerie di comunicazione</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -88,9 +88,10 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Impostare il rilevamento personalizzato delle dipendenze per [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Impostare il rilevamento personalizzato delle dipendenze per [Java](../../azure-monitor/app/java-agent.md).
-- Configurare il rilevamento delle dipendenze personalizzato per [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Scrivere dati di telemetria delle dipendenze personalizzate](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](../../azure-monitor/app/data-model.md).
-- Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.
+- Impostare il rilevamento personalizzato delle dipendenze per [.NET](./asp-net-dependencies.md).
+- Impostare il rilevamento personalizzato delle dipendenze per [Java](./java-agent.md).
+- Configurare il rilevamento delle dipendenze personalizzato per [OpenCensus Python](./opencensus-python-dependency.md).
+- [Scrivere dati di telemetria delle dipendenze personalizzate](./api-custom-events-metrics.md#trackdependency)
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](./data-model.md).
+- Verificare quali [piattaforme](./platforms.md) supportano Application Insights.
+

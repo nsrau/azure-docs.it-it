@@ -1,48 +1,48 @@
 ---
-title: Creare avvisi di Azure Advisor per nuove raccomandazioni usando Gestione risorse modello
-description: Crea avvisi Azure Advisor per la nuova raccomandazione
+title: Creare avvisi di Azure Advisor per nuove raccomandazioni usando un modello di Resource Manager
+description: Creare avvisi di Azure Advisor per nuove raccomandazioni
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: ef15891cc01d0481c6253023de262f14dce0ec81
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057824"
 ---
-# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Guida introduttiva: creare Azure Advisor avvisi sulle nuove raccomandazioni usando un modello ARM
+# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Avvio rapido: Creare avvisi di Azure Advisor per nuove raccomandazioni usando un modello di Azure Resource Manager
 
-Questo articolo illustra come configurare un avviso per nuove raccomandazioni da Azure Advisor usando un modello di Azure Resource Manager (modello ARM).
+Questo articolo illustra come configurare un avviso per nuove raccomandazioni di Azure Advisor usando un modello di Azure Resource Manager.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse, un evento viene archiviato nel [log attività di Azure](/azure/azure-monitor/platform/activity-logs-overview). È possibile configurare avvisi per questi eventi da Azure Advisor usando un'esperienza di creazione di avvisi specifica della raccomandazione. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse su cui si desidera ricevere gli avvisi.
+Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse in uso, viene archiviato un evento nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile configurare avvisi per questi eventi di Azure Advisor usando un'esperienza di creazione di avvisi specifici delle raccomandazioni. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si vogliono ricevere gli avvisi.
 
-È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
+Si possono anche determinare i tipi di raccomandazioni usando queste proprietà:
 
-- Category
-- Livello di effetto
+- Categoria
+- Livello di impatto
 - Tipo di raccomandazione
 
-È anche possibile configurare l'azione che verrà eseguita quando un avviso viene attivato da:  
+È anche possibile configurare l'azione che verrà eseguita quando un avviso viene attivato in uno dei due modi seguenti:  
 
-- Selezione di un gruppo di azioni esistente
-- Creazione di un nuovo gruppo di azioni
+- Selezionando un gruppo di azioni esistente
+- Creando un nuovo gruppo di azioni
 
 Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> Gli avvisi di Advisor sono attualmente disponibili solo per i consigli relativi a disponibilità elevata, prestazioni e costi. Le raccomandazioni sulla sicurezza non sono supportate.
+> Gli avvisi di Azure Advisor sono attualmente disponibili solo per le raccomandazioni di tipo Disponibilità elevata, Prestazioni e Costo. Le raccomandazioni sulla sicurezza non sono supportate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Per eseguire i comandi dal computer locale, installare l'interfaccia della riga di comando di Azure o i moduli Azure PowerShell. Per altre informazioni, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure e [installare Azure PowerShell](/powershell/azure/install-az-ps).
+- Per eseguire i comandi dal computer locale, installare l'interfaccia della riga di comando di Azure o i moduli di Azure PowerShell. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [Installare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
-Il modello seguente crea un gruppo di azioni con una destinazione di posta elettronica e Abilita tutte le notifiche sull'integrità del servizio per la sottoscrizione di destinazione. Salvare questo modello come *CreateAdvisorAlert.js*.
+Il modello seguente crea un gruppo di azioni con una destinazione del messaggio di posta elettronica e abilita tutte le notifiche sull'integrità dei servizi per la sottoscrizione di destinazione. Salvare questo modello con il nome *CreateAdvisorAlert.json*.
 
 ```json
 {
@@ -141,12 +141,12 @@ Il modello seguente crea un gruppo di azioni con una destinazione di posta elett
 
 Il modello definisce due risorse:
 
-- [Microsoft. Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [Microsoft. Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Distribuire il modello usando un metodo standard per la [distribuzione di un modello ARM](../azure-resource-manager/templates/deploy-portal.md) , ad esempio gli esempi seguenti usando l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per il **gruppo di risorse**e **EmailAddress** con i valori appropriati per l'ambiente in uso. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
+Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio di **Resource Group** e **emailAddress** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -167,7 +167,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
-Verificare che l'area di lavoro sia stata creata utilizzando uno dei comandi seguenti. Sostituire i valori di esempio per il **gruppo di risorse** con il valore usato in precedenza.
+Per verificare che l'area di lavoro sia stata creata, usare uno dei comandi seguenti. Sostituire il valore di esempio di **Resource Group** con quello usato in precedenza.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -185,9 +185,9 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create. Quando non è più necessario, eliminare il gruppo di risorse, che elimina la regola di avviso e le risorse correlate. Per eliminare il gruppo di risorse usando l'interfaccia della riga di comando di Azure o Azure PowerShell
+Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create. Quando non è più necessario, eliminare il gruppo di risorse per eliminare la regola di avviso e le risorse correlate. Per eliminare il gruppo di risorse con l'interfaccia della riga di comando di Azure oppure con Azure PowerShell
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
 ```azurecli
 az group delete --name my-resource-group

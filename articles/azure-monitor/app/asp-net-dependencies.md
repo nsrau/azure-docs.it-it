@@ -3,16 +3,16 @@ title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft D
 description: Monitorare le chiamate alle dipendenze dall'applicazione Web locale o Microsoft Azure con Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9980db352e5d2c342131e0d6a2cd1248adb10810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067726"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321378"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
-Una *dipendenza* è un componente chiamato dall'applicazione. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
+Una *dipendenza* è un componente chiamato dall'applicazione. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](./app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
 
 ## <a name="automatically-tracked-dependencies"></a>Dipendenze rilevate automaticamente
 
@@ -20,7 +20,7 @@ Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrack
 
  `DependencyTrackingTelemetryModule`attualmente rileva automaticamente le dipendenze seguenti:
 
-|Dipendenze |Dettagli|
+|Dependencies |Dettagli|
 |---------------|-------|
 |Http/https | Chiamate http/https locali o remote |
 |Chiamate WCF| Viene rilevata automaticamente solo se vengono utilizzate associazioni basate su http.|
@@ -154,7 +154,7 @@ Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per otten
 
 ## <a name="logs-analytics"></a>Log (Analisi)
 
-È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Di seguito sono riportati alcuni esempi.
+È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Ecco alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 
@@ -202,6 +202,7 @@ Come ogni Application Insights SDK, anche il modulo di raccolta delle dipendenze
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eccezioni](../../azure-monitor/app/asp-net-exceptions.md)
-* [Dati utente e di pagina](../../azure-monitor/app/javascript.md)
-* [Disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Eccezioni](./asp-net-exceptions.md)
+* [Dati utente e di pagina](./javascript.md)
+* [Disponibilità](./monitor-web-app-availability.md)
+

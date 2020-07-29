@@ -6,18 +6,18 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6ef67addba2bcc96cfb51f9f217d7d43e729bdf4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539908"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324115"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler
 
 Questa funzionalità è attualmente in anteprima.
 
-Determinare il tempo impiegato in ogni metodo dell'applicazione Web attiva con [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler è ora disponibile per le app Web ASP.NET Core ospitate in Linux in Servizio app di Azure. Questa guida fornisce istruzioni dettagliate su come raccogliere tracce del profiler per app Web ASP.NET Core Linux.
+Determinare il tempo impiegato in ogni metodo dell'applicazione Web attiva con [Application Insights](./app-insights-overview.md). Application Insights Profiler è ora disponibile per le app Web ASP.NET Core ospitate in Linux in Servizio app di Azure. Questa guida fornisce istruzioni dettagliate su come raccogliere tracce del profiler per app Web ASP.NET Core Linux.
 
 Dopo aver completato questa procedura dettagliata, l'app potrà raccogliere tracce del profiler, ad esempio le tracce visualizzate nell'immagine. In questo esempio la traccia del profiler indica che una richiesta Web specifica è lenta a causa del tempo di attesa. Il *percorso critico* nel codice che rallenta l'app è contrassegnato da un'icona a forma di fiamma. Il metodo **About** nella sezione **HomeController** rallenta l'app Web perché chiama la funzione **Thread.Sleep**.
 
@@ -149,7 +149,7 @@ Per altre opzioni di distribuzione, vedere [questo articolo](../../app-service/c
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Aggiungere Application Insights per monitorare le app Web
 
-1. [Creare una risorsa Application Insights](./../../azure-monitor/app/create-new-resource.md ).
+1. [Creare una risorsa Application Insights](./create-new-resource.md).
 
 2. Copiare il valore **iKey** della risorsa di Application Insights e configurare le impostazioni seguenti nelle app Web:
 
@@ -171,3 +171,4 @@ Per altre opzioni di distribuzione, vedere [questo articolo](../../app-service/c
 Se si usano contenitori personalizzati ospitati da Servizio app di Azure, seguire le istruzioni in [Enable Service Profiler for containerized ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) (Abilitare il profiler di servizi per l'applicazione ASP.NET Core in contenitore) per abilitare Application Insights Profiler.
 
 Segnalare eventuali problemi o suggerimenti nel repository GitHub di Application Insights: [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues) (ApplicationInsights-Profiler-AspNetCore: Problemi).
+
