@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: d3fab2515bb15cce35070de9326cd6afcc034b20
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281566"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -35,7 +35,7 @@ Uno dei modi principali per gestire le risorse di calcolo all'interno di un clus
     * Quando l'utilità di pianificazione Kubernetes tenta di inserire un pod in un nodo, le richieste Pod vengono usate per determinare quale nodo dispone di risorse sufficienti per la pianificazione.
     * Per impostazione predefinita, la richiesta Pod verrà impostata sul limite definito.
     * È molto importante monitorare le prestazioni dell'applicazione per modificare tali richieste. Se vengono effettuate richieste insufficienti, è possibile che l'applicazione riceva una riduzione delle prestazioni a causa della pianificazione di un nodo. Se le richieste vengono sovrastimate, è possibile che l'applicazione abbia una maggiore difficoltà a essere pianificata.
-* I **limiti di CPU/memoria Pod** sono la quantità massima di CPU e memoria che può essere usata da un pod. Questi limiti consentono di definire quali Pod devono essere terminati in caso di instabilità del nodo a causa di risorse insufficienti. Senza i limiti appropriati, i pod impostati verranno terminati fino a quando non si solleva la pressione delle risorse.
+* I **limiti di CPU/memoria Pod** sono la quantità massima di CPU e memoria che può essere usata da un pod. I limiti di memoria consentono di definire quali Pod devono essere terminati in caso di instabilità del nodo a causa di risorse insufficienti. Senza i limiti appropriati, i pod impostati verranno terminati fino a quando non si solleva la pressione delle risorse. Un pod potrebbe o non essere in grado di superare il limite di CPU per un periodo di tempo, ma il Pod non verrà terminato per superare il limite della CPU. 
     * I limiti Pod consentono di definire quando un pod ha perso il controllo dell'utilizzo delle risorse. Quando viene superato un limite, al Pod viene assegnata la priorità per la gestione dell'integrità dei nodi e per ridurre al minimo l'effetto sui pod che condividono il nodo.
     * Se non si imposta un limite Pod, il valore predefinito è il valore massimo disponibile in un determinato nodo.
     * Non impostare un limite del pod superiore a quello che i nodi sono in grado di supportare. Ogni nodo servizio Azure Kubernetes riserva una determinata quantità di CPU e memoria per i componenti principali di Kubernetes. L'applicazione potrebbe tentare di consumare troppe risorse del nodo impedendo la corretta esecuzione di altri pod.

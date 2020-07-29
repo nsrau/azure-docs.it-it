@@ -4,14 +4,15 @@ description: Specifiche per le macchine virtuali della serie HBv2.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: 730065333fde7431b7018ef0a6e614e12727d7ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9717105c9241777d72a8943e87f33ab31c8038c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288489"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 

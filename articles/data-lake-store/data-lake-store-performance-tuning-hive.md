@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9e05773955fb79007a5d5899babf8680c69aa654
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281719"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen1
 
@@ -81,5 +81,5 @@ Per verificare la presenza di limitazioni, è necessario abilitare la registrazi
 
 Ecco alcuni articoli di blog che consentiranno di ottimizzare le query di Hive:
 * [Ottimizzare le query Hive per Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Risoluzione dei problemi di prestazioni delle query Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Codifica del file di query hive in Azure HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
 * [Discussione Ignite sull'ottimizzazione di Hive in HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

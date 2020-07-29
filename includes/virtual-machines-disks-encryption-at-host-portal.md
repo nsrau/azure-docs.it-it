@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: includere file
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5ea31217bd3088ec123281b36f8578b08ea25b2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f0a706cc51027bc503da9ee3bc637216e9e52853
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136236"
+ms.locfileid: "87171348"
 ---
 ## <a name="restrictions"></a>Restrizioni
 
@@ -50,12 +50,12 @@ Quando la funzionalità è abilitata, è necessario configurare un Azure Key Vau
 1. Creare una nuova macchina virtuale, selezionare un'area appropriata e una dimensione di macchina virtuale supportata.
 1. Inserire gli altri valori nel pannello di **base** come si desidera, quindi passare al pannello **dischi** .
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="testo di esempio":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot del pannello nozioni di base per la creazione di macchine virtuali, le dimensioni area e V M sono evidenziate.":::
 
 1. Nel pannello **dischi** selezionare **Sì** per **crittografia nell'host**.
 1. Eseguire le selezioni rimanenti desiderate.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="testo di esempio":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot del pannello dischi di creazione della macchina virtuale. la crittografia nell'host è evidenziata.":::
 
 1. Completare il processo di distribuzione della macchina virtuale, effettuare le selezioni adatte all'ambiente.
 

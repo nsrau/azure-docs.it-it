@@ -4,16 +4,16 @@ description: Elenca le generazioni precedenti di dimensioni disponibili per le m
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119223"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289705"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 

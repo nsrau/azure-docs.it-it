@@ -4,16 +4,16 @@ description: Questo articolo offre informazioni sull'abilitazione di Crittografi
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3265e70159cd4c27f698d00d85dce7d4cb49b95
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085622"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286156"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Crittografia dischi di Azure con Azure AD per macchine virtuali Windows (versione precedente)
 

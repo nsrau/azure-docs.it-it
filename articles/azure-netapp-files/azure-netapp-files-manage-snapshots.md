@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169751"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281549"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -46,6 +46,9 @@ Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di cri
 ## <a name="manage-snapshot-policies"></a>Gestire i criteri di snapshot
 
 È possibile pianificare l'uso automatico degli snapshot del volume usando i criteri di snapshot. È anche possibile modificare i criteri di snapshot in base alle esigenze o eliminare un criterio di snapshot non più necessario.  
+
+> [!IMPORTANT] 
+> Per utilizzare la funzionalità dei criteri di snapshot è necessario l'elenco elementi consentiti Inviare un messaggio di posta elettronica a anffeedback@microsoft.com con l'ID sottoscrizione per richiedere questa funzionalità.
 
 ### <a name="create-a-snapshot-policy"></a>Creare un criterio di snapshot 
 

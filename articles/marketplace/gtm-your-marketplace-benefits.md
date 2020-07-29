@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287897"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -41,7 +41,7 @@ Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili in qu
 Iniziare è facile:
 
 1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
-2. Passare a [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) in Partner Center e selezionare **registra in Marketplace Rewards Program**.
+2. Passare a [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center e selezionare **registra in Marketplace Rewards Program**.
 3. Per attivare i vantaggi di vendite e marketing, assegnare un contatto di marketing aziendale. Questo contatto riceverà le comunicazioni di follow-up relative ai premi del Marketplace.
 4. Per aggiungere o aggiornare le informazioni di contatto marketing, passare alla parte superiore della scheda Vantaggi di marketing e vendite nella pagina Marketplace Rewards, quindi selezionare **Aggiungi, aggiorna o modifica**.  Eseguire quindi queste operazioni:
 

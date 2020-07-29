@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni d
 description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286746"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -24,7 +24,7 @@ Questo articolo spiega come eseguire il backup di macchine virtuali di Azure con
 
 ### <a name="azure-vm-agent-installation"></a>Installazione dell'agente di macchine virtuali di Azure
 
-Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa un'estensione nell'agente di macchine virtuali in esecuzione nel computer. L'agente sarà in esecuzione se la macchina virtuale è stata creata da un'immagine di Azure marketplace. In alcuni casi, ad esempio se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina da locale. potrebbe essere necessario installare l'agente manualmente.
+Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa un'estensione nell'agente di macchine virtuali in esecuzione nel computer. Se la macchina virtuale è stata creata da un'immagine di Azure Marketplace, l'agente verrà eseguito. In alcuni casi, ad esempio se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina da locale. potrebbe essere necessario installare l'agente manualmente.
 
 - Per installare manualmente l'agente di macchine virtuali, seguire le istruzioni per macchine virtuali [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md).
 - Quando si abilita il backup, dopo aver installato l'agente, Backup di Azure installa l'estensione di backup all'agente. Questi esegue aggiornamenti e patch all'estensione senza intervento dell'utente.
@@ -39,15 +39,15 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
    - Se si dispone già di un insieme di credenziali, fare clic su **Seleziona esistente**e selezionare un insieme di credenziali.
    - Se non si dispone di un insieme di credenziali, fare clic su **Crea nuovo**. Specificare un nome per l'insieme di credenziali. Viene creato nella stessa area e nello stesso gruppo di risorse della macchina virtuale. Non è possibile modificare queste impostazioni quando si abilita il backup direttamente dalle impostazioni della macchina virtuale.
 
-   ![Procedura guidata Abilita backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Procedura guidata Abilita backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. In **Scegliere i criteri di backup**, eseguire le operazioni seguenti:
+6. In **scegliere i criteri di backup**eseguire una delle operazioni seguenti:
 
    - Lasciare il valore predefinito. Questa impostazione esegue il backup della macchina virtuale una volta al giorno all'ora specificata e conserva i backup nell'insieme di credenziali per 30 giorni.
    - Selezionare un criterio di backup esistente, se lo si possiede.
    - Creare un nuovo criterio e definire le impostazioni dei criteri.  
 
-   ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Fare clic su **Abilita backup**. Consente di associare i criteri di backup alla macchina virtuale.
 

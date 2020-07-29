@@ -1,25 +1,19 @@
 ---
 title: Installare Symantec Endpoint Protection in una macchina virtuale Windows in Azure
 description: Informazioni su come installare e configurare l'estensione di sicurezza Symantec Endpoint Protection in una macchina virtuale di Azure nuova o esistente creata con il modello di distribuzione classica.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roiyz
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 985aa094a2761483e682cdfc576891affab68547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080336"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292434"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -81,4 +75,4 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: features-windows.md
