@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041613"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318063"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -79,7 +79,7 @@ La metriche seguente è supportata per i gateway applicazione:
 ### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione di analisi del gateway applicazione di Azure:
 
-1. Abilitare la soluzione di analisi del gateway applicazione di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md).
+1. Abilitare la soluzione di analisi del gateway applicazione di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md).
 2. Abilitare la registrazione diagnostica per i [gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) da monitorare.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gateway applicazione di Azure nel portale
@@ -150,7 +150,7 @@ I log seguenti sono supportati per i gruppi di sicurezza di rete:
 ### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione Azure Networking Analytics di Azure:
 
-1. Abilitare la soluzione di analisi del gruppo di sicurezza di rete di Azure seguendo la procedura illustrata in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md).
+1. Abilitare la soluzione di analisi del gruppo di sicurezza di rete di Azure seguendo la procedura illustrata in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md).
 2. Abilitare la registrazione diagnostica per le risorse [gruppo di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) da monitorare.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gruppo di sicurezza di rete di Azure nel portale
@@ -230,3 +230,4 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) per visualizzare dati di diagnostica di Azure dettagliati.
+

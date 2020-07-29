@@ -5,14 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678546"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292076"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -134,7 +135,7 @@ ad esempio, nell'istanza precedente la linea di base è il 20% e se si usa il 10
 
 **R** : B1ls supporta solo le immagini Linux e se si distribuisce un'altra immagine del sistema operativo, è possibile che non si ottenga la migliore esperienza utente.
 
-## <a name="other-sizes"></a>Altre dimensioni
+## <a name="other-sizes-and-information"></a>Altre dimensioni e informazioni
 
 - [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per il calcolo](sizes-compute.md)
@@ -142,6 +143,10 @@ ad esempio, nell'istanza precedente la linea di base è il 20% e se si usa il 10
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)
 - [High Performance Computing (HPC)](sizes-hpc.md)
+
+Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+
+Altre informazioni sui tipi di dischi: [tipi di disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

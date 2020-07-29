@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704710"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317128"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -105,14 +105,14 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Voce
+### <a name="speech"></a>Sintesi vocale
 
 | Service            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguaggio
+### <a name="language"></a>Lingua
 
 | Service            | Tipo                |
 |--------------------|---------------------|
@@ -152,6 +152,8 @@ az cognitiveservices account create \
     --yes
 ```
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+
 ## <a name="get-the-keys-for-your-resource"></a>Ottenere le chiavi per la risorsa
 
 Per accedere all'installazione locale dell'interfaccia della riga di comando (CLI), usare il comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
@@ -190,7 +192,7 @@ az cognitiveservices account list-usage \
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole eseguire la pulizia e la rimozione di una risorsa di servizi cognitivi, è possibile eliminarla o il gruppo di risorse. Eliminando il gruppo di risorse, vengono eliminate anche tutte le altre risorse contenute nel gruppo.
+Se si vuole eseguire la pulizia e la rimozione di una risorsa di servizi cognitivi, è possibile eliminarla o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse al suo interno.
 
 Per rimuovere il gruppo di risorse e le risorse associate, usare il comando AZ Group Delete.
 
@@ -201,6 +203,6 @@ az group delete --name cognitive-services-resource-group
 ## <a name="see-also"></a>Vedere anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
-* [Che cosa sono i servizi cognitivi di Azure?](Welcome.md)
+* [Che cos'è la ricerca cognitiva di Azure?](Welcome.md)
 * [Supporto del linguaggio naturale](language-support.md)
-* [Supporto del contenitore Docker](cognitive-services-container-support.md)
+* [Supporto di contenitori Docker](cognitive-services-container-support.md)

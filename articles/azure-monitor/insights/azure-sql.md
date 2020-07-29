@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e5f7bd9ec3cc9a66adb8743ce2a56d8b2ead204
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041547"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318029"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -45,18 +45,18 @@ La tabella seguente descrive le opzioni supportate per due versioni del dashboar
 
 | Opzione Analisi SQL di Azure | Descrizione | Supporto per database SQL | Supporto di SQL Istanza gestita |
 | --- | ------- | ----- | ----- |
-| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
-| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
-| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | sì | Sì |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | sì | Sì |
+| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | sì | Sì |
 | Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No |
 | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No |
 | Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | No |
-| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | Sì | Sì |
-| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | Sì | Sì |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | sì | Sì |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | sì | Sì |
 
 ## <a name="configuration"></a>Configurazione
 
-Usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md) per aggiungere analisi SQL di Azure (anteprima) all'area di lavoro log Analytics.
+Usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md) per aggiungere analisi SQL di Azure (anteprima) all'area di lavoro log Analytics.
 
 ### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Configurare il database SQL di Azure per lo streaming della telemetria di diagnostica
 
@@ -297,3 +297,4 @@ Sebbene Analisi SQL di Azure sia libero da usare, il consumo di dati di telemetr
 - Usare le [query di log](../log-query/log-query-overview.md) in monitoraggio di Azure per visualizzare dati dettagliati di Azure SQL.
 - [Creare dashboard personalizzati](../learn/tutorial-logs-dashboards.md) che mostrino i dati per Azure SQL.
 - [Creare avvisi](../platform/alerts-overview.md) quando si verificano eventi specifici relativi ad Azure SQL.
+

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 6dd485adb71bf05be6499f2fc18572e8a28357d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209623"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367764"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Archiviazione automatica della configurazione dell'app di backup
 
@@ -34,7 +34,7 @@ In questa esercitazione verrà creato un archivio secondario nell' `centralus` a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/). È anche possibile usare Azure Cloud Shell.
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/). È anche possibile usare Azure Cloud Shell.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro sviluppo di Azure.
 - Scaricare e installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 - Versione più recente dell'interfaccia della riga di comando di Azure (2.3.1 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si usa l'interfaccia della riga di comando di Azure, è necessario prima accedere usando `az login` . È anche possibile usare Azure Cloud Shell.
@@ -145,9 +145,9 @@ Per altre informazioni sulla creazione di funzioni di Azure, vedere: [creare una
 ## <a name="create-azure-function-app-settings"></a>Creare le impostazioni del app per le funzioni di Azure
 
 Se si usano le funzioni di Azure fornite, sono necessarie le impostazioni dell'app seguenti nel app per le funzioni di Azure:
-- `PrimaryStoreEndpoint`: Endpoint per l'archivio di configurazione delle app primarie. Ad esempio: `https://{primary_appconfig_name}.azconfig.io`
-- `SecondaryStoreEndpoint`: Endpoint per l'archivio di configurazione dell'app secondaria. Ad esempio: `https://{secondary_appconfig_name}.azconfig.io`
-- `StorageQueueUri`: URI della coda di archiviazione. Ad esempio: `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+- `PrimaryStoreEndpoint`: Endpoint per l'archivio di configurazione delle app primarie. Ad esempio, usare `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: Endpoint per l'archivio di configurazione dell'app secondaria. Ad esempio, usare `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: URI della coda di archiviazione. Ad esempio, usare `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 Il comando seguente crea le impostazioni dell'app necessarie nel app per le funzioni di Azure. Sostituire `<function_app_name>` con il nome del app per le funzioni di Azure.
 

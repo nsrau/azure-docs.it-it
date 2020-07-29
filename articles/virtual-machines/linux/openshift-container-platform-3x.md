@@ -5,16 +5,16 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: bc30275b2ee24af7bb526b3b43618c706bc027ca
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502096"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368150"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift container Platform 3,11 in Azure
 
@@ -276,7 +276,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `keyVaultName` | Nome del Key Vault creato |  |  |
 | `enableAzure` | Abilita provider di servizi cloud di Azure | true <br> false | true |
 | `aadClientId` | ID client di Azure Active Directory noto anche come ID applicazione per l'entità servizio |  |  |
-| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | Nessuno |
+| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | nessuno |
 | `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> custom | default |
 | `masterClusterDns` | Nome DNS personalizzato da usare per accedere alla console Web di OpenShift se è stata selezionata l'opzione ' Custom ' per`masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se impostato su "nipio", `routingSubDomain` utilizzerà NIP.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> custom | nipio |

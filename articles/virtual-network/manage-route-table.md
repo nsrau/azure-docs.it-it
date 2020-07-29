@@ -1,7 +1,7 @@
 ---
 title: Creare, modificare o eliminare una tabella di route di Azure
 titlesuffix: Azure Virtual Network
-description: Informazioni su come creare, modificare o eliminare una tabella di route.
+description: Informazioni su dove trovare informazioni sul routing del traffico di rete virtuale e su come creare, modificare o eliminare una tabella di route.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291008"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -52,7 +52,7 @@ Esiste un limite al numero di tabelle di route che è possibile creare per ogni 
     1. Immettere un **nome** per la tabella di route.
     1. Scegliere la propria **sottoscrizione**.
     1. Scegliere un **gruppo di risorse** esistente oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-    1. Scegliere una **località**.
+    1. Scegliere una **Posizione**.
     1. Se si prevede di associare la tabella di route a una subnet in una rete virtuale connessa alla rete locale tramite un gateway VPN e non si vuole propagare le route locali alle interfacce di rete nella subnet, impostare la **propagazione delle route del gateway di rete virtuale** su **disabilitato**.
 
 1. Selezionare **Crea** per creare la nuova tabella di route.
@@ -333,7 +333,7 @@ Dopo una breve attesa, Azure indica il tipo di hop successivo e l'ID della route
 
 Per eseguire attività nelle tabelle e nelle route di route, l'account deve essere assegnato al [ruolo Collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni appropriate elencate nella tabella seguente:
 
-| Action                                                          |   Nome                                                  |
+| Azione                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Leggere una tabella di route                                    |
 | Microsoft.Network/routeTables/write                             |   Creare o aggiornare una tabella di route                        |

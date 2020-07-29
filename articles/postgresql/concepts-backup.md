@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f35968156e787b844d28f866a832940cc8ef64
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292879"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -32,19 +32,15 @@ Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i ba
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
 
-In un subset di [aree di Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup di snapshot successivi sono solo backup differenziali. 
-
-I backup differenziali degli snapshot si verificano almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MySQL) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali. 
-
-I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+In un subset di [aree di Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup di snapshot successivi sono solo backup differenziali. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. In un giorno vengono eseguiti tre backup differenziali degli snapshot. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
 
 ### <a name="backup-retention"></a>Conservazione backup
 
 I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) o l' [interfaccia](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration)della riga di comando 
 
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il periodo di conservazione dei backup può essere trattato anche come una finestra di ripristino da una prospettiva di ripristino. Tutti i backup necessari per eseguire un ripristino temporizzato entro il periodo di conservazione dei backup vengono conservati nell'archivio di backup. Ad esempio, se il periodo di conservazione dei backup è impostato su 7 giorni, la finestra di ripristino viene considerata gli ultimi 7 giorni. In questo scenario vengono conservati tutti i backup necessari per ripristinare il server negli ultimi 7 giorni. Con un intervallo di conservazione dei backup di sette giorni:
-- I server legacy con archiviazione da 4 TB manterranno fino a due backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
--   I server con archiviazione di grandi dimensioni (16 TB) manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
+- I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
+-   I server con archiviazione fino a 16 TB manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 

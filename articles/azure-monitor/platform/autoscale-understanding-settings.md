@@ -4,12 +4,12 @@ description: Analisi dettagliata delle impostazioni di scalabilità automatica e
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317468"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
 Le impostazioni di scalabilità automatica permettono di eseguire la giusta quantità di risorse per gestire il carico variabile dell'applicazione. È possibile configurare le impostazioni di scalabilità automatica in modo che vengano attivate in base alle metriche che indicano le prestazioni o il carico oppure in base a una data e un'ora pianificate. Questo articolo analizza in dettaglio l'anatomia di un'impostazione di scalabilità automatica. L'articolo inizia dallo schema e dalle proprietà di un'impostazione e quindi descrive i diversi tipi di profilo che è possibile configurare. L'articolo descrive infine in che modo la funzionalità di scalabilità automatica determina quale profilo eseguire in ogni momento specifico.
@@ -301,8 +301,9 @@ Ad esempio, si supponga che vi sia un set di scalabilità di macchine virtuali c
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla scalabilità automatica, vedere le risorse seguenti:
 
-* [Panoramica della scalabilità automatica](../../azure-monitor/platform/autoscale-overview.md)
-* [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Panoramica della scalabilità automatica](./autoscale-overview.md)
+* [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](./autoscale-common-metrics.md)
+* [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](./autoscale-best-practices.md)
+* [Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](./autoscale-webhook-email.md)
 * [API REST per il ridimensionamento automatico](/rest/api/monitor/autoscalesettings)
+

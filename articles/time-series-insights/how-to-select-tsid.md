@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 026b7dd0da393faef6bdce0e37a17ac54a382aaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289882"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -75,8 +75,12 @@ Evento RAW di esempio:
 ```
 
 Nella portale di Azure è quindi possibile immettere la chiave composta come indicato di seguito:
-
+ 
 [![Configure l'ID serie temporale per l'ambiente.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
+
+  > [!NOTE]
+  > In portale di Azure non immettere nomi delimitati da virgole di proprietà in un TextBox, in caso contrario verrà considerato come un nome di proprietà singolo contenente virgole.
+  > Immettere il nome di ogni proprietà nel proprio TextBox.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

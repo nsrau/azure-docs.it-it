@@ -3,16 +3,16 @@ title: Usare gli strumenti di automazione dell'infrastruttura
 description: Informazioni su come usare gli strumenti di automazione dell'infrastruttura, ad esempio Ansible, chef, Puppet, bonifica e Packer, per creare e gestire macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 31a0d9d4eac731836812c438a71541885863c8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292378"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 
@@ -124,7 +124,7 @@ Viene illustrato come:
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) è una famiglia di strumenti che permette di condividere e monitorare il codice, usare compilazioni automatiche e creare una pipeline di sviluppo e integrazione continua completa (CI/CD). Azure DevOps Services si integra con Visual Studio e altri editor di testo per semplificare l'utilizzo. Azure DevOps Services può anche creare e configurare macchine virtuali di Azure e quindi distribuirvi il codice.
 
-Sono disponibili altre informazioni su:
+Altre informazioni su:
 
 - [Servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 

@@ -3,16 +3,16 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539092"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289522"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
-Il backup di condivisioni file di Azure è una soluzione di backup nativa basata sul cloud che protegge i dati nel cloud ed Elimina sovraccarichi di manutenzione aggiuntivi che coinvolgono le soluzioni di backup locali. Il servizio backup di Azure si integra senza problemi con sincronizzazione file di Azure e consente di centralizzare i dati della condivisione file e i backup. Questa soluzione semplice, affidabile e sicura consente di configurare la protezione per le condivisioni file aziendali in pochi semplici passaggi con la garanzia che è possibile ripristinare i dati in caso di scenari di emergenza.
+Il backup di condivisioni file di Azure è una soluzione di backup nativa basata sul cloud che protegge i dati nel cloud ed Elimina sovraccarichi di manutenzione aggiuntivi che coinvolgono le soluzioni di backup locali. Il servizio backup di Azure si integra perfettamente con Sincronizzazione file di Azure e consente di centralizzare i dati della condivisione file e i backup. Questa soluzione semplice, affidabile e sicura consente di configurare la protezione per le condivisioni file aziendali in pochi semplici passaggi con la garanzia che è possibile ripristinare i dati in caso di scenari di emergenza.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Vantaggi principali del backup di condivisioni file di Azure
 
@@ -23,7 +23,7 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 * Avvisi **e report**: è possibile configurare avvisi per gli errori di backup e ripristino e usare la soluzione di creazione di report fornita da backup di Azure per ottenere informazioni dettagliate sui backup nelle condivisioni file.
 * **Protezione da eliminazioni accidentali delle condivisioni file**: backup di Azure consente la [funzionalità di eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea a livello di account di archiviazione con un periodo di memorizzazione di 14 giorni. Anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per un periodo di conservazione configurabile, consentendo il ripristino corretto e completo del contenuto di origine e degli snapshot senza perdita di dati.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![Architettura di backup di condivisione file di Azure](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 
@@ -42,9 +42,11 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
     >[!NOTE]
     >I dati della condivisione file non vengono trasferiti al servizio di backup, perché il servizio di backup crea e gestisce gli snapshot che fanno parte dell'account di archiviazione e i backup non vengono trasferiti nell'insieme di credenziali.
 
-6. È possibile ripristinare il contenuto della condivisione file di Azure (singoli file o la condivisione completa) dagli snapshot disponibili nella condivisione file di origine. Una volta attivata l'operazione, l'URL dello snapshot viene recuperato dall'archivio di metadati e i dati vengono elencati e trasferiti dallo snapshot di origine alla condivisione file di destinazione di propria scelta.
+6. È possibile ripristinare il contenuto della condivisione file di Azure (singoli file o la condivisione completa) dagli snapshot disponibili nella condivisione file di origine. Una volta attivata l'operazione, l'URL dello snapshot viene recuperato dall'archivio di metadati e i dati vengono elencati e trasferiti dallo snapshot di origine alla condivisione file di destinazione di propria scelta. 
 
-7. Viene eseguito il push dei dati di monitoraggio del processo di backup e ripristino nel servizio di monitoraggio di backup di Azure. In questo modo è possibile monitorare i backup cloud per le condivisioni file in un unico dashboard. Inoltre, è possibile configurare avvisi o notifiche tramite posta elettronica quando l'integrità del backup è interessata. I messaggi vengono inviati tramite il servizio di posta elettronica di Azure.
+7. Se si utilizza Sincronizzazione file di Azure, il servizio di backup indica al servizio Sincronizzazione file di Azure i percorsi dei file da ripristinare, che attiva quindi un processo di rilevamento delle modifiche in background su questi file. Tutti i file che sono stati modificati vengono sincronizzati con l'endpoint server. Questo processo avviene in parallelo con il ripristino originale per la condivisione file di Azure. 
+
+8. Viene eseguito il push dei dati di monitoraggio del processo di backup e ripristino nel servizio di monitoraggio di backup di Azure. In questo modo è possibile monitorare i backup cloud per le condivisioni file in un unico dashboard. Inoltre, è possibile configurare avvisi o notifiche tramite posta elettronica quando l'integrità del backup è interessata. I messaggi vengono inviati tramite il servizio di posta elettronica di Azure.
 
 ## <a name="backup-costs"></a>Costi di backup
 

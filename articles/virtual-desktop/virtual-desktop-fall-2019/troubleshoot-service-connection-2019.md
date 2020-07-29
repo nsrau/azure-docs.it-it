@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alla connessione al servizio desktop virtuale Windows 2019-Azure
-description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Desktop virtuale Windows.
+title: Risolvere i problemi di connessione al servizio desktop virtuale Windows (classico)-Azure
+description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuale Windows (classico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292522"
 ---
-# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Risolvere i problemi relativi alle connessioni al servizio desktop virtuale Windows
+# <a name="windows-virtual-desktop-classic-service-connections"></a>Connessioni al servizio desktop virtuale Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-service-connection.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-service-connection.md).
 
 Usare questo articolo per risolvere i problemi relativi alle connessioni client di Desktop virtuale Windows.
 

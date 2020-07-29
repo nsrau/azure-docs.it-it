@@ -2,13 +2,13 @@
 title: Considerazioni sull'archiviazione per Funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di Funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079605"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318182"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per Funzioni di Azure
 
@@ -18,12 +18,12 @@ Funzioni di Azure richiede un account di Archiviazione di Azure quando si crea u
 |Servizio di archiviazione  | Utilizzo delle funzioni  |
 |---------|---------|
 | [Archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md)     | Gestire lo stato delle associazioni e i tasti funzione.  <br/>Usato anche dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md). |
-| [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file usata per archiviare ed eseguire il codice dell'app per le funzioni in un [piano a consumo](functions-scale.md#consumption-plan). |
+| [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file usata per archiviare ed eseguire il codice dell'app per le funzioni in un [piano a consumo](functions-scale.md#consumption-plan) e in un [piano Premium](functions-scale.md#premium-plan). |
 | [Archiviazione code di Azure](../storage/queues/storage-queues-introduction.md)     | Usato dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Archivio tabelle di Azure](../storage/tables/table-storage-overview.md)  |  Usato dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
+> Quando si usa il piano di hosting a consumo/Premium, il codice della funzione e i file di configurazione dell'associazione vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 

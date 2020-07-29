@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318386"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -67,7 +68,7 @@ Alcune risorse non generano costantemente metriche. Ad esempio, Azure non raccog
 
 La raccolta delle metriche del **sistema operativo guest** richiede la configurazione dell'estensione Diagnostica di Azure o la sua abilitazione tramite il pannello **Impostazioni di diagnostica** della risorsa.
 
-**Soluzione:** Se Diagnostica di Azure estensione è abilitata ma non è ancora possibile visualizzare le metriche, seguire i passaggi descritti nella Guida alla [risoluzione dei problemi di diagnostica di Azure estensione](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vedere anche la procedura di risoluzione dei problemi per [non è possibile selezionare le metriche e lo spazio dei nomi del sistema operativo](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Soluzione:** Se Diagnostica di Azure estensione è abilitata ma non è ancora possibile visualizzare le metriche, seguire i passaggi descritti nella Guida alla [risoluzione dei problemi di diagnostica di Azure estensione](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vedere anche la procedura di risoluzione dei problemi per [non è possibile selezionare le metriche e lo spazio dei nomi del sistema operativo](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "errore durante il recupero dei dati" nel dashboard
 
@@ -105,7 +106,7 @@ Per impostazione predefinita, le metriche del sistema operativo Guest vengono ar
     > [!WARNING]
     > Non è possibile usare l'[agente di Log Analytics](agents-overview.md#log-analytics-agent) (noto anche come Microsoft Monitoring Agent, o "MMA") per inviare il **sistema operativo Guest** in un account di archiviazione.
 
-1. Verificare che il provider di risorse **Microsoft. Insights** sia [registrato per la sottoscrizione](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Verificare che il provider di risorse **Microsoft. Insights** sia [registrato per la sottoscrizione](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verificare che l'account di archiviazione non sia protetto da firewall. Il portale di Azure richiede l'accesso all'account di archiviazione per recuperare i dati delle metriche e tracciare i grafici.
 
@@ -117,3 +118,4 @@ Per impostazione predefinita, le metriche del sistema operativo Guest vengono ar
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](metrics-charts.md)
 * [Elenco di metriche disponibili per i servizi di Azure](metrics-supported.md)
 * [Esempi di grafici configurati](metric-chart-samples.md)
+

@@ -4,19 +4,19 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: 7a97afa3f960393637b8af63c56fba419f853465
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6504f28b891fb16bd588b899b7a0402b65b4e44
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077062"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318284"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
 > [!NOTE]
 > I log delle risorse erano noti in precedenza come log di diagnostica. Il nome è stato modificato nel 2019 ottobre perché i tipi di log raccolti da monitoraggio di Azure sono stati spostati in modo da includere solo la risorsa di Azure. Inoltre, l'elenco delle categorie di log delle risorse che è possibile raccogliere in questo articolo. Sono state spostate in [categorie di log delle risorse](resource-logs-categories.md). 
 
-I [log delle risorse di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md) sono log emessi da servizi di Azure che descrivono il funzionamento di tali servizi o risorse. Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi.
+I [log delle risorse di monitoraggio di Azure](./platform-logs-overview.md) sono log emessi da servizi di Azure che descrivono il funzionamento di tali servizi o risorse. Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi.
 
 Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`) e del `category` identifica in modo univoco uno schema. Questo articolo descrive lo schema di primo livello per i log delle risorse e i collegamenti a schemi per ogni servizio.
 
@@ -58,7 +58,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Database di Azure per PostgreSQL | [Log di database di Azure per PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Esplora dati di Azure | [Log di Azure Esplora dati](/azure/data-explorer/using-diagnostic-logs) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
-| Registro contenitori | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Registro Container | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rete per la distribuzione di contenuti (CDN) | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Registrazione di Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorare le data factory con monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -76,7 +76,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -88,7 +88,8 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Vedere le categorie di log delle risorse che è possibile raccogliere](resource-logs-categories.md)
-* [Altre informazioni sui log delle risorse](../../azure-monitor/platform/platform-logs-overview.md)
+* [Altre informazioni sui log delle risorse](./platform-logs-overview.md)
 * [Trasmettere i log delle risorse delle risorse a **Hub eventi**](./resource-logs.md#send-to-azure-event-hubs)
 * [Modificare le impostazioni di diagnostica del log delle risorse usando l'API REST di monitoraggio di Azure](/rest/api/monitor/diagnosticsettings)
 * [Analizzare i log di Archiviazione di Azure con Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

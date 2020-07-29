@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083573"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292554"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto per desktop virtuale di Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 In questo articolo viene fornita una panoramica dei problemi che possono verificarsi durante la configurazione di un ambiente di desktop virtuale Windows e vengono fornite le modalità di risoluzione dei problemi.
 
-## <a name="report-issues-during-public-preview"></a>Segnala problemi durante l'anteprima pubblica
+## <a name="report-issues"></a>Segnalare i problemi
 
-Per segnalare problemi o suggerire funzionalità durante l'anteprima pubblica per la versione Spring 2020, visitare la pagina relativa a [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). È possibile utilizzare la Community Tech per discutere le procedure consigliate o suggerire e votare le nuove funzionalità. Quando si segnala un problema relativo alla versione di anteprima pubblica, assicurarsi di etichettare il tipo di problema come **aggiornamento di Spring 2020 (anteprima)**.
+Per segnalare problemi o suggerire funzionalità per desktop virtuale Windows con l'integrazione di Azure Resource Manager, visitare la pagina relativa alla [community di tecnologia desktop virtuale di Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). È possibile utilizzare la Community Tech per discutere le procedure consigliate o suggerire e votare le nuove funzionalità.
 
 Quando si effettua un post che richiede assistenza o si propone una nuova funzionalità, assicurarsi di descrivere il proprio argomento nel modo più dettagliato possibile. Le informazioni dettagliate possono aiutare gli altri utenti a rispondere alla domanda o a comprendere la funzionalità a cui si sta proponendo un voto.
 

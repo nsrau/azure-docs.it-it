@@ -4,15 +4,15 @@ description: I report sui proventi consentono di visualizzare i dettagli relativ
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120722"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318233"
 ---
 # <a name="payout-summaries"></a>Riepiloghi proventi
 

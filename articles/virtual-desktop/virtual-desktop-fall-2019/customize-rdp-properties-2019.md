@@ -1,6 +1,6 @@
 ---
-title: Personalizzare le proprietà RDP con PowerShell Fall 2019-Azure
-description: Come personalizzare le proprietà RDP per desktop virtuale Windows con i cmdlet di PowerShell.
+title: Personalizzare le proprietà RDP con il desktop virtuale di Windows PowerShell (versione classica)-Azure
+description: Come personalizzare le proprietà RDP per desktop virtuale Windows (classico) con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 844c59c6e5ea6d730c64fea5fb2dee51f602c382
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ed7e8b8348ae87e676ec4585bce42a1ac389e23
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527626"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291267"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
+# <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool di host di desktop virtuali Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../customize-rdp-properties.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../customize-rdp-properties.md).
 
 La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un pool host, ad esempio l'esperienza a più monitor e il reindirizzamento audio, ti permette di offrire un'esperienza ottimale agli utenti in base alle esigenze. È possibile personalizzare le proprietà RDP nel desktop virtuale di Windows usando il parametro **-CustomRdpProperty** nel cmdlet **set-RdsHostPool** .
 

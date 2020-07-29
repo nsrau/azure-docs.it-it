@@ -5,18 +5,18 @@ description: Informazioni su come e dove distribuire i modelli di Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536386"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317876"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,6 +31,11 @@ Il flusso di lavoro è simile indipendentemente [da dove si distribuisce](#targe
 1. Testare il modello distribuito, detto anche servizio Web.
 
 Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [gestire, distribuire e monitorare i modelli con Azure Machine Learning](concept-model-management-and-deployment.md).
+
+> [!IMPORTANT]
+> È consigliabile eseguire il debug in locale prima della distribuzione nel servizio Web. per altre informazioni, vedere [debug in locale](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> È anche possibile fare riferimento a Azure Machine Learning- [Distribuisci nel notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -611,9 +616,9 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Stato WebService | Descrizione | Stato finale?
 | ----- | ----- | ----- |
 | Transizione | Il servizio è in fase di distribuzione. | No |
-| Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
+| Unhealthy | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
 | Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
-| Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
+| Non riuscito | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)

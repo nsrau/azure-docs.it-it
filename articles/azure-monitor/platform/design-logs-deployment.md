@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008201"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317285"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -47,12 +47,12 @@ Oggi le organizzazioni IT sono modellate in seguito a un ibrido centralizzato, d
 
 Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere i concetti seguenti per pianificare la distribuzione dell'agente:
 
-* Per raccogliere i dati dagli agenti Windows, è possibile [configurare che ogni agente invii i report a una o più aree di lavoro](../../azure-monitor/platform/agent-windows.md), anche durante l'invio di report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può inviare i report a un massimo di quattro aree di lavoro.
+* Per raccogliere i dati dagli agenti Windows, è possibile [configurare che ogni agente invii i report a una o più aree di lavoro](./agent-windows.md), anche durante l'invio di report a un gruppo di gestione di System Center Operations Manager. L'agente Windows può inviare i report a un massimo di quattro aree di lavoro.
 * L'agente Linux non supporta il multihoming e può inviare i report solo a un'unica area di lavoro.
 
 Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 
-* Ogni gruppo di gestione di Operations Manager può essere [connesso a una sola area di lavoro](../platform/om-agents.md). 
+* Ogni gruppo di gestione di Operations Manager può essere [connesso a una sola area di lavoro](./om-agents.md). 
 * I computer Linux che inviano i report a un gruppo di gestione devono essere configurati perché i report vengano inviati direttamente a un'area di lavoro Log Analytics. Se i computer Linux inviano già i report direttamente a un'area di lavoro e si vuole monitorarli con Operations Manager, attenersi a questa procedura per [inviare i report a un gruppo di gestione di Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * È possibile installare l'agente di Log Analytics per Windows nel computer Windows e fare in modo che i report siano inviati sia a Operations Manager con l'integrazione di un'area di lavoro sia a un'area di lavoro diversa.
 
@@ -140,7 +140,7 @@ Operation
 ``` 
 
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 ![Esempio di progettazione del contesto di risorsa](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
@@ -166,3 +166,4 @@ Quando si pianifica la migrazione a questo modello, considerare quanto segue:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per implementare le autorizzazioni e i controlli di sicurezza consigliati in questa guida, vedere [gestire l'accesso ai log](manage-access.md).
+
