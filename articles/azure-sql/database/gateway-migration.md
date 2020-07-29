@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084954"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373488"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Con l'ottimizzazione dell'infrastruttura di Azure, Microsoft aggiornerà periodicamente l'hardware per garantire la migliore esperienza possibile per i clienti. Nei prossimi mesi si prevede di aggiungere gateway basati su generazioni hardware più recenti, migrare il traffico verso di essi e infine rimuovere le autorizzazioni per i gateway creati su hardware meno recenti in alcune aree.  
 
@@ -27,6 +27,19 @@ I clienti riceveranno una notifica tramite posta elettronica e in portale di Azu
 ## <a name="status-updates"></a>Aggiornamenti dello stato
 
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
+### <a name="september-2020"></a>Settembre 2020
+
+Nuovi gateway SQL vengono aggiunti alle aree seguenti:
+
+- Europa settentrionale: 13.74.104.113 
+- Uniti Ovest: 40.78.248.10 
+- Europa occidentale: 52.236.184.163 
+- Stati Uniti centro-meridionali: 20.45.121.1, 20.49.88.1 
+
+I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti:
+- Giappone orientale: 40.79.184.8, 40.79.192.5
+
+Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020. 
 
 ### <a name="august-2020"></a>2020 agosto
 

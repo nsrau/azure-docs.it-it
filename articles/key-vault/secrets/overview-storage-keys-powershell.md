@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090468"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373216"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell
 
@@ -47,7 +47,7 @@ Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azur
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pubblico di Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Altro  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Altri  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Concedere a Key Vault l'accesso all'account di archiviazione
 
-Prima che Key Vault possa accedere e gestire le chiavi dell'account di archiviazione, è necessario autorizzarlo ad accedere all'account di archiviazione. L'applicazione Key Vault richiede inoltre apposite autorizzazioni per *elencare* e *rigenerare* le chiavi di un account di archiviazione. Queste autorizzazioni vengono abilitate tramite il ruolo predefinito Controllo degli accessi in base al ruolo [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Prima che Key Vault possa accedere e gestire le chiavi dell'account di archiviazione, è necessario autorizzarlo ad accedere all'account di archiviazione. L'applicazione Key Vault richiede inoltre apposite autorizzazioni per *elencare* e *rigenerare* le chiavi di un account di archiviazione. Queste autorizzazioni vengono abilitate tramite il [ruolo del servizio operatore chiave dell'account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)del ruolo predefinito di Azure. 
 
 Assegnare questo ruolo all'entità servizio Key Vault, limitando l'ambito all'account di archiviazione, usando il cmdlet Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) .
 

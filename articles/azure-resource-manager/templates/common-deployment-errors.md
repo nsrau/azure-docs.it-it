@@ -4,12 +4,12 @@ description: Descrive come risolvere errori comuni durante la distribuzione di r
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055665"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373998"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -21,7 +21,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Strategia di riduzione del rischio | Altre informazioni |
+| Codice di errore | Strategia di riduzione del rischio | Ulteriori informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -78,7 +78,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | SubnetsNotInSameVnet | Una macchina virtuale può avere solo una rete virtuale. Quando si distribuiscono più schede di interfaccia di rete, assicurarsi che appartengano alla stessa rete virtuale. | [Più schede di interfaccia di rete](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | Quando si distribuiscono le risorse di rete, il provider di risorse Microsoft. Network viene registrato automaticamente nella sottoscrizione. In alcuni casi, la registrazione automatica non viene completata nel tempo. Per evitare questo errore intermittente, registrare il provider di risorse Microsoft. Network prima della distribuzione. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione in più gruppi di risorse](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione con ambito incrociato](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Trovare il codice di errore
 

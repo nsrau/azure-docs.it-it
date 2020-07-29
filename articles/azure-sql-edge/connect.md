@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/25/2020
+ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252645"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373114"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Connettersi ed eseguire query in SQL Edge di Azure (anteprima)
 
@@ -29,7 +29,7 @@ In Azure SQL Edge, dopo la distribuzione di un contenitore, è possibile connett
 
 È possibile connettersi a un'istanza di Azure SQL Edge da uno degli strumenti comuni seguenti:
 
-* [SQLCMD](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): gli strumenti client sqlcmd sono già inclusi nell'immagine del contenitore di Azure SQL Edge. Se ci si connette a un contenitore in esecuzione con una shell bash interattiva, è possibile eseguire gli strumenti in locale.
+* [SQLCMD](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): gli strumenti client sqlcmd sono già inclusi nell'immagine del contenitore di Azure SQL Edge. Se ci si connette a un contenitore in esecuzione con una shell bash interattiva, è possibile eseguire gli strumenti in locale. Gli strumenti client di SQL non sono disponibili nella piattaforma ARM64, di conseguenza non sono inclusi nella versione ARM64 dei contenitori SQL Edge. 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
 * [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
@@ -55,7 +55,7 @@ Per connettersi a un motore di database di Azure SQL Edge da un computer di rete
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Connettersi al motore di database dall'interno del contenitore
 
-Gli [strumenti da riga di comando SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) sono inclusi nell'immagine del contenitore di Azure SQL Edge. Se ci si connette al contenitore con un prompt dei comandi interattivo, è possibile eseguire gli strumenti localmente.
+Gli [strumenti da riga di comando SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) sono inclusi nell'immagine del contenitore di Azure SQL Edge. Se ci si connette al contenitore con un prompt dei comandi interattivo, è possibile eseguire gli strumenti localmente. Gli strumenti client di SQL non sono disponibili nella piattaforma ARM64, di conseguenza non sono inclusi nella versione ARM64 dei contenitori SQL Edge. 
 
 1. Usare il comando `docker exec -it` per avviare una shell Bash interattiva all'interno del contenitore in esecuzione. Nell'esempio seguente `e69e056c702d` è l'ID del contenitore.
 

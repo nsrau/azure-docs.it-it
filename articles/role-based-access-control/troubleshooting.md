@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 07/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287213"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -52,6 +52,22 @@ $ras.Count
 ## <a name="problems-with-azure-role-assignments"></a>Problemi con le assegnazioni di ruolo di Azure
 
 - Se non è possibile aggiungere un'assegnazione di ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  >  **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
+- Se si utilizza un'entità servizio per assegnare i ruoli, è possibile che venga ricevuto l'errore "privilegi insufficienti per completare l'operazione". Si immagini, ad esempio, di disporre di un'entità servizio a cui è stato assegnato il ruolo di proprietario e si tenta di creare l'assegnazione di ruolo seguente come entità servizio usando l'interfaccia della riga di comando di Azure:
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    Se si riceve l'errore "privilegi insufficienti per completare l'operazione", è probabile che l'interfaccia della riga di comando di Azure tenti di cercare l'identità assegnata in Azure AD e che l'entità servizio non sia in grado di leggere Azure AD per impostazione predefinita.
+
+    Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory. È anche possibile concedere l' [autorizzazione directory. Read. All](https://docs.microsoft.com/graph/permissions-reference) in Microsoft Graph.
+
+    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](role-assignments-cli.md#new-service-principal)della riga di comando di Azure.
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 

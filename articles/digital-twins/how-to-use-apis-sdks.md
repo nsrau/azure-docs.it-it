@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079159"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373242"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -284,7 +284,7 @@ Le metriche API, ad esempio richieste, latenza e percentuale di errori, possono 
 
 Dalla Home page del portale, cercare l'istanza di Azure Digital gemelli per recuperare i dettagli. Selezionare l'opzione **metrica** dal menu dell'istanza di Azure Digital gemelli per visualizzare la pagina *metrica* .
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Pagina metrica di un'istanza di dispositivi gemelli digitali di Azure nel portale di Azure":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
 Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazioni personalizzate.
 

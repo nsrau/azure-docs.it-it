@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122315"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373471"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86122315"
 > Analisi del testo per l'integrità è una funzionalità di anteprima fornita "così com'è" e "con tutti gli errori". Di conseguenza, **analisi del testo per Health (Preview) non devono essere implementate o distribuite in alcun uso in produzione.** Analisi del testo per l'integrità non è intenzionale o reso disponibile per l'utilizzo come dispositivo medico, supporto clinico, strumento di diagnostica o altra tecnologia da utilizzare per la diagnosi, la cura, la mitigazione, il trattamento o la prevenzione di patologie o altre condizioni, né la concessione di alcuna licenza o diritto da parte di Microsoft di utilizzare questa funzionalità per tali scopi. Questa funzionalità non è progettata o progettata per essere implementata o distribuita come sostituto di consigli medici professionali o di opinione sanitaria, diagnosi, trattamento o giudizio clinico di un professionista sanitario e non deve essere usato come tali. Il cliente è esclusivamente responsabile dell'utilizzo di Analisi del testo per l'integrità. Microsoft non garantisce che Analisi del testo per l'integrità o i materiali forniti in relazione alla funzionalità saranno sufficienti per qualsiasi scopo medico o per soddisfare i requisiti sanitari o medici di qualsiasi persona. 
 
 
-Azure Analisi del testo per l'integrità è un servizio in contenitori che estrae ed etichetta le informazioni mediche rilevanti da testi non strutturati, come le note del medico, i riepiloghi di scaricamento, i documenti clinici e i record di integrità elettronici.  
+Analisi del testo per l'integrità è un servizio in contenitori che estrae ed etichetta le informazioni mediche rilevanti da testi non strutturati, come le note del medico, i riepiloghi di scaricamento, i documenti clinici e i record di integrità elettronici.  
 
 ## <a name="features"></a>Funzionalità
 
@@ -62,7 +62,7 @@ Il significato del contenuto medico è molto influenzato dai modificatori, ad es
 
 ---
 
-Vedere le [categorie di entità](../named-entity-types.md?tabs=health) restituite da analisi del testo per Healthcare per un elenco completo delle entità supportate.
+Vedere le [categorie di entità](../named-entity-types.md?tabs=health) restituite da analisi del testo per l'integrità per un elenco completo delle entità supportate.
 
 ## <a name="supported-languages"></a>Lingue supportate
 
@@ -80,8 +80,8 @@ Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi]
 
 È possibile installare ed eseguire il contenitore in diversi modi. 
 
-1. Usare il [portale di Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) per creare una risorsa analisi del testo e usare Docker per ottenere il contenitore.
-2. Usare gli script di PowerShell e dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) seguenti per automatizzare la configurazione del contenitore di distribuzione
+- Usare il [portale di Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) per creare una risorsa analisi del testo e usare Docker per ottenere il contenitore.
+- Usare i seguenti script di PowerShell e dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per automatizzare la configurazione del contenitore di distribuzione
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installare il contenitore con Azure app Web per contenitori
 
@@ -223,7 +223,7 @@ Per ulteriori informazioni, vedere la documentazione di NGINX sulla [terminazion
 
 
 ## <a name="example-api-request"></a>Richiesta API di esempio
-Il contenitore fornisce API dell'endpoint di stima di query basate su REST.
+Il contenitore fornisce le API dell'endpoint di stima della query basata su REST.
 
 Usare la richiesta cURL di esempio riportata di seguito per inviare una query al contenitore distribuito sostituendo la `serverURL` variabile con il valore appropriato.
 

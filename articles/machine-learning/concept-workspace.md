@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 118c80b27d10714703d631f0e2560540eb2d39cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287220"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -116,6 +116,9 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 
 > [!NOTE]
 > Oltre alla creazione di nuove versioni, è possibile usare i servizi di Azure esistenti.
+
+> [!IMPORTANT]
+> Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

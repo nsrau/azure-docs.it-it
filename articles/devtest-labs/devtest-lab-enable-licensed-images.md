@@ -3,12 +3,12 @@ title: Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs |
 description: Informazioni su come abilitare un'immagine concessa in licenza in Azure DevTest Labs usando il portale di Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481018"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286513"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
     ![Finestra Configura distribuzione a livello di codice](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Le macchine virtuali di data science sono immagini di macchine virtuali di Azure preinstallate, configurate e testate con alcuni degli strumenti più diffusi usati comunemente per analisi dei dati, Machine Learning e training per l'intelligenza artificiale. [Introduzione alla macchina virtuale data science di Azure per Linux e Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) offre molte informazioni sulle macchine virtuali di data science.
+   > Le macchine virtuali di data science sono immagini di macchine virtuali di Azure preinstallate, configurate e testate con alcuni degli strumenti più diffusi usati comunemente per analisi dei dati, Machine Learning e training per l'intelligenza artificiale. [Introduzione alla macchina virtuale data science di Azure per Linux e Windows](../machine-learning/data-science-virtual-machine/overview.md) offre molte informazioni sulle macchine virtuali di data science.
    >
    >
 
@@ -78,7 +78,7 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
 
-- [Custom images or formulas? (Immagini personalizzate o formule?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas? (Immagini personalizzate o formule?)](./devtest-lab-faq.md#blog-post)
 - [Copying Custom Images between Azure DevTest Labs (Copia di immagini personalizzate tra istanze di Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Passaggi successivi

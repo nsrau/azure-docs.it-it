@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 621d654e54d1f42a8714605c0c864b7653524f05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9def93e6eb337300d3c166532a9415f02b825b7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046280"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286394"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creare un pool host di desktop virtuali Windows con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
->
-> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può essere associato a più gruppi RemoteApp, a un gruppo di app desktop e a più host di sessione.
 
@@ -98,7 +95,7 @@ Per aggiungere correttamente il computer a un dominio, eseguire le operazioni se
 
 1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
 2. Nella macchina virtuale aprire il **Pannello di controllo** e selezionare **Sistema**.
-3. Selezionare **Nome computer**, selezionare **Modifica impostazioni** e quindi selezionare **Modifica**.
+3. Selezionare **Nome computer**, selezionare **Modifica impostazioni** e quindi selezionare **Modifica**
 4. Selezionare **Dominio** e quindi immettere il dominio di Active Directory nella rete virtuale.
 5. Eseguire l'autenticazione con un account di dominio che dispone dei privilegi per l'aggiunta di computer al dominio.
 

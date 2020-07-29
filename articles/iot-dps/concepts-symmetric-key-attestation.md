@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705373"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286496"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
 
@@ -26,7 +26,7 @@ Le registrazioni con chiave simmetrica offrono anche un modo eccezionale di avvi
 
 ## <a name="symmetric-key-creation"></a>Creazione di chiave simmetrica
 
-Per impostazione predefinita, il servizio Device Provisioning consente di creare nuove chiavi simmetriche con una lunghezza predefinita di 32 byte quando le nuove registrazioni vengono salvate con l'opzione **Genera automaticamente chiavi** abilitata.
+Per impostazione predefinita, il servizio Device provisioning crea nuove chiavi simmetriche con una lunghezza predefinita di 64 byte quando vengono salvate nuove registrazioni con l'opzione di **generazione automatica chiavi** abilitata.
 
 ![Chiavi simmetriche generate automaticamente](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 

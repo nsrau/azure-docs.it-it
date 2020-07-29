@@ -1,6 +1,6 @@
 ---
-title: Macchine virtuali Windows 7-desktop virtuale Windows-Azure
-description: Come risolvere i problemi per le macchine virtuali (VM) Windows 7 in un ambiente desktop virtuale di Windows.
+title: Macchine virtuali Windows 7-desktop virtuale Windows (classico)-Azure
+description: Come risolvere i problemi per le macchine virtuali (VM) Windows 7 in un ambiente desktop virtuale Windows (classico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74f2e22bcc9d75070e4f7af304f92d9c5640ca7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615279"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286343"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Risolvere i problemi relativi alle macchine virtuali Windows 7 in Desktop virtuale Windows
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Risolvere i problemi relativi alle macchine virtuali Windows 7 in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 

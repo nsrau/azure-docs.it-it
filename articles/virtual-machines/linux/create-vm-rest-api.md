@@ -3,15 +3,15 @@ title: Creare una VM Linux con l'API REST
 description: Informazioni su come creare una macchina virtuale Linux in Azure che usa l'autenticazione SSH e Managed Disks tramite l'API REST di Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082563"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373403"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -54,9 +54,9 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Nome                       | Obbligatoria | Tipo                                                                                | Description  |
+| Nome                       | Obbligatorio | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| posizione                   | True     | string                                                                              | Percorso della risorsa. |
+| posizione                   | True     | Stringa                                                                              | Percorso della risorsa. |
 | name                       |          | string                                                                              | Nome della macchina virtuale. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifica le impostazioni hardware per la macchina virtuale. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifica le impostazioni di archiviazione per i dischi della macchina virtuale. |
@@ -128,7 +128,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | Tipo                                                                              | Description |
+| Nome        | Type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

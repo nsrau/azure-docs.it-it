@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087884"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286615"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -50,7 +50,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
   Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
-  | Operazione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
@@ -113,7 +113,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
-| Client SFTP | Operazione |
+| Client SFTP | Azione |
 |-------------|--------|
 | Winscp | Vai a **Opzioni**  >  **Preferenze**  >  **trasferimento**  >  **modifica**  >  **Mantieni timestamp**  >  **Disabilita** |
 | FileZilla | Vai al **trasferimento**  >  **Mantieni i timestamp dei file trasferiti**  >  **Disabilita** |
@@ -255,7 +255,7 @@ Se non è possibile evitare o ritardare lo spostamento del file, è possibile ig
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sftpwithssh/).
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore richiede la suddivisione in blocchi per usare invece i [limiti dei messaggi di ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -263,3 +263,4 @@ Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+

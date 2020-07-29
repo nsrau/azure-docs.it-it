@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287521"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection nel database di Azure per PostgreSQL-server singolo
 
@@ -19,7 +20,7 @@ Advanced Threat Protection per Database di Azure per PostgreSQL rileva attività
 > [!NOTE]
 > Advanced Threat Protection è in anteprima pubblica.
 
-Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/postgresql/serversecurityalertpolicies). La funzionalità è disponibile per i server per utilizzo generico e con ottimizzazione per la memoria.
+Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/postgresql). La funzionalità è disponibile per i server per utilizzo generico e con ottimizzazione per la memoria.
 
 > [!NOTE]
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree geografiche cloud sovrani di Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, Stati Uniti, Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.

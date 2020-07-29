@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536114"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373692"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -196,7 +196,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
 
-|Problema  |Risoluzione  |
+|Problema  |Soluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
@@ -307,7 +307,7 @@ time.sleep(600)
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Risoluzione  |
+|Errore  | Soluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |
@@ -368,6 +368,12 @@ Se si esegue un'operazione di gestione in una destinazione di calcolo da un proc
 ```
 
 Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
+
+## <a name="missing-user-interface-items-in-studio"></a>Elementi dell'interfaccia utente mancanti in studio
+
+Il controllo degli accessi in base al ruolo di Azure può essere usato per limitare le azioni che è possibile eseguire con Azure Machine Learning. Queste restrizioni possono impedire la visualizzazione degli elementi dell'interfaccia utente in Azure Machine Learning Studio. Se ad esempio viene assegnato un ruolo che non è in grado di creare un'istanza di calcolo, l'opzione per creare un'istanza di calcolo non verrà visualizzata in studio.
+
+Per ulteriori informazioni, vedere [Manage Users and Roles](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

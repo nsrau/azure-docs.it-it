@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.custom: tracking-python
-ms.openlocfilehash: ae4840f5ca31f9bbef1fa5f9ffd175a1f1d7696b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python, devx-track-java
+ms.openlocfilehash: e1321c0d5b1f83ffcfd3f46384dfb3af792c9b8b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832220"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373097"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Esportare i certificati dell'emulatore di Azure Cosmos DB per l'uso con Java, Python e Node.js
 

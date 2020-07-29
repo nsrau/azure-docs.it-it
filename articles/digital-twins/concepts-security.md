@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131617"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373284"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteggere i dispositivi gemelli digitali di Azure con controllo degli accessi in base al ruolo
 
@@ -45,7 +45,7 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli RBAC per i dispositivi gemelli digitali di Azure
 
-Azure fornisce i ruoli RBAC predefiniti seguenti per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
+Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
 * *Proprietario di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
 * *Lettore di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
 

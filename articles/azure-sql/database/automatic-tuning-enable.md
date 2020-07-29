@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982788"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373505"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica nel portale di Azure per monitorare le query e migliorare le prestazioni del carico di lavoro
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Poiché l'ottimizzazione automatica è una funzionalità di Azure, per usarla è necessario usare i ruoli RBAC predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità del portale di Azure.
+Poiché l'ottimizzazione automatica è una funzionalità di Azure, per usarla è necessario usare i ruoli predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità del portale di Azure.
 
 Per usare l'ottimizzazione automatica, l'autorizzazione minima necessaria per concedere all'utente è il ruolo predefinito [collaboratore database SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor) di Azure. È inoltre possibile considerare l'utilizzo di ruoli con privilegi più elevati, ad esempio collaboratore SQL Server, collaboratore SQL Istanza gestita, collaboratore e proprietario.
 

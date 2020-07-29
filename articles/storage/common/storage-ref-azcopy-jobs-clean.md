@@ -4,15 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a06e428908777c526602166f127a28304b595ba0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3e9d70ced0d2974a66717436c28c5b6914f6745
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220073"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287144"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -37,13 +38,13 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Opzioni
 
-**-h,--Help**                Guida per pulire.
+**--Guida**                Guida per pulire.
 
-**--with-status** stringa rimuove solo i processi con questo stato, i valori disponibili: annullato, completato, non riuscito, in corso, tutti (predefinito "tutti")
+**--with-status** stringa rimuove solo i processi con questo stato, i valori disponibili: `Canceled` , `Completed` , `Failed` , `InProgress` , `All` (impostazione predefinita `All` )
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-**--Cap-Mbps UInt32**      Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--Cap-Mbps float**      Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 

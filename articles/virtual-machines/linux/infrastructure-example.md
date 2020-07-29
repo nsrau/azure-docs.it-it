@@ -4,14 +4,15 @@ description: Informazioni sulle principali linee guida di progettazione e implem
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500de3f89bd041adf0b73e21762495d8c89e19c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944895"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286292"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.

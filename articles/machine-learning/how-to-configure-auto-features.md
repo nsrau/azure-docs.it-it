@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321586"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373743"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
@@ -114,13 +114,13 @@ Protezione|Stato|Condizione&nbsp;per il&nbsp;trigger
 
 È possibile personalizzare le impostazioni di conteggi per assicurarsi che i dati e le funzionalità usati per il training del modello ML provochino stime pertinenti.
 
-Per personalizzare featurizations, specificare  `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Se si usa Azure Machine Learning Studio per l'esperimento, vedere l'articolo sulle [procedure](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Per personalizzare featurizations, specificare  `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Se si usa Azure Machine Learning Studio per l'esperimento, vedere l'articolo sulle [procedure](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Per personalizzare conteggi per i tipi di attività di previsione, fare riferimento alle procedure per la [previsione](how-to-auto-train-forecast.md#customize-featurization).
 
 Le personalizzazioni supportate includono:
 
 |Personalizzazione|Definizione|
 |--|--|
-|**Aggiornamento dello scopo della colonna**|Consente di eseguire l'override del tipo di funzionalità per la colonna specificata.|
+|**Aggiornamento dello scopo della colonna**|Eseguire l'override del tipo di funzionalità rilevato automaticamente per la colonna specificata.|
 |**Aggiornamento dei parametri del trasformatore** |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l' *imputatore* (medio, più frequente e mediano) e *HashOneHotEncoder*.|
 |**Eliminazione delle colonne** |Specifica le colonne da eliminare dall'trasformato.|
 |**Blocco dei trasformatori**| Specifica i trasformatori di blocco da usare nel processo conteggi.|

@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8f4ef046221ae50d2b05525d6cea2d268282551c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099616"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372910"
 ---
 # <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB in Linux usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
@@ -90,7 +90,7 @@ Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è sup
 
 Quando si configura l'account, scegliere i valori seguenti:
 
-|Impostazione | Valore|
+|Impostazione | valore|
 |----|---|
 |Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale |
 |Prestazioni|Premium|
@@ -113,7 +113,7 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfaccia della riga di comando di Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Azure portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 
@@ -135,11 +135,10 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 
 ## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-|Problema/errore | Risoluzione|
+|Problema/errore | Soluzione|
 |---|---|
 |`Access denied by server while mounting`|Verificare che il client sia in esecuzione all'interno di una subnet supportata. Vedere i [percorsi di rete supportati](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato che la funzionalità sia stata registrata. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|
-|I file caricati usando gli strumenti non NFS 3,0 non sono visibili nella directory. | Disinstallare il contenitore, quindi montare di nuovo il contenitore. |
 
 ## <a name="see-also"></a>Vedere anche
 

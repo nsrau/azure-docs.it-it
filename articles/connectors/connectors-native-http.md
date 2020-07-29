@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286632"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure
 
@@ -161,7 +162,7 @@ Di seguito è riportato lo stesso esempio che mostra la definizione JSON dell'az
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamento di richiesta-risposta asincrono
 
-Per impostazione predefinita, tutte le azioni basate su HTTP nelle app per la logica di Azure seguono il [modello di operazione asincrona](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)standard. Questo modello specifica che dopo un'azione HTTP chiama o invia una richiesta a un endpoint, un servizio, un sistema o un'API, il destinatario restituisce immediatamente una risposta ["202 accettata"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Questo codice conferma che il ricevitore ha accettato la richiesta ma non ha completato l'elaborazione. La risposta può includere un' `location` intestazione che specifica l'URL e un ID di aggiornamento che il chiamante può usare per eseguire il polling o controllare lo stato della richiesta asincrona finché il ricevitore non interrompe l'elaborazione e restituisce una risposta di esito positivo ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) o un'altra risposta non 202. Tuttavia, il chiamante non deve attendere che la richiesta completi l'elaborazione e possa continuare a eseguire l'azione successiva. Per altre informazioni, vedere l' [integrazione di microservizi asincroni impone l'autonomia dei microservizi](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Per impostazione predefinita, tutte le azioni basate su HTTP nelle app per la logica di Azure seguono il [modello di operazione asincrona](/azure/architecture/patterns/async-request-reply)standard. Questo modello specifica che dopo un'azione HTTP chiama o invia una richiesta a un endpoint, un servizio, un sistema o un'API, il destinatario restituisce immediatamente una risposta ["202 accettata"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Questo codice conferma che il ricevitore ha accettato la richiesta ma non ha completato l'elaborazione. La risposta può includere un' `location` intestazione che specifica l'URL e un ID di aggiornamento che il chiamante può usare per eseguire il polling o controllare lo stato della richiesta asincrona finché il ricevitore non interrompe l'elaborazione e restituisce una risposta di esito positivo ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) o un'altra risposta non 202. Tuttavia, il chiamante non deve attendere che la richiesta completi l'elaborazione e possa continuare a eseguire l'azione successiva. Per altre informazioni, vedere l' [integrazione di microservizi asincroni impone l'autonomia dei microservizi](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * Nella finestra di progettazione dell'app per la logica, l'azione HTTP, ma non il trigger, ha un'impostazione del **modello asincrona** , abilitata per impostazione predefinita. Questa impostazione specifica che il chiamante non attende il completamento dell'elaborazione e può passare all'azione successiva, ma continua a controllare lo stato fino a quando l'elaborazione non viene arrestata. Se disabilitata, questa impostazione specifica che il chiamante attende il completamento dell'elaborazione prima di procedere all'azione successiva.
 
@@ -273,3 +274,4 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o un'azi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+

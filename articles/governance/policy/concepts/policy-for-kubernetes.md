@@ -3,12 +3,12 @@ title: Anteprima - Informazioni su Criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale. Questa è una funzionalità in anteprima.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373625"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373760"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendere i criteri di Azure per i cluster Kubernetes (anteprima)
 
@@ -373,7 +373,7 @@ Come parte delle proprietà _details.constraintTemplate_ e _details.constraint_ 
 
 ## <a name="assign-a-built-in-policy-definition"></a>Assegnare una definizione di criteri predefinita
 
-Per assegnare una definizione di criteri al cluster Kubernetes, è necessario farsi assegnare le operazioni di assegnazione dei criteri di controllo degli accessi in base al ruolo appropriate. I ruoli dei criteri di controllo degli accessi in base al ruolo predefiniti **Collaboratore ai criteri delle risorse** e **Proprietario** includono queste operazioni. Per altre informazioni, vedere [Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
+Per assegnare una definizione di criteri al cluster Kubernetes, è necessario farsi assegnare le operazioni di assegnazione dei criteri di controllo degli accessi in base al ruolo appropriate. I ruoli predefiniti e il **proprietario** dei **criteri delle risorse** di Azure hanno queste operazioni. Per altre informazioni, vedere [Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
 
 Trovare le definizioni dei criteri predefinite per la gestione del cluster eseguendo questa procedura nel portale di Azure:
 

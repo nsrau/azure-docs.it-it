@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a40c5512da40ede84251ec16345a3957c391bb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965648"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287369"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,10 +48,10 @@ SQL Server in macchine virtuali di Azure offre diverse opzioni come una soluzion
 
 ||[Dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md)|[Condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Versione minima del sistema operativo**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Versione minima di SQL Server**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Versione minima del sistema operativo**| Tutti |Windows Server 2012|Windows Server 2016|
+|**Versione minima di SQL Server**|Tutti|SQL Server 2012|SQL Server 2016|
 |**Disponibilità VM supportata** |Set di disponibilità con gruppi di posizionamento vicini |Set di disponibilità e zone di disponibilità|Set di disponibilità |
-|**Supporta FileStream**|No|No|Sì |
+|**Supporta FileStream**|Sì|No|Sì |
 |**Cache BLOB di Azure**|No|No|Sì|
 
 Il resto di questa sezione elenca i vantaggi e le limitazioni di ogni opzione di archiviazione disponibile per SQL Server nelle VM di Azure. 
@@ -60,18 +60,18 @@ Il resto di questa sezione elenca i vantaggi e le limitazioni di ogni opzione di
 
 I [dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md) sono una funzionalità di [Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supporta l'uso di dischi condivisi di Azure con un'istanza del cluster di failover. 
 
-**Sistema operativo supportato**: Windows Server 2019   
-**Versione SQL supportata**: SQL Server 2019   
+**Sistema operativo supportato**: tutti   
+**Versione SQL supportata**: tutti     
 
 **Vantaggi**: 
 - Utile per le applicazioni che desiderano eseguire la migrazione ad Azure mantenendo l'architettura di disponibilità elevata e ripristino di emergenza (HADR) così come sono. 
 - Consente di eseguire la migrazione di applicazioni in cluster in Azure così come sono a causa del supporto per le prenotazioni permanenti SCSI (SCSI PR). 
 - Supporta SSD Premium di Azure condiviso per tutte le versioni di SQL Server e Azure ultra archiviazione su disco condiviso per SQL Server 2019. 
 - Può usare un singolo disco condiviso o eseguire lo striping di più dischi condivisi per creare un pool di archiviazione condiviso. 
+- Supporta FILESTREAM.
 
 
 **Limiti**: 
-- Disponibile solo per SQL Server 2019 e Windows Server 2019 in fase di anteprima. 
 - Le macchine virtuali devono essere inserite nello stesso set di disponibilità e nel gruppo di posizionamento di prossimità.
 - Le zone di disponibilità non sono supportate.
 - SSD Premium caching del disco non è supportata.

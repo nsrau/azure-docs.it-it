@@ -3,12 +3,13 @@ title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373165"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -165,7 +166,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -405,10 +406,11 @@ I siti PHP e WordPress non sono supportati. Attualmente non è disponibile un SD
 Quando si usa il monitoraggio senza codice, è necessaria solo la stringa di connessione. Tuttavia, è comunque consigliabile impostare la chiave di strumentazione in modo da mantenere la compatibilità con le versioni precedenti dell'SDK quando viene eseguita la strumentazione manuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Eseguire il profiler sull'app live](../app/profiler.md).
+* [Eseguire il profiler sull'app live](./profiler.md).
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample): monitorare Funzioni di Azure con Application Insights
 * [Abilitare l'invio dei dati di diagnostica di Azure](../platform/diagnostics-extension-to-application-insights.md) ad Application Insights.
 * [Monitorare le metriche di integrità del servizio](../platform/data-platform.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Ricevere notifiche di avviso](../platform/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](javascript.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
 * [Monitorare la disponibilità e la velocità di risposta dei siti Web](monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
+

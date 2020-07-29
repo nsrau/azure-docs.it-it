@@ -3,13 +3,13 @@ title: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti
 description: Modificare gli endpoint di Azure Application Insights SDK predefiniti per le aree come Azure per enti pubblici.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions
-ms.openlocfilehash: 50a072cd7e509642c36c783e3cc0fd78e4d5adc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions, devx-track-javascript
+ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092865"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373131"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
@@ -158,7 +158,7 @@ Per informazioni sulla modifica dell'endpoint di inserimento per opencensus-Pyth
 
 Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [Azure Cina](/azure/china/resources-developer-guide).
 
-|Area |  Nome endpoint | Valore |
+|Region |  Nome endpoint | valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | Canale di telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Cina | QuickPulse (metriche attive) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -170,7 +170,7 @@ Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per
 Se attualmente si usa l' [API REST di Application Insights](https://dev.applicationinsights.io/
 ) , a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
 
-|Area |  Nome endpoint | Valore |
+|Region |  Nome endpoint | valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | API REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API REST | `api.applicationinsights.us`|

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503788"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287379"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | Modifiche | Dettagli |
 | --- | --- |
 | **Nome rete distribuita (DNN)** | SQL Server 2019 in Windows Server 2016 + è ora in anteprima il supporto per il routing del traffico all'istanza del cluster di failover (FCI) utilizzando un [nome di rete distribuita](hadr-distributed-network-name-dnn-configure.md) anziché l'utilizzo di Azure Load Balancer. Questo supporto semplifica e semplifica la connessione alla soluzione a disponibilità elevata in Azure. | 
-| **FCI con dischi condivisi di Azure** | È ora possibile distribuire l'istanza del [cluster di failover (FCI)](failover-cluster-instance-overview.md) usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) con SQL Server 2019 in una macchina virtuale Windows Server 2016 +. |
+| **FCI con dischi condivisi di Azure** | È ora possibile distribuire l'istanza del [cluster di failover (FCI)](failover-cluster-instance-overview.md) usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
 | **Documentazione FCI riorganizzata** | La documentazione relativa alle [istanze del cluster di failover con SQL Server nelle VM di Azure](failover-cluster-instance-overview.md) è stata riscritta e riorganizzata per maggiore chiarezza. Il contenuto della configurazione è stato separato, ad esempio le [procedure consigliate](hadr-cluster-best-practices.md)per la configurazione del cluster, come preparare una [macchina virtuale per una SQL Server FCI](failover-cluster-instance-prepare-vm.md)e come configurare [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 

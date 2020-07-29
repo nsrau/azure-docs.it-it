@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9fbf7bc45ed2070570faf0d1dfdb15b5fd98ee
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132263"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373267"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure
 
@@ -149,9 +149,9 @@ Ecco i filtri di route supportati.
 
 | Nome filtro | Descrizione | Schema filtro | Valori supportati | 
 | --- | --- | --- | --- |
-| Tipo | [Tipo di eventi](./concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Type | [Tipo di eventi](./concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Source (Sorgente) | Nome dell'istanza di Azure Digital Twins | `"filter" : "source = '<hostname>'"`|  **Per le notifiche**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Per la telemetria**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Oggetto | Descrizione dell'evento nel contesto dell'origine evento precedente | `"filter": " subject = '<subject>'"` | **Per le notifiche**: l'oggetto è`<twinid>` <br> o un formato URI per gli oggetti, che sono identificati in modo univoco da più parti o ID:<br>`<twinid>/relationships/<relationshipid>`<br> **Per la telemetria**: l'oggetto è il percorso del componente (se i dati di telemetria vengono emessi da un componente gemello), ad esempio `comp1.comp2` . Se i dati di telemetria non vengono emessi da un componente, il relativo campo soggetto è vuoto. |
+| Subject | Descrizione dell'evento nel contesto dell'origine evento precedente | `"filter": " subject = '<subject>'"` | **Per le notifiche**: l'oggetto è`<twinid>` <br> o un formato URI per gli oggetti, che sono identificati in modo univoco da più parti o ID:<br>`<twinid>/relationships/<relationshipid>`<br> **Per la telemetria**: l'oggetto è il percorso del componente (se i dati di telemetria vengono emessi da un componente gemello), ad esempio `comp1.comp2` . Se i dati di telemetria non vengono emessi da un componente, il relativo campo soggetto è vuoto. |
 | Schema dei dati | ID modello DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **Per la telemetria**: lo schema di dati è l'ID modello del dispositivo gemello o il componente che genera i dati di telemetria <br>**Per le notifiche**: schema dati non supportato|
 | Tipo di contenuto | Tipo di contenuto del valore dati | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Versione spec | Versione dello schema di eventi in uso | `"filter": "specversion = '<version>'"` | Deve essere `1.0`. Indica la versione dello schema CloudEvents 1,0 |
@@ -184,7 +184,7 @@ Le metriche di routing, ad esempio conteggio, latenza e percentuale di errori, p
 
 Dalla Home page del portale, cercare l'istanza di Azure Digital gemelli per recuperare i dettagli. Selezionare l'opzione **metrica** dal menu dell'istanza di Azure Digital gemelli per visualizzare la pagina *metrica* .
 
-:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Pagina metrica di un'istanza di dispositivi gemelli digitali di Azure nel portale di Azure":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
 Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazioni personalizzate.
 

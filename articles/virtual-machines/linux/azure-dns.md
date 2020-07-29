@@ -3,15 +3,15 @@ title: Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux
 description: Scenari di risoluzione dei nomi per macchine virtuali Linux in IaaS di Azure, inclusi i servizi DNS forniti, DNS esterno ibrido e possibilità di usare il proprio server DNS.
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494735"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372825"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
 Per impostazione predefinita, Azure fornisce la risoluzione dei nomi DNS per tutte le macchine virtuali contenute in una singola rete virtuale. È possibile implementare la soluzione di risoluzione dei nomi DNS configurando i servizi DNS nelle macchine virtuali ospitate da Azure. Gli scenari seguenti consentono di scegliere quello più adatto alla situazione specifica.

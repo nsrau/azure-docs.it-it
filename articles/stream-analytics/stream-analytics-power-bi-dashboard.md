@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314221"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 
@@ -184,16 +184,6 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
      ![Dashboard di Power BI completo che mostra due riquadri per le chiamate fraudolente](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>Altre informazioni su Power BI
-
-Questa esercitazione mostra come creare solo alcuni tipi di visualizzazioni per un set di dati. Power BI consente di creare altri strumenti di business intelligence per clienti per l'organizzazione. Per altre informazioni, vedere le risorse seguenti:
-
-* Per visualizzare un altro esempio di dashboard Power BI, guardare il video [Introduzione a Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) .
-* Per altre informazioni sulla configurazione dell'output di Analisi di flusso in Power BI e sull'uso dei gruppi di Power BI, vedere la sezione [Power BI](stream-analytics-define-outputs.md#power-bi) dell'articolo relativo agli [output di Analisi di flusso](stream-analytics-define-outputs.md). 
-* Per informazioni sull'utilizzo di Power BI in generale, vedere [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>Informazioni sulle limitazioni e le procedure consigliate
 Attualmente, è possibile chiamare Power BI approssimativamente una volta al secondo. Gli oggetti visivi di streaming supportano pacchetti da 15 KB. Oltre tale limite, gli oggetti visivi di streaming hanno esito negativo, ma il push continua a funzionare. A causa di queste limitazioni, Power BI è più adatto ai casi in cui Analisi di flusso di Azure riduce notevolmente il carico di dati. È consigliabile usare la finestra a cascata o la finestra di salto per assicurarsi che il push di dati avvenga al massimo una volta al secondo e che la query rientri nei requisiti di velocità effettiva.
 
@@ -234,12 +224,9 @@ Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un 
 
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
-## <a name="get-help"></a>Ottenere aiuto
-Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
+* [Output di Analisi di flusso](stream-analytics-define-outputs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

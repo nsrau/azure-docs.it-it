@@ -5,13 +5,13 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devcenter, devx-track-java
+ms.openlocfilehash: a4e240837dd3c95efc4dc83a7491f2ad9163435a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055613"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373318"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
@@ -21,7 +21,7 @@ Questo articolo illustra come creare un progetto per funzioni [senza server](htt
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configura l'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configurare l'ambiente di sviluppo
 
 Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che siano installati gli elementi seguenti:
 

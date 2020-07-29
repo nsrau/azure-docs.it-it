@@ -3,12 +3,12 @@ title: Confronto tra immagini personalizzate e formule nei lab di sviluppo/test 
 description: Conoscere le differenze tra le immagini personalizzate e le formule come basi per le macchine virtuali consente di decidere quale soluzione è più adatta per il proprio ambiente.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dac820d0600745906e4b1aeef95806ed5679488a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df7a8e6209f8033eb5a29c65079e9c2f4cbbe544
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484027"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287530"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Confronto tra immagini personalizzate e formule nei lab di sviluppo/test
 Sia le [immagini personalizzate](devtest-lab-create-template.md) che le [formule](devtest-lab-manage-formulas.md) possono essere usate come basi per [creare nuove macchine virtuali](devtest-lab-add-vm.md). La differenza principale tra le immagini personalizzate e le formule è che un'immagine personalizzata è semplicemente un'immagine basata su un disco rigido virtuale, mentre una formula è un'immagine basata su un disco rigido virtuale *con in più* impostazioni preconfigurate, ad esempio dimensioni della macchina virtuale, rete virtuale e subnet, ed elementi. Le impostazioni preconfigurate vengono specificate con valori predefiniti che possono essere sostituiti al momento della creazione della macchina virtuale. Questo articolo illustra alcuni dei vantaggi e degli svantaggi relativi all'uso delle immagini personalizzate e delle formule.
@@ -41,7 +41,7 @@ Le formule offrono un modo dinamico per creare macchine virtuali in base a una c
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
-* [Custom images or formulas? (Immagini personalizzate o formule?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Custom images or formulas? (Immagini personalizzate o formule?)](./devtest-lab-faq.md#blog-post)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Domande frequenti su DevTest Labs](devtest-lab-faq.md)

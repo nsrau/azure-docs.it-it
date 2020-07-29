@@ -3,15 +3,15 @@ title: Panoramica degli host dedicati di Azure per le macchine virtuali
 description: Altre informazioni sul modo in cui è possibile usare gli host dedicati di Azure per la distribuzione di macchine virtuali.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 7e19f74c40bbeb83c9230e620c4488778823ef99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 15f972f06230e63050f5c4e4b9f3e292d52bd97d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510804"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373607"
 ---
 # <a name="azure-dedicated-hosts-for-virtual-machines"></a>Host dedicati di Azure per le macchine virtuali
 

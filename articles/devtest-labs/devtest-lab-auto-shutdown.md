@@ -3,12 +3,12 @@ title: Gestire i criteri di arresto automatico in Azure DevTest Labs | Microsoft
 description: Informazioni su come impostare i criteri di arresto automatico per un Lab in modo che le macchine virtuali vengano arrestate automaticamente quando non sono in uso.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482735"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287543"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali Lab e di calcolo in Azure DevTest Labs
 
@@ -71,7 +71,7 @@ Al termine dell'arresto automatico da parte del proprietario del Lab, le notific
 - Ignora l'arresto automatico per questa ora
 - Arrestare l'AutoShutdown per un'ora o 2 ore, in modo che possano rimanere in funzione della macchina virtuale.
 
-La notifica viene inviata tramite l'endpoint dell'hook Web configurato o un indirizzo di posta elettronica specificato dai proprietari del Lab nelle impostazioni di arresto automatico. I webhook consentono di compilare o configurare integrazioni che sottoscrivono eventi specifici. Quando viene attivato uno di questi eventi, DevTest Labs invierà un payload HTTP POST all'URL configurato del webhook. Per altre informazioni sui webhook, vedere [Creare un webhook o una funzione API di Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+La notifica viene inviata tramite l'endpoint dell'hook Web configurato o un indirizzo di posta elettronica specificato dai proprietari del Lab nelle impostazioni di arresto automatico. I webhook consentono di compilare o configurare integrazioni che sottoscrivono eventi specifici. Quando viene attivato uno di questi eventi, DevTest Labs invierà un payload HTTP POST all'URL configurato del webhook. Per altre informazioni sui webhook, vedere [Creare un webhook o una funzione API di Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
 Si consiglia di usare i webhook perché sono ampiamente supportati da varie app (ad esempio, Slack, app per la logica di Azure e così via) e consente di implementare un metodo personalizzato per l'invio di notifiche. Ad esempio, questo articolo illustra come ottenere la notifica di arresto automatico dei messaggi di posta elettronica usando app per la logica di Azure. Per prima cosa, è possibile eseguire i passaggi di base per abilitare la notifica di arresto automatico nel Lab.   
 
@@ -211,4 +211,3 @@ Quando si aggiorna l'impostazione di AutoShutdown, viene visualizzata l'attivit�
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come impostare tutti i criteri, vedere [definire i criteri di Lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-
