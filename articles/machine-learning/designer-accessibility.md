@@ -12,6 +12,7 @@ ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
 ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/19/2020
 ms.locfileid: "83646305"
