@@ -3,7 +3,7 @@ title: Panoramica di SQL Server Gruppi di disponibilità Always On
 description: Questo articolo introduce SQL Server Gruppi di disponibilità Always On in macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073275"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286822"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzione a SQL Server Gruppi di disponibilità Always On in macchine virtuali di Azure
 
@@ -43,7 +43,7 @@ Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server dev
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | **[Interfaccia della riga di comando delle VM SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
 | **[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
-| **[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | Tutti | Tutti | Tutti | Tutti | Sì | Sì | Sì | Sì | Sì | Sì |
+| **[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | Tutti | Tutti | Tutti | Tutti | Sì | sì | sì | sì | sì | sì |
 
 Il modello di **SQL Server cluster AlwaysOn (anteprima)** è stato rimosso da Azure Marketplace e non è più disponibile. 
 

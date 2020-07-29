@@ -1,7 +1,7 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure-configurare frontend IPv6-Load Balancer Standard
 titlesuffix: Azure Virtual Network
-description: Abilitare gli endpoint IPv6 usando l'interfaccia della riga di comando di Azure in rete virtuale di Azure
+description: Informazioni su come configurare gli endpoint IPv6 in un esempio di script di rete virtuale usando Load Balancer Standard.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2509034abb37c7dc90b65569d14f228eadb746c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235046"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281617"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale usando Load Balancer Standard (anteprima)
 

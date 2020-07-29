@@ -6,25 +6,26 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 07/25/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14f9ab0b1c3b8b437e46a7b6a2d8b87f03442a02
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84113696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290571"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
   
-Il **runtime di integrazione** è l'infrastruttura di calcolo usata da Azure Data Factory per fornire varie funzionalità di integrazione di dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
+**Integration Runtime** è l'infrastruttura di calcolo usata da Azure Data Factory (ADF) per fornire diverse funzionalità di integrazione dei dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
 
 - Runtime di integrazione di Azure
 - Runtime di integrazione self-hosted
-- Runtime di integrazione SSIS di Azure
+- Runtime di integrazione di Azure-SQL Server Integration Services (SSIS)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -37,21 +38,24 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 Il cmdlet restituisce informazioni diverse per diversi tipi di runtime di integrazione. In questo articolo vengono illustrate le proprietà e gli stati per ogni tipo di runtime di integrazione.  
 
 ## <a name="azure-integration-runtime"></a>Runtime di integrazione di Azure
+
 La risorsa di calcolo per un runtime di integrazione di Azure è completamente gestita in modo elastico in Azure. La tabella seguente fornisce le descrizioni per le proprietà restituite dal comando **Get-AzDataFactoryV2IntegrationRuntime** :
 
 ### <a name="properties"></a>Proprietà
+
 Nella tabella seguente vengono fornite descrizioni per le proprietà restituite dal cmdlet per un runtime di integrazione Azure:
 
 | Proprietà | Descrizione |
 -------- | ------------- | 
 | Nome | Nome del runtime di integrazione di Azure. |  
-| State | Stato del runtime di integrazione di Azure. | 
+| Stato | Stato del runtime di integrazione di Azure. | 
 | Location | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
 | Descrizione | Descrizione del runtime di integrazione di Azure.  |
 
 ### <a name="status"></a>Stato
+
 La tabella seguente indica i possibili stati di un runtime di integrazione di Azure:
 
 | Stato | Commenti/Scenari | 
@@ -60,6 +64,7 @@ La tabella seguente indica i possibili stati di un runtime di integrazione di Az
 | Offline | Il runtime di integrazione di Azure è offline a causa di un errore interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime di integrazione self-hosted
+
 In questa sezione vengono fornite le descrizioni per le proprietà restituite dal cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
@@ -91,6 +96,7 @@ Per aumentare questo limite è necessario incrementare il numero di nodi. In que
 È possibile sostituire il valore predefinito calcolato nel portale di Azure. Selezionare Autore > Connessioni > Runtime di integrazione > Modifica > Nodi > modificare il limite di processi simultanei per ogni nodo. È anche possibile usare il comando PowerShell [Update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) .
   
 ### <a name="status-per-node"></a>Stato (per ogni nodo)
+
 La tabella seguente indica i possibili stati di un nodo di runtime di integrazione self-hosted:
 
 | Stato | Descrizione |
@@ -104,6 +110,7 @@ La tabella seguente indica i possibili stati di un nodo di runtime di integrazio
 Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
 
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Stato (runtime di integrazione self-hosted generale)
+
 La tabella seguente indica i possibili stati di un runtime di integrazione self-hosted. Questo stato varia a seconda degli stati di tutti i nodi che appartengono al runtime. 
 
 | Stato | Descrizione |
@@ -152,71 +159,104 @@ Esempio di output (presuppone che siano presenti due nodi associati a questo run
 } 
 ```
 
-
 ## <a name="azure-ssis-integration-runtime"></a>Runtime di integrazione SSIS di Azure
-Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di macchine virtuali (o nodi) di Azure dedicato all'esecuzione di pacchetti SSIS. Tutte le altre attività di Azure Data Factory non vengono eseguite. Al termine del provisioning, è possibile eseguire una query delle proprietà e monitorare i relativi stati specifici del nodo/generali.
 
-### <a name="properties"></a>Proprietà
+Azure-SSIS IR è un cluster completamente gestito di macchine virtuali (o nodi) di Azure dedicato all'esecuzione dei pacchetti SSIS. È possibile richiamare le esecuzioni di pacchetti SSIS in Azure-SSIS IR usando diversi metodi, ad esempio tramite SQL Server Data Tools abilitati per Azure (SSDT), l'utilità della riga di comando AzureDTExec, T-SQL su SQL Server Management Studio (SSMS)/SQL Server Agent ed eseguire le attività del pacchetto SSIS nelle pipeline di ADF. Azure-SSIS IR non esegue altre attività di ADF. Una volta effettuato il provisioning, è possibile monitorarne le proprietà complessive/specifiche del nodo tramite Azure PowerShell, portale di Azure e monitoraggio di Azure.
 
-| Proprietà/stato | Descrizione |
-| --------------- | ----------- |
-| CreateTime | L'ora UTC in cui è stato creato il runtime di integrazione di Azure-SSIS. |
-| Nodi | I nodi disponibili/allocati del runtime di integrazione SSIS di Azure con errori eseguibili e stati specifici del nodo (avvio/disponibile/riciclo/non disponibile). |
-| OtherErrors | Gli errori eseguibili non specifici del nodo del runtime di integrazione SSIS di Azure. |
-| LastOperation | Risultato dell'ultima operazione di avvio/arresto del runtime di integrazione SSIS di Azure con errori eseguibili se non è riuscita. |
-| State | Lo stato generale (iniziale/fase di avvio/avvio/arresto/arrestato) del runtime di integrazione SSIS di Azure. |
-| Location | Il percorso del runtime di integrazione SSIS di Azure. |
-| NodeSize | Le dimensioni di ogni nodo del runtime di integrazione SSIS di Azure. |
-| NodeCount | Il numero di nodi nel runtime di integrazione SSIS di Azure. |
-| MaxParallelExecutionsPerNode | Il numero di esecuzioni parallele per ogni nodo nel runtime di integrazione SSIS di Azure. |
-| CatalogServerEndpoint | Endpoint del database SQL o del Istanza gestita SQL esistente per l'hosting di SSISDB. |
-| CatalogAdminUserName | Nome utente amministratore del database SQL/Istanza gestita SQL esistente. Il servizio Data Factory utilizza queste informazioni per preparare e gestire il database SSIS per conto dell'utente. |
-| CatalogAdminPassword | Password amministratore del database SQL/Istanza gestita SQL esistente. |
-| CatalogPricingTier | Piano tariffario per SSISDB ospitato dal database SQL.  Non applicabile a SQL Istanza gestita che ospita il database SSISDB. |
-| VNetId | L'ID della risorsa di rete virtuale per aggiungere un runtime di integrazione SSIS di Azure. |
-| Subnet | Il nome della subnet per aggiungere un runtime di integrazione SSIS di Azure. |
-| ID | L’ID di risorsa del runtime di integrazione SSIS di Azure. |
-| Type | Il tipo (gestito/self-hosted) di runtime di integrazione SSIS di Azure. |
-| ResourceGroupName | Il nome del gruppo di risorse di Azure, in cui sono stati creati la data factory e il runtime di integrazione SSIS di Azure. |
-| DataFactoryName | Nome della data factory di Azure. |
-| Nome | Il nome del runtime di integrazione SSIS di Azure. |
-| Descrizione | La descrizione del runtime di integrazione SSIS di Azure. |
+### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-powershell"></a>Monitorare il runtime di integrazione Azure-SSIS con Azure PowerShell
 
-  
-### <a name="status-per-node"></a>Stato (per ogni nodo)
-
-| Stato | Descrizione |
-| ------ | ----------- | 
-| Avvio in corso | Questo nodo è in corso di preparazione. |
-| Disponibile | Questo nodo è pronto per la distribuzione/esecuzione di pacchetti SSIS. |
-| Riciclo | Questo nodo è in corso di riparazione/riavvio. |
-| Non disponibile | Questo nodo non è pronto per la distribuzione/esecuzione di pacchetti SSIS da parte dell’utente e presenta errori eseguibili o problemi che è stato possibile risolvere. |
-
-### <a name="status-overall-azure-ssis-integration-runtime"></a>Stato (generale del runtime di integrazione SSIS di Azure)
-
-| Stato generale | Descrizione | 
-| -------------- | ----------- | 
-| Initial | I nodi del runtime di integrazione SSIS di Azure non sono stati allocati/preparati. | 
-| Avvio in corso | L’allocazione/preparazione dei nodi del runtime di integrazione SSIS di Azure è in corso e la fatturazione è stata avviata. |
-| Avviato | I nodi del runtime di integrazione SSIS di Azure sono stati allocati/preparati e sono pronti per poter distribuire o eseguire pacchetti SSIS. |
-| Stopping  | I nodi del runtime di integrazione SSIS di Azure vengono rilasciati. |
-| Arrestato | L’allocazione/preparazione dei nodi del runtime di integrazione SSIS di Azure è stata eseguita e la fatturazione è stata avviata. |
-
-### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorare il runtime di integrazione SSIS di Azure nel portale di Azure
-
-Le schermate seguenti illustrano come selezionare il runtime di integrazione SSIS di Azure per monitorare e fornire un esempio delle informazioni visualizzate.
-
-![Selezionare il runtime di integrazione SSIS di Azure da monitorare](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
-
-![Vedere le informazioni sul runtime di integrazione SSIS di Azure](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
-
-### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Monitorare il runtime di integrazione SSIS di Azure con PowerShell
-
-Usare uno script simile a quello dell'esempio seguente per verificare lo stato del runtime di integrazione SSIS di Azure.
+Usare il cmdlet di Azure PowerShell seguente per monitorare le proprietà complessive/specifiche del nodo e gli Stati di Azure-SSIS IR.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
+
+#### <a name="properties"></a>Proprietà
+
+Nella tabella seguente vengono fornite le descrizioni delle proprietà restituite dal cmdlet precedente per un Azure-SSIS IR.
+
+| Proprietà/stato              | Descrizione                  |
+| ---------------------------- | ---------------------------- |
+| CreateTime                   | Ora UTC in cui è stata creata la Azure-SSIS IR. |
+| Nodi                        | I nodi allocati/disponibili della Azure-SSIS IR con stati specifici del nodo (avvio/disponibile/riciclo/non disponibile) ed errori eseguibili. |
+| OtherErrors                  | Errori interoperabili non specifici del nodo nel Azure-SSIS IR. |
+| LastOperation                | Il risultato dell'ultima operazione di avvio/arresto sul Azure-SSIS IR con errori di utilità pratica se non è riuscito. |
+| Stato                        | Stato complessivo (iniziale/iniziale/avviata/arrestata/arrestata) del Azure-SSIS IR. |
+| Location                     | Percorso della Azure-SSIS IR. |
+| NodeSize                     | Dimensioni di ogni nodo nella Azure-SSIS IR. |
+| NodeCount                    | Il numero di nodi nell'Azure-SSIS IR. |
+| MaxParallelExecutionsPerNode | Numero massimo di esecuzioni parallele per nodo nel Azure-SSIS IR. |
+| CatalogServerEndpoint        | Endpoint del server di database SQL di Azure o istanza gestita esistente per l'hosting del catalogo SSIS (SSISDB). |
+| CatalogAdminUserName         | Nome utente amministratore per il server di database SQL di Azure o istanza gestita esistente. ADF utilizza queste informazioni per preparare e gestire SSISDB per conto dell'utente. |
+| CatalogAdminPassword         | Password amministratore per il server di database SQL di Azure o istanza gestita esistente. |
+| CatalogPricingTier           | Piano tariffario per SSISDB ospitato dal server del database SQL di Azure.  Non applicabile all’istanza gestita SQL di Azure che ospita il database SSIS. |
+| VNetId                       | ID della risorsa di rete virtuale per la Azure-SSIS IR da unire. |
+| Subnet                       | Nome della subnet per il Azure-SSIS IR da unire. |
+| ID                           | ID risorsa della Azure-SSIS IR. |
+| Type                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
+| ResourceGroupName            | Nome del gruppo di risorse di Azure in cui sono stati creati i file ADF e Azure-SSIS IR. |
+| DataFactoryName              | Nome del file ADF. |
+| Nome                         | Nome del Azure-SSIS IR. |
+| Descrizione                  | Descrizione della Azure-SSIS IR. |
+  
+#### <a name="status-per-azure-ssis-ir-node"></a>Stato (per nodo Azure-SSIS IR)
+
+Nella tabella seguente vengono indicati gli stati possibili di un nodo Azure-SSIS IR:
+
+| Stato specifico del nodo | Descrizione |
+| -------------------- | ----------- | 
+| Avvio in corso             | Questo nodo è in corso di preparazione. |
+| Disponibile            | Questo nodo è pronto per la distribuzione/esecuzione di pacchetti SSIS. |
+| Riciclo            | Questo nodo è in corso di riparazione/riavvio. |
+| Non disponibile          | Questo nodo non è pronto per la distribuzione/esecuzione di pacchetti SSIS e presenta errori o problemi di utilità pratica che è possibile risolvere. |
+
+#### <a name="status-overall-azure-ssis-ir"></a>Stato (generale Azure-SSIS IR)
+
+Nella tabella seguente sono riportati i possibili stati complessivi di un Azure-SSIS IR. Lo stato complessivo a sua volta dipende dagli stati combinati di tutti i nodi appartenenti al Azure-SSIS IR. 
+
+| Stato generale | Descrizione | 
+| -------------- | ----------- | 
+| Initial        | I nodi del Azure-SSIS IR non sono stati allocati/preparati. | 
+| Avvio in corso       | È in corso l'allocazione/preparazione dei nodi del Azure-SSIS IR e la fatturazione è stata avviata. |
+| Avviato        | I nodi del Azure-SSIS IR sono stati allocati/preparati e sono pronti per la distribuzione/esecuzione di pacchetti SSIS. |
+| Stopping       | Verranno rilasciati i nodi del Azure-SSIS IR. |
+| Arrestato        | I nodi del Azure-SSIS IR sono stati rilasciati e la fatturazione è stata interrotta. |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-azure-portal"></a>Monitorare il runtime di integrazione SSIS di Azure in portale di Azure
+
+Per monitorare le Azure-SSIS IR in portale di Azure, passare alla pagina **runtime di integrazione** di hub **monitoraggio** nell'interfaccia utente di ADF, in cui è possibile visualizzare tutti i runtime di integrazione.
+
+![Monitora tutti i runtime di integrazione](media/monitor-integration-runtime/monitor-integration-runtimes.png)
+
+Selezionare quindi il nome della Azure-SSIS IR per aprire la relativa pagina di monitoraggio, in cui è possibile visualizzare le proprietà complessive e specifiche del nodo e gli Stati.
+
+![Monitorare la Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
+
+Nel riquadro **stato** della pagina Monitoraggio Azure-SSIS IR è possibile visualizzare lo stato generale, ad esempio **in esecuzione** o **arrestato**. Se si seleziona lo stato **in esecuzione** , viene visualizzata una finestra con pulsante **Arresta** live per arrestare la Azure-SSIS IR. Se si seleziona lo stato **arrestato** , viene visualizzata una finestra con il pulsante Live **Start** per avviare il Azure-SSIS IR. Nella finestra popup è inoltre presente un pulsante **Esegui pacchetto SSIS** per generare automaticamente una pipeline ADF con l'attività Esegui pacchetto SSIS eseguita nel Azure-SSIS IR (vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS in pipeline ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) e una casella di testo **ID risorsa** , da cui è possibile copiare l'ID di risorsa Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ) che può essere usato per acquistare componenti SSIS Premium/con licenza aggiuntivi da fornitori di software indipendenti (ISV) e associarli ai Azure-SSIS IR (vedere installazione di [componenti Premium/con licenza nel Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
+
+![Monitorare il riquadro Stato Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+
+Se si usa il modello di distribuzione del progetto in cui i pacchetti vengono archiviati in SSISDB ospitato dal server di database SQL di Azure o dall'istanza gestita, verrà visualizzato il riquadro **endpoint server SSISDB** nella pagina Monitoraggio Azure-SSIS IR (vedere [configurazione delle impostazioni di distribuzione Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). In questo riquadro è possibile selezionare un collegamento che designa il server di database SQL di Azure o l'istanza gestita per visualizzare una finestra, in cui è possibile copiare l'endpoint server da una casella di testo e usarlo quando ci si connette da SSMS per distribuire, configurare, eseguire e gestire i pacchetti. Nella finestra popup è possibile anche selezionare il collegamento **vedere le impostazioni del database SQL di Azure o dell'istanza gestita** per riconfigurare/ridimensionare il database SSISDB in portale di Azure.
+
+![Monitorare il riquadro Azure-SSIS IR-SSISDB](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
+
+Se si aggiunge il Azure-SSIS IR a una VNet, verrà visualizzato il riquadro **convalida VNet/subnet** nella pagina di monitoraggio Azure-SSIS IR (vedere [aggiunta della Azure-SSIS IR a un VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)). In questo riquadro è possibile selezionare un collegamento che designa la VNet e la subnet per visualizzare una finestra, in cui è possibile copiare l'ID di risorsa VNet ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` ) e il nome della subnet dalle caselle di testo, nonché convalidare le configurazioni di VNet e subnet per assicurarsi che i traffico di rete in ingresso/in uscita e la gestione del Azure-SSIS IR non siano ostruiti.
+
+![Monitorare il riquadro Azure-SSIS IR-VALIDATE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+
+Nel riquadro **diagnostica connettività** della pagina Monitoraggio Azure-SSIS IR è possibile selezionare il collegamento **Test connessione** per visualizzare una finestra, in cui è possibile controllare le connessioni tra l'Azure-SSIS IR e gli archivi di pacchetti/configurazione/dati rilevanti, nonché i servizi di gestione, tramite il nome di dominio completo (FQDN)/IP e la porta designata (vedere [test delle connessioni dal Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
+
+![Monitorare il riquadro Azure-SSIS IR-diagnosi](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+
+Se si usa il modello di distribuzione del pacchetto in cui i pacchetti vengono archiviati nel database file system/File di Azure/SQL Server (MSDB) ospitato dal Istanza gestita SQL di Azure e gestiti tramite gli archivi di pacchetti Azure-SSIS IR, il riquadro **archivi pacchetti** verrà visualizzato nella pagina di monitoraggio Azure-SSIS IR (vedere [configurazione delle impostazioni di distribuzione di Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). In questo riquadro è possibile selezionare un collegamento che designa il numero di archivi pacchetti collegati alla Azure-SSIS IR per visualizzare una finestra, in cui è possibile riconfigurare i servizi collegati pertinenti per gli archivi di pacchetti di Azure-SSIS IR in file system/File di Azure/MSDB ospitati dal Istanza gestita SQL di Azure.
+
+![Monitorare il riquadro del pacchetto di Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
+
+Se si verificano problemi durante l'avvio, l'arresto, la manutenzione o l'aggiornamento del Azure-SSIS IR, verrà visualizzato un ulteriore riquadro **errori** nella pagina di monitoraggio Azure-SSIS IR. In questo riquadro è possibile selezionare un collegamento che designa il numero di errori generati dal Azure-SSIS IR per visualizzare una finestra, in cui è possibile visualizzare tali errori in altri dettagli e copiarli per trovare le soluzioni consigliate nella Guida alla risoluzione dei problemi (vedere la pagina relativa alla [risoluzione dei problemi di Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)).
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitorare il runtime di integrazione Azure-SSIS con monitoraggio di Azure
+
+Per monitorare la Azure-SSIS IR con monitoraggio di Azure, vedere [monitoraggio delle operazioni SSIS con monitoraggio di Azure](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor).
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Altre informazioni sul runtime di integrazione di Azure-SSIS
 

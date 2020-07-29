@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005277"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281855"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Creare un account del servizio gestito del gruppo (gMSA) in Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ A questo punto, creare un gMSA con il cmdlet [New-ADServiceAccount][New-ADServic
 * **-Name** è impostato su *WebFarmSvc*
 * **-Path** parametro specifica l'unità organizzativa personalizzata per il gMSA creato nel passaggio precedente.
 * Le voci DNS e i nomi dell'entità servizio sono impostati per *WebFarmSvc.aaddscontoso.com*
-* Le entità in *AADDSCONTOSO-server $* possono recuperare la password usando l'identità.
+* Le entità in *AADDSCONTOSO-server $* sono autorizzate a recuperare la password e a usare l'identità.
 
 Specificare i nomi e i nomi di dominio.
 
