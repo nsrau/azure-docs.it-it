@@ -8,18 +8,18 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: e74e3475256858955a5ab0dc99e7b858548e2485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099395"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285578"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide-and-how-to"></a>Guida alla risoluzione dei problemi del connettore Internet (anteprima) e procedure
+# <a name="iot-connector-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Internet (anteprima)
 
-In questo articolo si apprenderà come risolvere i problemi relativi alle condizioni e ai messaggi di errore comuni del connettore.
+Questo articolo illustra i passaggi per la risoluzione dei problemi relativi ai messaggi di errore e alle condizioni del connettore Common Internet (anteprima).  
 
-Si apprenderà anche come creare copie del mapping JSON del connettore Internet (anteprima).
+Si apprenderà anche come creare copie dei file di mapping JSON (anteprima) per la modifica e l'archiviazione all'esterno del portale di Azure.
 
 ## <a name="error-messages-and-fixes"></a>Messaggi di errore e correzioni
 

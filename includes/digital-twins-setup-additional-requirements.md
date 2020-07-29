@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: b490b4304dd74d8266b24d0ea5af58726b14d747
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 57be62d0f74f19e35eedf8720e2a6f5cbd3b45d4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335759"
 ---
 È possibile che l'organizzazione richieda azioni aggiuntive dai proprietari delle sottoscrizioni per impostare correttamente la registrazione di un'app (e, di conseguenza, per completare la configurazione di un'istanza di Azure Digital Twins utilizzabile). I passaggi necessari possono variare a seconda delle impostazioni specifiche dell'organizzazione.
 
@@ -21,7 +21,6 @@ Di seguito sono riportate alcune possibili attività comuni che un proprietario 
   - Se il consenso è stato concesso correttamente, la voce per i dispositivi gemelli digitali di Azure dovrebbe mostrare un valore di *stato* _concesso per **(la società)** _
    
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/granted-admin-consent.png" alt-text="Visualizzazione del portale del consenso dell'amministratore concesso per la società in autorizzazioni API":::
-  - Il proprietario potrebbe preferire di ripetere questo processo per ogni registrazione di app creata o di eseguire una sola volta e di stabilire una singola registrazione di app condivise per tutte le istanze di Azure Digital Twins nella sottoscrizione da usare. Nel secondo scenario, il proprietario deve condividere l'ID *client* e l' *ID tenant* per la registrazione dell'app con gli sviluppatori che dovranno usare la registrazione dell'app. (Questo è il modo in cui viene eseguito nel tenant Microsoft).
 * Attivare l'accesso client pubblico
 * Impostare URL di risposta specifici per l'accesso Web e desktop
 * Consenti i flussi di autenticazione OAuth2 impliciti

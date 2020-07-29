@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322959"
+ms.locfileid: "87335563"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -30,9 +30,9 @@ Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unit
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
-### <a name="iot-plug-and-play"></a>Plug and Play IoT
+## <a name="iot-plug-and-play"></a>Plug and Play IoT
 
-Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
+I dispositivi Plug and Play per tutti i dispositivi inviano almeno un messaggio di telemetria per ogni interfaccia, inclusa la radice, che può aumentare il numero di messaggi conteggiati per la quota del messaggio.
 
 ## <a name="operation-throttles"></a>Limitazioni per le operazioni
 

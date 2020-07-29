@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326053"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -203,7 +203,7 @@ Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Usare le raccomandazioni relative alle aree di interesse del controllo integrità
 
-Prima di poter usare una soluzione di controllo integrità in Log Analytics, è necessario averla installata. Per altre informazioni sull'installazione delle soluzioni, vedere [Installare una soluzione di gestione](../../azure-monitor/insights/solutions.md). Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Controllo integrità System Center Operations Manager nella pagina **Panoramica** dell'area di lavoro del portale di Azure.
+Prima di poter usare una soluzione di controllo integrità in Log Analytics, è necessario averla installata. Per altre informazioni sull'installazione delle soluzioni, vedere [Installare una soluzione di gestione](./solutions.md). Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Controllo integrità System Center Operations Manager nella pagina **Panoramica** dell'area di lavoro del portale di Azure.
 
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
@@ -229,7 +229,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità System Center Operations Manager.
+- Vedere [Ricerche nei log](../log-query/log-query-overview.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità System Center Operations Manager.
+

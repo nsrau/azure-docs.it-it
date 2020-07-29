@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 96dd1cf6a5d6cea69899bf920c86018384ebbc3c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126458"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285697"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Come proteggere un'applicazione a pagina singola con accesso non interattivo
 
@@ -108,7 +109,7 @@ Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identi
     > [!div class="mx-imgBorder"]
     > ![Concedere il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Nella scheda **assegnazioni di ruolo** , in **ruolo**, selezionare una definizione di ruolo predefinita di Azure Maps, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **app per le funzioni**. Selezionare l'entità in base al nome. Selezionare quindi **Salva**.
+2. Nella scheda **assegnazioni di ruolo** , in **ruolo**, selezionare una definizione di ruolo predefinita di Azure Maps, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **app per le funzioni**. Selezionare l'entità in base al nome. Selezionare **Salva**.
 
    * Vedere informazioni dettagliate su come [aggiungere o rimuovere assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 

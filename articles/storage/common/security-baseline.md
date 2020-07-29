@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751640"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371686"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -240,7 +240,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 - [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -428,7 +428,7 @@ Un modo efficace per ridurre il rischio di accesso all'account utente non sospet
 
 Creare le impostazioni di diagnostica per Azure Active Directory account utente, inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro di Log Analytics. Per monitorare gli errori di autenticazione negli account di archiviazione di Azure, è possibile creare avvisi per ricevere una notifica quando sono state raggiunte determinate soglie per le metriche delle risorse di archiviazione. Usare inoltre monitoraggio di Azure per avvertire l'accesso anonimo per gli account di archiviazione usando la condizione di autenticazione anonima.
 
-- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -512,7 +512,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
-**Linee guida**: è possibile imporre l'uso di HTTPS abilitando il trasferimento sicuro necessario per l'account di archiviazione. Una volta abilitata l'opzione, le connessioni che usano il protocollo HTTP verranno rifiutate. Usare inoltre il Centro sicurezza di Azure e i criteri di Azure per applicare il trasferimento sicuro per l'account di archiviazione.
+**Linee guida**: è possibile imporre l'uso di HTTPS abilitando il trasferimento sicuro necessario per l'account di archiviazione. Se l'opzione è abilitata, le connessioni che usano il protocollo HTTP verranno rifiutate. Usare inoltre il Centro sicurezza di Azure e i criteri di Azure per applicare il trasferimento sicuro per l'account di archiviazione.
 
 - [Come richiedere il trasferimento sicuro in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
 
@@ -534,7 +534,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati di BLOB o di Accodamento. 
+**Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB o di Accodamento. 
 
 - [Come assegnare i ruoli RBAC per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -574,7 +574,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 - [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 

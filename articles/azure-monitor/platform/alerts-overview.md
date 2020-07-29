@@ -4,12 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327124"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371601"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -178,7 +178,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo degli accessi in base al ruolo (RBAC) per le istanze di avviso
 
-Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina virtuale `ContosoVM1` , tale utente potrà utilizzare e gestire solo gli avvisi generati in `ContosoVM1` .
+Per il consumo e la gestione delle istanze di avviso è necessario che l'utente disponga dei ruoli predefiniti di Azure di [monitoraggio collaboratore](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o del [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina virtuale `ContosoVM1` , tale utente potrà utilizzare e gestire solo gli avvisi generati in `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 
@@ -212,4 +212,3 @@ Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per 
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
 - [Gestione di gruppi intelligenti](https://aka.ms/managing-smart-groups)
 - [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)
-

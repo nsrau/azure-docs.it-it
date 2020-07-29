@@ -4,15 +4,15 @@ description: Questo articolo illustra i messaggi di errore comuni per le immagin
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: v-miegge
-ms.author: v-krmall
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120654"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319899"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemi e soluzioni durante la certificazione della macchina virtuale 
 
@@ -154,7 +154,7 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|OS|Dimensioni del disco rigido virtuale consigliate|
+|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
 |Linux|da 30 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
@@ -180,13 +180,13 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
 
-|OS|Versione|
+|Sistema operativo|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|R2 per Windows Server 2012|6.3.9600.18604|
+|Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|ND|
+|Windows Server 2019|N/D|
 
 ## <a name="sack-vulnerability-patch-verification"></a>Verifica della patch della vulnerabilità di SACK
 

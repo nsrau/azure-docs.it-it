@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/08/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 0f3682338c9373f3ba30c8b32ea5cf4132c18949
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: be4211d793c593dac50d5764d7a15e7daa21c3f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048279"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320154"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,7 +98,7 @@ Azure Machine Learning cluster di calcolo è un'infrastruttura di calcolo gestit
 
 È possibile usare un ambiente di calcolo di Azure Machine Learning per distribuire il processo di training in un cluster di nodi di calcolo CPU o GPU nel cloud. Per altre informazioni sulle dimensioni delle macchine virtuali che includono GPU, consultare il documento [Dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limiti predefiniti, ad esempio il numero di core che possono essere allocati. Per altre informazioni, consultare il documento [Gestire e richiedere quote per risorse di Azure](/how-to-manage-quotas.md).
+Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limiti predefiniti, ad esempio il numero di core che possono essere allocati. Per altre informazioni, consultare il documento [Gestire e richiedere quote per risorse di Azure](how-to-manage-quotas.md).
 
 
 > [!TIP]

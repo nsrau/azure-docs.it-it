@@ -16,13 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764843"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282926"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione
 
 Il proxy di applicazione di Azure AD rende disponibili le app locali per gli utenti remoti o che usano i propri dispositivi. Alcune app, tuttavia, sono state sviluppate con collegamenti locali incorporati nel codice HTML. Questi collegamenti non funzionano correttamente quando l'app viene usato in remoto. Quando si dispone di diverse applicazioni locali che si puntano a vicenda, gli utenti si aspettano che i collegamenti continuino a lavorare quando non si trovano in ufficio. 
 
@@ -34,11 +35,11 @@ Se non è possibile usare domini personalizzati nel tenant, esistono molte altre
 > [!NOTE]
 > La conversione dei collegamenti non è supportata per gli URL interni hardcoded generati tramite JavaScript.
 
-**Opzione 1: usare il Managed browser o Microsoft Edge:** questa soluzione è applicabile solo se si prevede di consigliare o richiedere agli utenti di accedere all'applicazione tramite il browser Intune Managed browser o Microsoft Edge. Gestisce tutti gli URL pubblicati. 
+**Opzione 1: usare Microsoft Edge:** questa soluzione è applicabile solo se si prevede di consigliare o richiedere agli utenti di accedere all'applicazione tramite il browser Microsoft Edge. Gestisce tutti gli URL pubblicati. 
 
 **Opzione 2: Usare l'estensione MyApps** - Questa soluzione richiede agli utenti di installare un'estensione del browser lato client, ma gestisce tutti gli URL pubblicati e funziona con i browser più diffusi. 
 
-**Opzione 3: Usare l'impostazione di conversione dei collegamenti** - Questa è un'impostazione sul lato amministratore invisibile agli utenti. Tuttavia gestisce solo gli URL in HTML e CSS.   
+**Opzione 3: Usare l'impostazione di conversione dei collegamenti** - Questa è un'impostazione sul lato amministratore invisibile agli utenti. Tuttavia, gestirà gli URL solo in HTML e CSS.   
 
 Queste tre caratteristiche mantengono i collegamenti funzionanti indipendentemente dalla posizione degli utenti. Quando si hanno applicazioni che puntano direttamente a endpoint o porte interne, è possibile mappare questi URL interni agli URL del proxy di applicazione esterno pubblicato. 
 
@@ -49,11 +50,11 @@ Queste tre caratteristiche mantengono i collegamenti funzionanti indipendentemen
 > Oppure, se l'applicazione che deve essere configurata con la traslazione del collegamento è SharePoint, vedere [Configurare i mapping di accesso alternativo per SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) per un altro approccio ai collegamenti di mapping. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opzione 1: integrazione di Intune Managed Browser e Microsoft Edge 
+### <a name="option-1-microsoft-edge-integration"></a>Opzione 1: integrazione di Microsoft Edge 
 
-È possibile usare il Intune Managed Browser o Microsoft Edge per proteggere ulteriormente l'applicazione e il contenuto. Per usare questa soluzione, è necessario richiedere/consigliare agli utenti di accedere all'applicazione mediante Intune Managed Browser. Tutti gli URL interni pubblicati con Application Proxy verranno riconosciuti da Managed Browser e reindirizzati all'URL esterno corrispondente. Ciò garantisce il funzionamento di tutti gli URL interni a livello di codice e, se un utente va al browser e digita direttamente l'URL interno, funziona anche se l'utente è in remoto.  
+È possibile usare Microsoft Edge per proteggere ulteriormente l'applicazione e il contenuto. Per usare questa soluzione, è necessario richiedere o consigliare agli utenti di accedere all'applicazione tramite Microsoft Edge. Tutti gli URL interni pubblicati con il proxy di applicazione verranno riconosciuti da Edge e reindirizzati all'URL esterno corrispondente. Ciò garantisce il funzionamento di tutti gli URL interni a livello di codice e, se un utente va al browser e digita direttamente l'URL interno, funziona anche se l'utente è in remoto.  
 
-Per altre informazioni, ad esempio come configurare questa opzione, vedere la documentazione di [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
+Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione relativa alla [gestione dell'accesso Web tramite Edge per iOS e Android con Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) .  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opzione 2: Estensione MyApps del browser 
 
@@ -72,9 +73,9 @@ Quando la conversione dei collegamenti è abilitata, il servizio Application Pro
 
 ## <a name="how-link-translation-works"></a>Come funziona la conversione dei collegamenti
 
-Dopo l'autenticazione, quando il server proxy passa i dati dell'applicazione all'utente, il proxy di applicazione esegue l'analisi dell'applicazione alla ricerca dei collegamenti hardcoded e li sostituisce con i rispettivi URL esterni pubblicati.
+Dopo l'autenticazione, quando il server proxy passa i dati dell'applicazione all'utente, il proxy di applicazione esegue l'analisi dell'applicazione per i collegamenti hardcoded e li sostituisce con i rispettivi URL esterni pubblicati.
 
-Il Proxy dell'applicazione presuppone che le applicazioni vengano codificate in UTF-8. Se non è questo il caso, specificare il tipo di codifica in un'intestazione di risposta http, ad esempio `Content-Type:text/html;charset=utf-8`.
+Il Proxy dell'applicazione presuppone che le applicazioni vengano codificate in UTF-8. In caso contrario, specificare il tipo di codifica in un'intestazione di risposta HTTP, ad esempio `Content-Type:text/html;charset=utf-8` .
 
 ### <a name="which-links-are-affected"></a>Quali collegamenti sono interessati?
 
@@ -83,13 +84,13 @@ La funzionalità di conversione dei collegamenti cerca solo i collegamenti che s
 Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 
 - I **collegamenti interni relativi** che puntano a una risorsa condivisa in una struttura di file locale come `/claims/claims.html`. Questi collegamenti sono attivati automaticamente nelle app che vengono pubblicate tramite il proxy di applicazione e continuano a funzionare con o senza la conversione dei collegamenti. 
-- I **collegamenti interni hardcoded** ad altre applicazioni locali come `http://expenses` o i file pubblicati come `http://expenses/logo.jpg`. La funzionalità di conversione dei collegamenti opera sui collegamenti interni hardcoded e li converte, in modo che puntino agli URL esterni che gli utenti remoti devono usare.
+- **Collegamenti interni** hardcoded ad altre app locali come `http://expenses` o file pubblicati come `http://expenses/logo.jpg` . La funzionalità di conversione dei collegamenti funziona sui collegamenti interni hardcoded e li modifica in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
 L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta la conversione dei collegamenti per includono:
 * a
 * Audio
 * base
-* Pulsante
+* .
 * div
 * embed
 * Modulo
@@ -144,7 +145,7 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.
 
-## <a name="send-feedback"></a>Invia commenti
+## <a name="send-feedback"></a>Inviare un feedback
 
 Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità operante per tutte le app. La ricerca viene eseguita in oltre 30 tag del codice HTML e CSS. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
 

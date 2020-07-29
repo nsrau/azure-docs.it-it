@@ -7,15 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284116"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service usando app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](https://docs.microsoft.com/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel database [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) . Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database Common Data Service e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database di Common Data Service, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel database [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) . Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database Common Data Service e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database di Common Data Service, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
 
 Questo articolo illustra come creare un'app per la logica che crea un record di attività ogni volta che viene creato un nuovo record lead.
 
@@ -23,10 +24,10 @@ Questo articolo illustra come creare un'app per la logica che crea un record di 
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* [Ambiente Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), ovvero uno spazio in cui l'organizzazione archivia, gestisce e condivide i dati aziendali e un database Common Data Service. Per ulteriori informazioni, vedere le risorse:<p>
+* [Ambiente Common Data Service](/power-platform/admin/environments-overview), ovvero uno spazio in cui l'organizzazione archivia, gestisce e condivide i dati aziendali e un database Common Data Service. Per ulteriori informazioni, vedere le risorse:<p>
 
-  * [Informazioni: Introduzione a Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Panoramica di Power Platform-environments](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Informazioni: Introduzione a Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview)
 
 * Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e l'app per la logica da cui si vuole accedere ai record nel database di Common Data Service. Per avviare l'app per la logica con un trigger di Common Data Service, è necessaria un'app per la logica vuota. Se non si ha familiarità con app per la logica di Azure, vedere [avvio rapido: creare il primo flusso di lavoro usando app per la logica di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -50,7 +51,7 @@ Per questo esempio, aggiungere il trigger Common Data Service che viene attivato
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview). |
    | **Entity Name** | Sì | Entità da monitorare, ad esempio, "Lead" |
    | **Ambito** | Sì | Origine che ha creato il nuovo record, ad esempio un utente nella propria business unit o qualsiasi utente dell'organizzazione. Questo esempio USA "business unit". |
    ||||
@@ -125,7 +126,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Immettere una query di filtro ODATA per filtrare i record](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Per ulteriori informazioni sulle `$filter` Opzioni di query di sistema, vedere [Common Data Service-filtrare i risultati](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Per ulteriori informazioni sulle `$filter` Opzioni di query di sistema, vedere [Common Data Service-filtrare i risultati](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Elencare i record in base a un ordine
 
@@ -139,7 +140,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Immettere una query di filtro ODATA per l'ordinamento dei record](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Per ulteriori informazioni sulle `$orderby` Opzioni di query di sistema, vedere [risultati dell'ordine Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Per ulteriori informazioni sulle `$orderby` Opzioni di query di sistema, vedere [risultati dell'ordine Common Data Service](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipi di dati dei campi
 
@@ -165,7 +166,7 @@ Questo esempio Mostra come l'azione **Crea un nuovo record** crea un nuovo recor
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche sulla base della descrizione di spavalderia del connettore, ad esempio trigger, azioni, limiti e altri dettagli, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/commondataservice/).
+Per informazioni tecniche sulla base della descrizione di spavalderia del connettore, ad esempio trigger, azioni, limiti e altri dettagli, vedere la [pagina di riferimento del connettore](/connectors/commondataservice/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
