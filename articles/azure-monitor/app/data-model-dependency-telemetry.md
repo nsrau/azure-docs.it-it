@@ -4,15 +4,16 @@ description: Modello di dati di Application Insights per la telemetria delle dip
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315972"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
 
-In [Application Insights](../../azure-monitor/app/app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
+In [Application Insights](./app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
 ## <a name="name"></a>Nome
 
@@ -20,7 +21,7 @@ Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardina
 
 ## <a name="id"></a>ID
 
-Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
+Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](./correlation.md).
 
 ## <a name="data"></a>Data
 
@@ -32,9 +33,9 @@ Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento 
 
 ## <a name="target"></a>Destinazione
 
-Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
+Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](./correlation.md).
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>Durata
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a `1000` giorni.
 
@@ -57,8 +58,9 @@ Indicazione di chiamata con esito positivo o con esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Impostare il rilevamento delle dipendenze per [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Impostare il rilevamento delle dipendenze per [Java](../../azure-monitor/app/java-agent.md).
-- [Scrivere dati di telemetria delle dipendenze personalizzate](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Impostare il rilevamento delle dipendenze per [.NET](./asp-net-dependencies.md).
+- Impostare il rilevamento delle dipendenze per [Java](./java-agent.md).
+- [Scrivere dati di telemetria delle dipendenze personalizzate](./api-custom-events-metrics.md#trackdependency)
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](data-model.md).
-- Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.
+- Verificare quali [piattaforme](./platforms.md) supportano Application Insights.
+

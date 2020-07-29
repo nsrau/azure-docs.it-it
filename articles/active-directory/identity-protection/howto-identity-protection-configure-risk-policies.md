@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464165"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337450"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
 
@@ -54,7 +55,7 @@ Per abilitare il rischio utente e i criteri di rischio di accesso, completare i 
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 1. Passare a **Azure Active Directory**  >  Panoramica di**Security**  >  **Identity Protection**  >  **Overview**.
-1. Selezionare **Configura criteri di rischio utente**.
+1. Selezionare **criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
@@ -63,7 +64,7 @@ Per abilitare il rischio utente e i criteri di rischio di accesso, completare i 
       1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere la modifica della password**.
    1. **Imponi criteri**  -  **Il**
    1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
-1. Selezionare **Configura criteri di rischio di accesso**.
+1. Selezionare i **criteri di rischio di accesso**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.

@@ -1,6 +1,6 @@
 ---
-title: 'Creazione di desktop virtuale Windows: pool host 2019 PowerShell-Azure'
-description: Come creare un pool di host in Desktop virtuale Windows con i cmdlet di PowerShell.
+title: Creare un pool host di desktop virtuale (classico) Windows PowerShell-Azure
+description: Come creare un pool host in un desktop virtuale Windows (classico) con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7bc1e229711ef24b07641c5767f5f60c17a3b97c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527643"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291295"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Creare un pool host in un desktop virtuale Windows (classico) con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../create-host-pools-powershell.md).
+>Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../create-host-pools-powershell.md).
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 

@@ -7,15 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725585"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337603"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
-Questo articolo illustra in dettaglio l'uso di [Azure Digital Twins query Store linguaggio](concepts-query-language.md) per eseguire query sul [grafico gemello](concepts-twins-graph.md) per ottenere informazioni. È possibile eseguire query sul grafo usando le [**API di query**](how-to-use-apis-sdks.md)dei dispositivi digitali gemelli di Azure.
+Questo articolo offre esempi e altre informazioni dettagliate sull'uso del [linguaggio query Store di Azure Digital Twins](concepts-query-language.md) per eseguire query sul [grafo gemello](concepts-twins-graph.md) per informazioni. È possibile eseguire query sul grafo usando le [**API di query**](how-to-use-apis-sdks.md)dei dispositivi digitali gemelli di Azure.
 
 ## <a name="query-syntax"></a>Sintassi delle query
 
@@ -40,6 +41,52 @@ AND T.roomSize > 50
 
 > [!TIP]
 > Viene eseguita una query sull'ID di un dispositivo gemello digitale usando il campo dei metadati `$dtId` .
+
+### <a name="query-based-on-relationships"></a>Query basata su relazioni
+
+Quando si eseguono query basate sulle relazioni dei gemelli digitali, i dispositivi gemelli digitali di Azure Query Store linguaggio hanno una sintassi speciale.
+
+Le relazioni vengono estratte nell'ambito della query nella `FROM` clausola. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` . 
+
+Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Ciò significa che la lingua Query Store di Azure Digital Twins `JOIN` è leggermente diversa dall'SQL generale `JOIN` , perché le relazioni non possono essere sottoposte a query in modo indipendente e devono essere collegate a un dispositivo gemello.
+Per incorporare questa differenza, la parola chiave `RELATED` viene utilizzata nella `JOIN` clausola per fare riferimento a un set di relazioni del gemello. 
+
+Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
+
+> [!TIP]
+> Dal punto di vista concettuale, questa funzionalità simula la funzionalità incentrata sui documenti di CosmosDB, dove `JOIN` può essere eseguita sugli oggetti figlio all'interno di un documento. CosmosDB utilizza la `IN` parola chiave per indicare che `JOIN` è progettata per scorrere gli elementi della matrice all'interno del documento di contesto corrente.
+
+#### <a name="relationship-based-query-examples"></a>Esempi di query basate su relazioni
+
+Per ottenere un set di dati che includa relazioni, utilizzare una singola `FROM` istruzione seguita da N `JOIN` istruzioni, in cui le `JOIN` istruzioni esprimono le relazioni sul risultato di un' `FROM` istruzione o precedente `JOIN` .
+
+Ecco una query di esempio basata sulle relazioni. Questo frammento di codice seleziona tutti i dispositivi gemelli digitali con una proprietà *ID* ' ABC ' e tutti i dispositivi gemelli digitali correlati a questi gemelli digitali tramite una relazione *Contains* . 
+
+```sql
+SELECT T, CT
+FROM DIGITALTWINS T
+JOIN CT RELATED T.contains
+WHERE T.$dtId = 'ABC' 
+```
+
+>[!NOTE] 
+> Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, in quanto le proprietà della relazione identificano l'entità di destinazione.
+
+#### <a name="query-the-properties-of-a-relationship"></a>Eseguire query sulle proprietà di una relazione
+
+Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. Il linguaggio Query Store di Azure Digital Twins consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola. 
+
+Si consideri ad esempio una relazione di *servicedBy* con una proprietà *reportedCondition* . Nella query seguente, a questa relazione viene assegnato un alias ' R ' per fare riferimento alla relativa proprietà.
+
+```sql
+SELECT T, SBT, R
+FROM DIGITALTWINS T
+JOIN SBT RELATED T.servicedBy R
+WHERE T.$dtId = 'ABC' 
+AND R.reportedCondition = 'clean'
+```
+
+Nell'esempio precedente, si noti come *reportedCondition* è una proprietà della relazione *SERVICEDBY* stessa (non di un dispositivo gemello digitale con una relazione *servicedBy* ).
 
 ## <a name="run-queries-with-an-api-call"></a>Eseguire query con una chiamata API
 
@@ -75,53 +122,7 @@ catch (RequestFailedException e)
 }
 ```
 
-## <a name="query-based-on-relationships"></a>Query basata su relazioni
-
-Quando si eseguono query basate sulle relazioni dei gemelli digitali, i dispositivi gemelli digitali di Azure Query Store linguaggio hanno una sintassi speciale.
-
-Le relazioni vengono estratte nell'ambito della query nella `FROM` clausola. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` . 
-
-Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Ciò significa che la lingua Query Store di Azure Digital Twins `JOIN` è leggermente diversa dall'SQL generale `JOIN` , perché le relazioni non possono essere sottoposte a query in modo indipendente e devono essere collegate a un dispositivo gemello.
-Per incorporare questa differenza, la parola chiave `RELATED` viene utilizzata nella `JOIN` clausola per fare riferimento a un set di relazioni del gemello. 
-
-Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
-
-> [!TIP]
-> Dal punto di vista concettuale, questa funzionalità simula la funzionalità incentrata sui documenti di CosmosDB, dove `JOIN` può essere eseguita sugli oggetti figlio all'interno di un documento. CosmosDB utilizza la `IN` parola chiave per indicare che `JOIN` è progettata per scorrere gli elementi della matrice all'interno del documento di contesto corrente.
-
-### <a name="relationship-based-query-examples"></a>Esempi di query basate su relazioni
-
-Per ottenere un set di dati che includa relazioni, utilizzare una singola `FROM` istruzione seguita da N `JOIN` istruzioni, in cui le `JOIN` istruzioni esprimono le relazioni sul risultato di un' `FROM` istruzione o precedente `JOIN` .
-
-Ecco una query di esempio basata sulle relazioni. Questo frammento di codice seleziona tutti i dispositivi gemelli digitali con una proprietà *ID* ' ABC ' e tutti i dispositivi gemelli digitali correlati a questi gemelli digitali tramite una relazione *Contains* . 
-
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
-```
-
->[!NOTE] 
-> Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, in quanto le proprietà della relazione identificano l'entità di destinazione.
-
-### <a name="query-the-properties-of-a-relationship"></a>Eseguire query sulle proprietà di una relazione
-
-Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. Il linguaggio Query Store di Azure Digital Twins consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola. 
-
-Si consideri ad esempio una relazione di *servicedBy* con una proprietà *reportedCondition* . Nella query seguente, a questa relazione viene assegnato un alias ' R ' per fare riferimento alla relativa proprietà.
-
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
-AND R.reportedCondition = 'clean'
-```
-
-Nell'esempio precedente, si noti come *reportedCondition* è una proprietà della relazione *SERVICEDBY* stessa (non di un dispositivo gemello digitale con una relazione *servicedBy* ).
-
-### <a name="query-limitations"></a>Limitazioni delle query
+## <a name="query-limitations"></a>Limitazioni delle query
 
 Potrebbe verificarsi un ritardo di un massimo di 10 secondi prima che le modifiche nell'istanza vengano riflesse nelle query. Se, ad esempio, si completa un'operazione come la creazione o l'eliminazione di dispositivi gemelli con l'API DigitalTwins, il risultato potrebbe non essere immediatamente riflesso nelle richieste dell'API di query. È sufficiente attendere un breve periodo di tempo per la risoluzione.
 

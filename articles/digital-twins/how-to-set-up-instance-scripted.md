@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c601d01589a89667b630d04ddb19dfbe190cca9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337909"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -49,7 +49,7 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
     * Per l'istanza: *ID sottoscrizione* della sottoscrizione di Azure da usare
     * Per l'istanza: un *percorso* in cui si vuole distribuire l'istanza. Per visualizzare le aree che supportano i dispositivi gemelli digitali di Azure, visitare i [*prodotti Azure disponibili in base all'area*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Per l'istanza: nome del *gruppo di risorse* . È possibile usare un gruppo di risorse esistente o immetterne uno nuovo da creare.
-    * Per l'istanza: un *nome* per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area (vale a dire che se un'altra istanza di Azure Digital gemelli in quell'area USA già il nome scelto, verrà chiesto di selezionare un nome diverso).
+    * Per l'istanza: un *nome* per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
     * Per la registrazione dell'app: un *Azure ad nome visualizzato dell'applicazione* da associare alla registrazione. Questa registrazione dell'app è la posizione in cui vengono configurate le autorizzazioni di accesso alle [API di Azure Digital gemelli](how-to-use-apis-sdks.md) Successivamente, l'app client eseguirà l'autenticazione con la registrazione dell'app e, di conseguenza, le autorizzazioni di accesso configurate alle API.
     * Per la registrazione dell'app: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. È possibile utilizzare `http://localhost` .
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 09d2fb709e21b7c1251c2caf224f4d5c3ce6aea1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026577"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366834"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Baseline della sicurezza di Azure per database di Azure per MariaDB
 
@@ -296,7 +296,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 Informazioni sulla gestione degli accessi per MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Informazioni sui ruoli RBAC predefiniti per le sottoscrizioni di Azure:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Informazioni sui ruoli predefiniti di Azure per le sottoscrizioni di Azure:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì

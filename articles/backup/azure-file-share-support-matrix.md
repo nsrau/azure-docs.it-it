@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289510"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
@@ -20,10 +20,6 @@ Per eseguire il backup di condivisioni file di Azure è possibile usare il [serv
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Aree GA per il backup di condivisioni file di Azure
 
 Il backup delle condivisioni file di Azure è disponibile in tutte le aree **ad eccezione** di: Germania centrale (sovrano), Germania nord-orientale (sovrano), Cina orientale, Cina orientale 2, Cina settentrionale, Cina settentrionale 2, US gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Aree supportate per la protezione accidentale da eliminare
-
-Stati Uniti centro-occidentali, Australia sud-orientale, Canada centrale, Stati Uniti centro-occidentali, India meridionale, Stati Uniti centro-settentrionali, Giappone orientale, Brasile meridionale, Stati Uniti centro-meridionali, Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 

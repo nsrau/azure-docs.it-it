@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285867"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -57,9 +57,9 @@ Gestione traffico esegue ricerche DNS e restituisce l'endpoint più appropriato 
 
 Per informazioni su come configurare gli endpoint e il routing, vedere [configurare il metodo di routing del traffico geografico tramite Gestione traffico](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing delle applicazioni di livello 7 con il servizio front door di Azure
+### <a name="application-routing-with-azure-front-door-service"></a>Routing delle applicazioni con il servizio front door di Azure
 
-Gestione traffico USA il DNS (livello 3) per definire il traffico. Il [servizio front door di Azure](../frontdoor/front-door-overview.md) fornisce un'opzione di routing http/https (livello 7). Funzionalità aggiuntive del servizio front door di Azure includono la terminazione TLS, il dominio personalizzato, web application firewall, la riscrittura URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
+Usando il protocollo anycast Split basato su TCP, il [servizio Azure front door](../frontdoor/front-door-overview.md) garantisce che gli utenti finali si connettano tempestivamente al pop principale più vicino (punto di presenza). Funzionalità aggiuntive del servizio front door di Azure includono la terminazione TLS, il dominio personalizzato, web application firewall, la riscrittura URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Aree di interconnessione con peering di rete virtuale globale
 

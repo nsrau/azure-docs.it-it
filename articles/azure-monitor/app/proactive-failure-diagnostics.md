@@ -4,19 +4,19 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045811"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315938"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
+[Application Insights](./app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
 
-Questa funzionalità funziona per qualsiasi app Web, ospitata nel cloud o nei propri server, che generano dati di richiesta o di dipendenza dell'applicazione. Se, ad esempio, si dispone di un ruolo di lavoro che chiama [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o [TrackDependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Questa funzionalità funziona per qualsiasi app Web, ospitata nel cloud o nei propri server, che generano dati di richiesta o di dipendenza dell'applicazione. Se, ad esempio, si dispone di un ruolo di lavoro che chiama [TrackRequest ()](./api-custom-events-metrics.md#trackrequest) o [TrackDependency ()](./api-custom-events-metrics.md#trackdependency).
 
-Al termine della configurazione di [Application Insights per il progetto](../../azure-monitor/app/app-insights-overview.md), e se l'app genera una quantità minima di dati la funzionalità di rilevamento intelligente delle anomalie degli errori impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivato e inviare avvisi.
+Al termine della configurazione di [Application Insights per il progetto](./app-insights-overview.md), e se l'app genera una quantità minima di dati la funzionalità di rilevamento intelligente delle anomalie degli errori impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivato e inviare avvisi.
 
 Ecco un avviso di esempio:
 
@@ -31,10 +31,10 @@ I dettagli dell'avviso indicano:
 * Collegamenti diretti alle ricerche rilevanti nei dati in Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Vantaggi del rilevamento intelligente
-I normali [avvisi relativi alla metrica](../../azure-monitor/platform/alerts-log.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di rilevamento intelligente avvia automaticamente i processi di diagnostica ed esegue la maggior parte dell'analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
+I normali [avvisi relativi alla metrica](../platform/alerts-log.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di rilevamento intelligente avvia automaticamente i processi di diagnostica ed esegue la maggior parte dell'analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
 
 ## <a name="how-it-works"></a>Funzionamento
-Il rilevamento intelligente monitora i dati ricevuti dall'app e, in particolare, le frequenze degli errori. Questa regola conta il numero di richieste per cui la proprietà `Successful request` è false e il numero di chiamate alle dipendenze per cui la proprietà `Successful call` è false. Per le richieste, per impostazione predefinita, `Successful request == (resultCode < 400)` a meno che sia stato scritto codice personalizzato per [filtrare](../../azure-monitor/app/api-filtering-sampling.md#filtering) o generare particolari chiamate [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). 
+Il rilevamento intelligente monitora i dati ricevuti dall'app e, in particolare, le frequenze degli errori. Questa regola conta il numero di richieste per cui la proprietà `Successful request` è false e il numero di chiamate alle dipendenze per cui la proprietà `Successful call` è false. Per le richieste, per impostazione predefinita, `Successful request == (resultCode < 400)` a meno che sia stato scritto codice personalizzato per [filtrare](./api-filtering-sampling.md#filtering) o generare particolari chiamate [TrackRequest](./api-custom-events-metrics.md#trackrequest). 
 
 Le prestazioni dell'applicazione hanno un modello di comportamento tipico. Alcune richieste o chiamate alle dipendenze saranno più soggette a errori di altre e la frequenza degli errori generale potrebbe aumentare proporzionalmente al carico. Il rilevamento intelligente si avvale del servizio Machine Learning per trovare queste anomalie.
 
@@ -48,7 +48,7 @@ Quando il servizio viene instrumentato con queste chiamate, l'analizzatore cerca
 
 I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la configurazione attiva preveda di non eseguire questa operazione.
 
-Analogamente agli [avvisi impostati manualmente](../../azure-monitor/platform/alerts-log.md), è possibile controllare lo stato dell'avviso attivato, che può essere risolto se il problema è stato risolto. Configurare le regole di avviso nella pagina Avvisi della risorsa di Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
+Analogamente agli [avvisi impostati manualmente](../platform/alerts-log.md), è possibile controllare lo stato dell'avviso attivato, che può essere risolto se il problema è stato risolto. Configurare le regole di avviso nella pagina Avvisi della risorsa di Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
 ### <a name="alert-logic-details"></a>Dettagli della logica degli avvisi
 
@@ -292,7 +292,7 @@ Si ricorda che è possibile disabilitare o eliminare una regola di avviso di ano
 
 Un avviso indica che è stato rilevato un incremento anomalo nella frequenza delle richieste non riuscite. È probabile che si sia verificato un problema con l'app o il relativo ambiente.
 
-Per approfondire l'analisi, fare clic su "Visualizza dettagli completi in Application Insights", i collegamenti in questa pagina consentono di passare direttamente a una [pagina di ricerca](../../azure-monitor/app/diagnostic-search.md) filtrata in base alle richieste, alle eccezioni, alla dipendenza o alle tracce pertinenti. 
+Per approfondire l'analisi, fare clic su "Visualizza dettagli completi in Application Insights", i collegamenti in questa pagina consentono di passare direttamente a una [pagina di ricerca](./diagnostic-search.md) filtrata in base alle richieste, alle eccezioni, alla dipendenza o alle tracce pertinenti. 
 
 È anche possibile aprire il [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights per l'app e aprire la pagina Errori.
 
@@ -317,7 +317,7 @@ Fare clic su **Avvisi** nella pagina delle risorse di Application Insights per o
 ## <a name="whats-the-difference-"></a>Qual è la differenza
 Il rilevamento intelligente delle anomalie degli errori integra altre funzionalità simili ma distinte di Application Insights.
 
-* Gli [avvisi metrica](../../azure-monitor/platform/alerts-log.md) vengono impostati dall'utente e possono monitorare un'ampia gamma di metriche, ad esempio utilizzo della CPU, frequenza delle richieste, tempi di caricamento delle pagine e così via. È possibile usarli per avvisare l'utente, ad esempio, se è necessario aggiungere altre risorse. Al contrario, il rilevamento intelligente delle anomalie degli errori copre una gamma ristretta di metriche critiche (attualmente solo la percentuale di richieste non riuscite), progettate per inviare notifiche quasi in tempo reale dopo l'aumento della percentuale di richieste non riuscite dell'app Web rispetto al comportamento normale della stessa app Web. Diversamente dagli avvisi delle metriche, il rilevamento intelligente imposta e aggiorna automaticamente le soglie nelle modifiche della risposta nel comportamento. Il rilevamento intelligente avvia anche l'attività di diagnostica, risparmiando tempo per la risoluzione dei problemi.
+* gli [avvisi delle metriche](../platform/alerts-log.md) vengono impostati dall'utente e possono monitorare un'ampia gamma di metriche, ad esempio utilizzo della CPU, frequenza delle richieste, tempi di caricamento delle pagine e così via. È possibile usarli per avvisare l'utente, ad esempio, se è necessario aggiungere altre risorse. Al contrario, il rilevamento intelligente delle anomalie degli errori copre una gamma ristretta di metriche critiche (attualmente solo la percentuale di richieste non riuscite), progettate per inviare notifiche quasi in tempo reale dopo l'aumento della percentuale di richieste non riuscite dell'app Web rispetto al comportamento normale della stessa app Web. Diversamente dagli avvisi delle metriche, il rilevamento intelligente imposta e aggiorna automaticamente le soglie nelle modifiche della risposta nel comportamento. Il rilevamento intelligente avvia anche l'attività di diagnostica, risparmiando tempo per la risoluzione dei problemi.
 
 * Il [rilevamento intelligente delle anomalie delle prestazioni](proactive-performance-diagnostics.md) usa l'intelligenza artificiale per individuare modelli insoliti nelle metriche, senza richiedere alcuna configurazione. A differenza del rilevamento intelligente delle anomalie degli errori, tuttavia, lo scopo del rilevamento intelligente delle anomalie delle prestazioni è trovare i segmenti dei molteplici modi di utilizzo che potrebbero essere gestiti in modo non corretto, ad esempio da pagine specifiche in un tipo specifico di browser. L'analisi viene eseguita ogni giorno e se viene trovato un risultato, è probabilmente molto meno urgente di un avviso. Al contrario, l'analisi per le anomalie degli errori viene eseguita continuamente sui dati dell'applicazione in ingresso e l'utente riceverà una notifica entro pochi minuti se la percentuale di errori del server è superiore a quella prevista.
 
@@ -332,7 +332,7 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Si stanno esaminando i dati dell'applicazione?*
 
-* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
+* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](./data-retention-privacy.md).
 
 *Va eseguita una sottoscrizione a questo avviso?*
 
@@ -353,11 +353,12 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 ## <a name="next-steps"></a>Passaggi successivi
 Gli strumenti di diagnostica seguenti consentono di controllare i dati dall'app:
 
-* [Esplora metriche](../../azure-monitor/platform/metrics-charts.md)
-* [Esplora ricerche](../../azure-monitor/app/diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../../azure-monitor/log-query/get-started-portal.md)
+* [Esplora metriche](../platform/metrics-charts.md)
+* [Esplora ricerche](./diagnostic-search.md)
+* [Linguaggio avanzato di query di Analisi](../log-query/get-started-portal.md)
 
 Gli avvisi di rilevamento intelligente sono automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](../../azure-monitor/platform/alerts-log.md)
-* [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
+* [Test Web di disponibilità](./monitor-web-app-availability.md)
+

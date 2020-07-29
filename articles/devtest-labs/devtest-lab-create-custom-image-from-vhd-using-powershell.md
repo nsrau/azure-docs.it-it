@@ -3,12 +3,12 @@ title: Creare un'immagine personalizzata da un file VHD usando Azure PowerShell
 description: Automatizzare la creazione di un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2ae2a6b6b2f904915a51b94ad931d6c97996d27b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0712fdbec1ce23ad9e09d972e425cb7941107b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483993"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288980"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Creare un'immagine personalizzata da un file VHD usando PowerShell
 
@@ -95,7 +95,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
 
-- [Custom images or formulas? (Immagini personalizzate o formule?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas? (Immagini personalizzate o formule?)](./devtest-lab-faq.md#blog-post)
 - [Copying Custom Images between Azure DevTest Labs (Copia di immagini personalizzate tra istanze di Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Passaggi successivi

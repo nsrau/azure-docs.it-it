@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309952"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289279"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 
@@ -28,7 +29,7 @@ Il failback è composto essenzialmente da due passaggi. Innanzitutto, dopo il fa
 - Se non è possibile raggiungere il server di configurazione dal server di elaborazione, usare Telnet per verificare la connettività al server di configurazione sulla porta 443. È anche possibile provare a eseguire il ping del server di configurazione dal server di elaborazione. Un server di elaborazione deve avere anche un heartbeat quando è connesso al server di configurazione.
 - Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
 - Non è possibile eseguire il failback nelle circostanze seguenti:
-    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration)
+    - È stata eseguita la migrazione di macchine virtuali ad Azure. 
     - Una macchina virtuale è stata spostata in un altro gruppo di risorse.
     - La macchina virtuale Azure è stata eliminata.
     - È stata disabilitata la protezione della macchina virtuale.
@@ -63,7 +64,7 @@ Questo problema può verificarsi se esiste già una macchina virtuale con lo ste
 Per risolvere il problema:
 
 * Selezionare un server di destinazione master diverso in un host diverso, in modo che la riprotezione crei la macchina virtuale in un host diverso in cui i nomi non siano in conflitto.
-* È anche possibile usare vMotion per spostare il server di destinazione master in un host diverso, in cui non si verifica il conflitto di nomi. Se la macchina virtuale esistente è una macchina rimasta inutilizzata, è possibile rinominarla in modo che la nuova macchina virtuale possa essere creata nello stesso host ESXi.
+* È anche possibile usare VMotion per spostare la destinazione master in un host diverso in cui non si verificherà il conflitto di nomi. Se la macchina virtuale esistente è una macchina rimasta inutilizzata, è possibile rinominarla in modo che la nuova macchina virtuale possa essere creata nello stesso host ESXi.
 
 
 ### <a name="error-code-78093"></a>Codice di errore 78093
@@ -97,4 +98,4 @@ Questo problema si verifica quando si accede alla macchina virtuale locale su un
 Per risolvere il problema:
 
 * Effettuare il provisioning di una quantità maggiore di memoria nell'host ESXi.
-* Inoltre, è possibile usare vMotion per spostare la macchina virtuale su un altro host ESXi in cui sia disponibile memoria sufficiente per avviare la macchina virtuale.
+* Inoltre, è possibile usare VMotion per spostare la macchina virtuale in un altro host ESXi con memoria sufficiente per avviare la macchina virtuale.

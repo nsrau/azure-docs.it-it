@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289961"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modello Time Series in Azure Time Series Insights Gen2
 
@@ -24,9 +24,9 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 > [!TIP]
 >
 > * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
-> * Informazioni [su come usare il modello Time Series](time-series-insights-update-how-to-tsm.md) con Azure Time Series Insights Gen2 Explorer.
+> * Informazioni [su come usare il modello Time Series](/azure/time-series-insights/how-to-edit-your-model) con Azure Time Series Insights Gen2 Explorer.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -75,7 +75,7 @@ Questi componenti vengono combinati per specificare un modello Time Series e per
 
 [![Grafico di panoramica del modello Time Series](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-how-to-tsm.md). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 
@@ -283,12 +283,13 @@ I tipi sono conformi all'esempio JSON seguente:
   ]
 }
 ```
+
 I tipi di modello Time Series possono avere molte variabili che specificano le regole relative a formule e calcolo per gli eventi. Scopri di più su [come definire le variabili del modello Time Series](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su come modificare il modello tramite le API, vedere la documentazione di riferimento del [modello Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+* Per altre informazioni su come modificare il modello tramite le API, vedere la documentazione di riferimento del [modello Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
 
-- Esplorare le formule e i calcoli che è possibile creare con le [variabili di modello Time Series](./concepts-variables.md)
+* Esplorare le formule e i calcoli che è possibile creare con le [variabili di modello Time Series](./concepts-variables.md)
 
-- Informazioni sull' [esecuzione di query sui dati](concepts-query-overview.md) in Azure Time Series Insights Gen2
+* Informazioni sull' [esecuzione di query sui dati](concepts-query-overview.md) in Azure Time Series Insights Gen2

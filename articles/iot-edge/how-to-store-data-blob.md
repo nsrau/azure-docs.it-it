@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287264"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
 
@@ -173,7 +173,10 @@ Specificare il dispositivo IoT Edge come endpoint BLOB per qualsiasi richiesta d
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
-
+ 
+ > [!IMPORTANT]
+ > Azure IoT Edge distingue tra maiuscole e minuscole quando si effettuano chiamate ai moduli e l'SDK di archiviazione usa anche il valore minuscolo. Anche se il nome del modulo in [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) è **AzureBlobStorageonIoTEdge**, la modifica del nome in minuscolo consente di garantire che le connessioni all'archivio BLOB di Azure nel modulo IOT Edge non vengano interrotte.
+ 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Esempi di avvio rapido di archiviazione BLOB di Azure
 
 La documentazione di archiviazione BLOB di Azure include il codice di esempio della Guida introduttiva in diverse lingue. È possibile eseguire questi esempi per testare l'archiviazione BLOB di Azure in IoT Edge modificando l'endpoint BLOB per la connessione al modulo di archiviazione BLOB locale.

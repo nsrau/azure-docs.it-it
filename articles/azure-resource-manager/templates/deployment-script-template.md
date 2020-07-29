@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117053"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291803"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -556,48 +556,7 @@ L'esecuzione dello script di distribuzione è un'operazione idempotente. Se ness
 
 ## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-È possibile usare un'immagine del contenitore Docker preconfigurata come ambiente di sviluppo dello script di distribuzione. Per installare Docker, vedere [Get Docker](https://docs.docker.com/get-docker/).
-È anche necessario configurare la condivisione di file per montare la directory che contiene gli script di distribuzione nel contenitore docker.
-
-1. Eseguire il pull dell'immagine del contenitore dello script di distribuzione nel computer locale:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Nell'esempio viene usata la versione di PowerShell 2.7.0.
-
-    Per eseguire il pull di un'immagine dell'interfaccia della riga di comando da un Registro Microsoft Container (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    Questo esempio usa la versione 2.0.80. Lo script di distribuzione usa le immagini predefinite dei contenitori CLI trovate [qui](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Eseguire l'immagine di Docker localmente.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Sostituire **&lt;lettera unità host>** e **&lt;nome directory host>** con una cartella esistente nell'unità condivisa.  Esegue il mapping della cartella nella cartella **/data** del contenitore. Per esempi per eseguire il mapping di D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-it** indica di mantenere attiva l'immagine del contenitore.
-
-    Esempio di interfaccia della riga di comando:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file di helloworld.ps1 nell'unità condivisa.
-
-    ![Script di distribuzione del modello di Resource Manager docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+È possibile usare un'immagine contenitore preconfigurata come ambiente di sviluppo dello script di distribuzione. Per altre informazioni, vedere [configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli](./deployment-script-template-configure-dev.md).
 
 Una volta testato correttamente lo script, è possibile utilizzarlo come script di distribuzione nei modelli.
 

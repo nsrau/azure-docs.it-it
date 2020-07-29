@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: d01245a76c5210a1843307b543f98d4f1d59d2cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877831"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298870"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creare una risorsa cluster del servizio Kubernetes di Azure
 
@@ -24,16 +24,16 @@ ms.locfileid: "80877831"
 
     |Impostazione|valore|
     |--|--|
-    |Subscription|Scegliere la sottoscrizione appropriata.|
-    |Resource group|Selezionare un gruppo di risorse disponibile.|
+    |Sottoscrizione|Scegliere la sottoscrizione appropriata.|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile.|
     |Nome del cluster Kubernetes|Immettere un nome (minuscolo).|
-    |Region|Selezionare una località vicina.|
+    |Region|Selezionare una località limitrofa.|
     |Versione di Kubernetes|Qualsiasi valore è contrassegnato come **(impostazione predefinita)**.|
     |Prefisso nome DNS|Creato automaticamente, ma è possibile eseguire l'override di.|
     |Dimensioni nodo|DS2 standard v2:<br>`2 vCPUs`, `7 GB`|
     |Numero di nodi|Lasciare il dispositivo di scorrimento sul valore predefinito.|
 
-1. Nella scheda **scala** lasciare i **nodi virtuali** e i **set di scalabilità di VM** impostati sui rispettivi valori predefiniti.
+1. Nella scheda **pool di nodi** lasciare i **nodi virtuali** e i **set di scalabilità di VM** impostati sui rispettivi valori predefiniti.
 1. Nella scheda **autenticazione** lasciare l' **entità servizio** e **abilitare RBAC** impostato sui valori predefiniti.
 1. Nella scheda **rete** immettere le selezioni seguenti:
 
@@ -42,7 +42,7 @@ ms.locfileid: "80877831"
     |Routing di applicazioni HTTP|No|
     |Configurazione delle impostazioni di rete|Basic|
 
-1. Nella scheda **monitoraggio** verificare che **Enable container Monitoring** sia impostato su **Sì**e lasciare **log Analytics area di lavoro** come valore predefinito.
+1. Nella scheda **Integrations (integrazioni** ) assicurarsi che il **monitoraggio dei contenitori** sia impostato su **abilitato**e lasciare **log Analytics area di lavoro** come valore predefinito.
 1. Nella scheda **tag** lasciare vuote le coppie nome/valore per il momento.
 1. Selezionare **revisione e creazione**.
 1. Al termine della convalida, selezionare **Crea**.

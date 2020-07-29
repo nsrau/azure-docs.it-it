@@ -6,11 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 736fce1d4b347e36ad5c10ca89ad0627104a0232
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70097ad02c17f8c23bd9613487a905ccd562635e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80879843"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337552"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Sviluppare ed eseguire il debug di processi di analisi di flusso di Azure localmente
 
@@ -22,9 +23,9 @@ Il modo in cui si sviluppano i processi di analisi di flusso nel computer locale
 
 Gli ambienti nella tabella seguente supportano lo sviluppo locale:
 
-|Ambiente                              |Descrizione    |
+|Environment                              |Descrizione    |
 |-----------------------------------------|------------|
-|[Visual Studio Code](visual-studio-code-explore-jobs.md)| L' [estensione degli strumenti di analisi di flusso di Azure](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) per Visual Studio Code consente di creare, gestire e testare il processo di analisi di flusso in locale e nel cloud con IntelliSense avanzato e il controllo del codice sorgente nativo. Supporta lo sviluppo in Linux, MacOS e Windows. Per altre informazioni, vedere [creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md).|
+|[Visual Studio Code](visual-studio-code-explore-jobs.md)| L' [estensione degli strumenti di analisi di flusso di Azure](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) per Visual Studio Code consente di creare, gestire, testare il processo di analisi di flusso in locale e nel cloud con IntelliSense avanzato e il controllo del codice sorgente nativo. Supporta lo sviluppo in Linux, MacOS e Windows. Per altre informazioni, vedere [creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md). L'estensione supporta anche gli spazi dei nomi di [Visual Studio](https://visualstudio.microsoft.com/services/visual-studio-codespaces/) , ovvero un ambiente di sviluppo ospitato nel cloud.|
 |[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |Gli strumenti di analisi di flusso fanno parte dei carichi di lavoro di sviluppo e archiviazione dei dati e di elaborazione di Azure in Visual Studio. È possibile usare Visual Studio per scrivere funzioni e deserializzatori C# personalizzati definiti dall'utente. Per altre informazioni, vedere [creare un processo di analisi di flusso di Azure con Visual Studio](stream-analytics-quick-create-vs.md).|
 |[Prompt dei comandi o terminal](stream-analytics-tools-for-visual-studio-cicd.md)|Il pacchetto NuGet CI/CD di analisi di flusso di Azure offre strumenti per la compilazione di progetti Visual Studio, test locali in un computer arbitrario. Il pacchetto NPM di analisi di flusso CI/CD di Azure fornisce strumenti per Visual Studio Code build di progetto (che genera un modello di Azure Resource Manager) in un computer arbitrario.|
 

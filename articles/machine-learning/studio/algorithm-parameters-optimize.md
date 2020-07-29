@@ -1,6 +1,5 @@
 ---
-title: Ottimizzare gli algoritmi
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): ottimizzare gli algoritmi-Azure'
 description: Viene illustrato come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 52853bb14b49d429100dabeffc46661289f55c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0e003e7c767fb3441e26787f5687473ac51f44
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292977"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (versione classica)
+# <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Machine Learning Studio (versione classica)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
 
 In questo argomento viene descritto come scegliere il set di iperparametri corretti per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 

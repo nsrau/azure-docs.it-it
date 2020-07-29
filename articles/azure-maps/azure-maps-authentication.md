@@ -1,37 +1,37 @@
 ---
-title: Metodi di autenticazione
+title: Autenticazione con Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: In questo articolo si apprenderà come Azure Active Directory e l'autenticazione con chiave condivisa. Entrambi vengono usati per i servizi di Microsoft Azure maps. Informazioni su come ottenere la chiave di sottoscrizione di Azure maps.
+description: In questo articolo si apprenderà come Azure Active Directory e l'autenticazione con chiave condivisa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e270a9a1a773442a4d1d28d9bbfe37639cac7c65
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285833"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
-Azure Maps supporta due modi per autenticare le richieste: autenticazione con chiave condivisa e autenticazione [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . Questo articolo illustra questi metodi di autenticazione per semplificare l'implementazione dei servizi di Azure maps.
+Azure Maps supporta due modi per autenticare le richieste: autenticazione con chiave condivisa e autenticazione [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . Questo articolo illustra entrambi i metodi di autenticazione per semplificare l'implementazione dei servizi di Azure maps.
 
 > [!NOTE]
-> Per migliorare la comunicazione protetta con le mappe di Azure, è ora supportato Transport Layer Security (TLS) 1,2 e il supporto per TLS 1,0 e 1,1 è in fase di ritiro. Per evitare interruzioni del servizio, **aggiornare i server e le applicazioni per l'uso di TLS 1,2 prima del 2 aprile 2020**.  Se attualmente si usa TLS 1. x, valutare la conformità di TLS 1,2 e sviluppare un piano di migrazione con i test descritti in [risoluzione del problema tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Per migliorare la comunicazione protetta con le mappe di Azure, è ora supportato Transport Layer Security (TLS) 1,2 e il supporto per TLS 1,0 e 1,1 è in fase di ritiro. Se attualmente si usa TLS 1. x, valutare la conformità di TLS 1,2 e sviluppare un piano di migrazione con i test descritti in [risoluzione del problema tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticazione con chiave condivisa
 
- Le chiavi primarie e secondarie vengono generate dopo la creazione dell'account Azure maps. Si consiglia di usare la chiave primaria come chiave di sottoscrizione quando si chiamano le mappe di Azure usando l'autenticazione con chiave condivisa. L'autenticazione con chiave condivisa passa una chiave generata da un account Azure Maps a un servizio Maps di Azure. Per ogni richiesta ai servizi di Azure Maps, aggiungere la *chiave di sottoscrizione* come parametro all'URL. La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza.  
+ Le chiavi primarie e secondarie vengono generate dopo la creazione dell'account Azure maps. Si consiglia di usare la chiave primaria come chiave di sottoscrizione quando si chiama Maps di Azure con l'autenticazione con chiave condivisa. L'autenticazione con chiave condivisa passa una chiave generata da un account Azure Maps a un servizio Maps di Azure. Per ogni richiesta ai servizi di Azure Maps, aggiungere la *chiave di sottoscrizione* come parametro all'URL. La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza.  
 
 Per informazioni sulla visualizzazione delle chiavi nell'portale di Azure, vedere [Manage Authentication](https://aka.ms/amauthdetails).
 
-> [!Tip]
-> È consigliabile rigenerare le chiavi regolarmente. Vengono fornite due chiavi, in modo che sia possibile mantenere le connessioni con una chiave durante la rigenerazione dell'altra. Quando si rigenerano le chiavi, è necessario aggiornare tutte le applicazioni che accedono all'account con le nuove chiavi.
+> [!TIP]
+> Per motivi di sicurezza, si consiglia di ruotare tra le chiavi primarie e secondarie. Per eseguire la rotazione delle chiavi, aggiornare l'app per usare la chiave secondaria, distribuire, quindi premere il pulsante di ciclo/aggiornamento accanto alla chiave primaria per generare una nuova chiave primaria. La chiave primaria precedente verrà disabilitata. Per altre informazioni sulla rotazione delle chiavi, vedere [Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
 ## <a name="azure-ad-authentication"></a>Autenticazione di Azure AD
 
@@ -59,12 +59,12 @@ Le applicazioni eseguiranno l'autenticazione con il tenant di Azure AD usando un
 
 Quando l'applicazione riceve un token di accesso, l'SDK e/o l'applicazione invia una richiesta HTTPS con il seguente set di intestazioni HTTP obbligatorie oltre ad altre intestazioni HTTP dell'API REST:
 
-| Nome dell'intestazione    | Valore               |
+| Nome dell'intestazione    | valore               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
 | Autorizzazione  | Bearer eyJ0e….HNIVN |
 
-> [!Note]
+> [!NOTE]
 > `x-ms-client-id` è il GUID basato sull'account di Mappe di Azure che compare nella pagina di autenticazione di Mappe di Azure.
 
 Di seguito è riportato un esempio di una richiesta di route di Azure Maps che usa un token di porta di Azure AD OAuth:
@@ -108,7 +108,7 @@ Per informazioni su come visualizzare le impostazioni del controllo degli access
 
 #### <a name="custom-role-definitions"></a>Definizioni di ruolo personalizzate
 
-Un aspetto della sicurezza dell'applicazione consiste nell'applicare il principio dei privilegi minimi. Il principio implica che l'entità di sicurezza debba solo consentire l'accesso, che è necessario e nessun accesso aggiuntivo. La creazione di definizioni di ruolo personalizzate può supportare casi di utilizzo che richiedono una maggiore granularità per il controllo di accesso. Per creare una definizione di ruolo personalizzata, è possibile selezionare azioni dati specifiche da includere o escludere per la definizione. 
+Un aspetto della sicurezza dell'applicazione consiste nell'applicare il principio dei privilegi minimi. Questo principio implica che l'entità di sicurezza deve essere consentita solo per l'accesso, che è necessario e non dispone di accesso aggiuntivo. La creazione di definizioni di ruolo personalizzate può supportare casi di utilizzo che richiedono una maggiore granularità per il controllo di accesso. Per creare una definizione di ruolo personalizzata, è possibile selezionare azioni dati specifiche da includere o escludere per la definizione.
 
 La definizione di ruolo personalizzata può quindi essere utilizzata in un'assegnazione di ruolo per qualsiasi entità di sicurezza. Per altre informazioni sulle definizioni dei ruoli personalizzati di Azure, vedere [ruoli personalizzati di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
@@ -126,13 +126,19 @@ Di seguito sono riportati alcuni scenari di esempio in cui i ruoli personalizzat
 Quando si crea un'assegnazione di ruolo, questo viene definito all'interno della gerarchia di risorse di Azure. Nella parte superiore della gerarchia è presente un [gruppo di gestione](https://docs.microsoft.com/azure/governance/management-groups/overview) e il valore minimo è una risorsa di Azure, ad esempio un account Azure maps.
 L'assegnazione di un'assegnazione di ruolo a un gruppo di risorse può consentire l'accesso a più account o risorse di Azure Maps nel gruppo.
 
-> [!Tip]
-> La raccomandazione generale di Microsoft consiste nell'assegnare l'accesso all'ambito dell'account mappe di Azure perché impedisce **l'accesso imprevisto ad altri account Azure Maps** esistenti nella stessa sottoscrizione di Azure.
+> [!TIP]
+> Il suggerimento generale di Microsoft consiste nell'assegnare l'accesso all'ambito dell'account mappe di Azure perché impedisce **l'accesso imprevisto ad altri account di Azure Maps** presenti nella stessa sottoscrizione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni su RBAC, vedere [Panoramica del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Per ulteriori informazioni su RBAC, vedere
+> [!div class="nextstepaction"]
+> [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* Per altre informazioni sull'autenticazione di un'applicazione con Azure AD e Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Per ulteriori informazioni sull'autenticazione di un'applicazione con Azure AD e mappe di Azure, vedere
+> [!div class="nextstepaction"]
+> [Gestire l'autenticazione in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
 
-* Per altre informazioni sull'autenticazione del controllo mappa di Mappe di Azure e di Azure AD, vedere [Usare il controllo mappa di Mappe di Azure](https://aka.ms/amaadmc).
+Per ulteriori informazioni sull'autenticazione delle mappe di Azure controllo mappa con Azure AD, vedere
+> [!div class="nextstepaction"]
+> [Usare il controllo mappa di Mappe di Azure](https://aka.ms/amaadmc)

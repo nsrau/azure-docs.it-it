@@ -1,15 +1,15 @@
 ---
 title: Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 description: Come distribuire e configurare la rete dell'infrastruttura iperledger in Azure Kubernetes Service
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081279"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286054"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,15 @@ Prima di scegliere di usare un modello di soluzione, confrontare lo scenario con
 
 Opzione | Modello di servizio | Caso d'uso comune
 -------|---------------|-----------------
-Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un determinato tipo di rete blockchain. I modelli di soluzione sono forniti senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](/answers/topics/azure-blockchain-workbench.html) .
+Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un determinato tipo di rete blockchain. I modelli di soluzione sono forniti senza un contratto di servizio. Per assistenza, usare la [pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-blockchain-workbench.html).
 [Servizio Azure Blockchain](../service/overview.md) | PaaS | Azure blockchain Service Preview semplifica la formazione, la gestione e la governance delle reti blockchain del Consorzio. Usa il servizio Azure blockchain per le soluzioni che richiedono PaaS, la gestione del consorzio o la privacy dei contratti e delle transazioni.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Usare Azure blockchain Workbench per la realizzazione di prototipi di una soluzione blockchain o di un modello di prova dell'applicazione blockchain. Azure Blockchain Workbench viene fornito senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](/answers/topics/azure-blockchain-workbench.html) .
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Usare Azure blockchain Workbench per la realizzazione di prototipi di una soluzione blockchain o di un modello di prova dell'applicazione blockchain. Azure Blockchain Workbench viene fornito senza un contratto di servizio. Per assistenza, usare la [pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-blockchain-workbench.html).
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Architettura del Consorzio di infrastruttura iperledger
 
-Per compilare la rete dell'infrastruttura iperledger in Azure, è necessario distribuire il servizio di ordinamento e l'organizzazione con nodi peer. I diversi componenti fondamentali creati come parte della distribuzione del modello sono:
+Per compilare la rete dell'infrastruttura iperledger in Azure, è necessario distribuire il servizio di ordinamento e l'organizzazione con nodi peer. Usando l'infrastruttura di iperledger nel modello di soluzione del servizio Kubernetes di Azure, è possibile creare nodi di ordine o nodi peer. È necessario distribuire il modello per ogni nodo che si vuole creare.
+
+I diversi componenti fondamentali creati come parte della distribuzione del modello sono:
 
 - **Nodi di ordinamento**: nodo responsabile dell'ordinamento delle transazioni nel Ledger. Insieme ad altri nodi, i nodi ordinati formano il servizio di ordinamento della rete dell'infrastruttura dell'iperledger.
 
@@ -58,22 +60,13 @@ Il modello nella distribuzione avvia varie risorse di Azure nella sottoscrizione
 - **Disco gestito**di Azure: il disco gestito di Azure è per l'archivio persistente per i database di stato globale e del nodo peer.
 - **IP pubblico**: un endpoint IP pubblico del cluster AKS distribuito per l'interazione con il cluster.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configurazione di rete blockchain dell'infrastruttura iperledger
+## <a name="deploy-the-ordererpeer-organization"></a>Distribuire l'organizzazione di ordini/peer
 
 Per iniziare, è necessaria una sottoscrizione di Azure in grado di supportare la distribuzione di più macchine virtuali e account di archiviazione standard. Se non si ha una sottoscrizione di Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-Configurare l'infrastruttura iperledger blockchain Network attenendosi alla procedura seguente:
+Per iniziare a usare la distribuzione dei componenti di rete HLF, passare alla [portale di Azure](https://portal.azure.com).
 
-- [Distribuire l'organizzazione di ordini/peer](#deploy-the-ordererpeer-organization)
-- [Crea il Consorzio](#build-the-consortium)
-
-## <a name="deploy-the-ordererpeer-organization"></a>Distribuire l'organizzazione di ordini/peer
-
-Per iniziare a usare la distribuzione dei componenti di rete HLF, passare alla [portale di Azure](https://portal.azure.com). Selezionare **Crea una risorsa > Blockchain** > cercare l' **infrastruttura dell'Iperledger nel servizio Kubernetes di Azure**.
-
-1. Selezionare **Crea** per avviare la distribuzione del modello. Viene visualizzata l' **infrastruttura create iperledger nel servizio Kubernetes di Azure** .
-
-    ![Infrastruttura di iperledger nel modello di servizio Kubernetes di Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. Selezionare **Crea una risorsa > Blockchain** > cercare l' **infrastruttura dell'Iperledger nel servizio Kubernetes di Azure (anteprima)**.
 
 2. Immettere i dettagli del progetto nella pagina **nozioni di base** .
 
@@ -90,7 +83,7 @@ Per iniziare a usare la distribuzione dei componenti di rete HLF, passare alla [
 
 5. Immettere i dettagli seguenti:
     - **Nome organizzazione**: il nome dell'organizzazione dell'infrastruttura, necessario per varie operazioni del piano dati. Il nome dell'organizzazione deve essere univoco per ogni distribuzione.
-    - **Infrastruttura di rete componente**: scegliere ordinazione servizio o nodi peer in base al componente di rete blockchain che si desidera configurare.
+    - **Infrastruttura di rete componente**: scegliere ordinazione servizio o nodi peer in base al componente di rete blockchain che si vuole configurare.
     - **Numero di nodi** : di seguito sono riportati i due tipi di nodi:
         - Servizio di ordinamento: selezionare il numero di nodi per fornire la tolleranza di errore alla rete. Il numero di nodi dell'ordine supportato è solo 3, 5 e 7.
         - Nodi peer: è possibile scegliere i nodi 1-10 in base ai requisiti.
@@ -103,7 +96,7 @@ Per iniziare a usare la distribuzione dei componenti di rete HLF, passare alla [
     - **Chiave privata del certificato radice**: caricare la chiave privata del certificato radice. Se si dispone di un certificato con estensione PEM, che include sia la chiave pubblica che quella privata, è possibile caricarla anche qui.
 
 
-6. Selezionare la scheda **Impostazioni cluster AKS** per definire la configurazione del cluster Kubernetes di Azure che rappresenta l'infrastruttura sottostante in cui verranno impostati i componenti di rete dell'infrastruttura.
+6. Selezionare la scheda **Impostazioni cluster AKS** per definire la configurazione del cluster Kubernetes di Azure che rappresenta l'infrastruttura sottostante in cui verranno configurati i componenti di rete dell'infrastruttura.
 
     ![Infrastruttura di iperledger nel modello di servizio Kubernetes di Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -136,7 +129,7 @@ Per compilare il post di blockchain Consortium per la distribuzione del servizio
 > Lo script Azure HLF (azhlf) fornito è utile solo per gli scenari demo/DevTest. Il canale e il Consorzio creati da questo script hanno criteri HLF di base per semplificare lo scenario demo/DevTest. Per la configurazione dell'ambiente di produzione, è consigliabile aggiornare i criteri di canale/Consorzio HLF in linea con le esigenze di conformità dell'organizzazione usando le API HLF native.
 
 
-Tutti i comandi per eseguire lo script di Azure HLF possono essere eseguiti tramite la riga di comando di Azure bash. Interfaccia (CLI). È possibile accedere alla versione Web di Azure shell tramite  ![Infrastruttura di iperledger nel modello di servizio Kubernetes di Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) nell'angolo superiore destro della portale di Azure. Al prompt dei comandi digitare bash e immettere per passare all'interfaccia della riga di comando di bash.
+Tutti i comandi per eseguire lo script di Azure HLF possono essere eseguiti tramite la riga di comando di Azure bash. Interfaccia (CLI). È possibile accedere alla versione Web di Azure shell tramite l'   ![ opzione infrastruttura iperledger in Azure Kubernetes Service template nell' ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) angolo superiore destro della portale di Azure. Al prompt dei comandi digitare bash e immettere per passare all'interfaccia della riga di comando di bash o scegliere *bash* dalla barra degli strumenti della shell.
 
 Per ulteriori informazioni, vedere [Azure Shell](../../cloud-shell/overview.md) .
 
@@ -147,17 +140,17 @@ Nell'immagine seguente viene illustrato il processo dettagliato per la creazione
 
 ![Infrastruttura di iperledger nel modello di servizio Kubernetes di Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Seguire i comandi seguenti per la configurazione iniziale dell'applicazione client: 
+Completare le sezioni per la configurazione iniziale dell'applicazione client: 
 
-1.  [Scaricare i file dell'applicazione client](#download-client-application-files)
-2.  [Variabili di ambiente di installazione](#setup-environment-variables)
-3.  [Importa profilo di connessione organizzazione, utente amministratore e MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. Scaricare i file dell'applicazione client
+1. Configurare le variabili di ambiente
+1. Importa profilo di connessione organizzazione, utente amministratore e MSP
 
-Dopo aver completato l'installazione iniziale, è possibile usare l'applicazione client per ottenere le operazioni seguenti:  
+Dopo aver completato la configurazione iniziale, usare l'applicazione client per ottenere le operazioni seguenti:  
 
-- [Comandi di gestione canali](#channel-management-commands)
-- [Comandi del Consorzio di gestione](#consortium-management-commands)
-- [Comandi di gestione Chaincode](#chaincode-management-commands)
+- Gestione dei canali
+- Gestione del consorzio
+- Gestione Chaincode
 
 ### <a name="download-client-application-files"></a>Scaricare i file dell'applicazione client
 
@@ -168,19 +161,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-Questi comandi clonano il codice dell'applicazione client Azure HLF dal repository GitHub pubblico, seguito dal caricamento di tutti i pacchetti NPM dipendenti. Una volta completata l'esecuzione del comando, è possibile visualizzare una cartella node_modules nella directory corrente. Tutti i pacchetti necessari vengono caricati nella cartella node_modules.
 
+Questi comandi clonano il codice dell'applicazione client Azure HLF dal repository GitHub pubblico, seguito dal caricamento di tutti i pacchetti NPM dipendenti. Una volta completata l'esecuzione del comando, è possibile visualizzare una cartella node_modules nella directory corrente. Tutti i pacchetti necessari vengono caricati nella cartella node_modules.
 
 ### <a name="setup-environment-variables"></a>Impostare le variabili di ambiente
 
 > [!NOTE]
 > Tutte le variabili di ambiente seguono la convenzione di denominazione delle risorse di Azure.
 
-
-**Imposta sotto le variabili di ambiente per il client dell'organizzazione di orderer**
-
+#### <a name="set-environment-variables-for-orderer-organization-client"></a>Impostare le variabili di ambiente per il client dell'organizzazione dell'ordinatrice
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -189,7 +179,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**Imposta le variabili di ambiente seguenti per il client dell'organizzazione peer**
+
+#### <a name="set-the-environment-variables-for-peer-organization-client"></a>Impostare le variabili di ambiente per il client dell'organizzazione peer
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -202,7 +193,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > In base al numero di org peer nel Consorzio, potrebbe essere necessario ripetere i comandi peer e impostare la variabile di ambiente di conseguenza.
 
-**Impostare le variabili di ambiente seguenti per la configurazione dell'account di archiviazione di Azure**
+#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Impostare le variabili di ambiente per la configurazione dell'account di archiviazione di Azure
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -212,7 +203,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Seguire questa procedura per la creazione dell'account di archiviazione di Azure. Se è già stato creato un account di archiviazione di Azure, ignorare questi passaggi
+Usare la procedura seguente per la creazione dell'account di archiviazione di Azure. Se è già stato creato un account di archiviazione di Azure, ignorare questi passaggi.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -220,14 +211,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Seguire questa procedura per la creazione di una condivisione file nell'account di archiviazione di Azure. Se è già stata creata una condivisione file, ignorare i passaggi seguenti.
+Usare la procedura seguente per creare una condivisione file nell'account di archiviazione di Azure. Se è già stata creata una condivisione file, ignorare i passaggi seguenti.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Seguire i passaggi seguenti per la generazione della stringa di connessione alla condivisione file di Azure
+Usare la procedura seguente per generare la stringa di connessione alla condivisione file di Azure.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -256,39 +247,13 @@ Per l'organizzazione peer:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="channel-management-commands"></a>Comandi di gestione canali
-
-> [!NOTE]
-> Prima di iniziare con qualsiasi operazione del canale, verificare che sia stata eseguita la configurazione iniziale dell'applicazione client.  
-
-Di seguito sono riportati i due comandi di gestione del canale:
-
-1. [Comando crea canale](#create-channel-command)
-2. [Impostazione del comando Anchor peer (s)](#setting-anchor-peers-command)
-
-
-#### <a name="create-channel-command"></a>Comando crea canale
+### <a name="create-channel-command"></a>Comando crea canale
 
 Dal client dell'organizzazione orderer, eseguire il comando per creare un nuovo canale. Questo comando creerà un canale con solo l'organizzazione dell'ordine.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### <a name="setting-anchor-peers-command"></a>Impostazione del comando Anchor peer (s)
-Dal client dell'organizzazione peer, eseguire il comando seguente per impostare i peer di ancoraggio per l'organizzazione peer sul canale specificato.
-
->[!NOTE]
-> Prima di eseguire questo comando, assicurarsi che l'organizzazione peer venga aggiunta nel canale usando i comandi di gestione del Consorzio.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>`elenco separato da spazi dei nodi peer da impostare come peer di ancoraggio. ad esempio:
-
-  - Impostare `<anchorPeersList>` come "peer1" Se si vuole impostare solo il nodo Peer1 come peer di ancoraggio.
-  - Impostare `<anchorPeersList>` come "peer1" "Peer3" Se si desidera impostare il nodo Peer1 e Peer3 come peer di ancoraggio.
 
 ### <a name="consortium-management-commands"></a>Comandi del Consorzio di gestione
 
@@ -324,6 +289,21 @@ Eseguire i comandi seguenti nell'ordine indicato per aggiungere un'organizzazion
 
 Analogamente, per aggiungere altre organizzazioni peer nel canale, aggiornare le variabili di ambiente peer in base all'organizzazione peer richiesta ed eseguire i passaggi da 1 a 4.
 
+### <a name="set-anchor-peers-command"></a>Imposta comando peer/i di ancoraggio
+
+Dal client dell'organizzazione peer, eseguire il comando per impostare i peer di ancoraggio per l'organizzazione peer sul canale specificato.
+
+>[!NOTE]
+> Prima di eseguire questo comando, assicurarsi che l'organizzazione peer venga aggiunta nel canale usando i comandi di gestione del Consorzio.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>`elenco separato da spazi dei nodi peer da impostare come peer di ancoraggio. ad esempio:
+
+  - Impostare `<anchorPeersList>` come "peer1" Se si vuole impostare solo il nodo Peer1 come peer di ancoraggio.
+  - Impostare `<anchorPeersList>` come "peer1" "Peer3" Se si desidera impostare il nodo Peer1 e Peer3 come peer di ancoraggio.
 
 ### <a name="chaincode-management-commands"></a>Comandi di gestione Chaincode
 
@@ -344,7 +324,7 @@ CC_VERSION=<chaincodeVersion>
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -409,7 +389,7 @@ Eseguire il comando seguente per eseguire una query su chaincode:
 ```
 Passare il nome della funzione di query e l'elenco separato da spazi di argomenti  `<queryFunction>`   rispettivamente in e  `<queryFuncArgs>`   . Anche in questo caso, prendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a" nello stato globale impostato  `<queryFunction>`   su  `query` e  `<queryArgs>` su "a".  
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 **Per verificare la versione del modello in esecuzione**
 

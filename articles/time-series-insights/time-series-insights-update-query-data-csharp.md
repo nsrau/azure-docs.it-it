@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa3faad88fb5474b34ff6855690882141b2e4843
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1057bb908e973c74b6dfb70931469e27f77512de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046304"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292666"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights Gen2 con C #
 
@@ -39,9 +39,9 @@ Il codice di esempio seguente illustra le funzionalità seguenti:
     * [API di query Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
         * [API GET degli eventi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [API GET delle serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) e [API GET delle serie di aggregazione](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
     * [API modello della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-        * [API GET delle gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/get) e [API del batch di gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-        * [API GET dei tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/get) e [API del batch di tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-        * [API GET delle istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/get) e [API del batch di istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+        * [API GET delle gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) e [API del batch di gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+        * [API GET dei tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) e [API del batch di tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+        * [API GET delle istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) e [API del batch di istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 * Funzionalità avanzate di [ricerca](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) e [TSX](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ## <a name="prerequisites-and-setup"></a>Prerequisiti e configurazione

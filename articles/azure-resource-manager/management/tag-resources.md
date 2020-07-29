@@ -3,12 +3,12 @@ title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizz
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323877"
+ms.locfileid: "87337535"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -17,7 +17,7 @@ I tag vengono applicati alle risorse, ai gruppi di risorse e alle sottoscrizioni
 Per indicazioni su come implementare una strategia di assegnazione di tag, vedere la pagina [relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> I nomi di tag non fanno distinzione tra maiuscole e minuscole per le operazioni. Un tag con un nome di tag, indipendentemente dalla combinazione di maiuscole e minuscole, viene aggiornato o recuperato. Tuttavia, il provider di risorse potrebbe mantenere le maiuscole e minuscole fornite per il nome del tag. Si noterà che le maiuscole e minuscole nei report sui costi.
+> I nomi di tag non fanno distinzione tra maiuscole e minuscole per le operazioni. Un tag con un nome di tag, indipendentemente dalla combinazione di maiuscole e minuscole, viene aggiornato o recuperato. Il provider di risorse, tuttavia, può contenere le maiuscole e minuscole fornite per il nome del tag. Si noterà che le maiuscole e minuscole nei report sui costi.
 > 
 > I valori dei tag distinguono tra maiuscole e minuscole
 

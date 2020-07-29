@@ -8,11 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7c83bc55a00774966681973b95d18cdc58dba19c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337807"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
@@ -27,9 +28,9 @@ Questo articolo descrive i problemi comuni relativi allo sviluppo di query di An
     - Nel portale di Azure selezionare **Test** nella scheda **Query**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
     - È anche possibile [testare la query localmente](stream-analytics-live-data-local-testing.md) usando gli strumenti di Analisi di flusso di Azure per Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Eseguire il debug delle query in locale, passaggio per passaggio, usando il diagramma del processo](debug-locally-using-job-diagram.md) negli strumenti di Analisi di flusso di Azure per Visual Studio. Il diagramma del processo mostra i dati che fluiscono dalle origini di input (hub eventi, hub IoT e così via) attraversano più passaggi della query e infine giungono ai sink di output. Ogni passaggio della query è mappato a un set di risultati temporaneo definito nello script usando l'istruzione WITH. Per individuare l'origine del problema, è possibile visualizzare i dati e le metriche in ogni set di risultati intermedio.
+2.  [Eseguire il debug delle query in locale usando il diagramma dei processi](debug-locally-using-job-diagram-vs-code.md) negli strumenti di analisi di flusso di Azure per Visual Studio Code. Il diagramma del processo mostra i dati che fluiscono dalle origini di input (hub eventi, hub IoT e così via) attraversano più passaggi della query e infine giungono ai sink di output. Ogni passaggio della query è mappato a un set di risultati temporaneo definito nello script usando l'istruzione WITH. Per individuare l'origine del problema, è possibile visualizzare i dati e le metriche in ogni set di risultati intermedio.
 
-    ![Anteprima dei risultati nel diagramma di processo](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Anteprima dei risultati nel diagramma di processo](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  Se si usa [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), assicurarsi che i timestamp degli eventi siano successivi all'[ora di inizio del processo](stream-analytics-out-of-order-and-late-events.md).
 

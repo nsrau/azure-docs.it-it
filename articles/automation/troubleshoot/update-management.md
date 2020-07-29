@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1ec2aed0a2cceebe4685cf75c7007d1ce0785615
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293100"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -59,7 +59,7 @@ Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account d
 
 Gli aggiornamenti sostituiti non vengono indicati correttamente come rifiutati, in modo da essere considerati non disponibili.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Quando un aggiornamento sostituito diventa non disponibile al 100%, è necessario modificare lo stato di approvazione di tale aggiornamento in `Declined`. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 
@@ -99,7 +99,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
 * È possibile che sia stata definita una quota nell'area di lavoro che è stata raggiunta e che impedisce l'archiviazione di altri dati.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), a seconda del sistema operativo.
 
@@ -144,7 +144,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 Il provider di risorse di Automazione non è registrato nella sottoscrizione.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per registrare il provider di risorse di Automazione, seguire questi passaggi nel portale di Azure.
 
@@ -222,7 +222,7 @@ Possibili cause di questo problema:
 * La query ARG non recupera i computer previsti.
 * Il ruolo di lavoro ibrido per runbook non è installato nei computer.
 
-### <a name="resolution"></a>Risoluzione 
+### <a name="resolution"></a>Soluzione 
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Accesso errato agli ambiti selezionati
 
@@ -293,7 +293,7 @@ Le cause di questo errore sono le seguenti:
 
 * L'immagine della macchina virtuale da distribuire potrebbe provenire da un computer clonato senza preparazione sistema (sysprep) con l'agente di Log Analytics per Windows installato.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per individuare il problema esatto della macchina virtuale, eseguire la query seguente nell'area di lavoro Log Analytics collegata all'account di Automazione.
 
@@ -341,7 +341,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Questo errore si verifica quando si crea una distribuzione degli aggiornamenti con macchine virtuali di Azure in un altro tenant incluso in una distribuzione degli aggiornamenti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Usare la soluzione alternativa seguente per la pianificazione degli elementi. È possibile usare il cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer nell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo:
 
@@ -365,7 +365,7 @@ Anche se è impostata l'opzione **Controllo riavvio** per **Non riavviare mai**,
 
 È possibile modificare Windows Update con diverse chiavi del Registro di sistema, che possono cambiare il comportamento del riavvio.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Esaminare le chiavi del registro di sistema elencate in [Configurazione degli Aggiornamenti automatici modificando il Registro di sistema](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) e [Chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) per assicurarsi che i computer siano configurati correttamente.
 
@@ -387,7 +387,7 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 * Il computer è disattivato e non è raggiungibile.
 * Il computer ha un problema di connettività di rete e quindi il ruolo di lavoro ibrido nel computer non è raggiungibile.
 * È stato eseguito un aggiornamento di MMA che ha modificato l'ID del computer di origine.
-* L'esecuzione dell'aggiornamento viene limitata se si raggiunge il limite di 2000 processi simultanei in un account di Automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti conta come processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di Automazione viene conteggiato verso il limite di processi simultanei.
+* L'esecuzione dell'aggiornamento è stata limitata se si raggiunge il limite di 200 processi simultanei in un account di automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti conta come processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di Automazione viene conteggiato verso il limite di processi simultanei.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -415,7 +415,7 @@ Quando si registra un computer Windows in Gestione aggiornamenti, vengono visual
 
 In Windows gli aggiornamenti vengono installati automaticamente non appena sono disponibili. Questo comportamento può causare confusione se non è stato pianificato un aggiornamento da distribuire nel computer.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per impostazione predefinita, la chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` è impostata su 4: `auto download and install`.
 
@@ -437,7 +437,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Il computer è già stato distribuito in un'altra area di lavoro per Gestione aggiornamenti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Seguire i passaggi descritti in [I computer non vengono visualizzati nel portale in Gestione aggiornamenti](#nologs) per assicurarsi che il computer stia inviando report all'area di lavoro corretta.
 2. Eseguire la pulizia degli artefatti nel computer [eliminando il gruppo di runbook ibrido](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group) e riprovare.
@@ -468,7 +468,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un firewall. 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Esaminare le funzionalità di rete e assicurarsi che le porte e gli indirizzi appropriati siano consentiti. Vedere i [requisiti di rete](../automation-hybrid-runbook-worker.md#network-planning) per un elenco di porte e indirizzi richiesti da Gestione aggiornamenti e i ruoli di lavoro ibridi per runbook.
 
@@ -486,7 +486,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Il ruolo di lavoro ibrido per runbook non è riuscito a generare un certificato autofirmato.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
 
@@ -496,7 +496,7 @@ Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\
 
 La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. È possibile aumentare la finestra di manutenzione fino a un massimo di 6 ore o 360 minuti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
 
@@ -513,7 +513,7 @@ Per altre informazioni sulle finestre di manutenzione, vedere [Installa aggiorna
 
 L'Agente di aggiornamento (Agente di Windows Update in Windows; la gestione pacchetti per una distribuzione Linux) non è configurato correttamente. Gestione aggiornamenti si basa sul'Agente di aggiornamento del computer per offrire gli aggiornamenti necessari, lo stato della patch e i risultati delle patch distribuite. Senza queste informazioni Gestione aggiornamenti non può segnalare correttamente le patch necessarie o installate.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Provare a eseguire gli aggiornamenti localmente nel computer. Se l'operazione ha esito negativo, in genere significa che si è verificato un errore nella configurazione dell'agente di aggiornamento.
 

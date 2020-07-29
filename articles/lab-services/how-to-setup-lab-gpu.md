@@ -5,11 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443401"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286003"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurare un Lab con macchine virtuali GPU
 
@@ -31,7 +32,7 @@ Come descritto nella tabella seguente, le dimensioni della GPU di *calcolo* sono
 | ---- | ----- | --- | ----------- | 
 | GPU small (calcolo) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono ideali per applicazioni a elevato utilizzo di computer, ad esempio intelligenza artificiale e apprendimento avanzato. |
 
-Le dimensioni della GPU di *visualizzazione* sono destinate a applicazioni a elevato utilizzo di grafica.  Ad esempio, il [tipo di classe ingegneristica SolidWorks](./class-type-solidworks.md) Mostra l'uso della dimensione della **GPU (visualizzazione) piccola** .  La GPU di visualizzazione è adatta per questo tipo di classe, perché gli studenti interagiscono con l'ambiente SolidWorks 3D computerizzato (CAD) per la modellazione e la visualizzazione di oggetti solidi.
+Le dimensioni della GPU di *visualizzazione* sono destinate a applicazioni a elevato utilizzo di grafica.  Ad esempio, il [tipo di classe ingegneristica SolidWorks](./class-type-solidworks.md) Mostra l'uso della dimensione della **GPU (visualizzazione) piccola** .  La GPU di visualizzazione è adatta per questo tipo di classe, perché gli studenti interagiscono con l'ambiente SOLIDWORKs 3D computerizzato (CAD) per la modellazione e la visualizzazione di oggetti solidi.
 
 | Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
@@ -44,7 +45,7 @@ Per sfruttare i vantaggi delle funzionalità GPU delle VM Lab, assicurarsi che s
 ![Screenshot del "nuovo Lab" che mostra l'opzione "Installa driver GPU"](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Come illustrato nell'immagine precedente, questa opzione è abilitata per impostazione predefinita, in modo da garantire che i driver *più recenti* siano installati per il tipo di GPU e l'immagine selezionata.
-- Quando si seleziona una dimensione della GPU di *calcolo* , le macchine virtuali del Lab sono basate sulla GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  In questo caso, vengono installati i driver più recenti di [calcolo Unified Device Architecture (CUDA)](https://www.nvidia.com/object/io_69526.html) , che consente un calcolo ad alte prestazioni.
+- Quando si seleziona una dimensione della GPU di *calcolo* , le macchine virtuali del Lab sono basate sulla GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  In questo caso, vengono installati i driver più recenti di [calcolo Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) , che consente un calcolo ad alte prestazioni.
 - Quando si seleziona una dimensione della GPU di *visualizzazione* , le macchine virtuali del Lab sono basate sulla tecnologia GPU e [griglia](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf) [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) .  In questo caso, vengono installati i driver della griglia più recenti, che consente l'uso di applicazioni con utilizzo intensivo di grafica.
 
 ### <a name="install-the-drivers-manually"></a>Installare manualmente i driver
@@ -112,7 +113,7 @@ Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [
 Vedere gli articoli seguenti:
 
 - [Creare e gestire i lab per le classi](how-to-manage-classroom-labs.md)
-- [Tipo classe CAD (computer-aided design) SolidWorks](class-type-solidworks.md)
+- [Tipo classe CAD (computer-aided design) SOLIDWORKs](class-type-solidworks.md)
 - [Tipo classe MATLAB (Matrix Laboratory)](class-type-matlab.md)
 
 

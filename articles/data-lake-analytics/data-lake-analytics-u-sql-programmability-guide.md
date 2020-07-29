@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127418"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288948"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -125,7 +125,7 @@ Consultare la [le istruzioni di registrazione assembly](https://blogs.msdn.micro
 
 
 ### <a name="use-assembly-versioning"></a>Usare il controllo delle versioni degli assembly
-Attualmente, U-SQL usa .NET Framework versione 4.5. Verificare quindi che i propri assembly siano compatibili con tale versione di runtime.
+Attualmente, U-SQL usa la versione .NET Framework 4.7.2. Verificare quindi che i propri assembly siano compatibili con tale versione di runtime.
 
 Come indicato in precedenza, U-SQL esegue il codice in un formato a 64 bit (x64). Verificare quindi che il codice venga compilato per l'esecuzione su x64. In caso contrario verrà visualizzato l'errore di formato non corretto riportato sopra.
 
