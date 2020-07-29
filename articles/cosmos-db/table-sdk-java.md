@@ -8,11 +8,13 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: c562aa462248ffcf7c71ad247e05f0a7de15cdb3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.custom: devx-track-java
+ms.openlocfilehash: fc78688a413bf182d2a0489189a3ad9348ac4d21
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308118"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Java: note sulla versione e risorse
 > [!div class="op_single_selector"]

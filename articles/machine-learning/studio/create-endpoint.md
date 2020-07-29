@@ -1,6 +1,5 @@
 ---
-title: Creare endpoint del servizio Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): creare endpoint di servizio Web-Azure'
 description: Creazione di endpoint del servizio Web in Azure Machine Learning Studio (versione classica). Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo indipendente.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: e465d739c485009f68d6d5c5ecbb0850d73a6e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5fa2a4eb534a4cc6e7bf9542bfb250f216401c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696423"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282501"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creare endpoint per i servizi Web di Azure Machine Learning Studio distribuiti (classico)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 > [!NOTE]
 > Questo argomento descrive le tecniche applicabili a un servizio Web Machine Learning **classico** .
@@ -33,7 +36,7 @@ Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo ind
 
 1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 2. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci endpoint**. Nel portale dei servizi Web di Azure Machine Learning viene aperta la pagina dedicata agli endpoint del servizio Web.
-3. Fare clic su **New**.
+3. Fare clic su **Nuovo**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. I nomi degli endpoint devono contenere al massimo 24 caratteri alfanumerici (con lettere minuscole). Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [abilitare la registrazione per i servizi web Machine Learning](web-services-logging.md).
 
 ## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> Ridimensionare un servizio Web tramite l'aggiunta di altri endpoint

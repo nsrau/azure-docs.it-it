@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204736"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283470"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -52,7 +53,7 @@ Assicurarsi che il team delle operazioni di sicurezza riceva notifiche sugli eve
 Nel portale di registrazione di Azure è possibile verificare che le informazioni di contatto dell'amministratore includano i dettagli che notificano le operazioni di sicurezza. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizzare le sottoscrizioni di Azure in gruppi di gestione
-Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/governance/management-groups/create) offrono un livello di ambito superiore alle sottoscrizioni. È possibile organizzare le sottoscrizioni in contenitori denominati gruppi di gestione e applicare le condizioni di governance ai gruppi di gestione. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo di gestione.
+Se l'organizzazione ha molte sottoscrizioni, potrebbe essere necessario trovare una modalità di gestione efficiente dell'accesso, dei criteri e della conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/governance/management-groups/create) offrono un livello di ambito superiore alle sottoscrizioni. È possibile organizzare le sottoscrizioni in contenitori denominati gruppi di gestione e applicare le condizioni di governance ai gruppi di gestione. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo di gestione.
 
 È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni in una directory. A ogni directory viene assegnato un singolo gruppo di gestione di primo livello denominato gruppo di gestione radice. Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice consente di applicare i criteri globali e le assegnazioni RBAC a livello di directory.
 
@@ -181,7 +182,7 @@ Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un
 
 Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](../../cloud-services/cloud-services-choose-me.md).
 
-Per [Macchine virtuali di Microsoft Azure](/azure/virtual-machines/windows/overview), verificare che l'architettura di VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](/azure/virtual-machines/virtual-machines-windows-manage-availability). Si consiglia di usare set di scalabilità di macchine virtuali per le funzionalità di scalabilità automatica.
+Per [Macchine virtuali di Microsoft Azure](../../virtual-machines/windows/overview.md), verificare che l'architettura di VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](../../virtual-machines/windows/tutorial-availability-sets.md). Si consiglia di usare set di scalabilità di macchine virtuali per le funzionalità di scalabilità automatica.
 
 **Procedura consigliata**: la disposizione delle difese su più livelli in un'applicazione riduce le probabilità di riuscita degli attacchi. Implementare progettazioni sicure per le applicazioni tramite le funzionalità integrate della piattaforma di Azure.  
 **Dettaglio**: il rischio di attacco aumenta con le dimensioni (superficie di attacco) dell'applicazione. È possibile ridurre la superficie usando l'elenco degli elementi consentiti per chiudere lo spazio indirizzi IP esposto e le porte in ascolto non necessarie sui servizi di bilanciamento del carico ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [gateway applicazione di Azure](/azure/application-gateway/application-gateway-create-probe-portal)).
@@ -200,7 +201,7 @@ Azure prevede due [offerte di servizio](../../virtual-network/ddos-protection-ov
 - La protezione standard offre funzionalità avanzate di attenuazione degli attacchi DDoS contro gli attacchi alla rete e viene ottimizzata automaticamente per proteggere le specifiche risorse di Azure. La protezione è semplice da abilitare durante la creazione di reti virtuali. Può essere abilitata anche dopo la creazione e non richiede alcuna modifica delle applicazioni o delle risorse.
 
 ## <a name="enable-azure-policy"></a>Abilitare criteri di Azure
-[Criteri di Azure](/azure/governance/policy/overview) è un servizio di Azure che è possibile usare per creare, assegnare e gestire i criteri. Questi criteri applicano le regole e gli effetti sulle risorse, in modo che le risorse siano conformi agli standard aziendali e ai contratti di servizio. Criteri di Azure soddisfa questa esigenza valutando le risorse per la mancata conformità con i criteri assegnati.
+[Criteri di Azure](/azure/governance/policy/overview) è un servizio di Azure che è possibile usare per creare, assegnare e gestire i criteri. Questi criteri applicano le regole e gli effetti sulle risorse, in modo che le risorse siano conformi agli standard aziendali e ai contratti di servizio. Criteri di Azure soddisfa questa esigenza valutando la mancata conformità delle risorse ai criteri assegnati.
 
 Abilitare criteri di Azure per il monitoraggio e l'applicazione dei criteri scritti dall'organizzazione. In questo modo si garantisce la conformità ai requisiti di sicurezza aziendali o normativi gestendo centralmente i criteri di sicurezza nei carichi di lavoro cloud ibridi. Informazioni su come [creare e gestire i criteri per applicare la conformità](../../governance/policy/tutorials/create-and-manage.md). Per una panoramica degli elementi di un criterio, vedere [struttura delle definizioni di criteri di Azure](../../governance/policy/concepts/definition-structure.md) .
 

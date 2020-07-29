@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132943"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371788"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ Se non diversamente specificato, è consigliabile seguire tutte le procedure con
 
 Si prevede di continuare a aggiornare le raccomandazioni e le procedure consigliate elencate di seguito. Fornire l'input o qualsiasi correzione per questo documento usando il collegamento **feedback** nella parte inferiore di questo articolo.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure e SQL Istanza gestita supportano due tipi di autenticazione:
 
@@ -255,7 +255,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Creare e utilizzare ruoli personalizzati con le autorizzazioni esatte necessarie. Ruoli tipici usati in pratica:
   - Distribuzione della sicurezza
   - Amministratore
-  - Sviluppatore
+  - Developer
   - Personale di supporto
   - Revisore
   - Processi automatizzati
@@ -266,7 +266,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Tenere presente che le autorizzazioni nel motore di database possono essere applicate all'interno degli ambiti seguenti (minore sarà l'ambito, minore sarà l'effetto delle autorizzazioni concesse):
   - Server (ruoli speciali nel database master) in Azure
   - Database
-  - SCHEMA
+  - Schema
     - È consigliabile utilizzare gli schemi per concedere autorizzazioni all'interno di un database. (vedere anche: [progettazione schema: suggerimenti per la progettazione dello schema tenendo presente la sicurezza](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Oggetto (tabella, vista, procedura e così via)
 
@@ -324,7 +324,7 @@ La separazione dei compiti, detta anche separazione dei compiti, descrive la nec
 
 - Assicurarsi sempre di avere un audit trail per le azioni correlate alla sicurezza.
 
-- È possibile recuperare la definizione dei ruoli controllo degli accessi in base al ruolo predefiniti per visualizzare le autorizzazioni usate e creare un ruolo personalizzato basato su estratti e cumulativi di questi ruoli tramite PowerShell.
+- È possibile recuperare la definizione dei ruoli predefiniti di Azure per visualizzare le autorizzazioni usate e creare un ruolo personalizzato basato su estratti e cumulativi di questi ruoli tramite PowerShell.
 
 - Poiché qualsiasi membro del ruolo del database db_owner può modificare le impostazioni di sicurezza come Transparent Data Encryption (Transparent Data Encryption) o modificare il SLO, questa appartenenza deve essere concessa con cautela. Tuttavia, esistono molte attività che richiedono privilegi di db_owner. Attività come la modifica delle impostazioni del database, ad esempio la modifica delle opzioni di database. Il controllo svolge un ruolo chiave in qualsiasi soluzione.
 

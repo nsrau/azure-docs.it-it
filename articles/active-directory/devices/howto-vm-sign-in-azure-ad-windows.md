@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025847"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282943"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -208,7 +208,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
 > [!IMPORTANT]
-> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 Azure AD Uniti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli RBAC, account di accesso dell'amministratore della macchina virtuale o accesso utente della macchina virtuale. Attualmente, Azure Bastion non può essere usato per eseguire l'accesso con l'autenticazione di Azure Active Directory con l'estensione AADLoginForWindows. È supportato solo il protocollo RDP diretto.
+> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 che sono Azure AD registrati (la compilazione minima richiesta è 20H1) o Azure AD aggiunti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli RBAC, account di accesso dell'amministratore della macchina virtuale o accesso utente della macchina virtuale. Se si usa un Azure AD PC Windows 10 registrato, è necessario immettere le credenziali nel formato AzureAD\UPN, ad AzureAD\john@contoso.com esempio. Attualmente, non è possibile usare Azure Bastion per accedere usando l'autenticazione di Azure Active Directory con l'estensione AADLoginForWindows. è supportato solo il protocollo RDP diretto.
 
 Per accedere alla macchina virtuale Windows Server 2019 usando Azure AD: 
 
@@ -224,7 +224,7 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 
@@ -342,7 +342,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 Verificare che il PC Windows 10 che si sta usando per avviare la connessione Desktop remoto sia un Azure AD Unito o ibrido Azure AD aggiunto alla stessa directory di Azure AD a cui è stata aggiunta la macchina virtuale. Per altre informazioni sull'identità del dispositivo, vedere l'articolo [che cos'è un'identità del dispositivo](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> Windows 10 20H1 consente di aggiungere il supporto per Azure AD PC registrato per avviare una connessione Desktop remoto alla macchina virtuale. Partecipa al programma Windows Insider per provare questa funzionalità ed esplorare le nuove funzionalità di Windows 10.
+> Windows 10 Build 20H1 è stato aggiunto il supporto per un computer Azure AD registrato per avviare la connessione RDP alla macchina virtuale. Quando si usa Azure AD un computer registrato (non Azure AD aggiunto o ibrido Azure AD aggiunto) come client RDP per avviare le connessioni alla macchina virtuale, è necessario immettere le credenziali nel formato AzureAD\UPn (ad esempio AzureAD\john@contoso.com ).
 
 Verificare inoltre che l'estensione AADLoginForWindows non sia stata disinstallata dopo il completamento di Azure AD join.
  

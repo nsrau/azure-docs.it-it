@@ -6,50 +6,41 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/27/2020
 ms.author: raynew
-ms.openlocfilehash: f42942d0e112aad147f78d62b5f5b43587eca9b3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: aaf01dcd63c21e4741456f4f7fccaf22b8fbfffc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135601"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281311"
 ---
 # <a name="about-migration"></a>Informazioni sulla migrazione
 
-Leggere questo articolo per una rapida panoramica del modo in cui il servizio [Azure Site Recovery](site-recovery-overview.md) consenta di eseguire la migrazione dei computer. 
-
-> [!TIP]
-> A questo punto, è consigliabile usare il servizio Azure Migrate per eseguire la migrazione di VM e server in Azure, anziché Azure Site Recovery servizio. [Altre informazioni](../migrate/migrate-services-overview.md)
+Usare il servizio Azure Migrate per eseguire la migrazione di VM e server in Azure, anziché Azure Site Recovery servizio. [Altre](../migrate/migrate-services-overview.md) informazioni su Azure migrate.
 
 
-Di seguito sono riportate le operazioni di migrazione che è possibile eseguire con Site Recovery:
+## <a name="why-use-azure-migrate"></a>Vantaggi di Azure Migrate
 
-- **Eseguire la migrazione da locale ad Azure**: Eseguire la migrazione da server fisici e VM Hyper-V e VMware locali ad Azure. Al termine della migrazione, i carichi di lavoro in esecuzione nei computer locali verranno eseguiti in VM di Azure. 
-- **Eseguire la migrazione all'interno di Azure**. Eseguire la migrazione di VM di Azure tra aree di Azure. 
-- **Eseguire la migrazione da AWS**. Eseguire la migrazione di istanze Windows AWS a VM IaaS di Azure. 
+L'uso di Azure Migrate per la migrazione offre diversi vantaggi:
+ 
+ 
+- Azure Migrate offre un hub centralizzato per l'individuazione, la valutazione e la migrazione ad Azure.
+- L'uso di Azure Migrate garantisce l'interoperabilità e l'estendibilità futura con strumenti Azure Migrate, altri servizi di Azure e strumenti di terze parti.
+- Lo strumento di migrazione Azure Migrate: Server è progettato per la migrazione del server in Azure. È ottimizzato per la migrazione. Non è necessario apprendere i concetti e gli scenari che non sono direttamente rilevanti per la migrazione. 
+- Non sono previsti addebiti per l'utilizzo degli strumenti per la migrazione per 180 giorni, dal momento in cui viene avviata la replica per una macchina virtuale. Questa operazione consente di completare la migrazione. Paghi solo per le risorse di archiviazione e di rete utilizzate per la replica e per i costi di calcolo utilizzati durante le migrazioni di test.
+- Per le macchine virtuali VMware, Azure Migrate consente la migrazione senza agenti, oltre alla migrazione basata su agenti.
+- Le nuove funzionalità di migrazione vengono classificate in ordine di priorità per lo strumento di migrazione Azure Migrate: Server.
 
-> [!NOTE]
-> È ora possibile eseguire la migrazione dall'ambiente locale ad Azure usando il servizio Azure Migrate. [Altre informazioni](../migrate/migrate-services-overview.md)
+## <a name="when-to-use-site-recovery"></a>Quando usare Site Recovery?
 
-## <a name="what-do-we-mean-by-migration"></a>Informazioni sulla migrazione
+Usare Site Recovery:
 
-Oltre a usare Site Recovery per il ripristino di emergenza di VM di Azure e locali è possibile usare il servizio Site Recovery per eseguirne la migrazione. Qual è la differenza?
+- Per il ripristino di emergenza di computer locali in Azure.
+- Per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure.
 
-- Per il ripristino di emergenza, replicare le macchine a intervalli regolari in Azure. Quando si verifica un'interruzione, effettuare quindi il failover dei computer dal sito primario al sito secondario di Azure e accedere ai computer da Azure. Quando il sito primario è di nuovo disponibile, effettuare il failback da Azure.
-- Per la migrazione eseguire la replica dei computer locali in Azure o delle VM di Azure in un'area secondaria. Eseguire quindi il failover della VM dal sito primario al secondario e completare il processo di migrazione. Non viene eseguito il failback.  
-
-
-## <a name="migration-scenarios"></a>Scenari di migrazione
-
-**Scenario** | **Dettagli**
---- | ---
-**Eseguire la migrazione da locale ad Azure** | Eseguire la migrazione da server fisici e VM Hyper-V e VMware locali ad Azure. A tale scopo, effettuare una procedura simile a quella che si esegue per un ripristino di emergenza completo. Semplicemente non si esegue il failback dei computer da Azure al sito locale.
-**Eseguire la migrazione tra aree di Azure** | È possibile eseguire la migrazione delle VM di Azure da un'area di Azure a un'altra. Una volta completata la migrazione, è ora possibile configurare il ripristino di emergenza per le VM di Azure nell'area secondaria in cui è eseguita la migrazione.
-**Eseguire la migrazione da AWS ad Azure** | È possibile eseguire la migrazione di istanze AWS a VM di Azure. Ai fini della migrazione, Site Recovery gestisce le istanze AWS come i server fisici. 
+Sebbene sia consigliabile usare Azure Migrate per eseguire la migrazione di server locali ad Azure, se è già stato avviato il percorso di migrazione con Site Recovery, è possibile continuare a usarlo per completare la migrazione.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire la migrazione di computer locali ad Azure](migrate-tutorial-on-premises-azure.md)
-- [Eseguire la migrazione di VM da un'area di Azure a un'altra](azure-to-azure-tutorial-migrate.md)
-- [Eseguire la migrazione da AWS ad Azure](migrate-tutorial-aws-azure.md)
+> [Esaminare le domande frequenti](../migrate/resources-faq.md) su Azure migrate.

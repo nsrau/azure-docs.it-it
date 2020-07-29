@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127197"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372323"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -123,7 +123,7 @@ Il diagramma seguente rappresenta il flusso di lavoro per l'autenticazione Azure
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurare le autorizzazioni a livello di condivisione per File di Azure
 
-Quando è abilitata l'autenticazione di servizi di dominio Active Directory Azure AD DS o locale, è possibile usare i ruoli RBAC predefiniti o configurare ruoli personalizzati per le identità di Azure AD e assegnare i diritti di accesso a tutte le condivisioni file negli account di archiviazione. L'autorizzazione assegnata consente all'identità concessa di ottenere l'accesso solo alla condivisione, nient'altro, neanche alla directory radice. È comunque necessario configurare separatamente le autorizzazioni a livello di directory o di file per le condivisioni file di Azure.
+Quando è abilitata l'autenticazione di servizi di dominio Active Directory Azure AD DS o locale, è possibile usare i ruoli predefiniti di Azure o configurare ruoli personalizzati per le identità di Azure AD e assegnare diritti di accesso a tutte le condivisioni file negli account di archiviazione. L'autorizzazione assegnata consente all'identità concessa di ottenere l'accesso solo alla condivisione, nient'altro, neanche alla directory radice. È comunque necessario configurare separatamente le autorizzazioni a livello di directory o di file per le condivisioni file di Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configurare le autorizzazioni a livello di directory o di file per File di Azure
 

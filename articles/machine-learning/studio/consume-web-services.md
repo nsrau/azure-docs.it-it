@@ -1,6 +1,5 @@
 ---
-title: Usare un servizio Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classico): utilizzo di servizi Web-Azure'
 description: Una volta distribuito un servizio di Machine Learning dalla Azure Machine Learning Studio (classica), il servizio Web RESTful può essere utilizzato come servizio di richiesta-risposta in tempo reale o come servizio di esecuzione batch.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec88d501fbc262275484f3abaeb7326d963a16e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282518"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Azure Machine Learning Studio (classico)
+# <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Machine Learning Studio (classico)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 Una volta distribuito un modello predittivo di Azure Machine Learning Studio (classico) come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 7eaf8b6b5cddc8a01b59cda0cafc819e06a5ec7c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005005"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283147"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -138,7 +139,7 @@ Ora che i pacchetti necessari sono installati nella macchina virtuale e NTP è c
     Anche in questo caso, il nome di dominio gestito deve essere specificato in MAIUSCOLo. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aaddscontoso.com` per inizializzare Kerberos. Immettere il proprio account utente che fa parte del dominio gestito:
 
     ```console
-    kinit contosoadmin@AADDSCONTOSO.COM
+    kinit -V contosoadmin@AADDSCONTOSO.COM
     ```
 
 1. Infine, aggiungere la macchina virtuale al dominio gestito usando il `realm join` comando. Usare lo stesso account utente che fa parte del dominio gestito specificato nel `kinit` comando precedente, ad esempio `contosoadmin@AADDSCONTOSO.COM` :
@@ -182,7 +183,7 @@ Uno dei pacchetti installati in un passaggio precedente è stato per il daemon d
 1. Per applicare la modifica, riavviare il servizio SSSD:
 
     ```console
-    sudo service sssd restart
+    sudo systemctl restart sssd
     ```
 
 ## <a name="configure-user-account-and-group-settings"></a>Configurare le impostazioni dell'account utente e del gruppo

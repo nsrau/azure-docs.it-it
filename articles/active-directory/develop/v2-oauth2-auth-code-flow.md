@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311348"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Flusso del codice di autorizzazione OAuth 2.0 e Microsoft Identity Platform
 
@@ -34,9 +34,11 @@ A livello generale, l'intero flusso di autenticazione per un'applicazione ha un 
 
 ![Flusso del codice di autenticazione di OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Configurazione richiesta per le app a pagina singola
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Installazione dell'URI di reindirizzamento necessaria per le app a singola pagina
 
-Il flusso del codice di autorizzazione per le applicazioni a pagina singola richiede una configurazione aggiuntiva.  Durante la [creazione dell'applicazione](howto-create-service-principal-portal.md), è necessario contrassegnare l'URI di reindirizzamento per l'app come URI di reindirizzamento `spa`. In questo modo il server di accesso consente la condivisione di risorse tra le origini (CORS) per l'app.  Questa operazione è necessaria per riscattare il codice usando XHR.
+Il flusso del codice di autorizzazione per le applicazioni a pagina singola richiede una configurazione aggiuntiva.  Seguire le istruzioni per la [creazione dell'applicazione a singola pagina](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) per contrassegnare correttamente l'URI di reindirizzamento come abilitato per CORS. Per aggiornare un URI di reindirizzamento esistente per abilitare CORS, aprire l'editor del manifesto e impostare il `type` campo per l'URI di reindirizzamento su `spa` nella `replyUrlsWithType` sezione. È anche possibile fare clic sull'URI di reindirizzamento nella sezione "Web" della scheda autenticazione e selezionare gli URI di cui si vuole eseguire la migrazione usando il flusso del codice di autorizzazione.
+
+Il `spa` tipo di reindirizzamento è compatibile con le versioni precedenti del flusso implicito. Le app che usano attualmente il flusso implicito per ottenere i token possono passare al `spa` tipo di URI di reindirizzamento senza problemi e continuare a usare il flusso implicito.
 
 Se si tenta di usare il flusso del codice di autorizzazione e si verifica questo errore:
 
@@ -64,17 +66,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Fare clic sul collegamento seguente per eseguire questa richiesta. Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `code` nella barra degli indirizzi.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parametro    | Obbligatorio/Facoltativo | Descrizione |
+| Parametro    | Obbligatoria/facoltativa | Description |
 |--------------|-------------|--------------|
-| `tenant`    | obbligatorio    | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
+| `tenant`    | necessario    | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | obbligatorio    | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).  |
 | `response_type` | obbligatorio    | Deve includere `code` per il flusso del codice di autorizzazione.       |
-| `redirect_uri`  | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | necessarie | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | obbligatorio    | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  Per la parte `/authorize` della richiesta, può coprire più risorse, consentendo all'app di ottenere il consenso per più API Web che si vuole chiamare. |
 | `response_mode`   | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere uno dei valori seguenti:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile usare `query` come indicato nella [specifica OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue un POST contenente il codice all'URI di reindirizzamento. Per altre informazioni, vedere [Protocollo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Questo valore può essere usato anche per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| `prompt`  | facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente mediante Single-Sign-On, l'endpoint di Microsoft Identity Platform restituirà un errore `interaction_required`.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app.<br/>- `prompt=select_account` interromperà Single Sign-On fornendo l'esperienza di selezione dell'account elencando tutti gli account nella sessione o qualsiasi account memorizzato o un'opzione per scegliere di usare un account diverso.<br/> |
-| `login_hint`  | facoltativo    | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.   |
+| `prompt`  | facoltative    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente mediante Single-Sign-On, l'endpoint di Microsoft Identity Platform restituirà un errore `interaction_required`.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app.<br/>- `prompt=select_account` interromperà Single Sign-On fornendo l'esperienza di selezione dell'account elencando tutti gli account nella sessione o qualsiasi account memorizzato o un'opzione per scegliere di usare un account diverso.<br/> |
+| `login_hint`  | facoltative    | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.   |
 | `domain_hint`  | facoltativo    | Se incluso, non verrà eseguito il processo di individuazione basato sulla posta elettronica a cui viene sottoposto l'utente nella pagina di accesso. Questo comporta un'esperienza utente leggermente semplificata, ad esempio inviando quest'ultimo al provider di identità federato. Le app usano spesso questo parametro durante la riautenticazione, estraendo `tid` da un accesso precedente. Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`. In caso contrario, usare `domain_hint=organizations`.  |
 | `code_challenge`  | consigliato / obbligatorio | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE). Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è ora consigliata per tutti i tipi di applicazioni: app native, applicazione a pagina singola e client riservati come le app Web. |
 | `code_challenge_method` | consigliato / obbligatorio | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. I possibili valori sono i seguenti:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. Microsoft Identity Platform supporta `plain` e `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è obbligatoria per [app a pagina singola che usano il flusso del codice di autorizzazione](reference-third-party-cookies-spas.md).|
@@ -152,14 +154,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire il `code`) [![Prova a eseguire la richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire il `code`) [![ Provare a eseguire la richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Parametro  | Obbligatorio/Facoltativo | Descrizione     |
+| Parametro  | Obbligatoria/facoltativa | Description     |
 |------------|-------------------|----------------|
-| `tenant`   | obbligatorio   | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
+| `tenant`   | necessario   | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | obbligatorio  | ID dell'applicazione (client) che la pagina [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
 | `grant_type` | obbligatorio   | Deve essere `authorization_code` per il flusso del codice di autorizzazione.   |
-| `scope`      | facoltative   | Elenco di ambiti separati da spazi. Gli ambiti devono appartenere tutti a una singola risorsa, insieme agli ambiti OIDC (`profile`, `openid`, `email`). Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). Si tratta di un'estensione Microsoft per il flusso del codice di autorizzazione, destinata a consentire alle app di dichiarare la risorsa per cui si desidera il token durante il riscatto del token.|
+| `scope`      | facoltative   | Elenco di ambiti separato da spazi. Gli ambiti devono appartenere tutti a una singola risorsa, insieme agli ambiti OIDC (`profile`, `openid`, `email`). Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). Si tratta di un'estensione Microsoft per il flusso del codice di autorizzazione, destinata a consentire alle app di dichiarare la risorsa per cui si desidera il token durante il riscatto del token.|
 | `code`          | obbligatorio  | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
 | `redirect_uri`  | obbligatorio  | Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
 | `client_secret` | obbligatorio per app Web riservate | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. Non è consigliabile usare il segreto dell'applicazione in un'app nativa o a pagina singola poiché i segreti client non possono essere archiviati in modo affidabile su dispositivi e pagine Web. Il segreto è obbligatorio per le app Web e le API Web che possono archiviare in modo sicuro il segreto client sul lato server.  Prima di essere inviato, il segreto client deve essere codificato come URL. Per altre informazioni sulla codifica URI, vedere la [specifica della sintassi generica URI](https://tools.ietf.org/html/rfc3986#page-12). |
@@ -167,7 +169,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="successful-response"></a>Risposta con esito positivo
 
-Una risposta token con esito positivo ha un aspetto simile al seguente:
+Una risposta di token di esito positivo sarà simile alla seguente:
 
 ```json
 {
@@ -229,7 +231,7 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
 > [!NOTE]
-> Le app a pagina singola possono ricevere un errore `invalid_request` che indica che il riscatto del token tra le origini è consentito solo per il tipo di client "Applicazione a pagina singola".  Ciò indica che l'URI di reindirizzamento usato per richiedere il token non è stato contrassegnato come URI di reindirizzamento `spa`.  Esaminare i [passaggi di registrazione dell'applicazione](#setup-required-for-single-page-apps) su come abilitare questo flusso.
+> Le app a pagina singola possono ricevere un errore `invalid_request` che indica che il riscatto del token tra le origini è consentito solo per il tipo di client "Applicazione a pagina singola".  Ciò indica che l'URI di reindirizzamento usato per richiedere il token non è stato contrassegnato come URI di reindirizzamento `spa`.  Esaminare i [passaggi di registrazione dell'applicazione](#redirect-uri-setup-required-for-single-page-apps) su come abilitare questo flusso.
 
 ## <a name="use-the-access-token"></a>Usare il token di accesso
 

@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1e99556b0a0c5b7559cc03b152a19e78aeb58f6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283045"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
 
@@ -52,7 +53,7 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
    1. Selezionare **Operazione completata**.
 1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
    1. In **Escludi**selezionare le applicazioni che non richiedono l'autenticazione a più fattori.
-1. In **condizioni**  >  **app client (anteprima)** impostare **Configura** su **Sì**. In **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionati tutti i valori predefiniti e selezionare **fine**.
+1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
@@ -67,8 +68,8 @@ Nei criteri di esempio precedenti, un'organizzazione può scegliere di non richi
    1. Configurare **Sì**.
    1. Includere **Tutte le località**.
    1. Escludere **Tutte le posizioni attendibili**.
-   1. Selezionare **Operazione completata**.
-1. Selezionare **Operazione completata**.
+   1. Selezionare **Fine**.
+1. Selezionare **Fine**.
 1. **Salvare** le modifiche apportate ai criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi

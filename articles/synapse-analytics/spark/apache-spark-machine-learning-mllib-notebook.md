@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 8cd189bf4037d42348d9a94c47cf0122e63af58f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089295"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373454"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Creare un'app di Machine Learning con MLlib di Apache Spark e Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Ora che sono presenti due dataframe, l'attività successiva consiste nel creare la formula del modello ed eseguirla nel dataframe di training, quindi convalidare il dataframe di test. È consigliabile provare versioni diverse della formula del modello per vedere l'effetto di combinazioni diverse.
 
 > [!Note]
-> Per salvare il modello, sarà necessario il ruolo RBAC di Collaboratore ai dati del BLOB del servizio di archiviazione di Azure. Quando si è posizionati nell'account di archiviazione, passare a Controllo di accesso (IAM) e selezionare Aggiungi un'assegnazione di ruolo. Assegnare il ruolo RBAC di Collaboratore ai dati del BLOB di archiviazione al server di database SQL. Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Per salvare il modello, sarà necessario il ruolo RBAC di Collaboratore ai dati del BLOB del servizio di archiviazione di Azure. Quando si è posizionati nell'account di archiviazione, passare a Controllo di accesso (IAM) e selezionare Aggiungi un'assegnazione di ruolo. Assegnare il ruolo RBAC di Collaboratore ai dati del BLOB di archiviazione al server di database SQL. Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, fare riferimento a questa [Guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

@@ -3,12 +3,12 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310447"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -22,7 +22,7 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 - Se l'app viene distribuita in una VM di Azure o in un set di scalabilità di macchine virtuali di Azure, seguire [queste istruzioni](azure-vm-vmss-apps.md).
 - Se l'app viene distribuita in servizi app di Azure, seguire [queste istruzioni](azure-web-apps.md).
 - Se l'app viene distribuita in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure.
-- Sono inoltre disponibili articoli distinti sulla strumentazione [dei servizi cloud di Azure](../../azure-monitor/app/cloudservices.md).
+- Sono inoltre disponibili articoli distinti sulla strumentazione [dei servizi cloud di Azure](./cloudservices.md).
 
 
 ![Screenshot dei grafi della panoramica di Application Insights contenente informazioni su richieste non riuscite, tempo di risposta del server e richieste server](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -39,13 +39,13 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 |  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| **Richieste & eccezioni** |Sì |Sì |
-| **[Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md)** | |Sì |
-| **[Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)** |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| **[Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md)** |Sì |Sì |
+| **Richieste & eccezioni** |sì |Sì |
+| **[Eccezioni più dettagliate](./asp-net-exceptions.md)** | |Sì |
+| **[Diagnostica delle dipendenze](./asp-net-dependencies.md)** |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
+| **[Contatori delle prestazioni di sistema](./performance-counters.md)** |sì |Sì |
 | **[API per la telemetria personalizzata][api]** |Sì |No |
-| **[Integrazione del log di traccia](../../azure-monitor/app/asp-net-trace-logs.md)** |Sì |No |
-| **[Visualizzazione pagina & dati utente](../../azure-monitor/app/javascript.md)** |Sì |No |
+| **[Integrazione del log di traccia](./asp-net-trace-logs.md)** |Sì |No |
+| **[Visualizzazione pagina & dati utente](./javascript.md)** |Sì |No |
 | **Ricompilazione del codice necessaria** |Sì | No |
 
 
@@ -70,7 +70,7 @@ Se l'app è ospitata in un server IIS, abilitare Application Insights usando Sta
 
 ## <a name="customize-monitoring-options"></a>Personalizzare le opzioni di monitoraggio
 
-L'abilitazione di Application Insights aggiunge DLL e il file ApplicationInsights.config all'app Web. È possibile [modificare il file con estensione config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) per modificare alcune opzioni.
+L'abilitazione di Application Insights aggiunge DLL e il file ApplicationInsights.config all'app Web. È possibile [modificare il file con estensione config](./configuration-with-applicationinsights-config.md) per modificare alcune opzioni.
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>Quando si ripubblica l'app, riabilitare Application Insights
 
@@ -106,7 +106,7 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 
 ### <a name="cant-connect-no-telemetry"></a>Nessuna connessione? Nessun dato di telemetria?
 
-* Per consentire il funzionamento di Status Monitor, aprire le [porte in uscita necessarie](../../azure-monitor/app/ip-addresses.md#outgoing-ports) nel firewall del server.
+* Per consentire il funzionamento di Status Monitor, aprire le [porte in uscita necessarie](./ip-addresses.md#outgoing-ports) nel firewall del server.
 
 ### <a name="unable-to-login"></a>Non è possibile effettuare l'accesso
 
@@ -261,7 +261,7 @@ Un'applicazione desktop che viene installata nel server Web IIS e consente di in
 ### <a name="when-do-i-use-status-monitor"></a>Quando si usa Status Monitor?
 
 * Per instrumentare qualsiasi app Web eseguita nel server IIS, anche se è già in esecuzione.
-* Per abilitare altri dati di telemetria per le app Web [compilate con Application Insights SDK](../../azure-monitor/app/asp-net.md) in fase di compilazione. 
+* Per abilitare altri dati di telemetria per le app Web [compilate con Application Insights SDK](./asp-net.md) in fase di compilazione. 
 
 ### <a name="can-i-close-it-after-it-runs"></a>È possibile chiudere Status Monitor dopo l'esecuzione?
 
@@ -319,7 +319,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
 
 Visualizzare i dati di telemetria:
 
-* [Esaminare le metriche](../../azure-monitor/platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo
+* [Esaminare le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo
 * Per diagnosticare i problemi, vedere [Eventi e log di ricerca][diagnostic]
 * Per informazioni sulle query più avanzate, vedere [Analytics](../log-query/log-query-overview.md)
 
@@ -331,11 +331,12 @@ Aggiungere altri dati di telemetria:
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+

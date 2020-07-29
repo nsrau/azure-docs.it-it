@@ -3,15 +3,16 @@ title: Verificare lo stato di crittografia per Linux - Crittografia dischi di Az
 description: Questo articolo contiene istruzioni su come verificare lo stato di crittografia dai livelli della piattaforma e del sistema operativo.
 author: kailashmsft
 ms.service: security
-ms.topic: article
+ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 58bb3f38938414f25551d0df47a50b6a8f386acc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873992"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283334"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Verificare lo stato di crittografia per Linux 
 
@@ -279,7 +280,7 @@ az storage account list --query [].[id] -o tsv
 ```
 Gli ID degli account di archiviazione sono elencati nel formato seguente:
 
-/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Storage/storageAccounts/\<nome account archiviazione>
+/Subscriptions/ \<subscription id> /ResourceGroups/ \<resource group name> /providers/Microsoft.storage/storageAccounts/\<storage account name>
 
 Selezionare l'ID appropriato e archiviarlo in una variabile:
 ```bash

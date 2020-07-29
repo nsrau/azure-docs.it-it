@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075757"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281388"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -58,7 +58,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Amministratore|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -68,7 +68,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 L'elenco seguente contiene gli stati di avviso comuni usati da Ambari:
 
 * **OK**
-* **Avviso**
+* **Warning**
 * **CRITICO**
 * **UNKNOWN**
 
@@ -107,6 +107,7 @@ Per altre informazioni sui nodi presenti nel cluster, selezionare **Host**. Quin
 ### <a name="services"></a>Servizi
 
 La barra laterale **Services** sul dashboard fornisce informazioni rapide sullo stato dei servizi in esecuzione nel cluster. Vengono usate varie icone per indicare lo stato o le azioni da eseguire. Un simbolo di riciclo giallo, ad esempio, indica che un servizio deve essere riciclato.
+
 
 ![Barra laterale dei servizi Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -161,7 +162,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si stanno eseguendo azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Arresto|Arresta dataNode o NodeManagers nell'host.|
-    |Avvia|Avvia dataNode o NodeManagers nell'host.|
+    |Avvio|Avvia dataNode o NodeManagers nell'host.|
     |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|
@@ -170,10 +171,10 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 Nella pagina **Dashboard** (Dashboard) o **Services** (Servizi) usare il pulsante **Actions** (Azioni) nella parte inferiore dell'elenco di servizi per arrestare e avviare tutti i servizi.
 
-![Elenco di azioni del servizio Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Elenco di azioni del servizio Apache Ambari." border="true":::
 
 > [!WARNING]  
-> Anche se **Add Service** (Aggiungi servizio) è elencato in questo menu, non deve essere usato per aggiungere servizi al cluster HDInsight. È necessario aggiungere nuovi servizi.utilizzando un'azione di Script durante il provisioning del cluster. Per altre informazioni su come utilizzare le azioni di script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
+> È necessario aggiungere nuovi servizi.utilizzando un'azione di Script durante il provisioning del cluster. Per altre informazioni su come utilizzare le azioni di script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desidera avviare, arrestare o riavviare un servizio specifico. Per eseguire azioni su un singolo servizio, attenersi alla procedura seguente:
 

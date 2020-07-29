@@ -6,18 +6,15 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bcafdbdfd07456a01d956b622d9c5e6ed4b0b6f2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023568"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371856"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Usare chiavi gestite dal cliente per crittografare i dati di configurazione dell'app
 App Azure configurazione [Crittografa le informazioni riservate](../security/fundamentals/encryption-atrest.md)inattive. L'uso delle chiavi gestite dal cliente offre protezione avanzata dei dati consentendo di gestire le chiavi di crittografia.  Quando si usa la crittografia con chiave gestita, tutte le informazioni riservate nella configurazione dell'app vengono crittografate con una chiave di Azure Key Vault fornita dall'utente.  Questa funzionalità consente di ruotare la chiave di crittografia su richiesta.  Consente inoltre di revocare l'accesso app Azure configurazione alle informazioni riservate revocando l'accesso dell'istanza di configurazione dell'app alla chiave.
-
-> [!NOTE]
-> Le chiavi gestite dal cliente sono ora disponibili a livello generale in tutte le aree, *ad eccezione* dell'India centrale. Nell'area **India centrale** , app Azure configurazione offre l'uso delle chiavi gestite dal cliente come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.
 
 ## <a name="overview"></a>Panoramica 
 App Azure configurazione crittografa le informazioni riservate inattive usando una chiave di crittografia AES a 256 bit fornita da Microsoft. Ogni istanza di configurazione dell'app ha una propria chiave di crittografia gestita dal servizio e usata per crittografare le informazioni riservate. Le informazioni riservate includono i valori disponibili nelle coppie chiave-valore.  Quando è abilitata la funzionalità della chiave gestita dal cliente, la configurazione dell'app usa un'identità gestita assegnata all'istanza di configurazione dell'app per l'autenticazione con Azure Active Directory. L'identità gestita chiama quindi Azure Key Vault e esegue il wrapping della chiave di crittografia dell'istanza di configurazione dell'app. La chiave di crittografia di cui è stato eseguito il wrapped viene quindi archiviata e la chiave di crittografia di cui è stato eseguito il wrapped viene memorizzata nella cache La configurazione dell'app Aggiorna la chiave di crittografia dell'istanza di configurazione dell'app per ogni ora. In questo modo si garantisce la disponibilità in condizioni operative normali. 
@@ -81,7 +78,7 @@ Per iniziare, sarà necessario disporre di un'istanza di configurazione app Azur
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
-    L'output di questo comando include l'ID principale ("principalId") e l'ID tenant ("tenandId") dell'identità assegnata dal sistema.  Questa operazione verrà usata per concedere all'identità l'accesso alla chiave gestita.
+    L'output di questo comando include l'ID principale ("principalId") e l'ID tenant ("tenandId") dell'identità assegnata dal sistema.  Questi ID verranno usati per concedere all'identità l'accesso alla chiave gestita.
 
     ```json
     {

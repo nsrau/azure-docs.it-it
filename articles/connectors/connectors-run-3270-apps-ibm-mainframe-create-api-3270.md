@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281481"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app gestite da schermo 3270 in mainframe IBM con Azure usando App per la logica di Azure e il connettore IBM 3270
 
@@ -292,7 +292,7 @@ In questa modalità si definisce un metodo associato al piano di navigazione. Pe
    |---------------|-----------------|
    | **Tipo di dati** | Byte, data e ora, Decimal, int, Long, short, String |
    | **Tecnica di riempimento campo** | I parametri supportano questi tipi di riempimento, inserendo spazi vuoti se necessario: <p><p>- **Tipo**: immettere i caratteri in sequenza nel campo. <p>- **Fill**: sostituisce il contenuto del campo con i caratteri, se necessario, inserendo gli spazi vuoti. <p>- **EraseEofType**: cancellare il campo, quindi immettere i caratteri in sequenza nel campo. |
-   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa di formato `MM/dd/yyyy` . <p>- **Decimal**: la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99` . |
+   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa di formato `MM/dd/yyyy` . <p>- **Decimal**: la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvare e visualizzare i metadati
@@ -409,7 +409,7 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/si3270/).
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/si3270/).
 
 > [!NOTE]
 > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -417,3 +417,4 @@ Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+

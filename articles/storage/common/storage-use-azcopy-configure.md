@@ -4,16 +4,16 @@ description: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282433"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -28,7 +28,7 @@ AzCopy è un'utilità della riga di comando che è possibile usare per copiare i
 
 ## <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-Per configurare le impostazioni proxy per AzCopy, impostare la `https_proxy` variabile di ambiente. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, eseguirà l'override del rilevamento automatico.
+Per configurare le impostazioni proxy per AzCopy, impostare la `https_proxy` variabile di ambiente. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, verrà eseguito l'override del rilevamento automatico.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -42,7 +42,7 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 
 Se si esegue AzCopy in Windows e si vuole indicare che non deve usare _alcun_ proxy (anziché rilevare automaticamente le impostazioni), usare questi comandi. Con queste impostazioni, AzCopy non cercherà o tenterà di usare un proxy.
 
-| Sistema operativo | Ambiente | Comandi  |
+| Sistema operativo | Environment | Comandi:  |
 |--------|-----------|----------|
 | **Windows** | Prompt dei comandi (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
@@ -63,7 +63,7 @@ Questa sezione consente di eseguire queste attività di ottimizzazione:
 
 ### <a name="run-benchmark-tests"></a>Eseguire test di benchmark
 
-È possibile eseguire un test di benchmark delle prestazioni in contenitori BLOB o condivisioni file specifici per visualizzare le statistiche generali sulle prestazioni e i colli di bottiglia delle prestazioni di identità. 
+È possibile eseguire un test di benchmark delle prestazioni in contenitori BLOB o condivisioni file specifici per visualizzare le statistiche generali sulle prestazioni e i colli di bottiglia delle prestazioni di identità. È possibile eseguire il test caricando o scaricando i dati di test generati. 
 
 Usare il comando seguente per eseguire un test di benchmark delle prestazioni.
 
@@ -77,9 +77,7 @@ Usare il comando seguente per eseguire un test di benchmark delle prestazioni.
 
 Questo comando esegue un benchmark delle prestazioni caricando i dati di test in una destinazione specificata. I dati di test vengono generati in memoria, caricati nella destinazione, quindi eliminati dalla destinazione dopo il completamento del test. È possibile specificare il numero di file da generare e le dimensioni che si desidera utilizzare con i parametri facoltativi del comando.
 
-Per informazioni dettagliate sulla documentazione di riferimento, vedere [benchmark azcopy](storage-ref-azcopy-bench.md).
-
-Per visualizzare le indicazioni dettagliate della Guida per questo comando, digitare `azcopy benchmark -h` e quindi premere il tasto INVIO.
+Se si preferisce eseguire questo test scaricando i dati, impostare il `mode` parametro su `download` . Per informazioni dettagliate sulla documentazione di riferimento, vedere [benchmark azcopy](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
 
@@ -91,7 +89,7 @@ azcopy jobs resume <job-id> --cap-mbps 10
 
 La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la `AZCOPY_CONCURRENCY_VALUE` variabile di ambiente. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  
 
-Se il computer dispone di meno di 5 CPU, il valore di questa variabile è impostato su `32` . In caso contrario, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `3000` , ma è possibile impostare manualmente questo valore su un valore superiore o inferiore. 
+Se il computer dispone di meno di 5 CPU, il valore di questa variabile è impostato su `32` . Altrimenti, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `3000` , ma è possibile impostare manualmente questo valore su un valore superiore o inferiore. 
 
 | Sistema operativo | Comando  |
 |--------|-----------|

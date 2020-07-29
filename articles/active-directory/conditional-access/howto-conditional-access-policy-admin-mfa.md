@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af82a9d19f8dee9062d15a58e83ee3c2a8c59af6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2830db6132e665d3f876a535fb645e936971b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283062"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -29,7 +30,7 @@ Microsoft consiglia di richiedere l'autenticazione a più fattori sui seguenti r
 * Amministratore globale
 * Amministratore helpdesk (password)
 * Amministratore password
-* Amministratore della protezione
+* Amministratore della sicurezza
 * Amministratore di SharePoint
 * Amministratore utenti
 
@@ -61,13 +62,13 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
       * Amministratore globale
       * Amministratore dell'help desk
       * Amministratore password
-      * Amministratore della protezione
+      * Amministratore della sicurezza
       * Amministratore di SharePoint
       * Amministratore utenti
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Tutte le app Cloud** e quindi **Chiudi**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì** e selezionare **Chiudi**.
+1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.

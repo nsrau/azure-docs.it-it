@@ -7,11 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609743"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283622"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
@@ -42,7 +43,11 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
     > [!NOTE]
     > È possibile visualizzare 30 giorni di cronologia per i processi eseguiti in precedenza.
 
-7. Per ottenere una panoramica del processo, selezionare il processo da visualizzare nell'elenco. Questa panoramica contiene i dettagli del processo, i dispositivi e i valori dello stato del dispositivo. Da questa panoramica è inoltre possibile selezionare **Scarica dettagli processo** per scaricare un file CSV dei dettagli del processo, inclusi i dispositivi e i relativi valori di stato. Queste informazioni possono essere utili per la risoluzione dei problemi:
+7. Fare clic sul processo salvato ed eseguire il processo facendo clic sul pulsante Esegui. Verrà visualizzato l'esecuzione di un popup del processo. Confermare facendo clic sul pulsante Esegui processo. 
+
+    ![Eseguire un processo](./media/howto-run-a-job/run-job.png)
+
+8. Il processo passa attraverso diverse fasi di pending, running e Completed. I dettagli di esecuzione del processo contengono la metrica dei risultati, i dettagli della durata e la griglia dell'elenco dei dispositivi. Da questa panoramica è inoltre possibile selezionare **log dei risultati** per scaricare un file CSV dei dettagli del processo, inclusi i dispositivi e i relativi valori di stato. Queste informazioni possono essere utili per la risoluzione dei problemi.
 
     ![Visualizzare lo stato dei dispositivi](./media/howto-run-a-job/download-details.png)
 
@@ -50,13 +55,23 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
 Per arrestare uno dei processi in esecuzione, aprirlo e selezionare **Arresta**. Lo stato del processo cambia per riflettere che il processo è stato arrestato. La sezione **Riepilogo** Mostra i dispositivi completati, non riusciti o ancora in sospeso.
 
-Per eseguire un processo attualmente arrestato, selezionarlo e quindi selezionare **Esegui**. Lo stato del processo cambia per riflettere che il processo è ora in esecuzione di nuovo. La sezione di **Riepilogo** continua ad aggiornare con lo stato più recente.
-
 ![Gestisci processo](./media/howto-run-a-job/manage-job.png)
+
+Quando il processo è in stato interrotto, è possibile fare clic su **continua** per riprendere l'esecuzione del processo. Lo stato del processo cambia per riflettere che il processo è ora in esecuzione di nuovo. La sezione di **Riepilogo** continua ad aggiornare con lo stato più recente.
+
+![Processo interrotto](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Copiare un processo
 
-Per copiare uno dei processi esistenti, selezionarlo nella pagina **processi** e selezionare **copia**. Verrà aperta una copia della configurazione del processo da modificare e la **copia** verrà aggiunta al nome del processo. È possibile salvare o eseguire il nuovo processo:
+Per copiare uno dei processi esistenti, selezionarlo nella pagina **processi** e selezionare **Dettagli processo**. Verrà visualizzata la pagina Dettagli processo. 
+
+![Dettagli processo](./media/howto-run-a-job/job-details.png)
+
+Fare clic su **copia**
+
+![Dettagli processo](./media/howto-run-a-job/job-details-copy.png)
+
+Verrà aperta una copia della configurazione del processo da modificare e la **copia** verrà aggiunta al nome del processo. È possibile salvare o eseguire il nuovo processo:
 
 ![Copia processo](./media/howto-run-a-job/copy-job.png)
 
@@ -66,8 +81,8 @@ Dopo la creazione di un processo, la colonna **stato** viene aggiornata con l'ul
 
 | Messaggio di stato       | Significato dello stato                                          |
 | -------------------- | ------------------------------------------------------- |
-| Completed            | Questo processo è stato eseguito in tutti i dispositivi.              |
-| Operazione non riuscita               | Questo processo è non riuscito e non è stato completamente eseguito sui dispositivi.  |
+| Completi            | Questo processo è stato eseguito in tutti i dispositivi.              |
+| Non riuscito               | Questo processo è non riuscito e non è stato completamente eseguito sui dispositivi.  |
 | In sospeso              | Questo processo non è ancora iniziato a eseguire nei dispositivi.         |
 | In esecuzione              | Questo processo è attualmente in esecuzione sui dispositivi.             |
 | Arrestato              | Questo processo è stato arrestato manualmente da un utente.           |
@@ -76,8 +91,8 @@ Il messaggio di stato è seguito da una panoramica dei dispositivi nel processo.
 
 | Messaggio di stato       | Significato dello stato                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Operazione riuscita            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
-| Operazione non riuscita               | Il numero di dispositivi in cui l'esecuzione del processo non è riuscita.       |
+| Completato            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
+| Non riuscito               | Il numero di dispositivi in cui l'esecuzione del processo non è riuscita.       |
 
 ### <a name="view-the-device-status-values"></a>Visualizzare i valori dello stato del dispositivo
 
@@ -85,8 +100,8 @@ Per visualizzare lo stato del processo e di tutti i dispositivi interessati, apr
 
 | Messaggio di stato       | Significato dello stato                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Completed            | Processo eseguito in questo dispositivo.                                     |
-| Operazione non riuscita               | Non è stato possibile eseguire il processo in questo dispositivo. Il messaggio di errore Mostra ulteriori informazioni.  |
+| Completi            | Processo eseguito in questo dispositivo.                                     |
+| Non riuscito               | Non è stato possibile eseguire il processo in questo dispositivo. Il messaggio di errore Mostra ulteriori informazioni.  |
 | In sospeso              | Il processo non è ancora stato eseguito in questo dispositivo.                                   |
 
 Per scaricare un file CSV che include i dettagli del processo e l'elenco dei dispositivi e i relativi valori di stato, selezionare **Scarica**.

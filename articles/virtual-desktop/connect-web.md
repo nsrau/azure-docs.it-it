@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fdbd0ddb33785655cada2600acdecdced4aeb2f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080625"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283436"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Connettersi al desktop virtuale Windows con il client Web
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md).
->
-> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md).
 
 Il client Web consente di accedere alle risorse del Desktop virtuale Windows da un Web browser senza il lungo processo di installazione.
 
@@ -35,7 +32,7 @@ Sebbene dovrebbe funzionare qualsiasi browser compatibile con HTML5, ufficialmen
 | Browser           | Sistema operativo supportato                     | Note               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Internet Explorer | Windows                          | Versione 11 o successive |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versione 55 o successiva |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
@@ -45,7 +42,7 @@ Sebbene dovrebbe funzionare qualsiasi browser compatibile con HTML5, ufficialmen
 In un browser, passare alla versione integrata in Azure Resource Manager del client Web Desktop virtuale Windows all'indirizzo <https://rdweb.wvd.microsoft.com/arm/webclient> e accedere con l'account utente.
 
 >[!NOTE]
->Se si usa la versione Fall 2019 di Desktop virtuale Windows senza l'integrazione Azure Resource Manager, connettersi alle risorse all'indirizzo <https://rdweb.wvd.microsoft.com/webclient>.
+>Se si usa desktop virtuale di Windows (versione classica) senza Azure Resource Manager integrazione, connettersi alle risorse in <https://rdweb.wvd.microsoft.com/webclient> .
 
 >[!NOTE]
 >Se è già stato eseguito l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.

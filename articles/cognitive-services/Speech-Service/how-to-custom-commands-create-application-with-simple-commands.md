@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284167"
 ---
 # <a name="create-application-with-simple-commands"></a>Creare un'applicazione con comandi semplici
 
@@ -84,7 +84,7 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Name**       | ConfirmationResponse                  | Nome che descrive lo scopo della regola          |
-    | **Condizioni** | Nessuna                                     | Condizioni che determinano quando la regola può essere eseguita    |
+    | **Condizioni** | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
     | **Actions**    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
     
 
@@ -95,6 +95,7 @@ Successivamente, il comando deve avere una regola di completamento. Questa regol
 
 1. Selezionare **Save (Salva** ) per salvare l'azione.
 1. Nella sezione **regole di completamento** selezionare **Salva** per salvare tutte le modifiche. 
+
 
     > [!NOTE]
     > Non è necessario usare la regola di completamento predefinita fornita con il comando. Se necessario, è possibile eliminare la regola di completamento predefinita esistente e aggiungere una regola personalizzata.
@@ -125,7 +126,7 @@ Modificare quindi le regole di completamento **eseguite** esistenti come indicat
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | Nome  | ConfirmationResponse                  |
-| Condizioni | Nessuna                                     |
+| Condizioni | Nessuno                                     |
 | Azioni    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, setting temperature to 40 degrees` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -136,7 +137,7 @@ Creare un nuovo comando **sealarm** usando la frase di esempio "**impostare un a
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | Nome regola  | ConfirmationResponse                  |
-| Condizioni | Nessuna                                     |
+| Condizioni | Nessuno                                     |
 | Azioni    | Inviare risposta vocale > semplice editor > prima variazione >`Ok, setting an alarm for 9 am tomorrow` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.

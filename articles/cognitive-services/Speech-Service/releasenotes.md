@@ -11,20 +11,49 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512664"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373794"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
+
+## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020-versione luglio
+
+**Nota**: l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricare e installare l'app da [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Nuove funzionalità**
+- **C#**: è stato aggiunto il supporto per la trascrizione di conversazioni asincrona. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
+- **JavaScript**: aggiunta del supporto riconoscimento del parlante per [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) e [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: è stato aggiunto il supporto per l'ID lingua e il rilevamento automatico della lingua. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
+- **Objective-C**: è stato aggiunto il supporto per la trascrizione di conversazioni e conversazioni su più dispositivi. 
+- **Python**: è stato aggiunto il supporto audio compresso per Python in Windows e Linux. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+
+**Correzioni di bug**
+- **All**: è stato risolto un problema che causava la mancata spostamento dei flussi da parte di KeywordRecognizer dopo un riconoscimento.
+- **All**: è stato risolto un problema che ha causato il flusso ottenuto da un KeywordRecognitionResult in modo che non contenga la parola chiave.
+- **All**: è stato risolto un problema a causa del quale il SendMessageAsync non invia effettivamente il messaggio in rete al termine dell'attesa da parte degli utenti.
+- **All**: correzione di un arresto anomalo nelle API riconoscimento del parlante quando gli utenti avviano più VoiceProfileClient:: SpeakerRecEnrollProfileAsync e non ne sono rimasti in attesa del completamento.
+- **All**: è stata corretta l'abilitazione della registrazione file nelle classi VoiceProfileClient e SpeakerRecognizer.
+- **JavaScript**: è stato risolto un [problema relativo](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) alla limitazione quando il browser è ridotto a icona.
+- **JavaScript**: è stato risolto un [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) con una perdita di memoria nei flussi.
+- **JavaScript**: aggiunta della memorizzazione nella cache per le risposte OCSP da NodeJS.
+- **Java**: è stato risolto un problema che causava che i campi BigInteger restituivano sempre 0.
+- **iOS**: correzione e [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) con la pubblicazione di app basate su Speech SDK nell'App Store iOS.
+
+**Esempi**
+- **C++**: aggiunta del codice di esempio per riconoscimento del parlante [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**COVID-19 test abbreviato:** A causa del funzionamento remoto nelle ultime settimane, non è stato possibile eseguire il test di verifica manuale come in genere. Non sono state apportate modifiche che potrebbero essere state interrotte e i test automatizzati sono stati superati. Nel caso improbabile in cui si è verificato un problema, inviare informazioni su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Rimanere integro.
 
 ## <a name="text-to-speech-2020-july-release"></a>Sintesi vocale 2020-versione luglio
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-* **TTS neurale, 15 nuove voci neurali**: le nuove voci aggiunte al portfolio TTS neurale sono salma in `ar-EG` arabo (Egitto), Zariyah in `ar-SA` arabo (Arabia Saudita), alba in `ca-ES` Catalano (Spagna), Christel in `da-DK` danese (Danimarca), Neerja in `es-IN` inglese (India), Noora in `fi-FI` finlandese (Finlandia), Swara in `hi-IN` Hindi (India), Colette in `nl-NL` olandese (Olanda), Zofia in `pl-PL` polacco (Polonia), Fernanda in `pt-PT` portoghese (Portogallo), Dariya in `ru-RU` russo (Russia), Hillevi in `sv-SE` svedese (Svezia), Achara in `th-TH` Thai (Tailandia), HiuGaai in `zh-HK` cinese (cantonese, tradizionale) e HsiaoYu in `zh-TW` cinese (Mandarino Taiwanese). Controllare tutte le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **TTS neurale, 15 nuove voci neurali**: le nuove voci aggiunte al portfolio TTS neurale sono salma in `ar-EG` arabo (Egitto), Zariyah in `ar-SA` arabo (Arabia Saudita), alba in `ca-ES` Catalano (Spagna), Christel in `da-DK` danese (Danimarca), Neerja in `es-IN` inglese (India), Noora in `fi-FI` finlandese (Finlandia), Swara in `hi-IN` Hindi (India), Colette in `nl-NL` olandese (Paesi Bassi), Zofia in `pl-PL` polacco (Polonia), Fernanda in `pt-PT` portoghese (Portogallo), Dariya in `ru-RU` russo (Russia), Hillevi in `sv-SE` svedese (Svezia), Achara in `th-TH` Thai (Tailandia), HiuGaai in `zh-HK` cinese (cantonese, tradizionale) e HsiaoYu in `zh-TW` cinese (Taiwan mandarino). Controllare tutte le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Voce personalizzata, testing vocale semplificato con il flusso di training per semplificare l'esperienza utente**: con la nuova funzionalità di test, ogni voce verrà automaticamente testata con un set di test predefinito ottimizzato per ogni lingua per coprire scenari generali e di Assistente vocale. Questi set di test vengono accuratamente selezionati e testati per includere casi d'uso e fonemi tipici nel linguaggio. Inoltre, gli utenti possono comunque selezionare di caricare i propri script di test durante il training di un modello.
 
@@ -56,7 +85,7 @@ ms.locfileid: "86512664"
 
 * Accuratezza della pronuncia a livello di parola migliorata in 5 lingue.
 
-    | Linguaggio | Riduzione degli errori di pronuncia |
+    | Lingua | Riduzione degli errori di pronuncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -69,7 +98,7 @@ ms.locfileid: "86512664"
 * Lettura valuta
     * Correzione del problema relativo alla lettura della valuta per `es-ES` e`es-MX`
      
-    | Linguaggio | Input | Lettura dopo miglioramento |
+    | Lingua | Input | Lettura dopo miglioramento |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y Ocho centavos |
     | `es-ES` | $1,58 | Dólar cincuenta y Ocho centavos |
@@ -85,10 +114,10 @@ ms.locfileid: "86512664"
 
 ### <a name="samplessdk"></a>Esempi/SDK
 
-* JavaScript: corregge il problema di riproduzione in FireFox e Safari in macOS e iOS. 
+* JavaScript: corregge il problema di riproduzione in Firefox e Safari in macOS e iOS. 
 
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK 1.12.1:2020-versione di giugno
-**INTERFACCIA della riga di comando vocale (noto anche come SPX)**
+**INTERFACCIA della riga di comando vocale (anche nota come SPX)**
 -   Aggiunto funzionalità di ricerca della Guida dell'interfaccia della riga di comando:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -115,7 +144,7 @@ Rimanere integro.
 
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020-versione di maggio
-**INTERFACCIA della riga di comando vocale (noto anche come SPX)**
+**INTERFACCIA della riga di comando vocale (anche noto come SPX)**
 - **SPX** è un nuovo strumento da riga di comando che consente di eseguire operazioni di riconoscimento, sintesi, traduzione, trascrizione batch e gestione vocale personalizzata dalla riga di comando. Usarlo per testare il servizio di riconoscimento vocale o per generare script per le attività del servizio vocale che è necessario eseguire. Scaricare lo strumento e leggere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **Nuove funzionalità**

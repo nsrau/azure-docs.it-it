@@ -3,15 +3,15 @@ title: Distribuire IBM DB2 pureScale in Azure
 description: Informazioni su come distribuire un'architettura di esempio usata di recente per eseguire la migrazione dall'ambiente IBM DB2 in esecuzione su z/OS a IBM DB2 pureScale in Azure.
 author: njray
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510733"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371924"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -77,7 +77,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |
-|                           | I agree to the IBM terms (Accetto le condizioni IBM)                     | Opzione selezionata                                                                                               |
+|                           | I agree to the IBM terms (Accetto le condizioni IBM)                     | Selezionata                                                                                               |
 | Instance Owner (Proprietario istanza)            | Existing User For Instance, User name (Utente esistente per istanza, Nome utente)        | DB2sdin1                                                                                              |
 | Fenced User (Utente confinato)               | Existing User, User name (Utente esistente, Nome utente)                     | DB2sdfe1                                                                                              |
 | Cluster File System (File system cluster)       | Shared disk partition device path (Percorso dispositivo partizione disco condiviso)            | /dev/dm-2                                                                                             |

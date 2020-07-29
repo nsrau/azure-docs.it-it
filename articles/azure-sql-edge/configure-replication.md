@@ -9,11 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282773"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurare la replica in SQL Edge di Azure (anteprima) 
 
@@ -23,7 +24,7 @@ ms.locfileid: "84667880"
   
 - L'istanza di Azure SQL Edge deve essere un Sottoscrittore push per un server di pubblicazione.
 - Il server di pubblicazione e il server di distribuzione possono essere uno dei seguenti:
-   - Un'istanza di SQL Server eseguita in locale o un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure. Per altre informazioni, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server le istanze devono usare una versione successiva a SQL Server 2016.
+   - Un'istanza di SQL Server eseguita in locale o un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure. Per altre informazioni, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server le istanze devono usare una versione successiva a SQL Server 2016.
    - Istanza di Istanza gestita SQL di Azure. SQL Istanza gestita può ospitare database di server di pubblicazione, server di distribuzione e Sottoscrittore. Per altre informazioni, vedere [Replica con Istanza gestita di database SQL](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Il database di distribuzione e gli agenti di replica non possono essere inseriti in un'istanza di Azure SQL Edge.  

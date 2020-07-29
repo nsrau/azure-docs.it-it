@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d145892c1fa0d71b462c5aab42ba89685d7a91a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282297"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -143,7 +143,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 {
     Id = "container",
     PartitionKeyPath = "/myPartitionKey",
-    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+    DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 });
 ```
 ---
@@ -216,7 +216,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
    * Aprire la finestra **Scalabilità e impostazioni**.
    * In **Impostazione** trovare **Durata (TTL)**.
    * Selezionare **on (nessun valore predefinito)** o selezionare **on** e impostare un valore TTL. 
-   * È consigliabile fare clic su **Salva** per salvare le modifiche.
+   * Fare clic su **Salva** per salvare le modifiche.
 
 5. Passare quindi all'elemento per cui si desidera impostare la durata, aggiungere la proprietà `ttl` e selezionare **Aggiorna**. 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974518"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372876"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -67,9 +67,9 @@ Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali 
 
 Per altri tipi di risorse, non è attualmente disponibile una soluzione relativa al controllo degli accessi in base al ruolo. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### <a name="recommended-built-in-rbac-roles"></a>Ruoli RBAC predefiniti predefiniti
+### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 
-Sono disponibili diversi ruoli RBAC predefiniti che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
+Sono disponibili diversi ruoli predefiniti di Azure che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
 - [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
 - [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader): leggere ed elencare le risorse.

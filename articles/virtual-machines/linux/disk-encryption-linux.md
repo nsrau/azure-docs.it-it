@@ -4,16 +4,16 @@ description: Questo articolo offre informazioni sull'abilitazione di Crittografi
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080285"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372655"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -409,7 +409,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Dump di arresto anomalo del kernel (kdump).
 - Oracle ACFS (file system cluster ASM).
 - Macchine virtuali di seconda generazione (vedere: [Supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Macchine virtuali della serie Lsv2 (vedere: [Serie Lsv2](../lsv2-series.md)).
+- I dischi NVMe delle VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md)).
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
 - Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.
 - VM serie M con dischi acceleratore di scrittura.

@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d07717895c6faa506d692becb261e834e44890
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 7ee4c7776dbddf089d290d760d6c0689ba9c0102
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283028"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Accesso condizionale: Richiedere l'autenticazione a più fattori per la gestione di Azure
 
@@ -49,7 +50,7 @@ La procedura seguente consente di creare criteri di accesso condizionale per ric
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** scegliere **Selezionare le app**, scegliere **Microsoft Azure Management** e selezionare **Seleziona** quindi **Chiudi**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì** e selezionare **Chiudi**.
+1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.

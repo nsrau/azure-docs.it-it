@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477040"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282977"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Risolvere i problemi di verifica dell'autore (anteprima)
 Se non è possibile completare il processo o si riscontra un comportamento imprevisto con la [verifica dell'autore (anteprima)](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o in presenza di comportamenti imprevisti: 
@@ -37,7 +37,7 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     1. Accedere alla [pagina di registrazione di MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Accedere con un account utente nel tenant di Azure AD primario dell'organizzazione 
     1. Se esiste già un account MPN, verrà riconosciuto e l'utente verrà aggiunto all'account 
-    1. Passare alla [pagina del profilo del partner](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) in cui sono elencati l'ID MPN e il contatto dell'account primario
+    1. Passare alla [pagina del profilo del partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) in cui sono elencati l'ID MPN e il contatto dell'account primario
 
 - **Non si sa chi sia l'amministratore globale di Azure AD (noto anche come amministratore società o amministratore tenant), come si può trovarli? Stessa domanda per l'amministratore delle app o a un altro ruolo di amministratore.**
     1. Accedere al [portale di Azure AD](https://aad.portal.azure.com) usando un account utente nel tenant primario dell'organizzazione
@@ -45,14 +45,14 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     1. Fare clic su "Amministratore globale" o sul ruolo di amministratore desiderato
     1. Verrà visualizzato l'elenco degli utenti assegnati al ruolo
 
-- **Non si conoscono gli amministratori dell'account MPN** Passare alla [pagina di gestione degli utenti MPN](https://partner.microsoft.com/en-us/pcv/users) e filtrare l'elenco di utenti per vedere quali sono gli utenti con i diversi ruoli di amministratore.
+- **Non si conoscono gli amministratori dell'account MPN** Passare alla [pagina di gestione degli utenti MPN](https://partner.microsoft.com/pcv/users) e filtrare l'elenco di utenti per vedere quali sono gli utenti con i diversi ruoli di amministratore.
 
 - **Si verifica un errore che segnala che l'ID MPN non è valido o che non è possibile accedervi.**
-    1. Passare al [profilo partner](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) e verificare che: 
+    1. Passare al [profilo partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verificare che: 
         - L'ID MPN sia corretto. 
         - Non siano visualizzati errori o "azioni in sospeso" e lo stato di verifica nel profilo di business legale e nelle informazioni sul partner sia "autorizzato" o "operazione riuscita".
-    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati.
-    1. Passare alla [pagina di gestione degli utenti di MPN](https://partner.microsoft.com/en-us/pcv/users) e verificare che l'utente usato per l'accesso sia un amministratore globale, un amministratore MPN o un amministratore account.
+    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati.
+    1. Passare alla [pagina di gestione degli utenti di MPN](https://partner.microsoft.com/pcv/users) e verificare che l'utente usato per l'accesso sia un amministratore globale, un amministratore MPN o un amministratore account.
 
 - **Quando si accede al portale di Azure AD, non viene visualizzata alcuna app registrata. Perché?** 
     È possibile che le registrazioni dell'app siano state create usando un account utente diverso o in un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.

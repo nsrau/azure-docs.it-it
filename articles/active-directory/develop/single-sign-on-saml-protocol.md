@@ -4,22 +4,22 @@ titleSuffix: Microsoft identity platform
 description: Questo articolo illustra il protocollo SAML per Single Sign-On (SSO) in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.reviewer: paulgarn
+ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282994"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -48,8 +48,8 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametro | Type | Descrizione |
 | --- | --- | --- |
-| ID | Necessario | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione | Necessario | Questo parametro deve essere impostato su **2.0**. |
+| ID | Richiesto | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Richiesto | Questo parametro deve essere impostato su **2.0**. |
 | IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
@@ -101,7 +101,7 @@ Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPLi
 ### <a name="signature"></a>Firma
 Un `Signature` elemento negli `AuthnRequest` elementi è facoltativo. Azure AD non convalida le richieste di autenticazione firmate se è presente una firma. La verifica del richiedente viene fornita solo rispondendo agli URL del servizio consumer di asserzione registrati.
 
-### <a name="subject"></a>Oggetto
+### <a name="subject"></a>Subject
 Non includere un elemento `Subject`. Azure AD non supporta la specifica di un oggetto per una richiesta e restituirà un errore se ne viene fornito uno.
 
 ## <a name="response"></a>Risposta

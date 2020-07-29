@@ -3,12 +3,12 @@ title: Pianificare una distribuzione di Azure Service Fabric cluster
 description: Informazioni sulla pianificazione e la preparazione per la distribuzione di un cluster Service Fabric di produzione in Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281328"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare la distribuzione di un cluster
 
@@ -51,7 +51,7 @@ I *dischi del sistema operativo temporaneo* sono archiviazione creati nella macc
 
 Il disco del sistema operativo temporaneo non è una funzionalità di Service Fabric specifica, bensì una funzionalità dei *set di scalabilità di macchine virtuali* di Azure di cui è stato eseguito il mapping ai tipi di nodo Service Fabric. L'uso di questi elementi con Service Fabric richiede quanto segue nel modello di Azure Resource Manager cluster:
 
-1. Assicurarsi che i tipi di nodo specifichino le [dimensioni delle VM di Azure supportate](../virtual-machines/windows/ephemeral-os-disks.md) per i dischi del sistema operativo temporaneo e che le dimensioni della macchina virtuale siano sufficienti per supportare le dimensioni del disco del sistema operativo. vedere la *Nota* seguente. Per esempio:
+1. Assicurarsi che i tipi di nodo specifichino le [dimensioni delle VM di Azure supportate](../virtual-machines/ephemeral-os-disks.md) per i dischi del sistema operativo temporaneo e che le dimensioni della macchina virtuale siano sufficienti per supportare le dimensioni del disco del sistema operativo. vedere la *Nota* seguente. Per esempio:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Il disco del sistema operativo temporaneo non è una funzionalità di Service Fa
 > Per eseguire la migrazione, gli utenti dovranno [aggiungere](./virtual-machine-scale-set-scale-node-type-scale-out.md) un nuovo NodeType con dischi temporanei, spostare i carichi di lavoro nel nuovo NodeType & [rimuovere](./service-fabric-how-to-remove-node-type.md) il valore NodeType esistente.
 >
 
-Per altre informazioni e altre opzioni di configurazione, vedere [dischi del sistema operativo temporanei per macchine virtuali di Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+Per altre informazioni e altre opzioni di configurazione, vedere [dischi del sistema operativo temporanei per macchine virtuali di Azure](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selezionare i livelli di durabilità e affidabilità per il cluster

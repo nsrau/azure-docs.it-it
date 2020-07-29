@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283079"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
@@ -37,7 +38,7 @@ Il portale di Azure AD consente di modificare la configurazione di "Password Pro
 
 **D: in che modo è possibile applicare Azure AD vantaggi della protezione delle password a un sottoinsieme di utenti locali?**
 
-Non supportato. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
+Non supportata. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
 **D: qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
@@ -61,11 +62,11 @@ Sì. Il supporto di più DLL di filtro password registrate è una funzionalità 
 
 **D: come è possibile distribuire e configurare Azure AD la protezione delle password nell'ambiente Active Directory senza usare Azure?**
 
-Non supportato. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
+Non supportata. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
 
 **D: come è possibile modificare il contenuto del criterio a livello di Active Directory?**
 
-Non supportato. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
+Non supportata. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 
@@ -148,7 +149,7 @@ Gli articoli a cui si accede tramite i collegamenti seguenti non fanno parte del
 
 [Azure AD la protezione con password è ora disponibile a livello generale.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guida alla protezione da phishing tramite posta elettronica-parte 15: implementare il servizio Microsoft Azure AD Password Protection (anche per locale).](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Guida alla protezione da phishing tramite posta elettronica-parte 15: implementare il servizio Microsoft Azure AD Password Protection (anche per locale).](http://kmartins.com/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [Azure AD Password Protection and Smart Lockout are now in Public Preview!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529) (Password di protezione di Azure AD e il blocco intelligente sono ora disponibili in anteprima pubblica)
 
