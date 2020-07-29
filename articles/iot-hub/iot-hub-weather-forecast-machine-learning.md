@@ -12,6 +12,7 @@ ms.date: 02/10/2020
 ms.author: robinsh
 ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83746965"
