@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c576ac1f56a29fc73f92e2292b457262828c5046
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d0190a97c22a805065ceaf41dcd655b9e8182b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065282"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Esercitazione - Distribuire applicazioni in una macchina virtuale Windows in Azure usando l'estensione script personalizzati
 
-Per configurare le macchine virtuali (VM) in modo rapido e coerente, è possibile usare l'[estensione per script personalizzati per Windows](extensions-customscript.md). In questa esercitazione si apprenderà come:
+Per configurare le macchine virtuali (VM) in modo rapido e coerente, è possibile usare l'[estensione per script personalizzati per Windows](../extensions/custom-script-windows.md). In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Usare l'estensione dello script personalizzata per installare IIS
@@ -39,13 +39,13 @@ L'estensione script personalizzata è integrabile nei modelli di Azure Resource 
 
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Impostare il nome utente e la password dell'amministratore per la VM con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Impostare il nome utente e la password dell'amministratore per la VM con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-A questo punto è possibile creare la VM con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L'esempio seguente crea una macchina virtuale denominata *myVM* nell'area *EastUS*. Se non esistono già, vengono creati il gruppo di risorse *myResourceGroupAutomate* e le rispettive risorse di rete di supporto. Per consentire il traffico Web, il cmdlet apre anche la porta *80*.
+A questo punto è possibile creare la VM con [New-AzVM](/powershell/module/az.compute/new-azvm). L'esempio seguente crea una macchina virtuale denominata *myVM* nell'area *EastUS*. Se non esistono già, vengono creati il gruppo di risorse *myResourceGroupAutomate* e le rispettive risorse di rete di supporto. Per consentire il traffico Web, il cmdlet apre anche la porta *80*.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -64,7 +64,7 @@ Per creare le risorse e la macchina virtuale sono necessari alcuni minuti.
 
 
 ## <a name="automate-iis-install"></a>Automatizzare l'installazione IIS
-Usare [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) per installare l'estensione per script personalizzati. L'estensione esegue `powershell Add-WindowsFeature Web-Server` per installare il server Web IIS e quindi aggiorna la pagina *Default.htm* per visualizzare il nome host della VM:
+Usare [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) per installare l'estensione per script personalizzati. L'estensione esegue `powershell Add-WindowsFeature Web-Server` per installare il server Web IIS e quindi aggiorna la pagina *Default.htm* per visualizzare il nome host della VM:
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
@@ -79,7 +79,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## <a name="test-web-site"></a>Testare il sito Web
-Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). L'esempio seguente ottiene l'indirizzo IP per *myPublicIPAddress* creato in precedenza:
+Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). L'esempio seguente ottiene l'indirizzo IP per *myPublicIPAddress* creato in precedenza:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `

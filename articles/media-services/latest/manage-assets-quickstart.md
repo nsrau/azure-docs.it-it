@@ -3,12 +3,12 @@ title: Usare il portale per il caricamento, la codifica e lo streaming di conten
 description: Questa esercitazione illustra come usare il portale per il caricamento, la codifica e lo streaming di contenuto con Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053358"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale
 
@@ -35,7 +35,7 @@ Questa esercitazione illustra come usare il portale di Azure per il caricamento,
 
         Attualmente, usando il portale di Azure è possibile generare file con sottotitoli TTML e WebVTT. I file in questi formati possono essere usati per creare file audio e video accessibili a persone con problemi uditivi. È anche possibile estrarre parole chiave dal contenuto.
 
-        Per un'esperienza avanzata che consente di estrarre informazioni dettagliate dai file audio e video, usare le impostazioni predefinite di Servizi multimediali v3, come descritto in [Esercitazione: Analizzare i video con Servizi multimediali v3](analyze-videos-tutorial-with-api.md). <br/>Per ottenere informazioni più dettagliate, usare direttamente [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/).    
+        Per un'esperienza avanzata che consente di estrarre informazioni dettagliate dai file audio e video, usare le impostazioni predefinite di Servizi multimediali v3, come descritto in [Esercitazione: Analizzare i video con Servizi multimediali v3](analyze-videos-tutorial-with-api.md). <br/>Per ottenere informazioni più dettagliate, usare direttamente [Video Indexer](../video-indexer/index.yml).    
 * Una volta elaborato, il contenuto multimediale può essere distribuito ai lettori client. Per rendere i video dell'asset di output disponibili per la riproduzione nei client, è necessario creare un **localizzatore di streaming**. Quando si crea un **localizzatore di streaming**, è necessario specificare un **criterio di streaming**. I **criteri di streaming** consentono di definire protocolli di streaming ed eventuali opzioni di crittografia per i **localizzatori di streaming**.
     
     Vedere:

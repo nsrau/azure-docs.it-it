@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080132"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Esercitazione: Configurare la strategia di distribuzione blu-verde per le macchine virtuali Linux di Azure
 
@@ -29,7 +29,7 @@ Questo articolo illustra come configurare una pipeline CI/CD basata sulla strate
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurare CI/CD nelle macchine virtuali
 
-È possibile aggiungere macchine virtuali come destinazioni a un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e quindi configurare l'invio di aggiornamenti a più VM. Dopo la distribuzione nei computer, aprire la visualizzazione **Cronologia distribuzioni** all'interno di un gruppo di distribuzione. Questa visualizzazione consente di seguire la traccia dalla macchina virtuale alla pipeline e quindi al commit.
+È possibile aggiungere macchine virtuali come destinazioni a un [gruppo di distribuzione](/azure/devops/pipelines/release/deployment-groups) e quindi configurare l'invio di aggiornamenti a più VM. Dopo la distribuzione nei computer, aprire la visualizzazione **Cronologia distribuzioni** all'interno di un gruppo di distribuzione. Questa visualizzazione consente di seguire la traccia dalla macchina virtuale alla pipeline e quindi al commit.
 
 ### <a name="blue-green-deployments"></a>Distribuzioni blu-verde
 
@@ -88,5 +88,5 @@ Con l'opzione della distribuzione continua, è possibile configurare le distribu
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Eseguire la distribuzione in macchine virtuali di Azure con Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementare la distribuzione continua dell'app in un set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Eseguire la distribuzione in macchine virtuali di Azure con Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementare la distribuzione continua dell'app in un set di scalabilità di macchine virtuali di Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

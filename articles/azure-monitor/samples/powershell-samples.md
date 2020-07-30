@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055256"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Esempi di PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure.
@@ -22,10 +22,10 @@ Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamen
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>Configurare PowerShell
-Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview).
+Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/).
 
 ## <a name="examples-in-this-article"></a>Esempi in questo articolo
-Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](/powershell/module/az.applicationinsights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Eseguire l'acccesso e usare le sottoscrizioni
 Per prima cosa, accedere alla sottoscrizione di Azure.
@@ -53,7 +53,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Recuperare i log attività
-Usare il cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog).  Di seguito sono riportati alcuni esempi comuni. Il log attività include gli ultimi 90 giorni di operazioni. L'uso di date precedenti a questo intervallo genera un messaggio di errore.  
+Usare il cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog).  Di seguito sono riportati alcuni esempi comuni. Il log attività include gli ultimi 90 giorni di operazioni. L'uso di date precedenti a questo intervallo genera un messaggio di errore.  
 
 Vedere qual è la data/ora corrente per verificare quali orari usare nei comandi seguenti:
 ```powershell
@@ -116,7 +116,7 @@ Per visualizzare la cronologia per una regola avviso specifica, è possibile uti
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-Il cmdlet `Get-AzAlertHistory` supporta diversi parametri. Per altre informazioni, vedere [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+Il cmdlet `Get-AzAlertHistory` supporta diversi parametri. Per altre informazioni, vedere [Get-AlertHistory](/previous-versions/azure/mt282453(v=azure.100)).
 
 ## <a name="retrieve-information-on-alert-rules"></a>Recupero delle informazioni sulle regole di avviso
 Tutti i comandi seguenti agiscono su un gruppo di risorse chiamato "montest".
@@ -139,7 +139,7 @@ Recuperare tutte le regole di avviso impostate per una risorsa di destinazione. 
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` supporta altri parametri. Per altre informazioni, vedere [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) .
+`Get-AzAlertRule` supporta altri parametri. Per altre informazioni, vedere [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
 
 ## <a name="create-metric-alerts"></a>Creare avvisi delle metriche
 È possibile usare il cmdlet `Add-AlertRule` per creare, aggiornare o disabilitare una regola di avviso.
@@ -201,7 +201,7 @@ L'esempio seguente genera una tabella con la metrica Name e il  relativo valore 
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Un elenco completo delle opzioni disponibili per `Get-AzMetricDefinition` si trova in [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+Un elenco completo delle opzioni disponibili per `Get-AzMetricDefinition` si trova in [Get-MetricDefinitions](/previous-versions/azure/mt282458(v=azure.100)).
 
 ## <a name="create-and-manage-activity-log-alerts"></a>Creare e gestire avvisi del log attività
 È possibile usare il cmdlet `Set-AzActivityLogAlert` per impostare un avviso del log attività. Per un avviso del log attività è prima necessario definire le proprie condizioni come dizionario di condizioni, quindi creare un avviso che usi tali condizioni.
@@ -272,7 +272,7 @@ Infine, creare l'impostazione di scalabilità automatica da aggiungere al profil
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Per altre informazioni sulla gestione delle impostazioni di scalabilità automatica, vedere [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Per altre informazioni sulla gestione delle impostazioni di scalabilità automatica, vedere [Get-AutoscaleSetting](/previous-versions/azure/mt282461(v=azure.100)).
 
 ## <a name="autoscale-history"></a>Cronologia di scalabilità automatica
 Il seguente esempio illustra come visualizzare gli eventi di scalabilità automatica e avviso recenti. Usare la ricerca dei registri attività per consultare la cronologia di scalabilità automatica.
@@ -287,7 +287,7 @@ Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartT
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Per altre informazioni, vedere [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Per altre informazioni, vedere [Get-AutoscaleHistory](/previous-versions/azure/mt282464(v=azure.100)).
 
 ### <a name="view-details-for-an-autoscale-setting"></a>Visualizzazione dei dettagli per un'impostazione di scalabilità automatica
 È possibile usare il cmdlet `Get-Autoscalesetting` per recuperare altre informazioni sull'impostazione di scalabilità automatica.
@@ -399,4 +399,3 @@ La proprietà WorkspaceId accetta il valore dell'*ID risorsa* dell'area di lavor
 ```
 
 Questi comandi possono essere combinati per inviare dati a più destinazioni.
-

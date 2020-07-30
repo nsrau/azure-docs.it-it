@@ -1,20 +1,20 @@
 ---
 title: Panoramica | Mappe di Microsoft Azure
 description: Questo articolo illustra i servizi e le funzionalità di Mappe di Microsoft Azure e descrive come usarli nelle applicazioni.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56dce7f52c172255ae316a9171555b8687b7c683
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242875"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133419"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 

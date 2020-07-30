@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ec96cab0a147e661df48318aadb057f9f6785b1f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075542"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -28,7 +28,7 @@ I set di scalabilità di macchine virtuali di Azure offrono funzionalità di ges
 - **Facilità di creazione e gestione di più macchine virtuali**
     - Quando sono presenti molte macchine virtuali che eseguono un'applicazione, è importante mantenere una configurazione coerente in tutto l'ambiente. Per garantire prestazioni affidabili dell'applicazione, la dimensione della macchina virtuale, la configurazione del disco e l'installazione dell'applicazione devono corrispondere tra tutte le macchine virtuali.
     - Con i set di scalabilità, tutte le istanze di macchina virtuale vengono create dalla stessa configurazione e immagine del sistema operativo di base. Questo approccio consente di gestire facilmente centinaia di macchine virtuali senza ulteriori operazioni di configurazione o gestione di rete.
-    - I set di scalabilità supportano l'uso di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per la distribuzione del traffico di livello 4 di base e di [Gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md) per la distribuzione del traffico di livello 7 più avanzata e la terminazione TLS.
+    - I set di scalabilità supportano l'uso di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per la distribuzione del traffico di livello 4 di base e di [Gateway applicazione di Azure](../application-gateway/overview.md) per la distribuzione del traffico di livello 7 più avanzata e la terminazione TLS.
 
 - **Disponibilità elevata e resilienza delle applicazioni**
     - I set di scalabilità sono usati per eseguire più istanze di un'applicazione. Se una delle istanze di macchina virtuale presenta un problema, i clienti continuano ad accedere all'applicazione tramite una delle altre istanze di macchina virtuale, con un'interruzione minima.
