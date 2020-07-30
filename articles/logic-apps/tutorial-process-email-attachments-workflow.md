@@ -3,16 +3,16 @@ title: Automatizzare le attività con più servizi di Azure
 description: Esercitazione - Creare flussi di lavoro automatizzati per l'elaborazione di messaggi di posta elettronica con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
-ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146716"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132331"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -38,22 +38,20 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/).
+* Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/).
 
   Questa app per la logica usa un account Office 365 Outlook. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
   > [!IMPORTANT]
-  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Scaricare e installare lo [strumento gratuito Microsoft Azure Storage Explorer](https://storageexplorer.com/). Questo strumento consente di controllare che il contenitore di archiviazione sia configurato correttamente.
-
-## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurare l'archiviazione per salvare gli allegati
 
 È possibile salvare i messaggi di posta elettronica in arrivo e gli allegati come BLOB in un [contenitore di archiviazione di Azure](../storage/common/storage-introduction.md).
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 1. Prima di creare un contenitore di archiviazione, [creare un account di archiviazione](../storage/common/storage-account-create.md) con queste impostazioni nella scheda **Generale** nel portale di Azure:
 
@@ -65,7 +63,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
    | **Posizione** | <*Area di Azure*> | Area in cui archiviare le informazioni sull'account di archiviazione. Questo esempio usa "Stati Uniti occidentali". |
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo di account** | Scopo generico | [Tipo di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](../storage/common/storage-redundancy-lrs.md). |
+   | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](../storage/common/storage-redundancy.md). |
    | **Livello di accesso (predefinito)** | Mantenere l'impostazione corrente. |
    ||||
 
@@ -76,7 +74,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
    | **Trasferimento sicuro necessario** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
-   Per creare l'account di archiviazione è anche possibile usare [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) o l'[interfaccia della riga di comando di Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
+   Per creare l'account di archiviazione è anche possibile usare [Azure PowerShell](../storage/common/storage-account-create.md?tabs=powershell) o l'[interfaccia della riga di comando di Azure](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 1. Al termine, selezionare **Rivedi e crea**.
 
@@ -88,7 +86,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
       ![Copiare e salvare la chiave e il nome dell'account di archiviazione](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Creare un contenitore di archiviazione BLOB per gli allegati di posta elettronica.
 
@@ -104,7 +102,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
       ![Contenitore di archiviazione completato](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 Connettere quindi Storage Explorer all'account di archiviazione.
 

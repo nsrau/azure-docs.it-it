@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Trovare il percorso per una località | Mappe di Microsoft Azure'
 description: In questa esercitazione viene illustrato come eseguire il rendering del percorso verso una località (punto di interesse) su una mappa usando il servizio di pianificazione percorso di Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: d6a526e23be47c9e05de0c9064bdb4095a49d132
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287406"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del se
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di continuare, creare una sottoscrizione con il piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Prima di continuare, creare una sottoscrizione con il piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 

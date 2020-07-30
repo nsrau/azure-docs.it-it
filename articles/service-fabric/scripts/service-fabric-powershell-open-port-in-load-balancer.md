@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 05/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 3e5e1df77b8bc701bf330d98f264db26a01ea748
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4be9944a53aaf0c697d55ff567dee7f2fbb3ed85
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038087"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Aprire una porta dell'applicazione nel servizio di bilanciamento del carico di Azure
 
@@ -48,6 +48,6 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di PowerShell per Azure Service Fabric sono disponibili in [Esempi di Azure PowerShell](../service-fabric-powershell-samples.md).

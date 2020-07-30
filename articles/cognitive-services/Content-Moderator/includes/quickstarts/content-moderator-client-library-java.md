@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
 ms.date: 01/27/2020
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: ffbb0e4bd2eec3299b4d5b2b38477edf611db1a2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4d4e09bed1350a59848ef6853efe2a301d7357e9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186506"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375359"
 ---
 Introduzione alla libreria client di Content Moderator per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -27,7 +28,7 @@ Usare la libreria client di Content Moderator per Java per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * La versione più recente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Lo [strumento di compilazione Gradle](https://gradle.org/install/) o un'altra utilità di gestione dipendenze.
 
@@ -37,10 +38,9 @@ Usare la libreria client di Content Moderator per Java per:
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Content Moderator usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
 
-* Ottenere un [codice di valutazione gratuito](https://azure.microsoft.com/try/cognitive-services/#decision) valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
 
-Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave, denominata `AZURE_CONTENTMODERATOR_KEY`.
+Dopo aver ottenuto una chiave dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave denominata `AZURE_CONTENTMODERATOR_KEY`.
 
 ### <a name="create-a-new-gradle-project"></a>Creare un nuovo progetto Gradle
 

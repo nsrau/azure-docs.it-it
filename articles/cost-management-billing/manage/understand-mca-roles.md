@@ -3,19 +3,19 @@ title: Ruoli di fatturazione per i Contratti del cliente Microsoft - Azure
 description: Questo articolo offre informazioni sui ruoli di fatturazione per gli account di fatturazione di Azure per i contratti dei clienti Microsoft.
 author: amberbhargava
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286581"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
 
-Per gestire l'account di fatturazione per un contratto del cliente Microsoft, usare i ruoli descritti nelle sezioni seguenti. Questi ruoli si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
+Per gestire l'account di fatturazione per un contratto del cliente Microsoft, usare i ruoli descritti nelle sezioni seguenti. Questi ruoli si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. Verificare di avere accesso a un contratto del cliente Microsoft.
 

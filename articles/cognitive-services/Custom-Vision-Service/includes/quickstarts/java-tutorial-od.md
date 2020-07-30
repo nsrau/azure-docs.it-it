@@ -1,14 +1,15 @@
 ---
 author: areddish
+ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: cf25d69a1f3765613d0d19af8f8f1489d89db1ba
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 383df0d9f3c8fef01d5185be1cf69fe203ba11a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135064"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375251"
 ---
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Java per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata.
 

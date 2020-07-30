@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 459c9f2d68d8a3a3c1b597665914146987aecdc2
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9e3f5e37462b30b0201be5350dedc103a49bb39a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039294"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
 
@@ -62,8 +62,6 @@ L'output di questo cmdlet mostra le proprietà dell'istanza di Key Vault appena 
 * **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://Contoso-Vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 Dopo aver creato l'insieme di credenziali, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
-
-![Output al termine del comando di creazione dell'insieme di credenziali delle chiavi](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Concedere all'account utente le autorizzazioni per gestire i segreti in Key Vault
 
