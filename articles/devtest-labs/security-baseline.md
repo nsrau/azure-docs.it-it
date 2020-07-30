@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 47adca5867fef1d41ccfec2455acc6932269842d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282280"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387830"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -547,7 +547,7 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare la macchina vi
 **Linee guida:** Quando si esegue il backup di dischi gestiti con backup di Azure, le macchine virtuali vengono crittografate a riposo con crittografia del servizio di archiviazione (SSE). Backup di Azure può anche eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure. Crittografia dischi di Azure si integra con le chiavi di crittografia di BitLocker (BEKs), che vengono protette in un insieme di credenziali delle chiavi come segreti. Crittografia dischi di Azure si integra inoltre con Azure Key Vault chiavi di crittografia della chiave (KEKs). Abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 - [Eliminazione temporanea per le macchine virtuali](../backup/soft-delete-virtual-machines.md)
-- [Panoramica di Azure Key Vault-soft-delete](../key-vault/general/overview-soft-delete.md)
+- [Panoramica di Azure Key Vault-soft-delete](../key-vault/general/soft-delete-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Sì
 

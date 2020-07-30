@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ab096fd2425f0efe65f2b048435a9d7f67a4cb9e
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: aff871562c366836906d5125b0cd675a51f9a20c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087068"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Installare applicazioni in un set di scalabilità di macchine virtuali con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 e usa l'estensione di script personalizzati per installare un'applicazione Web di base. Dopo aver eseguito lo script, è possibile accedere all'app Web tramite un Web browser.
@@ -47,4 +47,4 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 |  [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: f2d7398be1db6760ebe532d3d726373d8c78e0c7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4ee632d7c68612b3fd1ecd053bbb1cd5c4e3daa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202948"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075148"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure
 
@@ -37,7 +37,7 @@ Usare l'API Dettagli sull'utilizzo per ottenere i dati su addebito e utilizzo pe
 L'API include:
 
 -   **Dati di consumo a livello di contatore**: consentono di esaminare i dati relativi al costo di utilizzo, al contatore di generazione dell'addebito e alla risorsa di Azure a cui l'addebito si riferisce. Di tutti i record dei dettagli sull'utilizzo viene eseguito il mapping in un bucket giornaliero.
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Filtri**: ridurre il set di risultati delle API in un set più piccolo di record di dettagli di utilizzo con i filtri seguenti:
     - Fine utilizzo/Avvio utilizzo
     - Gruppo di risorse
@@ -54,7 +54,7 @@ Usare l'API Addebiti per Marketplace per ottenere dati sull'utilizzo e sui costi
 L'API include:
 
 -   **Dati di consumo a livello di contatore**: consentono di esaminare i dati relativi al costo di utilizzo di Marketplace, al contatore di generazione dell'addebito e alla risorsa a cui l'addebito si riferisce. Di tutti i record dei dettagli sull'utilizzo viene eseguito il mapping in un bucket giornaliero.
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Filtri**: ridurre il set di risultati delle API in un set più piccolo di record su Marketplace con i filtri seguenti:
     - Avvio utilizzo/Fine utilizzo
     - Gruppo di risorse
@@ -69,7 +69,7 @@ I clienti Enterprise possono usare l'API Saldi per ottenere un riepilogo mensile
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Solo clienti Enterprise** Questa API è disponibile solo per i clienti EA.
     - Per chiamare l'API, i clienti devono avere autorizzazioni di Amministratore aziendale
 
@@ -81,7 +81,7 @@ I clienti Enterprise possono usare questa API per creare budget di costo o di ut
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Solo clienti Enterprise** Questa API è disponibile solo per i clienti EA.
 -   **Notifiche configurabili**: specificare gli utenti a cui inviare una notifica quando viene attivato il budget.
 -   **Budget basati su costo o su utilizzo**: creare il budget in base al consumo o al costo, a seconda delle esigenze dello scenario.
@@ -99,7 +99,7 @@ Usare questa API per ottenere consigli per l'acquisto di istanze di macchina vir
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Filtri**: personalizzare i risultati relativi alle raccomandazioni tramite i filtri seguenti:
     - Scope
     - Periodo di ricerca posticipata
@@ -113,7 +113,7 @@ Usare l'API Dettagli di prenotazione per visualizzare le informazioni relative a
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Filtri**: ridurre il set di risultati delle API in un set più piccolo di prenotazioni con i filtri seguenti:
     - Intervallo di date
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
@@ -126,7 +126,7 @@ Usare questa API per visualizzare informazioni aggregate relative a prenotazioni
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Filtri**: personalizzare i risultati della granularità giornaliera con il filtro seguente:
     - Data utilizzo
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
@@ -139,7 +139,7 @@ I clienti Enterprise possono usare questa API per recuperare i prezzi personaliz
 
 L'API include:
 
--   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
+-   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 -   **Solo clienti Enterprise** Questa API è disponibile solo per i clienti EA. Per ottenere i prezzi, i clienti Accesso Web diretto devono usare l'API RateCard.
 
 Per altre informazioni, vedere le specifiche tecniche per l'[API Elenco prezzi](https://docs.microsoft.com/rest/api/consumption/pricesheet).

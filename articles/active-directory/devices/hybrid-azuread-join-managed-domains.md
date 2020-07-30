@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8c4a128d46ca1b3f84981f9732f86ff49f72cc18
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025830"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -177,7 +177,7 @@ Ecco tre modi per individuare e verificare lo stato del dispositivo:
 
 ### <a name="using-powershell"></a>Utilizzo di PowerShell
 
-Verificare lo stato di registrazione del dispositivo nel tenant di Azure con **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** . Questo cmdlet si trova nel [modulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Verificare lo stato di registrazione del dispositivo nel tenant di Azure con **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Questo cmdlet si trova nel [modulo Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del servizio:
 

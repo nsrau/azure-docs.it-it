@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 2a636ae5609d9cb5c81782af5a419a27d7880106
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a3b3d7c0bf61ea0aa9b85965c11e572e9e2d999
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80154373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085402"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Installare un server Web LAMP in una macchina virtuale Linux in Azure
 
-Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo stack LAMP) in una VM Ubuntu in Azure. Se si preferisce il server Web NGINX, vedere l'esercitazione [LEMP stack](tutorial-lemp-stack.md) (Stack LEMP). Per verificare il funzionamento del server LAMP, è facoltativamente possibile installare e configurare un sito WordPress. In questa esercitazione si apprenderà come:
+Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo stack LAMP) in una VM Ubuntu in Azure. Se si preferisce il server Web NGINX, vedere l'esercitazione [LEMP stack]() (Stack LEMP). Per verificare il funzionamento del server LAMP, è facoltativamente possibile installare e configurare un sito WordPress. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una VM Ubuntu ("L" nello stack LAMP)
@@ -35,7 +35,7 @@ Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo 
 
 Questa installazione è utilizzabile per i test rapidi o il modello di prova. Per altre informazioni sullo stack LAMP, incluse le raccomandazioni per un ambiente di produzione, vedere la [documentazione di Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
+Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](../../cloud-shell/overview.md), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
