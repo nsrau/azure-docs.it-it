@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 62ee8ddb03c00ba7d6ae495ee360c708b00c615c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d892d04eddb572ab644693503e454e9f00e0b39c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208636"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281090"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Guida introduttiva: Distribuire una macchina virtuale di confidential computing di Azure nel Marketplace
 
@@ -61,7 +61,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
     * **Tipo di autenticazione**: Selezionare **Chiave pubblica SSH** se si crea una VM Linux. 
 
          > [!NOTE]
-         > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+         > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Nome utente**: immettere il nome dell'amministratore della macchina virtuale.
 

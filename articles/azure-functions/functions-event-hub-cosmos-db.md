@@ -5,12 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-java
+ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77425324"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372451"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Esercitazione: Creare una funzione in Java con un trigger di Hub eventi e un binding di output di Azure Cosmos DB
 
@@ -445,9 +446,9 @@ az group delete --name $RESOURCE_GROUP
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare una funzione di Azure che gestisce gli eventi di Hub eventi e aggiorna un Cosmos DB. Per altre informazioni, vedere la [guida per sviluppatori Java per funzioni di Azure](/azure/azure-functions/functions-reference-java). Per informazioni sulle annotazioni usate, vedere le informazioni di riferimento su [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation).
+In questa esercitazione si è appreso come creare una funzione di Azure che gestisce gli eventi di Hub eventi e aggiorna un Cosmos DB. Per altre informazioni, vedere la [guida per sviluppatori Java per funzioni di Azure](./functions-reference-java.md). Per informazioni sulle annotazioni usate, vedere le informazioni di riferimento su [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation).
 
-In questa esercitazione sono state usate variabili di ambiente e impostazioni di applicazioni per archiviare segreti come le stringhe di connessione. Per informazioni sull'archiviazione di questi segreti in Azure Key Vault, vedere [Usare i riferimenti a Key Vault per il Servizio app e Funzioni di Azure](/azure/app-service/app-service-key-vault-references).
+In questa esercitazione sono state usate variabili di ambiente e impostazioni di applicazioni per archiviare segreti come le stringhe di connessione. Per informazioni sull'archiviazione di questi segreti in Azure Key Vault, vedere [Usare i riferimenti a Key Vault per il Servizio app e Funzioni di Azure](../app-service/app-service-key-vault-references.md).
 
 A questo punto, vedere come usare il processo CI/CD di Azure Pipelines per la distribuzione automatizzata:
 
