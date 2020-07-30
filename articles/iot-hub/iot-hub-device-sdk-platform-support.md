@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045125"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423083"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -44,7 +44,7 @@ Per ognuno degli SDK elencati, Microsoft:
 
 L' [SDK per dispositivi C dell'hub Azure](https://github.com/Azure/azure-iot-sdk-c) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
+| Sistema operativo                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL o BearSSL | Socket Berkeley</br></br>POSIX (Portable Operating System Interface)                       |
 | iOS 12,2            | OpenSSL                      | XCode emulato in OSX 10.13.4                                                               |
@@ -57,7 +57,7 @@ L' [SDK per dispositivi C dell'hub Azure](https://github.com/Azure/azure-iot-sdk
 
 L' [SDK per dispositivi Python per hub Azure](https://github.com/Azure/azure-iot-sdk-python) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                  | Compilatore                          |
+| Sistema operativo                  | Compilatore                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7. *, 3,5 o versione successiva |
 | MacOS High Sierra   | Python 2,7. *, 3,5 o versione successiva |
@@ -69,7 +69,7 @@ Solo Python Version 3.5.3 o versioni successive supportano le API asincrone, è 
 
 L' [SDK per dispositivi .NET (C#) dell'hub Azure](https://github.com/Azure/azure-iot-sdk-csharp) è testato con e supporta le configurazioni seguenti.
 
-| OS                                   | Standard                                                   |
+| Sistema operativo                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKU per desktop e server di Windows 10   | .NET Core 2,1, .NET Framework 4.5.1 o .NET Framework 4,7 |
@@ -80,7 +80,7 @@ L' [SDK per dispositivi .NET (C#) dell'hub Azure](https://github.com/Azure/azure
 
 L' [Hub Azure e l'SDK Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) sono testati con e supportano le configurazioni seguenti.
 
-| OS                  | Versione del nodo    |
+| Sistema operativo                  | Versione del nodo    |
 |---------------------|-----------------|
 | Linux               | LTS e Current |
 | Famiglia Windows 10   | LTS e Current |
@@ -89,7 +89,7 @@ L' [Hub Azure e l'SDK Node.js Device SDK](https://github.com/Azure/azure-iot-sdk
 
 L' [SDK per dispositivi Java dell'hub Azure](https://github.com/Azure/azure-iot-sdk-java) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                     | Versione Java |
+| Sistema operativo                     | Versione Java |
 |------------------------|--------------|
 | API Android 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -124,7 +124,7 @@ Se non si è in grado di usare uno degli SDK per dispositivi dell'hub Internet d
 
 ## <a name="support-and-other-resources"></a>Supporto e altre risorse
 
-Se si verificano problemi durante l'uso degli SDK per dispositivi Azure, è possibile cercare supporto in diversi modi. È possibile provare uno dei canali seguenti:
+Se si verificano problemi durante l'uso degli SDK per dispositivi Azure, sono disponibili diversi modi per cercare il supporto riepilogato di seguito. Per informazioni complete su tutte le opzioni di supporto, vedere le [Opzioni di supporto e](https://aka.ms/iothelp)di assistenza per Azure. 
 
 **Segnalazione di bug** : è possibile segnalare bug negli SDK per dispositivi nella pagina problemi del progetto GitHub pertinente. Le correzioni passano rapidamente dal progetto agli aggiornamenti del prodotto.
 
@@ -137,6 +137,8 @@ Se si verificano problemi durante l'uso degli SDK per dispositivi Azure, è poss
 * [Problemi dell'SDK Node.js dell'hub Azure](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problemi di Python SDK per hub Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Domande tecniche** : è possibile porre domande tecniche su [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) e [stack overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) usando il tag *Azure-* Internet e l'SDK.
 
 **Team di supporto clienti Microsoft** : gli utenti che dispongono di un [piano di supporto](https://azure.microsoft.com/support/plans/) possono coinvolgere il team di supporto clienti Microsoft creando una nuova richiesta di supporto direttamente dalla [portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

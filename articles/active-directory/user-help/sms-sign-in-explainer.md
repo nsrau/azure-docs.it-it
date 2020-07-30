@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747199"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422998"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Usare il numero di telefono come nome utente (anteprima)
 
@@ -52,11 +52,11 @@ Se si usa già un numero di telefono con un'organizzazione ed è disponibile l'o
 
 1. Quando l'accesso tramite SMS è disponibile, viene visualizzato un banner in cui si chiede se si vuole abilitare il numero di telefono per eseguire l'accesso tramite SMS:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![Banner per abilitare l'accesso SMS per un numero di telefono.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. Viene visualizzato anche un pulsante **Abilita** se si seleziona l'icona a forma di accento circonflesso nel riquadro del metodo per il telefono:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Banner per abilitare l'accesso SMS per un numero di telefono.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. Per abilitare il metodo, selezionare **Abilita**. Verrà chiesto di confermare l'azione:
 
@@ -68,7 +68,7 @@ Se si usa già un numero di telefono con un'organizzazione ed è disponibile l'o
 
 1. Per eliminare il numero di telefono, selezionare il pulsante Elimina nel riquadro del metodo di accesso tramite SMS per il telefono.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Banner per eliminare l'accesso SMS per un numero di telefono.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. Quando viene chiesto di confermare l'operazione, selezionare **OK**.
 

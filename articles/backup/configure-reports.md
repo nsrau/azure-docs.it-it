@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513626"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388058"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -70,28 +70,63 @@ Selezionare questo collegamento per aprire la cartella di lavoro dei report di B
 
 Il report contiene diverse schede:
 
-- **Riepilogo**: usare questa scheda per ottenere una panoramica generale della struttura di backup. È possibile vedere a colpo d'occhio il numero totale di elementi di backup, lo spazio di archiviazione cloud totale utilizzato, il numero di istanze protette e la percentuale di processi completati per tipo di carico di lavoro. Per informazioni più dettagliate su un tipo di elemento di backup specifico, vedere le rispettive schede.
+##### <a name="summary"></a>Summary
+Usare questa scheda per ottenere una panoramica di alto livello del patrimonio di backup. È possibile vedere a colpo d'occhio il numero totale di elementi di backup, lo spazio di archiviazione cloud totale utilizzato, il numero di istanze protette e la percentuale di processi completati per tipo di carico di lavoro. Per informazioni più dettagliate su un tipo di elemento di backup specifico, vedere le rispettive schede.
 
    ![Scheda Riepilogo](./media/backup-azure-configure-backup-reports/summary.png)
 
-- **Elementi di backup**: usare questa scheda per visualizzare le informazioni e le tendenze relative allo spazio di archiviazione cloud utilizzato a livello di elemento di backup. Ad esempio, se si usa SQL in un backup di VM di Azure, è possibile visualizzare lo spazio di archiviazione cloud utilizzato per ogni database SQL di cui viene eseguito il backup. Si può anche scegliere di visualizzare i dati relativi agli elementi di backup di un determinato stato di protezione. Ad esempio, se si seleziona il riquadro **Protezione arrestata** nella parte superiore della scheda, vengono filtrati tutti i widget sottostanti per visualizzare solo i dati relativi agli elementi di backup nello stato di protezione arrestata.
+##### <a name="backup-items"></a>Elementi di backup
+Usare questa scheda per visualizzare le informazioni e le tendenze sull'archiviazione cloud usata a livello di elemento di backup. Ad esempio, se si usa SQL in un backup di VM di Azure, è possibile visualizzare lo spazio di archiviazione cloud utilizzato per ogni database SQL di cui viene eseguito il backup. Si può anche scegliere di visualizzare i dati relativi agli elementi di backup di un determinato stato di protezione. Ad esempio, se si seleziona il riquadro **Protezione arrestata** nella parte superiore della scheda, vengono filtrati tutti i widget sottostanti per visualizzare solo i dati relativi agli elementi di backup nello stato di protezione arrestata.
 
    ![Scheda Elementi di backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-- **Utilizzo**: usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Ad esempio, nel caso di un server DPM sottoposto a backup in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
+##### <a name="usage"></a>Utilizzo
+Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Ad esempio, nel caso di un server DPM sottoposto a backup in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
 
    ![Scheda Utilizzo](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
 > Per i carichi di lavoro DPM, gli utenti potrebbero vedere una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report e il valore di utilizzo aggregato visualizzato nella scheda Panoramica dell'insieme di credenziali di Servizi di ripristino. Questa differenza è dovuta al fatto che a ogni server DPM registrato per il backup è associata un'origine dati di "metadati" che non viene rilevata come elemento per la creazione dei report.
 
-- **Processi**: usare questa scheda per visualizzare le tendenze nei processi a esecuzione prolungata, ad esempio il numero di processi non riusciti al giorno e le cause principali della mancata riuscita del processo. È possibile visualizzare queste informazioni sia a livello aggregato che a livello di elemento di backup. Selezionare uno specifico elemento di backup in una griglia per visualizzare informazioni dettagliate su ogni processo attivato su tale elemento di backup nell'intervallo di tempo selezionato.
+##### <a name="jobs"></a>Processi
+Usare questa scheda per visualizzare le tendenze con esecuzione prolungata nei processi, ad esempio il numero di processi non riusciti al giorno e le cause principali dell'errore del processo. È possibile visualizzare queste informazioni sia a livello aggregato che a livello di elemento di backup. Selezionare uno specifico elemento di backup in una griglia per visualizzare informazioni dettagliate su ogni processo attivato su tale elemento di backup nell'intervallo di tempo selezionato.
 
    ![Scheda Processi](./media/backup-azure-configure-backup-reports/jobs.png)
 
-- **Criteri**: usare questa scheda per visualizzare informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e lo spazio di archiviazione cloud totale utilizzato dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. Selezionare un criterio specifico per visualizzare le informazioni su ogni elemento di backup associato.
+##### <a name="policies"></a>Criteri
+Usare questa scheda per visualizzare informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e l'archiviazione cloud totale utilizzata dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. Selezionare un criterio specifico per visualizzare le informazioni su ogni elemento di backup associato.
 
    ![Scheda Criteri](./media/backup-azure-configure-backup-reports/policies.png)
+
+##### <a name="optimize"></a>Ottimizzazione
+Usare questa scheda per ottenere visibilità sulle possibili opportunità di ottimizzazione dei costi per i backup. Di seguito sono riportati gli scenari per i quali la scheda Ottimizza fornisce attualmente informazioni dettagliate:
+
+###### <a name="inactive-resources"></a>Risorse inattive
+Utilizzando questa visualizzazione, è possibile identificare gli elementi di backup per i quali non è stato eseguito il backup per un periodo di tempo significativo. Questo potrebbe significare che il computer sottostante di cui viene eseguito il backup non esiste più (e pertanto comporta backup non riusciti) oppure si è verificato un problema con il computer che impedisce l'esecuzione affidabile dei backup. 
+
+Per visualizzare le risorse inattive, passare alla scheda **optimize** e fare clic sul riquadro **inactive Resources** . Quando si fa clic su questo riquadro viene visualizzata una griglia contenente i dettagli di tutte le risorse inattive presenti nell'ambito selezionato. Per impostazione predefinita, nella griglia vengono visualizzati gli elementi che non dispongono di un punto di ripristino negli ultimi 7 giorni. Per trovare le risorse inattive per un intervallo di tempo diverso, è possibile modificare il filtro **intervallo di tempo** nella parte superiore della scheda.
+
+Una volta identificata una risorsa inattiva, è possibile approfondire ulteriormente il problema passando al dashboard dell'elemento di backup o al pannello delle risorse di Azure per la risorsa (laddove applicabile). A seconda dello scenario, è possibile scegliere di arrestare il backup per il computer (se non esiste più), salvando in tal modo il costo dell'istanza protetta, oppure è possibile risolvere i problemi nel computer per assicurarsi che i backup vengano eseguiti in modo affidabile.
+
+![Ottimizzare le risorse inattive nella scheda](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+###### <a name="backup-items-with-a-large-retention-duration"></a>Eseguire il backup degli elementi con una durata di conservazione elevata
+Utilizzando questa visualizzazione, è possibile identificare gli elementi per i quali i backup sono conservati per un periodo di tempo più lungo rispetto a quello richiesto dall'organizzazione. 
+
+Facendo clic sul riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni di conservazione** viene visualizzata una griglia contenente tutti gli elementi di backup per i quali la conservazione del punto di conservazione giornaliero, settimanale, mensile o annuale è maggiore di un valore specificato. Per impostazione predefinita, nella griglia vengono visualizzati tutti gli elementi di backup nell'ambito selezionato. È possibile utilizzare i filtri per la conservazione giornaliera, settimanale, mensile e annuale della relying party per filtrare ulteriormente la griglia e identificare gli elementi per i quali potrebbe essere possibile ridurre la conservazione per risparmiare sui costi di archiviazione di backup.
+
+Si noti che per i carichi di lavoro del database come SQL e SAP HANA, i periodi di conservazione visualizzati nella griglia corrispondono ai periodi di conservazione dei punti di backup completi e non ai punti di backup differenziali. Lo stesso vale anche per i filtri di conservazione.  
+
+![Ottimizzare le ottimizzazioni per la memorizzazione nella scheda](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+###### <a name="databases-configured-for-daily-full-backup"></a>Database configurati per il backup completo giornaliero
+Utilizzando questa visualizzazione, è possibile identificare i carichi di lavoro del database configurati per il backup completo giornaliero. Spesso, l'uso del backup differenziale giornaliero insieme al backup completo settimanale è più conveniente. 
+
+Facendo clic sul riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni pianificazione backup** , viene visualizzata una griglia contenente tutti i database con criteri di backup completi giornalieri. È possibile scegliere di passare a un particolare elemento di backup e modificare il criterio in modo da usare il backup differenziale giornaliero con backup completo settimanale.
+
+Si noti che il filtro del **tipo di gestione di backup** nella parte superiore della scheda deve avere gli elementi **SQL in VM di Azure** e **SAP Hana nella macchina virtuale di Azure** selezionata per consentire alla griglia di visualizzare i carichi di lavoro del database come previsto.
+
+![Ottimizza la scheda-ottimizzazioni della pianificazione dei backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## <a name="export-to-excel"></a>Eseguire l'esportazione in Excel
 

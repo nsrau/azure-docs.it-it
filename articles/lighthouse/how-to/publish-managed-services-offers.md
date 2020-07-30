@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133304"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407065"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -34,7 +34,7 @@ Per informazioni sul processo di pubblicazione generale, vedere la [Guida alla p
 Una volta che un cliente ha aggiunto l'offerta, sarà in grado di delegare una o più sottoscrizioni o gruppi di risorse, che verranno quindi caricati [in Azure Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
-> Ogni piano in un'offerta di servizio gestito include una sezione dei **Dettagli del manifesto** , in cui si definiscono le entità Azure Active Directory (Azure ad) nel tenant che avranno accesso ai gruppi di risorse e/o alle sottoscrizioni delegate per i clienti che acquistano il piano. È importante tenere presente che qualsiasi gruppo, o utente o entità servizio, incluso avrà le stesse autorizzazioni per ogni cliente che acquista il piano. Per assegnare gruppi diversi per lavorare con ogni cliente, è necessario pubblicare un [piano privato](../../marketplace/private-offers.md) separato che è esclusivo per ogni cliente.
+> Ogni piano in un'offerta di servizio gestito include una sezione dei **Dettagli del manifesto** , in cui si definiscono le entità Azure Active Directory (Azure ad) nel tenant che avranno accesso ai gruppi di risorse e/o alle sottoscrizioni delegate per i clienti che acquistano il piano. È importante tenere presente che qualsiasi gruppo, o utente o entità servizio, incluso avrà le stesse autorizzazioni per ogni cliente che acquista il piano. Per assegnare gruppi diversi per lavorare con ogni cliente, è possibile pubblicare un [piano privato](../../marketplace/private-offers.md) separato che è esclusivo per ogni cliente. Tenere presente che i piani privati non sono supportati con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
 ## <a name="publish-your-offer"></a>Pubblicare l'offerta
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117014"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423304"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -248,7 +248,7 @@ Se si [automatizza la distribuzione per le app per la logica usando i modelli di
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}

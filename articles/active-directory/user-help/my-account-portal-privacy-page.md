@@ -11,26 +11,28 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0e74ea4a3204efb35fa6113504356e87c85aa0dd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ec050f3dfd2537f8cffde353772d61c32cb9d676
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742106"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422369"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizzare come vengono usati i dati relativi alla privacy nell'organizzazione
 
-È possibile controllare come vengono usati nell'organizzazione i dati degli utenti nella pagina **Privacy** del portale **Account personale**.
+È possibile visualizzare il modo in cui l'organizzazione usa i dati dalla pagina **impostazioni & privacy** del portale **account personale** .
 
 ## <a name="view-your-privacy-related-info"></a>Visualizzare le informazioni relative alla privacy
 
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myaccount.microsoft.com/.
 
-2. Selezionare **Privacy** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Verifica la privacy** nel blocco **Privacy**.
+2. Selezionare **impostazioni & privacy** nel riquadro di spostamento a sinistra oppure selezionare il collegamento **Visualizza impostazioni e privacy** dal blocco **Impostazioni & privacy** .
 
-    ![Pagina Account personale con il collegamento Privacy evidenziato](media/my-account-portal/my-account-portal-privacy.png)
+    ![Pagina account personale, che mostra le impostazioni evidenziate & collegamento alla privacy](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Esaminare le informazioni, tra cui:
+3. Selezionare **privacy**, come illustrato nella schermata di esempio seguente, quindi esaminare le informazioni, tra cui:
+
+    ![Impostazioni & pagina privacy, che mostra l'opzione della scheda privacy evidenziata](media/my-account-portal/my-account-portal-privacy-tab.png)
 
     - **Servizi.** Elenco di servizi online a cui si è connessi con il proprio account aziendale o dell'istituto di istruzione.
 
@@ -47,5 +49,7 @@ Dopo aver visualizzato come vengono usati i propri dati nell'organizzazione, è 
 - Visualizzare o gestire le [organizzazioni](my-account-portal-organizations-page.md).
 
 - Visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md).
+
+- Modificare [le impostazioni del portale per gli account personali](my-account-portal-settings.md)
 
 - È anche possibile visualizzare le preferenze di contatto relative a Microsoft Office e le informazioni sulla privacy nella [pagina Sicurezza e privacy del portale di Office](https://portal.office.com/account/#security).

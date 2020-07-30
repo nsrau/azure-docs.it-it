@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309257"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430258"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -116,6 +116,9 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 > [!NOTE]
 > Il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure non supportano la copia del database in una sottoscrizione diversa.
+
+> [!TIP]
+> La copia del database con T-SQL supporta la copia di un database da una sottoscrizione in un tenant di Azure diverso.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 

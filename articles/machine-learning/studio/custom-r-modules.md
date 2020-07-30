@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b050e8c70de4edc39c8ddad71d2169d5308607b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287240"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429388"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Machine Learning Studio (versione classica)
 
-**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Questo argomento descrive come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
@@ -306,8 +306,8 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * Boolean
     * Categorical
     * Stringa
-    * Label
-    * Funzionalità
+    * Etichetta
+    * Feature
     * Punteggio
     * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 

@@ -1,14 +1,14 @@
 ---
 title: Considerazioni sul programma Cloud Solution Provider
 description: Per i partner CSP, la gestione risorse delegate di Azure consente di migliorare la sicurezza e il controllo abilitando autorizzazioni granulari.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131500"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429446"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e programma Cloud Solution Provider
 
@@ -32,6 +32,9 @@ Con Azure Lighthouse è possibile assegnare gruppi diversi a clienti o ruoli div
 L'onboarding di una sottoscrizione creata tramite il programma CSP segue i passaggi descritti in caricare [una sottoscrizione al Faro di Azure](../how-to/onboard-customer.md). Tutti gli utenti che hanno il ruolo Agente amministratore nel tenant possono eseguire questa operazione di onboarding.
 
 ![Gestione dei tenant tramite la funzionalità Amministra per conto terzi e la gestione risorse delegate di Azure](../media/csp-2.jpg)
+
+> [!TIP]
+> Le [offerte del servizio gestito](managed-services-offers.md) con piani privati non sono supportate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP). È possibile caricare queste sottoscrizioni in Azure Lighthouse [usando Azure Resource Manager modelli](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > La [pagina **clienti** nella portale di Azure](../how-to/view-manage-customers.md) include ora una sezione **Cloud Solution Provider (anteprima)** , che visualizza le informazioni di fatturazione e le risorse per i clienti CSP che hanno [firmato il contratto di servizio Microsoft (MCA)](/partner-center/confirm-customer-agreement) e si trovano nel [piano Azure](/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../cost-management-billing/understand/mpa-overview.md).

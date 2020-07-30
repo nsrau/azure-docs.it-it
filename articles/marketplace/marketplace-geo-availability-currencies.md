@@ -1,24 +1,24 @@
 ---
 title: Disponibilità geografica e valute supportate per il marketplace commerciale Microsoft
 description: Disponibilità geografica e valute supportate per le transazioni nel marketplace commerciale
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
+author: keferna
+ms.author: keferna
 ms.date: 01/29/2020
-ms.author: dsindona
-ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657882"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387439"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
 Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. La tabella seguente contiene tutte le aree geografiche supportate, tramite il [codice alfa a due cifre ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), e la valuta assegnata.
 
-|   Nome paese/area geografica               |   ISO-2   |   Valuta   |
+|   Nome paese/area               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albania                             | AL        | USD          |
@@ -43,9 +43,9 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Brasile                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Camerun                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Isole Cayman                      | KY        | USD          |
 | Cile                               | CL        | USD          |
 | Cina\**                            | CN        | N/D          |
@@ -110,8 +110,8 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Namibia                             | ND        | USD          |
 | Nepal                               | NP        | USD          |
 | Paesi Bassi                         | NL        | EUR          |
-| Nicaragua                           | NI        | USD          |
 | Nuova Zelanda                         | NZ        | NZD          |
+| Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norvegia                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
@@ -148,15 +148,15 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Tunisia                             | TN        | USD          |
 | Turchia                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Città del Vaticano (Santa Sede)             | VA        | EUR          |
-| Isole Vergini degli Stati Uniti | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucraina                             | UA        | USD          |
 | Emirati Arabi Uniti                | AE        | USD          |
 | Regno Unito                      | GB        | GBP          |
 | Stati Uniti                       | Stati Uniti        | USD          |
+| U.S. Vergini Americane                 | VI        | USD          |
 | Uruguay                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
+| Città del Vaticano (Santa Sede)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
 | Yemen                               | YE        | USD          |

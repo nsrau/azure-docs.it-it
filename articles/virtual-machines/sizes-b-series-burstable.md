@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292076"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432638"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -92,18 +92,21 @@ Per un D16s_v3 con 16 vCPU e 64 GiB di memoria la tariffa oraria è $0,936 all'o
 
 ## <a name="q--a"></a>Domande e risposte
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>D: cosa accade se i crediti si esauriscono?
+**R**: quando i crediti sono esauriti, la macchina virtuale Torna alle prestazioni di base.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>D: Come si ottengono prestazioni baseline del 135% da una VM?
 
 **R**: La quantità pari al 135% è condivisa tra 8 vCPU che costituiscono le dimensioni della VM. Se, ad esempio, l'applicazione usa 4 degli 8 core dedicati all'elaborazione batch e ognuna di queste 4 vCPU è in esecuzione con un livello di utilizzo pari al 30%, la quantità totale di prestazioni della CPU della VM equivale al 120%.  La macchina virtuale, quindi, accumula tempo di credito in base al differenziale del 15% rispetto alle prestazioni baseline.  Quando sono disponibili crediti, la stessa VM può quindi usare il 100% di tutte le 8 vCPU, ottenendo un livello massimo di prestazioni della CPU pari all'800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>D: Come si possono monitorare il saldo e l'utilizzo del credito?
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>D: come è possibile monitorare il saldo del credito e il consumo?
 
 **R**: Nelle prossime settimane verranno introdotte 2 nuove metriche, ovvero la metrica **Credit** che consentirò di visualizzare la quantità di crediti accumulati dalla VM e la metrica **ConsumedCredit** che mostrerà la quantità di crediti di CPU utilizzata dalla VM rispetto alla quantità accumulata.    Sarà possibile visualizzare queste metriche dal riquadro delle metriche nel portale o a livello di programmazione tramite le API di Monitoraggio di Azure.
 
 Per altre informazioni su come accedere ai dati delle metriche per Azure, vedere [Panoramica delle metriche in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>D: In che modo vengono accumulati i crediti?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>D: come vengono accumulati e utilizzati i crediti?
 
 **R**: La velocità di accumulo e di utilizzo delle VM viene impostata in modo che una VM in esecuzione esattamente al rispettivo livello di prestazioni di base non avrà alcun accumulo netto o alcun utilizzo di crediti di burst.  Una VM presenterà un incremento netto in crediti in caso di esecuzione a un livello inferiore al rispettivo livello di prestazioni di base e presenterà una riduzione netta in crediti in caso di utilizzo della CPU da parte della VM a un livello superiore rispetto al rispettivo livello di prestazioni di base.
 

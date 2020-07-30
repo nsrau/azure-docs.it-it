@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: f6868e3a77cbc4b262180b47ed3b387840062969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/15/2020
+ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097717"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406283"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questo articolo vengono illustrate le reti virtuali gestite e gli endpoint privati gestiti in Azure Data Factory.
 
@@ -63,7 +63,7 @@ L'endpoint privato usa un indirizzo IP privato nella rete virtuale gestita per p
 
 Quando si crea un endpoint privato gestito in Azure Data Factory, viene creata una connessione all'endpoint privato in stato "in sospeso". Viene avviato un flusso di lavoro di approvazione. Il proprietario della risorsa del collegamento privato ha la responsabilità di approvare la connessione.
 
-![Gestisci endpoint privato](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
+![Endpoint privato gestito](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
 Se il proprietario approva la connessione, il collegamento privato viene stabilito. In caso contrario, il collegamento privato non verrà stabilito. In entrambi i casi, l'endpoint privato gestito verrà aggiornato con lo stato della connessione.
 
@@ -82,6 +82,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Azure SQL Data Warehouse
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
+- Collegamento privato di Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081043"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423865"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
@@ -114,7 +114,7 @@ Se è necessario un controllo granulare per utente sui risultati della ricerca, 
 
 ## <a name="administrative-rights"></a>Diritti amministrativi
 
-[L'accesso in base al ruolo (RBAC)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. In ricerca cognitiva di Azure, Gestione risorse viene usato per creare o eliminare il servizio, gestire le chiavi API e ridimensionare il servizio. Di conseguenza, le assegnazioni di ruolo RBAC determineranno chi può eseguire tali attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[L'accesso in base al ruolo (RBAC)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. In ricerca cognitiva di Azure, Gestione risorse viene usato per creare o eliminare il servizio, gestire le chiavi API e ridimensionare il servizio. Di conseguenza, le assegnazioni di ruolo di Azure determineranno chi può eseguire tali attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Al contrario, i diritti di amministratore sul contenuto ospitato nel servizio, ad esempio la possibilità di creare o eliminare un indice, vengono condotti tramite le chiavi API, come descritto nella [sezione precedente](#index-access).
 

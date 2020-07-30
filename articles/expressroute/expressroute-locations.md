@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0aac3d7a4bc2eb8bb83405155b345360f5d2c699
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407354"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività ExpressRoute e località di peering
 
@@ -82,7 +82,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Aryaka Networks](https://www.aryaka.com/)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, RAS di Hong Kong, San Paolo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Supportato |Supportato |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Francoforte, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[AT TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Supportato | Supportato | Tokyo2 |
+| **[AT TOKYO](https://www.attokyo.com/connectivity/azure.html)** | Supportato | Supportato | Osaka, Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Supportato | Supportato | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Supportato |Supportato |Città del Capo, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supportato |Supportato |Montreal, Toronto, Quebec |
@@ -109,7 +109,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **Etisalat UAE** |Supportato |Supportato |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supportato |Supportato |Amsterdam, Amsterdam2, Dublino, Francoforte, Londra |
 | **FarEasTone** |Supportato |Supportato |Taipei|
-| **GÉANT** |Supportato |Supportato |Amsterdam, Dublino, Francoforte, Marsiglia |
+| **GÉANT** |Supportato |Supportato |Amsterdam, Amsterdam2, Dublino, Francoforte, Marsiglia |
 | **GTT** |Supportato |Supportato |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supportato| Supportato | Chennai, Mumbai |
 | **Intelsat** | Supportato | Supportato | Washington DC2 |
@@ -185,7 +185,7 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 | --- | --- | --- | --- |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Chicago, Phoenix, Silicon Valley, Washington DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Supportato |Supportato |New York, Phoenix, San Antonio, Washington DC |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Funzionalità supportata |Funzionalità supportata |Atlanta, Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Funzionalità supportata |Supportato |Atlanta, Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Funzionalità supportata |Supportato |Chicago, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Funzionalità supportata | Supportato | Chicago, Dallas, San Antonio, Seattle, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Funzionalità supportata |Supportato |Chicago, Dallas, New York, Silicon Valley, Washington DC |
@@ -194,9 +194,9 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
 | --- | --- | --- | --- |
-| **China Telecom** |Funzionalità supportata |Non supportato |Pechino, Pechino2, Shanghai, Shanghai2 |
-| **China Unicom** | Funzionalità supportata | Non supportato | Beijing2, Shanghai2 |
-| **[GDS](http://www.gds-services.com/en/about_2.html)** |Funzionalità supportata |Non supportato |Beijing2, Shanghai2 |
+| **China Telecom** |Supportato |Non supportato |Pechino, Pechino2, Shanghai, Shanghai2 |
+| **China Unicom** | Supportato | Non supportato | Beijing2, Shanghai2 |
+| **[GDS](http://www.gds-services.com/en/about_2.html)** |Supportato |Non supportato |Beijing2, Shanghai2 |
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/).
 
@@ -206,7 +206,7 @@ Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Supportato |Non supportato |Francoforte |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supportato |Non supportato |Francoforte |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |Funzionalità supportata |Non supportato |Berlino |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |Supportato |Non supportato |Berlino |
 | **Interxion** |Supportato |Non supportato |Francoforte |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato  | Non supportato | Berlino |
 | **T-Systems** |Supportato |Non supportato |Berlino |

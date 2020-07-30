@@ -3,12 +3,13 @@ title: Distribuire rapidamente un'app esistente in un cluster
 description: Usare un cluster di Azure Service Fabric per ospitare un'applicazione Node.js esistente con Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614843"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430730"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
 
@@ -41,12 +42,12 @@ Nella finestra di dialogo successiva è possibile creare qualsiasi tipo di servi
 
 Assegnare al servizio il nome **MyGuestService** e impostare le opzioni a destra sui valori seguenti:
 
-| Impostazione                   | valore |
+| Impostazione                   | Valore |
 | ------------------------- | ------ |
 | Cartella del pacchetto di codice       | _&lt;la cartella con l'app Node.js&gt;_ |
 | Comportamento del pacchetto di codice     | Copia il contenuto della cartella nel progetto |
 | Programma                   | node.exe |
-| Arguments                 | server.js |
+| Argomenti                 | server.js |
 | Cartella di lavoro            | CodePackage |
 
 Fare clic su **OK**.

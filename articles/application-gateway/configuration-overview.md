@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068034"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428182"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -55,7 +55,7 @@ I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione.
   - Non rimuovere le regole in uscita predefinite.
   - Non creare altre regole in uscita che negano la connettività in uscita.
 
-- È necessario consentire il traffico dal tag **AzureLoadBalancer** .
+- È necessario consentire il traffico dal tag **AzureLoadBalancer** con la **subnet di destinazione** .
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Consentire l'accesso del gateway applicazione ad alcuni IP di origine
 
@@ -74,7 +74,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
 - **v1**
 
-   Per lo SKU V1, le route definite dall'utente (UDR) sono supportate nella subnet del gateway applicazione, purché non modifichino la comunicazione di richiesta/risposta end-to-end. Ad esempio, è possibile configurare un UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti. È tuttavia necessario assicurarsi che il pacchetto possa raggiungere la destinazione prevista dopo l'ispezione. In caso contrario, potrebbe verificarsi un comportamento non corretto del probe di integrità o del routing del traffico. Sono incluse le route apprese o le route 0.0.0.0/0 predefinite propagate dai gateway VPN o ExpressRoute di Azure nella rete virtuale.
+   Per lo SKU V1, le route definite dall'utente (UDR) sono supportate nella subnet del gateway applicazione, purché non modifichino la comunicazione di richiesta/risposta end-to-end. Ad esempio, è possibile configurare un UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti. È tuttavia necessario assicurarsi che il pacchetto possa raggiungere la destinazione prevista dopo l'ispezione. In caso contrario, potrebbe verificarsi un comportamento non corretto del probe di integrità o del routing del traffico. Sono incluse le route apprese o le route 0.0.0.0/0 predefinite propagate dai gateway VPN o ExpressRoute di Azure nella rete virtuale. Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato in locale (tunneling forzato) non è supportato per V1.
 
 - **v2**
 
@@ -279,7 +279,7 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 - [Reindirizzare il traffico a un sito esterno tramite PowerShell](redirect-external-site-powershell.md)
 - [Reindirizzare il traffico a un sito esterno tramite l'interfaccia della riga di comando](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
+### <a name="rewrite-http-headers-and-url"></a>Riscrivere l'URL e le intestazioni HTTP
 
 Con le regole di riscrittura è possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP (S), nonché il percorso URL e i parametri della stringa di query, perché i pacchetti di richiesta e risposta passano tra il client e i pool back-end tramite il gateway applicazione.
 

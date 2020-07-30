@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171748"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423950"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrazione a nuove versioni dell'API Gen2 Azure Time Series Insights
 
@@ -104,7 +104,7 @@ Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a 
   - [Getserie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 
@@ -286,7 +286,7 @@ Il corpo della richiesta è stato aggiornato (usato da `2020-07-31` ):
 
 In alternativa, `value` può essere anche `$event['Bar-Pressure-Offset'].Double` . Se non viene specificato alcun tipo di dati, il tipo di dati viene sempre considerato Double. La notazione tra parentesi quadre deve essere utilizzata per eseguire l'escape del carattere speciale ( `-` ).
 
-#### <a name="getaggregateseries"></a>GetAggregateSeries
+#### <a name="aggregateseries"></a>AggregateSeries
 
 Vecchio corpo della richiesta (usato da `2018-11-01-preview` ):
 

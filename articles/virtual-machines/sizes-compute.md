@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 3217a8e8ef011cb949444858601f1c93b8db14c7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 37b7e47d4cf70f6f4fb4e6a9364c12bbe69daf9d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292044"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423899"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per il calcolo
 
@@ -35,3 +35,5 @@ Con un prezzo di listino orario più basso, la serie Fsv2 presenta il migliore r
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+
+Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).

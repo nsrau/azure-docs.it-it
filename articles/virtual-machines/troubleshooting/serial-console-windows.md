@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005940"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424001"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console seriale di Azure per Windows
 
@@ -26,10 +26,12 @@ La console seriale nel portale di Azure consente l'accesso a una console basata 
 
 La console seriale funziona allo stesso modo per istanze di macchine virtuali e per set di scalabilità di macchine virtuali. In questo documento, se non diversamente specificato, ogni riferimento a macchine virtuali include in modo implicito le istanze dei set di scalabilità di macchine virtuali.
 
+La console seriale è disponibile a livello generale nelle aree globali di Azure e in versione di anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
+
 Per la documentazione della console seriale per Linux, vedere [Console seriale di Azure per Linux](serial-console-linux.md).
 
 > [!NOTE]
-> La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
+> La console seriale non è attualmente compatibile con un account di archiviazione di diagnostica di avvio gestito. Per usare la console seriale, assicurarsi di usare un account di archiviazione personalizzato.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -194,23 +196,23 @@ L'operazione di incollare le stringhe lunghe non funziona. | La console seriale 
 
 **D. Come è possibile inviare commenti e suggerimenti?**
 
-R. Fornire commenti e suggerimenti segnalando un problema GitHub in https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), è possibile inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di https://feedback.azure.com.
+A. Fornire commenti e suggerimenti segnalando un problema GitHub in https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), è possibile inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di https://feedback.azure.com.
 
 **D. La console seriale supporta le operazioni di copia e incolla?**
 
-R. Sì. Usare **CTRL**+**MAIUSC**+**C** e **CTRL**+**MAIUSC**+**V** per copiare e incollare nel terminale.
+A. Sì. Usare **CTRL**+**MAIUSC**+**C** e **CTRL**+**MAIUSC**+**V** per copiare e incollare nel terminale.
 
 **D. Chi può abilitare o disabilitare la console seriale per una sottoscrizione?**
 
-R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
+A. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
 **D. Chi può accedere alla console seriale per la macchina virtuale?**
 
-R. È necessario avere il ruolo di Collaboratore Macchina virtuale o un ruolo superiore per poter accedere alla console seriale della macchina virtuale.
+A. È necessario avere il ruolo di Collaboratore Macchina virtuale o un ruolo superiore per poter accedere alla console seriale della macchina virtuale.
 
 **D. La console seriale non visualizza nulla, cosa bisogna fare?**
 
-R. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Per informazioni sulla configurazione dell'immagine per abilitare la console seriale, vedere [Abilitare la console seriale nelle immagini personalizzate o precedenti](#enable-the-serial-console-in-custom-or-older-images).
+A. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Per informazioni sulla configurazione dell'immagine per abilitare la console seriale, vedere [Abilitare la console seriale nelle immagini personalizzate o precedenti](#enable-the-serial-console-in-custom-or-older-images).
 
 **D. La console seriale è disponibile per i set di scalabilità di macchine virtuali?**
 

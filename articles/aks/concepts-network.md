@@ -4,12 +4,12 @@ description: Informazioni sulle funzionalità di rete nel servizio Azure Kuberne
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244651"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387762"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -105,7 +105,7 @@ Tra kubenet e Azure CNI sono presenti le differenze di comportamento seguenti:
 | Esporre i servizi Kubernetes usando un servizio di bilanciamento del carico, un gateway app o un controller di ingresso | Supportato | Supportato |
 | DNS di Azure e zone private predefinite                                                          | Supportato | Supportato |
 
-Per quanto riguarda DNS, con i plug-in kubenet e Azure CNI plugins DNS è offerto da CoreDNS, un set di daemon eseguito in AKS. Per altre informazioni su CoreDNS in Kubernetes, vedere [personalizzazione del servizio DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS è configurato per impostazione predefinita per l'invio di domini sconosciuti ai server DNS del nodo, in altre parole, alla funzionalità DNS della rete virtuale di Azure in cui viene distribuito il cluster AKS. Di conseguenza, le zone DNS e private di Azure funzioneranno per i pod in esecuzione in AKS.
+Per quanto riguarda DNS, con i plug-in kubenet e Azure CNI plugins DNS è offerto da CoreDNS, una distribuzione eseguita in AKS con la propria scalabilità automatica. Per altre informazioni su CoreDNS in Kubernetes, vedere [personalizzazione del servizio DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS è configurato per impostazione predefinita per l'invio di domini sconosciuti ai server DNS del nodo, in altre parole, alla funzionalità DNS della rete virtuale di Azure in cui viene distribuito il cluster AKS. Di conseguenza, le zone DNS e private di Azure funzioneranno per i pod in esecuzione in AKS.
 
 ### <a name="support-scope-between-network-models"></a>Ambito di supporto tra i modelli di rete
 
@@ -114,7 +114,7 @@ Indipendentemente dal modello di rete usato, sia kubenet che Azure CNI possono e
 * La piattaforma Azure può creare e configurare automaticamente le risorse della rete virtuale quando si crea un cluster AKS.
 * Quando si crea il cluster AKS, è possibile creare e configurare manualmente le risorse della rete virtuale e connetterle a tali risorse.
 
-Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. ad esempio:
+Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Ad esempio:
 
 * Se si creano manualmente le risorse della rete virtuale per un cluster AKS, quando si configurano gli endpoint di servizio o UdR personalizzati, si è supportati.
 * Se la piattaforma Azure crea automaticamente le risorse di rete virtuale per il cluster del servizio contenitore di Azure, non è supportata la modifica manuale delle risorse gestite da AKS per configurare UdR o endpoint di servizio personalizzati.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/14/2020
-ms.openlocfilehash: f3589fb9ae176e04f727f516cca7c18c87dad9e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317502"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431654"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
@@ -31,17 +31,15 @@ Quando si generano gli URI di firma di accesso condiviso per i dischi rigidi vir
 
 Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 
-* **Microsoft Azure Storage Explorer**: strumento grafico disponibile per Windows, macOS e Linux.
+* **Microsoft Storage Explorer** : strumento grafico disponibile nell'portale di Azure.
 * **Interfaccia della riga di comando di Microsoft Azure**: consigliato per sistemi operativi non Windows e per ambienti di integrazione automatizzata o continua.
 
 ### <a name="use-microsoft-storage-explorer"></a>Usare Microsoft Storage Explorer
 
-1. Scaricare e installare [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-2. Aprire la visualizzazione di esplorazione e nel menu a sinistra selezionare **Aggiungi account**. Viene visualizzata la finestra di dialogo **Connetti ad Archiviazione di Azure**.
-3. Selezionare **Aggiungi un account Azure** e quindi **Accedi**. Completare la procedura necessaria per accedere all'account di Azure.
-4. Nella parte sinistra del riquadro **Esplora** spostarsi su **Account di archiviazione** ed espandere questo nodo.
-5. Fare clic con il pulsante destro del mouse sul disco rigido virtuale e quindi selezionare **Ottieni firma di accesso condiviso**.
-6. Viene visualizzata la finestra di dialogo **Firma di accesso condiviso**. Completare i campi seguenti:
+1. Passare all'account di archiviazione nell'portale di Azure.
+2. Nel riquadro di esplorazione a sinistra aprire lo strumento **Storage Explorer** (anteprima).
+3. Fare clic con il pulsante destro del mouse sul disco rigido virtuale e quindi scegliere **Ottieni firma di accesso condiviso**.
+4. Viene visualizzata la finestra di dialogo **Firma di accesso condiviso**. Completare i campi seguenti:
 
     * **Ora di inizio**: data e ora di inizio autorizzazione per l'accesso al disco rigido virtuale. Specificare una data precedente di un giorno rispetto alla data corrente.
     * **Ora di scadenza**: data e ora di scadenza per l'accesso al disco rigido virtuale. Specificare una data successiva di almeno tre settimane alla data corrente.
@@ -50,20 +48,11 @@ Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 
         :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="Illustra la finestra di dialogo Firma di accesso condiviso":::
 
-7. Selezionare **Crea** per creare l'URI di firma di accesso condiviso associato al disco rigido virtuale. La finestra di dialogo viene aggiornata e mostra i dettagli relativi a questa operazione.
-8. Copiare l'**URL** e salvarlo in un file di testo in un percorso sicuro.
+5. Selezionare **Crea** per creare l'URI di firma di accesso condiviso associato al disco rigido virtuale. La finestra di dialogo viene aggiornata e mostra i dettagli relativi a questa operazione.
+6. Copiare l'**URL** e salvarlo in un file di testo in un percorso sicuro.
 
     :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="Illustra la casella Dettagli Firma di accesso condiviso":::
-
-    L'URI di firma di accesso condiviso è stato generato per l'accesso a livello di contenitore. Per renderlo specifico, modificare il file di testo per aggiungere il nome del disco rigido virtuale (passaggio successivo).
-
-9. Inserire il nome del disco rigido virtuale dopo la stringa vhds nell'URI di firma di accesso condiviso (includere una barra). L'URI di firma di accesso condiviso finale dovrebbe essere simile al seguente:
-
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>` Se il nome del disco rigido virtuale è `TestRGVM2.vhd`, l'URI di firma di accesso condiviso risultante è il seguente:
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-10. Ripetere questi passaggi per ogni disco rigido virtuale nei piani che si pubblicheranno.
+7. Ripetere questi passaggi per ogni disco rigido virtuale nei piani che si pubblicheranno.
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 

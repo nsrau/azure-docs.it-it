@@ -1,18 +1,18 @@
 ---
 title: Configurare un'istanza e l'autenticazione (con script)
 titleSuffix: Azure Digital Twins
-description: Vedere come configurare un'istanza del servizio dispositivi digitali gemelli di Azure, inclusa l'autenticazione corretta. Versione con script.
+description: Vedere come configurare un'istanza del servizio dispositivi digitali gemelli di Azure eseguendo uno script di distribuzione automatica
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407488"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337909"
 
 Questo articolo illustra i passaggi per **configurare una nuova istanza di Azure Digital Twins**, inclusa la creazione dell'istanza e la configurazione dell'autenticazione. Al termine dell'articolo, si disporrà di un'istanza di gemelli digitali di Azure pronta per iniziare la programmazione.
 
-Questa versione di questo articolo completa questa procedura eseguendo un esempio di [ **script di distribuzione automatizzato** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) che semplifica il processo. Per visualizzare i passaggi manuali eseguiti dallo script in background, vedere la versione manuale di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (manuale)*](how-to-set-up-instance-manual.md).
+Questa versione di questo articolo completa questa procedura eseguendo un esempio di [ **script di distribuzione automatizzato** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) che semplifica il processo. 
+* Per visualizzare i passaggi dell'interfaccia della riga di comando manuali eseguiti dallo script dietro le quinte, vedere la versione dell'interfaccia della riga di comando di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md).
+* Per visualizzare i passaggi manuali in base alla portale di Azure, vedere la versione del portale di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (portale)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>Eseguire lo script di distribuzione
 
@@ -41,7 +44,7 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
  
 2. Dopo l'accesso, cercare la barra delle icone della finestra Cloud Shell. Selezionare l'icona "Carica/Scarica file" e scegliere "carica".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'opzione di caricamento":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'opzione di caricamento":::
 
     Passare al file di _**deploy.ps1**_ nel computer e fare clic su "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
 
@@ -57,21 +60,38 @@ Lo script creerà un'istanza di Azure Digital Twins, assegna all'utente di Azure
 
 Di seguito è riportato un estratto del log di output dello script:
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Cloud Shell finestra che mostra il log di input e output tramite l'esecuzione dello script di distribuzione" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell finestra che mostra il log di input e output tramite l'esecuzione dello script di distribuzione" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se lo script viene completato correttamente, la stampa finale dirà `Deployment completed successfully` . In caso contrario, risolvere il messaggio di errore ed eseguire nuovamente lo script. Ignorerà i passaggi già completati e inizierà a richiedere nuovamente l'input nel momento in cui è stato interrotto.
 
-Al termine dello script, ora si ha un'istanza di Azure Digital Twins pronta per l'uso e le autorizzazioni impostate per gestirlo.
+Al termine dello script, ora si ha un'istanza di Azure Digital Twins pronta per l'uso con le autorizzazioni per gestirla e sono state configurate le autorizzazioni per l'accesso di un'app client.
+
+> [!NOTE]
+> Lo script assegna attualmente il ruolo di gestione necessario nei dispositivi gemelli digitali di Azure (*proprietario di Azure Digital gemelli (anteprima)*) allo stesso utente che esegue lo script da cloud Shell. Se è necessario assegnare questo ruolo a un altro utente che gestirà l'istanza, è possibile farlo ora tramite il portale di Azure ([istruzioni](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o l'interfaccia della riga di comando ([istruzioni](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## <a name="collect-important-values"></a>Raccogli valori importanti
 
-Esistono due valori importanti della registrazione dell'app che saranno necessari in un secondo momento per [autenticare un'app client nelle API dei dispositivi gemelli digitali di Azure](how-to-authenticate-client.md). 
+Sono disponibili diversi valori importanti dalle risorse configurate dallo script che potrebbero essere necessarie quando si continua a usare l'istanza di Azure Digital gemelli. In questa sezione si userà il [portale di Azure](https://portal.azure.com) per raccogliere questi valori. È consigliabile salvarli in un luogo sicuro oppure tornare a questa sezione per trovarli in un secondo momento, se necessario.
+
+Se altri utenti eseguiranno la programmazione in base all'istanza, è necessario condividere anche questi valori.
+
+### <a name="collect-instance-values"></a>Raccogli valori istanza
+
+Nella [portale di Azure](https://portal.azure.com)trovare l'istanza di Azure Digital gemelli cercando il nome dell'istanza nella barra di ricerca del portale.
+
+Se la si seleziona, verrà visualizzata la pagina *Panoramica* dell'istanza. Annotare il *nome*, il *gruppo di risorse*e il *nome host*. Potrebbero essere necessari in seguito per identificare e connettersi all'istanza di.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Evidenziazione dei valori importanti dalla pagina Panoramica dell'istanza":::
+
+### <a name="collect-app-registration-values"></a>Raccogliere i valori di registrazione delle app 
+
+Esistono due valori importanti della registrazione dell'app che saranno necessari in seguito per [scrivere il codice di autenticazione dell'app client per le API dei dispositivi gemelli digitali di Azure](how-to-authenticate-client.md). 
 
 Per trovarli, seguire [questo collegamento](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) per passare alla pagina di panoramica della registrazione dell'app Azure AD nell'portale di Azure. Questa pagina Mostra tutte le registrazioni dell'app che sono state create nella sottoscrizione.
 
 Verrà visualizzata la registrazione dell'app appena creata in questo elenco. Selezionarlo per aprirne i dettagli:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Visualizzazione del portale dei valori importanti per la registrazione dell'app":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visualizzazione del portale dei valori importanti per la registrazione dell'app":::
 
 Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)* visualizzati nella **pagina.** Se non si è la persona che scriverà il codice per le applicazioni client, sarà necessario condividere questi valori con la persona che sarà.
 
@@ -86,6 +106,9 @@ Per verificare che l'istanza sia stata creata, passare alla [pagina dei disposit
 ### <a name="verify-user-role-assignment"></a>Verificare l'assegnazione del ruolo utente
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> Tenere presente che lo script assegna attualmente questo ruolo necessario allo stesso utente che esegue lo script da Cloud Shell. Se è necessario assegnare questo ruolo a un altro utente che gestirà l'istanza, è possibile farlo ora tramite il portale di Azure ([istruzioni](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o l'interfaccia della riga di comando ([istruzioni](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ### <a name="verify-app-registration"></a>Verificare la registrazione dell'app
 

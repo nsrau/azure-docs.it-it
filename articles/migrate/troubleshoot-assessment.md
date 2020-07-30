@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121674"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422862"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -52,7 +52,7 @@ Protocollo Internet predisposto in modo condizionale | Applicabile solo alle val
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Strumento di migrazione suggerito nella valutazione AVS basata sull'importazione contrassegnata come sconosciuta
 
-Per i computer importati tramite un file CSV, lo strumento di migrazione predefinito in e AVS assessment è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
+Per i computer importati tramite un file CSV, lo strumento di migrazione predefinito in e AVS assessment è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Le VM Linux sono "predisposte in modo condizionale" in una valutazione delle VM di Azure
 
@@ -112,7 +112,7 @@ Azure Migrate server Assessment considera attualmente il costo della licenza del
 Server Assessment raccoglie continuamente i dati delle prestazioni dei computer locali e li usa per consigliare lo SKU della macchina virtuale e del disco in Azure. [Informazioni su come](concepts-assessment-calculation.md#calculate-sizing-performance-based) vengono raccolti i dati basati sulle prestazioni.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Perché la mia valutazione mostra un avviso che è stata creata con una combinazione non valida di istanze riservate, tempo di esecuzione della macchina virtuale e sconto (%)?
-Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554)
+Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Non vengono visualizzati i dati sulle prestazioni per alcune schede di rete nei server fisici
 
@@ -180,6 +180,9 @@ Dopo aver eseguito la migrazione dei computer con la visualizzazione delle dipen
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Le dipendenze Export CSV Mostra "processo sconosciuto"
 Nell'analisi delle dipendenze senza agenti, i nomi dei processi vengono acquisiti con il massimo sforzo. In alcuni scenari, sebbene i nomi dei server di origine e di destinazione e la porta di destinazione vengano acquisiti, non è possibile determinare i nomi di processo a entrambe le estremità della dipendenza. In questi casi, il processo è contrassegnato come "processo sconosciuto".
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>L'area di lavoro Log Analytics non è elencata quando si tenta di configurare l'area di lavoro in server Assessment
+Attualmente Azure Migrate supporta la creazione dell'area di lavoro OMS nelle aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'altra area, attualmente non può essere associata a un progetto Azure Migrate.
 
 
 ## <a name="capture-network-traffic"></a>Acquisisci traffico di rete

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147050"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431917"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -92,9 +92,31 @@ Le pipeline di Machine Learning possono usare i metodi di training indicati in p
 * [Esempi: Pipeline con Machine Learning automatizzato](https://aka.ms/pl-automl)
 * [Esempi: Pipeline con oggetti estimator](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Informazioni su cosa accade quando si invia un processo di training
+
+Il ciclo di vita di formazione di Azure è composto da:
+
+1. Comprime i file nella cartella del progetto, ignorando quelli specificati in _. amlignore_ o _. gitignore_
+1. Scalabilità verticale del cluster di calcolo 
+1. Compilazione o download di dockerfile nel nodo di calcolo 
+    1. Il sistema calcola un hash di: 
+        - Immagine di base 
+        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
+    1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
+    1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
+1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
+1. Decompressione del file di progetto
+1. Nodo di calcolo in esecuzione`python <entry script> <arguments>`
+1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
+1. Ridimensionamento del calcolo, inclusa la rimozione dell'archiviazione temporanea 
+
+Se si sceglie di eseguire il training sul computer locale ("configura come esecuzione locale"), non è necessario usare Docker. È possibile usare Docker localmente se si sceglie (per un esempio, vedere la sezione [Configure ml pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) ).
+
 ## <a name="r-sdk"></a>R SDK
 
-R SDK consente di usare il linguaggio R con Azure Machine Learning. L'SDK usa il pacchetto reticolare per l'associazione a SDK Python di Azure Machine Learning. In questo modo è possibile accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
+R SDK consente di usare il linguaggio R con Azure Machine Learning. L'SDK usa il pacchetto reticolare per l'associazione a SDK Python di Azure Machine Learning. Questo consente di accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -103,7 +125,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
-La finestra di progettazione consente di eseguire il training dei modelli usando un'interfaccia di trascinamento della selezione nel browser Web in uso.
+La finestra di progettazione consente di eseguire il training dei modelli utilizzando un'interfaccia di trascinamento nel Web browser.
 
 + [Informazioni sulla finestra di progettazione](concept-designer.md)
 + [Esercitazione: stimare il prezzo dell'automobile](tutorial-designer-automobile-price-train-score.md)
@@ -121,7 +143,7 @@ Ad esempio, la creazione di un modello __per ogni istanza o unico__ negli scenar
 
 * Stima delle vendite per ogni singolo negozio
 * Manutenzione predittiva per centinaia di pozzi di petrolio
-* Adattamento di un'esperienza ai singoli utenti.
+* Adattamento di un'esperienza ai singoli utenti
 
 Per altre informazioni, vedere [Acceleratore di soluzioni molti modelli](https://aka.ms/many-models) su GitHub.
 

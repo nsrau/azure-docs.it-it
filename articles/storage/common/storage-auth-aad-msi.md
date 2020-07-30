@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127180"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423763"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -87,7 +87,7 @@ Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'e
 ```
 
 > [!IMPORTANT]
-> Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
+> Le assegnazioni di ruolo di Azure potrebbero richiedere alcuni minuti per la propagazione.
 
 #### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 

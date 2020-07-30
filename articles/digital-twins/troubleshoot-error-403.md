@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125294"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405594"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -57,7 +57,7 @@ Se si è un proprietario della sottoscrizione, è possibile eseguire questo coma
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Per altri dettagli su questo requisito del ruolo e sul processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente* ](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (manuale)*.
+Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
 
 Se questa assegnazione di ruolo è già presente e si verifica ancora il problema 403, passare alla soluzione successiva.
 
@@ -75,12 +75,12 @@ Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Dig
 
 #### <a name="fix-issues"></a>Risolvere i problemi
 
-Se una qualsiasi di queste impostazioni viene visualizzata in modo diverso rispetto a quanto descritto, seguire le istruzioni su come configurare la registrazione dell'app nella [sezione *configurare le autorizzazioni di accesso per le applicazioni client* ](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) di *procedura: configurare un'istanza e l'autenticazione (manuale)*.
+Se una di queste impostazioni viene visualizzata in modo diverso rispetto a quanto descritto, seguire le istruzioni su come configurare la registrazione dell'app nella [sezione *configurare le autorizzazioni di accesso per le applicazioni client* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) di *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Leggere i passaggi di installazione per la creazione e l'autenticazione di una nuova istanza di Azure Digital Twins:
-* [*Procedura: configurare un'istanza e l'autenticazione (manuale)*](how-to-set-up-instance-manual.md)
+* [*Procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md)
 
 Scopri di più su sicurezza e autorizzazioni nei dispositivi gemelli digitali di Azure:
 * [*Concetti: sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*](concepts-security.md)

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372111"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433221"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
 
 - I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli di indirizzi IP del piano di AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS
+- Se è necessario un Load Balancer Standard (SLB) distribuito nel cluster anziché una Load Balancer di base (BLB), creare un cluster nel portale AKS/CLI/SDK e quindi collegarlo all'area di lavoro AML.
+
+- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli di indirizzi IP del piano di AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS.
+
+__Gli intervalli IP Authroized funzionano solo con Load Balancer Standard.__
  
  - Il nome di calcolo deve essere univoco all'interno di un'area di lavoro
    - Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.
@@ -73,7 +77,7 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
    
  - Se si desidera distribuire modelli a nodi GPU o a nodi FPGA (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
  
- - Se è necessario un Load Balancer Standard (SLB) distribuito nel cluster anziché una Load Balancer di base (BLB), creare un cluster nel portale AKS/CLI/SDK e quindi collegarlo all'area di lavoro AML. 
+ 
 
 
 
@@ -257,6 +261,30 @@ Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Exten
 
 > [!IMPORTANT]
 > Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
+
+### <a name="understand-the-deployment-processes"></a>Informazioni sui processi di distribuzione
+
+Il termine "distribuzione" viene usato sia in Kubernetes che in Azure Machine Learning. "Distribuzione" ha significati molto diversi in questi due contesti. In Kubernetes, `Deployment` è un'entità concreta, specificata con un file YAML dichiarativo. Un Kubernetes `Deployment` ha un ciclo di vita definito e relazioni concrete con altre entità Kubernetes, ad esempio `Pods` e `ReplicaSets` . Per informazioni su Kubernetes da documenti e video, vedere informazioni su [Kubernetes](https://aka.ms/k8slearning).
+
+In Azure Machine Learning, "distribuzione" viene usato nel senso più generale di rendere disponibile e pulire le risorse del progetto. I passaggi che Azure Machine Learning considera parte della distribuzione sono:
+
+1. Comprime i file nella cartella del progetto, ignorando quelli specificati in. amlignore o. gitignore
+1. Scalabilità verticale del cluster di elaborazione (correlato a Kubernetes)
+1. Compilazione o download di dockerfile nel nodo di calcolo (correlato a Kubernetes)
+    1. Il sistema calcola un hash di: 
+        - Immagine di base 
+        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
+    1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
+    1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
+1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
+1. Decompressione del file di progetto
+1. Nodo di calcolo in esecuzione`python <entry script> <arguments>`
+1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
+1. Riduzione delle prestazioni di calcolo, inclusa la rimozione dell'archiviazione temporanea (in relazione a Kubernetes)
+
+Quando si usa AKS, la scalabilità verso l'alto e verso il basso del calcolo viene controllata da Kubernetes, usando la dockerfile compilata o rilevata come descritto in precedenza. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
 

@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248017"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422811"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -98,13 +98,14 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| R2 per Windows Server 2012 | Tutte le versioni |
+| Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 18,04 | 7.1 |
 
 Per altre informazioni, vedere [versioni supportate del cluster in Azure](./service-fabric-versions.md#supported-operating-systems)
 

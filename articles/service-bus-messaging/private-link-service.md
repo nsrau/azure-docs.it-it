@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340433"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423423"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integrare il bus di servizio di Azure con Collegamento privato di Azure
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi del bus di servizio di Azure tramite endpoint privati
 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio al bus di servizio di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
 
@@ -46,7 +46,7 @@ Per integrare uno spazio dei nomi del bus di servizio con Collegamento privato d
 
 - Uno spazio dei nomi del bus di servizio.
 - Una rete virtuale di Azure.
-- Una subnet nella rete virtuale.
+- Una subnet nella rete virtuale. È possibile usare la subnet **predefinita** . 
 - Autorizzazioni di proprietario o collaboratore per lo spazio dei nomi del bus di servizio e la rete virtuale.
 
 L'endpoint privato e la rete virtuale devono trovarsi nella stessa area. Quando si seleziona un'area per l'endpoint privato tramite il portale, verranno automaticamente filtrate solo le reti virtuali presenti in tale area. Lo spazio dei nomi del bus di servizio può trovarsi in un'area diversa. E l'endpoint privato usa un indirizzo IP privato nella rete virtuale.
@@ -58,8 +58,19 @@ Se si ha già uno spazio dei nomi esistente, è possibile creare un endpoint pri
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nella barra di ricerca digitare **Bus di servizio**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
-4. Selezionare la scheda **Rete** in **Impostazioni**.
-5. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina
+2. Nel menu a sinistra selezionare opzione di **rete** in **Impostazioni**. 
+
+    > [!NOTE]
+    > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **Premium** .  
+    
+    Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Pagina rete-impostazione predefinita" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se si seleziona l'opzione **tutte le reti** , lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP (usando la chiave di accesso). Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
+
+    ![Opzione Firewall - Tutte le reti selezionata](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Per consentire l'accesso allo spazio dei nomi tramite endpoint privati, selezionare la scheda **connessioni endpoint privato** nella parte superiore della pagina
 6. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 
     ![Pulsante Aggiungi endpoint privato](./media/private-link-service/private-link-service-3.png)

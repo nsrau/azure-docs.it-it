@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515121"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428235"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -161,6 +161,9 @@ Per informazioni sui costi di archiviazione di backup, vedere **Gestione costi e
 Aggiungere un filtro per **nome servizio**e quindi selezionare **database SQL** nell'elenco a discesa. Usare il filtro **sottocategoria contatore** per scegliere il contatore di fatturazione per il servizio. Per un database singolo o un pool di database elastici, selezionare **spazio di archiviazione di backup ripristino temporizzato del pool singolo/elastico**. Per un'istanza gestita, selezionare **mi ripristino temporizzato backup storage**. Anche le sottocategorie di **archiviazione** e di **calcolo** potrebbero essere interessanti, ma non sono associate ai costi di archiviazione di backup.
 
 ![Analisi dei costi di archiviazione di backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > I contatori sono visibili solo per i contatori attualmente in uso. Se un contatore non è disponibile, è probabile che la categoria non sia attualmente in uso. I contatori di istanze gestite, ad esempio, non saranno presenti per i clienti che non dispongono di un'istanza gestita distribuita. Analogamente, i contatori di archiviazione non saranno visibili per le risorse che non utilizzano l'archiviazione. 
 
 ## <a name="encrypted-backups"></a>Backup crittografati
 

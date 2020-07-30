@@ -5,23 +5,24 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681480"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433133"
 ---
 # <a name="override-materials-during-model-conversion"></a>Sostituire i materiali durante la conversione di modelli
 
-Durante la conversione, le impostazioni del materiale nel modello di origine vengono utilizzate per definire i [materiali di PBR](../../overview/features/pbr-materials.md) utilizzati dal renderer.
+Le impostazioni relative al materiale nel modello di origine vengono utilizzate per definire i [materiali PBR](../../overview/features/pbr-materials.md) utilizzati dal renderer.
 A volte la [conversione predefinita](../../reference/material-mapping.md) non fornisce i risultati desiderati ed è necessario apportare modifiche.
 Quando un modello viene convertito per l'uso nel rendering remoto di Azure, è possibile fornire un file di sostituzione del materiale per personalizzare il modo in cui la conversione del materiale viene eseguita in base al materiale.
 Nella sezione relativa alla [configurazione della conversione del modello](configure-model-conversion.md) sono disponibili istruzioni per dichiarare il nome del file di sostituzione del materiale.
 
 ## <a name="the-override-file-used-during-conversion"></a>File di sostituzione usato durante la conversione
 
-Come esempio semplice, supponiamo che un modello di riquadro disponga di un unico materiale, denominato "default". È necessario modificare il colore dell'albedo per l'uso in ARR.
+Come esempio semplice, supponiamo che un modello di riquadro disponga di un unico materiale, denominato "default".
+Si direbbe inoltre che il colore dell'albedo deve essere regolato per l'uso in ARR.
 In questo caso, `box_materials_override.json` è possibile creare un file nel modo seguente:
 
 ```json
@@ -38,7 +39,7 @@ In questo caso, `box_materials_override.json` è possibile creare un file nel mo
 ]
 ```
 
-Il `box_materials_override.json` file viene inserito nel contenitore di input e `ConversionSettings.json` viene aggiunto un oggetto accanto `box.fbx` , che indica alla conversione dove trovare il file di sostituzione (vedere [configurazione della conversione del modello](configure-model-conversion.md)):
+Il `box_materials_override.json` file viene inserito nel contenitore di input e `box.ConversionSettings.json` viene aggiunto un oggetto accanto `box.fbx` , che indica alla conversione dove trovare il file di sostituzione (vedere [configurazione della conversione del modello](configure-model-conversion.md)):
 
 ```json
 {
@@ -51,7 +52,7 @@ Quando il modello viene convertito, verranno applicate le nuove impostazioni.
 ### <a name="color-materials"></a>Materiali a colori
 
 Il modello [Material color](../../overview/features/color-materials.md) descrive una superficie costantemente ombreggiata che è indipendente dall'illuminazione.
-Questa operazione è utile per gli asset creati dagli algoritmi fotogrammetria, ad esempio.
+I materiali colori sono utili per gli asset creati dagli algoritmi fotogrammetria, ad esempio.
 Nei file di override del materiale un materiale può essere dichiarato come materiale a colori impostando `unlit` su `true` .
 
 ```json

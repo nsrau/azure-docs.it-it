@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027173"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87427998"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -436,6 +436,9 @@ I criteri di mapping delle attestazioni possono essere assegnati solo a oggetti 
 
 In molti scenari di Azure AD è possibile personalizzare le attestazioni generate nei token per specifiche entità servizio. In questa sezione vengono illustrati alcuni scenari comuni che permettono di comprendere come usare il tipo di criteri di mapping delle attestazioni.
 
+> [!NOTE]
+> Quando si creano criteri di mapping delle attestazioni, è anche possibile emettere un'attestazione da un attributo di estensione dello schema di directory nei token. Usare *ExtensionID* per l'attributo extension anziché *ID* nell' `ClaimsSchema` elemento.  Per ulteriori informazioni sugli attributi di estensione, vedere [utilizzo degli attributi di estensione dello schema di directory](active-directory-schema-extensions.md).
+
 #### <a name="prerequisites"></a>Prerequisiti
 
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le entità servizio. Se non si ha familiarità con Azure AD, è consigliabile [capire come ottenere un tenant di Azure AD](quickstart-create-new-tenant.md) prima di procedere con questi esempi.
@@ -527,4 +530,5 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
 
 ## <a name="see-also"></a>Vedere anche
 
-Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](active-directory-saml-claims-customization.md)
+- Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](active-directory-saml-claims-customization.md)
+- Per ulteriori informazioni sugli attributi di estensione, vedere [utilizzo degli attributi di estensione dello schema di directory nelle attestazioni](active-directory-schema-extensions.md).

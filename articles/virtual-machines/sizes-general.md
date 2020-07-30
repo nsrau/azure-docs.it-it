@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: c7cb2667f8e653b4e71844cd849e691a7c5bcd81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f56b0fe087cad831efda848da3b8d89a826ec6da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325441"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423967"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 
@@ -51,3 +51,5 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+
+Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).

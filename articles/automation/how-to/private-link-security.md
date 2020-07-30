@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207286"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423797"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure (anteprima)
 
@@ -86,7 +86,7 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome | Immettere il *PrivateEndpoint*. |
-    | Area | Selezionare **YourRegion**. |
+    | Region | Selezionare **YourRegion**. |
     |||
 
 4. Selezionare **Avanti: Risorsa**.
@@ -98,7 +98,7 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
     | Tipo di risorsa | Selezionare **Microsoft. Automation/automationAccounts**. |
-    | Resource |Seleziona *myAutomationAccount*|
+    | Risorsa |Seleziona *myAutomationAccount*|
     |Sottorisorsa di destinazione |Selezionare *webhook* o *DSCAndHybridWorker* a seconda dello scenario.|
     |||
 
@@ -132,15 +132,15 @@ Se l'utente del servizio dispone di autorizzazioni RBAC per la risorsa di automa
 
 ## <a name="set-public-network-access-flags"></a>Impostare i flag di accesso alla rete pubblica
 
-È possibile configurare un account di automazione per negare tutte le configurazioni pubbliche e consentire solo le connessioni tramite endpoint privati per migliorare ulteriormente la sicurezza della rete. Se si vuole limitare l'accesso all'account di automazione solo dall'interno della VNet e non consentire l'accesso da Internet pubblico, è possibile impostare la `publicNetworkAccess` proprietà su `$true` .
+È possibile configurare un account di automazione per negare tutte le configurazioni pubbliche e consentire solo le connessioni tramite endpoint privati per migliorare ulteriormente la sicurezza della rete. Se si vuole limitare l'accesso all'account di automazione solo dall'interno della VNet e non consentire l'accesso da Internet pubblico, è possibile impostare la `publicNetworkAccess` proprietà su `$false` .
 
-Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su `true` , sono consentite solo le connessioni tramite endpoint privati e tutte le connessioni tramite endpoint pubblici vengono negate con un messaggio di errore.
+Quando l'impostazione di **accesso alla rete pubblica** è impostata su `$false` , sono consentite solo le connessioni tramite endpoint privati e tutte le connessioni tramite endpoint pubblici vengono negate con un messaggio di errore Unathorized e lo stato HTTP 401. 
 
 Lo script di PowerShell seguente mostra come `Get` e `Set` la proprietà di **accesso alla rete pubblica** a livello di account di automazione:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

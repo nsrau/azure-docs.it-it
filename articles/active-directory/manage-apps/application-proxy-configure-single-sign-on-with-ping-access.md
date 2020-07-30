@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077902"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431077"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -105,7 +105,7 @@ A questo punto assegnare un utente per il test dell'applicazione e scegliere Sin
    ![Mostra l'elenco di utenti e gruppi](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
 1. Selezionare un utente per il test dell'applicazione e selezionare **Seleziona**. Assicurarsi che questo account di test abbia accesso all'applicazione locale.
-1. Selezionare **assegna**.
+1. Selezionare **Assegna**.
 1. Dalla barra laterale dell'applicazione selezionare **Single Sign-on**  >  **basato su intestazione**.
 
    > [!TIP]
@@ -121,6 +121,11 @@ Assicurarsi quindi che l'URL di reindirizzamento sia impostato sull'URL esterno:
 1. Selezionare l'applicazione.
 1. Selezionare il collegamento accanto a **URI di reindirizzamento**, che mostra il numero di URI di reindirizzamento impostati per client Web e pubblici. Viene visualizzata la pagina ** \<application name> -Authentication** .
 1. Controllare se l'URL esterno assegnato all'applicazione in precedenza si trova nell'elenco **URI di reindirizzamento** . In caso contrario, aggiungere ora l'URL esterno utilizzando un tipo di URI di Reindirizzamento **Web**e selezionare **Salva**.
+
+Oltre all'URL esterno, è necessario aggiungere un endpoint di autorizzazione di Azure Active Directory sull'URL esterno all'elenco di URI di reindirizzamento.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
 
 Infine, configurare l'applicazione locale in modo che gli utenti dispongano dell'accesso in lettura e che altre applicazioni dispongano dell'accesso in lettura/scrittura:
 

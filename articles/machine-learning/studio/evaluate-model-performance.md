@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: d2308b57859a7f8eb0aa6519246fbb52ffdf9e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e811d921d28ce33d7dbc9f2bb7996557838178ad
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318641"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429855"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Valutare le prestazioni del modello in Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Questo articolo illustra le metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).  La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. Azure Machine Learning Studio (classico) supporta la valutazione del modello tramite due dei moduli principali di Machine Learning: 

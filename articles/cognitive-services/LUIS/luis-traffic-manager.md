@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
 author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 7726219076aee0c25c59f57003967cf2220d531f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f509d5f6f6e794adeee67fe632518a89882c945c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344170"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407915"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
@@ -104,7 +104,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
     |-Type|ExternalEndpoints|Per altre informazioni, vedere [Endpoint di Gestione traffico][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|Questo è il dominio per l'endpoint LUIS.|
     |-EndpointLocation|"eastus"|Area dell'endpoint|
-    |-EndpointStatus|Attivato|Abilitare l'endpoint al momento della creazione|
+    |-EndpointStatus|Enabled|Abilitare l'endpoint al momento della creazione|
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
@@ -173,7 +173,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
     |-Type|ExternalEndpoints|Per altre informazioni, vedere [Endpoint di Gestione traffico][traffic-manager-endpoints] |
     |-Target|westus.api.cognitive.microsoft.com|Questo è il dominio per l'endpoint LUIS.|
     |-EndpointLocation|"westus"|Area dell'endpoint|
-    |-EndpointStatus|Attivato|Abilitare l'endpoint al momento della creazione|
+    |-EndpointStatus|Enabled|Abilitare l'endpoint al momento della creazione|
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
@@ -239,7 +239,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
     |-TrafficManagerProfile|$parentprofile|Profilo a cui assegnare a questo endpoint|
     |-Type|NestedEndpoints|Per ulteriori informazioni, vedere [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|ID del profilo figlio|
-    |-EndpointStatus|Attivato|Stato dell'endpoint dopo l'aggiunta al padre|
+    |-EndpointStatus|Enabled|Stato dell'endpoint dopo l'aggiunta al padre|
     |-EndpointLocation|"eastus"|[Nome dell'area di Azure](https://azure.microsoft.com/global-infrastructure/regions/) della risorsa|
     |-MinChildEndpoints|1|Numero minimo per gli endpoint figlio|
 
@@ -276,7 +276,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
     |-TrafficManagerProfile|$parentprofile|Profilo a cui assegnare a questo endpoint|
     |-Type|NestedEndpoints|Per ulteriori informazioni, vedere [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|ID del profilo figlio|
-    |-EndpointStatus|Attivato|Stato dell'endpoint dopo l'aggiunta al padre|
+    |-EndpointStatus|Enabled|Stato dell'endpoint dopo l'aggiunta al padre|
     |-EndpointLocation|"westus"|[Nome dell'area di Azure](https://azure.microsoft.com/global-infrastructure/regions/) della risorsa|
     |-MinChildEndpoints|1|Numero minimo per gli endpoint figlio|
 

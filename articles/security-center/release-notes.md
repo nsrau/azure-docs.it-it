@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083974"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430446"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -32,9 +32,27 @@ Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarl
 ## <a name="july-2020"></a>Luglio 2020
 
 Gli aggiornamenti di luglio includono:
+- La [valutazione della vulnerabilità per le macchine virtuali è ora disponibile per le immagini non del Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
 - [Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Otto nuove raccomandazioni per abilitare le funzionalità di protezione dalle minacce](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Miglioramenti della sicurezza del contenitore: analisi più veloce del registro di sistema e documentazione aggiornata](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [Nuova raccomandazione per aggiornare le regole di controllo delle applicazioni adattive](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [Sono stati deprecati sei criteri per la sicurezza dei dati avanzata SQL](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>La valutazione della vulnerabilità per le macchine virtuali è ora disponibile per le immagini non del Marketplace
+
+Quando si distribuisce una soluzione di valutazione della vulnerabilità, il Centro sicurezza ha precedentemente eseguito un controllo di convalida prima della distribuzione. Il controllo è stato per confermare uno SKU del Marketplace della macchina virtuale di destinazione. 
+
+Da questo aggiornamento, il controllo è stato rimosso ed è ora possibile distribuire gli strumenti di valutazione della vulnerabilità ai computer Windows e Linux "personalizzati". Le immagini personalizzate sono quelle modificate dalle impostazioni predefinite del Marketplace.
+
+Sebbene sia ora possibile distribuire l'estensione integrata della valutazione della vulnerabilità (basata su Qualys) in molti più computer, il supporto è disponibile solo se si usa un sistema operativo elencato nella pagina relativa [alla distribuzione dello scanner di vulnerabilità predefinito di Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+
+Scopri di più sullo [scanner di vulnerabilità integrato per le macchine virtuali (solo livello standard)](built-in-vulnerability-assessment.md).
+
+Per altre informazioni sull'uso della soluzione di valutazione della vulnerabilità con licenza privata da Qualys o Rapid7, vedere [distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)
@@ -44,6 +62,39 @@ La protezione dalle minacce per archiviazione di Azure rileva attività potenzia
 I dati possono essere protetti indipendentemente dal fatto che vengano archiviati come contenitori BLOB, condivisioni file o data Lake. 
 
 Altre informazioni sulla [protezione dalle minacce per archiviazione di Azure](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>Otto nuove raccomandazioni per abilitare le funzionalità di protezione dalle minacce
+
+Sono state aggiunte otto nuove raccomandazioni per fornire un modo semplice per abilitare le funzionalità di protezione dalle minacce del Centro sicurezza di Azure per i tipi di risorsa seguenti: macchine virtuali, piani di servizio app, server di database SQL di Azure, SQL Server in computer, account di archiviazione di Azure, cluster di servizi Kubernetes di Azure, registri di Azure Container Registry e insiemi di credenziali Azure Key Vault.
+
+I nuovi consigli sono:
+
+- **La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure**
+- **La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali**
+- **La soluzione Advanced Threat Protection deve essere abilitata nei piani di servizio app di Azure**
+- **La soluzione Advanced Threat Protection deve essere abilitata nei registri in Registro Azure Container**
+- **La soluzione Advanced Threat Protection deve essere abilitata negli insiemi di credenziali in Azure Key Vault**
+- **La soluzione Advanced Threat Protection deve essere abilitata nei cluster del servizio Azure Kubernetes**
+- **La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione di Azure**
+- **Advanced Threat Protection deve essere abilitato nelle macchine virtuali**
+
+Queste nuove raccomandazioni appartengono al controllo di sicurezza **Enable Advanced Threat Protection** .
+
+Le raccomandazioni includono inoltre la funzionalità di correzione rapida. 
+
+> [!IMPORTANT]
+> Il monitoraggio e l'aggiornamento di questi consigli comporteranno addebiti per la protezione delle risorse pertinenti. Questi addebiti inizieranno immediatamente se sono presenti risorse correlate nella sottoscrizione corrente. O in futuro, se vengono aggiunti in un secondo momento.
+> 
+> Se, ad esempio, non sono presenti cluster di servizi Kubernetes di Azure nella sottoscrizione e si Abilita la protezione dalle minacce, non verrà addebitato alcun costo. Se, in futuro, si aggiunge un cluster nella stessa sottoscrizione, esso verrà automaticamente protetto e gli addebiti inizieranno in quel momento.
+
+Per altre informazioni, vedere la pagina di [riferimento](recommendations-reference.md)relativa alle raccomandazioni sulla sicurezza.
+
+Scopri di più sulla [protezione dalle minacce nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
 
 
 ### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Miglioramenti della sicurezza del contenitore: analisi più veloce del registro di sistema e documentazione aggiornata
@@ -62,6 +113,15 @@ Altre informazioni sulla sicurezza del contenitore del Centro sicurezza sono dis
 - [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per gli host del servizio Kubernetes di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
 - [Raccomandazioni sulla sicurezza per i contenitori](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
 
+
+
+### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nuova raccomandazione per aggiornare le regole di controllo delle applicazioni adattive
+
+La funzionalità controlli applicazione adattivi monitora costantemente l'attività dei computer nei gruppi configurati. Da questo aggiornamento si riceverà una notifica del comportamento potenzialmente legittimo che non è stato precedentemente consentito e che potrebbe causare avvisi falsi positivi.
+
+La nuova raccomandazione, le **regole di consenso nei criteri di controllo delle applicazioni adattivi devono essere aggiornate**. viene chiesto di aggiungere nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazione adattivi.
+
+[Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
 
 
 
@@ -148,7 +208,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Policy  |ID condizione  |
+|Obiettivo  |Criteri  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -181,13 +241,13 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
+| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
 | [La soluzione Advanced Threat Protection deve essere abilitata negli insiemi di credenziali in Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Advanced Threat Protection deve essere abilitato nei piani di servizio app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [La soluzione Advanced Threat Protection deve essere abilitata nei piani di servizio app di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
 | [La soluzione Advanced Threat Protection deve essere abilitata nei registri in Registro Azure Container](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
 | [La soluzione Advanced Threat Protection deve essere abilitata nei cluster del servizio Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
 | [La soluzione Advanced Threat Protection deve essere abilitata nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
@@ -275,7 +335,7 @@ I controlli di sicurezza, e questo interruttore, fanno parte della nuova esperie
 
 Altre informazioni sui controlli di sicurezza sono disponibili in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md) (Punteggio di sicurezza migliorato (anteprima) nel Centro sicurezza di Azure).
 
-![Interruttore "Raggruppa per controlli" per le indicazioni](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+![Interruttore "Raggruppa per controlli" per le indicazioni](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controllo di sicurezza espanso "Implement security best practices" (Implementa procedure consigliate per la sicurezza) 
 
