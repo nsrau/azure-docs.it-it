@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284405"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419802"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -54,9 +54,9 @@ Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI
 |   | Gestiti | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
 | Registrato con AAD | Federato | Windows corrente | Persistente | Non applicabile |
-|   |   |   | Non persistente | No |
+|   |   |   | Non persistente | Non applicabile |
 |   | Gestiti | Windows corrente | Persistente | Non applicabile |
-|   |   |   | Non persistente | No |
+|   |   |   | Non persistente | Non applicabile |
 
 \*Un ambiente di infrastruttura di identità **federato** rappresenta un ambiente con un provider di identità, ad esempio ad FS o un altro IDP di terze parti.
 

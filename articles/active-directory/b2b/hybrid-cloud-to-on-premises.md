@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387015"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385212"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -28,7 +28,7 @@ Se l'app locale usa l'autenticazione basata su SAML, è possibile renderla facil
 
 Sono necessarie entrambe queste operazioni:
 
-- Integrare l'app SAML usando il modello di applicazione non nella raccolta, come descritto in [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
+- Integrare l'app con SAML come descritto in [configurare la Single Sign-on basata su SAML](../manage-apps/configure-saml-single-sign-on.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
 -  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando si configura l'impostazione **URL interno**, usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.

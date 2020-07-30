@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872985"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386759"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Raccomandazioni sulla sicurezza per Azure Key Vault
 
@@ -30,7 +30,7 @@ Alcune raccomandazioni presenti in questo articolo possono essere monitorate aut
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-|Abilitare l'eliminazione temporanea | L'[eliminazione temporanea](overview-soft-delete.md) consente il recupero di insiemi di credenziali e di oggetti di insiemi di credenziali eliminati |  - |
+|Abilitare l'eliminazione temporanea | L'[eliminazione temporanea](soft-delete-overview.md) consente il recupero di insiemi di credenziali e di oggetti di insiemi di credenziali eliminati |  - |
 | Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio del privilegio minimo e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso

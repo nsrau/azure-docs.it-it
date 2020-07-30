@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337263"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421655"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima)
 L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro alla cache di Azure per il collegamento di redis basato su Azure privato. 
 
 Questo articolo illustra come creare una cache di Azure, una rete virtuale di Azure e un endpoint privato usando il portale di Azure.  
 
+> [!IMPORTANT]
+> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
 ## <a name="prerequisites"></a>Prerequisiti
 * Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Questa funzionalità è attualmente in anteprima: [Contattaci](mailto:azurecache@microsoft.com) se sei interessato.
-  >
-
+> Questa funzionalità è attualmente in anteprima: [Contattaci](mailto:azurecache@microsoft.com) se sei interessato.
+>
 
 ## <a name="create-a-cache"></a>Creare una cache
 1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. 
@@ -80,7 +83,7 @@ Questa sezione illustra come creare una rete virtuale e una subnet.
 
 5. Nella scheda **indirizzi IP** immettere queste informazioni:
 
-    | Impostazione            | valore                      |
+    | Impostazione            | Valore                      |
     |--------------------|----------------------------|
     | Spazio indirizzi IPv4 | Immettere **\<IPv4-address-space>** |
 
@@ -88,7 +91,7 @@ Questa sezione illustra come creare una rete virtuale e una subnet.
 
 7. In **modifica subnet**immettere queste informazioni:
 
-    | Impostazione            | valore                      |
+    | Impostazione            | Valore                      |
     |--------------------|----------------------------|
     | Nome della subnet | Immettere **\<subnet-name>** |
     | Intervallo di indirizzi subnet | Immettere **\<subnet-address-range>**
@@ -118,10 +121,10 @@ In questa sezione si creerà un endpoint privato che verrà connesso alla cache 
 
 4. Nella **pagina Crea un endpoint privato**configurare le impostazioni per l'endpoint privato.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Nell'elenco a discesa selezionare la sottoscrizione. |
+    | Subscription | Nell'elenco a discesa selezionare la sottoscrizione. |
     | Resource group | Elenco a discesa e selezionare un gruppo di risorse. |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome |Immettere un nome per l'endpoint privato.  |

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763245"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386810"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Creare un tenant di Azure per un'applicazione multi-tenant  
 
@@ -37,7 +37,7 @@ Azure Active Directory è disponibile in più edizioni. [Vedere il confronto det
 
    a. **Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](../develop/quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali nei tipi di account supportati
 
-   b. **Per le applicazioni basate su SAML e WS-Fed**, si [configurano le applicazioni Single Sign-on basate su SAML](configure-single-sign-on-non-gallery-applications.md) usando un modello SAML generico in Azure ad.
+   b. **Per le applicazioni basate su SAML e WS-Fed**, si [configurano le applicazioni Single Sign-on basate su SAML](configure-saml-single-sign-on.md) usando un modello SAML generico in Azure ad.
 
 Se necessario, è anche possibile [convertire un'applicazione a tenant singolo in multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md) .
 

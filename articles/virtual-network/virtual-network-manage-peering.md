@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291864"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416503"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -72,7 +72,7 @@ Prima di creare un peering, acquisire familiarità con i requisiti e i vincoli e
 
 Per istruzioni dettagliate sull'implementazione di peering tra reti virtuali in sottoscrizioni e modelli di distribuzione diversi, vedere [Passaggi successivi](#next-steps).
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 - **Interfaccia della riga di comando di Azure**: [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
@@ -118,7 +118,7 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
 - Quando si crea un peering globale, le reti virtuali con peering possono esistere in qualsiasi area del cloud pubblico di Azure o in aree del cloud di Cina o aree del cloud per enti pubblici. Non è possibile eseguire il peering tra cloud. Ad esempio, non è possibile eseguire il peering di un VNet nel cloud pubblico di Azure in un VNet nel cloud di Azure China.
 - Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di Load Balancer Basic interno in una rete virtuale con peering globale. Il supporto per Load Balancer Basic è disponibile solo all'interno della stessa area. Il supporto per Load Balancer Standard è disponibile sia per il peering di reti virtuali che per il peering di reti virtuali globale. I servizi che usano un servizio di bilanciamento del carico di base che non funzionerà sul peering VNet globale sono documentati [qui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - È possibile usare i gateway remoti o consentire il transito del gateway nelle reti virtuali con peering globale e nelle reti virtuali con peering locale.
-- Le reti virtuali possono trovarsi in sottoscrizioni uguali o diverse. Quando il peering delle reti virtuali viene eseguito in sottoscrizioni diverse, entrambe le sottoscrizioni possono essere associate allo stesso tenant di Azure Active Directory o a uno diverso. Se non si dispone già di un tenant di Active Directory, è possibile [crearne uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Il supporto per il peering tra reti virtuali delle sottoscrizioni associate a diversi tenant di Azure Active Directory non è disponibile nel portale. È possibile usare Interfaccia della riga di comando, PowerShell o Modelli.
+- Le reti virtuali possono trovarsi in sottoscrizioni uguali o diverse. Quando il peering delle reti virtuali viene eseguito in sottoscrizioni diverse, entrambe le sottoscrizioni possono essere associate allo stesso tenant di Azure Active Directory o a uno diverso. Se non si dispone già di un tenant di Active Directory, è possibile [crearne uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant).
 - Le reti virtuali di cui si esegue il peering non devono avere spazi di indirizzi IP sovrapposti.
 - Non è possibile aggiungere o eliminare intervalli di indirizzi nello spazio indirizzi di una rete virtuale dopo che ne è stato eseguito il peering con un'altra rete virtuale. Per aggiungere o rimuovere intervalli di indirizzi, eliminare il peering, aggiungere o rimuovere gli intervalli di indirizzi e quindi ricreare il peering. Per aggiungere o rimuovere intervalli di indirizzi in reti virtuali, vedere [Creare, modificare o eliminare una rete virtuale](manage-virtual-network.md).
 - È possibile eseguire il peering di due reti virtuali distribuite tramite Resource Manager o di una rete virtuale distribuita tramite Resource Manager con una rete virtuale distribuita tramite il modello di distribuzione classica. Non è possibile eseguire il peering di due reti virtuali create tramite il modello di distribuzione classica. Se non si ha familiarità con i modelli di distribuzione di Azure, vedere l'articolo [Informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile usare un [gateway VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) per collegare due reti virtuali create tramite il modello di distribuzione classica.
@@ -158,7 +158,7 @@ Se l'account non è assegnato a uno dei ruoli precedenti, deve essere assegnato 
 
 - Un peering di reti virtuali viene generato tra reti virtuali create tramite modelli di distribuzione uguali o diversi esistenti in sottoscrizioni uguali o diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-  |Modello di distribuzione di Azure             | Sottoscrizione  |
+  |Modello di distribuzione di Azure             | Subscription  |
   |---------                          |---------|
   |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diversa](create-peering-different-subscriptions.md)|

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319865"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420108"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offerte private in Microsoft Commercial Marketplace
 
@@ -43,6 +43,9 @@ I piani privati sono componenti di un'offerta e sono visibili e acquistabili dai
 
 Per le *nuove offerte che includono solo piani privati*, gli editori possono creare le proprie offerte come qualsiasi altra offerta e quindi contrassegnare i piani come privati. Le offerte che hanno solo piani privati non saranno individuabili o accessibili tramite Microsoft Commercial Marketplace o i [portale di Azure](https://azure.microsoft.com/features/azure-portal/) dai clienti che non sono associati all'offerta.
 
+>[!NOTE]
+>Un'offerta che contiene solo piani privati non sarà visibile nel Marketplace pubblico di Azure o AppSource.
+
 ## <a name="targeting-customers-with-private-offers"></a>Destinazione dei clienti con offerte private
 
 Per le offerte private sia nuove che esistenti, gli editori possono rivolgersi a determinati clienti usando gli identificatori di sottoscrizioni. Gli editori che usano una macchina virtuale o applicazione Azure offerta possono vincolare la disponibilità di un piano privato a un singolo ID sottoscrizione di Azure o caricare un volume condiviso cluster con un massimo di 20.000 ID sottoscrizione di Azure. Quando si usa un'offerta privata di app SaaS, gli editori possono associare un ID tenant per limitare la disponibilità di un piano privato, usando l'approccio di caricamento manuale o CSV.
@@ -61,6 +64,7 @@ Le offerte private verranno visualizzate anche nei risultati della ricerca. È s
 
 >[!Note]
 >Le offerte private non sono supportate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
+
 
 <!---
 ## Next steps

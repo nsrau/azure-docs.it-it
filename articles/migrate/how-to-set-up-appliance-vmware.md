@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112817"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386742"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -34,7 +34,7 @@ Per configurare l'appliance usando un modello OVA è necessario:
 ## <a name="download-the-ova-template"></a>Scaricare il modello OVA
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
-2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** fare clic su **Sì, con VMware vSphere Hypervisor**.
+2. In **individua macchine**  >  **virtuali macchine virtuali?** fare clic su **Sì, con VMware vSphere Hypervisor**.
 3. Fare clic su **Scarica** per scaricare il file di modello OVA.
 
   ![Selezioni per il download di un file OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -111,7 +111,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 
 ### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
-2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. È possibile ridurre l'ambito dell'individuazione limitando l'accesso all'account vCenter. [Altre informazioni](set-discovery-scope.md)
+2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. È possibile ridurre l'ambito dell'individuazione limitando l'accesso all'account vCenter. [Altre informazioni](set-discovery-scope.md).
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
@@ -124,7 +124,7 @@ Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dip
 2. Selezionare il **sistema operativo**.
 3. Specificare un nome descrittivo per le credenziali.
 4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-5. Scegliere **Aggiungi**.
+5. Fare clic su **Aggiungi**.
 
 Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 

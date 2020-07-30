@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189463"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421740"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -118,11 +118,11 @@ Cloud Shell supporta le versioni più recenti dei browser seguenti:
 - Apple Safari
   - Safari in modalità privata non è supportato.
 
-### <a name="copy-and-paste"></a>Copiare e incollare
+### <a name="copy-and-paste"></a>Funzionalità Copia e Incolla
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="usage-limits"></a>Limiti di consumo
+### <a name="usage-limits"></a>Limiti di utilizzo
 
 Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiva in esecuzione prolungata viene quindi interrotta senza preavviso.
 
@@ -141,26 +141,6 @@ Fare attenzione quando si modifica il file con estensione bashrc, poiché questa
 ### <a name="preview-version-of-azuread-module"></a>Versione di anteprima del modulo AzureAD
 
 Attualmente è disponibile `AzureAD.Standard.Preview`, una versione di anteprima del modulo basato su .NET Standard. Questo modulo offre la stessa funzionalità di `AzureAD`.
-
-### <a name="sqlserver-module-functionality"></a>Funzionalità del modulo `SqlServer`
-
-Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle versioni precedenti di PowerShell Core. In particolare, `Invoke-SqlCmd` non è ancora disponibile.
-
-### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure
-
-Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita.
-
-### <a name="tab-completion-can-throw-psreadline-exception"></a>Il completamento della scheda può dare luogo a un'eccezione PSReadline
-
-Se la proprietà EditMode dell'utente in PSReadline è impostata su Emacs, l'utente tenta di visualizzare tutte le possibilità tramite il completamento scheda e le dimensioni della finestra sono troppo piccole per visualizzare tutte le possibilità, per cui PSReadline indicherà un'eccezione non gestita.
-
-### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
-
-Se l'utente esegue un'azione o un comando che visualizza un indicatore di stato, come il completamento di una scheda nell'unità `Azure:`, è possibile che il cursore non sia impostato correttamente e che venga visualizzato uno spazio vuoto dove prima era presente l'indicatore di stato.
-
-### <a name="random-characters-appear-inline"></a>Inline vengono visualizzati caratteri casuali
-
-La sequenza di posizione del cursore, ad esempio `5;13R`, può essere visualizzata nell'input dell'utente. Questi caratteri possono essere rimossi manualmente.
 
 ## <a name="personal-data-in-cloud-shell"></a>Dati personali in Cloud Shell
 

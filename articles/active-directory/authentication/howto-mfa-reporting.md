@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639811"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418237"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Usare il report delle attività di accesso per esaminare gli eventi di Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Per visualizzare il report delle attività di accesso nel [portale di Azure](htt
 
     La scheda *Dettagli di autenticazione* o *Accesso condizionale* relativa ai dettagli dell'evento mostra il codice dello stato oppure il criterio attivato dalla richiesta dell'autenticazione a più fattori.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Screenshot di un esempio di report delle attività di accesso in Azure Active Directory nel portale di Azure](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Se disponibile, viene visualizzata l'autenticazione, ad esempio un messaggio SMS, la notifica dell'app Microsoft Authenticator o la telefonata.
 
@@ -145,8 +145,8 @@ La tabella seguente consente di risolvere i problemi relativi agli eventi usando
 | FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentiti solo numeri, virgole, * e #.  È inoltre possibile usare un prefisso @. |
 | FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare un illecito durante la chiamata, pertanto l'autenticazione è stata negata e il numero di telefono bloccato.| 
 | FAILED_SERVER_ERROR | Impossibile effettuare chiamate | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
-| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS.  Autenticazione negata. |
-| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto.  Autenticazione negata. |
+| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS. Autenticazione negata. |
+| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto. Autenticazione negata. |
 | FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN SMS non corretti | L'utente ha immesso un passcode monouso (OTP) errato e/o un PIN utente errato.  Autenticazione negata. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | È stato superato il numero massimo di tentativi OTP per SMS | L'utente ha superato il numero massimo di tentativi di inserire un passcode monouso. |
 | FAILED_PHONE_APP_DENIED | App mobile negata | L'utente ha negato l'autenticazione nell'app mobile facendo clic sul pulsante Nega. |

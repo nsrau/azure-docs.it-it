@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067490"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416316"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -98,14 +98,14 @@ Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la s
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Usare comandi e dimensioni di aggregazione efficaci in riepilogo e join
@@ -433,7 +433,7 @@ I comportamenti di query che possono ridurre il parallelismo includono:
 - Utilizzo di funzioni di serializzazione e finestra come l' [operatore Serialize](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Prev ()](/azure/kusto/query/prevfunction)e le funzioni [Row](/azure/kusto/query/rowcumsumfunction) . In alcuni di questi casi è possibile usare le funzioni Time Series e analisi utente. La serializzazione inefficiente può verificarsi anche se vengono usati gli operatori seguenti non alla fine della query: [Range](/azure/kusto/query/rangeoperator), [Sort](/azure/kusto/query/sortoperator), [Order](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-battitor](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    L'utilizzo della funzione di aggregazione [DCount ()](/azure/kusto/query/dcount-aggfunction) impone al sistema la copia centrale dei valori distinti. Quando la scala dei dati è elevata, è consigliabile usare i parametri facoltativi della funzione DCount per ridurre la precisione.
 -    In molti casi, l'operatore di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) abbassa il parallelismo generale. Esaminare il join casuale come alternativa quando le prestazioni sono problematiche.
--    Nelle query con ambito di risorse, i controlli di pre-esecuzione RBAC possono rimanere in situazioni in cui è presente un numero molto elevato di assegnazioni RBAC. Questa operazione può comportare controlli più lunghi che comporterebbero un parallelismo inferiore. Ad esempio, una query viene eseguita su una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha numerose assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
+-    Nelle query con ambito di risorse, i controlli di pre-esecuzione RBAC possono rimanere in situazioni in cui è presente un numero molto elevato di assegnazioni di ruolo di Azure. Questa operazione può comportare controlli più lunghi che comporterebbero un parallelismo inferiore. Ad esempio, una query viene eseguita su una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha numerose assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
 -    Se una query elabora piccoli blocchi di dati, il suo parallelismo sarà basso perché il sistema non lo distribuisce in molti nodi di calcolo.
 
 

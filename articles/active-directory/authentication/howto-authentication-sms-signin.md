@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550482"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419564"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configurare e abilitare gli utenti per l'autenticazione basata su SMS usando Azure Active Directory (anteprima)
 
@@ -65,7 +65,7 @@ Prima di tutto, è necessario abilitare l'autenticazione basata su SMS per il te
 1. Cercare e selezionare **Azure Active Directory**.
 1. Dal menu di spostamento sul lato sinistro della finestra di Azure Active Directory selezionare **Sicurezza > Metodi di autenticazione > Criterio del metodo di autenticazione (anteprima)** .
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![Individuare e selezionare la finestra criterio metodo di autenticazione (anteprima) nel portale di Azure.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. Nell'elenco dei metodi di autenticazione disponibili selezionare **SMS**.
 1. Impostare **Abilita** su *Sì*.
@@ -81,7 +81,7 @@ Dopo aver abilitato l'autenticazione basata su SMS nel tenant di Azure AD, selez
 1. Nella finestra dei criteri di autenticazione basata su SMS impostare **Destinazione** su *Selezionare utenti*.
 1. Scegliere **Aggiungi utenti o gruppi**, quindi selezionare un utente o un gruppo di test, ad esempio *Contoso User* o *Contoso SMS Users*.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Scegliere gli utenti o i gruppi da abilitare per l'autenticazione basata su SMS nell'portale di Azure.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. Dopo aver selezionato gli utenti o i gruppi, scegliere **Seleziona**, quindi **Salva** per salvare i criteri del metodo di autenticazione aggiornati.
 

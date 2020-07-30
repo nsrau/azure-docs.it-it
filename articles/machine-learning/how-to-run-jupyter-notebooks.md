@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319593"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386453"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -185,11 +185,20 @@ Queste azioni reimposteranno lo stato del notebook e ripristineranno tutte le va
 Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.  Per aggiungere un kernel all'istanza di calcolo:
 
 1. Selezionare [**Open terminal**](#terminal) (Apri terminale) nella barra degli strumenti del notebook.
-1. Usare la finestra del terminale per creare un nuovo ambiente.
+1. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
+    ```shell
+    conda create --name newenv
+    ```
 1. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

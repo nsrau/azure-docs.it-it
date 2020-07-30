@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223041"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419598"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure Active Directory Domain Services usando le cartelle di lavoro di monitoraggio di Azure
 
@@ -75,7 +75,7 @@ Per accedere al modello di cartella di lavoro per il report Panoramica sicurezza
 
 1. Nella parte inferiore del report sulla panoramica della sicurezza sotto il grafico si interrompe quindi il tipo di attività selezionato. È possibile filtrare in base ai nomi utente interessati sul lato destro, come illustrato nel report di esempio seguente:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Dettagli dei blocchi degli account nelle cartelle di lavoro di monitoraggio di Azure.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Utilizzare la cartella di lavoro report attività account
 
@@ -93,7 +93,7 @@ Per accedere al modello di cartella di lavoro per il report attività account, c
 
     È possibile filtrare in base al **nome utente dell'account**, ad esempio *Felix*, come illustrato nel report di esempio seguente:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Report attività account nelle cartelle di lavoro di monitoraggio di Azure.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     L'area sotto il grafico Mostra gli eventi di accesso singoli insieme a informazioni come il risultato dell'attività e la workstation di origine. Queste informazioni consentono di determinare le origini ripetute degli eventi di accesso che possono causare blocchi degli account o indicare un potenziale attacco.
 

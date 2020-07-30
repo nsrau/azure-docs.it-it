@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260696"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420652"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -23,7 +24,7 @@ L'API di Azure Cosmos DB per MongoDB sfrutta le funzionalità di gestione degli 
 
 Azure Cosmos DB API per MongoDB Server versione 3,6 indicizza automaticamente il `_id` campo, che non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Nell'API di Azure Cosmos DB per MongoDB, il partizionamento orizzontale e l'indicizzazione sono concetti distinti. Non è necessario indicizzare la chiave di partizione. Tuttavia, come per qualsiasi altra proprietà del documento, se questa proprietà è un filtro comune nelle query, si consiglia di indicizzare la chiave di partizione.
 
-Per indicizzare campi aggiuntivi, applicare i comandi di gestione degli indici MongoDB. Come in MongoDB, l'API di Azure Cosmos DB per MongoDB indicizza automaticamente `_id` solo il campo. Questo criterio di indicizzazione predefinito è diverso dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
+Per indicizzare campi aggiuntivi, applicare i comandi di gestione dell'indice MongoDB. Come in MongoDB, l'API di Azure Cosmos DB per MongoDB indicizza automaticamente `_id` solo il campo. Questo criterio di indicizzazione predefinito differisce dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
 
 Per applicare un ordinamento a una query, è necessario creare un indice sui campi utilizzati nell'operazione di ordinamento.
 
@@ -49,7 +50,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ad esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 

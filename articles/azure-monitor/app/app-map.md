@@ -3,14 +3,13 @@ title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Monitorare topologie di applicazioni complesse con la mappa delle applicazioni
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367011"
+ms.locfileid: "87421298"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -82,9 +81,12 @@ Per visualizzare gli avvisi attivi e le regole sottostanti che attivano gli avvi
 
 ![Screenshot dell'esperienza di analisi](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Imposta il nome del ruolo Cloud
+## <a name="set-or-override-cloud-role-name"></a>Imposta o ignora il nome del ruolo Cloud
 
-La mappa delle applicazioni usa la proprietà **nome ruolo Cloud** per identificare i componenti sulla mappa. Application Insights SDK aggiunge automaticamente la proprietà nome ruolo Cloud ai dati di telemetria emessi dai componenti. Ad esempio, l'SDK aggiungerà un nome del sito Web o un nome del ruolo del servizio alla proprietà del nome del ruolo cloud. Tuttavia, vi sono casi in cui si desidera eseguire l'override del valore predefinito. Per eseguire l'override del nome del ruolo Cloud e modificare le informazioni visualizzate nella mappa delle applicazioni:
+La mappa delle applicazioni usa la proprietà **nome ruolo Cloud** per identificare i componenti sulla mappa. Per impostare o sostituire manualmente il nome del ruolo Cloud e modificare gli elementi visualizzati nella mappa delle applicazioni:
+
+> [!NOTE]
+> Il Application Insights SDK o Agent aggiunge automaticamente la proprietà nome ruolo Cloud ai dati di telemetria emessi dai componenti in un ambiente del servizio app Azure.
 
 # <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 3. Se si usa funzioni di Azure con C#, eseguire l'aggiornamento a [funzioni V2](../../azure-functions/functions-versions.md).
 
-4. Verificare che il [nome del ruolo Cloud](#set-cloud-role-name) sia configurato correttamente.
+4. Verificare che il [nome del ruolo Cloud](#set-or-override-cloud-role-name) sia configurato correttamente.
 
 5. Se non si presenta una dipendenza, assicurarsi che sia nell'elenco delle [dipendenze raccolte automaticamente](./auto-collect-dependencies.md). Se non lo è, si può comunque tenere traccia di essa manualmente con una [chiamata per tenere traccia delle dipendenze](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Per risolvere questo problema, è necessario modificare la strumentazione per im
 
 * Il tipo di dipendenza deve rappresentare il tipo logico di una dipendenza. Ad esempio, HTTP, SQL o BLOB di Azure sono tipi di dipendenza tipici. Non deve contenere ID univoci.
 
-* Lo scopo del nome del ruolo Cloud è descritto nella [sezione precedente](#set-cloud-role-name).
+* Lo scopo del nome del ruolo Cloud è descritto nella [sezione precedente](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commenti e suggerimenti del portale
 

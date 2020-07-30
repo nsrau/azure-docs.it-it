@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: d6c82b1070f76cedcd84b8cd8a0a7bb6f683110d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285323"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384532"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -64,7 +64,7 @@ Altre informazioni:
 
 * [Panoramica di Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
+* [Serie di guide introduttive sulla gestione delle app](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 

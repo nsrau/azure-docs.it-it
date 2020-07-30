@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 1cb9600393fe50226da1efcef550cbb8b26f7f14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321595"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387065"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Informazioni su come modificare le chiavi di accesso per gli account di archivia
 Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
 > [!IMPORTANT]
-> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
+> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

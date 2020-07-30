@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764826"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387269"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Single Sign-On SAML per le applicazioni locali con il proxy di applicazione
 
@@ -47,7 +47,7 @@ I diagrammi di protocollo seguenti descrivono la sequenza di Single Sign-On per 
 
 4. Selezionare **SAML** come metodo Single Sign-on.
 
-5. Configurare prima di tutto SAML SSO per il funzionamento nella rete aziendale. Nella pagina **Configura accesso Single Sign-on con SAML** passare all'intestazione di **configurazione SAML di base** e selezionare l'icona di **modifica** (matita). Seguire i passaggi in [immettere la configurazione SAML di base](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) per configurare l'autenticazione basata su SAML per l'applicazione.
+5. Per prima cosa, configurare SAML SSO to work on the Corporate Network, vedere la sezione di configurazione SAML di base di [configurare Single Sign-on basati su SAML](configure-saml-single-sign-on.md) per configurare l'autenticazione basata su SAML per l'applicazione.
 
 6. Aggiungere almeno un utente all'applicazione e verificare che l'account di test abbia accesso all'applicazione. Quando si è connessi alla rete aziendale, usare l'account di test per verificare se l'applicazione è Single Sign-On. 
 

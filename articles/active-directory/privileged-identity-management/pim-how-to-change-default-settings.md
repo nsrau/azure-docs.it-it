@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743950"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420006"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -32,7 +32,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure ad Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+  [![Selezionare Azure AD Privileged Identity Management >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
 
@@ -154,7 +154,7 @@ Usare il parametro **Notifiche** per determinare se gli amministratori riceveran
 Se impostato su **Abilita**, le notifiche sono inviate a:
 
 - Amministratore dei ruoli con privilegi
-- Amministratore della protezione
+- Amministratore della sicurezza
 - Amministratore globale
 
 Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privileged Identity Management](pim-email-notifications.md).
@@ -183,7 +183,7 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   - Amministratore di Intune
   - Amministratore di Power BI
   - Amministratore dei ruoli con privilegi
-  - Amministratore della protezione
+  - Amministratore della sicurezza
   - Amministratore di SharePoint
   - Amministratore di Skype for Business
   - Amministratore utenti

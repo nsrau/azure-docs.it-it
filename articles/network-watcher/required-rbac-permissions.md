@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d31240cad709a156d7235f116c9cd2c8fb698b03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840554"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421145"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorizzazioni di controllo degli accessi in base al ruolo necessarie per lavorare con le funzionalità di Network Watcher
 
@@ -38,7 +38,7 @@ Il controllo degli accessi in base al ruolo (RBAC) di Azure consente di assegnar
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configurare un log del flusso                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Effettuare una query dello stato per un log del flusso                                    |
 
-## <a name="connection-troubleshoot"></a>Risoluzione dei problemi relativi alle connessioni
+## <a name="connection-troubleshoot"></a>Risoluzione dei problemi di connessione
 
 | Azione                                                              | Descrizione                                                           |
 | ---------                                                           | -------------                                                  |
@@ -67,7 +67,7 @@ Il controllo degli accessi in base al ruolo (RBAC) di Azure consente di assegnar
 | Microsoft.Network/networkWatchers/packetCaptures/write              | Creare un'acquisizione di pacchetti                                        |
 | Microsoft.Network/networkWatchers/packetCaptures/delete             | Eliminare un'acquisizione di pacchetti                                        |
 
-## <a name="ip-flow-verify"></a>Verifica del flusso IP
+## <a name="ip-flow-verify"></a>Verifica flusso IP
 
 | Azione                                                              | Descrizione                                                           |
 | ---------                                                           | -------------                                                  |
@@ -104,7 +104,7 @@ Le funzionalità di Network Watcher richiedono anche le azioni seguenti:
 
 | Azione/i                                                           | Descrizione                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Utilizzato per recuperare le assegnazioni di ruolo e le definizioni dei criteri RBAC          |
+| Microsoft.Authorization/\*/Read                                     | Usato per recuperare le assegnazioni di ruolo e le definizioni dei criteri di Azure          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Utilizzato per enumerare tutti i gruppi di risorse in una sottoscrizione    |
 | Microsoft.Storage/storageAccounts/Read                              | Usato per ottenere le proprietà per l'account di archiviazione specificato   |
 | Microsoft. storage/storageAccounts/listServiceSas/Action, </br> Microsoft. storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usato per recuperare le firme di accesso condiviso (SAS) che abilitano [l'accesso sicuro all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e la scrittura nell'account di archiviazione |

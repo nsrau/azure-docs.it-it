@@ -1,20 +1,20 @@
 ---
-title: Cache di Azure dell'interfaccia della riga di comando di Azure per gli esempi
-description: "Esempi dell'interfaccia della riga di comando di Azure per cache di Azure per redis: creare una cache, eliminare una cache, ottenere i dettagli della cache, il nome host, le porte e le chiavi e connettere un'app Web."
+title: Gestire cache di Azure per Redis con l'interfaccia della riga di comando di Azure
+description: "Esempi dell'interfaccia della riga di comando di Azure per la gestione della cache di Azure per redis: creare una cache, eliminare una cache, ottenere i dettagli della cache, il nome host, le porte e le chiavi e connettere un'app Web"
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.openlocfilehash: 43a986f884d621f257de2e9c305a0bcc59092d3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 345fd0272e0cfe9b4d7329f004e628ea7820c2d9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033666"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421241"
 ---
-# <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Esempi dell'interfaccia della riga di comando di Azure per Cache Redis di Azure
+# <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Gestire cache di Azure per Redis con l'interfaccia della riga di comando di Azure
 
 La tabella seguente include collegamenti a script Bash compilati tramite l'interfaccia della riga di comando di Azure.
 

@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371414"
+ms.locfileid: "87421893"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 
@@ -58,7 +58,7 @@ Per quanto riguarda l'accesso all'endpoint, chiunque disponga dell'accesso all'U
 
 I diritti per l'apparecchio di provisioning del servizio vengono concessi tramite assegnazioni di ruolo. [L'accesso in base al ruolo (RBAC)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. 
 
-Nel contesto di Azure ricerca cognitiva, le [assegnazioni di ruolo RBAC](search-security-rbac.md) determineranno chi può eseguire attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+Nel contesto di Azure ricerca cognitiva le [assegnazioni di ruolo di Azure](search-security-rbac.md) determineranno chi può eseguire attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Creare o eliminare un servizio
 * Ridimensionare il servizio

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223024"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419530"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
 
@@ -158,6 +158,8 @@ Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+Con l'applicazione dei criteri, la propagazione può richiedere fino a un'ora e consentire agli utenti di eseguire l'accesso con l'ID di accesso alternativo.
 
 ## <a name="test-user-sign-in-with-email"></a>Testare l'accesso dell'utente con l'indirizzo e-mail
 

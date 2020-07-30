@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514723"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387116"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - Il Key Vault e il database SQL o l'istanza gestita devono appartenere allo stesso tenant di Azure Active Directory. Le interazioni tra tenant di insieme di credenziali delle chiavi e server non sono supportate. Per spostare le risorse in un secondo momento, è necessario riconfigurare Transparent Data Encryption con AKV. Altre informazioni sullo [spostamento di risorse](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- È necessario abilitare la funzionalità di [eliminazione temporanea](../../key-vault/general/overview-soft-delete.md) nel Key Vault per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano recuperate o rimosse definitivamente dal cliente. Alle azioni di *recupero* e *pulizia* sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita e può essere abilitata tramite [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o [l'interfaccia della](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete)riga di comando. Non può essere abilitata tramite il portale di Azure.  
+- È necessario abilitare la funzionalità di [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md) nel Key Vault per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano recuperate o rimosse definitivamente dal cliente. Alle azioni di *recupero* e *pulizia* sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita e può essere abilitata tramite [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o [l'interfaccia della](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete)riga di comando. Non può essere abilitata tramite il portale di Azure.  
 
 - Concedere al server o all'istanza gestita l'accesso all'insieme di credenziali delle chiavi (Get, wrapKey, unwrapKey) usando la relativa identità Azure Active Directory. Quando si usa il portale di Azure, viene creata automaticamente l'identità Azure AD. Quando si usa PowerShell o l'interfaccia della riga di comando, l'identità Azure AD deve essere creata in modo esplicito e verificare il completamento. Per istruzioni dettagliate sull'uso di PowerShell, vedere Configurare Transparent Data Encryption [con BYOK](transparent-data-encryption-byok-configure.md) e configurare Transparent Data [Encryption con BYOK per SQL istanza gestita](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
 

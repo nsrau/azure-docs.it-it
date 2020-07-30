@@ -4,12 +4,12 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315938"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420210"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](./app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -20,7 +20,7 @@ Al termine della configurazione di [Application Insights per il progetto](./app-
 
 Ecco un avviso di esempio:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 I dettagli dell'avviso indicano:
 
@@ -72,11 +72,11 @@ Questa regola di avviso viene creata con un [gruppo di azioni](../platform/actio
 
 Aprire la pagina degli avvisi. Le regole di avviso di anomalie degli errori sono disponibili con gli eventuali avvisi impostati manualmente e si può vedere se attualmente sono in uno stato di avviso.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Nella pagina risorsa Application Insights fare clic sul riquadro avvisi, quindi su Gestisci regole di avviso." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Fare clic sull'avviso per configurarlo.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Schermata di configurazione della regola." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Si ricorda che è possibile disabilitare o eliminare una regola di avviso di anomalie degli errori, ma non è possibile crearne un'altra nella stessa risorsa di Application Insights.
 
@@ -298,7 +298,7 @@ Per approfondire l'analisi, fare clic su "Visualizza dettagli completi in Applic
 
 Facendo clic su "Diagnostica errori", sarà possibile ottenere altri dettagli e risolvere il problema.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Ricerca diagnostica." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 78,5% rispetto alla percentuale normale del 2,2% e ciò evidenzia sicuramente un'anomalia. D'altra parte, solo 46 utenti sono stati interessati. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
 
@@ -306,13 +306,13 @@ In molti casi è possibile diagnosticare rapidamente il problema in base al nome
 
 In questo esempio è stata generata un'eccezione dal database SQL a causa del raggiungimento del limite di richieste.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Dettagli della richiesta non riuscita." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Esaminare gli avvisi recenti
 
 Fare clic su **Avvisi** nella pagina delle risorse di Application Insights per ottenere gli avvisi generati più recentemente:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Riepilogo degli avvisi." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Qual è la differenza
 Il rilevamento intelligente delle anomalie degli errori integra altre funzionalità simili ma distinte di Application Insights.

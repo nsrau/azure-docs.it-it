@@ -1,16 +1,16 @@
 ---
 title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287955"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421103"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrare Hub eventi di Azure con Collegamento privato di Azure
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
 
 Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
@@ -42,7 +42,7 @@ Per integrare uno spazio dei nomi di Hub eventi con Collegamento privato di Azur
 
 - Uno spazio dei nomi di Hub eventi.
 - Una rete virtuale di Azure.
-- Una subnet nella rete virtuale.
+- Una subnet nella rete virtuale. È possibile usare la subnet **predefinita** . 
 - Autorizzazioni di proprietario o collaboratore per lo spazio dei nomi e la rete virtuale.
 
 L'endpoint privato e la rete virtuale devono trovarsi nella stessa area. Quando si seleziona un'area per l'endpoint privato tramite il portale, verranno automaticamente filtrate solo le reti virtuali presenti in tale area. Lo spazio dei nomi può trovarsi in un'area diversa.
@@ -55,10 +55,15 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nella barra di ricerca digitare **Hub eventi**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
-4. Selezionare la scheda **Rete** in **Impostazioni**.
+4. Selezionare **rete** in **Impostazioni** nel menu a sinistra.
 
     > [!NOTE]
     > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **standard** o **dedicati** . 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Scheda reti-opzione reti selezionate" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale, è possibile accedere allo spazio dei nomi tramite Internet pubblico. 
 1. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
 1. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 

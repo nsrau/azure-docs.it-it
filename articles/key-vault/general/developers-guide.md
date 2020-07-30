@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090536"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386215"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -122,7 +122,7 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 
 ## <a name="key-vault-overviews-and-concepts"></a>Panoramiche e concetti su Key Vault
 
-- [Key Vault comportamento di eliminazione](overview-soft-delete.md)temporanea) descrive una funzionalità che consente il ripristino di oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
+- [Key Vault comportamento di eliminazione](soft-delete-overview.md)temporanea) descrive una funzionalità che consente il ripristino di oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
 - [Limitazione del client di Key Vault](overview-throttling.md) descrive i concetti di base della limitazione e offre un approccio per l'app.
 - [Panoramica delle chiavi dell'account di archiviazione Key Vault](../secrets/overview-storage-keys.md)) descrive le chiavi degli account di archiviazione di Azure Key Vault Integration.
 - [Scenari di sicurezza di Key Vault](overview-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282943"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419785"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -69,7 +69,7 @@ Per abilitare l'autenticazione Azure AD per le macchine virtuali Windows in Azur
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Abilitazione dell'accesso Azure AD in per la macchina virtuale Windows in Azure
 
-Per usare Azure AD account di accesso in per la macchina virtuale Windows in Azure, è necessario abilitare prima Azure AD opzione di accesso per la macchina virtuale Windows e quindi configurare le assegnazioni di ruolo RBAC per gli utenti autorizzati ad accedere alla macchina virtuale.
+Per usare Azure AD account di accesso in per la macchina virtuale Windows in Azure, è prima necessario abilitare l'opzione di accesso Azure AD per la macchina virtuale Windows e quindi è necessario configurare le assegnazioni di ruolo di Azure per gli utenti autorizzati ad accedere alla macchina virtuale.
 Esistono diversi modi per abilitare l'accesso Azure AD per la VM Windows:
 
 - Uso dell'esperienza portale di Azure durante la creazione di una macchina virtuale Windows

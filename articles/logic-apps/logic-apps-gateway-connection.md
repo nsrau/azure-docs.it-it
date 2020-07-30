@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370955"
+ms.locfileid: "87386181"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -52,13 +52,13 @@ App per la logica di Azure supporta operazioni di lettura e scrittura tramite il
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il gateway dati locale è già stato [installato in un computer locale](../logic-apps/logic-apps-gateway-install.md).
+* Il gateway dati locale è già stato [installato in un computer locale](../logic-apps/logic-apps-gateway-install.md). Questa installazione del gateway deve esistere prima di poter creare una risorsa gateway che si collega a questa installazione.
 
-* Si hanno lo [stesso account di Azure e la stessa sottoscrizione](../logic-apps/logic-apps-gateway-install.md#requirements) usati per l'installazione del gateway. Questo account Azure deve appartenere solo a una singola [Directory o a un tenant di Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Per creare la risorsa del gateway in Azure sono necessari lo stesso account e la stessa sottoscrizione di Azure, perché solo l'amministratore del gateway può creare la risorsa del gateway in Azure. Le entità servizio attualmente non sono supportate.
+* Si hanno lo [stesso account di Azure e la stessa sottoscrizione](../logic-apps/logic-apps-gateway-install.md#requirements) usati per l'installazione del gateway. Questo account Azure deve appartenere solo a una singola [Directory o a un tenant di Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology). È necessario usare lo stesso account e la stessa sottoscrizione di Azure per creare la risorsa del gateway in Azure perché solo l'amministratore del gateway può creare la risorsa del gateway in Azure. Le entità servizio attualmente non sono supportate.
 
-  * Quando si crea una risorsa del gateway in Azure, si seleziona un'installazione del gateway da usare con la risorsa del gateway e solo quella risorsa del gateway. Ogni risorsa del gateway può essere collegata a una sola installazione del gateway, che può essere collegata a un solo account Azure e a una sottoscrizione. Non è quindi possibile selezionare un'installazione del gateway già associata a un'altra risorsa del gateway.
+  * Quando si crea una risorsa del gateway in Azure, si seleziona un'installazione del gateway da collegare alla risorsa del gateway e solo a tale risorsa del gateway. Ogni risorsa del gateway può essere collegata a una sola installazione del gateway. Non è possibile selezionare un'installazione del gateway che è già associata a un'altra risorsa del gateway.
   
-  * L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure. Se si dispone dell'accesso alla sottoscrizione, in trigger e azioni che possono accedere alle origini dati locali, è possibile scegliere tra sottoscrizioni di Azure diverse associate a una risorsa del gateway diversa.
+  * L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure. Se si dispone dell'accesso alla sottoscrizione, in trigger e azioni che possono accedere alle origini dati locali, è possibile selezionare altre sottoscrizioni di Azure con risorse del gateway.
 
 <a name="create-gateway-resource"></a>
 

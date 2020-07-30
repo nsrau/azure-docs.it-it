@@ -10,12 +10,12 @@ ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0b3890c50a476e4c3b3247db435c6032bf9bbc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805488"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417302"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizzare l'accesso ai dati BLOB o della coda con l'interfaccia della riga di comando
 
@@ -57,7 +57,7 @@ L'esempio seguente illustra come creare un contenitore dall'interfaccia della ri
 1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
+    > Le assegnazioni di ruolo di Azure potrebbero richiedere alcuni minuti per la propagazione.
 
 1. Chiamare il comando [AZ Storage container create](/cli/azure/storage/container#az-storage-container-create) con il `--auth-mode` parametro impostato su `login` per creare il contenitore usando le credenziali Azure ad. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 

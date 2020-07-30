@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7e1432cf74dc741a6e2f5d561e9dc203df95007c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072689"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386164"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi per gli ambienti di Integration Services (ISEs) in app per la logica di Azure
 
@@ -39,7 +39,7 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
 
 * Un insieme di credenziali delle chiavi di Azure con le proprietà **Elimina temporaneamente** e non **Ripulisci** abilitate
 
-  Per ulteriori informazioni sull'abilitazione di queste proprietà, vedere [Azure Key Vault Panoramica dell'eliminazione](../key-vault/general/overview-soft-delete.md) temporanea e [configurare chiavi gestite dal cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Se non si ha familiarità con Azure Key Vault, informazioni [su come creare un](../key-vault/secrets/quick-create-portal.md#create-a-vault) insieme di credenziali delle chiavi usando il portale di Azure o usando il comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Per ulteriori informazioni sull'abilitazione di queste proprietà, vedere [Azure Key Vault Panoramica dell'eliminazione](../key-vault/general/soft-delete-overview.md) temporanea e [configurare chiavi gestite dal cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Se non si ha familiarità con Azure Key Vault, informazioni [su come creare un](../key-vault/secrets/quick-create-portal.md#create-a-vault) insieme di credenziali delle chiavi usando il portale di Azure o usando il comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * Nell'insieme di credenziali delle chiavi, una chiave creata con i valori delle proprietà seguenti:
 
@@ -47,7 +47,7 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
   |----------|-------|
   | **Tipo chiave** | RSA |
   | **Dimensioni della chiave RSA** | 2048 |
-  | **Enabled** | Sì |
+  | **Attivata** | Sì |
   |||
 
   ![Creare la chiave di crittografia gestita dal cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281498"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382696"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
-|Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
-|Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
-|Conservazione del backup massima|7 giorni|35 giorni|35 giorni|
-|CPU|Basso|Basso, medio, elevato|Medio, elevato|
-|Velocità effettiva di I/O (approssimativa) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
-|Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
-|Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
-|OLTP in memoria|N/D|N/D|Supportato|
-|||||
+|**Carico di lavoro di destinazione**|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
+|**Contratto di servizio relativo al tempo di attività**|99,99%|99,99%|99,99%|
+|**Conservazione del backup massima**|7 giorni|35 giorni|35 giorni|
+|**CPU**|Bassa|Basso, medio, elevato|Medio, elevato|
+|**Velocità effettiva di I/O (approssimativa)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**Latenza di I/O (approssimativa)**|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
+|**Indicizzazione ColumnStore** |N/D|S3 e superiore|Supportato|
+|**OLTP in memoria**|N/D|N/D|Supportato|
 
 > [!IMPORTANT]
 > I livelli di servizio Basic, Standard S0, S1 e S2 forniscono meno di una vCore (CPU).  Per i carichi di lavoro con utilizzo intensivo della CPU, è consigliabile un livello di servizio di S3 o superiore. 
@@ -61,9 +60,8 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
-| DTU massime | 5 | 3000 | 4000 | 
-|||||
+| **Dimensioni massime di archiviazione** | 2 GB | 1 TB | 4 TB  |
+| **DTU massime** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
@@ -72,12 +70,11 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 || **Base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Dimensioni massime di archiviazione per ogni database  | 2 GB | 1 TB | 1 TB |
-| Dimensioni massime di archiviazione per ogni pool | 156 GB | 4 TB | 4 TB |
-| Numero massimo di eDTU per ogni database | 5 | 3000 | 4000 |
-| Numero massimo di eDTU per ogni pool | 1600 | 3000 | 4000 |
-| Numero massimo di database per pool | 500  | 500 | 100 |
-|||||
+| **Dimensioni massime di archiviazione per ogni database**  | 2 GB | 1 TB | 1 TB |
+| **Dimensioni massime di archiviazione per pool** | 156 GB | 4 TB | 4 TB |
+| **Numero massimo di eDTU per ogni database** | 5 | 3000 | 4000 |
+| **Numero massimo di eDTU per ogni pool** | 1600 | 3000 | 4000 |
+| **Numero massimo di database per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  

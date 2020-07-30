@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373794"
+ms.locfileid: "87415024"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373794"
 - **C#**: è stato aggiunto il supporto per la trascrizione di conversazioni asincrona. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
 - **JavaScript**: aggiunta del supporto riconoscimento del parlante per [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) e [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: è stato aggiunto il supporto per l'ID lingua e il rilevamento automatico della lingua. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
-- **Objective-C**: è stato aggiunto il supporto per la trascrizione di conversazioni e conversazioni su più dispositivi. 
+- **Objective-C**: è stato aggiunto il supporto per la [trascrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription)di conversazioni e conversazioni su più [dispositivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) . 
 - **Python**: è stato aggiunto il supporto audio compresso per Python in Windows e Linux. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
 
 **Correzioni di bug**
 - **All**: è stato risolto un problema che causava la mancata spostamento dei flussi da parte di KeywordRecognizer dopo un riconoscimento.
 - **All**: è stato risolto un problema che ha causato il flusso ottenuto da un KeywordRecognitionResult in modo che non contenga la parola chiave.
 - **All**: è stato risolto un problema a causa del quale il SendMessageAsync non invia effettivamente il messaggio in rete al termine dell'attesa da parte degli utenti.
-- **All**: correzione di un arresto anomalo nelle API riconoscimento del parlante quando gli utenti avviano più VoiceProfileClient:: SpeakerRecEnrollProfileAsync e non ne sono rimasti in attesa del completamento.
+- **All**: correzione di un arresto anomalo nelle API riconoscimento del parlante quando gli utenti chiamano più volte il metodo VoiceProfileClient:: SpeakerRecEnrollProfileAsync e non attendono il completamento delle chiamate.
 - **All**: è stata corretta l'abilitazione della registrazione file nelle classi VoiceProfileClient e SpeakerRecognizer.
 - **JavaScript**: è stato risolto un [problema relativo](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) alla limitazione quando il browser è ridotto a icona.
 - **JavaScript**: è stato risolto un [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) con una perdita di memoria nei flussi.
 - **JavaScript**: aggiunta della memorizzazione nella cache per le risposte OCSP da NodeJS.
 - **Java**: è stato risolto un problema che causava che i campi BigInteger restituivano sempre 0.
-- **iOS**: correzione e [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) con la pubblicazione di app basate su Speech SDK nell'App Store iOS.
+- **iOS**: è stato risolto un [problema relativo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) alla pubblicazione delle app basate su SDK vocale nell'App Store iOS.
 
 **Esempi**
 - **C++**: aggiunta del codice di esempio per riconoscimento del parlante [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
@@ -85,7 +85,7 @@ Rimanere integro.
 
 * Accuratezza della pronuncia a livello di parola migliorata in 5 lingue.
 
-    | Lingua | Riduzione degli errori di pronuncia |
+    | Linguaggio | Riduzione degli errori di pronuncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -98,7 +98,7 @@ Rimanere integro.
 * Lettura valuta
     * Correzione del problema relativo alla lettura della valuta per `es-ES` e`es-MX`
      
-    | Lingua | Input | Lettura dopo miglioramento |
+    | Linguaggio | Input | Lettura dopo miglioramento |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y Ocho centavos |
     | `es-ES` | $1,58 | Dólar cincuenta y Ocho centavos |

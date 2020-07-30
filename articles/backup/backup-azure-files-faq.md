@@ -3,12 +3,12 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054973"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382713"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -34,13 +34,13 @@ Sì. La protezione di condivisioni file di Azure connesse a gruppi di sincronizz
 
 Durante un tentativo di backup, la selezione di un account di archiviazione per l'individuazione di condivisioni file incluse in tale account comporta la registrazione dell'account di archiviazione nell'insieme di credenziali da cui viene eseguita l'operazione. Se si sceglie di proteggere le condivisioni file con un insieme di credenziali diverso, [annullare la registrazione](manage-afs-backup.md#unregister-a-storage-account) dell'account di archiviazione scelto da questo insieme di credenziali.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Perché non è possibile modificare l'insieme di credenziali per configurare il backup per la condivisione file?
+
+Se l'account di archiviazione è già registrato con un insieme di credenziali o altre condivisioni file nell'account di archiviazione sono protette tramite un insieme di credenziali, non è possibile modificarlo perché tutte le condivisioni file in un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali. Se si vuole modificare l'insieme di credenziali, è necessario [arrestare la protezione per tutte le condivisioni file nell'account di archiviazione](manage-afs-backup.md#stop-protection-on-a-file-share) dall'insieme di credenziali connesso, annullare la [registrazione](manage-afs-backup.md#unregister-a-storage-account) dell'account di archiviazione e quindi scegliere un insieme di credenziali diverso per la protezione.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
 
 Sì. Sarà tuttavia necessario [interrompere la protezione della condivisione file](manage-afs-backup.md#stop-protection-on-a-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](manage-afs-backup.md#unregister-a-storage-account) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quante condivisioni file di Azure si possono proteggere in un insieme di credenziali?
-
-È possibile proteggere condivisioni file di Azure di un massimo di 50 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>È possibile proteggere due condivisioni file diverse dallo stesso account di archiviazione in insiemi di credenziali diversi?
 

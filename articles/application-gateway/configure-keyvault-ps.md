@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808074"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386283"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configurare la terminazione TLS con certificati di Key Vault con Azure PowerShell
 
@@ -73,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Per il corretto funzionamento della terminazione TLS, è necessario usare il flag -EnableSoftDelete. Se si sta configurando [l'eliminazione temporanea di Key Vault tramite il portale](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, corrispondenti al valore predefinito. Il gateway applicazione non supporta ancora periodi di conservazione diversi. 
+> Per il corretto funzionamento della terminazione TLS, è necessario usare il flag -EnableSoftDelete. Se si sta configurando [l'eliminazione temporanea di Key Vault tramite il portale](../key-vault/general/soft-delete-overview.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, corrispondenti al valore predefinito. Il gateway applicazione non supporta ancora periodi di conservazione diversi. 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
