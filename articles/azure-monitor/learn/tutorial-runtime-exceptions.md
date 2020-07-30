@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322432"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -36,7 +36,7 @@ Per completare questa esercitazione:
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
 - Abilitare il [debugger di snapshot di Visual Studio](../app/snapshot-debugger.md)
-- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../app/asp-net.md). 
 - L'esercitazione tiene traccia dell'identificazione di un'eccezione nell'applicazione, quindi modificare il codice nell'ambiente di sviluppo o di test per generare un'eccezione. 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -63,7 +63,7 @@ Application Insights raccoglie gli eventuali errori nell'applicazione e consente
 
     ![Campioni di richieste non riuscite](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. I dettagli della richiesta non riuscita vengono illustrati nel diagramma di Gantt che mostra che si sono verificati due errori di dipendenza in questa transazione, attribuiti a oltre il 50% della durata totale della transazione. Questa esperienza presenta tutti i dati di telemetria, in tutti i componenti di un'applicazione distribuita correlati a questo ID operazione. [Altre informazioni sulla nuova esperienza](../../azure-monitor/app/transaction-diagnostics.md). È possibile selezionare uno degli elementi per visualizzarne i dettagli sul lato destro. 
+6. I dettagli della richiesta non riuscita vengono illustrati nel diagramma di Gantt che mostra che si sono verificati due errori di dipendenza in questa transazione, attribuiti a oltre il 50% della durata totale della transazione. Questa esperienza presenta tutti i dati di telemetria, in tutti i componenti di un'applicazione distribuita correlati a questo ID operazione. [Altre informazioni sulla nuova esperienza](../app/transaction-diagnostics.md). È possibile selezionare uno degli elementi per visualizzarne i dettagli sul lato destro. 
 
     ![Dettagli richieste non riuscite](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -112,4 +112,5 @@ Se si connette Application Insights a un sistema di verifica come Azure DevOps o
 Dopo avere appreso come identificare le eccezioni di runtime, passare all'esercitazione successiva per imparare a identificare e diagnosticare i problemi di prestazioni.
 
 > [!div class="nextstepaction"]
-> [Identificare i problemi di prestazioni](../../azure-monitor/learn/tutorial-performance.md)
+> [Identificare i problemi di prestazioni](./tutorial-performance.md)
+

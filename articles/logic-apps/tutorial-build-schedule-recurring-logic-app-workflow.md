@@ -3,16 +3,16 @@ title: Creare flussi di lavoro automatizzati basati su pianificazione
 description: 'Esercitazione: Creare un flusso di lavoro automatizzato basato su pianificazione e ricorrente con App per la logica di Azure'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146515"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124851"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare un flusso di lavoro automatizzato basato su pianificazione e ricorrente con App per la logica di Azure
 
@@ -36,18 +36,16 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per creare un account di Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-* Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). In questa guida di avvio rapido viene usato un account di Office 365 Outlook. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+* Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/). In questa guida di avvio rapido viene usato un account di Office 365 Outlook. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
   > [!IMPORTANT]
-  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Per ottenere il tempo di viaggio per un itinerario, è necessaria una chiave di accesso per l'API di Bing Maps. Per ottenere questa chiave, seguire i passaggi per [ottenere una chiave di Bing Maps](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
-
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
+* Per ottenere il tempo di viaggio per un itinerario, è necessaria una chiave di accesso per l'API di Bing Maps. Per ottenere questa chiave, seguire i passaggi per [ottenere una chiave di Bing Maps](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
@@ -57,7 +55,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | LA-TravelTime | Il nome dell'app per la logica, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "LA-TravelTime". |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Il nome della sottoscrizione di Azure |
@@ -110,7 +108,7 @@ Aggiungere quindi il trigger [Ricorrenza](../logic-apps/logic-apps-overview.md#l
 
    ![Specificare i dettagli relativi a pianificazione e ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **In questi giorni** | Lunedì, Martedì, Mercoledì, Giovedì, Venerdì | Disponibile solo quando l'opzione **Frequenza** è impostata su "Settimana" |
    | **A queste ore** | 7, 8, 9 | Disponibile solo quando l'opzione **Frequenza** è impostata su "Settimana" o "Giorno". Selezionare le ore del giorno per la ricorrenza. Questo esempio viene eseguito alle 7:00, alle 8:00 e alle 9:00. |
@@ -144,7 +142,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Connection Name** (Nome connessione) | Sì | BingMapsConnection | Specificare un nome per la connessione. In questo esempio viene usato "BingMapsConnection". |
-   | **Chiave API** | Sì | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su [come ottenere una chiave](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Chiave API** | Sì | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su [come ottenere una chiave](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Rinominare l'azione con questa descrizione: `Get route and travel time with traffic`
@@ -170,7 +168,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
    | **Travel mode** (Modalità di viaggio) | No | Driving (Guida) | Modalità di viaggio lungo l'itinerario. Selezionare la modalità "Driving" (Guida). |
    ||||
 
-   Per altre informazioni su questi parametri, vedere [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route) (Calcolare un itinerario).
+   Per altre informazioni su questi parametri, vedere [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcolare un itinerario).
 
 1. Salvare l'app per la logica.
 

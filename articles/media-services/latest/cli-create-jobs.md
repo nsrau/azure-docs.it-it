@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71122382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023417"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Esempio dell'interfaccia della riga di comando: Creare e inviare un processo
 
@@ -27,7 +27,7 @@ In Servizi multimediali v3, quando si inviano processi per elaborare i video, è
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -87,4 +87,4 @@ La risposta visualizzata sarà simile alla seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[az ams job (interfaccia della riga di comando)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (interfaccia della riga di comando)](/cli/azure/ams/job?view=azure-cli-latest)
