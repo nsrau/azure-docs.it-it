@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246518"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388119"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -128,7 +128,7 @@ Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente
 
 Il **percorso: il percorso da** cui è stata avviata la connessione:
 
-- city
+- Città
 
 - Stato/provincia
 
@@ -184,7 +184,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 - **Operazione riuscita**: uno o più criteri di accesso condizionale applicati all'utente e all'applicazione, ma non necessariamente alle altre condizioni, durante l'accesso. 
 
-- **Errore**: uno o più criteri di accesso condizionale applicati e non sono stati soddisfatti durante l'accesso.
+- **Errore**: l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
 
 
 
@@ -198,7 +198,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Scarica")
+![Scaricare](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -236,7 +236,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - ID applicazione
 - Applicazione
 - Client
-- Posizione
+- Location
 - Indirizzo IP
 - Data
 - Autenticazione a più fattori obbligatoria
@@ -267,7 +267,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Report")
+![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

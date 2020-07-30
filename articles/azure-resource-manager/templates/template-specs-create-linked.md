@@ -3,12 +3,12 @@ title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097737"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387864"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
@@ -33,7 +33,7 @@ Il modello collegato viene chiamato **linkedTemplate.json**e viene archiviato in
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-Se è presente un altro linkedTemplate2.jsin che viene chiamato da linkedTemplate.json e linkedTemplate2.json viene archiviato nella stessa sottocartella degli artefatti, il relativePath specificato in linkedTemplate.json viene **linkedTemplate2.json**.
+La `relativePath` proprietà è sempre relativa al file di modello in cui `relativePath` è dichiarato, quindi se è presente un altro linkedTemplate2.jsin che viene chiamato da linkedTemplate.json e linkedTemplate2.json viene archiviato nella stessa sottocartella degli artefatti, il relativePath specificato in linkedTemplate.json è semplicemente `linkedTemplate2.json` .
 
 1. Creare il modello principale con il codice JSON seguente. Salvare il modello principale come **azuredeploy.jsnel** computer locale. In questa esercitazione si presuppone che sia stato salvato in un percorso **c:\Templates\linkedTS\azuredeploy.js** , ma è possibile utilizzare qualsiasi percorso.
 

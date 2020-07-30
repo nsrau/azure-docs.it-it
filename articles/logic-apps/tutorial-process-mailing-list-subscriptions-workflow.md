@@ -3,16 +3,16 @@ title: Creare flussi di lavoro automatizzati basati su approvazione
 description: Esercitazione - Creare un flusso di lavoro automatizzato basato su approvazione che elabora le sottoscrizioni di liste di distribuzione tramite App per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456603"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132399"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure
 
@@ -21,6 +21,7 @@ Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/l
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Creare un'app per la logica vuota.
 > * Aggiungere un trigger per il monitoraggio dei messaggi di posta elettronica per individuare le richieste di sottoscrizione.
 > * Aggiungere un'azione per l'invio di messaggi di posta elettronica per l'approvazione o il rifiuto di tali richieste.
@@ -41,11 +42,9 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Una account di posta elettronica in Office 365 Outlook o Outlook.com, che supporta i flussi di lavoro basati su approvazione. Questo articolo usa Outlook per Office 365. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
-
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
@@ -106,7 +105,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       ![Aggiungere la proprietà "filtro oggetto" al trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      Per altre informazioni sulle proprietà di questo trigger, vedere le [informazioni di riferimento sul connettore Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o le [informazioni di riferimento sul connettore Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+      Per altre informazioni sulle proprietà di questo trigger, vedere le [informazioni di riferimento sul connettore Office 365 Outlook](/connectors/office365/) o le [informazioni di riferimento sul connettore Outlook.com](/connectors/outlook/).
 
    1. Quando la proprietà viene visualizzata nel trigger, immettere questo testo: `subscribe-test-members-ML`
 
@@ -145,7 +144,7 @@ Ora che è stato creato il trigger, aggiungere un'[azione](../logic-apps/logic-a
 
    Per ora ignorare l'elenco di contenuto dinamico visualizzato quando si fa clic all'interno di specifiche caselle di modifica. Questo elenco consente di selezionare l'output disponibile di azioni precedenti che è possibile usare come input nel flusso di lavoro.
 
-   Per altre informazioni sulle proprietà di questa azione, vedere le [informazioni di riferimento sul connettore Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o le [informazioni di riferimento sul connettore Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+   Per altre informazioni sulle proprietà di questa azione, vedere le [informazioni di riferimento sul connettore Office 365 Outlook](/connectors/office365/) o le [informazioni di riferimento sul connettore Outlook.com](/connectors/outlook/).
  
 1. Salvare l'app per la logica.
 
@@ -210,7 +209,7 @@ Impostare ora un'azione per aggiungere il membro approvato alla lista di distrib
    | **Indirizzo di posta elettronica** | Sì | <*indirizzo-posta-elettronica-nuovo-membro*> | Nell'elenco di contenuto dinamico selezionare l'opzione **Da** in **All'arrivo di un nuovo messaggio di posta elettronica**, che passa l'indirizzo di posta elettronica per il nuovo membro. |
    ||||
 
-   Per altre informazioni sulle proprietà di questa azione, vedere le [informazioni di riferimento sul connettore MailChimp](https://docs.microsoft.com/connectors/mailchimp/).
+   Per altre informazioni sulle proprietà di questa azione, vedere le [informazioni di riferimento sul connettore MailChimp](/connectors/mailchimp/).
 
 1. Salvare l'app per la logica.
 

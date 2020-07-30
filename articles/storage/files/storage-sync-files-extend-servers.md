@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77597899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037100"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 
@@ -259,9 +259,8 @@ L'interfaccia utente di Registrazione Server viene visualizzata automaticamente 
 
    ![Schermata dell'interfaccia utente di Registrazione Server](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | valore | Descrizione |
+   | ----- | ----- |
    | **Sottoscrizione di Azure** | La sottoscrizione contenente il servizio di sincronizzazione archiviazione per questa esercitazione. |
    | **Gruppo di risorse** | il gruppo di risorse che contiene il servizio di sincronizzazione archiviazione. Usare _afsresgroup101918_ per questa esercitazione. |
    | **Servizio di sincronizzazione archiviazione** | Nome del Servizio di sincronizzazione archiviazione. Usare _afssyncservice02_ per questa esercitazione. |
@@ -301,9 +300,8 @@ Un endpoint server rappresenta una posizione specifica in un server registrato. 
 
 1. Nel riquadro **Aggiungi endpoint server** immettere le informazioni seguenti per creare un endpoint server:
 
-   | | |
-   | ----- | ----- |
    | valore | Descrizione |
+   | ----- | ----- |
    | **Server registrato** | Il nome del server creato. Usare *afsvm101918* per questa esercitazione. |
    | **Percorso** | Il nome del percorso di Windows Server all'unità creato. Usare *f:\filestosync* in questa esercitazione. |
    | **Suddivisione in livelli nel cloud** | Lasciare disattivato per questa esercitazione. |

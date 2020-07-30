@@ -2,17 +2,18 @@
 title: 'Azure HDInsight: Esempi di Java'
 description: Trovare gli esempi Java di GitHub per le attività comuni che usano HDInsight SDK per Java.
 author: hrasheed-msft
+ms.custom: devx-track-java
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
-ms.openlocfilehash: e277814bda41a70f9ac8ff02b6e8018fba4b6f52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5876626ed4ba27c0f39b0c02af926c61261fca71
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74775359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327430"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Esempi di Java
 

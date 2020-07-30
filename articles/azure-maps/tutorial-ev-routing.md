@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Pianificare itinerari per veicoli elettrici con Azure Notebooks (Python) | Mappe di Microsoft Azure'
 description: Pianificare itinerari per veicoli elettrici usando le API di pianificazione di itinerari di Mappe di Microsoft Azure e Azure Notebooks.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f341179d121af2fa4e5b198aeee2ea65bc6c378c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560388"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133317"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Esercitazione: Pianificare itinerari per veicoli elettrici con Azure Notebooks (Python)
 
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, è prima di tutto necessario creare un account di Mappe di Azure e ottenere la chiave primaria (chiave di sottoscrizione). 
 
-Per creare una sottoscrizione dell'account Mappe di Azure, seguire le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). È necessaria una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1. 
+Per creare una sottoscrizione dell'account Mappe di Azure, seguire le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account). È necessaria una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1. 
 
 Per ottenere la chiave di sottoscrizione primaria per l'account, seguire le istruzioni riportate in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed7900373c5d8897fd360c708434d96e5dfbc73d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67105468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Esercitazione: Integrazione di Azure Active Directory con Clear Review
 
@@ -41,6 +41,9 @@ Per configurare l'integrazione di Azure AD con Clear Review, sono necessari gli 
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Clear Review abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -145,9 +148,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-clear-review-single-sign-on"></a>Configurare l'accesso Single Sign-On per Clear Review
 
@@ -177,7 +180,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

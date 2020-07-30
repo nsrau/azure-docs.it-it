@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 0058c250c2d1d29061ac7a4130dffedbcf62a249
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294180"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387728"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
@@ -35,7 +35,7 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 |                             | Disco del sistema operativo permanente                          | Disco del sistema operativo temporaneo                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite di dimensioni per il disco del sistema operativo**      | 2 TiB                                                                                        | Dimensioni della cache per le dimensioni della macchina virtuale o 2TiB, a seconda del numero minore. Per le **dimensioni della cache in Gib**, vedere [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Dimensioni delle macchine virtuali supportate**          | Tutti                                                                                          | Dimensioni delle macchine virtuali che supportano archiviazione Premium, ad esempio DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, LSv2, M                                               |
+| **Dimensioni delle macchine virtuali supportate**          | Tutti                                                                                          | Dimensioni delle macchine virtuali che supportano archiviazione Premium, ad esempio DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Supporto del tipo di disco**           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | **Supporto di area**              | Tutte le aree                                                                                  | Tutte le aree                              |
 | **Salvataggio permanente dei dati**            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
