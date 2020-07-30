@@ -7,16 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c900700fa1588cd341171a0176c19acc51129a4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318658"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430965"
 ---
 # <a name="download-notebookspreview-data"></a>Scarica i dati dei notebook (anteprima)
 
-**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 La funzionalità Notebooks (anteprima) è stata rimossa il *13 2020 aprile*. La rimozione della scheda notebook (anteprima) e dei file del notebook utente è attualmente in fase di implementazione nelle aree di Azure in tutto il mondo.
 

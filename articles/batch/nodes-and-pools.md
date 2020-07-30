@@ -3,12 +3,12 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144916"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385756"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -119,7 +119,7 @@ Per altre informazioni, vedere [Scegliere le dimensioni delle macchine virtuali 
 
 Per carichi di lavoro dinamici, è possibile applicare un criterio di ridimensionamento automatico a un pool. Il servizio Batch valuta periodicamente la formula e modifica dinamicamente il numero di nodi in un pool in base al carico di lavoro corrente e all'uso delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie.
 
-Per abilitare il ridimensionamento automatico, scrivere una [formula di ridimensionamento automatico](batch-automatic-scaling.md#automatic-scaling-formulas) e associarla a un pool. Il servizio Batch usa la formula per determinare il numero di nodi di destinazione nel pool per l'intervallo di ridimensionamento successivo (un intervallo che è possibile configurare). È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando lo si crea oppure abilitare il ridimensionamento in un pool in seguito. È anche possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento.
+Per abilitare il ridimensionamento automatico, scrivere una [formula di ridimensionamento automatico](batch-automatic-scaling.md#autoscale-formulas) e associarla a un pool. Il servizio Batch usa la formula per determinare il numero di nodi di destinazione nel pool per l'intervallo di ridimensionamento successivo (un intervallo che è possibile configurare). È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando lo si crea oppure abilitare il ridimensionamento in un pool in seguito. È anche possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento.
 
 Ad esempio, un processo richiede l'invio di un numero elevato di attività da eseguire. È possibile assegnare al pool una formula di ridimensionamento che regola il numero di nodi nel pool in base al numero corrente di attività accodate e alla percentuale di completamento delle attività nel processo. Il servizio Batch valuta periodicamente la formula e ridimensiona il pool in base al carico di lavoro e alle altre impostazioni della formula. Il servizio aggiunge nodi in base alle necessità quando c'è un numero elevato di attività in coda e rimuove i nodi quando non sono presenti attività in coda o in esecuzione.
 

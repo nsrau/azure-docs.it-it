@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147945"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432023"
 ---
 # <a name="configure-the-model-conversion"></a>Configurare la conversione di modelli
 
@@ -18,7 +18,8 @@ Questo capitolo documenta le opzioni per la conversione dei modelli.
 
 ## <a name="settings-file"></a>File di impostazioni
 
-Se nel contenitore di input, oltre al modello di input, è presente un file denominato `ConversionSettings.json`, questo file verrà usato per definire la configurazione aggiuntiva per il processo di conversione del modello.
+Se un file chiamato `<modelName>.ConversionSettings.json` viene trovato nel contenitore di input accanto al modello di input `<modelName>.<ext>` , verrà usato per fornire una configurazione aggiuntiva per il processo di conversione del modello.
+Ad esempio, viene `box.ConversionSettings.json` usato durante la conversione di `box.gltf` .
 
 Il contenuto del file dovrà soddisfare lo schema JSON seguente:
 
@@ -54,7 +55,7 @@ Il contenuto del file dovrà soddisfare lo schema JSON seguente:
 }
 ```
 
-Ecco un esempio di come potrebbe presentarsi il file `ConversionSettings.json`:
+Un file di esempio `box.ConversionSettings.json` potrebbe essere:
 
 ```json
 {
@@ -66,15 +67,18 @@ Ecco un esempio di come potrebbe presentarsi il file `ConversionSettings.json`:
 
 ### <a name="geometry-parameters"></a>Parametri geometrici
 
-* `scaling` - Questo parametro ridimensiona uniformemente un modello. È possibile usare scaling per ingrandire o ridurre le dimensioni di un modello, ad esempio per visualizzare un modello di edificio su un piano. Dato che il motore di rendering prevede che le lunghezze siano specificate in metri, un altro uso importante di questo parametro si riscontra quando un modello è definito in unità diverse. Se un modello è definito in centimetri, ad esempio, applicando una scala 0,01 si otterrà il rendering del modello nelle dimensioni corrette.
+* `scaling` - Questo parametro ridimensiona uniformemente un modello. È possibile usare scaling per ingrandire o ridurre le dimensioni di un modello, ad esempio per visualizzare un modello di edificio su un piano.
+Il ridimensionamento è importante anche quando un modello è definito in unità diverse dai contatori, perché il motore di rendering prevede contatori.
+Se un modello è definito in centimetri, ad esempio, applicando una scala 0,01 si otterrà il rendering del modello nelle dimensioni corrette.
 Alcuni formati di dati di origine (ad esempio, FBX) includono un suggerimento di scala per le unità. In questo caso, la conversione ridimensionerà implicitamente il modello in unità metriche. Il ridimensionamento implicito definito dal formato di origine verrà applicato sopra il parametro scaling.
 Il fattore di scala finale verrà applicato ai vertici della geometria e alle trasformazioni locali dei nodi del grafico della scena. Il ridimensionamento per la trasformazione dell'entità radice rimarrà invariato.
 
 * `recenterToOrigin` - Indica che un modello dovrà essere convertito in modo che il relativo rettangolo di selezione sia centrato sull'origine.
-L'allineamento al centro è importante se il modello di origine viene spostato lontano dall'origine, perché in questo caso i problemi associati alla precisione a virgola mobile potrebbero causare artefatti di rendering.
+Se un modello di origine viene spostato lontano dall'origine, i problemi di precisione a virgola mobile possono causare artefatti di rendering.
+Il centramento del modello può essere utile in questa situazione.
 
 * `opaqueMaterialDefaultSidedness` - Il motore di rendering presuppone che i materiali opachi siano a doppio lato.
-Se questo non è il comportamento desiderato, il parametro dovrà essere impostato su "SingleSided". Per ulteriori informazioni, vedere [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
+Se il presupposto non è vero per un determinato modello, questo parametro deve essere impostato su "SingleSided". Per ulteriori informazioni, vedere [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Sostituzioni dei materiali
 
@@ -99,10 +103,10 @@ Se un modello è definito con lo spazio gamma, queste opzioni dovranno essere im
 
 * `sceneGraphMode` - Definisce la modalità di conversione del grafico della scena nel file di origine.
   * `dynamic` (impostazione predefinita): tutti gli oggetti nel file vengono esposti come [entità](../../concepts/entities.md) nell'API e possono essere trasformati in modo indipendente. La gerarchia dei nodi in fase di esecuzione è identica alla struttura nel file di origine.
-  * `static`: tutti gli oggetti vengono esposti nell'API ma non possono essere trasformati in modo indipendente.
+  * `static`: Tutti gli oggetti vengono esposti nell'API ma non possono essere trasformati in modo indipendente.
   * `none`: il grafico della scena viene compresso in un unico oggetto.
 
-Ogni modalità offre prestazioni diverse in fase di esecuzione. Nella modalità `dynamic`, il costo in termini di prestazioni presenta una scalabilità lineare rispetto al numero di [entità](../../concepts/entities.md) nel grafico, anche quando nessuna parte viene spostata. È consigliabile usare questa modalità solo quando per l'applicazione è necessario spostare singolarmente le parti, ad esempio per un'animazione con visualizzazione in esplosione.
+Ogni modalità offre prestazioni diverse in fase di esecuzione. Nella modalità `dynamic`, il costo in termini di prestazioni presenta una scalabilità lineare rispetto al numero di [entità](../../concepts/entities.md) nel grafico, anche quando nessuna parte viene spostata. Usare la `dynamic` modalità solo quando è necessario spostare le parti singolarmente, ad esempio per un'animazione "vista esplosione".
 
 Con la modalità `static` viene esportato l'intero grafico della scena, ma alle parti all'interno del grafico viene applicata una trasformazione costante in relazione alla parte radice. È comunque possibile, tuttavia, spostare, ruotare o ridimensionare il nodo radice dell'oggetto senza un costo significativo in termini di prestazioni. Le [query spaziali](../../overview/features/spatial-queries.md), inoltre, restituiranno singole parti e ogni parte potrà essere modificata tramite [sostituzioni dello stato](../../overview/features/override-hierarchical-state.md). Con questa modalità, il sovraccarico in fase di esecuzione per ogni singolo oggetto è trascurabile. È l'opzione ideale per scene di grandi dimensioni in cui è comunque necessario eseguire l'ispezione per oggetto, ma non modifiche di trasformazione per oggetto.
 
@@ -207,7 +211,7 @@ Sapendo che non è mai necessaria un'illuminazione dinamica sul modello e che tu
 
 Il consumo di memoria del contenuto caricato può diventare un collo di bottiglia nel sistema di rendering. Se il payload di memoria diventa troppo grande, può compromettere le prestazioni di rendering o fare in modo che il modello non venga caricato completamente. Questo paragrafo illustra alcune importanti strategie per ridurre il footprint di memoria.
 
-### <a name="instancing"></a>Creazione di istanze
+### <a name="instancing"></a>Instancing
 
 La creazione di istanze è un concetto in cui le mesh vengono riutilizzate per le parti con trasformazioni spaziali distinte, anziché ogni parte che fa riferimento alla propria geometria univoca. La creazione di istanze ha un impatto significativo sul footprint di memoria.
 Casi d'uso di esempio per la creazione di istanze sono le viti in un modello di motore o poltrone in un modello di architettura.
@@ -278,6 +282,11 @@ In questi casi d'uso, i modelli hanno spesso un livello di dettaglio elevato in 
 * Le singole parti dovranno essere selezionabili e mobili, quindi il parametro `sceneGraphMode` deve rimanere impostato su `dynamic`.
 * Le operazioni di ray casting sono in genere parte integrante dell'applicazione, pertanto è necessario generare mesh di collisione.
 * L'aspetto dei piani di taglio è migliore con il flag `opaqueMaterialDefaultSidedness` abilitato.
+
+## <a name="deprecated-features"></a>Funzionalità deprecate
+
+La fornitura di impostazioni tramite il nome file non specifico del modello `conversionSettings.json` è ancora supportata ma deprecata.
+Usare invece il nome file specifico del modello `<modelName>.ConversionSettings.json` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

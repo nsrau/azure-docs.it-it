@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: d33cc14612b5c00c8102bd035e7331bef670a4dd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 433b9ad0f86b84538163b142d762d4e2fb7e8159
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836448"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430832"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
  

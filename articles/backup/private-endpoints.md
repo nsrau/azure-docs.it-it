@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503762"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432861"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -21,7 +21,7 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - È possibile creare endpoint privati solo per i nuovi insiemi di credenziali dei servizi di ripristino (che non hanno elementi registrati nell'insieme di credenziali). È quindi necessario creare endpoint privati prima di provare a proteggere gli elementi nell'insieme di credenziali.
 - Una rete virtuale può contenere endpoint privati per più insiemi di credenziali di servizi di ripristino. Inoltre, un insieme di credenziali di servizi di ripristino può includere endpoint privati in più reti virtuali. Tuttavia, il numero massimo di endpoint privati che è possibile creare per un insieme di credenziali è 12.
 - Dopo aver creato un endpoint privato per un insieme di credenziali, l'insieme di credenziali verrà bloccato. Non sarà accessibile (per i backup e i ripristini) dalle reti separate da quelle che contengono un endpoint privato per l'insieme di credenziali. Se vengono rimossi tutti gli endpoint privati per l'insieme di credenziali, l'insieme di credenziali sarà accessibile da tutte le reti.
-- Una connessione all'endpoint privato per il backup usa un totale di 11 indirizzi IP privati nella subnet. Questo numero può essere maggiore (fino a 15) per determinate aree di Azure. Si consiglia quindi di avere un numero sufficiente di indirizzi IP privati disponibili quando si tenta di creare endpoint privati per il backup.
+- Una connessione all'endpoint privato per il backup usa un totale di 11 indirizzi IP privati nella subnet. Questo numero può essere maggiore (fino a 25) per determinate aree di Azure. Si consiglia quindi di avere un numero sufficiente di indirizzi IP privati disponibili quando si tenta di creare endpoint privati per il backup.
 - Mentre un insieme di credenziali di servizi di ripristino viene usato da (entrambi) backup di Azure e Azure Site Recovery, questo articolo illustra l'uso degli endpoint privati solo per il backup di Azure.
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
 - Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario disabilitare i criteri di rete.
@@ -545,26 +545,26 @@ Zona DNS per il Servizio di accodamento ( `privatelink.queue.core.windows.net` )
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-Q. È possibile creare un endpoint privato per un insieme di credenziali di backup esistente?<br>
-R. No, è possibile creare endpoint privati solo per i nuovi insiemi di credenziali di backup. Quindi, l'insieme di credenziali non deve avere mai elementi protetti. In realtà, nessun tentativo di proteggere gli elementi nell'insieme di credenziali può essere eseguito prima di creare endpoint privati.
+D: È possibile creare un endpoint privato per un insieme di credenziali di backup esistente?<br>
+A. No, è possibile creare endpoint privati solo per i nuovi insiemi di credenziali di backup. Quindi, l'insieme di credenziali non deve avere mai elementi protetti. In realtà, nessun tentativo di proteggere gli elementi nell'insieme di credenziali può essere eseguito prima di creare endpoint privati.
 
-Q. Ho provato a proteggere un elemento nell'insieme di credenziali, ma non è riuscito e l'insieme di credenziali non contiene ancora elementi protetti. È possibile creare endpoint privati per questo insieme di credenziali?<br>
-R. No, l'insieme di credenziali non deve avere alcun tentativo di proteggere gli elementi nel passato.
+D: Ho provato a proteggere un elemento nell'insieme di credenziali, ma non è riuscito e l'insieme di credenziali non contiene ancora elementi protetti. È possibile creare endpoint privati per questo insieme di credenziali?<br>
+A. No, l'insieme di credenziali non deve avere alcun tentativo di proteggere gli elementi nel passato.
 
-Q. Ho un insieme di credenziali che usa endpoint privati per il backup e il ripristino. In seguito è possibile aggiungere o rimuovere endpoint privati per questo insieme di credenziali anche se si dispone di elementi di backup protetti?<br>
+D: Ho un insieme di credenziali che usa endpoint privati per il backup e il ripristino. In seguito è possibile aggiungere o rimuovere endpoint privati per questo insieme di credenziali anche se si dispone di elementi di backup protetti?<br>
 R. Sì. Se sono già stati creati endpoint privati per un insieme di credenziali e gli elementi di backup protetti, sarà possibile aggiungere o rimuovere gli endpoint privati in un secondo momento, se necessario.
 
-Q. È possibile usare anche l'endpoint privato per backup di Azure per Azure Site Recovery?<br>
-R. No, l'endpoint privato per il backup può essere usato solo per backup di Azure. È necessario creare un nuovo endpoint privato per Azure Site Recovery, se è supportato dal servizio.
+D: È possibile usare anche l'endpoint privato per backup di Azure per Azure Site Recovery?<br>
+A. No, l'endpoint privato per il backup può essere usato solo per backup di Azure. È necessario creare un nuovo endpoint privato per Azure Site Recovery, se è supportato dal servizio.
 
-Q. Ho perso una delle procedure descritte in questo articolo e ho continuato a proteggere l'origine dati. Posso ancora usare endpoint privati?<br>
-R. Non seguire i passaggi nell'articolo e continuare a proteggere gli elementi può comportare l'uso di endpoint privati da parte dell'insieme di credenziali. È quindi consigliabile fare riferimento a questo elenco di controllo prima di procedere con la protezione degli elementi.
+D: Ho perso una delle procedure descritte in questo articolo e ho continuato a proteggere l'origine dati. Posso ancora usare endpoint privati?<br>
+A. Non seguire i passaggi nell'articolo e continuare a proteggere gli elementi può comportare l'uso di endpoint privati da parte dell'insieme di credenziali. È quindi consigliabile fare riferimento a questo elenco di controllo prima di procedere con la protezione degli elementi.
 
-Q. È possibile usare un server DNS personalizzato invece di usare la zona DNS privata di Azure o una zona DNS privata integrata?<br>
-R. Sì, è possibile usare i propri server DNS. Tuttavia, verificare che tutti i record DNS necessari vengano aggiunti come suggerito in questa sezione.
+D: È possibile usare un server DNS personalizzato invece di usare la zona DNS privata di Azure o una zona DNS privata integrata?<br>
+A. Sì, è possibile usare i propri server DNS. Tuttavia, verificare che tutti i record DNS necessari vengano aggiunti come suggerito in questa sezione.
 
-Q. È necessario eseguire altri passaggi nel server dopo aver seguito il processo in questo articolo?<br>
-R. Dopo aver seguito il processo descritto in questo articolo, non è necessario eseguire ulteriori operazioni per usare endpoint privati per il backup e il ripristino.
+D: È necessario eseguire altri passaggi nel server dopo aver seguito il processo in questo articolo?<br>
+A. Dopo aver seguito il processo descritto in questo articolo, non è necessario eseguire ulteriori operazioni per usare endpoint privati per il backup e il ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

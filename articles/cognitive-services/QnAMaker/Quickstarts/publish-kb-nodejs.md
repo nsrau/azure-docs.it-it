@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: QnA Maker con le API REST per node. js'
+title: 'Guida introduttiva: QnA Maker con le API REST per Node.js'
 description: Questo argomento di avvio rapido illustra come usare le API REST di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342732"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406096"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Guida introduttiva: API REST di QnA Maker per node. js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Guida introduttiva: API REST di QnA Maker per Node.js
 
 Introduzione alle API REST di QnA Maker per Node.js. Seguire questi passaggi per provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 
@@ -25,7 +25,7 @@ Usare le API REST di QnA Maker per Node.js per eseguire queste operazioni:
 * Scaricare una knowledge base
 * Ottenere lo stato di un'operazione
 
-[Documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  di riferimento [Esempi di node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  di riferimento [Esempi diNode.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

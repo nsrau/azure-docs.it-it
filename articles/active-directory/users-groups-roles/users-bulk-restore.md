@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2800119f1a88172ea7c329fc53359bf1565a0705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fe5cacfec6ee85a5d61204ffce38c856b0d1baf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731274"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423338"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Ripristinare in blocco gli utenti eliminati in Azure Active Directory
 
@@ -68,7 +68,7 @@ Se sono presenti errori, è possibile scaricare e visualizzare il file dei risul
 
 È possibile visualizzare lo stato di tutte le richieste in sospeso di operazioni in blocco nella pagina **Risultati dell'operazione in blocco**.
 
-[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
+[![Verificare lo stato nella pagina Risultati operazioni bulk.](media/users-bulk-restore/bulk-center.png)](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Quindi, è possibile verificare che gli utenti ripristinati siano presenti nell'organizzazione di Azure AD nel portale di Azure o tramite PowerShell.
 

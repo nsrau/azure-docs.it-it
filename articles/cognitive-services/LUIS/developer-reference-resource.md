@@ -3,12 +3,13 @@ title: Risorse per sviluppatori-Language Understanding
 description: SDK, API REST, interfaccia della riga di comando, consentono di sviluppare app Language Understanding (LUIS) nel linguaggio di programmazione. Gestisci le tue risorse di Azure e le tue stime LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: d8465108935a2d760afaacf6e17f98475529fbe2
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7a7769d04d3cf41cee9f28b49d38e80deeaddcf9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337246"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404991"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Risorse per sviluppatori SDK, REST e CLI per Language Understanding (LUIS)
 
@@ -44,7 +45,7 @@ Le [specifiche del Rest Luis](https://github.com/Azure/azure-rest-api-specs/tree
 
 Le API REST di creazione ed endpoint di stima sono disponibili nelle API REST:
 
-|Type|Versione|
+|Tipo|Versione|
 |--|--|
 |Creazione|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[Anteprima V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Stima|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -83,7 +84,7 @@ Lo [schema dell'app](app-schema-definition.md) viene importato ed esportato in u
 
 ### <a name="language-based-sdks"></a>SDK basati su linguaggio
 
-|Lingua |Documentazione di riferimento|Pacchetto|Avvi rapidi|
+|Linguaggio |Documentazione di riferimento|Pacchetto|Avvii rapidi|
 |--|--|--|--|
 |C#|[Creazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Stima](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Creazione di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Stima di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Creazione](sdk-authoring.md?pivots=programming-language-csharp)<br>[Stima query](sdk-query-prediction-endpoint.md?pivots=programming-language-csharp)|
 |Go|[Creazione e stima](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||

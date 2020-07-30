@@ -3,14 +3,14 @@ title: Configurare le regole del firewall IP per il bus di servizio di Azure
 description: Uso delle regole del firewall per consentire le connessioni da indirizzi IP specifici a bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 378f8a6331c18b2c99e3e08e83021878f7384c2b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341444"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418517"
 ---
-# <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configurare le regole del firewall IP per il bus di servizio di Azure
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Questa funzionalità è utile negli scenari in cui il bus di servizio deve essere accessibile solo da siti noti specifici. Le regole del firewall consentono di configurare regole di ammissione del traffico proveniente da indirizzi IPv4 specifici. Se ad esempio si usa il bus di servizio con [Azure ExpressRoute][express-route], è possibile creare una **regola del firewall** per consentire traffico solo da indirizzi IP o indirizzi IP dell'infrastruttura locale di un gateway NAT aziendale. 
@@ -39,10 +39,19 @@ Le regole del firewall IP vengono applicate a livello dello spazio dei nomi del 
 Questa sezione illustra come usare il portale di Azure per creare regole del firewall per gli indirizzi IP per uno spazio dei nomi del bus di servizio. 
 
 1. Passare allo  **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra selezionare l'opzione **Rete**. Per impostazione predefinita, è selezionata l'opzione **Tutte le reti**. Lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
+2. Nel menu a sinistra selezionare opzione di **rete** in **Impostazioni**.  
+
+    > [!NOTE]
+    > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **Premium** .  
+    
+    Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Pagina rete-impostazione predefinita" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se si seleziona l'opzione **tutte le reti** , lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-1. Selezionare l'opzione **Reti selezionate** sulla parte superiore della pagina. Nella sezione **Firewall** seguire questa procedura:
+1. Per consentire l'accesso solo da un indirizzo IP specificato, selezionare l'opzione **reti selezionate** , se non è già selezionata. Nella sezione **Firewall** seguire questa procedura:
     1. Selezionare l'opzione **Aggiungere l'indirizzo IP client** per concedere all'IP del client corrente l'accesso allo spazio dei nomi. 
     2. Per **Intervallo di indirizzi** immettere un indirizzo IPv4 specifico o un intervallo di indirizzi IPv4 in notazione CIDR. 
     3. Specificare se si vuole **consentire ai servizi Microsoft attendibili di ignorare il firewall**. 
@@ -52,6 +61,9 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 
         ![Opzione Firewall - Tutte le reti selezionata](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni. Attendere qualche minuto la visualizzazione della conferma tra le notifiche del portale.
+
+    > [!NOTE]
+    > Per limitare l'accesso a reti virtuali specifiche, vedere [consentire l'accesso da reti specifiche](service-bus-service-endpoints.md).
 
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 Questa sezione include un modello di Azure Resource Manager di esempio che consente di creare una rete virtuale e una regola del firewall.

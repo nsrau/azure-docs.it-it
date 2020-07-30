@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c8935be1261b693cfb4033a9d16c868e11b1fa68
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318522"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432397"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gestire le esecuzioni dell'esperimento in Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.
@@ -45,7 +45,7 @@ Si supponga ad esempio di creare un esperimento con il modulo [Linear Regression
 | 0.1 |11/9/2014 16:18:58 |
 | 0,2 |11/9/2014 16:24:33 |
 | 0,4 |11/9/2014 16:28:36 |
-| 0,5 |11/9/2014 16:33:31 |
+| 0.5 |11/9/2014 16:33:31 |
 
 Se si fa clic su **VIEW RUN HISTORY**, verrà visualizzato un elenco di tutte le esecuzioni:
 

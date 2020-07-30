@@ -4,14 +4,14 @@ description: Informazioni su come usare la clausola di limite di OFFSET per igno
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.author: tisande
+ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76771578"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432716"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clausola limite OFFSET in Azure Cosmos DB
 
@@ -35,15 +35,15 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
    Specifica il numero intero di elementi che devono essere inclusi nei risultati della query
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
   
   `OFFSET`Nella clausola sono necessari sia il conteggio che il `LIMIT` numero `OFFSET LIMIT` . Se `ORDER BY` viene utilizzata una clausola facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori.
 
-  L'addebito delle UR di una query con aumenterà `OFFSET LIMIT` man mano che aumenta il numero di termini di offset. Per le query con più pagine di risultati, in genere è consigliabile usare i token di continuazione. I token di continuazione sono un "segnalibro" per la posizione in cui la query può essere ripresa in un secondo momento. Se si usa `OFFSET LIMIT` , non è presente alcun "segnalibro". Se si vuole restituire la pagina successiva della query, è necessario iniziare dall'inizio.
+  L'addebito delle UR di una query con aumenterà `OFFSET LIMIT` man mano che aumenta il numero di termini di offset. Per le query con [più pagine di risultati](sql-query-pagination.md), in genere è consigliabile usare i [token di continuazione](sql-query-pagination.md#continuation-tokens). I token di continuazione sono un "segnalibro" per la posizione in cui la query può essere ripresa in un secondo momento. Se si usa `OFFSET LIMIT` , non è presente alcun "segnalibro". Se si vuole restituire la pagina successiva della query, è necessario iniziare dall'inizio.
   
-  È consigliabile usare `OFFSET LIMIT` nei casi in cui si vuole ignorare completamente i documenti e salvare le risorse del client. Ad esempio, è consigliabile usare `OFFSET LIMIT` se si vuole passare al risultato della query 1000 e non è necessario visualizzare i risultati da 1 a 999. Nel back-end `OFFSET LIMIT` carica comunque ogni documento, inclusi quelli ignorati. Il vantaggio in termini di prestazioni è un risparmio nelle risorse client evitando l'elaborazione di documenti non necessari.
+  È consigliabile usare `OFFSET LIMIT` nei casi in cui si desidera ignorare completamente gli elementi e salvare le risorse del client. Ad esempio, è consigliabile usare `OFFSET LIMIT` se si vuole passare al risultato della query 1000 e non è necessario visualizzare i risultati da 1 a 999. Nel back-end `OFFSET LIMIT` carica sempre ogni elemento, inclusi quelli che vengono ignorati. Il vantaggio in termini di prestazioni è un risparmio nelle risorse client evitando l'elaborazione di elementi che non sono necessari.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Ad esempio, di seguito viene illustrata una query che ignora il primo valore e restituisce il secondo valore (in ordine di nome della città residente):
 
@@ -68,7 +68,7 @@ I risultati sono:
 Ecco una query che ignora il primo valore e restituisce il secondo valore (senza ordinamento):
 
 ```sql
-   SELECT f.id, f.address.city
+    SELECT f.id, f.address.city
     FROM Families f
     OFFSET 1 LIMIT 1
 ```

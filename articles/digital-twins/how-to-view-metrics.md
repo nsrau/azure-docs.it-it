@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 09e32d5baa367b76c34ebca28adfdd20385e4e18
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6db571d64b0fd276519f15a3984848e80c4e18a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374552"
+ms.locfileid: "87387677"
 ---
 # <a name="view-and-understand-azure-digital-twins-metrics"></a>Visualizzare e comprendere le metriche di dispositivi gemelli digitali di Azure
 
@@ -36,7 +36,7 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere":::
 
-    Per altre informazioni su questo processo, vedere [*procedura: configurare la diagnostica*](how-to-set-up-diagnostics.md).
+    Per altre informazioni su questo processo, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Metriche per i dispositivi gemelli digitali di Azure e come usarle
 
@@ -94,7 +94,7 @@ Operazione (per il routing) | Griglia di eventi </br>Hub eventi </br>Bus di serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione delle metriche registrate per i dispositivi gemelli digitali di Azure, vedere [*procedura: configurare la diagnostica*](how-to-set-up-diagnostics.md).
+Per altre informazioni sulla gestione delle metriche registrate per i dispositivi gemelli digitali di Azure, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).
 
 In alternativa, ora che è stata esaminata una panoramica delle metriche dei dispositivi gemelli digitali di Azure, seguire questi collegamenti per altre informazioni sulla gestione dei dispositivi gemelli digitali di Azure:
 

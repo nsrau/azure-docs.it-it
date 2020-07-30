@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078648"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386130"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -28,21 +28,20 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account e una sottoscrizione di Azure. Se non si ha un account Azure con una sottoscrizione, [iscriversi per crearne uno gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha un account Azure con una sottoscrizione, [iscriversi per crearne uno gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * L'account Azure deve appartenere a un solo [tenant o a una sola directory di Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). È necessario usare lo stesso account Azure per installare e gestire il gateway nel computer locale.
-
-  * Durante l'installazione del gateway, si accede con l'account Azure, che collega l'installazione del gateway all'account personale Azure e solo a tale account. In seguito, nel portale di Azure, è necessario usare lo stesso account Azure e lo stesso tenant di Azure AD quando si crea una risorsa del gateway di Azure che registra e attesta l'installazione del gateway. In App per la logica di Azure, i trigger e le azioni locali usano quindi la risorsa del gateway per la connessione alle origini dati locali.
+  * L'account di Azure deve essere un account aziendale o dell'Istituto di istruzione, simile a `username@contoso.com` . Non è possibile usare un account di Azure B2B (guest) o un account Microsoft personale, ad esempio @hotmail.com o @outlook.com.
 
     > [!NOTE]
-    > È possibile collegare tra loro solo un'installazione del gateway e una risorsa del gateway di Azure. Non è possibile collegare la stessa installazione del gateway a più account Azure o risorse del gateway di Azure. Un account Azure può tuttavia collegarsi a più installazioni del gateway e risorse del gateway di Azure. In un'azione o in un trigger locale è possibile scegliere tra diverse sottoscrizioni di Azure e quindi selezionare una risorsa del gateway associata.
+    > Se l'utente si è iscritto a un'offerta di Office 365 senza specificare l'indirizzo di posta elettronica aziendale, questo potrebbe essere simile a `username@domain.onmicrosoft.com`. L'account è archiviato in un tenant di Azure AD. Nella maggior parte dei casi, il nome dell'entità utente (UPN) per l'account Azure è uguale a quello dell'indirizzo di posta elettronica.
 
-  * È necessario accedere con un account aziendale o dell'istituto di istruzione, noto anche come account dell'*organizzazione*, che appare come `username@contoso.com`. Non è possibile usare un account di Azure B2B (guest) o un account Microsoft personale, ad esempio @hotmail.com o @outlook.com.
+    Per usare una [sottoscrizione standard di Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associata a una account Microsoft, creare prima [un tenant Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) o usare la directory predefinita. Aggiungere un utente con una password alla directory e quindi concedere all'utente l'accesso alla sottoscrizione di Azure. Sarà quindi possibile accedere durante l'installazione del gateway con questo nome utente e questa password.
 
-    > [!TIP]
-    > Se l'utente si è iscritto a un'offerta di Office 365 senza specificare l'indirizzo di posta elettronica aziendale, questo potrebbe essere simile a `username@domain.onmicrosoft.com`. L'account è archiviato in un tenant in Azure Active Directory (Azure AD). Nella maggior parte dei casi, il nome dell'entità utente (UPN) per l'account Azure AD è uguale a quello dell'indirizzo di posta elettronica.
-    >
-    > Per usare una [sottoscrizione di Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/) collegata a un account Microsoft, [creare prima un tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) oppure usare la directory predefinita. Aggiungere un utente con una password alla directory e quindi concedere all'utente l'accesso alla sottoscrizione di Azure. Sarà quindi possibile accedere durante l'installazione del gateway con questo nome utente e questa password.
+  * L'account Azure deve appartenere solo a una singola [Directory o a un tenant di Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology). È necessario usare lo stesso account Azure per l'installazione e l'amministrazione del gateway nel computer locale.
+
+  * Quando si installa il gateway, si accede con l'account Azure, che collega l'installazione del gateway al proprio account Azure e solo a tale account. Non è possibile collegare la stessa installazione del gateway tra più account Azure o Azure AD tenant.
+
+  * Più avanti nel portale di Azure è necessario usare lo stesso account di Azure per creare una risorsa del gateway di Azure che si collega all'installazione del gateway. È possibile collegare tra loro solo un'installazione del gateway e una risorsa del gateway di Azure. Tuttavia, l'account di Azure può essere collegato a diverse installazioni del gateway associate a una risorsa del gateway di Azure. Le app per la logica possono quindi usare questa risorsa gateway in trigger e azioni che possono accedere alle origini dati locali.
 
 * Di seguito sono riportati i requisiti per il computer locale:
 

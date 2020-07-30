@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 21f4494bedd824cef373a391c5635e35ec2600d0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74805791"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406878"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione nell'SDK di riconoscimento vocale
 
@@ -26,7 +27,7 @@ La registrazione nel file è una funzionalità facoltativa per l'SDK di riconosc
 
 ## <a name="sample"></a>Esempio
 
-Il nome del file di log viene specificato in un oggetto di configurazione. Prendendo `SpeechConfig` come esempio e supponendo che sia stata creata un'istanza denominata `config`:
+Il nome del file di log viene specificato in un oggetto di configurazione. Prendendo `SpeechConfig` come esempio e supponendo che sia stata creata un'istanza denominata `config` :
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,7 +52,7 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 È possibile creare un riconoscimento dall'oggetto config. In questo modo verrà abilitata la registrazione per tutti i riconoscitori.
 
 > [!NOTE]
-> Se si crea un `SpeechSynthesizer` oggetto dall'oggetto config, non verrà abilitata la registrazione. Se la registrazione è abilitata, verrà inoltre ricevuta la `SpeechSynthesizer`diagnostica da.
+> Se si crea un `SpeechSynthesizer` oggetto dall'oggetto config, non verrà abilitata la registrazione. Se la registrazione è abilitata, verrà inoltre ricevuta la diagnostica da `SpeechSynthesizer` .
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Creare un file di log su piattaforme diverse
 
@@ -79,7 +80,7 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-Il codice precedente consente di salvare un file di log nella risorsa di archiviazione esterna nella radice di una directory specifica dell'applicazione. Un utente può accedere al file con gestione file (in genere in `Android/data/ApplicationName/logfile.txt`). Il file verrà eliminato quando l'applicazione viene disinstallata.
+Il codice precedente consente di salvare un file di log nella risorsa di archiviazione esterna nella radice di una directory specifica dell'applicazione. Un utente può accedere al file con gestione file (in genere in `Android/data/ApplicationName/logfile.txt` ). Il file verrà eliminato quando l'applicazione viene disinstallata.
 
 È anche necessario richiedere `WRITE_EXTERNAL_STORAGE` l'autorizzazione nel file manifesto:
 

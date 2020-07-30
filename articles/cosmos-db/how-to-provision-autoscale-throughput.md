@@ -5,21 +5,22 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/10/2020
-ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118730"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430987"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore in Azure Cosmos DB
 
-Questo articolo illustra come effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile abilitare la scalabilità automatica per un singolo contenitore oppure effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database e condividerla tra tutti i contenitori nel database. 
+Questo articolo illustra come effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile abilitare la scalabilità automatica per un singolo contenitore oppure effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database e condividerla tra tutti i contenitori nel database.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Creare un nuovo database o contenitore con scalabilità automatica
+
 1. Accedere al [portale di Azure](https://portal.azure.com) o a [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
@@ -51,12 +52,14 @@ Per effettuare il provisioning della scalabilità automatica per il database con
 > Quando si abilita la scalabilità automatica per un database o un contenitore esistente, il valore iniziale per il numero massimo di UR/s è determinato dal sistema, in base alle impostazioni correnti del provisioning della velocità effettiva manuale e allo spazio di archiviazione. Al termine dell'operazione, se necessario, è possibile modificare il numero massimo di UR/s. [Altre informazioni.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET V3 SDK per API SQL
+
 Usare la [versione 3.9 o successiva](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) di Azure Cosmos DB .NET SDK per API SQL per gestire le risorse con scalabilità automatica. 
 
 > [!IMPORTANT]
 > È possibile usare .NET SDK per creare nuove risorse con scalabilità automatica. L'SDK non supporta la migrazione tra scalabilità automatica e velocità effettiva standard (manuale). Lo scenario di migrazione è attualmente supportato solo nel portale di Azure. 
 
 ### <a name="create-database-with-shared-throughput"></a>Creare il database con velocità effettiva condivisa
+
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -69,6 +72,7 @@ database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProper
 ```
 
 ### <a name="create-container-with-dedicated-throughput"></a>Creare il contenitore con velocità effettiva dedicata
+
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -82,6 +86,7 @@ container = await database.CreateContainerAsync(autoscaleContainerProperties, au
 ```
 
 ### <a name="read-the-current-throughput-rus"></a>Leggere la velocità effettiva corrente (UR/s)
+
 ```csharp
 // Get a reference to the resource
 Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
@@ -97,16 +102,18 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Modificare la velocità effettiva massima per la scalabilità automatica (UR/s)
+
 ```csharp
 // Change the autoscale max throughput (RU/s)
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
 ## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java V4 SDK per API SQL
-È possibile usare la [versione 4.0 o successiva](https://mvnrepository.com/artifact/com.azure/azure-cosmos) di Azure Cosmos DB Java SDK per API SQL per gestire le risorse con scalabilità automatica. 
+
+È possibile usare la [versione 4.0 o successiva](https://mvnrepository.com/artifact/com.azure/azure-cosmos) di Azure Cosmos DB Java SDK per API SQL per gestire le risorse con scalabilità automatica.
 
 > [!IMPORTANT]
-> È possibile usare Java SDK per creare nuove risorse con scalabilità automatica. L'SDK non supporta la migrazione tra scalabilità automatica e velocità effettiva standard (manuale). Lo scenario di migrazione è attualmente supportato solo nel portale di Azure. 
+> È possibile usare Java SDK per creare nuove risorse con scalabilità automatica. L'SDK non supporta la migrazione tra scalabilità automatica e velocità effettiva standard (manuale). Lo scenario di migrazione è attualmente supportato solo nel portale di Azure.
 
 ### <a name="create-database-with-shared-throughput"></a>Creare il database con velocità effettiva condivisa
 
@@ -233,18 +240,26 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput));
 ```
 
---- 
+---
 
-## <a name="cassandra-api"></a>API Cassandra 
-Per abilitare la scalabilità automatica, vedere questo articolo su [come usare i comandi CQL](manage-scale-cassandra.md#use-autoscale).
+## <a name="cassandra-api"></a>API Cassandra
 
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB 
-Vedere questo articolo su [come usare i comandi dell'estensione MongoDB](mongodb-custom-commands.md) per abilitare la scalabilità automatica.
+È possibile eseguire il provisioning degli account Azure Cosmos DB per API Cassandra per la scalabilità automatica usando i [comandi di CQL](manage-scale-cassandra.md#use-autoscale), l'interfaccia della riga di comando di [Azure](cli-samples.md) [Azure Resource Manager](resource-manager-samples.md)o
+
+## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
+
+È possibile eseguire il provisioning degli account Azure Cosmos DB per l'API MongoDB per la scalabilità automatica usando i [comandi di estensione MongoDB](mongodb-custom-commands.md), l'interfaccia della riga di comando di [Azure](cli-samples.md) [Azure Resource Manager](resource-manager-samples.md)o
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-È possibile usare un modello di Resource Manager per effettuare il provisioning della velocità effettiva per la scalabilità automatica di un database o un contenitore per qualsiasi API. Per un esempio, vedere questo [articolo](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
+
+È possibile usare i modelli di Azure Resource Manager per eseguire il provisioning della velocità effettiva di ridimensionamento automatico per tutte le API Azure Cosmos DB di database o a livello di contenitore Per esempi, vedere [Azure Resource Manager Templates for Azure Cosmos DB](resource-manager-samples.md) .
+
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+L'interfaccia della riga di comando di Azure può essere usata per eseguire il provisioning della velocità effettiva di ridimensionamento automatico in un database o in risorse a livello Azure Cosmos DB di Per esempi, vedere [esempi dell'interfaccia della riga di comando di Azure per Azure Cosmos DB](cli-samples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Informazioni sui [vantaggi del provisioning della velocità effettiva con la scalabilità automatica](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Informazioni su come [scegliere tra la velocità effettiva manuale e per la scalabilità automatica](how-to-choose-offer.md).
 * Vedere le [domande frequenti sulla scalabilità automatica](autoscale-faq.md).

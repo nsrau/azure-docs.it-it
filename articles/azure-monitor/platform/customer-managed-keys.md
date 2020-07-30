@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117363"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382951"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -187,8 +187,8 @@ Creare o usare un'istanza di Azure Key Vault già disponibile per generare o imp
 
 Queste impostazioni possono essere aggiornate tramite l'interfaccia della riga di comando e PowerShell:
 
-- [eliminazione temporanea](../../key-vault/general/overview-soft-delete.md)
-- [Protezione dall'eliminazione](../../key-vault/general/overview-soft-delete.md#purge-protection) protegge dall'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea
+- [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md)
+- [Protezione dall'eliminazione](../../key-vault/general/soft-delete-overview.md#purge-protection) protegge dall'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea
 
 ### <a name="create-cluster-resource"></a>Creare la risorsa *Cluster*
 
@@ -706,8 +706,8 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
 - La crittografia CMK si applica ai dati appena inseriti dopo la configurazione di CMK.  I dati inseriti prima della configurazione della chiave gestita dal cliente rimangono crittografati con la chiave Microsoft.  È possibile eseguire query sui dati inseriti prima e dopo la configurazione della chiave gestita dal cliente.
 
 - Il Azure Key Vault deve essere configurato come reversibile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite CLI o PowerShell:<br>
-  - [eliminazione temporanea](../../key-vault/general/overview-soft-delete.md)
-  - La [protezione ripulisce](../../key-vault/general/overview-soft-delete.md#purge-protection) deve essere attivata per prevenire l'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea.
+  - [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md)
+  - La [protezione ripulisce](../../key-vault/general/soft-delete-overview.md#purge-protection) deve essere attivata per prevenire l'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea.
 
 - Lo spostamento di risorse *cluster* in un altro gruppo di risorse o sottoscrizione non è attualmente supportato.
 
@@ -763,7 +763,7 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
   -  400--il cluster è in stato di eliminazione. L'operazione asincrona è in corso. Prima di eseguire qualsiasi operazione di aggiornamento, il cluster deve completare l'operazione.
   -  400--KeyVaultProperties non è vuoto ma presenta un formato non valido. Vedere [aggiornamento dell'identificatore di chiave](#update-cluster-resource-with-key-identifier-details).
   -  400--non è stato possibile convalidare la chiave in Key Vault. La causa potrebbe essere la mancanza di autorizzazioni o la chiave non esiste. Verificare di aver [impostato i criteri di accesso e chiave](#grant-key-vault-permissions) in Key Vault.
-  -  400--la chiave non è reversibile. Key Vault deve essere impostato su soft-delete ed Purge-Protection. Vedere la [documentazione di Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400--la chiave non è reversibile. Key Vault deve essere impostato su soft-delete ed Purge-Protection. Vedere la [documentazione di Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400: non è possibile eseguire l'operazione ora. Attendere il completamento dell'operazione asincrona e riprovare.
   -  400--il cluster è in stato di eliminazione. Attendere il completamento dell'operazione asincrona e riprovare.
 

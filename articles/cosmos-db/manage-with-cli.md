@@ -4,14 +4,14 @@ description: Usare l'interfaccia della riga di comando di Azure per gestire l'ac
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067175"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432842"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -19,7 +19,7 @@ La guida seguente illustra i comandi comuni per automatizzare la gestione degli 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento è necessario eseguire la versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.9.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Account Azure Cosmos
 
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 Le sezioni seguenti illustrano come gestire il contenitore Azure Cosmos DB:
 
 * [Creare un contenitore](#create-a-container)
+* [Creare un contenitore con scalabilità automatica](#create-a-container-with-autoscale)
 * [Creare un contenitore con TTL abilitato](#create-a-container-with-ttl)
 * [Creare un contenitore con un criterio di indicizzazione personalizzato](#create-a-container-with-a-custom-index-policy)
 * [Modificare la velocità effettiva del contenitore](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Creare un contenitore con scalabilità automatica
+
+Creare un contenitore Cosmos con i criteri di indice predefiniti, la chiave di partizione e le UR/s di scalabilità automatica di 4000.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Creare un contenitore con TTL
@@ -469,5 +489,5 @@ az lock delete --ids $lockid
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere:
 
 - [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
-- [Riferimenti per l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md)

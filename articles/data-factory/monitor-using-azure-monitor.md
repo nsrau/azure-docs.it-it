@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124905"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432425"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorare e inviare avvisi Data Factory tramite monitoraggio di Azure
 
@@ -111,8 +111,8 @@ Questa soluzione fornisce un riepilogo dello stato generale del Data Factory, co
 Con l'installazione di questa soluzione viene creato un set predefinito di viste all'interno della sezione cartelle di lavoro dell'area di lavoro Log Analytics scelta. Di conseguenza, vengono abilitate le metriche seguenti:
 
 * Esecuzioni di ADF-1) esecuzioni pipeline per Data Factory
-* Esecuzioni ADF-2) esecuzioni attività per fattore dati
-* Esecuzioni di ADF-3) esecuzioni trigger per fattore dati
+* Esecuzioni di ADF-2) esecuzioni attività per Data Factory
+* Esecuzioni di ADF-3) il trigger viene eseguito da Data Factory
 * Errori di ADF-1) primi 10 errori della pipeline per Data Factory
 * Errori di ADF-2) prime 10 esecuzioni attività per Data Factory
 * Errori di ADF-3) primi 10 errori trigger per Data Factory
@@ -836,7 +836,7 @@ Log Analytics eredita lo schema da monitoraggio con le eccezioni seguenti:
     | $. Properties. Input | Input | Dinamico |
     | $. Properties. Output | Output | Dinamico |
     | $. Properties. Errore. errorCode | ErrorCode | INT |
-    | $. Properties. Errore. messaggio | ErrorMessage | string |
+    | $. Properties. Errore. messaggio | ErrorMessage | Stringa |
     | $. Properties. Errore | Errore | Dinamico |
     | $. Properties. Predecessori | Predecessori | Dinamico |
     | $. Properties. Parametri | Parametri | Dinamico |

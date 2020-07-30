@@ -4,14 +4,14 @@ description: Informazioni sulle opzioni disponibili per la scalabilità di un ac
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447744f0436cb29e849a52694a02600183fd357a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119155"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432822"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Scalabilità elastica di un account dell'API Cassandra di Azure Cosmos DB
 
@@ -46,7 +46,7 @@ Il vantaggio di questo metodo è che si tratta di un modo semplice per gestire l
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Usare il piano di controllo
 
-L'API di Azure Cosmos DB per Cassandra consente di regolare la velocità effettiva a livello di codice usando le varie funzionalità del piano di controllo. Per informazioni ed esempi, vedere gli articoli [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) e [Interfaccia della riga di comando di Azure](cli-samples-cassandra.md).
+L'API di Azure Cosmos DB per Cassandra consente di regolare la velocità effettiva a livello di codice usando le varie funzionalità del piano di controllo. Per informazioni ed esempi, vedere gli articoli [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) e [Interfaccia della riga di comando di Azure](cli-samples.md).
 
 Il vantaggio di questo metodo è che è possibile automatizzare l'aumento o la riduzione delle risorse in base a un timer per tenere conto di picchi di attività o periodi di minore attività. Vedere l'esempio [qui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) per informazioni su ottenere questo risultato usando Funzioni di Azure e PowerShell.
 

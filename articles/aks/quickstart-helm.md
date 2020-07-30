@@ -4,14 +4,14 @@ description: Usare Helm con AKS e Azure Container Registry per creare un pacchet
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82169569"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407116"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Helm
 
@@ -23,7 +23,6 @@ Questo articolo illustra come usare Helm per creare un pacchetto ed eseguire un'
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Docker installato e configurato. Docker offre pacchetti che consentono di configurare Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 * [Helm v3 installato][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
@@ -57,14 +56,6 @@ L'output è simile all'esempio seguente: Prendere nota del valore di *loginServe
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
-
-Per usare l'istanza di ACR, è prima necessario eseguire l'accesso. Usare il comando [AZ ACR login][az-acr-login] per accedere. L'esempio seguente consente di accedere a un record di record di accesso denominato *MyHelmACR*.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-Al termine, il comando restituisce un messaggio di *accesso riuscito* .
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
@@ -122,18 +113,12 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Compilare ed eseguire il push dell'applicazione di esempio in ACR
 
-Ottenere l'indirizzo del server di accesso usando il comando [AZ ACR list][az-acr-list] e eseguendo una query per il *loginServer*:
+Usare il comando [AZ ACR Build][az-acr-build] per compilare ed eseguire il push di un'immagine nel registro di sistema, usando il Dockerfile precedente. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Usare Docker per compilare, contrassegnare ed effettuare il push del contenitore di applicazioni di esempio nell'ACR:
-
-```console
-docker build -t webfrontend:latest .
-docker tag webfrontend <acrLoginServer>/webfrontend:v1
-docker push <acrLoginServer>/webfrontend:v1
+az acr build --image webfrontend:v1 \
+  --registry MyHelmACR \
+  --file Dockerfile .
 ```
 
 ## <a name="create-your-helm-chart"></a>Creare il grafico Helm
@@ -144,9 +129,9 @@ Generare il grafico Helm usando il `helm create` comando.
 helm create webfrontend
 ```
 
-Effettuare gli aggiornamenti seguenti a *WebFrontEnd/values. YAML*:
+Effettuare gli aggiornamenti seguenti a *WebFrontEnd/values. YAML*. Sostituire il loginServer del registro di sistema annotato in un passaggio precedente, ad esempio *myhelmacr.azurecr.io*:
 
-* Modificare `image.repository` in `<acrLoginServer>/webfrontend`
+* Modificare `image.repository` in `<loginServer>/webfrontend`
 * Modificare `service.type` in `LoadBalancer`
 
 Ad esempio:
@@ -159,7 +144,7 @@ Ad esempio:
 replicaCount: 1
 
 image:
-  repository: <acrLoginServer>/webfrontend
+  repository: *myhelmacr.azurecr.io*/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:
@@ -168,7 +153,7 @@ service:
 ...
 ```
 
-Eseguire l'aggiornamento `appVersion` a `v1` in *WebFrontEnd/Chart. YAML*. Ad esempio
+Eseguire l'aggiornamento `appVersion` a `v1` in *WebFrontEnd/Chart. YAML*. Ad esempio:
 
 ```yml
 apiVersion: v2
@@ -218,16 +203,11 @@ Per ulteriori informazioni sull'utilizzo di Helm, vedere la documentazione di He
 > [!div class="nextstepaction"]
 > [Documentazione di Helm][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/
