@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: bae1ff0ff3bb7f81b2a56fb5cb9fa71c0e07885f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cc44b587bfa3b65b551df46bef025b461c8f6849
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637591"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374792"
 ---
 In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Linux per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md). Attualmente solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) è supportato.
 
@@ -100,7 +100,7 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.12.1</version>
+             <version>1.13.0</version>
         </dependency>
     </dependencies>
    ```

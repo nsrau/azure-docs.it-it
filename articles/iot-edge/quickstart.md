@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 73d7c129a63e4d63ad5cc05d8dac47720c7955e4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 748e31499a4aa8f1ddd2cea4e918b688426338fa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117256"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Windows virtuale
 
@@ -22,10 +22,12 @@ Per provare Azure IoT Edge in questa guida di avvio rapido, distribuire il codic
 
 In questa guida introduttiva si apprende come:
 
-1. Creare un hub IoT.
-2. Registrare un dispositivo IoT Edge nell'hub IoT.
-3. Installare e avviare il runtime IoT Edge nel dispositivo virtuale.
-4. Distribuire in remoto un modulo in un dispositivo IoT Edge e inviare dati di telemetria all'hub IoT.
+> [!div class="checklist"]
+>
+> * Creare un hub IoT.
+> * Registrare un dispositivo IoT Edge nell'hub IoT.
+> * Installare e avviare il runtime IoT Edge nel dispositivo virtuale.
+> * Distribuire in remoto un modulo in un dispositivo IoT Edge e inviare dati di telemetria all'hub IoT.
 
 ![Diagramma - Guida introduttiva sull'architettura per dispositivo e cloud](./media/quickstart/install-edge-full.png)
 

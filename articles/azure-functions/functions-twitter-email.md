@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088145"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -38,7 +38,7 @@ In questa esercitazione verranno illustrate le procedure per:
 + Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
 
 > [!NOTE]
-> Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare il connettore Gmail solo con app e servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione nel connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+> Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare il connettore Gmail solo con app e servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione nel connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + Questo articolo usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](functions-create-first-azure-function.md).
 Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.
@@ -304,4 +304,3 @@ Passare all'esercitazione successiva per imparare a creare un'API senza server p
 > [Creare un'API senza server mediante Funzioni di Azure](functions-create-serverless-api.md)
 
 Per altre informazioni sulle app per la logica, vedere [App per la logica di Azure](../logic-apps/logic-apps-overview.md).
-
