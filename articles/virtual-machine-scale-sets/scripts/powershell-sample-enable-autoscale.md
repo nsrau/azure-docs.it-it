@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.custom: avverma
-ms.openlocfilehash: 1db108adfe1a3af562a046160856a38daf990885
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9ee64f86cba7287af371f856c442d93e9a03d85b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088906"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 e usa metriche basate su host per la scalabilità automatica in base alle variazioni del carico CPU.
@@ -47,5 +47,5 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 

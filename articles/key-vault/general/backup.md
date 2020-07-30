@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521106"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386266"
 ---
 # <a name="azure-key-vault-backup"></a>Backup di Azure Key Vault
 
@@ -27,7 +27,7 @@ Azure Key Vault fornisce automaticamente diverse funzionalità che aiutano a man
 
 Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automaticamente il failover delle richieste a un'area associata senza che sia necessario l'intervento di un utente. Per altre informazioni, vedere [Disponibilità e ridondanza in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limitazioni
 

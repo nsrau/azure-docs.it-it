@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: ff1b35ec036996dfa452d92632c8fc6ede22d82f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6849046211ae4216f181dd8ef0ca391c2876363c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203244"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291781"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Avvio rapido: Usare la libreria client di Analisi del testo per Go
 
@@ -29,7 +29,7 @@ ms.locfileid: "86203244"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
+* Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Versione più recente di [Go](https://golang.org/dl/)
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.

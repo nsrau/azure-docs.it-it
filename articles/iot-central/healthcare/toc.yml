@@ -22,8 +22,6 @@
       href: howto-health-data-triage.md
     - name: Connettere dispositivi
       items:
-        - name: Preparare e connettere un MXChip IoT DevKit
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Preparare e connettere un componente Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure

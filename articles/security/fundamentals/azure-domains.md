@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: d1a11ac42a7fb280ba96229f0f67b9c45999b310
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 63b00682af3de8c558a6ef69dd6cb8b9a7d5f2b4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285374"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433203"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Elenco di riferimento di domini di Azure (non completo)
 
 Questa pagina è un elenco parziale dei domini di Azure in uso. Alcuni di essi sono endpoint API REST.
 
 
-|Service  |Sottodominio  |
+|Servizio  |Sottodominio  |
 |---------|---------|
 |[Servizio di controllo di accesso di Azure](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (ritirato)|*.accesscontrol.windows.net|
 |[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)|*. graph.windows.net/*. onmicrosoft.com|
@@ -48,5 +48,5 @@ Questa pagina è un elenco parziale dei domini di Azure in uso. Alcuni di essi s
 |[Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) e [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
 |[Archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*.table.core.windows.net|
 |[Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
-|[Siti Web di Azure](https://azure.microsoft.com/resources/videos/home/)|*.azurewebsites.net|
+|Siti Web di Azure|*.azurewebsites.net|
 |[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|, ma non per gli indirizzi|

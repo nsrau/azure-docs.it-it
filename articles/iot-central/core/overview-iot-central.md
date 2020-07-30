@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656408"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337178"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -63,11 +63,8 @@ Questo modello di dispositivo include:
 
 ### <a name="create-device-templates"></a>Creare modelli di dispositivo
 
-[Plug and Play IoT (anteprima)](../../iot-pnp/overview-iot-plug-and-play.md) consente a IoT Central di integrare dispositivi senza scrivere il codice del dispositivo incorporato. La base di Plug and Play IoT (anteprima) è costituita da uno schema modello che descrive le funzionalità dei dispositivi. In un'applicazione IoT Central i modelli di dispositivo usano questi modelli di funzionalità di dispositivo di Plug and Play IoT (anteprima).
-
 I generatori di soluzioni hanno a disposizione numerose opzioni per creare modelli di dispositivo:
 
-- Importare un modello di funzionalità di dispositivo dal [catalogo dei dispositivi Azure Certified per IoT](https://aka.ms/iotdevcat) e quindi aggiungere eventuali personalizzazioni, dashboard e proprietà cloud richiesti dell'applicazione IoT Central.
 - Progettare il modello di dispositivo in IoT Central e quindi implementarne il modello di funzionalità di dispositivo nel codice del dispositivo.
 - Creare un modello di funzionalità di dispositivo con Visual Studio Code e pubblicarlo in un repository. Implementare il codice del dispositivo dal modello e connettere il dispositivo all'applicazione IoT Central. IoT Central trova il modello di funzionalità di dispositivo in un repository e crea automaticamente un modello di dispositivo semplice.
 - Creare un modello di funzionalità di dispositivo con Visual Studio Code. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di funzionalità di dispositivo nell'applicazione IoT Central e quindi aggiungere eventuali personalizzazioni, dashboard e proprietà cloud richiesti dell'applicazione IoT Central.
@@ -149,7 +146,6 @@ Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambit
 - IoT Central è attualmente disponibile nelle località seguenti: Stati Uniti, Europa, Asia Pacifico, Australia, Regno Unito e Giappone.
 - Non è possibile usare il modello di applicazione **Applicazione personalizzata (legacy)** nelle località Regno Unito e Giappone.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
-- Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -158,7 +154,6 @@ A questo punto, dopo aver ottenuto una panoramica di IoT Central, vengono consig
 - Conoscere le [tecnologie e i servizi di Azure disponibili per la creazione di soluzioni IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Acquisire familiarità con l'[interfaccia utente di Azure IoT Central](overview-iot-central-tour.md).
 - Iniziare a [creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
-- Altre informazioni su [Plug and Play IoT (anteprima)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Informazioni su come [connettere un dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Altre informazioni su [tecnologie e servizi Azure IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 
