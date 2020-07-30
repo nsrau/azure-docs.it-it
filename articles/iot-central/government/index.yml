@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f244a01815962febf4a9ba8165b1687f500587b9
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: a036b23d460fc5c638f36ff0dbca9bcda11cd39c
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024745"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87335924"
 landingContent:
 - title: Creare soluzioni per enti pubblici
   linkLists:
@@ -38,13 +38,9 @@ landingContent:
     - text: Configurare un modello di dispositivo
       url: ../core/howto-set-up-template.md
     - text: Collegare un dispositivo
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Connettere un dispositivo Plug and Play IoT (anteprima)
-      url: ../core/tutorial-connect-pnp-device.md
+      url: ../core/tutorial-connect-device.md
   - linkListType: how-to-guide
     links:
-    - text: Preparare e connettere un componente MXChip IoT DevKit
-      url: ../core/howto-connect-devkit.md
     - text: Connettere altri cloud IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Rimanere connessi

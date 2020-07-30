@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202835"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053551"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
 
 > [!NOTE]
-> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), le procedure generali sono identiche per l'[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
+> Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), le procedure generali sono identiche per l'[API REST](/rest/api/media/liveevents), l'[interfaccia della riga di comando](/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard. Possono quindi acquisire informazioni dettagliate sull'andamento dell'attività. Queste informazioni dettagliate includono un elenco dei reclami frequenti, delle origini di tali reclami, nonché altre informazioni utili.
 
@@ -45,8 +45,8 @@ Questa esercitazione illustra come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, scaricare [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
-- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
 ## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
@@ -58,7 +58,7 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET usando il co
 
 L'esempio si trova nella cartella [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Aprire il file [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute durante l'[accesso alle API](access-api-cli-how-to.md).
+Aprire il file [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute durante l'[accesso alle API](./access-api-howto.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Esaminare il codice che analizza il video specificato
 
@@ -84,33 +84,33 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creare un asset di input e caricare un file locale nell'asset 
 
-La funzione **CreateInputAsset** crea un nuovo [asset](https://docs.microsoft.com/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo asset viene usato come input per il processo di codifica. In Servizi multimediali v3 l'input di un processo può essere costituito da un asset oppure da contenuti resi disponibili all'account di Servizi multimediali tramite URL HTTPS. Per informazioni su come codificare contenuti da un URL HTTPS, vedere [questo](job-input-from-http-how-to.md) articolo.  
+La funzione **CreateInputAsset** crea un nuovo [asset](/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo asset viene usato come input per il processo di codifica. In Servizi multimediali v3 l'input di un processo può essere costituito da un asset oppure da contenuti resi disponibili all'account di Servizi multimediali tramite URL HTTPS. Per informazioni su come codificare contenuti da un URL HTTPS, vedere [questo](job-input-from-http-how-to.md) articolo.  
 
 In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricare i file. Il frammento di codice .NET seguente illustra come eseguire questa operazione.
 
 La funzione seguente completa queste azioni:
 
 * Crea un asset.
-* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile nel [contenitore della risorsa di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset.
+* Ottiene un [URL di firma di accesso condiviso](../../storage/common/storage-sas-overview.md) scrivibile nel [contenitore della risorsa di archiviazione](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) dell'asset.
 
-    Se si usa la funzione [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) dell'asset per ottenere gli URL di firma di accesso condiviso, si noti che la funzione ne restituisce molti, perché sono disponibili due chiavi per ogni account di archiviazione. Il motivo della presenza di due chiavi è che rende possibile la rotazione trasparente delle chiavi dell'account di archiviazione (ad esempio, cambiarne una mentre si usa l'altra, quindi iniziare a usare la nuova chiave e ruotare l'altra). Il primo URL di firma di accesso condiviso rappresenta la chiave Key1 dell'account di archiviazione e il secondo la chiave Key2.
+    Se si usa la funzione [ListContainerSas](/rest/api/media/assets/listcontainersas) dell'asset per ottenere gli URL di firma di accesso condiviso, si noti che la funzione ne restituisce molti, perché sono disponibili due chiavi per ogni account di archiviazione. Il motivo della presenza di due chiavi è che rende possibile la rotazione trasparente delle chiavi dell'account di archiviazione (ad esempio, cambiarne una mentre si usa l'altra, quindi iniziare a usare la nuova chiave e ruotare l'altra). Il primo URL di firma di accesso condiviso rappresenta la chiave Key1 dell'account di archiviazione e il secondo la chiave Key2.
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Creare un asset di output per archiviare il risultato del processo
 
-L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo. Il progetto definisce la funzione **DownloadResults** che scarica i risultati dall'asset di output nella cartella "output", consentendo così di visualizzare ciò che si è ottenuto.
+L'[asset](/rest/api/media/assets) di output archivia il risultato del processo. Il progetto definisce la funzione **DownloadResults** che scarica i risultati dall'asset di output nella cartella "output", consentendo così di visualizzare ciò che si è ottenuto.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Creare una trasformazione e un processo per analizzare i video
 
-Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni. e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni è definita **trasformazione**. Per altre informazioni, vedere [Trasformazioni e processi](transform-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che analizza il video specificato.
+Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni. e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni è definita **trasformazione**. Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che analizza il video specificato.
 
 #### <a name="transform"></a>Trasformare
 
-Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. **TransformOutput** è un parametro obbligatorio. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. In questo esempio viene usato il set di impostazioni **VideoAnalyzerPreset** e viene passata la lingua ("en-US") al relativo costruttore (`new VideoAnalyzerPreset("en-US")`). Questo set di impostazioni consente di estrarre da un video più informazioni dettagliate sui contenuti audio e video. Se è necessario estrarre da un video solo le informazioni dettagliate relative all'audio, è possibile usare il set di impostazioni **AudioAnalyzerPreset**.
+Quando si crea una nuova istanza dell'oggetto [Transform](/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. **TransformOutput** è un parametro obbligatorio. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. In questo esempio viene usato il set di impostazioni **VideoAnalyzerPreset** e viene passata la lingua ("en-US") al relativo costruttore (`new VideoAnalyzerPreset("en-US")`). Questo set di impostazioni consente di estrarre da un video più informazioni dettagliate sui contenuti audio e video. Se è necessario estrarre da un video solo le informazioni dettagliate relative all'audio, è possibile usare il set di impostazioni **AudioAnalyzerPreset**.
 
 Quando si crea una **trasformazione**, è prima necessario verificare se ne esiste già una tramite il metodo **Get**, come illustrato nel codice seguente. In Servizi multimediali v3 i metodi **Get** eseguiti su entità restituiscono **null** se determinano che l'entità non esiste, effettuando un controllo del nome senza distinzione tra maiuscole e minuscole.
 
@@ -118,7 +118,7 @@ Quando si crea una **trasformazione**, è prima necessario verificare se ne esis
 
 #### <a name="job"></a>Processo
 
-Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video mediante: URL HTTPS, URL SAS o asset presenti nell'account del servizio multimediale.
+Come indicato sopra, l'oggetto [Transform](/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video mediante: URL HTTPS, URL SAS o asset presenti nell'account del servizio multimediale.
 
 In questo esempio, l'input del processo è un video locale.  
 
@@ -126,7 +126,7 @@ In questo esempio, l'input del processo è un video locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](https://docs.microsoft.com/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling.
+Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling.
 
 Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi.
 
@@ -138,11 +138,11 @@ L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Q
 
 ### <a name="job-error-codes"></a>Codici di errore dei processi
 
-Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Vedere i [codici di errore](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Scaricare il risultato del processo
 
-La funzione seguente scarica i risultati del processo dall'[asset](https://docs.microsoft.com/rest/api/media/assets) di output nella cartella "output" per consentire l'analisi dei risultati del processo.
+La funzione seguente scarica i risultati del processo dall'[asset](/rest/api/media/assets) di output nella cartella "output" per consentire l'analisi dei risultati del processo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
@@ -160,7 +160,7 @@ Quando si esegue il programma, il processo genera anteprime per ogni volto rilev
 
 ## <a name="examine-the-output"></a>Esaminare l'output
 
-Il file di output risultante dall'analisi dei video è denominato insights.json e contiene informazioni dettagliate sul video analizzato. La descrizione degli elementi presenti nel file json è riportata nell'articolo [Intelligenza dei contenuti multimediali](intelligence-concept.md).
+Il file di output risultante dall'analisi dei video è denominato insights.json e contiene informazioni dettagliate sul video analizzato. La descrizione degli elementi presenti nel file json è riportata nell'articolo [Intelligenza dei contenuti multimediali](./analyzing-video-audio-files-concept.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

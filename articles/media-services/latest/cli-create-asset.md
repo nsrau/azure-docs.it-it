@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 41d983691204ab857b464fc338c43f843592a3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76310646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092202"
 ---
 # <a name="cli-example-create-an-asset"></a>Esempio dell'interfaccia della riga di comando: Creare un asset
 
@@ -27,7 +27,7 @@ Lo script dell'interfaccia della riga di comando di Azure in questo articolo mos
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

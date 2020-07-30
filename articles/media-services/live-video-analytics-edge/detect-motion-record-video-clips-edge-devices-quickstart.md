@@ -3,12 +3,12 @@ title: Rilevare il movimento e registrare video nei dispositivi perimetrali - Az
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per analizzare il feed video live da una videocamera IP (simulata), rilevare se è presente un movimento e, in tal caso, registrare un clip video MP4 nel file system locale del dispositivo perimetrale.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 32f1ae5e9edbdbe522afb39bd56584cd2423dd33
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091862"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Avvio rapido: Rilevare il movimento e registrare video nei dispositivi perimetrali
  
@@ -164,7 +164,7 @@ Assicurarsi di aver completato i passaggi descritti in [Preparare il monitoraggi
      * Una chiamata finale a `GraphTopologyList` mostra che l'elenco è ora vuoto.
 
 ## <a name="interpret-results"></a>Interpretare i risultati 
-Quando si esegue il grafo multimediale, i risultati dal nodo del processore di rilevamento dei movimenti vengono inviati all'hub IoT passando attraverso il nodo sink dell'hub IoT. I messaggi visualizzati nella finestra **OUTPUT** di Visual Studio Code contengono una sezione `body` e una sezione `applicationProperties`. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quando si esegue il grafo multimediale, i risultati dal nodo del processore di rilevamento dei movimenti vengono inviati all'hub IoT passando attraverso il nodo sink dell'hub IoT. I messaggi visualizzati nella finestra **OUTPUT** di Visual Studio Code contengono una sezione `body` e una sezione `applicationProperties`. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Nei messaggi seguenti il modulo Analisi video live definisce le proprietà dell'applicazione e il contenuto del corpo.
 
@@ -254,7 +254,7 @@ Per riprodurre il clip MP4:
 
     ![Output](./media/quickstarts/samples-output.png) 
 
-1. Usare il comando [SCP (copia sicura)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) per copiare i file nel computer locale. 
+1. Usare il comando [SCP (copia sicura)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) per copiare i file nel computer locale. 
 1. Riprodurre i file usando il [lettore multimediale VLC](https://www.videolan.org/vlc/) o un qualsiasi altro lettore MP4.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -267,4 +267,4 @@ Se si intende provare gli altri argomenti di avvio rapido, non eliminare le riso
 * Esaminare altri problemi per utenti avanzati:
 
     * Usare una [videocamera IP](https://en.wikipedia.org/wiki/IP_camera) che supporti RTSP invece di usare il simulatore RTSP. È possibile trovare videocamere IP che supportano RTSP nella pagina dei [prodotti conformi a ONVIF](https://www.onvif.org/conformant-products). Cercare dispositivi conformi ai profili G, S o T.
-    * Usare un dispositivo Linux AMD64 o x64 invece di una macchina virtuale Linux in Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. Seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Quindi seguire le istruzioni in [Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) per registrare il dispositivo con l'hub IoT di Azure.
+    * Usare un dispositivo Linux AMD64 o x64 invece di una macchina virtuale Linux in Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. Seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Quindi seguire le istruzioni in [Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale](../../iot-edge/quickstart-linux.md) per registrare il dispositivo con l'hub IoT di Azure.
