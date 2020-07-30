@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118818"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387949"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Valutazioni AVS in Azure Migrate: server Assessment
 
@@ -29,7 +29,7 @@ Le valutazioni create con server assessment sono uno snapshot temporizzato dei d
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 La valutazione della soluzione VMware di Azure (AVS) in server Assessment offre due opzioni per i criteri di ridimensionamento:
 
@@ -152,7 +152,7 @@ Server Assessment esamina la seguente proprietà della macchina virtuale locale 
 
 | **Proprietà** | **Dettagli** | **Stato di conformità con AVS** 
 | - | - | - 
-| **Internet Protocol** | AVS attualmente non supporta l'indirizzamento Internet IPv6.<br/><br/> Se il computer viene rilevato con IPv6, contattare il team locale MSFT AVS GBB per informazioni aggiuntive sulle linee guida per la correzione.| Protocollo Internet predisposto in modo condizionale
+| **Internet Protocol** | Attualmente la soluzione Azure VMware non supporta indirizzi Internet IPv6.<br/><br/> Se vengono rilevati indirizzi IPv6 nel computer, contattare il team MSFT AVS GBB locale per ricevere indicazioni per la correzione.| Protocollo Internet predisposto in modo condizionale
 
 
 ### <a name="guest-operating-system"></a>Sistema operativo guest
@@ -172,15 +172,15 @@ Dopo che un computer è stato contrassegnato come pronto per AVS, AVS assessment
 
 ### <a name="ftt-sizing-parameters"></a>Parametri di ridimensionamento dell'ITF
 
-Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio necessario per le VM, perché determinano il modo in cui l'archiviazione viene allocata alla macchina virtuale. Le combinazioni di transazioni di ITF disponibili sono: 
+Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni di transazioni di ITF disponibili sono: 
 
-**Errori da tollerare (ITF)** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
+**Tolleranza errori** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
 --- | --- | --- | --- 
-1 | RAID-1 (mirroring) | 3 | Una macchina virtuale da 100 GB utilizzerà 200 GB.
-1 | RAID-5 (codifica della cancellazione) | 4 | Una macchina virtuale da 100 GB utilizzerà 133.33 GB
-2 | RAID-1 (mirroring) | 5 | Una macchina virtuale da 100 GB utilizzerà 300GB.
-2 | RAID-6 (codifica della cancellazione) | 6 | Una macchina virtuale da 100 GB utilizzerà 150 GB.
-3 | RAID-1 (mirroring) | 7 | Una macchina virtuale da 100 GB utilizzerà 400 GB.
+1 | RAID-1 (Mirroring) | 3 | Una macchina virtuale da 100 GB utilizza 200 GB.
+1 | RAID-5 (Erasure Coding) | 4 | Una macchina virtuale da 100 GB utilizza 133,33 GB
+2 | RAID-1 (Mirroring) | 5 | Una macchina virtuale da 100 GB utilizza 300 GB.
+2 | RAID-6 (Erasure Coding) | 6 | Una macchina virtuale da 100 GB utilizza 150 GB.
+3 | RAID-1 (Mirroring) | 7 | Una macchina virtuale da 100 GB utilizza 400 GB.
 
 ### <a name="performance-based-sizing"></a>Dimensioni in base alle prestazioni
 
@@ -197,11 +197,11 @@ Una volta determinato il valore di utilizzo effettivo, le dimensioni di archivia
 
 **Ridimensionamento dell'archiviazione**: Azure migrate usa lo spazio su disco della macchina virtuale locale totale come parametro di calcolo per determinare i requisiti di archiviazione AVS rete VSAN, oltre all'impostazione di ITF selezionata dal cliente. ITF: gli errori da tollerare, oltre a richiedere un numero minimo di nodi per ogni opzione di ITF, determineranno l'archiviazione rete VSAN totale necessaria combinata con il requisito del disco della macchina virtuale.
 
-**Dimensionamento della rete**: la valutazione del server non prende in considerazione le impostazioni di rete per le valutazioni AVS.
+**Dimensionamento della rete**: Attualmente Server Assessment non prende in considerazione le impostazioni di rete per le valutazioni della soluzione Azure VMware.
 
 **Dimensionamento del calcolo**: dopo aver calcolato i requisiti di archiviazione, la valutazione del server considera i requisiti di CPU e memoria per determinare il numero di nodi necessari per AVS in base al tipo di nodo.
 
-- In base ai criteri di ridimensionamento, la valutazione del server esamina i dati delle VM basate sulle prestazioni o la configurazione della macchina virtuale locale. L'impostazione del fattore di comfort consente di specificare il fattore di crescita del cluster. Attualmente, per impostazione predefinita, l'Hyper-Threading è abilitato e quindi un nodo Core 36 avrà 72 vcore. 4 Vcore per computer fisico vengono usati per determinare le soglie della CPU per ogni cluster con lo standard VMware che non supera il 80% di utilizzo per consentire la gestione della manutenzione o degli errori senza compromettere la disponibilità del cluster. Attualmente non sono disponibili sostituzioni per modificare i valori di oversubscription, che potrebbero essere presenti nelle versioni future.
+- In base ai criteri di ridimensionamento, la valutazione del server esamina i dati delle VM basate sulle prestazioni o la configurazione della macchina virtuale locale. L'impostazione del fattore di comfort consente di specificare il fattore di crescita del cluster. Attualmente è abilitato per impostazione predefinita l'hyperthreading, quindi un nodo a 36 Core avrà 72 vCore. Vengono usati 4 vCore per computer fisico per determinare le soglie della CPU per cluster usando lo standard VMware che prevede di non superare un utilizzo dell'80% per consentire la manutenzione o la gestione degli errori senza compromettere la disponibilità del cluster. Attualmente non sono disponibili sostituzioni per modificare i valori di oversubscription, che potrebbero essere presenti nelle versioni future.
 
 ### <a name="as-on-premises-sizing"></a>Determinazione della dimensione come in locale
 
@@ -255,9 +255,9 @@ Si noti che, poiché la soluzione VMware di Azure (AVS) è in anteprima, i prezz
 
 ## <a name="migration-tool-guidance"></a>Linee guida per lo strumento di migrazione
 
-Nel report di conformità di Azure per la valutazione della soluzione VMware di Azure (AVS) è possibile visualizzare gli strumenti consigliati seguenti: 
+Nel report di idoneità per Azure per la valutazione della soluzione Azure VMware è possibile visualizzare gli strumenti consigliati seguenti: 
 - **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Sconosciuto**: per i computer importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX).
+- **Sconosciuto**: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

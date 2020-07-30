@@ -2,13 +2,13 @@
 title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/29/2020
+ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057705"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423236"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -52,6 +52,8 @@ Quando si esporta da un gruppo di risorse o una risorsa, il modello esportato vi
 La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
 Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](https://aka.ms/migrateclassicresourcetoarm).
+
+Se viene visualizzato un avviso quando si esporta un modello che indica che un tipo di risorsa non è stato esportato, è comunque possibile individuare le proprietà per tale risorsa. Per informazioni sulle diverse opzioni per la visualizzazione delle proprietà delle risorse, vedere [individuazione delle proprietà delle risorse](view-resources.md). È anche possibile esaminare l' [API REST di Azure](/rest/api/azure/) per il tipo di risorsa.
 
 ## <a name="export-template-from-a-resource-group"></a>Esportare il modello da un gruppo di risorse
 

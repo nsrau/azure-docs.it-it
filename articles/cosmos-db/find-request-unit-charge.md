@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261835"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422318"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
 
@@ -31,7 +32,7 @@ Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di 
 
 1. Passare al riquadro **Esplora dati** e quindi selezionare il contenitore da usare.
 
-1. Fare clic su **Nuova query SQL**.
+1. Selezionare **Nuova query SQL**.
 
 1. Immettere una query valida e quindi fare clic su **Esegui query**.
 

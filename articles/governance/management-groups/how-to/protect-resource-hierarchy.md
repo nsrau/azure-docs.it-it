@@ -3,12 +3,12 @@ title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366773"
+ms.locfileid: "87422828"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -29,7 +29,7 @@ Queste operazioni consentono a un solo utente di leggere e aggiornare le imposta
 
 Per impostazione predefinita, viene aggiunta una nuova sottoscrizione in un tenant come membro del gruppo di gestione radice. Se le assegnazioni di criteri, il controllo degli accessi in base al ruolo e altri costrutti di governance vengono assegnati al gruppo di gestione radice, avranno immediatamente effetto sulle nuove sottoscrizioni. Per questo motivo, molte organizzazioni non applicano questi costrutti al gruppo di gestione radice, anche se si tratta della posizione desiderata per assegnarli. In altri casi, per le nuove sottoscrizioni è necessario un set di controlli più restrittivo, che non deve tuttavia essere assegnato a tutte le sottoscrizioni. Questa impostazione supporta entrambi i casi d'uso.
 
-Consentendo di definire il gruppo di gestione predefinito per le nuove sottoscrizioni, i costrutti di governance a livello di organizzazione possono essere applicati al gruppo di gestione radice ed è possibile definire un gruppo di gestione separato con assegnazioni di criteri o assegnazioni di Controllo degli accessi in base al ruolo più adatte.
+Consentendo di definire il gruppo di gestione predefinito per le nuove sottoscrizioni, è possibile applicare costrutti di governance a livello di organizzazione al gruppo di gestione radice e un gruppo di gestione separato con assegnazioni di criteri o assegnazioni di ruolo di Azure più adatte a una nuova sottoscrizione.
 
 Per configurare questa impostazione, viene chiamato l'endpoint dell'API REST [Impostazioni gerarchia](/rest/api/resources/hierarchysettings). A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Sostituire `{rootMgID}` con l'ID del gruppo di gestione radice e `{defaultGroupID}` con l'ID del gruppo di gestione che deve diventare il gruppo di gestione predefinito:
 

@@ -1,18 +1,18 @@
 ---
 title: Risolvere i problemi di failback nel ripristino di emergenza delle macchine virtuali VMware con Azure Site Recovery
 description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: sharrai
+ms.openlocfilehash: ed4e52470264441a99c5ccf0a736bb00233510c1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289279"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423117"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 

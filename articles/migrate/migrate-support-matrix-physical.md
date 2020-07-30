@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico in Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 3391a29b2297d192aad0d499f688105db9af528b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304327"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423780"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -34,7 +34,7 @@ Per valutare i server fisici, creare un progetto Azure Migrate e aggiungere lo s
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti a un dominio e un account locale per i computer aggiunti a un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti a un dominio e un account locale per computer che non fanno parte di un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
 | **Sistema operativo** | Tutti i sistemi operativi ad eccezione di Windows Server 2003 e SUSE Linux possono essere valutati per la migrazione. |
 
 

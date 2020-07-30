@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: ded36eeecb14eeac0ce3de37c8d01d99bc31491f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423270"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guida di riferimento allo schema per i tipi di trigger e azione in app per la logica di Azure
 
@@ -826,7 +827,7 @@ Di seguito sono riportati alcuni tipi di azioni di uso comune:
 | [**Analizza JSON**](#parse-json-action) | Crea token semplici da usare dalle proprietà nel contenuto JSON. È quindi possibile fare riferimento a tali proprietà includendo i token nell'app per la logica. | 
 | [**Query**](#query-action) | Crea una matrice di elementi in un'altra matrice in base a una condizione o a un filtro. | 
 | [**Risposta**](#response-action) | Crea una risposta a una richiesta o a una chiamata in ingresso. | 
-| [**Selezionare**](#select-action) | Crea una matrice con gli oggetti JSON mediante la trasformazione degli elementi di un'altra matrice basata sul mapping specificato. | 
+| [**Select**](#select-action) | Crea una matrice con gli oggetti JSON mediante la trasformazione degli elementi di un'altra matrice basata sul mapping specificato. | 
 | [**Tabella**](#table-action) | Crea una tabella CSV o HTML da una matrice. | 
 | [**Terminare**](#terminate-action) | Arresta un flusso di lavoro in esecuzione attiva. | 
 | [**Attendere**](#wait-action) | Sospende il flusso di lavoro per la durata specificata o fino alla data e ora specificate. | 
@@ -853,7 +854,7 @@ Queste azioni consentono di controllare l'esecuzione del flusso di lavoro e incl
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Esegue le stesse azioni in un ciclo per ogni elemento in una matrice. | 
 | [**If**](#if-action) | Esegue le azioni a seconda se la condizione specificata è true o false. | 
-| [**Ambito**](#scope-action) | Esegue le azioni in base allo stato di gruppo da un set di azioni. | 
+| [**Scope**](#scope-action) | Esegue le azioni in base allo stato di gruppo da un set di azioni. | 
 | [**Opzione**](#switch-action) | Esegue le azioni organizzate in casi quando i valori delle espressioni, oggetti o token corrispondono ai valori specificati per ogni caso. | 
 | [**Fino**](#until-action) | Esegue le azioni in un ciclo fino a quando la condizione specificata è true. | 
 |||  
@@ -1896,7 +1897,7 @@ Il motore delle app per la logica controlla l'accesso al trigger che si intende 
 | <*nome-logica-app-annidato*> | Stringa | Il nome dell'app per la logica che si vuole richiamare | 
 | <*Nome trigger*> | Stringa | Il nome del trigger nell'app per la logica nidificata che si vuole richiamare | 
 | <*Azure-Subscription-ID*> | Stringa | L'ID sottoscrizione di Azure per l'app per la logica nidificata |
-| <*Azure-Resource-Group*> | Stringa | Il nome del gruppo di risorse di Azure dell'app per la logica nidificata |
+| <*Azure-resource-group*> | Stringa | Il nome del gruppo di risorse di Azure dell'app per la logica nidificata |
 | <*nome-logica-app-annidato*> | Stringa | Il nome dell'app per la logica che si vuole richiamare |
 ||||
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82304052d6ed0c0169c24c19c58d53548b4479cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731501"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423593"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Eliminare in blocco gli utenti in Azure Active Directory
 
@@ -68,7 +68,7 @@ Se sono presenti errori, è possibile scaricare e visualizzare il file dei risul
 
 È possibile visualizzare lo stato di tutte le richieste in sospeso di operazioni in blocco nella pagina **Risultati dell'operazione in blocco**.
 
-   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
+   [![Controllare lo stato di eliminazione nella pagina Risultati operazioni bulk.](media/users-bulk-delete/bulk-center.png)](media/users-bulk-delete/bulk-center.png#lightbox)
 
 A questo punto, è possibile verificare che gli utenti eliminati esistano nell'organizzazione Azure AD nell'portale di Azure o tramite PowerShell.
 

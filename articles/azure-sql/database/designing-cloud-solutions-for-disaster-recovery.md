@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344646"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405042"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Progettazione di servizi disponibili a livello globale con il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ In caso di interruzione nell'area B, il processo di replica tra il database prim
 > Per il ripristino di emergenza è consigliabile la configurazione con distribuzione dell'applicazione limitata a due aree. Infatti la maggior parte delle geografie di Azure ha solo due aree. Questa configurazione non protegge l'applicazione da un errore irreversibile simultaneo in entrambe le aree. Nell'improbabile eventualità di un errore di questo genere, è possibile recuperare i database in una terza area con un'[operazione di ripristino geografico](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Dopo che l'interruzione è stata risolta, il database secondario viene automaticamente risincronizzato con quello primario. Durante la sincronizzazione, le prestazioni del database primario possono risultare peggiorate. L'impatto specifico dipende dalla quantità di dati acquisita dal nuovo database primario dal momento del failover. Il diagramma seguente illustra un'interruzione nell'area secondaria:
+ Dopo che l'interruzione è stata risolta, il database secondario viene automaticamente risincronizzato con quello primario. Durante la sincronizzazione, le prestazioni del database primario possono risultare peggiorate. L'impatto specifico dipende dalla quantità di dati acquisita dal nuovo database primario dal momento del failover. 
+
+> [!NOTE]
+> Dopo che l'interruzione è stata attenuata, gestione traffico avvierà il routing delle connessioni all'applicazione nell'area A come endpoint con priorità più alta. Se si intende tenere il database primario nell'area B per un certo periodo di tempo, è necessario modificare di conseguenza la tabella priorità nel profilo di Trafic Manager. 
+>
+ 
+ Il diagramma seguente illustra un'interruzione nell'area secondaria:
 
 ![Scenario 1. Configurazione dopo un'interruzione nell'area secondaria.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
@@ -153,7 +159,7 @@ Esistono tuttavia alcuni **svantaggi**:
 
 La strategia di ripristino di emergenza cloud specifica può combinare o estendere questi modelli di progettazione per soddisfare al meglio le esigenze dell'applicazione.  Come accennato in precedenza, la strategia scelta si basa sul contratto di servizio che si vuole offrire ai clienti e sulla topologia di distribuzione dell'applicazione. Per facilitare la decisione, la tabella seguente confronta le opzioni in base all'obiettivo del punto di ripristino (RPO) e al tempo di recupero stimato (ERT).
 
-| Modello | RPO | ERT |
+| Criterio | RPO | ERT |
 |:--- |:--- |:--- |
 | Distribuzione attiva/passiva per il ripristino di emergenza con accesso al database con percorso condiviso |Accesso in lettura/scrittura < 5 sec |Ora di rilevamento dell'errore + DNS TTL |
 | Distribuzione attiva/attiva per il bilanciamento del carico dell'applicazione |Accesso in lettura/scrittura < 5 sec |Ora di rilevamento dell'errore + DNS TTL |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317757"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407949"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creare risorse tecniche della macchina virtuale di Azure
 
@@ -282,4 +282,4 @@ Se si verificano problemi durante la creazione del nuovo disco rigido virtuale b
 
 In caso contrario:
 
-* [Certificare l'immagine di macchina virtuale](get-sas-uri.md) spiega come testare e inviare un'immagine di macchina virtuale per la certificazione di Azure Marketplace, inclusa la posizione in cui ottenere lo *Strumento di test di certificazione per Azure Certified* e come usarlo per certificare l'immagine di macchina virtuale.
+* [Macchina virtuale di test distribuita da VHD](azure-vm-image-certification.md) spiega come testare e inviare un'immagine di macchina virtuale per la certificazione di Azure Marketplace, inclusa la posizione in cui ottenere lo *strumento di test di certificazione per Azure Certified* Tool e come usarlo per certificare l'immagine di macchina virtuale.

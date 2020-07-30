@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317876"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423440"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+Per informazioni dettagliate sull'uso e sulla personalizzazione degli ambienti Python con Azure Machine Learning, vedere [creare & usare gli ambienti software in Azure Machine Learning](how-to-use-environments.md)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. definire il codice di assegnazione dei punteggi
 
@@ -636,7 +638,7 @@ Vedere [eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-a
 ### <a name="ab-testing-controlled-rollout"></a>Test A/B (implementazione controllata)
 Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) .
 
-## <a name="consume-web-services"></a>Utilizzare i servizi Web
+## <a name="inference-using-web-services"></a>Inferenza usando i servizi Web
 
 Ogni servizio Web distribuito fornisce un endpoint REST, quindi è possibile creare applicazioni client in qualsiasi linguaggio di programmazione.
 Se è stata abilitata l'autenticazione basata su chiave per il servizio, è necessario specificare una chiave di servizio come token nell'intestazione della richiesta.

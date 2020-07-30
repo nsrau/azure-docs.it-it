@@ -1,19 +1,18 @@
 ---
 title: Backup coerenti con l'applicazione di macchine virtuali Linux
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054844"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407099"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
-Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza a livello di applicazioni fa riferimento al fatto che le applicazioni vengono avviate all'avvio delle macchine virtuali dopo il ripristino. È pertanto evidente che la coerenza con le applicazioni è un fattore estremamente importante. Per garantire che le macchine virtuali Linux siano coerenti a livello di applicazioni, è possibile usare il framework di script di pre-backup e script di post-backup Linux per eseguire backup coerenti con le applicazioni. Il framework degli script di pre e post-backup è supportato per le macchine virtuali Linux distribuite di Azure Resource Manager. Gli script per la coerenza con le applicazioni non sono supportati per le macchine virtuali distribuite di Service Manager o le macchine virtuali di Windows.
+Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza a livello di applicazioni fa riferimento al fatto che le applicazioni vengono avviate all'avvio delle macchine virtuali dopo il ripristino. È pertanto evidente che la coerenza con le applicazioni è un fattore estremamente importante. Per garantire che le macchine virtuali Linux siano coerenti a livello di applicazioni, è possibile usare il framework di script di pre-backup e script di post-backup Linux per eseguire backup coerenti con le applicazioni. Il framework degli script di pre e post-backup è supportato per le macchine virtuali Linux distribuite di Azure Resource Manager. Gli script per la coerenza dell'applicazione non supportano le macchine virtuali distribuite Service Manager o le macchine virtuali Windows.
 
 ## <a name="how-the-framework-works"></a>Come funziona il framework
 
@@ -53,19 +52,19 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
     - **postScriptParams**: specificare i parametri facoltativi da passare allo script di post-backup. Tutti i parametri devono essere racchiusi tra virgolette. Se si usano più parametri, separare i parametri con una virgola.
 
-    - **preScriptNoOfRetries**: impostare il numero di volte in cui lo script di pre-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
+    - **preScriptNoOfRetries**: impostare il numero di tentativi di esecuzione dello script di pre-installazione in caso di errori prima di terminare. Zero indica un solo tentativo e nessun tentativo se si verifica un errore.
 
-    - **postScriptNoOfRetries**: impostare il numero di volte in cui lo script di post-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
+    - **postScriptNoOfRetries**: impostare il numero di volte in cui deve essere eseguito un nuovo tentativo di invio dello script in caso di errore prima di terminare. Zero indica un solo tentativo e nessun tentativo se si verifica un errore.
 
     - **timeoutInSeconds**: specificare i timeout individuali per lo script di pre-script e il post-script (il valore massimo può essere 1800).
 
-    - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Impostando questo valore su **false** il backup viene interrotto in caso di errore dello script (tranne nel caso in cui sia presenta una macchina virtuale con un solo disco che esegue il fallback su un backup coerente con l'arresto anomalo indipendentemente da questa impostazione).
+    - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Se si imposta questa opzione su **false** , il backup non viene eseguito se si verifica un errore di script (tranne quando si dispone di una macchina virtuale con un solo disco che esegue il fallback del backup coerente con l'arresto anomalo del sistema indipendentemente da questa impostazione Se il valore **continueBackupOnFailure** è impostato su false, se il backup non riesce, l'operazione di backup verrà ritentata in base a una logica di ripetizione dei tentativi nel servizio (per il numero di tentativi stabilito).
 
     - **fsFreezeEnabled**: specificare se il comando fsfreeze di Linux deve essere chiamato durante la creazione dello snapshot della macchina virtuale per garantire la coerenza del file system. Si consiglia di mantenere questa impostazione su **true**, a meno che l'applicazione abbia legami di dipendenza con la disattivazione di fsfreeze.
 
     - **ScriptsExecutionPollTimeSeconds**: consente di impostare il tempo di sospensione dell'estensione tra ogni polling e l'esecuzione dello script. Se, ad esempio, il valore è 2, l'estensione controlla se l'esecuzione dello script pre/post è stata completata ogni 2 secondi. Il valore minimo e massimo che può assumere è rispettivamente 1 e 5. Il valore deve essere rigorosamente un numero intero.
 
-6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](./backup-azure-vms-first-look-arm.md)
+6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo usando il backup di [macchine virtuali di Azure in insiemi di credenziali dei servizi di ripristino.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

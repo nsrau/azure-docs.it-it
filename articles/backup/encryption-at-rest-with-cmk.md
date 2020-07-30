@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091097"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388000"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -92,7 +92,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
-È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](../key-vault/general/overview-soft-delete.md).
+È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](../key-vault/general/soft-delete-overview.md).
 
 ![Abilitare la protezione dell'eliminazione temporanea e della ripulitura](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 

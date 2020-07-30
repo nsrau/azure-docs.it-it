@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056668"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412950"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,9 @@ Il firewall di Azure fornisce un tag FQDN AKS per semplificare la configurazione
       Per essere più specifici, vedere **. HPC. <location> azmk8s.io* e gli indirizzi nella tabella seguente.
    - Porta UDP 123 per la sincronizzazione dell'ora del protocollo NTP (Network Time Protocol) (nodi Linux).
    - Porta UDP 53 per DNS, necessaria se sono presenti pod che accedono direttamente al server API.
-- Configurare i tag del servizio di archiviazione e AzureMonitor. Monitoraggio di Azure riceve i dati di log Analytics. 
+
+   Per altre informazioni, vedere [controllare il traffico in uscita per i nodi del cluster in Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+- Configurare i tag del servizio di archiviazione e AzureMonitor. Monitoraggio di Azure riceve i dati di log Analytics.
 
    È anche possibile consentire l'URL dell'area di lavoro singolarmente `<worksapceguid>.ods.opinsights.azure.com` , ovvero, e `<worksapceguid>.oms.opinsights.azure.com` . È possibile risolvere il problema in uno dei modi seguenti:
 

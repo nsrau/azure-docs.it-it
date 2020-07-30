@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432060"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424376"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Key Vault
  
@@ -134,7 +134,7 @@ Il protocollo HTTP 403 spesso si verifica quando l'applicazione del cliente non 
 
 ### <a name="troubleshooting-403"></a>Risoluzione dei problemi 403
 
-Per prima cosa, attivare la registrazione. Per istruzioni su come eseguire questa operazione, vedere [Azure Key Vault registrazione](logging.md)).
+Per prima cosa, attivare la registrazione. Per istruzioni su come eseguire questa operazione, vedere [Azure Key Vault registrazione](logging.md).
 
 Dopo aver attivato la registrazione, è possibile determinare se 403 è dovuto a criteri di accesso o criteri del firewall.
 

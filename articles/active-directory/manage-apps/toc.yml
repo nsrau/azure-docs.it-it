@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Esercitazioni
   items:
-    - name: Aggiungere un'app non elencata nella raccolta
-      href: add-non-gallery-app.md
     - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
@@ -42,6 +40,8 @@
       items:
         - name: Introduzione all'integrazione di app
           href: plan-an-application-integration.md
+        - name: Pianificare l'aggiunta di app non elencate nella raccolta
+          href: non-gallery-apps.md
         - name: Pianificare una distribuzione del pannello di accesso
           href: access-panel-deployment-plan.md
         - name: Linee guida per gli sviluppatori
@@ -106,7 +106,7 @@
             - name: Configurare l'accesso Single Sign-On basato su SAML
               items:
                 - name: Configurare l'accesso Single Sign-On basato su SAML
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Personalizzare attributi e attestazioni utente
                   items:
                     - name: Configurare le attestazioni di gruppi

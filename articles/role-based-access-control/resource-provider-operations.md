@@ -1,5 +1,5 @@
 ---
-title: Operazioni di provider di risorse di Azure
+title: Operazioni del provider di risorse di Azure
 description: Elenca le operazioni per i provider di risorse di Azure.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496945"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387388"
 ---
-# <a name="azure-resource-providers-operations"></a>Operazioni di provider di risorse di Azure
+# <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
 Questa sezione elenca le operazioni per i provider di risorse di Azure, che vengono usati nei ruoli predefiniti. È possibile usare queste operazioni nei [ruoli personalizzati di Azure](custom-roles.md) per fornire un controllo di accesso granulare alle risorse in Azure. Le operazioni dei provider di risorse sono costantemente in evoluzione. Per ottenere le operazioni più recenti, usare [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) oppure [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -154,7 +154,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft.Subscription](#microsoftsubscription) |
 | **Intune** |
 | [Microsoft.Intune](#microsoftintune) |
-| **Altri** |
+| **Altro** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
 
 
@@ -6929,7 +6929,7 @@ Servizio di Azure: [Azure migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Ottiene le proprietà di un VMware vCenter |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Crea o aggiorna il VMware vCenter |
 
-## <a name="monitor"></a>Monitorare
+## <a name="monitor"></a>Monitoraggio
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -7636,7 +7636,7 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Read | Ottiene il proxy di collegamento privato con ambito. |
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Write | Inserire il proxy di collegamento privato con ambito. |
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Delete | Elimina il proxy di collegamento privato con ambito. |
-> | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Operazione deprecata. |
+> | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Deprecato. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | Crea una nuova configurazione di archiviazione. Tali configurazioni servono per estrarre i dati da una posizione in un account di archiviazione esistente. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | Ottiene una configurazione di archiviazione. |
@@ -8612,7 +8612,7 @@ Servizio di Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Eliminazione di un'impostazione di diagnostica |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Lettura delle categorie di un'impostazione di diagnostica |
 
-## <a name="other"></a>Altri
+## <a name="other"></a>Altro
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

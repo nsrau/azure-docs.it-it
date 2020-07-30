@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320222"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423814"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,6 +128,8 @@ Per registrare tracce personalizzate, seguire il processo di distribuzione stand
 
 3. Compilare un'immagine e distribuirla in [Azure Kubernetes o Azure Container](how-to-deploy-and-where.md).
 
+Per altre informazioni sulla registrazione e sulla raccolta dati, vedere [abilitare la registrazione in Azure Machine Learning](how-to-enable-logging.md) e [raccogliere dati da modelli in produzione](how-to-enable-data-collection.md).
+
 ### <a name="disable-tracking-in-python"></a>Disabilitare il rilevamento in Python
 
 Per disabilitare applicazione Azure Insights, usare il codice seguente:
@@ -166,7 +168,7 @@ Per visualizzarli:
 
     [![Individuare l'URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. In Application iSights, nella scheda **Overview (panoramica** ) o nella sezione __Monitoring (monitoraggio__ ) nell'elenco a sinistra, selezionare __logs (registri__).
+1. In Application Insights, nella scheda **Panoramica** o nella sezione __monitoraggio__ nell'elenco a sinistra, selezionare __log__.
 
     [![Scheda Panoramica del monitoraggio](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 

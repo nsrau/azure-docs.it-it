@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 738e6507a1642a1ab76938eeaf3294668bcea964
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744522"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422292"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualizzazione e ricerca delle attività di accesso recenti dalla pagina Accessi personali (anteprima)
 
@@ -73,3 +73,5 @@ Dopo aver verificato le attività di accesso recenti è possibile:
 - Visualizzare o gestire le [organizzazioni](my-account-portal-organizations-page.md).
 
 - Visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+
+- Modificare [le impostazioni del portale per gli account personali](my-account-portal-settings.md)
