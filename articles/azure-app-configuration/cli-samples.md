@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
-ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68dfdf5357d73cc3b01d19cad61525404ab955f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050160"
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
 
 La tabella seguente include collegamenti a script Bash per Configurazione app di Azure con l'interfaccia della riga di comando di Azure.
 
-| | |
+| Script | Descrizione |
 |-|-|
 |**Creare**||
 | [Creare un archivio di Configurazione app](./scripts/cli-create-service.md) | Creare un gruppo di risorse e un'istanza dell'rchivio di Configurazione app.  |

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: d9c387a095f81978bc57f6ce6365596cafffc39c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e509fc0f93c60d271409b5453aecdf793cd22ecb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040605"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Usare PowerShell per aggiungere un pool elastico a un gruppo di failover
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -62,6 +62,6 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Per altri esempi, vedere tra gli [script di PowerShell per database SQL di Azure](../powershell-script-content-guide.md).

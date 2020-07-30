@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Connettere un dispositivo (Python)
           href: tutorial-connect-device-python.md
-        - name: Connettere un dispositivo Plug and Play (anteprima)
-          href: tutorial-connect-pnp-device.md
         - name: Creare un modello di dispositivo gateway
           href: tutorial-define-gateway-device-type.md
         - name: Connettere un dispositivo IoT Edge
@@ -79,8 +77,6 @@
       items:
         - name: Configurare un modello di dispositivo
           href: howto-set-up-template.md
-        - name: Preparare e connettere un MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Preparare e connettere Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Preparare e connettere un dispositivo RuuviTag

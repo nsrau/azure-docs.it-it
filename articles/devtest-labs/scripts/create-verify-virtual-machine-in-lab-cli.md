@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 767d1f3a504e91783e37d8ff1c1b97f62816af3b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: ab09d2cf0f43d0858fb9a281f39385bff244cc99
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889103"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290388"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Usare l'interfaccia della riga di comando di Azure per creare e verificare la disponibilità di una macchina virtuale in un lab in Azure DevTest Labs
 
@@ -53,6 +53,6 @@ Questo script usa i comandi seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando per Azure Lab Services sono disponibili in [Azure Lab Services CLI samples](../samples-cli.md) (Esempi dell'interfaccia della riga di comando per Azure Lab Services).

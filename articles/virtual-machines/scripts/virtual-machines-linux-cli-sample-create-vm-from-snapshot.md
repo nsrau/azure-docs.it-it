@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a6110ba2787cb99e20c099eb466e2dbd0c3df28e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75458461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085300"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Creare una macchina virtuale da uno snapshot con l'interfaccia della riga di comando
 
@@ -49,12 +49,12 @@ Questo script usa i comandi seguenti per creare un disco gestito, una macchina v
 
 | Comando | Note |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Ottiene lo snapshot usando il nome dello snapshot e il nome del gruppo di risorse. La proprietà Id dell'oggetto restituito viene usata per creare un disco gestito.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crea dischi gestiti da uno snapshot usando l'ID dello snapshot, il nome del disco, il tipo di archiviazione e la dimensione  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crea una VM utilizzando un disco del sistema operativo gestito |
+| [az snapshot show](/cli/azure/snapshot) | Ottiene lo snapshot usando il nome dello snapshot e il nome del gruppo di risorse. La proprietà Id dell'oggetto restituito viene usata per creare un disco gestito.  |
+| [az disk create](/cli/azure/disk) | Crea dischi gestiti da uno snapshot usando l'ID dello snapshot, il nome del disco, il tipo di archiviazione e la dimensione  |
+| [az vm create](/cli/azure/vm) | Crea una VM utilizzando un disco del sistema operativo gestito |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

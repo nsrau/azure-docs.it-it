@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 15dc4ee8a5c1021587bb5c37e634070a76b3f05d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168542"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058230"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Esercitazione: Integrare RingCentral con Azure Active Directory
 
@@ -38,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Una sottoscrizione di RingCentral abilitata per l'accesso Single Sign-On.
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -91,16 +94,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Se non si dispone del **file di metadati del provider di servizi**, immettere i valori per i campi seguenti:
 
     a. Nella casella di testo **Identificatore** digitare un URL:
-
-    - `https://sso.ringcentral.com`
-    - `https://ssoeuro.ringcentral.com`
+  
+    | Identificatore |
+    |--|
+    |  `https://sso.ringcentral.com` |
+    | `https://ssoeuro.ringcentral.com` |
 
     b. Nella casella di testo **URL di risposta** digitare un URL:
 
-    - `https://sso.ringcentral.com/sp/ACS.saml2`
-    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
+    | URL di risposta |
+    |--|
+    | `https://sso.ringcentral.com/sp/ACS.saml2` |
+    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 

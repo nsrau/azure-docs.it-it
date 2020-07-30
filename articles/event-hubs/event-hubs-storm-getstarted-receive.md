@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Ricevere eventi usando Apache Storm - Hub eventi di 
 description: 'Guida introduttiva: Questo articolo fornisce informazioni su come ricevere eventi da Hub eventi di Azure con Apache Storm.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087578"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Guida introduttiva: Ricevere eventi da Hub eventi di Azure usando Apache Storm
 
@@ -238,7 +238,7 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
 [Esempio di HDInsight Storm con Hub eventi]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 

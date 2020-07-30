@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8418a45c9eba596339999c2bddf937a516d3e2d9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338045"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -41,15 +40,15 @@ Una volta completata l'aggiunta di un'applicazione al tenant di Azure AD, viene 
 Per modificare le proprietà dell'applicazione:
 
 1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Trovare e selezionare l'applicazione da configurare.
-1. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica.
+2. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica.
 
     ![Screenshot della schermata Proprietà che mostra le proprietà modificabili dell'app.](media/add-application-portal/edit-properties.png)
 
-1. Esaminare le opzioni disponibili per la configurazione:
+3. Esaminare le opzioni disponibili per la configurazione:
     - **Abilitata per l'accesso degli utenti?** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
     - **Visibile agli utenti?** determina se gli utenti assegnati a un'app possono vederla nel [pannello di accesso](https://myapps.microsoft.com) e nell'icona di avvio delle app di Office 365. (Vedere il menu waffle nell'angolo in alto a sinistra di un sito Web di Office 365 o Microsoft 365).
-1. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
+4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
 
    - Comportamento per gli utenti *assegnati*:
 
@@ -86,10 +85,10 @@ Per modificare le proprietà dell'applicazione:
 Per usare un logo personalizzato:
 
 1. Creare un logo di 215 x 215 pixel e salvarlo in formato PNG.
-1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Trovare e selezionare l'applicazione da configurare.
-1. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica. 
-1. Selezionare l'icona per caricare il logo.
-1. Al termine, fare clic su **Salva**.
+2. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Trovare e selezionare l'applicazione da configurare.
+3. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica. 
+4. Selezionare l'icona per caricare il logo.
+5. Al termine, fare clic su **Salva**.
 
     ![Screenshot della schermata Proprietà che mostra come cambiare il logo.](media/add-application-portal/change-logo.png)
 

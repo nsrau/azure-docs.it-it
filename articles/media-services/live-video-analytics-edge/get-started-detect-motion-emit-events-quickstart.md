@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090077"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -34,7 +34,7 @@ Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 * Hub IoT
 * Account di archiviazione
 * Account Servizi multimediali di Azure
-* Una VM Linux in Azure, con il [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installato
+* Una VM Linux in Azure, con il [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) installato
 
 Per questo argomento di avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse necessarie nella sottoscrizione di Azure. A questo scopo, attenersi alla procedura seguente:
 
@@ -561,7 +561,7 @@ Nella finestra **OUTPUT** viene visualizzato il messaggio seguente:
 
 Si notino questi dettagli:
 
-* Il messaggio contiene una sezione `body` e una sezione `applicationProperties`. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Il messaggio contiene una sezione `body` e una sezione `applicationProperties`. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * In `applicationProperties` `subject` fa riferimento al nodo in`MediaGraph` da cui è stato generato il messaggio. In questo caso il messaggio è originato dal processore di rilevamento del movimento.
 * In `applicationProperties` `eventType` indica che questo evento è un evento di analisi.
 * Il valore di `eventTime` indica la data e l'ora in cui si è verificato l'evento.
