@@ -3,18 +3,18 @@ title: Esempio di script di Azure PowerShell - Creare un gateway VPN | Microsoft
 description: Creare un gateway VPN tramite PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 52a5a70bc8c9f56ff4c5a2e971775d582c8db94d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1531bf7fdb2ec23be49f5a31145e3d8c2487aedc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75862391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087000"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>Creare un gateway VPN tramite PowerShell
 
@@ -82,4 +82,4 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).

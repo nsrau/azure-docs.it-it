@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661635"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318420"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "77661635"
 
 Per completare questa esercitazione:
 
-- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md).
+- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -127,4 +127,5 @@ Dal momento che Log (Analisi) di Azure Application Insights è un servizio disti
 Dopo avere appreso come creare dashboard personalizzati, esaminare il resto della documentazione di Application Insights, che include anche un case study.
 
 > [!div class="nextstepaction"]
-> [Diagnostica completa](../../azure-monitor/app/devops.md)
+> [Diagnostica completa](../app/devops.md)
+

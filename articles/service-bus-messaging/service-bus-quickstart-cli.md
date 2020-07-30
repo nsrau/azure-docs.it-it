@@ -6,12 +6,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-java
+ms.openlocfilehash: 26748b6847ab7061b0038ef9ca18f1b721d320e0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320766"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
 Questa guida introduttiva descrive come inviare e ricevere messaggi con il bus di servizio, usando l'interfaccia della riga di comando di Azure e la libreria Java del bus di servizio. Per dettagli più tecnici, è [vedere la spiegazione](#understand-the-sample-code) degli elementi chiave del codice di esempio.
