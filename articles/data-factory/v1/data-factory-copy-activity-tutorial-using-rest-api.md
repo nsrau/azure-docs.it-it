@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85248582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053819"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
   2. Ottenere i valori per l'**ID client** e la **chiave privata**. 
   3. Ottenere l' **ID tenant**. 
   4. Assegnare l'applicazione **ADFCopyTutorialApp** al ruolo **Collaboratore Data Factory**.  
-* Installare [Azure PowerShell](/powershell/azure/overview).  
+* Installare [Azure PowerShell](/powershell/azure/).  
 * Avviare **PowerShell** e seguire questa procedura. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
   
   1. Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:

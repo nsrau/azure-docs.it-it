@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054470"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Avvio rapido: Eseguire il backup di una macchina virtuale in Azure con un modello di Resource Manager
 
-[Backup di Azure](backup-overview.md) esegue il backup di computer e app locali, oltre che delle VM di Azure. Questo articolo illustra come eseguire il backup di una VM di Azure con un modello di Azure Resource Manager e Azure PowerShell. Questo argomento di avvio rapido descrive in particolare la procedura di distribuzione di un modello di Resource Manager per creare un insieme di credenziali di Servizi di ripristino. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Azure Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.recoveryservices/allversions).
+[Backup di Azure](backup-overview.md) esegue il backup di computer e app locali, oltre che delle VM di Azure. Questo articolo illustra come eseguire il backup di una VM di Azure con un modello di Azure Resource Manager e Azure PowerShell. Questo argomento di avvio rapido descrive in particolare la procedura di distribuzione di un modello di Resource Manager per creare un insieme di credenziali di Servizi di ripristino. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Azure Resource Manager](../azure-resource-manager/index.yml) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

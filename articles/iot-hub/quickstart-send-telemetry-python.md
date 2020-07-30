@@ -12,13 +12,14 @@ ms.custom:
 - mvc
 - mqtt
 - tracking-python
+- 'Role: Cloud Development'
 ms.date: 06/16/2020
-ms.openlocfilehash: f49f2156a6d0e1b5563145c00007746ef4a1bf51
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 467375f2661ab42d6a60eac7fe8ff59129053037
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319100"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
 

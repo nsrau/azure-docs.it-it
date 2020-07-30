@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267563"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126126"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -22,7 +22,7 @@ Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministr
 
 Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente mediante il controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 
-Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo. Se però si sta ancora usando il modello di distribuzione classico e si stanno gestendo le risorse classiche tramite il [modulo PowerShell di gestione del servizio Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure), sarà necessario usare un amministratore classico.
+Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo. Se però si sta ancora usando il modello di distribuzione classico e si stanno gestendo le risorse classiche tramite il [modulo PowerShell di gestione del servizio Azure](/powershell/module/servicemanagement/azure.service), sarà necessario usare un amministratore classico.
 
 > [!TIP]
 > Se si usa solo il portale di Azure per gestire le risorse classiche, non è necessario usare l'amministratore classico.
@@ -69,7 +69,7 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è il controllo degli accessi in base al ruolo?](../../role-based-access-control/overview.md)
+* [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md)
 * [Comprendere i diversi ruoli in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

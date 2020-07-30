@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 0a1a5bf9f192a7128da8843b79b60be0175cec23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092134"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Esempio di interfaccia della riga di comando di Azure: Reimpostare le credenziali dell'account
 
@@ -27,7 +27,7 @@ Lo script dell'interfaccia della riga di comando di Azure in questo articolo mos
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

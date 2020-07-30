@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260518"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089618"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Avvio rapido: Distribuire i contenitori Windows in Service Fabric
 
@@ -86,7 +86,7 @@ Nel file *ApplicationManifest.xml* impostare anche **PasswordEncrypted** su **fa
 
 Lo script di esempio seguente crea un cluster di Service Fabric con cinque nodi protetto con un certificato X.509. Il comando crea un certificato autofirmato e lo carica in un nuovo insieme di credenziali delle chiavi. Il certificato viene copiato anche in una directory locale. Per altre informazioni sulla creazione di un cluster con questo script, vedere [Creare un cluster di Service Fabric](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-Se necessario, installare Azure PowerShell seguendo le istruzioni presenti nella [guida di Azure PowerShell](/powershell/azure/overview).
+Se necessario, installare Azure PowerShell seguendo le istruzioni presenti nella [guida di Azure PowerShell](/powershell/azure/).
 
 Prima di eseguire questo script, in PowerShell eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

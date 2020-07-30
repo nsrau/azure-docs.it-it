@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce2e4ca2cad0fc080d6a750b3f1682210a5b9b20
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737054"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387660"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurare MACsec in porte ExpressRoute dirette
 
@@ -47,7 +47,7 @@ Per avviare la configurazione, accedere al proprio account Azure e selezionare l
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se è già presente un insieme di credenziali delle chiavi o un gruppo di risorse, è possibile riutilizzarli. È tuttavia fondamentale abilitare la funzionalità di [ **eliminazione** ](../key-vault/general/overview-soft-delete.md) temporanea nell'insieme di credenziali delle chiavi esistente. Se soft-delete non è abilitato, è possibile usare i comandi seguenti per abilitarlo:
+    Se è già presente un insieme di credenziali delle chiavi o un gruppo di risorse, è possibile riutilizzarli. È tuttavia fondamentale abilitare la funzionalità di [ **eliminazione** ](../key-vault/general/soft-delete-overview.md) temporanea nell'insieme di credenziali delle chiavi esistente. Se soft-delete non è abilitato, è possibile usare i comandi seguenti per abilitarlo:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
