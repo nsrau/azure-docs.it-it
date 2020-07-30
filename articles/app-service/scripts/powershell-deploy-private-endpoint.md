@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: e4bdf1c06a4a52a9483b3d2bbae8d2737c531eb0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 97ded67b9f9daa2652b2740a21a4b7d6a0ac2bdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068258"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-powershell"></a>Creare un'app del servizio app e distribuire un endpoint privato con PowerShell
 
@@ -124,5 +124,5 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+- Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 - Altri esempi di Azure PowerShell per app Web del servizio app di Azure sono disponibili in [Esempi di Azure PowerShell](../samples-powershell.md).

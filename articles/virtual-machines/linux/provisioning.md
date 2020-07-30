@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080149"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisioning di macchine virtuali Linux in Azure
 Quando si crea una VM da un'immagine generalizzata (raccolta immagini condivise o immagine gestita), il piano di controllo consentirà di creare una VM e di passarvi parametri e impostazioni. Questo processo è detto *provisioning* della VM. Durante il provisioning, la piattaforma rende disponibili alla macchina virtuale i valori dei parametri necessari per la creazione (nome host, nome utente, password, chiavi SSH, dati personalizzati) all'avvio. 
 
 Un agente di provisioning inserito all'interno dell'immagine si interfaccia con la piattaforma, connettendosi a più interfacce di provisioning indipendenti, imposta le proprietà e segnala il completamento alla piattaforma. 
 
-Gli agenti di provisioning possono essere l'[agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) o [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Sono [prerequisiti](create-upload-generic.md) per la creazione di immagini generalizzate.
+Gli agenti di provisioning possono essere l'[agente Linux di Azure](../extensions/agent-linux.md) o [cloud-init](./using-cloud-init.md). Sono [prerequisiti](create-upload-generic.md) per la creazione di immagini generalizzate.
 
-Gli agenti di provisioning forniscono il supporto per tutte le [distribuzioni Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) approvate. In molti casi le immagini delle distribuzioni approvate vengono fornite sia con cloud-init che con l'agente Linux. In questo modo è possibile scegliere di affidare a cloud-init la gestione del provisioning, quindi l'agente Linux fornirà il supporto per gestire le [estensioni di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Il supporto per le estensioni significa che la VM sarà quindi idonea per supportare altri servizi di Azure, come la reimpostazione della password delle VM, Monitoraggio di Azure, Backup di Azure, Crittografia dischi di Azure e così via.
+Gli agenti di provisioning forniscono il supporto per tutte le [distribuzioni Linux in Azure](./endorsed-distros.md) approvate. In molti casi le immagini delle distribuzioni approvate vengono fornite sia con cloud-init che con l'agente Linux. In questo modo è possibile scegliere di affidare a cloud-init la gestione del provisioning, quindi l'agente Linux fornirà il supporto per gestire le [estensioni di Azure](../extensions/features-windows.md). Il supporto per le estensioni significa che la VM sarà quindi idonea per supportare altri servizi di Azure, come la reimpostazione della password delle VM, Monitoraggio di Azure, Backup di Azure, Crittografia dischi di Azure e così via.
 
 Al termine del provisioning, cloud-init viene eseguito a ogni avvio. Cloud-init monitorerà le modifiche apportate alla macchina virtuale, ad esempio le modifiche di rete, il montaggio, la formattazione del disco temporaneo e l'avvio dell'agente Linux. L'agente Linux viene continuamente eseguito sul server, alla ricerca di un 'stato obiettivo' (nuova configurazione) della piattaforma Azure, quindi, ogni volta che si installano le estensioni, l'agente sarà in grado di elaborarle.
 

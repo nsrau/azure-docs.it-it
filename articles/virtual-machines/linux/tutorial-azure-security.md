@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080098"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
@@ -57,7 +57,7 @@ L'agente di raccolta dati del Centro sicurezza viene quindi installato in tutte 
 
 ## <a name="set-up-a-security-policy"></a>Configurare un criterio di sicurezza
 
-I criteri di sicurezza vengono usati per definire gli elementi per cui il Centro sicurezza raccoglie i dati e genera raccomandazioni. È possibile applicare criteri di sicurezza diversi per set di risorse di Azure diversi. Sebbene per impostazione predefinita le risorse di Azure vengono valutate per tutti gli elementi dei criteri, è possibile disattivare gli elementi di criteri individuali per tutte le risorse di Azure o per un gruppo di risorse. Per informazioni approfondite sui criteri di sicurezza del Centro sicurezza, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-policies.md). 
+I criteri di sicurezza vengono usati per definire gli elementi per cui il Centro sicurezza raccoglie i dati e genera raccomandazioni. È possibile applicare criteri di sicurezza diversi per set di risorse di Azure diversi. Sebbene per impostazione predefinita le risorse di Azure vengono valutate per tutti gli elementi dei criteri, è possibile disattivare gli elementi di criteri individuali per tutte le risorse di Azure o per un gruppo di risorse. Per informazioni approfondite sui criteri di sicurezza del Centro sicurezza, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](../../security-center/tutorial-security-policy.md). 
 
 Per configurare criteri di sicurezza per un'intera sottoscrizione:
 
@@ -134,4 +134,3 @@ Passare all'esercitazione successiva per altre informazioni sulla creazione di u
 
 > [!div class="nextstepaction"]
 > [Creare un'infrastruttura di integrazione continua e di distribuzione continua con Jenkins, GitHub e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

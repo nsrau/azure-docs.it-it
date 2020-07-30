@@ -1,20 +1,20 @@
 ---
 title: "Esercitazione: Implementare l'analisi spaziale di IoT | Mappe di Microsoft Azure"
 description: Integrare l'hub IoT con le API del servizio Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2bb5876424730e55d15cc52aeb98aa04af040821
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318927"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133402"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Esercitazione: Implementare l'analisi spaziale di IoT con Mappe di Azure
 
@@ -110,7 +110,7 @@ Per completare i passaggi di questa esercitazione, è necessario prima creare un
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per implementare la logica di business basata sull'analisi spaziale di Mappe di Azure è necessario creare un account Mappe di Azure nel gruppo di risorse creato. Creare una sottoscrizione dell'account Mappe di Azure nel piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Per implementare la logica di business basata sull'analisi spaziale di Mappe di Azure è necessario creare un account Mappe di Azure nel gruppo di risorse creato. Creare una sottoscrizione dell'account Mappe di Azure nel piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 
 

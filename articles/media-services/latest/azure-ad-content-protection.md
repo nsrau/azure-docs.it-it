@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001401"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Esercitazione: Protezione end-to-end del contenuto con Azure AD
 
@@ -48,13 +48,13 @@ Vengono usati i concetti e le versioni della tecnologia più recente seguenti. �
 È consigliabile, anche se non obbligatorio, avere familiarità con i concetti seguenti prima di iniziare l'esercitazione:
 
 * Digital Rights Management (DRM)
-* [Servizi multimediali di Azure (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Servizi multimediali di Azure (AMS) v3](./media-services-overview.md)
 * [Criteri di chiave simmetrica](content-key-policy-concept.md) di AMS con l'API AMS v3, il portale di Azure o lo [strumento Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Endpoint di Azure AD v2 in [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
-* Autenticazione cloud moderna come [OAuth 2.0 e OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * [Flusso di codice di autorizzazione in OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) e perché PKCE è necessario
-  * [Confronto tra autorizzazione delegata e autorizzazione dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [Token JWT](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), relative attestazioni e rollover della chiave di firma (inclusi nell'esempio)
+* Endpoint di Azure AD v2 in [Microsoft Identity Platform](../../active-directory/develop/index.yml)
+* Autenticazione cloud moderna come [OAuth 2.0 e OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * [Flusso di codice di autorizzazione in OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) e perché PKCE è necessario
+  * [Confronto tra autorizzazione delegata e autorizzazione dell'applicazione](../../active-directory/develop/developer-glossary.md#permissions)
+* [Token JWT](../../active-directory/develop/access-tokens.md), relative attestazioni e rollover della chiave di firma (inclusi nell'esempio)
 
 ### <a name="prerequisite-code-and-installations"></a>Codice e installazioni necessari
 
@@ -63,7 +63,7 @@ Vengono usati i concetti e le versioni della tecnologia più recente seguenti. �
 * Un'installazione di Node.js. Scaricare Node.js qui [https://nodejs.org](https://nodejs.org). NPM viene fornito con l'installazione.
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 * Un account di Servizi multimediali di Azure (AMS).
-* @azure/msal-browser v2.0, uno dei membri della famiglia di SDK [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) per diverse piattaforme client.
+* @azure/msal-browser v2.0, uno dei membri della famiglia di SDK [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) per diverse piattaforme client.
 * La versione più recente di [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples) (incluso nell'esempio).
 * Le credenziali FPS di Apple se si vuole includere il sistema DRM FairPlay e il certificato dell'applicazione ospitato con CORS accessibile tramite JavaScript lato client.
 
@@ -98,7 +98,7 @@ La progettazione del sottosistema è illustrata nel diagramma seguente.  È cost
 
 ![Schermata per l'analisi dei token JWT](media/aad-ams-content-protection/subsystem.svg)
 
-Per altre informazioni sul sottosistema, vedere [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control).
+Per altre informazioni sul sottosistema, vedere [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](./design-multi-drm-system-with-access-control.md).
 
 ## <a name="understand-the-single-page-app"></a>Informazioni sull'applicazione a pagina singola
 
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-L'attestazione *groups* è membro di un [set di attestazioni con restrizioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) in Azure AD.
+L'attestazione *groups* è membro di un [set di attestazioni con restrizioni](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) in Azure AD.
 
 #### <a name="test"></a>Test
 

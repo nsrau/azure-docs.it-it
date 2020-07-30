@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080948"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Avvio rapido: Creare un hub di notifica di Azure con l'interfaccia della riga di comando di Azure
 
@@ -95,7 +95,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Se il valore `--name` specificato al comando `az notification-hub namespace create` non è disponibile o non rispetta le [Regole di denominazione e restrizioni per le risorse di Azure](/azure/azure-resource-manager/management/resource-name-rules), l'interfaccia della riga di comando di Azure risponderà con l'output seguente della console:
+   Se il valore `--name` specificato al comando `az notification-hub namespace create` non è disponibile o non rispetta le [Regole di denominazione e restrizioni per le risorse di Azure](../azure-resource-manager/management/resource-name-rules.md), l'interfaccia della riga di comando di Azure risponderà con l'output seguente della console:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 1. Elencare i criteri di accesso per un hub di notifica.
 
-   Hub di notifica di Azure usa la [sicurezza basata su firma di accesso condiviso](/azure/notification-hubs/notification-hubs-push-notification-security) tramite i criteri di accesso.  Quando si crea un hub di notifica, vengono creati automaticamente due criteri.  Le stringhe di connessione da questi criteri sono necessarie per configurare le notifiche push.  Il comando [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornisce un elenco di nomi di criteri e dei rispettivi gruppi di risorse.
+   Hub di notifica di Azure usa la [sicurezza basata su firma di accesso condiviso](./notification-hubs-push-notification-security.md) tramite i criteri di accesso.  Quando si crea un hub di notifica, vengono creati automaticamente due criteri.  Le stringhe di connessione da questi criteri sono necessarie per configurare le notifiche push.  Il comando [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornisce un elenco di nomi di criteri e dei rispettivi gruppi di risorse.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 3. Elencare le chiavi e le stringhe di connessione per i criteri di accesso degli hub di notifica
 
-   Per ogni criterio di accesso esistono due set di chiavi e stringhe di connessione.  Saranno necessarie in seguito per [configurare un hub di notifica](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Per elencare le chiavi e le stringhe di connessione per i criteri di accesso degli hub di notifica, usare il comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
+   Per ogni criterio di accesso esistono due set di chiavi e stringhe di connessione.  Saranno necessarie in seguito per [configurare un hub di notifica](./configure-notification-hub-portal-pns-settings.md).  Per elencare le chiavi e le stringhe di connessione per i criteri di accesso degli hub di notifica, usare il comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature
