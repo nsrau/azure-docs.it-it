@@ -6,13 +6,13 @@ ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: af75afb2840d2bc14e1fa46310f76f662efa2a54
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516499"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384787"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Guida introduttiva: Avviare il monitoraggio dell'applicazione Web Node.js con Azure Application Insights
 
@@ -112,11 +112,11 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
    </script>
    ```
 
-5. A sinistra selezionare **Metriche**. Usare Esplora metriche per esaminare l'integrità e l'utilizzo della risorsa. È possibile selezionare **Aggiungi nuovo grafico** per creare altre visualizzazioni personalizzate oppure **Modifica** per modificare tipi, altezza, tavolozza dei colori, raggruppamenti e metriche dei grafici esistenti. Si può ad esempio creare un grafico che visualizza il tempo medio di caricamento delle pagine del browser selezionando "Tempo di caricamento della pagina del browser" nell'elenco a discesa delle metriche e "Media" in Aggregazione. Per altre informazioni su Esplora metriche di Azure, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md).
+5. A sinistra selezionare **Metriche**. Usare Esplora metriche per esaminare l'integrità e l'utilizzo della risorsa. È possibile selezionare **Aggiungi nuovo grafico** per creare altre visualizzazioni personalizzate oppure **Modifica** per modificare tipi, altezza, tavolozza dei colori, raggruppamenti e metriche dei grafici esistenti. Si può ad esempio creare un grafico che visualizza il tempo medio di caricamento delle pagine del browser selezionando "Tempo di caricamento della pagina del browser" nell'elenco a discesa delle metriche e "Media" in Aggregazione. Per altre informazioni su Esplora metriche di Azure, vedere [Introduzione a Esplora metriche di Azure](../platform/metrics-getting-started.md).
 
    ![Grafici delle metriche del server di Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Per altre informazioni sul monitoraggio di Node.js, vedere la [documentazione aggiuntiva su Node.js in AppInsights](../../azure-monitor/app/nodejs.md).
+Per altre informazioni sul monitoraggio di Node.js, vedere la [documentazione aggiuntiva su Node.js in AppInsights](../app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -132,3 +132,4 @@ Dopo aver completato i test, è possibile eliminare il gruppo di risorse e tutte
 
 > [!div class="nextstepaction"]
 > [Rilevare e diagnosticare i problemi di prestazioni](../log-query/log-query-overview.md)
+

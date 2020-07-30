@@ -3,16 +3,16 @@ title: Monitorare l'utilizzo e la spesa con gli avvisi per i costi
 description: Questo articolo descrive come usare gli avvisi per i costi per monitorare l'uso e le spese in Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: e3816c167aea80f32c35c7196de166de57dc9622
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce63756e19e0991ce7aee0b2b6c9c65712b1680b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203067"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290798"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usare gli avvisi per i costi per monitorare l'uso e le spese
 

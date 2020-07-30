@@ -4,12 +4,12 @@ description: Questo argomento di avvio rapido illustra come configurare il monit
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: b47f3ce1ebed12d14dffd68e87dd013bb86218ea
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323435"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Guida introduttiva: Avviare il monitoraggio del sito Web con Application Insights di Monitoraggio di Azure
 
@@ -30,7 +30,7 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
 1. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Application Insights**.
 
    > [!NOTE]
-   >Se è la prima volta che viene creata una risorsa di Application Insights, vedere [Creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Se è la prima volta che viene creata una risorsa di Application Insights, vedere [Creare una risorsa di Application Insights](./create-new-resource.md).
 1. Quando viene visualizzata la finestra di configurazione, usare la tabella seguente per completare i campi di input:
 
     | Impostazioni        | valore           | Descrizione  |
@@ -105,15 +105,15 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
 
    ![Grafico di analisi delle richieste di un utente in un periodo di tempo](./media/website-monitoring/analytics-query.png)
 
-1. Tornare alla pagina **Panoramica**. Nell'intestazione **Analisi** selezionare **Browser** e quindi **Prestazioni**.  Vengono visualizzate le metriche relative alle prestazioni del sito Web. È disponibile una visualizzazione corrispondente per l'analisi degli errori e delle eccezioni nel sito Web. È possibile selezionare **Esempi** per accedere a [Dettagli sulle transazioni end-to-end](../../azure-monitor/app/transaction-diagnostics.md).
+1. Tornare alla pagina **Panoramica**. Nell'intestazione **Analisi** selezionare **Browser** e quindi **Prestazioni**.  Vengono visualizzate le metriche relative alle prestazioni del sito Web. È disponibile una visualizzazione corrispondente per l'analisi degli errori e delle eccezioni nel sito Web. È possibile selezionare **Esempi** per accedere a [Dettagli sulle transazioni end-to-end](./transaction-diagnostics.md).
 
    ![Grafico delle metriche del server](./media/website-monitoring/browser-performance.png)
 
-1. Nel menu principale di Application Insights, nell'intestazione **Utilizzo** selezionare [**Utenti**](../../azure-monitor/app/usage-segmentation.md) per iniziare a esplorazione gli [strumenti di analisi del comportamento degli utenti](../../azure-monitor/app/usage-overview.md). Poiché i test vengono eseguiti da un singolo computer, si vedranno i dati per un unico utente. Per un sito Web live, la distribuzione degli utenti sarà simile alla seguente:
+1. Nel menu principale di Application Insights, nell'intestazione **Utilizzo** selezionare [**Utenti**](./usage-segmentation.md) per iniziare a esplorazione gli [strumenti di analisi del comportamento degli utenti](./usage-overview.md). Poiché i test vengono eseguiti da un singolo computer, si vedranno i dati per un unico utente. Per un sito Web live, la distribuzione degli utenti sarà simile alla seguente:
 
      ![Grafico degli utenti](./media/website-monitoring/usage-users.png)
 
-1. Per un sito Web più complesso con più pagine, è possibile usare lo strumento [**Flussi utente**](../../azure-monitor/app/usage-flows.md) per tenere traccia del percorso seguito dai visitatori attraverso le varie sezioni.
+1. Per un sito Web più complesso con più pagine, è possibile usare lo strumento [**Flussi utente**](./usage-flows.md) per tenere traccia del percorso seguito dai visitatori attraverso le varie sezioni.
 
    ![Visualizzazione di Flussi utente](./media/website-monitoring/user-flows.png)
 
@@ -132,4 +132,5 @@ Se si prevede di continuare a seguire altri argomenti di avvio rapido o esercita
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Rilevare e diagnosticare i problemi di prestazioni](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Rilevare e diagnosticare i problemi di prestazioni](../log-query/log-query-overview.md)
+

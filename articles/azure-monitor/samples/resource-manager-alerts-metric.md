@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322296"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso delle metriche in Monitoraggio di Azure
 
@@ -23,7 +23,7 @@ Questo articolo fornisce esempi dell'uso di [modelli di Azure Resource Manager](
 Per un elenco delle risorse che è possibile usare con le regole di avviso delle metriche, vedere [Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-near-real-time.md). Per una spiegazione dello schema e delle proprietà di una regola di avviso, vedere [Avvisi delle metriche: creazione o aggiornamento](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: area di lavoro Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere [Avviso delle metriche per i log: modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: area di lavoro Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere [Avviso delle metriche per i log: modello di risorsa](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -3127,7 +3127,7 @@ Questo esempio crea una regola di avviso delle metriche con soglie dinamiche che
 
 
 ## <a name="availability-test-with-metric-alert"></a>Test di disponibilità con avviso delle metriche
-I [test di disponibilità di Application Insights](../../azure-monitor/app/monitor-web-app-availability.md) consentono di monitorare la disponibilità del sito Web o dell'applicazione da diverse località in tutto il mondo. Gli avvisi dei test di disponibilità segnalano quando i test di disponibilità non riescono da un determinato numero di località. Gli avvisi dei test di disponibilità sono dello stesso tipo di risorsa degli avvisi delle metriche (Microsoft.Insights/metricAlerts). L'esempio seguente crea un semplice test di disponibilità e l'avviso associato.
+I [test di disponibilità di Application Insights](../app/monitor-web-app-availability.md) consentono di monitorare la disponibilità del sito Web o dell'applicazione da diverse località in tutto il mondo. Gli avvisi dei test di disponibilità segnalano quando i test di disponibilità non riescono da un determinato numero di località. Gli avvisi dei test di disponibilità sono dello stesso tipo di risorsa degli avvisi delle metriche (Microsoft.Insights/metricAlerts). L'esempio seguente crea un semplice test di disponibilità e l'avviso associato.
 
 > [!NOTE]
 > `&amp`; è il riferimento all'entità HTML per &. I parametri URL sono ancora separati da un singolo carattere &, ma se si cita l'URL in HTML, è necessario codificarlo. Quindi, se nel valore del parametro pingURL è presente un carattere "&", è necessario eseguirne l'escape con "`&amp`;"
@@ -3266,3 +3266,4 @@ I [test di disponibilità di Application Insights](../../azure-monitor/app/monit
 - [Passare ad altri esempi per Monitoraggio di Azure](resource-manager-samples.md).
 - [Altre informazioni sugli avvisi](../platform/alerts-overview.md).
 - [Ottenere un esempio per creare un gruppo di azione con un modello di Resource Manager](resource-manager-action-groups.md)
+

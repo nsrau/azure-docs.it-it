@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 275a53c0ae5e1058d58516e9c01fa894ddad2120
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74171984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054594"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 
@@ -26,7 +26,7 @@ Per installare e usare l'interfaccia della riga di comando in locale, è necessa
 
 Un insieme di credenziali dei servizi di ripristino è un contenitore logico in cui vengono archiviati i dati di backup per ogni risorsa protetta, ad esempio per le VM di Azure. Quando viene eseguito, il processo di backup per una risorsa protetta crea un punto di ripristino all'interno dell'insieme di credenziali dei servizi di ripristino. È quindi possibile usare uno di questi punti di ripristino per ripristinare i dati a un dato momento.
 
-Creare un insieme di credenziali dei servizi di ripristino con [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create). Specificare lo stesso gruppo di risorse e la stessa località della VM da proteggere. Se è stata usata la [guida introduttiva sulle macchine virtuali](../virtual-machines/linux/quick-create-cli.md), sono stati creati gli elementi seguenti:
+Creare un insieme di credenziali dei servizi di ripristino con [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specificare lo stesso gruppo di risorse e la stessa località della VM da proteggere. Se è stata usata la [guida introduttiva sulle macchine virtuali](../virtual-machines/linux/quick-create-cli.md), sono stati creati gli elementi seguenti:
 
 - Un gruppo di risorse denominato *myResourceGroup*.
 - Una macchina virtuale denominata *myVM*.
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione della ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione della ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Abilitare il backup per una VM di Azure
 
-Creare criteri di protezione per definire quando deve essere eseguito un processo di backup e per quanto tempo devono essere archiviati i punti di ripristino. I criteri di protezione predefiniti eseguono un processo di backup ogni giorno e conservano i punti di ripristino per 30 giorni. È possibile usare questi valori dei criteri predefiniti per proteggere rapidamente la VM. Per abilitare la protezione dei backup per una VM, usare [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Specificare il gruppo di risorse e la VM da proteggere e quindi i criteri da usare:
+Creare criteri di protezione per definire quando deve essere eseguito un processo di backup e per quanto tempo devono essere archiviati i punti di ripristino. I criteri di protezione predefiniti eseguono un processo di backup ogni giorno e conservano i punti di ripristino per 30 giorni. È possibile usare questi valori dei criteri predefiniti per proteggere rapidamente la VM. Per abilitare la protezione dei backup per una VM, usare [az backup protection enable-for-vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Specificare il gruppo di risorse e la VM da proteggere e quindi i criteri da usare:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,11 +71,11 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Quando si usa l'interfaccia della riga di comando per abilitare il backup simultaneo di più macchine virtuali, assicurarsi che a un singolo criterio non siano associate più di 100 VM. Si tratta di una [procedura consigliata](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Attualmente, il client PS non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma per il futuro è pianificata l'aggiunta del controllo.
+> Quando si usa l'interfaccia della riga di comando per abilitare il backup simultaneo di più macchine virtuali, assicurarsi che a un singolo criterio non siano associate più di 100 VM. Si tratta di una [procedura consigliata](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Attualmente, il client PS non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma per il futuro è pianificata l'aggiunta del controllo.
 
 ## <a name="start-a-backup-job"></a>Avviare un processo di backup
 
-Per avviare subito un backup anziché attendere che il processo venga eseguito dai criteri predefiniti all'ora pianificata, usare [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now). Il primo processo di backup crea un punto di ripristino completo. Tutti i processi di backup successivi a questo backup iniziale creano punti di ripristino incrementali. I punti di ripristino incrementali sono veloci ed efficienti in termini di archiviazione, perché trasferiscono solo le modifiche eseguite dopo l'ultimo backup.
+Per avviare subito un backup anziché attendere che il processo venga eseguito dai criteri predefiniti all'ora pianificata, usare [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). Il primo processo di backup crea un punto di ripristino completo. Tutti i processi di backup successivi a questo backup iniziale creano punti di ripristino incrementali. I punti di ripristino incrementali sono veloci ed efficienti in termini di archiviazione, perché trasferiscono solo le modifiche eseguite dopo l'ultimo backup.
 
 Per il backup della VM vengono usati i parametri seguenti:
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>Monitorare il processo di backup
 
-Per monitorare lo stato dei processi di backup, usare [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list):
+Per monitorare lo stato dei processi di backup, usare [az backup job list](/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \

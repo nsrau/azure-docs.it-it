@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 84a93d4fb8a6a3890ddd2c94b4f0a5c9114bd84d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058194"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Esercitazione: Integrare Replicon con Azure Active Directory
 
@@ -40,13 +40,16 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere una versione di valutazione gratuita per un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 * Sottoscrizione di Replicon abilitata per l'accesso Single Sign-On (SSO).
 
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
+
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Replicon supporta l'accesso SSO avviato da **SP**.
 
 ## <a name="adding-replicon-from-the-gallery"></a>Aggiunta di Replicon dalla raccolta
 
-Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere Replicon dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere Replicon dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -57,15 +60,15 @@ Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Replicon usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Replicon.
+Configurare e testare l'accesso SSO di Azure AD con Replicon usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Replicon.
 
 Per configurare e testare l'accesso SSO di Azure AD con Replicon, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Replicon](#configure-replicon-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Replicon](#create-replicon-test-user)** : per avere una controparte di B.Simon in Replicon collegata alla rappresentazione dell'utente in Azure AD.
+2. **[Configurare l'accesso Single Sign-On di Replicon](#configure-replicon-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Replicon](#create-replicon-test-user)** : per avere una controparte di B. Simon in Replicon collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -135,10 +138,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Replicon.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Replicon.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Replicon**.
+1. Nell'elenco di applicazioni selezionare **Replicon**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -151,9 +154,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-replicon-test-user"></a>Creare l'utente di test di Replicon
+### <a name="create-replicon-test-user"></a>Creare un utente di test di Replicon
 
-In questa sezione viene creato un utente di nome B.Simon in Replicon.
+In questa sezione viene creato un utente di nome B. Simon in Replicon.
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -167,7 +170,7 @@ In questa sezione viene creato un utente di nome B.Simon in Replicon.
 
     ![Add User](./media/replicon-tutorial/ic777807.png "Aggiunta di un utente")
 
-4. Nella sezione **Profilo utente** eseguire la procedura seguente:
+4. Nella sezione **Profilo utente** , eseguire la procedura seguente:
 
     ![Profilo utente](./media/replicon-tutorial/ic777808.png "Profilo utente")
 
@@ -180,7 +183,7 @@ In questa sezione viene creato un utente di nome B.Simon in Replicon.
 
     c. Impostare l'ID di autenticazione sullo stesso valore del nome di accesso (indirizzo di posta elettronica dell'utente in Azure AD)
 
-    d. Nella casella di testo **Reparto** digitare il reparto dell'utente.
+    d. Nella casella di testo **Reparto** , digitare il reparto dell'utente.
 
     e. In **Tipo di dipendente** selezionare **Amministratore**.
 
@@ -191,7 +194,7 @@ In questa sezione viene creato un utente di nome B.Simon in Replicon.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di Replicon nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Replicon per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Replicon nel Pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Replicon per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

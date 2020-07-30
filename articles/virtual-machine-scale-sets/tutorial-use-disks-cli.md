@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029625"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -43,12 +43,12 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
 | Type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
 |----|----|----|
-| [Utilizzo generico](../virtual-machines/linux/sizes-general.md) | Serie A, B e D | 1600 |
-| [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
-| [Ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md) | Serie D, E, G e M | 6144 |
-| [Ottimizzate per l'archiviazione](../virtual-machines/linux/sizes-storage.md) | Serie L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 1440 |
-| [Prestazioni elevate](../virtual-machines/linux/sizes-hpc.md) | Serie A e H | 2000 |
+| [Utilizzo generico](../virtual-machines/sizes-general.md) | Serie A, B e D | 1600 |
+| [Ottimizzate per il calcolo](../virtual-machines/sizes-compute.md) | Serie F | 576 |
+| [Ottimizzate per la memoria](../virtual-machines/sizes-memory.md) | Serie D, E, G e M | 6144 |
+| [Ottimizzate per l'archiviazione](../virtual-machines/sizes-storage.md) | Serie L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Serie N | 1440 |
+| [Prestazioni elevate](../virtual-machines/sizes-hpc.md) | Serie A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Preparare i dischi dati
 I dischi che vengono creati e collegati a istanze di VM del set di scalabilità non sono formattati. Prima di usarli con i dati e le applicazioni, è necessario prepararli. Per preparare i dischi, creare una partizione e un file system, quindi montare i dischi.
 
-Per automatizzare il processo in più istanze di macchina virtuale di un set di scalabilità, è possibile usare l'estensione Script personalizzato di Azure. Questa estensione può eseguire script in locale in ogni istanza di macchina virtuale, ad esempio per preparare i dischi dati collegati. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/linux/extensions-customscript.md).
+Per automatizzare il processo in più istanze di macchina virtuale di un set di scalabilità, è possibile usare l'estensione Script personalizzato di Azure. Questa estensione può eseguire script in locale in ogni istanza di macchina virtuale, ad esempio per preparare i dischi dati collegati. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/extensions/custom-script-linux.md).
 
 L'esempio seguente esegue uno script da un repository GitHub di esempio in ogni istanza di macchina virtuale con [az vmss extension set](/cli/azure/vmss/extension) per preparare tutti i dischi dati non formattati collegati:
 

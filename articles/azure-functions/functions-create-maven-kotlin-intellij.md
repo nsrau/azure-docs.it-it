@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674552"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055454"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Guida di avvio rapido: Creare la prima funzione attivata tramite HTTP con Kotlin e IntelliJ
 
@@ -26,7 +26,7 @@ Per sviluppare una funzione con Kotlin e IntelliJ, installare il software seguen
 - [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), versione 8
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versione Community o Ultimate con Maven
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di Azure](/cli/azure)
 - [Versione 2.x](functions-run-local.md#v2) di Azure Functions Core Tools, che offre un ambiente di sviluppo locale per la scrittura, l'esecuzione e il debug di Funzioni di Azure.
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Per sviluppare una funzione con Kotlin e IntelliJ, installare il software seguen
 1. Selezionare **OK**, quindi **Avanti**.
 1. Immettere i dettagli relativi al progetto corrente e selezionare **Finish** (Fine).
 
-Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo stesso nome del valore _artifactId_. Il codice generato del progetto è una semplice funzione [attivata tramite HTTP](/azure/azure-functions/functions-bindings-http-webhook) che restituisce il corpo della richiesta di attivazione dell'HTTP.
+Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo stesso nome del valore _artifactId_. Il codice generato del progetto è una semplice funzione [attivata tramite HTTP](./functions-bindings-http-webhook.md) che restituisce il corpo della richiesta di attivazione dell'HTTP.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Eseguire le funzioni in locale nell'IDE
 
