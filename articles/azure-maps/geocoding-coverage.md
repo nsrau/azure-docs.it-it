@@ -1,26 +1,29 @@
 ---
-title: Copertura della geocodifica | Mappe Microsoft Azure
-description: Il processo di conversione dell'indirizzo di posizione nelle coordinate di latitudine e Longitudine è noto come geocodifica. In questo articolo vengono fornite informazioni sulle aree con copertura geocodifica in Microsoft Azure maps.
+title: Copertura della geocodifica nel servizio di ricerca di Microsoft Azure Maps
+description: In questo articolo si apprenderà come Microsoft Azure mappe la copertura geocodifica in paesi/aree geografiche diverse.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/31/2019
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132807"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386912"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
-Quando si cerca un percorso con mappe di Azure, il servizio di ricerca, ad esempio [Ottieni indirizzo](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)di ricerca, accetta i termini di ricerca e restituisce le coordinate di latitudine e longitudine. Questo processo è noto come geocodifica. Tuttavia, le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area. 
+Il servizio di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps supporta la geocodifica, il che significa che la richiesta dell'API può avere termini di ricerca, ad esempio un indirizzo o il nome di una posizione, e restituisce il risultato come coordinate di latitudine e longitudine. Ad esempio, l'API di [ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) di Azure Maps Get riceve query che contengono informazioni sul percorso e restituisce i risultati come coordinate di latitudine e longitudine.
 
-La possibilità di geocodificare in un paese/area geografica dipende dalla copertura dei dati stradali e dalla precisione della geocodifica del servizio di geocodifica. Vengono usate le categorizzazioni seguenti per specificare il livello di supporto per la geocodifica in ogni paese/area geografica.
-* **Punti di indirizzo**: i dati degli indirizzi possono essere risolti in una coordinata di latitudine/longitudine all'interno del lotto di indirizzo (limite di proprietà). Talvolta definito come accurato in modo "Rooftop". Questo è il massimo livello di accuratezza disponibile per gli indirizzi. 
+Il [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps, tuttavia, non ha lo stesso livello di informazioni e accuratezza per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area.
+
+La possibilità di geocodificare in un paese/area geografica dipende dalla precisione della copertura dei dati e della geocodifica del servizio di geocodifica. Le categorizzazioni seguenti vengono usate per specificare il livello di supporto per la geocodifica in ogni paese/area geografica.
+
+* **Punti di indirizzo** : i dati dell'indirizzo possono essere risolti in coordinate di Latitudine/Longitudine all'interno del pacco di indirizzi (limite della proprietà). I punti di indirizzo vengono spesso definiti "Rooftop", che rappresenta il livello più elevato di accuratezza disponibile per gli indirizzi.
 * **Numeri civici**: Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
 * **Livello stradale**: Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
 * **Livello città**: Sono supportati i nomi delle città.
@@ -214,7 +217,6 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Città del Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
 | Paese/Area geografica                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
@@ -295,11 +297,8 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla geocodifica di Mappe di Azure, vedere le pagine di riferimento della funzione di [ricerca](https://docs.microsoft.com/rest/api/maps/search).
-
-Vedere la [aree di copertura per il servizio del traffico di Mappe](traffic-coverage.md). 
-
+Altre informazioni sulla geocodifica di Azure Maps:
+> [!div class="nextstepaction"]
+> [Servizio di ricerca Maps di Azure](https://docs.microsoft.com/rest/api/maps/search)

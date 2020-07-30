@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: erhopf
-ms.custom: tracking-python
-ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 48e5f6d453e69dcbafd9aefe283eb2c880d4b48e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406640"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -31,7 +31,7 @@ Tutti gli endpoint di servizi cognitivi esposti tramite HTTP applicano TLS 1,2. 
 
 Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedure <span class="docon docon-navigate-external x-hidden-focus"></span> consigliate Transport Layer Security </a>.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo (RBAC). È possibile utilizzare il controllo degli accessi in base al ruolo per semplificare la cerimonia relativa alla gestione manuale delle entità. Per informazioni dettagliate, vedere [controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/overview.md).
 

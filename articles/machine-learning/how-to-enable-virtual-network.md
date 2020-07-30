@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320171"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420533"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,9 +57,6 @@ Una __rete virtuale__ funge da limite di sicurezza, isolando le risorse di Azure
 > [!WARNING]
 > 
 > L'anteprima delle istanze di calcolo di Azure Machine Learning non è supportata in un'area di lavoro in cui è abilitato il collegamento privato.
->
-> Azure Machine Learning non supporta l'uso di un servizio Azure Kubernetes con collegamento privato abilitato. In alternativa, è possibile usare il servizio Azure Kubernetes in una rete virtuale. Per altre informazioni, vedere [Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -82,7 +79,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Database SQL di Azure
+* database SQL di Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Aggiungere risorse alla rete virtuale 
 
@@ -206,7 +203,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- Database SQL di Azure
+- database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 
@@ -448,9 +445,6 @@ Per aggiungere il servizio Azure Kubernetes all'area di lavoro in una rete virtu
 > Prima di iniziare la procedura seguente, verificare i prerequisiti in [Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) e pianificare gli indirizzi IP per il cluster.
 >
 > L'istanza del servizio Azure Kubernetes e la rete virtuale di Azure devono trovarsi nella stessa area. Se si proteggono gli account di archiviazione di Azure usati dall'area di lavoro in una rete virtuale, è necessario che siano nella stessa rete virtuale dell'istanza del servizio Azure Kubernetes.
-
-> [!WARNING]
-> Azure Machine Learning non supporta l'uso di un servizio Azure Kubernetes con collegamento privato abilitato.
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/), quindi selezionare la sottoscrizione e l'area di lavoro.
 

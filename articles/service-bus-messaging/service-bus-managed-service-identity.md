@@ -3,12 +3,12 @@ title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 01fe6c59ad878276619a96666e2da82b6a1b1fe9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7fbf0ec36f54f9ba5f8593094dbb0231881cbaef
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371227"
+ms.locfileid: "87423134"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -58,7 +58,7 @@ Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'
 - **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse del bus di servizio in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
-> Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione. 
+> Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione. 
 
 Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere informazioni sulle [definizioni](../role-based-access-control/role-definitions.md#management-and-data-operations)dei ruoli. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 

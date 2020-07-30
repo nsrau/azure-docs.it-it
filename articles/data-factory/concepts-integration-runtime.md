@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497643"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407694"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -45,13 +45,10 @@ Nella tabella seguente vengono descritte le funzionalità e il supporto di rete 
 
 Tipo di runtime di integrazione | Rete pubblica | Rete privata
 ------- | -------------- | ---------------
-Azure | Flusso di dati<br/>Spostamento dati<br/>Invio di attività | &nbsp;
+Azure | Flusso di dati<br/>Spostamento dati<br/>Invio di attività | Flusso di dati<br/>Spostamento dati<br/>Invio di attività
 Self-hosted | Spostamento dati<br/>Invio di attività | Spostamento dati<br/>Invio di attività
 Azure-SSIS | Esecuzione pacchetti SSIS | Esecuzione pacchetti SSIS
 
-Il diagramma seguente mostra come è possibile usare runtime di integrazione diversi in combinazione per offrire funzionalità avanzate di integrazione dei dati e supporto di rete:
-
-![Tipi diversi di runtime di integrazione](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Runtime di integrazione di Azure
 
@@ -63,7 +60,7 @@ Un runtime di integrazione di Azure può:
 
 ### <a name="azure-ir-network-environment"></a>Ambiente di rete del runtime di integrazione di Azure
 
-Azure Integration Runtime supporta la connessione a archivi dati e calcola i servizi con endpoint accessibili pubblicamente. Usare un runtime di integrazione self-hosted per l'ambiente di rete virtuale Azure.
+Azure Integration Runtime supporta la connessione a archivi dati e calcola i servizi con endpoint accessibili pubblicamente. Abilitando la rete virtuale gestita, Azure Integration Runtime supporta la connessione agli archivi dati tramite il servizio di collegamento privato in un ambiente di rete privata.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento del runtime di integrazione di Azure
 Il runtime di integrazione di Azure fornisce un calcolo senza server completamente gestito in Azure.  Non è necessario preoccuparsi del provisioning dell'infrastruttura, l'installazione del software, l'applicazione di patch o la scalabilità della capacità.  Inoltre si paga solo per la durata dell'utilizzo effettivo.
@@ -136,7 +133,7 @@ La località del runtime di integrazione definisce la località del calcolo back
 
 È possibile impostare un determinato percorso di un Azure IR, nel qual caso l'esecuzione o l'invio dell'attività avverrà in tale area specifica.
 
-Se si sceglie di usare la Azure IR di risoluzione automatica, che è l'impostazione predefinita,
+Se si sceglie di usare la risoluzione automatica Azure IR nella rete pubblica, che è l'impostazione predefinita,
 
 - Per l'attività di copia, ADF effettuerà il massimo sforzo per rilevare automaticamente il percorso dell'archivio dati sink, quindi usare il runtime di integrazione nella stessa area, se disponibile o quello più vicino nella stessa area geografica; Se l'area dell'archivio dati sink non è rilevabile, viene usato il runtime di integrazione nell'area data factory come alternativa.
 
@@ -154,6 +151,8 @@ Se si sceglie di usare la Azure IR di risoluzione automatica, che è l'impostazi
 
   > [!TIP] 
   > Una procedura consigliata consiste nel garantire che il flusso di dati venga eseguito nella stessa area degli archivi dati corrispondenti (se possibile). È possibile ottenere questo risultato risolvendo automaticamente Azure IR (se il percorso dell'archivio dati è uguale a quello Data Factory percorso) oppure creando una nuova istanza di Azure IR nella stessa area degli archivi dati, quindi eseguire il flusso di dati. 
+
+Se si Abilita la rete virtuale gestita per la risoluzione automatica Azure IR, ADF usa il runtime di integrazione nell'area data factory. 
 
 È possibile monitorare quale località del runtime di integrazione viene applicata durante l'esecuzione di attività nella vista di monitoraggio delle attività della pipeline nell'interfaccia utente o nel payload di monitoraggio delle attività.
 

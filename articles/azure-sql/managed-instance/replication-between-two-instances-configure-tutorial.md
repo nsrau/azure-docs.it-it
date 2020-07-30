@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708477"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422913"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Esercitazione: configurare la replica tra due istanze gestite
 
@@ -26,7 +26,7 @@ ms.locfileid: "84708477"
 La replica transazionale consente di replicare i dati da un database a un altro ospitato in SQL Server o [istanza gestita di Azure SQL](sql-managed-instance-paas-overview.md) (anteprima pubblica). SQL Istanza gestita può essere un server di pubblicazione, server di distribuzione o sottoscrittore nella topologia di replica. Vedere [configurazioni di replica transazionale](replication-transactional-overview.md#common-configurations) per le configurazioni disponibili.
 
 > [!NOTE]
-> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL istanza gestita. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità di istanza gestita SQL di Azure che consente di creare repliche leggibili complete di singole istanze.
+> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL istanza gestita. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità di istanza gestita SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Quando si configura [la replica transazionale con gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti ulteriori considerazioni.
 
 Questa esercitazione illustra come configurare un'istanza gestita come server di pubblicazione e server di distribuzione e quindi una seconda istanza gestita come Sottoscrittore.  
 

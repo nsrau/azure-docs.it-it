@@ -3,12 +3,13 @@ title: Usare Griglia di eventi di Azure con gli eventi nello schema CloudEvents
 description: Questo articolo descrive come usare lo schema CloudEvents per gli eventi in Griglia di eventi di Azure. Il servizio supporta gli eventi nell'implementazione JSON di CloudEvents.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 0bcd14356c4d52bb8a5b270966097d47dfc92c3c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0064fcc8da2a2aee8b4e413e697d2d8219fd09cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113956"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419887"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventi
 Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nell'[implementazione JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e nel [binding del protocollo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.

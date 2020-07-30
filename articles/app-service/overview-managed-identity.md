@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415041"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -176,6 +176,15 @@ Quando viene creato, il sito ha le proprietà aggiuntive seguenti:
 ```
 
 La proprietà tenantId identifica a quale tenant di Azure AD appartiene l'identità.appartiene l'identità. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In Azure AD, l'entità servizio ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
+
+Se è necessario fare riferimento a queste proprietà in una fase successiva del modello, è possibile farlo tramite la [ `reference()` funzione di modello](../azure-resource-manager/templates/template-functions-resource.md#reference) con il `'Full'` flag, come nell'esempio seguente:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
 
 ## <a name="add-a-user-assigned-identity"></a>Aggiungere un'identità assegnata dall'utente
 

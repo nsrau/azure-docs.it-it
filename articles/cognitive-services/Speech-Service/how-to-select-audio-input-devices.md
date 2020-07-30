@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109968"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406691"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procedura: selezionare un dispositivo di input audio con l'SDK di riconoscimento vocale
 
@@ -175,7 +176,7 @@ Un ID dispositivo di esempio è `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414
 
 ## <a name="audio-device-ids-on-uwp"></a>ID dei dispositivi audio nella piattaforma UWP
 
-Nella piattaforma UWP (Universal Windows Platform) (UWP) i dispositivi di input audio possono essere ottenuti usando `Id()` la proprietà dell'oggetto [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) corrispondente.
+Nella piattaforma UWP (Universal Windows Platform) (UWP) i dispositivi di input audio possono essere ottenuti usando la `Id()` proprietà dell' [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) oggetto corrispondente.
 
 Gli esempi di codice seguenti mostrano come eseguire questa operazione in C++ e C#:
 
@@ -365,7 +366,7 @@ L'UID per il microfono incorporato, ad esempio, è `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>ID dei dispositivi audio in iOS
 
-La selezione dei dispositivi audio con Speech SDK non è supportata in iOS. Tuttavia, le app che usano l'SDK possono influenzare il routing [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) audio tramite il Framework.
+La selezione dei dispositivi audio con Speech SDK non è supportata in iOS. Tuttavia, le app che usano l'SDK possono influenzare il routing audio tramite il [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
 
 Ad esempio, l'istruzione
 

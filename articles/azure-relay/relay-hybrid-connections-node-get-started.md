@@ -3,12 +3,13 @@ title: Connessioni ibride di inoltro di Azure-WebSocket nel nodo
 description: Scrivere un'applicazione console Node.js per Websockets per Connessioni ibride di Inoltro di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 86897c0a752e4203537135dbac68cc0b4c1da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316902"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386300"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introduzione a WebSockets per Connessioni ibride di Inoltro di Azure in Node.js
 

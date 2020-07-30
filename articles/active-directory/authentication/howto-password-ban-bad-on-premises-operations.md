@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419768"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Abilitare la protezione Azure Active Directory password locale
 
-Spesso gli utenti creano password che usano parole locali comuni, ad esempio una scuola, un team sportivo o una persona famosa. Queste password sono facili da indovinare e vulnerabili dagli attacchi basati su dizionario. Per applicare password complesse nell'organizzazione, la protezione con password Azure Active Directory (Azure AD) fornisce un elenco di password vietate globali e personalizzate. Una richiesta di modifica della password ha esito negativo se è presente una corrispondenza nell'elenco delle password escluse.
+Gli utenti creano spesso password che usano parole locali comuni, ad esempio il nome di una scuola, una squadra sportiva o un personaggio famoso. Queste password sono facili da indovinare e vulnerabili ad attacchi basati su dizionario. Per applicare password complesse nell'organizzazione, la protezione con password Azure Active Directory (Azure AD) fornisce un elenco di password vietate globali e personalizzate. Una richiesta di modifica della password ha esito negativo se è presente una corrispondenza nell'elenco delle password escluse.
 
 Per proteggere l'ambiente di Active Directory Domain Services locale (AD DS), è possibile installare e configurare Azure AD la protezione delle password per l'uso con il controller di dominio locale. Questo articolo illustra come abilitare la protezione Azure AD password per l'ambiente locale.
 
@@ -40,7 +40,7 @@ Questo articolo illustra come abilitare la protezione Azure AD password per l'am
 1. È consigliabile impostare inizialmente la **modalità** di *controllo*. Una volta che si ha familiarità con la funzionalità e l'effetto sugli utenti dell'organizzazione, è possibile passare alla **modalità** *imposta*. Per ulteriori informazioni, vedere la sezione seguente sulle [modalità operative](#modes-of-operation).
 1. Al termine, selezionare **Salva**.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Abilitare la protezione delle password locale in metodi di autenticazione nel portale di Azure](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>Modalità di funzionamento
 

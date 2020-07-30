@@ -1,6 +1,6 @@
 ---
 title: Proteggere un servizio collegato
-description: Informazioni su come eseguire il provisioning e proteggere un servizio collegato con VNET gestiti
+description: Informazioni su come eseguire il provisioning e proteggere un servizio collegato con VNet gestiti
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496078"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387243"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Protezione di un servizio collegato con collegamenti privati 
+# <a name="secure-a-linked-service-with-private-links"></a>Proteggere un servizio collegato con collegamenti privati 
 
 In questo articolo si apprenderà come proteggere un servizio collegato in sinapsi con un endpoint privato.
 
@@ -35,7 +35,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
 1. Per aggiungere un servizio collegato, fare clic su **Nuovo**.
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 nell'elenco e fare clic su **Continua**.
-1. Assicurarsi di abilitare la **creazione interattiva**. L'abilitazione potrebbe richiedere circa 1 minuto. 
+1. Assicurarsi di abilitare **Interactive Authoring** (Creazione interattiva). L'abilitazione potrebbe richiedere circa 1 minuto. 
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Fare clic su Test connessione per verificare che le credenziali siano corrette.
 1. Selezionare **Test connessione**. l'operazione non riesce perché l'account di archiviazione non consente l'accesso al suo interno senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
 1. Selezionare **Create** (Crea) al termine.
@@ -50,12 +50,12 @@ Se non è stato fatto clic sul collegamento ipertestuale quando si testa la conn
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
 1. Immettere il nome dell'account di archiviazione creato in precedenza.
 1. Selezionare **Crea**
-1. Si noterà che dopo aver atteso alcuni secondi il collegamento privato creato necessita di un'approvazione.
+1. Dopo aver atteso alcuni secondi, si noterà che il collegamento privato creato necessita di un'approvazione.
 
-## <a name="approval-of-a-private-link"></a>Approvazione di un collegamento privato
+## <a name="private-link-approval"></a>Approvazione collegamento privato
 1. Selezionare l'endpoint privato creato in precedenza. È possibile visualizzare un collegamento ipertestuale che consente di approvare l'endpoint privato a livello di account di archiviazione. *In alternativa, è possibile passare direttamente all'account di archiviazione portale di Azure e passare al pannello **connessioni endpoint privato** .*
 1. Selezionare l'endpoint privato creato in studio e selezionare **approva**.
-1. Aggiungere una descrizione e fare clic su **Sì**
+1. Aggiungere una descrizione e fare clic su **sì**
 1. Tornare a sinapsi studio nella sezione **reti virtuali gestite** della scheda **Gestisci** .
 1. L'approvazione per l'endpoint privato dovrebbe richiedere circa 1 minuto.
 

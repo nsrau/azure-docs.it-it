@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075326"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384855"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -45,7 +45,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Parametro | Descrizione |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
-| Resource |Nome della risorsa API: /api/logs. |
+| Risorsa |Nome della risorsa API: /api/logs. |
 | Versione API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
@@ -210,7 +210,7 @@ Nelle sezioni successive sono disponibili esempi di come inviare dati all'API di
 Per ogni esempio, seguire questa procedura per impostare le variabili per l'intestazione dell'autorizzazione:
 
 1. Nel portale di Azure individuare l'area di lavoro Log Analytics.
-2. Selezionare **Impostazioni avanzate** e quindi **Origini connesse**.
+2. Selezionare **Gestione agenti**.
 2. A destra di **ID area di lavoro** selezionare l'icona di copia e quindi incollare l'ID come valore della variabile **ID cliente**.
 3. A destra di **Chiave primaria** selezionare l'icona di copia e quindi incollare l'ID come valore della variabile **Chiave condivisa**.
 

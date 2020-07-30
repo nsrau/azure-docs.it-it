@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321650"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407031"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro il firewall di Azure per Azure Machine Learning
 
@@ -60,9 +60,9 @@ Gli host in questa sezione vengono usati per installare i pacchetti Python. Sono
 
 | **Nome host** | **Scopo** |
 | ---- | ---- |
-| **anaconda.com** | Usato durante l'installazione di pacchetti conda |
-| **pypi.org** | Usato durante l'installazione di pacchetti PIP |
-
+| **anaconda.com** | Utilizzato per installare i pacchetti predefiniti. |
+| **\*. anaconda.org** | Usato per ottenere i dati del repository. |
+| **pypi.org** | Utilizzato per elencare le dipendenze dall'indice predefinito, se presente, e l'indice non viene sovrascritto dalle impostazioni utente. Se l'indice viene sovrascritto, è necessario consentire anche ** \* . pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Host R
 

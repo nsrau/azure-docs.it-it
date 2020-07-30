@@ -3,12 +3,12 @@ title: Modelli di rete per Azure Service Fabric
 description: Questo articolo descrive i modelli di rete comuni per Service Fabric e illustra come creare un cluster con le funzionalità di rete di Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258526"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421468"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
 È possibile integrare il cluster di Azure Service Fabric con altre funzionalità di rete di Azure. Questo articolo illustra come creare cluster che fanno uso delle funzionalità seguenti:
@@ -99,6 +99,8 @@ Negli esempi riportati in questo articolo viene usato il file template.json di S
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   È anche possibile impostare come commento il parametro con il nome "virtualNetworkName" in modo che non venga richiesto di immettere il nome di rete virtuale due volte nel pannello distribuzione cluster nel portale di Azure.
 
 2. Impostare come commento l'attributo `nicPrefixOverride` di `Microsoft.Compute/virtualMachineScaleSets`, perché si usa una subnet esistente e questa variabile è stata disabilitata nel passaggio 1.
 

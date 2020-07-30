@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374442"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387779"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -55,7 +55,7 @@ Esistono due modi principali in cui è possibile consentire agli utenti di Singl
 ### <a name="considerations-for-federation-based-sso"></a>Considerazioni per SSO basato su Federazione
 
 - **Usando OpenID Connect e OAuth** : se l'applicazione a cui ci si connette supporta, usare il metodo OIDC/OAuth 2,0 per abilitare l'accesso SSO a tale applicazione. Questo metodo richiede un minor numero di configurazioni e offre un'esperienza utente più completa. Per ulteriori informazioni, vedere [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1,0](../develop/v2-protocols-oidc.md)e [Azure Active Directory Guida per gli sviluppatori](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configurazioni di endpoint per SSO basato su SAML** : se si usa SAML, gli sviluppatori dovranno disporre di informazioni specifiche prima di configurare l'applicazione. Per altre informazioni, vedere [modificare la configurazione SAML di base](configure-single-sign-on-non-gallery-applications.md).
+- **Configurazioni di endpoint per SSO basato su SAML** : se si usa SAML, gli sviluppatori dovranno disporre di informazioni specifiche prima di configurare l'applicazione. Per altre informazioni, vedere [configurare Single Sign-on basato su SAML](configure-saml-single-sign-on.md).
 - **Gestione dei certificati per SSO basato su SAML** : quando si Abilita SSO federato per l'applicazione, Azure ad crea un certificato che per impostazione predefinita è valido per tre anni. Se necessario, è possibile personalizzare la data di scadenza del certificato. Assicurarsi di disporre di processi per rinnovare i certificati prima della scadenza. Per altre informazioni, vedere [Azure ad gestione dei certificati](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Considerazioni per SSO basato su password
@@ -165,7 +165,7 @@ Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non �
 
 Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) degli attributi predefiniti in base alle esigenze aziendali.
 
-### <a name="certificate-requirements"></a>Requisiti del certificato
+### <a name="certificate-requirements"></a>Requisiti per i certificati
 
 Il certificato per l'applicazione deve essere aggiornato o il rischio che gli utenti non siano in grado di accedere all'applicazione. La maggior parte dei certificati di applicazioni SaaS è buona per 36 mesi. Modificare la durata del certificato nel pannello dell'applicazione. Assicurarsi di documentare la scadenza e di comprendere come si gestirà il rinnovo del certificato. 
 
@@ -235,11 +235,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

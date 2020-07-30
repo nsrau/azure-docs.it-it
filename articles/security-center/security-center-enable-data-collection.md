@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519715"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387371"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce alla sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso.
@@ -211,15 +211,17 @@ Il Centro sicurezza installerà l'estensione dell'agente di Log Analytics in mod
     - Se si dispone di un ambiente in cui l'agente di Log Analytics è installato in workstation client e invia report a un'area di lavoro Log Analytics esistente, esaminare l'elenco di [sistemi operativi supportati dal Centro sicurezza di Azure](security-center-os-coverage.md) per assicurarsi che il sistema operativo in uso sia supportato. Per altre informazioni, vedere [Clienti di Log Analytics esistenti](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Disattivare il provisioning automatico<a name="offprovisioning"></a>
-È possibile disattivare il provisioning automatico dalle risorse in qualsiasi momento disattivando questa impostazione nei criteri di sicurezza. 
+Per disattivare il provisioning automatico dell'agente di Log Analytics:
 
+1. Dal menu del Centro sicurezza nel portale selezionare **Prezzi e impostazioni**.
+2. Selezionare la sottoscrizione pertinente.
 
-1. Tornare al menu principale del Centro sicurezza e selezionare Criteri di sicurezza.
-2. Fare clic su **Modifica impostazioni** nella riga della sottoscrizione per la quale si vuole disabilitare il provisioning automatico.
-3. Nella pagina **Criteri di sicurezza - Raccolta di dati**, in **Provisioning automatico**, selezionare **Disattivato**.
-4. Selezionare **Salva**.
+   ![Seleziona sottoscrizione][7]
 
-   ![Disabilitare il provisioning automatico][6]
+3. Selezionare **Raccolta di dati**.
+4. In **provisioning automatico**selezionare **disattivato** per disabilitare il provisioning automatico.
+5. Selezionare **Salva**. 
+
 
 Quando il provisioning automatico è disabilitato (disattivato), la sezione di configurazione dell'area di lavoro predefinita non viene visualizzata.
 

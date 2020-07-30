@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926891"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418866"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Confronta Active Directory con Azure Active Directory
 

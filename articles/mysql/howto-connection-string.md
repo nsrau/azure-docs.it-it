@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: e5fb5819c1f88cab959be0d1256584174db5c57a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 51b0e8b0518f9ba32c8954fce601bdd1d59b6f70
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118614"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413936"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.

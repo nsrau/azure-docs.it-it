@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119974"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387048"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
@@ -25,17 +25,17 @@ Le valutazioni create con Azure Migrate server assessment sono uno snapshot temp
 
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
-**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Scopri di più](concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Scopri di più](concepts-azure-vmware-solution-assessment-calculation.md)
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
-### <a name="sizing-criteria"></a>Criteri di ridimensionamento
-Server Assessment offre due opzioni per i criteri di ridimensionamento:
+### <a name="sizing-criteria"></a>Criteri di dimensionamento
+Lo strumento Valutazione server offre due opzioni per i criteri di dimensionamento:
 
-**Criteri di ridimensionamento** | **Dettagli** | **Dati**
+**Criteri di dimensionamento** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni basate sui dati sulle prestazioni raccolti | **Azure VM Assessment**: la raccomandazione sulle dimensioni delle macchine virtuali è basata sui dati di utilizzo della CPU e della memoria.<br/><br/> L'indicazione del tipo di disco (disco rigido/SSD standard o dischi gestiti Premium) si basa sui IOPS e la velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione VMware di Azure (AVS)**: la raccomandazione dei nodi AVS si basa sui dati di utilizzo della CPU e della memoria.
-**Così come sono in locale** | Valutazioni che non utilizzano dati sulle prestazioni per apportare raccomandazioni. | **Valutazione delle VM di Azure**: le indicazioni sulle dimensioni delle VM sono basate sulle dimensioni della macchina virtuale locale<br/><br> Il tipo di disco consigliato è basato su quello selezionato nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione VMware di Azure (AVS)**: la raccomandazione dei nodi AVS si basa sulle dimensioni della macchina virtuale locale.
+**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni in base ai dati sulle prestazioni raccolti | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sui dati relativi all'utilizzo di CPU e memoria.<br/><br/> La raccomandazione sul tipo di disco (HDD/SSD standard o dischi gestiti Premium) è basata sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sui dati relativi all'utilizzo di CPU e memoria.
+**Come in locale** | Valutazioni che non usano i dati sulle prestazioni per fare raccomandazioni. | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sulle dimensioni delle VM locali<br/><br> Il tipo di disco consigliato è basato sull'opzione selezionata nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sulle dimensioni delle VM locali.
 
 #### <a name="example"></a>Esempio
 Ad esempio, se si dispone di una macchina virtuale locale con quattro core con utilizzo del 20% e memoria di 8 GB con utilizzo del 10%, la valutazione della VM di Azure sarà la seguente:
@@ -67,15 +67,15 @@ Seguire queste procedure consigliate per le valutazioni dei server importati in 
  
 ### <a name="ftt-sizing-parameters-for-avs-assessments"></a>Parametri di ridimensionamento dell'ITF per le valutazioni AVS
 
-Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione di rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio necessario per le VM, perché determinano il modo in cui l'archiviazione viene allocata alla macchina virtuale. Queste sono le combinazioni di transazioni di ITF-RAID disponibili: 
+Il motore di archiviazione usato in AVS è rete VSAN. I criteri di archiviazione di vSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni FTT-RAID disponibili sono le seguenti: 
 
-**Errori da tollerare (ITF)** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
+**Tolleranza errori** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
 --- | --- | --- | --- 
-1 | RAID-1 (mirroring) | 3 | Una macchina virtuale da 100 GB utilizzerà 200 GB.
-1 | RAID-5 (codifica della cancellazione) | 4 | Una macchina virtuale da 100 GB utilizzerà 133.33 GB
-2 | RAID-1 (mirroring) | 5 | Una macchina virtuale da 100 GB utilizzerà 300GB.
-2 | RAID-6 (codifica della cancellazione) | 6 | Una macchina virtuale da 100 GB utilizzerà 150 GB.
-3 | RAID-1 (mirroring) | 7 | Una macchina virtuale da 100 GB utilizzerà 400 GB.
+1 | RAID-1 (Mirroring) | 3 | Una macchina virtuale da 100 GB utilizza 200 GB.
+1 | RAID-5 (Erasure Coding) | 4 | Una macchina virtuale da 100 GB utilizza 133,33 GB
+2 | RAID-1 (Mirroring) | 5 | Una macchina virtuale da 100 GB utilizza 300 GB.
+2 | RAID-6 (Erasure Coding) | 6 | Una macchina virtuale da 100 GB utilizza 150 GB.
+3 | RAID-1 (Mirroring) | 7 | Una macchina virtuale da 100 GB utilizza 400 GB.
 
 
 ## <a name="best-practices-for-confidence-ratings"></a>Procedure consigliate per le classificazioni di confidenza
@@ -131,9 +131,9 @@ Una valutazione potrebbe non avere tutti i punti dati per diversi motivi:
 
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Guida dello strumento di migrazione per le valutazioni AVS
 
-Nel report di conformità di Azure per la valutazione della soluzione VMware di Azure (AVS) è possibile visualizzare gli strumenti consigliati seguenti: 
+Nel report di idoneità per Azure per la valutazione della soluzione Azure VMware è possibile visualizzare gli strumenti consigliati seguenti: 
 - **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Sconosciuto**: per i computer importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX).
+- **Sconosciuto**: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

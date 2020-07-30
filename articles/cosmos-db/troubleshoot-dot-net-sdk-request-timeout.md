@@ -3,19 +3,34 @@ title: Risolvere i problemi di Azure Cosmos DB HTTP 408 o di timeout della richi
 description: Come diagnosticare e correggere l'eccezione di timeout della richiesta .NET SDK
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294397"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417608"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB timeout della richiesta .NET SDK
 L'errore HTTP 408 si verifica se l'SDK non è stato in grado di completare la richiesta prima che venga generato il limite di timeout.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Personalizzazione del timeout in Azure Cosmos .NET SDK
+
+L'SDK offre due alternative distinte per il controllo dei timeout, ognuno con un ambito diverso.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+La `CosmosClientOptions.RequestTimeout` configurazione (o `ConnectionPolicy.RequestTimeout` per SDK v2) consente di impostare un timeout che influisca su ogni singola richiesta di rete.  Un'operazione avviata da un utente può estendersi su più richieste di rete (ad esempio, potrebbe esserci una limitazione) e questa configurazione si applica per ogni richiesta di rete nel tentativo. Questo non è un timeout della richiesta di operazione end-to-end.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+Tutte le operazioni asincrone nell'SDK hanno un parametro CancellationToken facoltativo. Questo oggetto [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) viene usato durante l'intera operazione, in tutte le richieste di rete. Richieste di rete tra le richieste, l'oggetto CancellationToken può essere controllato e un'operazione annullata se il token correlato è scaduto. È necessario utilizzare CancellationToken per definire un timeout previsto approssimativo nell'ambito dell'operazione.
+
+> [!NOTE]
+> CancellationToken è un meccanismo in cui la libreria verificherà l'annullamento quando non [provocherà uno stato non valido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). È possibile che l'operazione non venga annullata esattamente quando il tempo definito nell'annullamento è attivo, ma, al termine dell'intervallo di tempo, verrà annullato quando è sicuro.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 L'elenco seguente contiene le cause e le soluzioni note per le eccezioni di timeout della richiesta.

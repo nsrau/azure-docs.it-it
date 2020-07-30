@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132716"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421434"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -18,12 +18,12 @@ Questo articolo descrive i problemi comuni relativi alla connettività di rete q
 
 Per il funzionamento della replica di Site Recovery, è necessaria la connettività in uscita dalla VM a intervalli IP o URL specifici. Se la macchina virtuale è protetta da un firewall o usa regole di gruppi di sicurezza di rete (NGS) per controllare la connettività in uscita, potrebbe verificarsi uno di questi problemi.
 
-| URL | Dettagli |
-|---|---|
-| `*.blob.core.windows.net` | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
-| `login.microsoftonline.com` | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare l' _IP Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
-| `*.servicebus.windows.net` | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare l' _indirizzo IP di monitoraggio Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
+| **Nome**                  | **Commerciale**                               | **Enti governativi**                                 | **Descrizione** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
+| Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare l' _IP Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
+| Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare l' _indirizzo IP di monitoraggio Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connettività in uscita per gli intervalli IP o gli URL di Site Recovery (codice errore 151037 o 151072)
 
@@ -33,7 +33,7 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 Non è possibile stabilire una connessione per Site Recovery endpoint a causa di un errore di risoluzione Domain Name System (DNS). Questo problema è più comune durante la riprotezione quando è stato eseguito il failover della macchina virtuale, ma il server DNS non è raggiungibile dall'area di ripristino di emergenza.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Se si usa il DNS personalizzato, assicurarsi che il server DNS sia accessibile dall'area di ripristino di emergenza.
 
@@ -57,7 +57,7 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 
 Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e identità di Office 365.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 - Azure Site Recovery richiede l'accesso agli intervalli IP di Office 365 per l'autenticazione.
 - Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli IP di Office 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
@@ -112,7 +112,7 @@ Per questo esempio, queste regole NSG sono necessarie in modo che la replica pos
 
 Non è possibile stabilire una connessione per Azure Site Recovery endpoint di servizio.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) a seconda dell'area. Assicurarsi che gli intervalli di indirizzi IP richiesti siano accessibili dalla macchina virtuale.
 
@@ -122,7 +122,7 @@ Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to
 
 Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di Azure Site Recovery Mobility non rileva automaticamente le impostazioni proxy da Internet Explorer (IE).
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per Azure Site Recovery servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:

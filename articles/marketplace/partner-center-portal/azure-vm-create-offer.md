@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
-description: Informazioni su come creare un'offerta di macchina virtuale in Azure Marketplace con il piano necessario.
+description: Informazioni su come pubblicare un'offerta di macchina virtuale in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 07/17/2020
-ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324693"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386436"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -118,7 +118,7 @@ Quando si pubblica l'offerta nel marketplace commerciale tramite il Centro per i
 
 Nella pagina **Proprietà** è possibile definire le categorie usate per raggruppare l'offerta in Azure Marketplace, la versione dell'applicazione e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -352,7 +352,7 @@ In questa sezione vengono configurati i dettagli della presentazione del piano. 
 
 #### <a name="plan-name"></a>Nome piano
 
-Questo campo è compilato automaticamente con il nome assegnato al piano al momento della creazione. Il nome viene visualizzato in Azure Marketplace come titolo del piano. La lunghezza massima è di 100 caratteri.
+Questo campo viene compilato automaticamente con il nome assegnato al piano al momento della creazione. Il nome viene visualizzato in Azure Marketplace come titolo del piano. La lunghezza massima è di 100 caratteri.
 
 #### <a name="plan-summary"></a>Riepilogo piano
 
@@ -368,7 +368,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 In questo riquadro è possibile configurare:
 
-- I mercati in cui è disponibile questo piano.
+- I mercati in cui è disponibile questo piano. Ogni piano deve essere disponibile in almeno un [mercato](../marketplace-geo-availability-currencies.md).
 - Il prezzo all'ora.
 - Se rendere il piano visibile a tutti o solo a specifici clienti (gruppo di destinatari privato).
 

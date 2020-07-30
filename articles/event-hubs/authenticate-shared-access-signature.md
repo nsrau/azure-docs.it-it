@@ -3,12 +3,13 @@ title: Autenticare l'accesso a hub eventi di Azure con firme di accesso condivis
 description: Questo articolo illustra come autenticare l'accesso alle risorse di hub eventi usando le firme di accesso condiviso.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318046"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423100"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse di hub eventi usando firme di accesso condiviso (SAS)
 Firma di accesso condiviso (SAS) offre un controllo granulare sul tipo di accesso concesso ai client che dispongono della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una firma di accesso condiviso: 

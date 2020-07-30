@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe72a4d45dbe40b1d75194f42cc26b2821b202d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743100"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422046"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Un amministratore del ruolo con privilegi può modificare le impostazioni del ru
 > [!NOTE]
 > I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> [![Selezionare Azure AD > Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 

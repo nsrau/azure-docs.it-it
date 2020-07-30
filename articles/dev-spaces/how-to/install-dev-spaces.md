@@ -5,18 +5,18 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Informazioni su come abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ac010a466f7db7b829cc3d6f0687dbdbefdd7b6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996262"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407898"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client
 
 Questo articolo illustra diversi modi per abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Abilitare o rimuovere Azure Dev Spaces tramite l'interfaccia della riga di comando
+## <a name="enable-azure-dev-spaces-using-the-cli"></a>Abilitare Azure Dev Spaces usando l'interfaccia della riga di comando
 
 Prima di poter abilitare Dev Spaces tramite l'interfaccia della riga di comando, è necessario disporre di:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
@@ -49,7 +49,23 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 Il comando `use-dev-spaces` installa anche l'interfaccia della riga di comando di Azure Dev Spaces.
 
-Per rimuovere Azure Dev Spaces dal cluster del servizio Azure Kubernetes, usare il comando `azds remove`. Ad esempio:
+## <a name="install-the-client-side-tools"></a>Installare gli strumenti lato client
+
+È possibile usare gli strumenti lato client di Azure Dev Spaces per interagire con le istanze di Dev Spaces in un cluster del servizio Azure Kubernetes dal computer locale. Per installare gli strumenti lato client sono disponibili diversi modi:
+
+* Installare l'[estensione Azure Dev Spaces][vscode] in [Visual Studio Code][vscode-extension].
+* Installare il carico di lavoro Sviluppo di Azure in [Visual Studio 2019][visual-studio].
+* Scaricare e installare l'interfaccia della riga di comando di [Windows][cli-win], [Mac][cli-mac] o [Linux][cli-linux].
+
+## <a name="remove-azure-dev-spaces-using-the-cli"></a>Rimuovere Azure Dev Spaces usando l'interfaccia della riga di comando
+
+Per rimuovere Azure Dev Spaces dal cluster del servizio Azure Kubernetes, usare il comando `azds remove`.
+
+```azurecli
+azds remove -g MyResourceGroup -n MyAKS
+```
+
+L'output di esempio seguente mostra come rimuovere Azure Dev Spaces dal cluster *MyAKS* .
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -58,15 +74,7 @@ Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that tar
 Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
 ```
 
-Il comando precedente rimuove Azure Dev Spaces dal cluster *MyAKS* in *MyResourceGroup*. Tutti gli spazi dei nomi creati con Azure Dev Spaces rimarranno associati ai carichi di lavoro, ma i nuovi carichi di lavoro in tali spazi dei nomi non verranno instrumentati con Azure Dev Spaces. Se si riavviano eventuali pod esistenti instrumentati con Azure Dev Spaces, è possibile che vengano visualizzati errori. Tali pod dovranno essere ridistribuiti senza strumenti di Azure Dev Spaces. Per rimuovere completamente Azure Dev Spaces dal cluster, eliminare tutti i pod in tutti gli spazi dei nomi in cui è stato abilitato Azure Dev Spaces.
-
-## <a name="install-the-client-side-tools"></a>Installare gli strumenti lato client
-
-È possibile usare gli strumenti lato client di Azure Dev Spaces per interagire con le istanze di Dev Spaces in un cluster del servizio Azure Kubernetes dal computer locale. Per installare gli strumenti lato client sono disponibili diversi modi:
-
-* Installare l'[estensione Azure Dev Spaces][vscode] in [Visual Studio Code][vscode-extension].
-* Installare il carico di lavoro Sviluppo di Azure in [Visual Studio 2019][visual-studio].
-* Scaricare e installare l'interfaccia della riga di comando di [Windows][cli-win], [Mac][cli-mac] o [Linux][cli-linux].
+Tutti gli spazi dei nomi creati con Azure Dev Spaces rimarranno associati ai carichi di lavoro, ma i nuovi carichi di lavoro in tali spazi dei nomi non verranno instrumentati con Azure Dev Spaces. Se si riavviano eventuali pod esistenti instrumentati con Azure Dev Spaces, è possibile che vengano visualizzati errori. Tali pod dovranno essere ridistribuiti senza strumenti di Azure Dev Spaces. Per rimuovere completamente Azure Dev Spaces dal cluster, eliminare tutti i pod in tutti gli spazi dei nomi in cui è stato abilitato Azure Dev Spaces.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

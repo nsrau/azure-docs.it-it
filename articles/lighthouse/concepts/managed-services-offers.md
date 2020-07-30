@@ -1,14 +1,14 @@
 ---
 title: Offerte di servizi gestiti in Azure Marketplace
 description: Le offerte del servizio gestito consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti di Azure Marketplace.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121589"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406861"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace
 
@@ -24,7 +24,10 @@ Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risors
 
 Ogni offerta di servizi gestiti include uno o più piani. I piani possono essere privati o pubblici.
 
-Per limitare l'offerta a clienti specifici, è possibile pubblicare un piano privato. In questo caso, è possibile acquistare il piano solo per gli ID di sottoscrizione specificati. Per altre informazioni, vedere [Offerte private](../../marketplace/private-offers.md).
+Per limitare l'offerta a clienti specifici, è possibile pubblicare un piano privato. Quando si esegue questa operazione, è possibile acquistare il piano solo per gli ID sottoscrizione specifici forniti. Per altre informazioni, vedere [Offerte private](../../marketplace/private-offers.md).
+
+> [!NOTE]
+> Le offerte private non sono supportate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
 I piani pubblici consentono di promuovere i servizi presso i nuovi clienti. Questi sono in genere più appropriati quando è necessario solo un accesso limitato al tenant del cliente. Dopo aver stabilito una relazione con un cliente, se quest'ultimo decide di concedere all'organizzazione un accesso aggiuntivo, è possibile pubblicare un nuovo piano privato solo per quel cliente o [eseguirne l'onboarding per un ulteriore accesso usando i modelli di Azure Resource Manager](../how-to/onboard-customer.md).
 

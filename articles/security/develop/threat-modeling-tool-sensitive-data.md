@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72d223e0a2052c8e33c12ad5c540f5f32f540a4d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502239"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420584"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -172,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributes (Attributi)**              | Versione SQL: 12, versione SQL: MSSQL2016 |
-| **Riferimenti**              | [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841) |
+| **Riferimenti**              | [Maschera dati dinamica](https://msdn.microsoft.com/library/mt130841) |
 | **Passaggi** | Lo scopo della maschera dati dinamica consiste nel limitare l'esposizione dei dati sensibili, impedendo la visualizzazione dei dati agli utenti che non dovrebbero averne accesso. La maschera dati dinamica non mira a impedire agli utenti del database di connettersi direttamente al database ed eseguire query complete che espongano parti dei dati sensibili. La maschera dati dinamica è complementare ad altre funzionalità di sicurezza di SQL Server, come il controllo, la crittografia, la sicurezza a livello di riga e così via, ed è consigliabile usarla insieme a tali funzionalità per proteggere meglio i dati sensibili nel database. Si noti che questa funzionalità è supportata unicamente da SQL Server, a partire dalla versione 2016, e dal database SQL di Azure. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Assicurarsi che le password vengano archiviate in formato hash con valori salt

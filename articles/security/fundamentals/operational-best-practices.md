@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283470"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423151"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -55,7 +55,7 @@ Nel portale di registrazione di Azure è possibile verificare che le informazion
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizzare le sottoscrizioni di Azure in gruppi di gestione
 Se l'organizzazione ha molte sottoscrizioni, potrebbe essere necessario trovare una modalità di gestione efficiente dell'accesso, dei criteri e della conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/governance/management-groups/create) offrono un livello di ambito superiore alle sottoscrizioni. È possibile organizzare le sottoscrizioni in contenitori denominati gruppi di gestione e applicare le condizioni di governance ai gruppi di gestione. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo di gestione.
 
-È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni in una directory. A ogni directory viene assegnato un singolo gruppo di gestione di primo livello denominato gruppo di gestione radice. Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice consente di applicare i criteri globali e le assegnazioni RBAC a livello di directory.
+È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni in una directory. A ogni directory viene assegnato un singolo gruppo di gestione di primo livello denominato gruppo di gestione radice. Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice consente l'applicazione dei criteri globali e delle assegnazioni di ruolo di Azure a livello di directory.
 
 Ecco alcune procedure consigliate per l'uso dei gruppi di gestione:
 

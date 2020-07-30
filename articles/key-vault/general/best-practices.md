@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213075"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386232"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedure consigliate per l'utilizzo di Key Vault
 
@@ -56,5 +56,5 @@ Assicurarsi di eseguire backup regolari dell'insieme di credenziali per l'aggior
 
 ## <a name="turn-on-recovery-options"></a>Attiva opzioni di ripristino
 
-1. Attivare l' [eliminazione](overview-soft-delete.md)temporanea.
+1. Attivare l' [eliminazione](soft-delete-overview.md)temporanea.
 2. Attivare ripulitura protezione se si vuole evitare l'eliminazione forzata del segreto/insieme di credenziali anche dopo aver attivato l'eliminazione temporanea.

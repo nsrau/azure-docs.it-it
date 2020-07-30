@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui il servizio app Azure aggiorna il sist
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78273628"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414939"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -78,10 +78,10 @@ La tabella seguente illustra come ottenere informazioni sulle versioni di Window
 | Informazioni | Posizione | 
 |-|-|
 | Versione di Windows | Vedere `https://<appname>.scm.azurewebsites.net/Env.cshtml` (nelle informazioni di sistema) |
-| Versione di .NET | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| Versione di .NET | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | Versione di .NET Core | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `dotnet --version` |
 | Versione di PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
-| Versione predefinita di Node.js | In [Cloud Shell](../cloud-shell/overview.md) eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| Versione predefinita di Node.js | Nel [cloud Shell](../cloud-shell/overview.md)eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Versione Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
 | Versione Java | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `java -version` |  
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337348"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386691"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -218,6 +218,13 @@ La registrazione di Windows Server con un servizio di sincronizzazione archiviaz
 
 L'amministratore che registra il server deve essere un membro del **proprietario** o del **collaboratore** dei ruoli di gestione per il servizio di sincronizzazione archiviazione specificato. Questa configurazione può essere configurata in **controllo di accesso (IAM)** nel portale di Azure per il servizio di sincronizzazione archiviazione.
 
+È anche possibile distinguere gli amministratori in grado di registrare i server da quelli autorizzati a configurare anche la sincronizzazione in un servizio di sincronizzazione archiviazione. A tale proposito, è necessario creare un ruolo personalizzato in cui elencare gli amministratori che sono autorizzati solo a registrare i server e assegnare al ruolo personalizzato le autorizzazioni seguenti:
+
+* "Microsoft. StorageSync/storageSyncServices/registeredServers/Write"
+* "Microsoft. StorageSync/storageSyncServices/Read"
+* "Microsoft. StorageSync/storageSyncServices/workflows/Read"
+* "Microsoft. StorageSync/storageSyncServices/workflows/Operations/Read"
+
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 L'interfaccia utente di Registrazione server viene visualizzata automaticamente al termine dell'installazione dell'agente Sincronizzazione file di Azure. In caso contrario, è possibile aprirla manualmente dal percorso: c:\Programmi\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe. Dopo avere aperto l'interfaccia utente di Registrazione server fare clic su **Accesso** per iniziare.
 
@@ -245,6 +252,8 @@ Un endpoint cloud è un puntatore a una condivisione file di Azure. Tutti gli en
 
 > [!Important]  
 > È possibile apportare modifiche a qualsiasi endpoint cloud o endpoint server nel gruppo di sincronizzazione e fare in modo che i file vengano sincronizzati con gli altri endpoint del gruppo di sincronizzazione. Se si apporta direttamente una modifica all'endpoint cloud (condivisione file di Azure), le modifiche apportate devono essere prima di tutto individuate da un processo di rilevamento delle modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
+
+L'amministratore che crea l'endpoint cloud deve essere un membro del **proprietario** del ruolo di gestione per l'account di archiviazione che contiene la condivisione file di Azure a cui punta l'endpoint cloud. Questa configurazione può essere configurata in **controllo di accesso (IAM)** nel portale di Azure per l'account di archiviazione.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Per creare un gruppo di sincronizzazione, nella [portale di Azure](https://portal.azure.com/)andare al servizio di sincronizzazione archiviazione e quindi selezionare **+ gruppo di sincronizzazione**:

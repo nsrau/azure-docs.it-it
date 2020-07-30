@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c83d243a24fb0cacdf032dfa77e9bb17fdf5e824
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270754"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383801"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Connettersi a desktop virtuale Windows (classico) con il client Android
 
@@ -21,9 +21,6 @@ ms.locfileid: "87270754"
 
 >[!IMPORTANT]
 >Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../connect-android.md).
-
->[!NOTE]
-> La possibilità di accedere alle risorse di desktop virtuali Windows dal client Android è attualmente disponibile in anteprima.
 
 È possibile accedere alle risorse di desktop virtuali Windows dal dispositivo Android con il client scaricabile. È anche possibile usare il client Android sui dispositivi Chromebook che supportano il Google Play Store. Questa guida illustra come configurare il client Android.
 

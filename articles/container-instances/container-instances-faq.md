@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti relative al servizio istanze di con
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806602"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421281"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
@@ -89,7 +89,7 @@ Attualmente, il ridimensionamento non è disponibile per contenitori o gruppi di
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quali funzionalità sono disponibili per le istanze in esecuzione in un VNet personalizzato?
 
-È possibile [distribuire gruppi di contenitori in una rete virtuale di Azure](container-instances-vnet.md) di propria scelta e delegare gli indirizzi IP privati ai gruppi di contenitori per instradare il traffico all'interno della VNet tra le risorse di Azure. La distribuzione di un gruppo di contenitori in una rete virtuale è attualmente disponibile per i carichi di lavoro di produzione in un subset di aree di Azure.
+È possibile [distribuire gruppi di contenitori in una rete virtuale di Azure](container-instances-vnet.md) di propria scelta e delegare gli indirizzi IP privati ai gruppi di contenitori per instradare il traffico all'interno della VNet tra le risorse di Azure. Per gli scenari di rete e le limitazioni con le istanze di contenitore di Azure, vedere [scenari e risorse della rete virtuale](container-instances-virtual-network-concepts.md).
 
 ## <a name="pricing"></a>Prezzi
 

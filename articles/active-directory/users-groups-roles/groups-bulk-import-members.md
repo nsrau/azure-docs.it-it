@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 755e59a029b0a12e51db53c6c7d3bb00358af635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742013"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421672"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Aggiunta di membri del gruppo in blocco in Azure Active Directory
 
@@ -69,7 +69,7 @@ Un modello CSV scaricato contiene le righe descritte di seguito:
 
 È possibile visualizzare lo stato di tutte le richieste in blocco in sospeso nella pagina **Risultati dell'operazione in blocco**.
 
-[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
+[![Verificare lo stato nella pagina Risultati operazioni bulk.](media/groups-bulk-import-members/bulk-center.png)](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 Per informazioni dettagliate su ogni voce all'interno dell'operazione in blocco, selezionare i valori nelle colonne **N. operazioni riuscite**, **N. errori** o **Richieste totali**. Se si verificano errori, verranno elencati i motivi dell'errore.
 

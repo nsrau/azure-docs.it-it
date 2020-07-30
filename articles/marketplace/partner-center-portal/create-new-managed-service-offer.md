@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326623"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405246"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -194,6 +194,9 @@ Quindi immettere una **Descrizione** che offre una spiegazione più dettagliata 
 Attualmente è disponibile un solo modello di determinazione dei prezzi che può essere usato per l'offerta di servizio gestito: **Bring Your Own License (BYOL)** . Ciò significa che i costi relativi a questa offerta verranno fatturati direttamente ai clienti e non si riceverà alcun addebito da parte di Microsoft.
 
 La sezione **Plan visibility** (Visibilità del piano) consente di indicare se il piano deve essere [privato](../../marketplace/private-offers.md). Se si lascia la casella di controllo **Questo è un piano privato** deselezionata, il piano non verrà limitato a clienti specifici (o a un determinato numero di clienti).
+
+> [!NOTE]
+> I piani privati non sono supportati con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
 Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file con estensione csv (per un massimo di 10.000 sottoscrizioni in tutti i piani). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta.
 

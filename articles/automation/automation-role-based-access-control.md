@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279883"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420482"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gestire le autorizzazioni e la sicurezza dei ruoli
 
@@ -220,7 +220,7 @@ Le sezioni seguenti descrivono le autorizzazioni minime necessarie per abilitare
 |**Azione**  |**Autorizzazione**  |**Ambito minimo**  |
 |---------|---------|---------|
 |Scrivere una nuova distribuzione      | Microsoft.Resources/deployments/*          |Subscription          |
-|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Sottoscrizione          |
+|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Creare una nuova area di lavoro predefinita      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Creare un nuovo account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Collegare un'area di lavoro e un account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Area di lavoro</br>Account di Automazione
@@ -242,7 +242,7 @@ Le sezioni seguenti descrivono le autorizzazioni minime necessarie per abilitare
 |**Azione**  |**Autorizzazione** |**Ambito minimo**  |
 |---------|---------|---------|
 |Creare una nuova distribuzione     | Microsoft.Resources/deployments/*        | Subscription         |
-|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Sottoscrizione        |
+|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |Pannello AutomationOnboarding - Creare una nuova area di lavoro     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Pannello AutomationOnboarding - Leggere un'area di lavoro collegata     | Microsoft.Automation/automationAccounts/read        | Account di Automazione       |
 |Pannello AutomationOnboarding - Leggere una soluzione     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Soluzione        |
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) elenca le assegnazioni di ruolo di Controllo degli accessi in base al ruolo di Azure AD nell'ambito specificato. Senza parametri, questo cmdlet restituisce tutte le assegnazioni del ruolo eseguite nell'ambito della sottoscrizione. Usare il parametro `ExpandPrincipalGroups` per elencare le assegnazioni di accesso per l'utente specificato e per i gruppi a cui l'utente appartiene.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) elenca le assegnazioni di ruolo di Azure nell'ambito specificato. Senza parametri, questo cmdlet restituisce tutte le assegnazioni del ruolo eseguite nell'ambito della sottoscrizione. Usare il parametro `ExpandPrincipalGroups` per elencare le assegnazioni di accesso per l'utente specificato e per i gruppi a cui l'utente appartiene.
 
 **Esempio:** usare il cmdlet seguente per elencare tutti gli utenti e i relativi ruoli all'interno di un account di Automazione.
 

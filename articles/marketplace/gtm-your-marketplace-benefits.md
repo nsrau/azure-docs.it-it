@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287897"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408119"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -106,9 +106,15 @@ Gli editori di offerte di [inserzione e valutazione](determine-your-listing-type
 Microsoft si riserva il diritto di revocare e terminare i vantaggi Marketplace Rewards per gli editori che: 
 
 * Coinvolgere un'attività illecita usando la relativa inserzione nel Marketplace.
+* Ricevere un acquisto noto o considerato fraudolento.
 * Sono deselezionate dal Marketplace commerciale. 
 * Usare l'offerta per visualizzare il marketing o altri contenuti che violano il copyright o le leggi sui marchi.
 * Violare i criteri del [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), incluso, ma non limitato, l'uso del finanziamento di Azure Sponsorship per le proprie operazioni interne o il data mining Bitcoin.
+
+Microsoft si riserva il diritto di revocare e terminare i premi del Marketplace nei casi seguenti:
+
+* Il cliente che ha effettuato l'acquisto è stato inavvertitamente e desidera annullare l'acquisto. 
+* Il cliente annulla prima di utilizzare il prodotto del partner.
 
 ### <a name="offer-availability"></a>Disponibilità offerta
 

@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258820"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405127"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo di vita dell'hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica degli eventi che si verificano quando un'applicazione viene attivata in un nodo e in varie configurazioni del cluster usate per controllare il comportamento.
@@ -83,7 +83,7 @@ Service Fabric usa sempre un back-off lineare quando rileva un errore durante il
 
 * Se il CodePackage continua a bloccarsi e viceversa, ServiceType verrà disabilitato. Tuttavia, se la configurazione delle attivazioni è tale da consentire un riavvio rapido, è possibile che il CodePackage venga aggiornato per alcune volte prima di poter visualizzare la disabilitazione di ServiceType. Per esempio: si supponga che il CodePackage venga visualizzato, registra il ServiceType con Service Fabric e quindi si arresta in modo anomalo. In tal caso, una volta che l'hosting riceve una registrazione del tipo, il periodo **ServiceTypeDisableGraceInterval** viene annullato. Questa operazione può essere ripetuta finché il CodePackage non torna a un valore maggiore di **ServiceTypeDisableGraceInterval** e quindi ServiceType verrà disabilitato nel nodo. Quindi, può trattarsi di un po' prima che il ServiceType venga disabilitato nel nodo.
 
-* In caso di attivazione, quando Service Fabric sistema deve inserire una replica in un nodo, RA (ReconfigurationAgent) chiede al sottosistema di hosting di attivare l'applicazione e ritenta la richiesta di attivazione ogni 15 sec (**RAPMessageRetryInterval**). Per Service Fabric sistema in grado di capire che ServiceType è stato disabilitato, l'operazione di attivazione nell'hosting deve risiedere per un periodo più lungo di intervallo tra tentativi e **ServiceTypeDisableGraceInterval**. Ad esempio: lasciare che il cluster abbia le configurazioni **ActivationMaxFailureCount** impostate su 5 e **ActivationRetryBackoffInterval** impostato su 1 sec. Ciò significa che l'operazione di attivazione verrà restituita dopo (0 + 1 + 2 + 3 + 4) = 10 sec (il primo tentativo è immediato) e dopo che l'host ha ritentato il tentativo. In questo caso, l'operazione di attivazione verrà completata e non verrà eseguito un nuovo tentativo dopo 15 secondi. Il problema è dovuto al fatto che Service Fabric esaurito tutti i tentativi entro 15 secondi. Quindi, ogni tentativo da ReconfigurationAgent crea una nuova operazione di attivazione nel sottosistema di hosting e il modello continuerà a essere ripetuto e ServiceType non verrà mai disabilitato nel nodo. Poiché il ServiceType non viene disabilitato nel componente FM del sistema node SF (FailoverManager), la replica non viene spostata in un nodo diverso.
+* In caso di attivazione, quando Service Fabric sistema deve inserire una replica in un nodo, RA (ReconfigurationAgent) chiede al sottosistema di hosting di attivare l'applicazione e ritenta la richiesta di attivazione ogni 15 sec (**RAPMessageRetryInterval**). Per Service Fabric sistema in grado di capire che ServiceType è stato disabilitato, l'operazione di attivazione nell'hosting deve risiedere per un periodo più lungo di intervallo tra tentativi e **ServiceTypeDisableGraceInterval**. Ad esempio: lasciare che il cluster abbia le configurazioni **ActivationMaxFailureCount** impostate su 5 e **ActivationRetryBackoffInterval** impostato su 1 sec. Ciò significa che l'operazione di attivazione verrà restituita dopo (0 + 1 + 2 + 3 + 4) = 10 sec (il primo tentativo è immediato) e dopo che l'host ha ritentato il tentativo. In questo caso, l'operazione di attivazione verrà completata e non verrà eseguito un nuovo tentativo dopo 15 secondi. Il problema è dovuto al fatto che Service Fabric esaurito tutti i tentativi entro 15 secondi. Quindi, ogni tentativo da ReconfigurationAgent crea una nuova operazione di attivazione nel sottosistema di hosting e il modello continuerà a essere ripetuto e ServiceType non verrà mai disabilitato nel nodo. Poiché il ServiceType non viene disabilitato nel nodo, il componente FM del sistema SF (FailoverManager) non sposterà la replica in un nodo diverso.
 > 
 
 ## <a name="deactivation"></a>Disattivazione

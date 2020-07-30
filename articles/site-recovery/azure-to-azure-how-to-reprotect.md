@@ -2,18 +2,18 @@
 title: Riproteggere le macchine virtuali di Azure nell'area primaria con Azure Site Recovery | Microsoft Docs
 description: Viene descritto come riproteggere le macchine virtuali di Azure dopo il failover, dall'area secondaria a quella primaria, usando Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738066"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422080"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
@@ -33,7 +33,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 
    ![Riproteggere](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-1. Rivedere il gruppo di risorse, la rete, la risorsa di archiviazione e i set di disponibilità. Fare quindi clic su **OK**. Se sono presenti risorse contrassegnate come nuove, vengono create come parte del processo di riprotezione.
+1. Rivedere il gruppo di risorse, la rete, la risorsa di archiviazione e i set di disponibilità. Quindi fare clic su **OK**. Se sono presenti risorse contrassegnate come nuove, vengono create come parte del processo di riprotezione.
 1. Con questo processo il sito di destinazione viene aggiornato con i dati più recenti. Al termine del processo, si verifica delta replication. Sarà quindi possibile effettuare il failover al sito primario. È possibile selezionare l'account di archiviazione o la rete da usare durante la riprotezione tramite l'opzione Personalizza.
 
    ![Opzione di personalizzazione](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
@@ -95,10 +95,6 @@ Le condizioni seguenti determinano la quantità di dati replicati:
 |L'area di origine ha 1 VM con disco Premium da 1 TB.<br/>Vengono usati solo 20 GB di dati e il resto del disco è vuoto.<br/>Il tipo di disco è Premium con velocità effettiva di 200 MBps.<br/>I dati iniziali sul disco immediatamente dopo il failover erano 15 GB. Sono stati modificati 5 GB di dati dopo il failover. I dati popolati totali sono pertanto di 20 GB| Tempo approssimativo: 30-45 minuti.<br/>Poiché i dati popolati nel disco sono inferiori al 10% delle dimensioni del disco, viene eseguita una replica iniziale completa.<br/>La velocità di trasferimento è approssimativamente il 16% della velocità effettiva, o 32MBps. Quindi, il tempo di trasferimento per applicare le modifiche di 20 GB a 20 GB/32 MBps, circa 11 minuti.<br/>È necessario un tempo di overhead per la scalabilità automatica di Site Recovery, circa 20-30 minuti |
 
 Quando la macchina virtuale viene riprotetta dopo il failback nell'area primaria, ad esempio se la macchina virtuale viene riprotetta dall'area primaria a quella di ripristino di emergenza, la macchina virtuale di destinazione e le NIC associate vengono eliminate.
-
-Quando la macchina virtuale viene riprotetta dall'area di ripristino di emergenza nell'area primaria, non viene eliminata la macchina virtuale primaria precedente e le schede di interfaccia di rete associate.
-
-Quando la macchina virtuale viene riprotetta dopo il failback nell'area primaria, ad esempio se la macchina virtuale viene riprotetta dall'area primaria a quella di ripristino di emergenza, la macchina virtuale di destinazione e le NIC associate vengono eliminate. 
 
 Quando la macchina virtuale viene riprotetta dall'area di ripristino di emergenza nell'area primaria, non viene eliminata la macchina virtuale primaria precedente e le schede di interfaccia di rete associate.
 

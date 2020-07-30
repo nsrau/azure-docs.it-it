@@ -2,13 +2,13 @@
 title: Livelli Premium e standard del bus di servizio di Azure
 description: Questo articolo descrive i livelli standard e Premium del bus di servizio di Azure. Confronta questi livelli e fornisce le differenze tecniche.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337411"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386351"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -24,7 +24,7 @@ Nella tabella seguente sono evidenziate alcune differenze generali.
 | Prestazioni prevedibili |Latenza variabile |
 | Prezzi fissi |Prezzi variabili in base all'uso |
 | Possibilità di aumentare o ridurre le prestazioni del carico di lavoro |N/D |
-| Dimensione messaggi fino a 1 MB |Dimensione messaggi fino a 256 KB |
+| Dimensioni del messaggio fino a 1 MB. Questo limite può essere generato in futuro. Per gli ultimi aggiornamenti importanti al servizio, vedere la pagina [relativa alla messaggistica in Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Dimensione messaggi fino a 256 KB |
 
 La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse è detto *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4 o 8 unità di messaggistica per ogni spazio dei nomi premium del bus di servizio. Un singolo carico di lavoro o entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in corrispondenza di. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
 
@@ -36,11 +36,11 @@ Le sezioni seguenti illustrano alcune differenze tra i livelli di messaggistica 
 
 ### <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
-Code e argomenti partizionati non sono supportati nella messaggistica Premium. Per altre informazioni sul partizionamento, vedere [Code e argomenti partizionati](service-bus-partitioning.md).
+Le code e gli argomenti partizionati non sono supportati nella messaggistica Premium. Per altre informazioni sul partizionamento, vedere [Code e argomenti partizionati](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entità Express
 
-Dato che la messaggistica Premium viene eseguita in un ambiente di runtime completamente isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Dal momento che la messaggistica Premium viene eseguita in un ambiente di runtime isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Se è presente codice in esecuzione nella messaggistica Standard e si vuole trasferirlo al livello Premium, assicurarsi che la proprietà [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) sia impostata su **false** (valore predefinito).
 
@@ -53,7 +53,7 @@ In generale, qualsiasi operazione su un'entità può causare l'utilizzo della CP
 
 Tuttavia, l'utilizzo aggiuntivo della CPU e della memoria non viene valutato. Per il livello di messaggistica Premium è disponibile un singolo prezzo per l'unità di messaggio.
 
-L'utilizzo della CPU e della memoria viene monitorato e visualizzato all'utente per i motivi seguenti: 
+L'utilizzo della CPU e della memoria viene monitorato e visualizzato per i motivi seguenti: 
 
 - Fornire trasparenza negli elementi interni del sistema
 - Comprendere la capacità delle risorse acquistate.

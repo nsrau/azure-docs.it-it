@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057886"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423610"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creare utenti in blocco in Azure Active Directory
 
@@ -60,7 +60,7 @@ Un modello CSV scaricato contiene le righe descritte di seguito:
 
 1. Aprire il file CSV e aggiungere una riga per ogni utente da creare. Gli unici valori obbligatori sono **Nome**, **Nome dell'entità utente**, **Password iniziale** e **Blocca l'accesso (Sì/No)** . Salvare quindi il file.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![Il file CSV contiene i nomi e gli ID degli utenti da creare](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Nella pagina **Crea utenti in blocco** individuare il file in Caricare il file CSV. Quando si seleziona il file e si fa clic su **Invia** viene avviata la convalida del file CSV.
 1. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
@@ -73,7 +73,7 @@ Se sono presenti errori, è possibile scaricare e visualizzare il file dei risul
 
 È possibile visualizzare lo stato di tutte le richieste in sospeso di operazioni in blocco nella pagina **Risultati dell'operazione in blocco**.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Verificare lo stato della creazione nella pagina Risultati dell'operazione in blocco](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Quindi, è possibile verificare che gli utenti creati siano presenti nell'organizzazione Azure AD usando il portale di Azure o PowerShell.
 

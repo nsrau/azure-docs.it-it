@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328294"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417115"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale ibrida
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale all'esterno di Azure, inclusi ambienti locali e altri ambienti cloud.
 
 > [!IMPORTANT]
-> Il metodo consigliato per abilitare le VM ibride è la prima volta che si abilita [Azure Arc per i server](/azure-arc/servers/overview.md) , in modo che le macchine virtuali possano essere abilitate per monitoraggio di Azure per le macchine virtuali usando processi simili alle macchine virtuali di Azure. Questo articolo descrive come eseguire l'onboarding di macchine virtuali ibride se si sceglie di non usare Azure Arc.
+> Il metodo consigliato per abilitare le VM ibride è la prima volta che si abilita [Azure Arc per i server](../../azure-arc/servers/overview.md) , in modo che le macchine virtuali possano essere abilitate per monitoraggio di Azure per le macchine virtuali usando processi simili alle macchine virtuali di Azure. Questo articolo descrive come eseguire l'onboarding di macchine virtuali ibride se si sceglie di non usare Azure Arc.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ Le macchine virtuali esterne ad Azure richiedono lo stesso agente di Log Analyti
 Vedere [connettere computer Windows a monitoraggio di Azure](../platform/agent-windows.md) o [connettere computer Linux a monitoraggio di Azure](../platform/agent-linux.md) per informazioni dettagliate sulla distribuzione dell'agente di log Analytics. In questo articolo vengono forniti i dettagli di Dependency Agent. 
 
 ## <a name="firewall-requirements"></a>Requisiti del firewall
-I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Panoramica di log Analytics Agent](..//platform/log-analytics-agent.md#network-requirements). Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../../azure-monitor/platform/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
+I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Panoramica di log Analytics Agent](../platform/log-analytics-agent.md#network-requirements). Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../../azure-monitor/platform/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
 
 
 ## <a name="dependency-agent"></a>Dependency Agent

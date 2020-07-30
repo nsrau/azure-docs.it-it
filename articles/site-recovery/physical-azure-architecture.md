@@ -3,12 +3,12 @@ title: Architettura del ripristino di emergenza del server fisico in Azure Site 
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante il ripristino di emergenza di server fisici locali in Azure con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162838"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422658"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da server fisici ad Azure
 
@@ -28,6 +28,25 @@ La tabella e il grafico seguenti offrono una visualizzazione di alto livello dei
 **Architettura della replica dall'ambiente fisico ad Azure**
 
 ![Componenti](./media/physical-azure-architecture/arch-enhanced.png)
+
+## <a name="set-up-outbound-network-connectivity"></a>Configurare la connettività di rete in uscita
+
+Affinché Site Recovery funzioni come previsto, è necessario modificare la connettività di rete in uscita per consentire la replica dell'ambiente.
+
+> [!NOTE]
+> Site Recovery non supporta l'uso di un proxy di autenticazione per controllare la connettività di rete.
+
+### <a name="outbound-connectivity-for-urls"></a>Connettività in uscita per gli URL
+
+Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire l'accesso a questi URL:
+
+| **Nome**                  | **Commerciale**                               | **Enti governativi**                                 | **Descrizione** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
+| Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
+| Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |
+
 
 ## <a name="replication-process"></a>Processo di replica
 

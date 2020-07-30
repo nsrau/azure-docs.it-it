@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027530"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418220"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gestire le impostazioni utente per Azure Multi-Factor Authentication
 
@@ -47,7 +47,7 @@ Per eliminare le password dell'app di un utente, attenersi alla procedura seguen
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Sul lato sinistro selezionare **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**.
-1. Selezionare **Multi-Factor Authentication**. Potrebbe essere necessario scorrere verso destra per visualizzare l'opzione del menu. Selezionare lo screenshot di esempio seguente per visualizzare la finestra completa del portale di Azure e la posizione del menu: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selezionare Multi-Factor Authentication dalla finestra Utenti in Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selezionare **Multi-Factor Authentication**. Potrebbe essere necessario scorrere verso destra per visualizzare l'opzione del menu. Selezionare la schermata di esempio seguente per visualizzare la finestra di portale di Azure completa e il percorso del menu: [ ![ selezionare multi-factor authentication dalla finestra utenti in Azure ad.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 1. Selezionare **Gestisci impostazioni utente**, quindi selezionare la casella **Elimina tutte le password dell'app esistenti generate dagli utenti selezionati**, come illustrato nell'esempio seguente: ![ eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Selezionare **Save (Salva**) e quindi **Close (Chiudi**).

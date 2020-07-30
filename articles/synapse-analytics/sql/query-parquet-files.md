@@ -9,16 +9,66 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207567"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386623"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file Parquet con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
 In questo articolo si apprenderà come scrivere una query con SQL su richiesta (anteprima) che legga file Parquet.
+
+## <a name="quickstart-example"></a>Esempio di Guida introduttiva
+
+`OPENROWSET`la funzione consente di leggere il contenuto del file parquet fornendo l'URL del file.
+
+### <a name="reading-parquet-file"></a>Lettura del file parquet
+
+Il modo più semplice per visualizzare il contenuto del `PARQUET` file consiste nel fornire l'URL del file per la `OPENROWSET` funzione e specificare parquet `FORMAT` . Se il file è disponibile pubblicamente o se l'identità del Azure AD può accedere a questo file, dovrebbe essere possibile visualizzare il contenuto del file usando la query come quella illustrata nell'esempio seguente:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet',
+    format = 'parquet') as rows
+```
+
+Assicurarsi di accedere a questo file. Se il file è protetto con la chiave SAS o con identità Azure personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Uso dell'origine dati
+
+Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione e usare tale origine dati e il percorso relativo del file nella `OPENROWSET` funzione:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) as rows
+```
+
+Se un'origine dati è protetta con la chiave SAS o l'identità personalizzata, è possibile configurare l' [origine dati con le credenziali con ambito database](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Specifica in modo esplicito lo schema
+
+`OPENROWSET`consente di specificare in modo esplicito le colonne che si desidera leggere dalla clausola using del file `WITH` :
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
+```
+
+Nelle sezioni seguenti è possibile vedere come eseguire query su diversi tipi di file PARQUET.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

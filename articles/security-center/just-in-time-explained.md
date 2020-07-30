@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 50398632f47d889ecb79b32faef94c9c5923789c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531906"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420839"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Informazioni sull'accesso alla VM JIT (just-in-Time)
 
@@ -67,13 +67,17 @@ Quando il Centro sicurezza trova un computer che può trarre vantaggio da JIT, a
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Quali autorizzazioni sono necessarie per configurare e usare JIT?
 
-Per creare ruoli personalizzati che possono funzionare con JIT, è necessario disporre dei dettagli seguenti:
+Se si desidera creare ruoli personalizzati che possono essere utilizzati con JIT, saranno necessari i dettagli della tabella riportata di seguito.
+
+> [!TIP]
+> Per creare un ruolo con privilegi minimi per gli utenti che devono richiedere l'accesso JIT a una macchina virtuale e non eseguire altre operazioni JIT, usare lo [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) delle pagine della community di GitHub del Centro sicurezza.
 
 | Per consentire a un utente di: | Autorizzazioni da impostare|
 | --- | --- |
 | Configurare o modificare un criterio JIT per una macchina virtuale | *Assegnare queste azioni al ruolo:*  <ul><li>Nell'ambito di una sottoscrizione o di un gruppo di risorse associato alla macchina virtuale:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> Nell'ambito di una sottoscrizione o di un gruppo di risorse della macchina virtuale: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Richiedere l'accesso JIT a una macchina virtuale | *Assegnare queste azioni all'utente:*  <ul><li>Nell'ambito di una sottoscrizione o di un gruppo di risorse associato alla macchina virtuale:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>Nell'ambito di una sottoscrizione o di un gruppo di risorse associato alla macchina virtuale:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  Nell'ambito di una sottoscrizione o di un gruppo di risorse o di una macchina virtuale:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  Nell'ambito di una sottoscrizione o di un gruppo di risorse o di una macchina virtuale:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 |Lettura di criteri JIT| *Assegnare queste azioni all'utente:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|||
 
 
 

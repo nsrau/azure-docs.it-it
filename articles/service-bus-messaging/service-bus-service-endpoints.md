@@ -4,14 +4,14 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071327"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422947"
 ---
-# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurare gli endpoint del servizio di rete virtuale per il bus di servizio di Azure
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da reti virtuali specifiche
 
 L'integrazione di endpoint del servizio bus di servizio con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro come le macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
 
@@ -58,11 +58,20 @@ La regola di rete virtuale è un'associazione tra lo spazio dei nomi del bus di 
 Questa sezione illustra come usare portale di Azure per aggiungere un endpoint del servizio rete virtuale. Per limitare l'accesso, è necessario integrare l'endpoint del servizio rete virtuale per questo spazio dei nomi di hub eventi.
 
 1. Passare allo  **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra selezionare l'opzione **Rete**. Per impostazione predefinita, è selezionata l'opzione **Tutte le reti**. Lo spazio dei nomi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
+2. Nel menu a sinistra selezionare opzione di **rete** in **Impostazioni**.  
 
-    ![Opzione Firewall - Tutte le reti selezionata](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Selezionare l'opzione **reti selezionate** nella parte superiore della pagina.
-2. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente**. 
+    > [!NOTE]
+    > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **Premium** .  
+    
+    Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Pagina rete-impostazione predefinita" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se si seleziona l'opzione **tutte le reti** , lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
+
+    ![Opzione Firewall - Tutte le reti selezionata](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. Per limitare l'accesso a specifiche reti virtuali, selezionare l'opzione **reti selezionate** se non è già selezionata.
+1. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente**. 
 
     ![aggiungi rete virtuale esistente](./media/service-endpoints/add-vnet-menu.png)
 3. Selezionare la rete virtuale dall'elenco di reti virtuali e quindi selezionare la **subnet**. Prima di aggiungere la rete virtuale all'elenco, è necessario abilitare l'endpoint del servizio. Se l'endpoint del servizio non è abilitato, il portale richiederà di abilitarlo.
@@ -78,6 +87,9 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 6. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni. Attendere alcuni minuti prima che la conferma venga visualizzata nelle notifiche del portale. Il pulsante **Salva** deve essere disabilitato. 
 
     ![Salva rete](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > Per istruzioni su come consentire l'accesso da indirizzi o intervalli IP specifici, vedere [consentire l'accesso da indirizzi o intervalli IP specifici](service-bus-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente del bus di servizio.

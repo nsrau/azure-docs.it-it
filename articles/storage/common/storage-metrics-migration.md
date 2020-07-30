@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 219d2b972089f9d3b7f84caa8b527474ac241c4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374168"
+ms.locfileid: "87422063"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transizione alle metriche in monitoraggio di Azure
 
-Archiviazione di Azure integra ora le metriche nella piattaforma di monitoraggio di Azure. Il **31 agosto 2023** analisi archiviazione metriche, dette anche *metriche classiche* , verranno ritirate. Se si usano metriche classiche, assicurarsi di passare alle metriche in monitoraggio di Azure prima di tale data. Questo articolo consente di eseguire la transizione.
+Archiviazione di Azure integra ora le metriche nella piattaforma di monitoraggio di Azure. Questo articolo consente di eseguire la transizione.
 
 ## <a name="steps-to-complete-the-transition"></a>Passaggi per completare la transizione
 

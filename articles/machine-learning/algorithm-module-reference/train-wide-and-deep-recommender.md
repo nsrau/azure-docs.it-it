@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090179"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420890"
 ---
 # <a name="train-wide--deep-recommender"></a>Eseguire il training dell'ampia & raccomandazione profonda
 Questo articolo descrive come usare il modulo **Train Wide & proformer Deep Recommender** in Azure Machine Learning Designer (Preview) per eseguire il training di un modello di raccomandazione. Questo modulo si basa su un'ampia gamma di & Deep Learning, proposta da Google.
@@ -105,7 +105,7 @@ Per un esempio, un set tipico di funzionalità degli elementi potrebbe essere si
 
     Questo iperparametro determina le dimensioni del passaggio a ogni passaggio di training, passando verso una funzione di perdita minima. Una velocità di apprendimento troppo grande può causare il passaggio alla formazione minima, mentre una velocità di apprendimento troppo piccola può causare un problema di convergenza.
 
-7.  **Dimensione della funzionalità superata**: digitare la dimensione degli ID utente e della funzionalità degli ID elemento superati. 
+7.  **Dimensione funzionalità superata**: digitare la dimensione immettendo le funzionalità ID utente e ID elemento desiderate. 
 
     Per impostazione predefinita, l'ampia & raccomandazione profonda esegue la trasformazione tra prodotti rispetto alle funzionalità ID utente e ID elemento. Viene eseguito l'hashing del risultato incrociato in base a questo numero per garantire la dimensione.
 

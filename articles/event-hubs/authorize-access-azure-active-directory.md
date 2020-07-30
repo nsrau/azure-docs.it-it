@@ -3,12 +3,12 @@ title: Autorizzare l'accesso con Azure Active Directory
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: cb55a716498bc50dff72c0d98943de407a367d4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371499"
+ms.locfileid: "87413392"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -49,7 +49,7 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 - **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
-> - Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione. 
+> - Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione. 
 > - Questo contenuto si applica sia a hub eventi che a hub eventi per Apache Kafka. Per altre informazioni su Hub eventi per il supporto Kafka, vedere [Hub eventi per Kafka-sicurezza e autenticazione](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
 
 

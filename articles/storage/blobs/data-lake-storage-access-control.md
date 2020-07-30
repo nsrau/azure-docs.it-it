@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091352"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421349"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -34,9 +34,9 @@ Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L'effetto delle assegnazioni di ruolo negli elenchi di controllo di accesso a livello di file e directory
 
-Quando si utilizzano assegnazioni di ruolo RBAC è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
+Quando si usano le assegnazioni di ruolo di Azure è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
 
-Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per prime all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni RBAC dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non dispone di un'assegnazione di Controllo degli accessi in base al ruolo o se l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
+Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per prime all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni di ruolo di Azure dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non ha un'assegnazione di ruolo di Azure o l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
 
 > [!NOTE]
 > Se all'entità di sicurezza è stata assegnata l'assegnazione di ruolo incorporata del proprietario dei dati del BLOB di archiviazione, l'entità di sicurezza viene considerata un *utente con privilegi avanzati* e viene concesso l'accesso completo a tutte le operazioni di mutazione, inclusa l'impostazione del proprietario di una directory o di un file, nonché gli ACL per le directory e i file per cui non sono proprietari. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
@@ -112,7 +112,7 @@ La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. 
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lettura + Scrittura + Esecuzione |
 | 5            | `R-X`        | Lettura + Esecuzione         |
-| 4            | `R--`        | Read                   |
+| 4            | `R--`        | Lettura                   |
 | 0            | `---`        | Nessuna autorizzazione         |
 
 #### <a name="permissions-inheritance"></a>Ereditarietà delle autorizzazioni
@@ -333,7 +333,7 @@ Quando si dispone dell'OID corretto per l'entità servizio, passare alla pagina 
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
-Le assegnazioni con controllo degli accessi in base al ruolo di Azure ereditano. Le assegnazioni scorrono dalle risorse di sottoscrizione, gruppo di risorse e account di archiviazione fino alla risorsa contenitore.
+Le assegnazioni di ruolo di Azure ereditano. Le assegnazioni scorrono dalle risorse di sottoscrizione, gruppo di risorse e account di archiviazione fino alla risorsa contenitore.
 
 Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia possono essere usati per impostare gli ACL per le sottodirectory e i file creati nella directory padre. 
 

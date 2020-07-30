@@ -2,15 +2,15 @@
 title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/29/2020
+ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288014"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420456"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
 L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità.
 
@@ -56,10 +56,19 @@ La regola di rete virtuale è un'associazione dello spazio dei nomi di Hub event
 Questa sezione illustra come usare portale di Azure per aggiungere un endpoint del servizio rete virtuale. Per limitare l'accesso, è necessario integrare l'endpoint del servizio rete virtuale per questo spazio dei nomi di hub eventi.
 
 1. Passare allo **spazio dei nomi di Hub eventi** nel [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra selezionare l'opzione **Rete**. Se si seleziona l'opzione **Tutte le reti**, l'hub eventi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione equivale a una regola che accetti l'intervallo di indirizzi IP 0.0.0.0/0. 
+4. Selezionare **rete** in **Impostazioni** nel menu a sinistra. 
+
+    > [!NOTE]
+    > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **standard** o **dedicati** . 
+
+    Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi da tutte le reti, inclusa la rete Internet pubblica (usando la chiave di accesso). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Scheda reti-opzione reti selezionate" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Se si seleziona l'opzione **tutte le reti** , l'hub eventi accetta le connessioni da qualsiasi indirizzo IP (usando la chiave di accesso). Questa impostazione equivale a una regola che accetti l'intervallo di indirizzi IP 0.0.0.0/0. 
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Per limitare l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina.
+1. Per limitare l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina, se non è già selezionata.
 2. Nella sezione **rete virtuale** della pagina selezionare * * + Aggiungi rete virtuale esistente * * *. Selezionare **+ Crea nuova rete virtuale** se si vuole creare una nuova VNet. 
 
     ![aggiungi rete virtuale esistente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -77,6 +86,8 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 
     ![Salva rete](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Per limitare l'accesso a intervalli o indirizzi IP specifici, vedere [consentire l'accesso da indirizzi o intervalli IP specifici](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 

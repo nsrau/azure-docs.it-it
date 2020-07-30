@@ -10,12 +10,12 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805769"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417540"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati di BLOB o di Accodamento
 
@@ -71,7 +71,7 @@ L'esempio seguente illustra come creare un contenitore in un nuovo account di ar
 1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
+    > Le assegnazioni di ruolo di Azure potrebbero richiedere alcuni minuti per la propagazione.
 
 1. Creare un contenitore chiamando [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Poiché questa chiamata usa il contesto creato nei passaggi precedenti, il contenitore viene creato usando le credenziali Azure AD.
 

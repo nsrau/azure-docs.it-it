@@ -10,16 +10,17 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: d76f3afa3a831f402f93322ecec350bfdb0c788d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166026"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414021"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
-Questo articolo illustra come è possibile incorporare Video Indexer widget nelle app. Video Indexer supporta l'incorporamento di tre tipi di widget nelle app, ovvero *cognitive Insights*, *Player*e *Editor*.
+Questo articolo illustra come è possibile incorporare Video Indexer widget nelle app. Video Indexer supporta l'incorporamento nelle applicazioni di tre tipi di widget: *Dati analitici*, *Lettore* ed *Editor*.
 
 A partire dalla versione 2, l'URL di base del widget include l'area dell'account specificato. Ad esempio, un account nell'area Stati Uniti occidentali genera: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
@@ -29,7 +30,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget Cognitive Insights include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget cognitive Insights supporta i parametri URL facoltativi seguenti:
 
-|Name (Nome)|Definizione|Descrizione|
+|Nome|Definizione|Descrizione|
 |---|---|---|
 |`widgets` | Stringhe separate da virgola | Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` esegue il rendering solo di utenti e parole chiave interfaccia utente Insights.<br/>Opzioni disponibili: People, animatedCharacters, keywords, labels, sentimentals, Emotions, topics, KeyFrames, transcript, OCR, Speakers, Scenes e namedEntities.|
 |`controls`|Stringhe separate da virgola|Consente di controllare i controlli di cui si desidera eseguire il rendering.<br/>Esempio: Visualizza `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` solo l'opzione di ricerca e il pulsante di download.<br/>Opzioni disponibili: ricerca, download, set di impostazioni, lingua.|
@@ -42,7 +43,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 È possibile usare il widget Player per eseguire lo streaming di video usando la velocità in bit adattiva. Il widget Player supporta i parametri URL facoltativi seguenti.
 
-|Name (Nome)|Definizione|Descrizione|
+|Nome|Definizione|Descrizione|
 |---|---|---|
 |`t` | Secondi dall'inizio | Consente di avviare la riproduzione del lettore dal punto di tempo specificato.<br/> Esempio: `t=60`. |
 |`captions` | Codice lingua | Recupera la didascalia nella lingua specificata durante il caricamento del widget affinché sia disponibile nel menu **didascalie** .<br/> Esempio: `captions=en-US`. |
@@ -56,7 +57,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 È possibile usare il widget editor per creare nuovi progetti e gestire le informazioni dettagliate di un video. Il widget editor supporta i parametri URL facoltativi seguenti.
 
-|Name (Nome)|Definizione|Descrizione|
+|Nome|Definizione|Descrizione|
 |---|---|---|
 |`accessToken`<sup>*</sup> | string | Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il `accessToken` parametro. |
 |`language` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`. |

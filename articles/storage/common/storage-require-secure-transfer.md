@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 668b8d714c4d6c146d9b279d9e6a49599c04775c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870523"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423508"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Richiedi trasferimento sicuro per garantire connessioni sicure
 
@@ -51,7 +51,7 @@ Per impostazione predefinita, la proprietà **trasferimento sicuro obbligatorio*
 
 ## <a name="require-secure-transfer-from-code"></a>Richiedi trasferimento sicuro dal codice
 
-Per richiedere il trasferimento sicuro a livello di codice, impostare la proprietà _supportsHttpsTrafficOnly_ nell'account di archiviazione. È possibile impostare questa proprietà tramite l'API REST del provider di risorse di archiviazione, le librerie client o gli strumenti:
+Per richiedere il trasferimento sicuro a livello di codice, impostare la proprietà _enableHttpsTrafficOnly_ su _true_ nell'account di archiviazione. È possibile impostare questa proprietà tramite l'API REST del provider di risorse di archiviazione, le librerie client o gli strumenti:
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

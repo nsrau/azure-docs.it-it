@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74815586"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387983"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Roobo smart audio Dev Kit
 
@@ -69,7 +69,7 @@ Per ulteriori informazioni sullo sviluppo, vedere la [Guida allo sviluppo di Roo
 
 ## <a name="audio"></a>Audio
 
-Roobo fornisce uno strumento che acquisisce tutti i file audio nella memoria flash. Tale strumento può essere utile per la risoluzione dei problemi relativi all' audio. Una versione dello strumento è disponibile con ogni configurazione del kit di sviluppo. Nel [sito Roobo](https://ddk.roobo.com/)selezionare il dispositivo e quindi selezionare il collegamento **strumenti Roobo** nella parte inferiore della pagina.
+Roobo fornisce uno strumento che acquisisce tutti i file audio nella memoria flash. Tale strumento può essere utile per la risoluzione dei problemi relativi all' audio. Una versione dello strumento è disponibile con ogni configurazione del kit di sviluppo. Nel [sito Roobo](http://ddk.roobo.com/)selezionare il dispositivo e quindi selezionare il collegamento **strumenti Roobo** nella parte inferiore della pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,19 +4,19 @@ description: Questa pagina descrive alcuni limiti di risorse DTU comuni per i po
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: references_regions
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 04/17/2020
-ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325118"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420992"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,9 +38,11 @@ Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un pool elastico](elastic-pool-scale.md)
 
+I limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database S2 è 120. Pertanto, anche il numero massimo di ruoli di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (che è equivalente a S2).
+ 
+Le risorse fornite a un pool elastico possono superare le risorse fornite a un singolo database all'esterno di un pool elastico per lo stesso numero di DTU. Ciò significa che l'utilizzo di eDTU di un pool elastico può essere inferiore alla somma dell'utilizzo di DTU tra i database all'interno del pool, a seconda dei modelli di carico di lavoro. Ad esempio, in un caso estremo con un solo database in un pool elastico in cui l'utilizzo di DTU del database è pari al 100%, è possibile che l'utilizzo del eDTU del pool sia 50% per determinati modelli di carico di lavoro. Questo problema può verificarsi anche se non è stato impostato alcun valore di DTU massimo esplicito per database. In tal caso, il consumo di DTU del database in pool è limitato allo stesso modo del consumo DTU di un database singolo con l'obiettivo di servizio corrispondente.
+
 > [!NOTE]
-> I limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database S2 è 120. Pertanto, anche il numero massimo di ruoli di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (che è equivalente a S2).
->
 > Il limite di risorse di archiviazione per pool in ognuna delle tabelle seguenti non include tempdb e l'archiviazione dei log.
 
 ### <a name="basic-elastic-pool-limits"></a>Limiti del pool elastico Basic

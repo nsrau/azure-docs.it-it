@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
-ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946122"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406912"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>Come visualizzare i calcoli matematici nel lettore immersivo
 
@@ -22,7 +23,7 @@ Il lettore immersivo può visualizzare i calcoli matematici quando viene fornito
 Il tipo MIME può essere impostato tramite il [blocco](../reference.md#chunk)Reader immersivo. Per ulteriori informazioni, vedere [tipi MIME supportati](../reference.md#supported-mime-types) .
 
 ## <a name="send-math-to-the-immersive-reader"></a>Invia matematica al lettore immersivo
-Per inviare i calcoli matematici al lettore immersivo, fornire un blocco contenente MathML e impostare il tipo MIME su ```application/mathml+xml```;
+Per inviare i calcoli matematici al lettore immersivo, fornire un blocco contenente MathML e impostare il tipo MIME su ```application/mathml+xml``` ;
 
 Ad esempio, se il contenuto è il seguente:
 
