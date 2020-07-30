@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: ba0c44953a33e6ccd0bbe406159e9636411695ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -58,6 +58,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Non usare l'ambiente di produzione a meno che non sia necessario.
 * Sottoscrizione di JIRA SAML SSO by Microsoft abilitata per l'accesso Single Sign-On (SSO).
 
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
+
 ## <a name="supported-versions-of-jira"></a>Versioni di JIRA supportate
 
 * JIRA Core e Software: dalla 6.4 alla 8.8.0
@@ -91,7 +94,7 @@ Configurare e testare l'accesso SSO di Azure AD con JIRA SAML SSO by Microsoft u
 Per configurare e testare l'accesso SSO di Azure AD con JIRA SAML SSO by Microsoft, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di JIRA SAML SSO by Microsoft](#configure-jira-saml-sso-by-microsoft-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di JIRA SAML SSO by Microsoft](#create-jira-saml-sso-by-microsoft-test-user)** : per avere una controparte di B.Simon in JIRA SAML SSO by Microsoft collegata alla rappresentazione dell'utente in Azure AD.

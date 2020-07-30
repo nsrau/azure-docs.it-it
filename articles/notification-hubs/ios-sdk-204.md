@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 2103c93e553cc5e1e94941b1567bd3c0f168eabf
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 80a9a98043a39b654f0d62a84ae81e12797b15b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022362"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>Esercitazione: Inviare notifiche push alle app iOS con Hub di notifica di Azure (versione 2.0.4)
 
@@ -491,7 +491,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md)
 - [Uso dei tag](notification-hubs-tags-segment-push-message.md)
 - [Uso di modelli personalizzati](notification-hubs-templates-cross-platform-push-messages.md)
-- [Controllo degli accessi del bus di servizio con firme di accesso condiviso](/azure/service-bus-messaging/service-bus-sas)
+- [Controllo degli accessi del bus di servizio con firme di accesso condiviso](../service-bus-messaging/service-bus-sas.md)
 - [Generare token di firma di accesso condiviso a livello di codice](/rest/api/eventhub/generate-sas-token)
 - [Sicurezza di Apple: crittografia comune](https://developer.apple.com/security/)
 - [Ora del periodo UNIX](https://en.wikipedia.org/wiki/Unix_time)

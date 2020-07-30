@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63872680d28664c6d5a7ff109f6de72817173d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c75b5e0604c4fe9b0c879a89598c0d00ba1ff2f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68989655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018423"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Esercitazione: Integrare Aha! con Azure Active Directory
 
@@ -39,6 +39,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Aha! Sottoscrizione abilitata per l'accesso Single Sign-On (SSO).
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 

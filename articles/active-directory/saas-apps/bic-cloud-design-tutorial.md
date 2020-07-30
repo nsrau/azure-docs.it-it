@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de3ebba84a56a0dd997a2d0309bbc203cd606fa1
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 2d1c02f1382305f48f0857e80193a201726df4f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BIC Cloud Design
 
@@ -38,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di BIC Cloud Design abilitata per l'accesso Single Sign-On (SSO).
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 

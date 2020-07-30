@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 06/03/2020
-ms.openlocfilehash: cfa3bd377376b5b72bd1d0f18a7905196958a17e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 3a8e1f31419d4ab14283418fbeb6391ae7167e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84514582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048999"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Creare un blocco di risorse per l'API di Azure Cosmos DB per MongoDB usando l'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "84514582"
 Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento è necessario eseguire la versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
-> I blocchi delle risorse non funzionano per le modifiche apportate dagli utenti che si connettono tramite MongoDB SDK, Mongoshell, strumenti o il portale di Azure, a meno che l'account Cosmos DB non venga inizialmente bloccato con la proprietà `disableKeyBasedMetadataWriteAccess` abilitata. Per altre informazioni su come abilitare questa proprietà, vedere [Impedire modifiche dagli SDK](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> I blocchi delle risorse non funzionano per le modifiche apportate dagli utenti che si connettono tramite MongoDB SDK, Mongoshell, strumenti o il portale di Azure, a meno che l'account Cosmos DB non venga inizialmente bloccato con la proprietà `disableKeyBasedMetadataWriteAccess` abilitata. Per altre informazioni su come abilitare questa proprietà, vedere [Impedire modifiche dagli SDK](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="sample-script"></a>Script di esempio
 

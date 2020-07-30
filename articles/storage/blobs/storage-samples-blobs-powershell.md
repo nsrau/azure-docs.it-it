@@ -7,18 +7,18 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: c4e8608c0d5c8dc79fa299d5d814f33cd6c8da2d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66c188186c81e5a4d15c417a31ab096ba7ef598
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68726314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020900"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Esempi di Azure PowerShell per l'archiviazione BLOB di Azure
 
 La tabella seguente include alcuni collegamenti a esempi di script PowerShell che creano e gestiscono un'archiviazione di Azure.
 
-| | |
+| Script | Descrizione |
 |---|---|
 |**Account di archiviazione**||
 | [Creare un account di archiviazione e recuperare/ruotare le relative chiavi di accesso](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account di archiviazione di Azure, recuperare e ruotare una delle relative chiavi di accesso. |

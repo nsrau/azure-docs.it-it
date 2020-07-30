@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005880"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043636"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -58,7 +58,7 @@ Un identificatore di oggetto ha il seguente formato generale:
 
 Dove:  
 
-|||  
+| Elemento | Descrizione |  
 |-|-|  
 |`keyvault-name`|Il nome per un insieme di credenziali delle chiavi nel servizio Microsoft Azure Key Vault.<br /><br /> I nomi di Key Vault vengono selezionati dall'utente e sono univoci.<br /><br /> Il nome dell'insieme di credenziali delle chiavi deve essere costituito da una stringa di lunghezza compresa tra 3 e 24 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
 |`object-type`|Tipo di oggetto, "chiavi", "segreti" o "certificati".|  

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8529e1ea08707d9a60ec43d3fa569bdc7f5b7bf
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: e14ad53ad613e7cbc6631707b79f607cd39b3791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Esercitazione: Integrazione di Azure Active Directory con Brightspace by Desire2Learn
 
@@ -41,6 +41,9 @@ Per configurare l'integrazione di Azure AD con Brightspace by Desire2Learn, sono
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Brightspace by Desire2Learn abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -130,7 +133,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Brightspace by Desire2L
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-brightspace-by-desire2learn-single-sign-on"></a>Configurare l'accesso Single Sign-On per Brightspace by Desire2Learn
 
@@ -138,7 +141,7 @@ Per configurare l'accesso Single Sign-On sul lato **Brightspace by Desire2Learn*
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

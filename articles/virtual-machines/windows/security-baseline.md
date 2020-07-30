@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: abdf84a4266b0bc57d74f2219fdaece8dd193086
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133028"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387014"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -1091,7 +1091,7 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare la macchina vi
 
 * [Eliminazione temporanea per le macchine virtuali](../../backup/soft-delete-virtual-machines.md)
 
-* [Panoramica dell'eliminazione temporanea di Azure Key Vault](../../key-vault/general/overview-soft-delete.md)
+* [Panoramica dell'eliminazione temporanea di Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

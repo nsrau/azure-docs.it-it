@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075899"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387320"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usare sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro
 
@@ -22,7 +22,7 @@ Con l'analisi delle sinapsi di Azure è possibile creare pipeline complesse che 
 
 Questo articolo illustra come monitorare le esecuzioni della pipeline, che consente di tenere sotto controllo lo stato, i problemi e lo stato di avanzamento delle pipeline più recenti.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Accedere all'elenco di esecuzioni di pipeline
+## <a name="access-pipeline-runs-list"></a>Elenco delle esecuzioni di pipeline di accesso
 
 Per visualizzare l'elenco delle esecuzioni di pipeline nell'area di lavoro, aprire prima di tutto [il sistema sinapsi Studio](https://web.azuresynapse.net/) e selezionare l'area di lavoro.
 
@@ -36,7 +36,7 @@ Selezionare **esecuzioni pipeline** per visualizzare l'elenco delle esecuzioni d
 
 ![Selezionare le esecuzioni della pipeline](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtraggio delle esecuzioni della pipeline
+## <a name="filter-your-pipeline-runs"></a>Filtrare le esecuzioni della pipeline
 
 È possibile filtrare l'elenco delle esecuzioni di pipeline a quelle a cui si è interessati. I filtri nella parte superiore della schermata consentono di specificare un campo in base al quale si desidera applicare un filtro.
 
@@ -46,7 +46,7 @@ Ad esempio, è possibile filtrare la visualizzazione per visualizzare solo le es
 
 ![Filtro di esempio](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Visualizzazione dei dettagli relativi a un'esecuzione di pipeline specifica
+## <a name="view-details-about-a-specific-pipeline-run"></a>Visualizza i dettagli relativi a un'esecuzione di pipeline specifica
 
 Per visualizzare i dettagli relativi all'esecuzione della pipeline, selezionare l'esecuzione della pipeline. Quindi visualizzare le esecuzioni attività associate all'esecuzione della pipeline. Se la pipeline è ancora in esecuzione, è possibile monitorare lo stato di avanzamento. 
   

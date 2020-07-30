@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 14e7f4d09185f76786fd88576eef0b6df02877c4
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004156"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare SSMS per connettersi a un database SQL di Azure o a un'istanza gestita di database SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,14 +33,14 @@ Per completare questo argomento di avvio rapido, è necessario avere gli element
 
 - Database nel database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide di avvio rapido:
 
-  || Database SQL | Istanza gestita di SQL | SQL Server in una macchina virtuale Azure |
+  | Azione | Database SQL | Istanza gestita di SQL | SQL Server in una macchina virtuale Azure |
   |:--- |:--- |:---|:---|
   | Create| [Portale](single-database-create-quickstart.md) | [Portale](../managed-instance/instance-create-quickstart.md) | [Portale](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Configurare | [Regola del firewall IP a livello di server](firewall-create-server-level-portal-quickstart.md)| [Connettività da una VM](../managed-instance/connect-vm-instance-configure.md)|
   |||[Connettività da locale](../managed-instance/point-to-site-p2s-configure.md) | [Connettersi a SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Caricare dati|Adventure Works caricato in base alla guida di avvio rapido|[Ripristinare Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Ripristinare Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
+  |Caricare dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Ripristinare Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
   |||Ripristinare o importare Adventure Works dal file [BACPAC](database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Ripristinare o importare Adventure Works dal file [BACPAC](database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 

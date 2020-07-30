@@ -3,16 +3,16 @@ title: Eseguire la migrazione delle API dal Contratto Enterprise al Contratto de
 description: Questo articolo illustra le conseguenze della migrazione di un Contratto Enterprise (EA) a un Contratto del cliente Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c556f2371ffba239ceee64fd4180143ae9b9230
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77201034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290044"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Eseguire la migrazione delle API dal Contratto Enterprise al Contratto del cliente Microsoft
 
