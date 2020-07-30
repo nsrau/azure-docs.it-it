@@ -1,14 +1,14 @@
 ---
 title: Controlli degli esempi di progetti UK OFFICIAL e UK NHS
 description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078997"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -27,6 +27,9 @@ Il progetto consente di assicurarsi che il trasferimento di informazioni con i s
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - Mostra i risultati del controllo dai server Web Windows che non usano protocolli di comunicazione sicuri
 - Distribuisci i prerequisiti per controllare i server Web Windows che non usano protocolli di comunicazione sicuri
+- L'applicazione Web deve essere accessibile solo tramite HTTPS
+- L'app per le funzioni deve essere accessibile solo tramite HTTPS
+- L'app per le API deve essere accessibile solo tramite HTTPS
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protezione dei dati inattivi
 
@@ -107,27 +110,27 @@ Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare 
 
 Questo progetto assegna inoltre una definizione di Criteri di Azure che controlla le autorizzazioni per il file delle password delle VM Linux per avvisare se non sono impostate correttamente. Questa configurazione consente di adottare azioni correttive per assicurare che gli autenticatori non vengano compromessi.
 
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
+- Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 Questo progetto consente di imporre password complesse assegnando definizioni di Criteri di Azure che controllano le VM Windows per cui non sono applicati i requisiti minimi di complessità o di altro tipo per le password. Identificando le VM in violazione dei criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle VM siano conformi ai criteri.
 
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
+- Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 
 Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure assegnando definizioni di Criteri di Azure. Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse. Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
+- Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
+- Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
+- Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
+- Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
 - È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager
 - È consigliabile eseguire la migrazione delle macchine virtuali alle nuove risorse di Azure Resource Manager
 - Controlla macchine virtuali che non usano dischi gestiti
@@ -145,36 +148,6 @@ Invece di usare più di 25 criteri per la gestione appropriata e sicura degli ut
 - Il debug remoto deve essere disattivato per l'app per le funzioni
 - Il debug remoto deve essere disattivato per l'applicazione Web
 - Il debug remoto deve essere disattivato per l'app per le API
-- L'applicazione Web deve essere accessibile solo tramite HTTPS
-- L'app per le funzioni deve essere accessibile solo tramite HTTPS
-- L'app per le API deve essere accessibile solo tramite HTTPS
-
-## <a name="12-secure-service-administration"></a>12 Amministrazione sicura dei servizi
-
-Azure implementa il controllo degli accessi in base al ruolo per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di restringere e controllare i diritti di accesso con privilegi assegnando cinque definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di scrittura e gli account con autorizzazioni di proprietario e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
-
-Ai sistemi usati per l'amministrazione di un servizio cloud viene concesso l'accesso al servizio con privilegi elevati. Un'eventuale violazione di questi sistemi avrebbe quindi conseguenze piuttosto gravi, come la possibilità di aggirare i controlli di sicurezza e rubare o modificare grandi volumi di dati. I metodi usati dagli amministratori dei provider di servizi per gestire il servizio operativo dovrebbero essere progettati per mitigare l'eventuale rischio di sfruttamento che potrebbe compromettere la sicurezza del servizio. Se questo principio non viene implementato, un utente malintenzionato potrebbe avere i mezzi per ignorare i controlli di sicurezza e rubare o manipolare grandi volumi di dati.
-
-- L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
-- L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
-
-Questo progetto assegna definizioni di Criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
-
-- È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
-- I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client
-
-Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare gli account la cui verifica dovrebbe essere prioritaria, inclusi gli account deprecati e quelli esterni con autorizzazioni elevate. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di Criteri di Azure per controllare gli account deprecati che sarebbe preferibile rimuovere.
-
-- Gli account deprecati devono essere rimossi dalla sottoscrizione
-- Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
-
-Questo progetto assegna inoltre una definizione di Criteri di Azure che controlla le autorizzazioni per il file delle password delle VM Linux per avvisare se non sono impostate correttamente. Questa configurazione consente di adottare azioni correttive per assicurare che gli autenticatori non vengano compromessi.
-
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informazioni di controllo per gli utenti
 

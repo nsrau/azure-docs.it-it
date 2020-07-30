@@ -3,23 +3,20 @@ title: 'Guida introduttiva: Libreria di Archiviazione BLOB di Azure v12 - .NET'
 description: In questa Guida introduttiva verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per .NET per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d142206a9640ce53ea7463a2c68c5d1c8f64c354
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287188"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure v12 per .NET
 
 Iniziare a usare la libreria client di Archiviazione BLOB di Azure v12 per .NET. L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
-
-> [!NOTE]
-> Per iniziare a usare la versione precedente dell'SDK, vedere [Avvio rapido: Libreria client di Archiviazione BLOB di Azure per .NET](storage-quickstart-blobs-dotnet-legacy.md).
 
 Usare la libreria client di Archiviazione BLOB di Azure v12 per .NET per:
 
@@ -29,7 +26,12 @@ Usare la libreria client di Archiviazione BLOB di Azure v12 per .NET per:
 * Scaricare il BLOB nel computer locale
 * Eliminare un contenitore
 
-[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.blobs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Risorse aggiuntive:
+
+* [Documentazione di riferimento delle API](/dotnet/api/azure.storage.blobs)
+* [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

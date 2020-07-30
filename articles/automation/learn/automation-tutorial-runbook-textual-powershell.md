@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: e7c73bf45adba0638074b9d2ab1bab28970ed9b8
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015001"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Esercitazione: Creare un runbook di PowerShell
 
@@ -144,15 +144,15 @@ Come illustrato nell'esempio seguente, la connessione RunAs viene stabilita con 
 
    # Wrap authentication in retry logic for transient network failures
    $logonAttempt = 0
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -174,15 +174,15 @@ Come illustrato nell'esempio seguente, la connessione RunAs viene stabilita con 
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
 
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -205,15 +205,15 @@ Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è pos
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -240,15 +240,15 @@ Il runbook avvia effettivamente la macchina virtuale hardcoded nel runbook. Il r
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }

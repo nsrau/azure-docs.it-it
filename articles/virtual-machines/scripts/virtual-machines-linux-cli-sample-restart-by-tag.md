@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079979"
 ---
 # <a name="restart-vms"></a>Riavviare le VM
 
@@ -86,15 +86,15 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crea le macchine virtuali.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Si usa con `--query` per assicurare che venga eseguito il provisionign delle VM prima del loro riavvio e poi per ottenere gli ID delle VM e riavviarle. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Si usa con `--query` per ottenere gli ID delle VM con il tag. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Riavvia le macchine virtuali. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az vm create](/cli/azure/vm/availability-set) | Crea le macchine virtuali.  |
+| [az vm list](/cli/azure/vm) | Si usa con `--query` per assicurare che venga eseguito il provisionign delle VM prima del loro riavvio e poi per ottenere gli ID delle VM e riavviarle. |
+| [az resource list](/cli/azure/vm) | Si usa con `--query` per ottenere gli ID delle VM con il tag. |
+| [az vm restart](/cli/azure/vm) | Riavvia le macchine virtuali. |
+| [az group delete](/cli/azure/vm/extension) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della VM Linux di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

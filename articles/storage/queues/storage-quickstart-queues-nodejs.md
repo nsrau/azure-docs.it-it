@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f7534fe5fe68e2b94b106e464006ee45957bd99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077840"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per JavaScript
 
@@ -28,7 +28,12 @@ Usare la libreria client di Archiviazione code di Azure v12 per JavaScript per:
 * Eliminare messaggi da una coda
 * Eliminare una coda
 
-[Documentazione di riferimento delle API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Pacchetto (Gestione pacchetti del nodo)](https://www.npmjs.com/package/@azure/storage-queue) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Risorse aggiuntive:
+
+* [Documentazione di riferimento delle API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+* [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue)
+* [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817309"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074398"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -655,7 +655,7 @@ L'istanza del grafo creata e attivata in precedenza usa il nodo del processore d
 
 Nei messaggi precedenti si notino le proprietà seguenti
 
-* Ogni messaggio contiene una sezione "body" e una sezione "applicationProperties". Per comprendere che cosa rappresentano queste sezioni, leggere l'articolo [Creare e leggere messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Ogni messaggio contiene una sezione "body" e una sezione "applicationProperties". Per comprendere che cosa rappresentano queste sezioni, leggere l'articolo [Creare e leggere messaggi dell'hub IoT](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * Il primo messaggio è l'evento di diagnostica MediaSessionEstablished che indica che il nodo di origine RTSP ("subject") è stato in grado di stabilire una connessione con il simulatore RTSP e iniziare a ricevere un feed live (simulato).
 * "subject" in applicationProperties fa riferimento al nodo nella topologia del grafo da cui è stato generato il messaggio. In questo caso il messaggio viene originato dal nodo di origine RTSP.
 * "eventType" in applicationProperties indica che si tratta di un evento di diagnostica.

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 1d0cd074f6e4ad836bc5102f3f6edc61b75215e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199959"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287969"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ ms.locfileid: "86199959"
 ## <a name="prerequisites"></a>Prerequisiti
 
 Completare [la prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per apprendere come eseguire il training e assegnare un punteggio a un modello di Machine Learning nella finestra di progettazione.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-real-time-inference-pipeline"></a>Creare una pipeline di inferenza in tempo reale
 

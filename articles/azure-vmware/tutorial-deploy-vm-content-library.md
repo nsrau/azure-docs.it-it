@@ -2,13 +2,13 @@
 title: 'Esercitazione: Creare una raccolta contenuto per distribuire macchine virtuali nella soluzione Azure VMware'
 description: In questa esercitazione della soluzione Azure VMware viene creata una raccolta contenuto per distribuire una macchina virtuale in un cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 07/10/2020
-ms.openlocfilehash: bdea4304baa92fadc4d6c3d0060f99cf37af5f77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/16/2020
+ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079384"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Esercitazione: Creare una raccolta contenuto per distribuire macchine virtuali nella soluzione Azure VMware
 

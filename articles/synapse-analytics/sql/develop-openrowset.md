@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a03c031f8874471794f2533285ce65b395d43c2d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280478"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -30,8 +30,8 @@ La funzione `OPENROWSET` può facoltativamente contenere un parametro `DATA_SOUR
 
     ```sql
     SELECT *
-    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
-                    TYPE = 'PARQUET') AS file
+    FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
+                    FORMAT = 'PARQUET') AS file
     ```
 
 Si tratta di un modo semplice e rapido per leggere il contenuto dei file senza preconfigurazione. Questa opzione consente di usare l'opzione di autenticazione di base per accedere all'archiviazione (pass-through di Azure AD per gli account di accesso di Azure AD e token di firma di accesso condiviso per gli account di accesso di SQL). 
@@ -42,7 +42,7 @@ Si tratta di un modo semplice e rapido per leggere il contenuto dei file senza p
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    TYPE = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS file
     ```
 
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7623373be1aded29cb022f1d5080ed94d96b719
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c2957cf59a93837e4f84f64be054cdb9e6939da3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -41,6 +41,9 @@ Per configurare l'integrazione di Azure AD con Zscaler Internet Access Administr
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Zscaler Internet Access Administrator
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -108,21 +111,25 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
     a. Nella casella di testo **Identificatore** digitare un URL in base alle esigenze:
 
-    - `https://admin.zscaler.net`
-    - `https://admin.zscalerone.net`
-    - `https://admin.zscalertwo.net`
-    - `https://admin.zscalerthree.net`
-    - `https://admin.zscloud.net`
-    - `https://admin.zscalerbeta.net`
+    | Identificatore |
+    |------------|
+    | `https://admin.zscaler.net` |
+    | `https://admin.zscalerone.net` |
+    | `https://admin.zscalertwo.net` |
+    | `https://admin.zscalerthree.net` |
+    | `https://admin.zscloud.net` |
+    | `https://admin.zscalerbeta.net` |
 
     b. Nella casella di testo **URL di risposta** digitare un URL in base alle esigenze:
 
-    - `https://admin.zscaler.net/adminsso.do`
-    - `https://admin.zscalerone.net/adminsso.do`
-    - `https://admin.zscalertwo.net/adminsso.do`
-    - `https://admin.zscalerthree.net/adminsso.do`
-    - `https://admin.zscloud.net/adminsso.do`
-    - `https://admin.zscalerbeta.net/adminsso.do`
+    | URL di risposta |
+    |-----------|
+    | `https://admin.zscaler.net/adminsso.do` |
+    | `https://admin.zscalerone.net/adminsso.do` |
+    | `https://admin.zscalertwo.net/adminsso.do` |
+    | `https://admin.zscalerthree.net/adminsso.do` |
+    | `https://admin.zscloud.net/adminsso.do` |
+    | `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. L'applicazione Zscaler Internet Access Administrator prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente e attestazioni**.
 
@@ -161,7 +168,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-zscaler-internet-access-administrator-single-sign-on"></a>Configurare l'accesso Single Sign-On per Zscaler Internet Access Administrator
 
@@ -187,7 +194,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

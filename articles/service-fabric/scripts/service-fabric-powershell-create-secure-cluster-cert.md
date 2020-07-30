@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6b900bba178d4180d48ed3b89ec1e4d6cb49d7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076123"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
 
@@ -27,7 +27,7 @@ Questo script di esempio crea un cluster di Service Fabric con cinque nodi prote
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure. 
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure. 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -52,6 +52,6 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di Azure PowerShell per Azure Service Fabric sono disponibili in [Esempi di Azure PowerShell](../service-fabric-powershell-samples.md).
