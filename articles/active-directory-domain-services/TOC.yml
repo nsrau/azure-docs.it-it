@@ -49,6 +49,8 @@
       href: synchronization.md
     - name: Funzionamento della sincronizzazione dell'hash delle password
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Considerazioni sulla rete virtuale
+      href: network-considerations.md
     - name: Vantaggi associati alla migrazione della distribuzione classica
       href: concepts-migration-benefits.md
     - name: Informazioni su Azure Active Directory
@@ -65,10 +67,6 @@
           href: create-ou.md
         - name: Creare un account del servizio gestito del gruppo (gMSA)
           href: create-gmsa.md
-    - name: Pianificare per Azure Active Directory Domain Services
-      items:
-        - name: Considerazioni sulla rete virtuale
-          href: network-considerations.md
     - name: Gestire Azure Active Directory Domain Services
       items:
         - name: Amministrare Criteri di gruppo

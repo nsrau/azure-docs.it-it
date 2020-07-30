@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Inviare e ricevere eventi tramite Go - Hub eventi di
 description: "Guida introduttiva: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Go in grado di inviare eventi ad Hub eventi di Azure."
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002455"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Guida introduttiva: Inviare e ricevere eventi da Hub eventi tramite Go
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -126,7 +126,7 @@ Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 
 ### <a name="create-a-storage-account-and-container"></a>Creare un account di archiviazione e un contenitore
 
-Le informazioni sullo stato, come i lease sulle partizioni e i checkpoint nel flusso di eventi, vengono condivise tra i ricevitori tramite un contenitore di Archiviazione di Azure. È possibile creare un account di archiviazione e un contenitore usando l'SDK per Go, ma anche seguendo le istruzioni riportate in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+Le informazioni sullo stato, come i lease sulle partizioni e i checkpoint nel flusso di eventi, vengono condivise tra i ricevitori tramite un contenitore di Archiviazione di Azure. È possibile creare un account di archiviazione e un contenitore usando l'SDK per Go, ma anche seguendo le istruzioni riportate in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md).
 
 Gli esempi per la creazione di elementi di archiviazione con l'SDK per Go sono disponibili nel [repository degli esempi di Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) e nell'esempio corrispondente a questa esercitazione.
 

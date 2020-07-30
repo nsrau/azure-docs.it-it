@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782263"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387167"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -42,7 +42,7 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 No. Poiché si sarebbe trattato di una modifica di rilievo delle app SCIM codificate in modo da funzionare con il comportamento precedente, le modifiche non sono state applicate automaticamente alle app esistenti.
 
-Le modifiche vengono applicate a tutte le nuove [app SCIM non incluse nella raccolta](../manage-apps/configure-single-sign-on-non-gallery-applications.md) configurate nel portale di Azure dopo la data della correzione.
+Le modifiche vengono applicate a tutte le nuove app SCIM non incluse nella raccolta configurate nel portale di Azure dopo la data della correzione.
 
 Per informazioni su come eseguire la migrazione di un processo di provisioning utenti preesistente in modo da includere le correzioni più recenti, vedere la sezione successiva.
 

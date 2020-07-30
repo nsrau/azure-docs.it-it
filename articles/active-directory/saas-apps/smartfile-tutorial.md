@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a7ff36fbfee3917478b11329f3591b5ce8d076
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7297b79dfd376edaa5407dee68b85ccc69c8b860
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Esercitazione: Integrazione di Azure Active Directory con SmartFile
 
@@ -41,6 +41,9 @@ Per configurare l'integrazione di Azure AD con SmartFile sono necessari gli elem
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di SmartFile abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -125,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SmartFile, seguire ques
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-smartfile-single-sign-on"></a>Configurare l'accesso Single Sign-On per SmartFile
 
@@ -133,7 +136,7 @@ Per configurare l'accesso Single Sign-On sul lato **SmartFile**, è necessario i
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

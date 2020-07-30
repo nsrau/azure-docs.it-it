@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: b6d30aebd4de272ba98fce87f23701b129eacb02
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f3c173c61e9f6d82a51fcaf7e11cda47eb47c1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011709"
 ---
 # <a name="azure-media-player-overview"></a>Panoramica di Azure Media Player #
 
@@ -28,7 +28,7 @@ Per richiedere nuove funzionalità, sottoporre idee o inviare feedback, usare il
 
 ## <a name="license"></a>Licenza ##
 
-Azure Media Player è concesso in licenza e soggetto alle condizioni definite nelle Condizioni di licenza software Microsoft per Azure Media Player. Per le condizioni complete, vedere il [file di licenza](azure-media-player-license.md). Per altre informazioni, vedere l'[informativa sulla privacy](https://www.microsoft.com/en-us/privacystatement/default.aspx).
+Azure Media Player è concesso in licenza e soggetto alle condizioni definite nelle Condizioni di licenza software Microsoft per Azure Media Player. Per le condizioni complete, vedere il [file di licenza](/legal/azure-media-player/azure-media-player-license). Per altre informazioni, vedere l'[informativa sulla privacy](https://www.microsoft.com/en-us/privacystatement/default.aspx).
 
 Copyright 2015 Microsoft Corporation.
 

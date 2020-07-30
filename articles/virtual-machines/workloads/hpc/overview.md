@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76271009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083430"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>High Performance Computing in macchine virtuali serie H
 
@@ -39,7 +39,7 @@ Per altre informazioni sulla configurazione di InfiniBand nelle macchine virtual
 
 ## <a name="get-started"></a>Introduzione
 
-Innanzitutto, decidere quale macchina virtuale serie H si intende usare. Per informazioni dettagliate sulle macchine virtuali ottimizzate per HPC, vedere la [panoramica sulla serie HB](hb-series-overview.md) e la [panoramica sulla serie HC](hc-series-overview.md). Per le specifiche, vedere l'articolo sulle [dimensioni delle macchine virtuali HPC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Innanzitutto, decidere quale macchina virtuale serie H si intende usare. Per informazioni dettagliate sulle macchine virtuali ottimizzate per HPC, vedere la [panoramica sulla serie HB](hb-series-overview.md) e la [panoramica sulla serie HC](hc-series-overview.md). Per le specifiche, vedere l'articolo sulle [dimensioni delle macchine virtuali HPC](../../sizes-hpc.md).
 
 Dopo aver selezionato e creato una macchina virtuale per l'applicazione, è necessario configurarla abilitando InfiniBand. Per informazioni su come abilitare InfiniBand in macchine virtuali Windows e Linux, vedere [Abilitare InfiniBand](enable-infiniband.md).
 
@@ -51,4 +51,4 @@ Dopo aver scelto la serie di macchine virtuali, configurare Infiniband e MPI per
 
 - Per informazioni sulle differenze principali e le specifiche, vedere la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md).
 
-- Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

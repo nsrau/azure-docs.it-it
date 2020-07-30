@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536302"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387847"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Crittografia del disco con chiavi gestite dal cliente
 
@@ -30,7 +30,7 @@ Sia il disco delle risorse che i dischi gestiti in ogni nodo del cluster vengono
 
 Se il firewall dell'insieme di credenziali delle chiavi è abilitato nell'insieme di credenziali delle chiavi in cui è archiviata la chiave di crittografia del disco, gli indirizzi IP del provider di risorse di HDInsight per l'area in cui verrà distribuito il cluster devono essere aggiunti alla configurazione del firewall di Key Vault. Questa operazione è necessaria perché HDInsight non è un servizio di Azure Key Vault attendibile.
 
-È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per ruotare in modo sicuro le chiavi nell'insieme di credenziali delle chiavi. Quando si ruota un tasto, il cluster HDInsight inizia a usare la nuova chiave in pochi minuti. Abilitare le funzionalità di protezione delle chiavi di [eliminazione](../key-vault/general/overview-soft-delete.md) temporanea per la protezione da scenari ransomware e da eliminazioni accidentali. Gli insiemi di credenziali delle chiavi senza questa funzionalità di protezione non sono supportati.
+È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per ruotare in modo sicuro le chiavi nell'insieme di credenziali delle chiavi. Quando si ruota un tasto, il cluster HDInsight inizia a usare la nuova chiave in pochi minuti. Abilitare le funzionalità di protezione delle chiavi di [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea per la protezione da scenari ransomware e da eliminazioni accidentali. Gli insiemi di credenziali delle chiavi senza questa funzionalità di protezione non sono supportati.
 
 |Tipo di cluster |Disco del sistema operativo (disco gestito) |Disco dati (disco gestito) |Disco dati temporanei (unità SSD locale) |
 |---|---|---|---|
@@ -124,7 +124,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso di modelli di Azure Resource Manager
 
 Nell'esempio seguente viene illustrato come utilizzare un modello di Azure Resource Manager per creare un nuovo cluster Apache Spark con la crittografia del disco abilitata. Per altre informazioni, vedere [che cosa sono i modelli ARM?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 

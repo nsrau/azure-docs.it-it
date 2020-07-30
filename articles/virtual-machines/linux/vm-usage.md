@@ -3,24 +3,19 @@ title: Informazioni sull'utilizzo della macchina virtuale di Azure
 description: Informazioni dettagliate sull'utilizzo della macchina virtuale
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
-ms.openlocfilehash: 9abb6948a91545439b429316dc2b71c14a1792d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/28/2020
+ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284830"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387711"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
 Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -29,87 +24,86 @@ Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere inform
 Per iniziare, [scaricare i dettagli di utilizzo](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). La tabella seguente fornisce la definizione e i valori di esempio relativi all'utilizzo per le macchine virtuali distribuite tramite Azure Resource Manager. Questo documento non contiene informazioni dettagliate per le macchine virtuali distribuite tramite il modello classico.
 
 
-| Campi             | Significato                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valori di esempio                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data utilizzo         | Data in cui la risorsa è stata utilizzata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  "11/23/2017"                                                                                                                                                                                                                                                                                                                                                     |
-| ID misuratore           | Identifica il servizio di primo livello a cui si riferisce l'utilizzo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | "Macchine virtuali"                                                                                                                                                                                                                                                                                                                                               |
-| Sottocategoria misuratore | ID della metrica fatturata. <ul><li>Per l'utilizzo delle ore di calcolo, è disponibile un contatore per ciascuna dimensione della macchina virtuale + sistema operativo (Windows, non Windows) + area.</li><li>Per l'utilizzo del software Premium, è disponibile un contatore per ogni tipo di software. La maggior parte delle immagini software Premium ha contatori differenti per ogni dimensione core. Per altre informazioni, visitare la [pagina dei prezzi dei servizi di calcolo](https://azure.microsoft.com/pricing/details/virtual-machines/).</li></ul>                                                                                                                                                                                                                                                                                                                                         | "2005544f-659d-49c9-9094-8e0aea1be3a5"                                                                                                                                                                                                                                                                                                                           |
-| Nome misuratore         | Specifico per ciascun servizio in Azure. Per il calcolo, è sempre "Ore di calcolo".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | "Ore di calcolo"                                                                                                                                                                                                                                                                                                                                                  |
-| Area misuratore       | Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  "Giappone orientale"                                                                                                                                                                                                                                                                                                                                                       |
-| Unità               | Identifica l'unità in base alla quale viene addebitato il servizio. Le risorse di calcolo vengono fatturate su base oraria.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | "Ore"                                                                                                                                                                                                                                                                                                                                                          |
-| Consumato           | La quantità di risorsa consumata per il giorno corrente. Per il calcolo, viene addebitato un importo per ogni minuto in cui la macchina virtuale è stata eseguita per una data ora (fino a 6 cifre decimali di precisione).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    "1", "0.5"                                                                                                                                                                                                                                                                                                                                                    |
-| Percorso della risorsa  | Identifica il datacenter in cui la risorsa è in esecuzione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Giappone orientale"                                                                                                                                                                                                                                                                                                                                                        |
-| Servizio utilizzato   | Il servizio della piattaforma Azure che è stato utilizzato.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Gruppo di risorse     | Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager]().                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
-| ID istanza        | Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. Per le macchine virtuali, l'ID istanza includerà i campi SubscriptionId, ResourceGroupName e VMName (o il nome del set di scalabilità per l'utilizzo del set di scalabilità).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1"<br><br>o<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
-| Tag               | Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Informazioni su come [assegnare tag alle macchine virtuali](tag.md). Disponibile solo per le macchine virtuali di Gestione risorse.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
-| Informazioni aggiuntive    | Metadati specifici del servizio. Per le macchine virtuali, è necessario specificare i dati seguenti nel campo Informazioni aggiuntive: <ul><li>Image Type: l'immagine specifica che è stata eseguita. L'elenco completo delle stringhe supportate è disponibile di seguito in Tipo di immagine.</li><li>Service Type: la dimensione che è stata distribuita.</li><li>VMName: il nome della macchina virtuale. Questo campo viene popolato solo per le macchine virtuali dei set di scalabilità. Il nome della macchina virtuale per le macchine virtuali dei set di scalabilità è disponibile nella stringa ID istanza precedente.</li><li>UsageType: specifica il tipo di utilizzo che rappresenta.<ul><li>ComputeHR è l'utilizzo delle ore di calcolo per la macchina virtuale sottostante, ad esempio Standard_D1_v2.</li><li>ComputeHR_SW è l'addebito per il software Premium se la macchina virtuale usa un software Premium, come Microsoft R Server.</li></ul></li></ul>    | Macchine virtuali {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Set di scalabilità di macchine virtuali {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
+| Campi | Significato | Valori di esempio | 
+|---|---|---|
+| Data utilizzo | Data di utilizzo della risorsa | `11/23/2017` |
+| Meter ID | Identifica il servizio di primo livello a cui appartiene questo utilizzo| `Virtual Machines`|
+| Sottocategoria misuratore | ID della metrica fatturata. <br><br> Per l'utilizzo delle ore di calcolo, è disponibile un contatore per ciascuna dimensione della macchina virtuale + sistema operativo (Windows, non Windows) + area. <br><br> Per l'utilizzo del software Premium, è disponibile un contatore per ogni tipo di software. La maggior parte delle immagini software Premium ha contatori differenti per ogni dimensione core. Per altre informazioni, visita la [pagina dei prezzi di calcolo](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Nome misuratore| Specifico per ciascun servizio in Azure. Per il calcolo, è sempre "Ore di calcolo".| `Compute Hours`|
+| Area misuratore| Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa.|  `JA East`|
+| Unità| Identifica l'unità in base alla quale viene addebitato il servizio. Le risorse di calcolo vengono fatturate su base oraria.| `Hours`|
+| Consumato| La quantità di risorsa consumata per il giorno corrente. Per il calcolo, viene addebitato un importo per ogni minuto in cui la macchina virtuale è stata eseguita per una data ora (fino a 6 cifre decimali di precisione).| `1, 0.5`|
+| Percorso della risorsa  | Identifica il datacenter in cui la risorsa è in esecuzione.| `JA East`|
+| Servizio utilizzato | Il servizio della piattaforma Azure che è stato utilizzato.| `Microsoft.Compute`|
+| Gruppo di risorse | Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).|`MyRG`|
+| ID istanza | Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. Per le macchine virtuali, l'ID istanza includerà i campi SubscriptionId, ResourceGroupName e VMName (o il nome del set di scalabilità per l'utilizzo del set di scalabilità).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>o<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Tag| Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Informazioni su come [assegnare tag alle macchine virtuali](tag.md). Disponibile solo per le macchine virtuali di Gestione risorse.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Informazioni aggiuntive | Metadati specifici del servizio. Per le macchine virtuali, è necessario specificare i dati seguenti nel campo Informazioni aggiuntive: <br><br> Image Type: l'immagine specifica che è stata eseguita. L'elenco completo delle stringhe supportate è disponibile di seguito in Tipo di immagine.<br><br> Service Type: la dimensione che è stata distribuita.<br><br> VMName: il nome della macchina virtuale. Questo campo viene popolato solo per le macchine virtuali dei set di scalabilità. Il nome della macchina virtuale per le macchine virtuali dei set di scalabilità è disponibile nella stringa ID istanza precedente.<br><br> UsageType: specifica il tipo di utilizzo che rappresenta.<br><br> ComputeHR è l'utilizzo delle ore di calcolo per la macchina virtuale sottostante, ad esempio Standard_D1_v2.<br><br> ComputeHR_SW è l'addebito per il software Premium se la macchina virtuale usa un software Premium, come Microsoft R Server. | Macchine virtuali<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Set di scalabilità di macchine virtuali<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Tipo di immagine
 Per alcune immagini nella raccolta di Azure, il tipo di immagine viene popolato nel campo Informazioni aggiuntive. Ciò consente agli utenti di comprendere e tenere traccia di ciò che hanno distribuito nella loro macchina virtuale. I valori che vengono popolati in questo campo in base all'immagine che è stata distribuita sono i seguenti:
-  - BitRock 
-  - Canonical 
-  - FreeBSD 
-  - Open Logic 
-  - Oracle 
-  - SLES per SAP 
-  - SQL Server 14 Preview in Windows Server 2012 R2 Preview 
-  - SUSE
-  - SUSE Premium
-  - Appliance cloud StorSimple 
-  - Red Hat
-  - Red Hat per applicazioni aziendali SAP     
-  - Red Hat per SAP HANA 
-  - Windows Client BYOL 
-  - Windows Server BYOL 
-  - Windows Server Preview 
+- BitRock 
+- FreeBSD canonico 
+- Open Logic 
+- Oracle 
+- SLES per SAP 
+- SQL Server 14 Preview in Windows Server 2012 R2 Preview 
+- SUSE
+- SUSE Premium
+- Appliance cloud StorSimple 
+- Red Hat
+- Red Hat per applicazioni aziendali SAP     
+- Red Hat per SAP HANA 
+- Windows Client BYOL 
+- Windows Server BYOL 
+- Windows Server Preview 
 
 ## <a name="service-type"></a>Tipo di servizio
-Il campo relativo al tipo di servizio nel campo Informazioni aggiuntive corrisponde alla dimensione esatta della macchina virtuale che è stata distribuita. Gli addebiti per le macchine virtuali di archiviazione Premium (basate su unità SSD) e per quelle di archiviazione non Premium (basate su HDD) sono gli stessi. Se si distribuisce una dimensione basata su unità SSD, ad esempio Standard\_DS2\_v2, verranno visualizzate le dimensioni non SSD ('Standard\_D2\_v2 VM') nella colonna Sottocategoria contatore e le dimensioni SSD ('Standard\_DS2\_v2') nel campo Informazioni aggiuntive.
+Il campo relativo al tipo di servizio nel campo Informazioni aggiuntive corrisponde alla dimensione esatta della macchina virtuale che è stata distribuita. Gli addebiti per le macchine virtuali di archiviazione Premium (basate su unità SSD) e per quelle di archiviazione non Premium (basate su HDD) sono gli stessi. Se si distribuisce una dimensione basata su SSD, ad esempio \_ DS2 standard \_ v2, le dimensioni non SSD () non vengono visualizzate `Standard\_D2\_v2 VM` nella colonna sottocategoria del contatore e le dimensioni SSD ( `Standard\_DS2\_v2` ) nel campo informazioni aggiuntive.
 
 ## <a name="region-names"></a>Nomi delle aree
 Il nome dell'area popolato nel campo Percorso della risorsa nei dettagli di utilizzo varia rispetto al nome dell'area usato in Azure Resource Manager. Di seguito è riepilogata l'associazione tra i valori relativi alle aree:
 
-|    **Nome area in Resource Manager**       |    **Percorso risorsa nei dettagli di utilizzo**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    Australia orientale                               |
-|    australiasoutheast    |    Australia sud-orientale                          |
-|    brazilsouth           |    Brasile meridionale                              |
-|    CanadaCentral         |    Canada centrale                            |
-|    CanadaEast            |    Canada orientale                               |
-|    CentralIndia          |    India centrale                            |
-|    centralus             |    Stati Uniti centrali                            |
-|    chinaeast             |    Cina orientale                            |
-|    chinanorth            |    Cina settentrionale                           |
-|    eastasia              |    Asia orientale                             |
-|    eastus                |    Stati Uniti orientali                               |
-|    eastus2               |    Stati Uniti orientali 2                             |
-|    GermanyCentral        |    Germania centrale                            |
-|    GermanyNortheast      |    Germania nord-orientale                          |
-|    japaneast             |    Giappone orientale                               |
-|    japanwest             |    Giappone occidentale                               |
-|    KoreaCentral          |    Corea centrale                            |
-|    KoreaSouth            |    Corea meridionale                              |
-|    northcentralus        |    Stati Uniti centro-settentrionali                      |
-|    northeurope           |    Europa settentrionale                          |
-|    southcentralus        |    Stati Uniti centro-meridionali                      |
-|    southeastasia         |    Asia sud-orientale                        |
-|    SouthIndia            |    India meridionale                              |
-|    UKNorth               |    Stati Uniti settentrionali                              |
-|    uksouth               |    Regno Unito meridionale                              |
-|    UKSouth2              |    Regno Unito meridionale 2                            |
-|    ukwest                |    Regno Unito occidentale                               |
-|    USDoDCentral          |    US DoD (area centrale)                        |
-|    USDoDEast             |    US DoD (area orientale)                           |
-|    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    Stati Uniti centro-occidentali                       |
-|    westeurope            |    Europa occidentale                           |
-|    WestIndia             |    India occidentale                               |
-|    westus                |    Stati Uniti occidentali                               |
-|    westus2               |    Stati Uniti occidentali 2                             |
+| **Nome area in Resource Manager** | **Percorso risorsa nei dettagli di utilizzo** |
+|---|---|
+| australiaeast |Australia orientale|
+| australiasoutheast | Australia sud-orientale|
+| brazilsouth | Brasile meridionale|
+| CanadaCentral | Canada centrale|
+| CanadaEast | Canada orientale|
+| CentralIndia | India centrale|
+| centralus | Stati Uniti centrali|
+| chinaeast | Cina orientale|
+| chinanorth | Cina settentrionale|
+| eastasia | Asia orientale|
+| eastus | Stati Uniti orientali|
+| eastus2 | Stati Uniti orientali 2|
+| GermanyCentral | Germania centrale|
+| GermanyNortheast | Germania nord-orientale|
+| japaneast | Giappone orientale|
+| japanwest | Giappone occidentale|
+| KoreaCentral | Corea centrale|
+| KoreaSouth | Corea meridionale|
+| northcentralus | Stati Uniti centro-settentrionali|
+| northeurope | Europa settentrionale|
+| southcentralus | Stati Uniti centro-meridionali|
+| southeastasia | Asia sud-orientale|
+| SouthIndia | India meridionale|
+| UKNorth | Stati Uniti settentrionali|
+| uksouth | Regno Unito meridionale|
+| UKSouth2 | Regno Unito meridionale 2|
+| ukwest | Regno Unito occidentale|
+| USDoDCentral | US DoD (area centrale)|
+| USDoDEast | US DoD (area orientale)|
+| USGovArizona | USGov Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | USGov Texas|
+| usgovvirginia | USGov Virginia|
+| westcentralus | Stati Uniti centro-occidentali|
+| westeurope | Europa occidentale|
+| WestIndia | India occidentale|
+| westus | Stati Uniti occidentali|
+| westus2 | Stati Uniti occidentali 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Domande frequenti sull'uso delle macchine virtuali

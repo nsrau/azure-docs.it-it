@@ -2,13 +2,13 @@
 title: Distribuire un'istanza del contenitore abilitata per GPU
 description: Informazioni su come distribuire istanze di contenitore di Azure per eseguire app contenitore a elevato utilizzo di calcolo con risorse GPU.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076860"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387091"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
@@ -33,9 +33,6 @@ In futuro verrà aggiunto il supporto di ulteriori aree.
 
 ## <a name="about-gpu-resources"></a>Informazioni sulle risorse GPU
 
-> [!IMPORTANT]
-> Le risorse GPU sono disponibili solo su richiesta. Per richiedere l'accesso alle risorse GPU, inviare una [richiesta di supporto tecnico di Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Conteggio e SKU
 
 Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con le informazioni seguenti:
@@ -52,6 +49,9 @@ Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appropriate per il carico di lavoro, fino al valore massimo indicato nella tabella precedente. Questi valori sono attualmente più grandi delle risorse di CPU e memoria disponibili nei gruppi di contenitori senza risorse GPU.  
+
+> [!IMPORTANT]
+> I [limiti di sottoscrizione](container-instances-quotas.md) predefiniti (quote) per le risorse GPU variano in base allo SKU. I limiti di CPU predefiniti per gli SKU P100 e V100 vengono inizialmente impostati su 0. Per richiedere un aumento in un'area disponibile, inviare una [richiesta di supporto per Azure][azure-support].
 
 ### <a name="things-to-know"></a>Informazioni importanti
 

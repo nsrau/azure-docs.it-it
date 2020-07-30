@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79461011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000942"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure è una piattaforma basata su cloud che consente di
 Gli SDK di Servizi multimediali v3 sono basati sulla [specifica OpenAPI (Swagger) per Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) si Servizi multimediali v3, visualizzare (non gestire) gli [asset](assets-concept.md) v3 e [ottenere informazioni sull'accesso alle API](access-api-portal.md). Per tutte le altre attività di gestione, ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md), usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) si Servizi multimediali v3, visualizzare (non gestire) gli [asset](assets-concept.md) v3 e [ottenere informazioni sull'accesso alle API](./access-api-howto.md). Per tutte le altre attività di gestione, ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md), usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,8 +53,8 @@ Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multi
 * Analizzare contenuti audio o video registrati. Per migliorare la soddisfazione dei clienti, le organizzazioni possono ad esempio eseguire la conversione della voce in testo scritto e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
 * Creare un servizio di sottoscrizione video ed eseguire lo streaming di contenuti protetti con DRM quando un cliente (ad esempio, uno studio cinematografico) deve limitare l'accesso e l'uso di opere proprietarie tutelate da copyright.
 * Distribuire contenuti offline per la riproduzione su aerei, treni e automobili. È possibile che un cliente debba scaricare contenuti sullo smartphone o sul tablet per la riproduzione durante la disconnessione dalla rete.
-* Implementare una piattaforma video di apprendimento didattico con Servizi multimediali di Azure e [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) per la conversione della voce in testo scritto, la traduzione in più lingue e così via.
-* Usare Servizi multimediali di Azure insieme alle [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) per aggiungere sottotitoli e didascalie ai video e soddisfare le esigenze di un pubblico più ampio, ad esempio persone con disabilità uditive o che vogliono leggere il contenuto in una lingua diversa.
+* Implementare una piattaforma video di apprendimento didattico con Servizi multimediali di Azure e [API Servizi cognitivi di Azure](../../index.yml?pivot=products&panel=ai) per la conversione della voce in testo scritto, la traduzione in più lingue e così via.
+* Usare Servizi multimediali di Azure insieme alle [API Servizi cognitivi di Azure](../../index.yml?pivot=products&panel=ai) per aggiungere sottotitoli e didascalie ai video e soddisfare le esigenze di un pubblico più ampio, ad esempio persone con disabilità uditive o che vogliono leggere il contenuto in una lingua diversa.
 * Abilitare la rete CDN di Azure per ottenere notevole scalabilità e gestire al meglio un carico elevato immediato, ad esempio all'inizio di un evento per il lancio di un prodotto.
 
 ## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3? 
@@ -88,14 +88,14 @@ Queste esercitazioni illustrano le procedure basate su scenari per alcune delle 
 
 ### <a name="samples"></a>Esempi
 
-Usare [Esplora gli esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-media-services) per esplorare gli esempi di codice di Servizi multimediali di Azure.
+Usare [Esplora gli esempi di codice](/samples/browse/?products=azure-media-services) per esplorare gli esempi di codice di Servizi multimediali di Azure.
 
 ### <a name="how-to-guides"></a>Guide pratiche
 
 Le guide pratiche contengono esempi di codice che illustrano come completare un'attività. In questa sezione sono disponibili molti esempi. Alcuni esempi sono i seguenti:
 
-* [Creare un account - Interfaccia della riga di comando](create-account-cli-how-to.md)
-* [Accedere alle API - Interfaccia della riga di comando](access-api-cli-how-to.md)
+* [Creare un account - Interfaccia della riga di comando](./create-account-howto.md)
+* [Accedere alle API - Interfaccia della riga di comando](./access-api-howto.md)
 * [Codificare con HTTPS come input del processo - .NET](job-input-from-http-how-to.md)  
 * [Monitorare gli eventi - Portale](monitor-events-portal-how-to.md)
 * [Crittografare in modo dinamico il contenuto con più tecnologie DRM - .NET](protect-with-drm.md) 
