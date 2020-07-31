@@ -42,6 +42,8 @@
   items:
     - name: Usare Riconoscimento modulo con Ricerca cognitiva
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Usare il riconoscimento modulo con AI Builder
+      href: tutorial-ai-builder.md
 - name: Guide pratiche
   items:
     - name: Creare un set di dati di training

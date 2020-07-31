@@ -232,6 +232,10 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: Risolvere i problemi relativi all'applicazione di artefatti
           href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Crittografare lo spazio di archiviazione e i dischi del sistema operativo usati dai lab
+      items:
+        - name: Crittografare lo spazio di archiviazione usato da un lab
+          href: encrypt-storage.md
     - name: Integrazione con integrazione continua/distribuzione continua
       items:
         - name: Integrare lab nella pipeline CI/CD di Azure Pipelines

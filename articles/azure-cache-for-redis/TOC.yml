@@ -29,30 +29,36 @@
           href: cache-python-get-started.md
 - name: Esercitazioni
   items:
+    - name: ASP.NET
+      items:
+        - name: Usare il provider di stato della sessione
+          href: cache-aspnet-session-state-provider.md
+        - name: Usare il provider di cache di output
+          href: cache-aspnet-output-cache-provider.md
+    - name: Java Spring
+      items:
+        - name: Usare l'inizializzazione Spring Boot
+          href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: Usare la memorizzazione nella cache con i tabelloni punteggi
       href: cache-web-app-cache-aside-leaderboard.md
-- name: Esempi
-  items:
-    - name: Esempi di Cache Redis di Azure
-      href: cache-redis-samples.md
-    - name: Azure
+    - name: Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
-    - name: Sicurezza
-      items:
-        - name: Baseline di sicurezza
-          href: security-baseline.md
     - name: Failover e patch
       href: cache-failover.md
     - name: Procedure consigliate
       href: cache-best-practices.md
-    - name: Procedure consigliate sull'architettura per la memorizzazione nella cache
+    - name: Sicurezza
+      items:
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
+    - name: Architettura della memorizzazione nella cache
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guide pratiche
   items:
@@ -86,18 +92,6 @@
           href: cache-redis-cache-arm-provision.md
         - name: Effettuare il provisioning di un'app Web con Cache Redis di Azure
           href: cache-web-app-arm-with-redis-cache-provision.md
-    - name: Integrazione con l'applicazione
-      items:
-        - name: ASP.NET
-          items:
-            - name: Usare il provider di stato della sessione
-              href: cache-aspnet-session-state-provider.md
-            - name: Usare il provider di cache di output
-              href: cache-aspnet-output-cache-provider.md
-        - name: Java Spring
-          items:
-            - name: Usare l'inizializzazione Spring Boot
-              href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: Gestione
       items:
         - name: Configurare nel portale di Azure
@@ -136,35 +130,37 @@
           href: cache-how-to-premium-clustering.md
 - name: Informazioni di riferimento
   items:
-    - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'
-    - name: Azure PowerShell
-      href: /powershell/module/az.rediscache
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/redis
+    - name: Esempi di Cache Redis di Azure
+      href: cache-redis-samples.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
       href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Client Redis
       href: 'https://redis.io/clients'
-    - name: Comandi di Redis
-      href: 'https://redis.io/commands#'
+    - name: Azure PowerShell
+      href: /powershell/module/az.rediscache
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/redis
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/redis/'
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.cache/allversions
+    - name: Criteri di Azure predefiniti
+      href: ./policy-samples.md
+    - name: Comandi di Redis
+      href: 'https://redis.io/commands#'
 - name: Risorse
   items:
-    - name: Sviluppare le proprie competenze con Microsoft Learn
-      href: /learn/browse/?products=azure-redis-cache
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Domande frequenti su Cache Redis di Azure
       href: cache-faq.md
     - name: Video
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Pagina delle domande di Domande e risposte Microsoft
       href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cache/'
+    - name: Sviluppare le proprie competenze con Microsoft Learn
+      href: /learn/browse/?products=azure-redis-cache
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'

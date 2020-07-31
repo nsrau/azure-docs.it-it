@@ -5,7 +5,7 @@
       items:
         - name: Che cos'è Gestione dei costi e fatturazione?
           href: cost-management-billing-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Avviare l'analisi dei costi
           href: costs/quick-acm-cost-analysis.md
@@ -304,6 +304,8 @@
               items:
                 - name: Visualizzare le prenotazioni e l'utilizzo
                   href: reservations/view-reservations.md?toc=/azure/cost-management-billing/toc.json
+                - name: Visualizzare le prenotazioni come CSP
+                  href: reservations/how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/toc.json
                 - name: Gestire le prenotazioni
                   href: reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/toc.json
                 - name: Scambio e rimborso di prenotazioni
@@ -412,7 +414,7 @@
           items:
             - name: Che cos'è Cloudyn?
               href: cloudyn/overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Visualizzare i dati di costo
               href: cloudyn/quick-register-azure-sub.md

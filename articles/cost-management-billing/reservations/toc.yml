@@ -51,6 +51,8 @@
       items:
         - name: Visualizzare le prenotazioni e l'utilizzo
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Visualizzare le prenotazioni come CSP
+          href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Gestire le prenotazioni
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Modificare l'impostazione di ottimizzazione
