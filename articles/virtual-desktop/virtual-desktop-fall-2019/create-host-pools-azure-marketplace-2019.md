@@ -1,6 +1,6 @@
 ---
-title: Pool di host di Desktop virtuale Windows in Azure Marketplace - Azure
-description: Come creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace.
+title: Pool di host di Desktop virtuale Windows (versione classica) in Azure Marketplace - Azure
+description: Come creare un pool di host di Desktop virtuale Windows (versione classica) tramite Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291315"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un pool di host in Desktop virtuale Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../create-host-pools-azure-marketplace.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si prova a gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../create-host-pools-azure-marketplace.md).
 
 Questa esercitazione descrive come creare un pool di host all'interno di un tenant di Desktop virtuale Windows usando un'offerta di Microsoft Azure Marketplace.
 
