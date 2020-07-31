@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284711"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439538"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la console seriale per accedere a GRUB e alla modalità utente singolo
 È probabile che il GRand Unified Bootloader (GRUB) sia il primo elemento visualizzato quando si avvia una macchina virtuale (VM). Poiché viene visualizzato prima dell'avvio del sistema operativo, GRUB non è accessibile tramite SSH. In GRUB è possibile modificare la configurazione di avvio per l'avvio in modalità utente singolo, tra le altre cose.
 
 La modalità utente singolo è un ambiente minimo con funzionalità minime. Può essere utile per analizzare i problemi di avvio, file system problemi o problemi di rete. Un numero minore di servizi può essere eseguito in background e, a seconda del runlevel, una file system potrebbe non essere montata automaticamente.
 
-La modalità utente singolo è utile anche in situazioni in cui la macchina virtuale può essere configurata in modo da accettare solo le chiavi SSH per l'accesso. In questo caso, potrebbe essere possibile usare la modalità utente singolo per creare un account con autenticazione della password. 
+La modalità utente singolo è utile anche in situazioni in cui la macchina virtuale può essere configurata in modo da accettare solo le chiavi SSH per l'accesso. In questo caso, potrebbe essere possibile usare la modalità utente singolo per creare un account con autenticazione della password.
 
 > [!NOTE]
 > Il servizio console seriale consente solo agli utenti con autorizzazioni di livello *collaboratore* o superiori di accedere alla console seriale di una macchina virtuale.
@@ -66,6 +66,9 @@ RHEL dotata di GRUB abilitata per impostazione predefinita. Per immettere GRUB, 
 
 **Per RHEL 8**
 
+>[!NOTE]
+> Red Hat consiglia di usare le estirpazioni per configurare i parametri della riga di comando kernel in RHEL 8 +. Attualmente non è possibile aggiornare il timeout di GRUB e i parametri terminali usando le estirpazioni. Per modificare aggiornare l'argomento GRUB_CMDLINE_LINUX per tutte le voci di avvio, eseguire `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"` . Altre informazioni sono disponibili [qui](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -90,8 +93,7 @@ L'utente root è disabilitato per impostazione predefinita. La modalità utente 
 1. Passa alla radice.
 1. Abilitare la password per l'utente root eseguendo le operazioni seguenti:
     * Eseguire `passwd root` (impostare una password radice avanzata).
-1. Assicurarsi che l'utente root possa accedere solo tramite ttyS0 seguendo questa procedura:  
-    a. Eseguire `edit /etc/ssh/sshd_config` e verificare che PermitRootLogIn sia impostato su `no` .  
+1. Assicurarsi che l'utente root possa accedere solo tramite ttyS0 eseguendo le operazioni seguenti: a. Eseguire `edit /etc/ssh/sshd_config` e verificare che PermitRootLogIn sia impostato su `no` .
     b. Eseguire `edit /etc/securetty file` per consentire l'accesso solo tramite ttyS0.
 
 A questo punto, se il sistema viene avviato in modalità utente singolo, è possibile accedere con la password radice.
@@ -106,7 +108,7 @@ Se è stato configurato l'accesso a GRUB e alla radice usando le istruzioni prec
 1. Trovare la riga del kernel. In Azure inizia con *Linux16*.
 1. Premere CTRL + E per passare alla fine della riga.
 1. Alla fine della riga, aggiungere *systemd. Unit = Rescue. target*.
-    
+
     Questa azione viene avviata in modalità utente singolo. Se si desidera utilizzare la modalità di emergenza, aggiungere *systemd. Unit = Emergency. target* alla fine della riga, anziché *systemd. Unit = Rescue. target*.
 
 1. Premere CTRL + X per uscire e riavviare con le impostazioni applicate.
@@ -130,11 +132,11 @@ Se l'utente root non è stato abilitato seguendo le istruzioni precedenti, è co
     Questa azione interrompe il processo di avvio prima che il controllo venga passato da `initramfs` a `systemd` , come descritto nella [documentazione di Red Hat](https://aka.ms/rhel7rootpassword).
 1. Premere CTRL + X per uscire e riavviare con le impostazioni applicate.
 
-   Una volta riavviato, si viene rilasciati in modalità di emergenza con un file system di sola lettura. 
-   
+   Una volta riavviato, si viene rilasciati in modalità di emergenza con un file system di sola lettura.
+
 1. Nella shell immettere `mount -o remount,rw /sysroot` per rimontare la file system radice con le autorizzazioni di lettura/scrittura.
 1. Dopo l'avvio in modalità utente singolo, immettere `chroot /sysroot` per passare alla `sysroot` Jail.
-1. A questo punto si è alla radice. È possibile reimpostare la password radice immettendo `passwd` e quindi usare le istruzioni precedenti per attivare la modalità utente singolo. 
+1. A questo punto si è alla radice. È possibile reimpostare la password radice immettendo `passwd` e quindi usare le istruzioni precedenti per attivare la modalità utente singolo.
 1. Al termine, immettere `reboot -f` per riavviare il computer.
 
 ![Immagine animata che mostra un'interfaccia della riga di comando. L'utente seleziona un server, individua la fine della riga del kernel e immette i comandi specificati.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)

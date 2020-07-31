@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128098"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439223"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -168,7 +168,9 @@ La capacità di velocità effettiva iniziale di Firewall di Azure è 2,5 - 3 Gbp
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per aumentare le istanze di Firewall di Azure?
 
-Firewall di Azure viene ridimensionato gradualmente quando la velocità effettiva media o il consumo medio della CPU è pari al 60%. L'aumento delle istanze richiede da cinque a sette minuti. Quando si esegue il test delle prestazioni, assicurarsi di eseguire il test per almeno 10-15 minuti e avviare nuove connessioni per sfruttare i vantaggi dei nodi firewall appena creati.
+Firewall di Azure viene ridimensionato gradualmente quando la velocità effettiva media o il consumo medio della CPU è pari al 60%. Una velocità effettiva massima di distribuzione predefinita è approssimativamente 2,5-3 Gbps e inizia a aumentare il numero di unità quando raggiunge il 60% di tale numero. L'aumento delle istanze richiede da cinque a sette minuti. 
+
+Quando si esegue il test delle prestazioni, assicurarsi di eseguire il test per almeno 10-15 minuti e avviare nuove connessioni per sfruttare i vantaggi dei nodi firewall appena creati.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Firewall di Azure consente l'accesso ad Active Directory per impostazione predefinita?
 

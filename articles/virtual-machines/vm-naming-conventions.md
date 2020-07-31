@@ -1,5 +1,5 @@
 ---
-title: Convenzioni di denominazione delle dimensioni delle VM di Azure
+title: Convenzioni di denominazione delle dimensioni delle macchine virtuali di Azure
 description: Illustra le convenzioni di denominazione usate per le dimensioni delle macchine virtuali di Azure
 ms.service: virtual-machines
 subservice: sizes
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 2059c6f374e4cd5c2518e2fc0ac0da5858b99825
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3af4387723f74c1e09597564bc5330183fe1df69
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131719"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439453"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenzioni di denominazione per le dimensioni delle macchine virtuali di Azure
 
@@ -29,9 +29,9 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 | Famiglia | Indica la serie di famiglie di macchine virtuali| 
 | * Sottofamiglia | Usato solo per differenziazioni specifiche delle macchine virtuali|
 | n. di vCPU| Indica il numero di vCPU della macchina virtuale |
-| Funzionalità additive | Una o più lettere minuscole indicano funzionalità additive, ad esempio: <br> a = processore basato su AMD <br> d = disco (il disco temporaneo locale è presente); per le macchine virtuali di Azure più recenti, vedere [Ddv4 e serie Ddsv4](./ddv4-ddsv4-series.md) <br> h = ibernazione in grado di supportare <br> i = isolato <br> l = memoria insufficiente <br> m = utilizzo intensivo della memoria <br> t = memoria minima <br> r = RDMA <br> s = archiviazione Premium, incluso possibile uso di [ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Nota: alcune dimensioni più recenti senza l'attributo s possono comunque supportare l'archiviazione Premium, ad esempio M128, m64 e così via).<br> |
+| Funzionalità additive | Una o più lettere minuscole indicano funzionalità additive, ad esempio: <br> a = processore basato su AMD <br> d = disco (il disco temporaneo locale è presente); per le macchine virtuali di Azure più recenti, vedere [Ddv4 e serie Ddsv4](./ddv4-ddsv4-series.md) <br> h = ibernazione in grado di supportare <br> i = dimensioni isolate <br> l = memoria insufficiente; quantità inferiore di memoria rispetto alle dimensioni a elevato utilizzo di memoria <br> m = elevato utilizzo di memoria; maggiore quantità di memoria in una determinata dimensione <br> t = memoria minima; quantità minima di memoria in una determinata dimensione <br> r = RDMA in grado di supportare <br> s = archiviazione Premium, incluso possibile uso di [ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Nota: alcune dimensioni più recenti senza l'attributo s possono comunque supportare l'archiviazione Premium, ad esempio M128, m64 e così via).<br> |
 | * Tipo di acceleratore | Indica il tipo di acceleratore hardware negli SKU specializzati/GPU. Solo i nuovi SKU specializzati/GPU avviati dal terzo trimestre 2020 avranno il tasto di scelta rapida hardware nel nome. |
-| Version | Indica la versione della serie della famiglia di VM |
+| Versione | Indica la versione della serie della famiglia di VM |
 
 ## <a name="example-breakdown"></a>Suddivisione di esempio
 
@@ -44,7 +44,7 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 | Famiglia | M | 
 | n. di vCPU | 416 |
 | Funzionalità additive | m = utilizzo intensivo della memoria <br> s = archiviazione Premium in grado di supportare |
-| Version | v2 |
+| Versione | v2 |
 
 ### <a name="example-2-nv16as_v4"></a>Esempio 2: NV16as_v4
 
@@ -54,7 +54,7 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 | Sottofamiglia | V |
 | n. di vCPU | 16 |
 | Funzionalità additive | a = processore basato su AMD <br> s = archiviazione Premium in grado di supportare |
-| Version | v4 |
+| Versione | v4 |
 
 ### <a name="example-3-nc4as_t4_v3"></a>Esempio 3: NC4as_T4_v3
 
@@ -65,7 +65,7 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 | n. di vCPU | 4 |
 | Funzionalità additive | a = processore basato su AMD <br> s = archiviazione Premium in grado di supportare |
 | Tipo di acceleratore | T4 |
-| Version | v3 |
+| Versione | v3 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

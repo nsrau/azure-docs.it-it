@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000161"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439607"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione 
 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
->   
-
-È consigliabile crittografare i propri contenuti localmente usando la crittografia AES a 256 bit e quindi caricarli nel servizio Archiviazione di Azure, dove verranno archiviati in forma crittografata.
+>
 
 In questo articolo viene illustrata una panoramica della crittografia di archiviazione di AMS e viene specificato come caricare il contenuto crittografato per l'archiviazione:
 
@@ -49,8 +47,8 @@ Quando si accede alle entità in Servizi multimediali, è necessario impostare v
 |Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da Servizi multimediali|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
-|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da Archiviazione di Azure, chiave gestita da Azure o dal cliente|Funzionalità supportata|Funzionalità supportata|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportato|Non supportato|
+|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da Archiviazione di Azure, chiave gestita da Azure o dal cliente|Supportato|Supportato|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportate|Non supportate|
 
 <sup>1</sup> Servizi multimediali supporta la gestione di contenuto non crittografato/senza alcuna forma di crittografia, ma tale modalità non è consigliata.
 

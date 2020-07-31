@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430446"
+ms.locfileid: "87438948"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -32,11 +32,11 @@ Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarl
 ## <a name="july-2020"></a>Luglio 2020
 
 Gli aggiornamenti di luglio includono:
-- La [valutazione della vulnerabilità per le macchine virtuali è ora disponibile per le immagini non del Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
+- [La valutazione della vulnerabilità per le macchine virtuali è ora disponibile per le immagini non del Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Otto nuove raccomandazioni per abilitare le funzionalità di protezione dalle minacce](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Miglioramenti della sicurezza del contenitore: analisi più veloce del registro di sistema e documentazione aggiornata](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Nuova raccomandazione per aggiornare le regole di controllo delle applicazioni adattive](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Controlli applicazione adattivi aggiornati con una nuova raccomandazione e supporto per i caratteri jolly nelle regole di percorso](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Sono stati deprecati sei criteri per la sicurezza dei dati avanzata SQL](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Altre informazioni sulla sicurezza del contenitore del Centro sicurezza sono dis
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nuova raccomandazione per aggiornare le regole di controllo delle applicazioni adattive
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Controlli applicazione adattivi aggiornati con una nuova raccomandazione e supporto per i caratteri jolly nelle regole di percorso
 
-La funzionalità controlli applicazione adattivi monitora costantemente l'attività dei computer nei gruppi configurati. Da questo aggiornamento si riceverà una notifica del comportamento potenzialmente legittimo che non è stato precedentemente consentito e che potrebbe causare avvisi falsi positivi.
+La funzionalità controlli applicazione adattivi ha ricevuto due aggiornamenti significativi:
 
-La nuova raccomandazione, le **regole di consenso nei criteri di controllo delle applicazioni adattivi devono essere aggiornate**. viene chiesto di aggiungere nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazione adattivi.
+- Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non è stato precedentemente consentito. La nuova raccomandazione, le **regole di consenso nei criteri di controllo delle applicazioni adattivi devono essere aggiornate**. viene chiesto di aggiungere nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazione adattivi.
+
+- Le regole di percorso ora supportano i caratteri jolly. Da questo aggiornamento è possibile configurare regole di percorso consentite utilizzando caratteri jolly. Esistono due scenari supportati:
+
+    - Utilizzo di un carattere jolly alla fine di un percorso per consentire tutti i file eseguibili all'interno di questa cartella e sottocartelle
+    - Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via). 
 
 [Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
 

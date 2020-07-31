@@ -3,16 +3,16 @@ title: Panoramica dell'esempio di progetto Canada Federal PBMM
 description: Panoramica dell'esempio di progetto Canada Federal PBMM. Questo esempio di progetto consente ai clienti di valutare specifici controlli Canada Federal PBMM.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: fcaf4a844db10f4a87b205d08cfe3a86a6182957
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a33cba28459b1d01e816babbfc65c1b662bd2718
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419683"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Panoramica dell'esempio di progetto Canada Federal PBMM
 
-L'esempio di progetto Canada PBMM (Canada Federal Protected B, Medium Integrity, Medium Availability) fornisce un set di misure di tutela della governance tramite [Criteri di Azure](../../../policy/overview.md) che aiutano a ricevere l'attestazione [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4). 
+L'esempio di progetto Canada PBMM (Canada Federal Protected B, Medium Integrity, Medium Availability) fornisce un set di misure di tutela della governance tramite [Criteri di Azure](../../../policy/overview.md) che aiutano a ricevere l'attestazione [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html). 
 
 ## <a name="blueprint-sample"></a>Esempio di progetto
 

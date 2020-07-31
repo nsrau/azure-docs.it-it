@@ -16,6 +16,7 @@
   expanded: true
   items:
     - name: Studio
+      expanded: true
       items:
         - name: Finestra di progettazione (trascinamento della selezione)
           items:
@@ -37,6 +38,7 @@
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
     - name: Python SDK
+      expanded: true
       items:
         - name: Creare il primo esperimento di Machine Learning
           items:
@@ -125,7 +127,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md

@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373938"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439707"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -88,7 +88,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
      ![Riquadro "Seleziona macchine virtuali"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Tutte le macchine virtuali nella stessa area e nella stessa sottoscrizione dell'insieme di credenziali sono disponibili per la configurazione del backup. Quando si configura il backup, è possibile passare al nome della macchina virtuale e al relativo gruppo di risorse, anche se non si dispone dell'autorizzazione necessaria per tali macchine virtuali.  
+    > Tutte le macchine virtuali nella stessa area e nella stessa sottoscrizione dell'insieme di credenziali sono disponibili per la configurazione del backup. Quando si configura il backup, è possibile passare al nome della macchina virtuale e al relativo gruppo di risorse, anche se non si dispone dell'autorizzazione necessaria per tali macchine virtuali. Se la macchina virtuale è in stato di eliminazione temporanea, non sarà visibile nell'elenco. Se è necessario proteggere di nuovo la macchina virtuale, è necessario attendere la scadenza del periodo di eliminazione temporanea o annullare l'eliminazione della VM dall'elenco degli eliminati temporaneamente. Per altre informazioni, vedere [l'articolo relativo all'eliminazione temporanea per le macchine virtuali](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. In **Backup** selezionare **Abilita backup**. Questa operazione consente di distribuire i criteri nell'insieme di credenziali e nelle macchine virtuali e installare l'estensione di backup nell'agente di macchine virtuali in esecuzione nella macchina virtuale di Azure.
 
@@ -147,10 +147,10 @@ Lo stato dei processi può variare a seconda degli scenari seguenti:
 
 **Snapshot** | **Trasferire i dati nell'insieme di credenziali** | **Stato processo**
 --- | --- | ---
-Completi | In corso | In corso
+Completato | In corso | In corso
 Completed | Operazione ignorata | Completi
 Completi | Completi | Completi
-Completi | Operazione non riuscita | Completato con avviso
+Completi | Non riuscito | Completato con avviso
 Non riuscito | Operazione non riuscita | Operazione non riuscita
 
 Con questa funzionalità, per la stessa macchina virtuale è ora possibile eseguire due backup in parallelo, ma in entrambe le fasi (snapshot e trasferimento di dati nell'insieme di credenziali) si può eseguire una sola sottoattività. Negli scenari in cui un processo di backup in corso ha comportato la mancata riuscita del backup del giorno successivo, questo verrà evitato con questa funzionalità di separazione. Nei giorni successivi è possibile completare lo snapshot, mentre i **dati trasferiti nell'insieme di** credenziali vengono ignorati se lo stato del processo di backup del giorno precedente è in corso.

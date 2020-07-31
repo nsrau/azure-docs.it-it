@@ -4,15 +4,15 @@ description: Informazioni su come installare e configurare un gateway dati local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062150"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438960"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 
@@ -44,11 +44,11 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
 * Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 
-## <a name="download"></a><a name="download"></a>Scarica
+## <a name="download"></a>Scarica
 
  [Scaricare il gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>Installazione
+## <a name="install"></a>Installazione
 
 1. Eseguire l'installazione.
 
@@ -67,7 +67,7 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
    > [!NOTE]
    > Se si accede con un account di dominio, questo viene mappato all'account aziendale in Azure AD. L'account aziendale viene usato come amministratore del gateway.
 
-## <a name="register"></a><a name="register"></a>Registrazione
+## <a name="register"></a>Registrazione
 
 Per creare una risorsa per il gateway in Azure, è necessario registrare l'istanza locale installata con il servizio cloud gateway. 
 
@@ -83,7 +83,7 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
    ![Registrazione](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Creare una risorsa per il gateway di Azure
+## <a name="create-an-azure-gateway-resource"></a>Creare una risorsa per il gateway di Azure
 
 Dopo aver installato e registrato il gateway, è necessario creare una risorsa del gateway in Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
@@ -107,7 +107,12 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa d
 
      Al termine dell'operazione, scegliere **Crea**.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>Connettere i server alla risorsa per il gateway
+## <a name="connect-gateway-resource-to-server"></a>Connetti risorsa gateway al server
+
+> [!NOTE]
+> La connessione a una risorsa del gateway in una sottoscrizione diversa dal server non è supportata nel portale, ma è supportata tramite PowerShell.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nella panoramica del server Azure Analysis Services fare clic su **Gateway dati locale**.
 
@@ -125,10 +130,31 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa d
 
     ![Connessione del server alla risorsa del gateway riuscita](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Usare [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) per ottenere il ResourceID del gateway. Connettere quindi la risorsa gateway a un server nuovo o esistente specificando **-GatewayResourceID** in [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) o [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+Per ottenere l'ID risorsa del gateway:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+Per configurare un server esistente:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
+
 Questo è tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestire Analysis Services](analysis-services-manage.md)   
-* [Ottenere dati da Azure Analysis Services](analysis-services-connect.md)   
+* [Recuperare i dati da Azure Analysis Services](analysis-services-connect.md)   
 * [Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure](analysis-services-vnet-gateway.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079826"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439251"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -58,7 +58,7 @@ Servizi Desktop remoto (TermService) non è in esecuzione.
 
 Il listener RDP non è configurato correttamente.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per risolvere il problema, usare il controllo seriale o ripristinare la macchina virtuale offline.
 
@@ -81,7 +81,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco del sistema ope
 1. Controllare se il protocollo RDP è disabilitato da criteri di gruppo.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Se il criterio di gruppo indica che il protocollo RDP è disabilitato (il valore di fDenyTSConnections è 0x1), eseguire il comando seguente per abilitare il servizio TermService. Se la chiave del registro di sistema non viene trovata, non sono presenti criteri di gruppo configurati per disabilitare il protocollo RDP. È possibile passare al passaggio successivo.

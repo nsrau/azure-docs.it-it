@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime di integrazione
       href: concepts-integration-runtime.md
-    - name: Rete virtuale gestita
-      href: managed-virtual-network-private-endpoint.md
     - name: Sicurezza
       items:
         - name: Baseline di sicurezza
@@ -588,6 +586,8 @@
           href: data-factory-service-identity.md
         - name: Crittografia con chiavi gestite dal cliente
           href: enable-customer-managed-key.md
+        - name: Rete virtuale gestita
+          href: managed-virtual-network-private-endpoint.md
     - name: Monitorare e gestire
       items:
         - name: Monitorare visivamente
@@ -732,6 +732,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flussi di dati
           href: data-flow-troubleshoot-guide.md
+        - name: Strumento Copia dati
+          href: copy-data-tool-troubleshoot-guide.md
         - name: Runtime di integrazione self-hosted
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Runtime di integrazione Azure-SSIS

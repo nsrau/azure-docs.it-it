@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428182"
+ms.locfileid: "87438917"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -65,7 +65,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 2. Consente le richieste in ingresso dall'origine come tag del servizio **GatewayManager** e la destinazione come **qualsiasi** porta di destinazione e come 65503-65534 per lo SKU del gateway applicazione v1 e le porte 65200-65535 per lo SKU V2 per la [comunicazione dello stato di integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Senza i certificati appropriati, le entità esterne non possono avviare le modifiche in tali endpoint.
 3. Consentire i probe di Azure Load Balancer in ingresso (tag*AzureLoadBalancer* ) e il traffico di rete virtuale in ingresso (tag*virtualnetwork* ) nel [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloccare tutto il traffico in ingresso usando una regola Deny-all.
-5. Consentire il traffico in uscita a Internet per tutte le destinazioni.
+5. Consentire il traffico in uscita verso Internet per tutte le destinazioni.
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Route definite dall'utente supportate nella subnet del gateway applicazione
 
@@ -122,7 +122,15 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
 ## <a name="front-end-ip"></a>IP front-end
 
-È possibile configurare il gateway applicazione in modo che disponga di un indirizzo IP pubblico, un indirizzo IP privato o entrambi. Un indirizzo IP pubblico è obbligatorio quando si ospita un back-end a cui i client devono accedere tramite Internet tramite un indirizzo IP virtuale (VIP) con connessione Internet. 
+È possibile configurare il gateway applicazione in modo che disponga di un indirizzo IP pubblico, un indirizzo IP privato o entrambi. Un indirizzo IP pubblico è obbligatorio quando si ospita un back-end a cui i client devono accedere tramite Internet tramite un indirizzo IP virtuale (VIP) con connessione Internet.
+
+> [!NOTE]
+> Il gateway applicazione v2 attualmente non supporta solo la modalità IP privato. Supporta le combinazioni seguenti:
+>* IP privato e IP pubblico
+>* Solo IP pubblico
+>
+> Per altre informazioni, vedere [domande frequenti sul gateway applicazione](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+
 
 Un indirizzo IP pubblico non è obbligatorio per un endpoint interno non esposto a Internet. Noto come endpoint di *bilanciamento del carico interno* (ILB) o IP front-end privato. Un ILB del gateway applicazione è utile per le applicazioni line-of-business interne che non sono esposte a Internet. È utile anche per i servizi e i livelli in un'applicazione multilivello all'interno di un limite di sicurezza non esposto a Internet, ma che richiedono la distribuzione del carico Round Robin, la appiccicosità della sessione o la terminazione TLS.
 

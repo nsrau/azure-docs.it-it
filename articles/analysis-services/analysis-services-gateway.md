@@ -4,15 +4,15 @@ description: Un gateway locale è necessario se il server Analysis Services di A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76310153"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438823"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
@@ -28,12 +28,12 @@ Per Azure Analysis Services, il primo processo di configurazione con il gateway 
 
 - **Creare una risorsa del gateway in Azure** : in questo passaggio si crea una risorsa del gateway in Azure.
 
-- **Connettere i server alla risorsa del gateway** : dopo avere creato una risorsa del gateway, è possibile iniziare a connettervi server. È possibile connettere più server e altre risorse purché si trovino nella stessa area.
+- **Connettere la risorsa gateway ai server** : dopo avere creato una risorsa del gateway, è possibile iniziare a connettervi server. È possibile connettere più server e altre risorse purché si trovino nella stessa area.
 
 
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>Come funziona
-Il gateway installato su un computer dell'organizzazione viene eseguito come servizio Windows, **Gateway dati locale**. Il servizio locale è registrato con il servizio Cloud Gateway tramite il bus di servizio di Azure. Si crea quindi una risorsa gateway dati locale per la sottoscrizione di Azure. I server di Azure Analysis Services vengono quindi connessi alla risorsa del gateway di Azure. Quando i modelli nel server devono connettersi ai dati locali di origine per le query o l'elaborazione, un flusso di dati e query attraversa la risorsa del gateway, il bus di servizio di Azure, il servizio gateway dati locale e le origini dati. 
+## <a name="how-it-works"></a>Come funziona
+Il gateway installato su un computer dell'organizzazione viene eseguito come servizio Windows, **Gateway dati locale**. Il servizio locale è registrato con il servizio Cloud Gateway tramite il bus di servizio di Azure. Si crea quindi una risorsa gateway dati locale per una sottoscrizione di Azure. I server di Azure Analysis Services vengono quindi connessi alla risorsa del gateway di Azure. Quando i modelli nel server devono connettersi ai dati locali di origine per le query o l'elaborazione, un flusso di dati e query attraversa la risorsa del gateway, il bus di servizio di Azure, il servizio gateway dati locale e le origini dati. 
 
 ![Come funziona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -49,6 +49,10 @@ Query e flusso di dati:
 ## <a name="installing"></a>Installazione
 
 Quando si installa per un ambiente di Azure Analysis Services, è importante attenersi alla procedura descritta in [installare e configurare il gateway dati locale per Azure Analysis Services](analysis-services-gateway-install.md). Questo articolo è specifico per Azure Analysis Services. Include passaggi aggiuntivi necessari per configurare una risorsa gateway dati locale in Azure e connettere il server Azure Analysis Services alla risorsa.
+
+## <a name="connecting-to-a-gateway-resource-in-a-different-subscription"></a>Connessione a una risorsa del gateway in una sottoscrizione diversa
+
+Si consiglia di creare la risorsa del gateway di Azure nella stessa sottoscrizione del server. Tuttavia, è possibile configurare i server per la connessione a una risorsa del gateway in un'altra sottoscrizione. La connessione a una risorsa del gateway in un'altra sottoscrizione non è supportata quando si configurano le impostazioni del server esistenti o si crea un nuovo server nel portale, ma è possibile configurarlo usando PowerShell. Per altre informazioni, vedere [connettere la risorsa gateway al server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
 
 ## <a name="ports-and-communication-settings"></a>Porte e impostazioni di comunicazione
 
@@ -71,9 +75,9 @@ Di seguito sono riportati i nomi di dominio completi usati dal gateway.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Usato per testare la connettività a Internet se il gateway non è raggiungibile dal servizio Power BI. |
 | *.microsoftonline-p.com |443 |Usato per l'autenticazione, a seconda della configurazione. |
-| dc.services.visualstudio.com  |443 |Usato da AppInsights per raccogliere i dati di telemetria. |
+| dc.services.visualstudio.com    |443 |Usato da AppInsights per raccogliere i dati di telemetria. |
 
-### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Forzare la comunicazione HTTPS con il bus di servizio di Azure
+### <a name="forcing-https-communication-with-azure-service-bus"></a>Forzare la comunicazione HTTPS con il bus di servizio di Azure
 
 È possibile forzare il gateway a comunicare con il bus di servizio di Azure usando HTTPS anziché TCP diretto. Questa operazione, tuttavia, può ridurre le prestazioni in misura significativa. È necessario modificare il file *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* modificando il valore da `AutoDetect` in `Https`. Questo file si trova solitamente in *C:\Programmi\On-premises data gateway*.
 

@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513866"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439749"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -25,7 +25,7 @@ In questo articolo si apprenderà come:
 > * Eseguire un processo di backup su richiesta
 
 >[!NOTE]
->[Iniziare](./tutorial-backup-sap-hana-db.md) con l'anteprima del backup di SAP HANA per RHEL (7.4, 7.6, 7.7 o 8.1). Per ulteriori domande, scrivere all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>A partire dal 1 ° agosto 2020 SAP HANA backup per RHEL (7,4, 7,6, 7,7 & 8,1) è disponibile a livello generale.
 
 >[!NOTE]
 >L'**eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
@@ -67,7 +67,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
-È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD.
+È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 #### <a name="azure-firewall-tags"></a>Tag del Firewall di Azure
 
