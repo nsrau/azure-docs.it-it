@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: ecc2925b52679c5807c9fa79a67d7b45411df526
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e6c83c37e5b24df28f3cbb4509f0f72e2fde278e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014032"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448663"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: gruppo di failover](/rest/api/sql/failovergroups).
@@ -398,7 +398,7 @@ Tenere presente le limitazioni seguenti:
 
 ## <a name="programmatically-managing-failover-groups"></a>Gestione di gruppi di failover a livello di codice
 
-Come indicato in precedenza, i gruppi di failover automatico e la replica geografica attiva possono essere gestiti a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
+Come indicato in precedenza, i gruppi di failover automatico e la replica geografica attiva possono essere gestiti a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gestire il failover del database SQL
 

@@ -58,8 +58,6 @@
               href: scenario-route-through-nva.md
             - name: Routing tramite appliance virtuale di dispositivo - personalizzato (anteprima)
               href: scenario-route-through-nvas-custom.md
-            - name: Firewall di Azure - Tra hub (anteprima)
-              href: scenario-route-between-hubs-firewall.md
             - name: Firewall di Azure - personalizzato
               href: scenario-route-between-vnets-firewall.md
     - name: Monitoraggio

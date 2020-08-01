@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372323"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447254"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,7 +44,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
     L'integrazione di Active Directory Domain Services locale (AD DS) con File di Azure fornisce i metodi per archiviare i dati della directory, rendendoli disponibili per gli amministratori e gli utenti della rete. La sicurezza è integrata con servizi di dominio Active Directory tramite l'autenticazione di accesso e il controllo degli accessi agli oggetti nella directory. Con un unico accesso alla rete, gli amministratori possono gestire i dati e l'organizzazione della directory in tutta la rete e gli utenti di rete autorizzati possono accedere alle risorse in qualsiasi punto della rete. Active Directory Domain Services viene comunemente adottato dalle aziende negli ambienti locali e le credenziali di Active Directory Domain Services vengono usate come identità per il controllo di accesso. Per ulteriori informazioni, vedere [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Controllo degli accessi in base al ruolo (RBAC)**
+-   **Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**
 
     Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando RBAC è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per svolgere il proprio lavoro. Per altre informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in Azure](../../role-based-access-control/overview.md).
 

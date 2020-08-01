@@ -7,7 +7,7 @@
       href: search-what-is-azure-search.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Portale
       items:
@@ -110,6 +110,11 @@
           href: knowledge-store-projection-overview.md
         - name: Arricchimento incrementale
           href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Sicurezza
+      items:
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Guide pratiche
   items:
     - name: Creare indici e costrutti

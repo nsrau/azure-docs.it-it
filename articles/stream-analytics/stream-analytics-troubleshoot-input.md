@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045077"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448878"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -160,6 +160,10 @@ UNION
 SELECT foo FROM DataTwo
 
 ```
+
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>I Reader per partizione superano il limite dell'hub
+
+I processi di analisi di flusso usano l'endpoint predefinito [compatibile](../iot-hub/iot-hub-devguide-messages-read-builtin.md) con l'hub eventi dell'hub eventi per connettersi e leggere gli eventi dall'hub Internet. Se la lettura per partizione supera i limiti dell'hub Internet, è possibile usare le [soluzioni per l'hub eventi](#readers-per-partition-exceeds-event-hubs-limit) per risolverlo. È possibile creare un gruppo di consumer per l'endpoint predefinito attraverso la sessione dell'endpoint del portale dell'hub Internet o l' [SDK dell'hub](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)Internet.
 
 ## <a name="get-help"></a>Ottenere aiuto
 

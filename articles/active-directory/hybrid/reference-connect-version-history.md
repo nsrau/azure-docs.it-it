@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230384"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445332"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -47,6 +47,20 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 >Se è stata abilitata la sincronizzazione di Azure AD Connect, si inizierà a ricevere automaticamente notifiche sull'integrità che segnalano eventuali deprecazioni imminenti quando si esegue una delle versioni precedenti.
 >
 >Per altre informazioni su come aggiornare Azure AD Connect alla versione più recente, vedere [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version).
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Stato della versione
+07/29/2020: rilasciato per il download
+
+### <a name="functional-changes"></a>Modifiche funzionali
+Si tratta di una versione di correzione di bug. Non sono presenti modifiche funzionali in questa versione.
+
+### <a name="fixed-issues"></a>Problemi risolti
+
+- È stato risolto un problema per cui l'amministratore non è in grado di abilitare l'accesso Single Sign-on facile se l'account del computer AZUREADSSOACC è già presente nella "Active Directory".
+- È stato risolto un problema che causava un errore di gestione temporanea durante l'importazione delta dell'API v2 per un oggetto in conflitto riparato tramite il portale per l'integrità.
+- Correzione di un problema nella configurazione di importazione/esportazione in cui la regola personalizzata disabilitata è stata importata come abilitata.
 
 ## <a name="15420"></a>1.5.42.0
 

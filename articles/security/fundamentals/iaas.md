@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450016"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448409"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -40,7 +40,7 @@ Il primo passo per proteggere le VM consiste nel garantire che solo gli utenti a
 **Procedura consigliata**: controllare l'accesso alle VM.   
 **Dettagli**: usare i [criteri di Azure](/azure/azure-policy/azure-policy-introduction) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](/azure/azure-resource-manager/resource-group-overview). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
 
-Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/azure-resource-manager/management-groups-overview) offrono un livello di ambito superiore alle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
+Se l'organizzazione ha molte sottoscrizioni, potrebbe essere necessario trovare una modalità di gestione efficiente dell'accesso, dei criteri e della conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/azure-resource-manager/management-groups-overview) offrono un livello di ambito superiore alle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
 
 **Procedura consigliata**: ridurre la variabilità nel programma di configurazione e distribuzione delle macchine virtuali.   
 **Dettagli**: usare i modelli di [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) per rafforzare le opzioni di distribuzione e facilitare l'individuazione e la creazione di un inventario delle macchine virtuali dell'ambiente.
@@ -81,10 +81,10 @@ Microsoft Antimalware include caratteristiche come la protezione in tempo reale,
 **Dettagli**: [gestire i problemi di protezione degli endpoint con il Centro sicurezza](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Gestire gli aggiornamenti della VM
-Le VM di Azure, ad esempio tutte le VM locali, sono progettate per essere gestite dagli utenti. Azure non effettua il push degli aggiornamenti di Windows verso le VM. È compito dell'utente gestire gli aggiornamenti delle VM.
+Le VM di Azure, ad esempio tutte le VM locali, sono progettate per essere gestite dagli utenti. Azure non esegue il push degli aggiornamenti di Windows alle macchine virtuali. È compito dell'utente gestire gli aggiornamenti delle VM.
 
 **Procedura consigliata**: mantenere aggiornate le VM.   
-**Dettagli**: la soluzione [Gestione aggiornamenti](../../automation/automation-update-management.md) in Automazione di Azure consente di gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux distribuiti in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
+**Dettagli**: la soluzione [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) in Automazione di Azure consente di gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux distribuiti in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
 I computer gestiti da Gestione aggiornamenti usano le configurazioni seguenti per le valutazioni e le distribuzioni degli aggiornamenti:
 

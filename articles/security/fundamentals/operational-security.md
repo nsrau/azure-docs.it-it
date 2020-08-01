@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749967"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448363"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -66,7 +66,7 @@ Con i log di monitoraggio di Azure è possibile gestire qualsiasi istanza in qua
 
 La funzionalità di base dei log di monitoraggio di Azure viene fornita da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
-| Service  | Descrizione|
+| Servizio  | Descrizione|
 | :------------- | :-------------|
 | Log di Monitoraggio di Azure | Monitora e analizza la disponibilità e le prestazioni di risorse diverse, inclusi i computer fisici e le macchine virtuali. |
 |Automazione | Automatizza i processi manuali ed applica le configurazioni per i computer fisici e le macchine virtuali. |
@@ -108,7 +108,7 @@ Le [soluzioni di gestione](../../monitoring/monitoring-solutions.md) sono set pr
 
 ![Soluzioni di gestione](./media/operational-security/azure-operational-security-fig4.png)
 
-Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](../../automation/automation-update-management.md). Questa soluzione USA l'agente di [log di monitoraggio di Azure](../../log-analytics/log-analytics-queries.md) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
+Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md). Questa soluzione USA l'agente di [log di monitoraggio di Azure](../../log-analytics/log-analytics-queries.md) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
 
 Quando si crea una distribuzione, vengono usati i runbook dell'[Automazione di Azure](../../automation/automation-intro.md) per installare gli aggiornamenti necessari. L'intero processo viene gestito nel portale, non è necessario preoccuparsi dei dettagli sottostanti.
 
@@ -144,7 +144,7 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo st
 
 -   Macchine virtuali: usa informazioni sulla configurazione e informazioni sugli eventi di sicurezza, ad esempio registri eventi di Windows e log di controllo, log di IIS, messaggi syslog e file di dump di arresto anomalo del sistema dalle macchine virtuali.
 
-### <a name="data-protection"></a>Protezione dei dati
+### <a name="data-protection"></a>Protezione dati
 
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
 
@@ -265,7 +265,7 @@ Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
 Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 
-| Autenticata  | Anonima|
+| Autenticata  | Anonimo|
 | :------------- | :-------------|
 | Richieste riuscite | Richieste riuscite |
 |Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |

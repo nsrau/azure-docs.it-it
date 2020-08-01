@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c4e9676208a5d2cfa8c0c04a97675a3c634e3d5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077149"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446782"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -32,7 +32,7 @@ Vengono annunciate le seguenti modifiche con la deprecazione del portale di OMS.
 - L'[App per dispositivi mobili OMS](#oms-mobile-app) è deprecata. 
 - La [soluzione NSG è stata sostituita](#azure-network-security-group-analytics) con funzionalità avanzate disponibili tramite analisi del traffico soluzione.
 - Le nuove connessioni da System Center Operations Manager a Log Analytics richiedono [Management Pack aggiornati](#system-center-operations-manager).
-- Vedere [Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure](../../automation/migrate-oms-update-deployments.md) per informazioni dettagliate sulle modifiche a [Gestione aggiornamenti](../../automation/automation-update-management.md).
+- Vedere [Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure](../../automation/migrate-oms-update-deployments.md) per informazioni dettagliate sulle modifiche a [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md).
 
 
 ## <a name="what-should-i-do-now"></a>Qual è il passo da fare ora?
@@ -59,7 +59,7 @@ In entrambi i casi, l'amministratore deve assegnare manualmente il ruolo appropr
 | Autorizzazione del portale di OMS | Ruolo di Azure |
 |:---|:---|
 | ReadOnly | Lettore di Log Analytics |
-| Autore di contributi | Collaboratore di Log Analytics |
+| Collaboratore | Collaboratore di Log Analytics |
 | Amministratore | Proprietario | 
  
 

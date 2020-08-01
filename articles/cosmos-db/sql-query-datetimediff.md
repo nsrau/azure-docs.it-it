@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: db037668cec736bc3060b1cd3bb9651ee860a39b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262092"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446383"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 
@@ -21,7 +21,7 @@ Restituisce il conteggio (come valore intero con segno) dei limiti di DateTimePa
 ## <a name="syntax"></a>Sintassi
   
 ```sql
-DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
+DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 ```
 
 ## <a name="arguments"></a>Argomenti
@@ -31,12 +31,12 @@ DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | abbreviazioni        |
 | ------------ | -------------------- |
-| Year         | "Year", "aaaa", "yy" |
+| Anno         | "Year", "aaaa", "yy" |
 | Month        | "month", "mm", "m"   |
 | Giorno          | "Day", "dd", "d"     |
 | Ora         | "hour", "HH"         |
 | Minuto       | "minute", "Mi", "n"  |
-| Secondo       | "Second", "SS", "s"  |
+| Second       | "Second", "SS", "s"  |
 | Millisecond  | "millisecondo", "MS"  |
 | Microsecondi  | "microsecond", "MCS" |
 | Nanosecondo   | "nanosecond", "NS"   |
@@ -65,7 +65,7 @@ DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
 
 Restituisce un valore intero con segno.
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 DateTimeDiff restituirà `undefined` per i motivi seguenti:
 
@@ -74,7 +74,7 @@ DateTimeDiff restituirà `undefined` per i motivi seguenti:
 
 DateTimeDiff restituirà sempre un valore intero con segno ed è una misurazione del numero di limiti DateTimePart superati, non di misura dell'intervallo di tempo.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
 Nell'esempio seguente viene calcolato il numero di limiti di giorno incrociato tra `2020-01-01T01:02:03.1234527Z` e `2020-01-03T01:02:03.1234567Z` .
 

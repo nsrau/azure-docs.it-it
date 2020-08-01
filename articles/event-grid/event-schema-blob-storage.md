@@ -3,12 +3,12 @@ title: Archiviazione BLOB di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi di archiviazione BLOB con Griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371278"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458944"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Archiviazione BLOB di Azure come origine di griglia di eventi
 
@@ -25,7 +25,7 @@ Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazio
 Questi eventi vengono attivati quando un client crea, sostituisce o Elimina un BLOB chiamando API REST BLOB.
 
 > [!NOTE]
-> L'utilizzo dell'endpoint DFS *`(abfss://URI) `* per gli account non gerarchici abilitati per gli spazi dei nomi non genererà eventi. Per questi account, solo l'endpoint BLOB genererà *`(wasb:// URI)`* gli eventi.
+> I `$logs` contenitori e non `$blobchangefeed` sono integrati con griglia di eventi, pertanto l'attività in questi contenitori non genererà eventi. Inoltre, l'utilizzo dell'endpoint DFS *`(abfss://URI) `* per gli account non gerarchici abilitati per gli spazi dei nomi non genererà eventi, ma l'endpoint BLOB genererà *`(wasb:// URI)`* gli eventi.
 
  |Nome evento |Descrizione|
  |----------|-----------|
@@ -33,7 +33,7 @@ Questi eventi vengono attivati quando un client crea, sostituisce o Elimina un B
  |**Microsoft.Storage.BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene generato quando i client chiamano l' `DeleteBlob` operazione disponibile nell'API REST BLOB. |
 
 > [!NOTE]
-> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob` `PutBlob` chiamate all' `PutBlockList` API REST, e. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob` `PutBlob` chiamate all' `PutBlockList` API REST, e. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](./how-to-filter-events.md).
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Elenco degli eventi per Azure Data Lake Storage le API REST di generazione 2
 
@@ -49,7 +49,7 @@ Questi eventi vengono attivati se si Abilita uno spazio dei nomi gerarchico nell
 |**Microsoft. storage. DirectoryDeleted**|Attivato quando una directory viene eliminata. <br>In particolare, questo evento viene generato quando i client usano l' `DeleteDirectory` operazione disponibile nell'API REST di Azure Data Lake storage Gen2.|
 
 > [!NOTE]
-> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per la `FlushWithClose` chiamata all'API REST. Questa chiamata API attiva l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per la `FlushWithClose` chiamata all'API REST. Questa chiamata API attiva l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](./how-to-filter-events.md).
 
 <a name="example-event"></a>
 ### <a name="the-contents-of-an-event-response"></a>Contenuto della risposta di un evento
@@ -307,8 +307,8 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | api | Stringa | L'operazione che ha attivato l'evento. |
-| clientRequestId | Stringa | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
-| requestId | string | ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+| clientRequestId | Stringa | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+| requestId | string | ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
 | eTag | Stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
 | contentType | Stringa | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | integer | La dimensione del BLOB in byte. |

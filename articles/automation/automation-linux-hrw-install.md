@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856128"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448014"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "85856128"
 
 Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [Esecuzione dei runbook per Hybrid Runbook Worker](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel data center locale o un altro ambiente cloud.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
@@ -28,7 +28,7 @@ Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoragg
 
 Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
 
-Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](automation-update-management.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
+Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](update-management/update-mgmt-overview.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
 
 Per aggiungere la funzionalità Gestione aggiornamenti all'area di lavoro, eseguire il cmdlet PowerShell seguente:
 

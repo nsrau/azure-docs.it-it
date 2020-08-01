@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920623"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447054"
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
@@ -99,5 +99,5 @@ Se lo scenario richiede la configurazione di più front-end con porte a disponib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come configurare le porte a disponibilità elevata per il ILB tramite il portale (tutorial-Load-Balancer-standard-Internal-Portal. mdl # create-a-Load-Balancer-Rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), l' [interfaccia](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)della riga di comando o i [modelli](load-balancer-get-started-ilb-arm-template.md).
+- [Informazioni su come configurare le porte a disponibilità elevata per il ILB tramite il portale](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), l' [interfaccia](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)della riga di comando o i [modelli](load-balancer-get-started-ilb-arm-template.md).
 - [Informazioni sulle Load Balancer Standard](load-balancer-standard-overview.md)

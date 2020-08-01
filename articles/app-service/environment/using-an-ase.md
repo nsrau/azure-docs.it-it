@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042179"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448193"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -126,15 +126,15 @@ Quando si usa un ambiente del servizio app esterno, le app eseguite nell'ambient
 
 Per configurare DNS nel proprio server DNS con l'ambiente del servizio app ILB:
 
-1. creare una zona per <ASE name> . appserviceenvironment.NET
+1. creare una zona per &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net
 1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
 1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
-1. creare una zona in <ASE name> . appserviceenvironment.NET denominata SCM
+1. creare una zona in &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net denominata SCM
 1. creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
 
 Per configurare DNS in zone private di DNS di Azure:
 
-1. creare una zona privata di DNS di Azure denominata <ASE name> . appserviceenvironment.NET
+1. creare una zona privata di DNS di Azure denominata &lt; ASE nome &gt; . appserviceenvironment.NET
 1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
 1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
 1. creare un record A in tale zona che punti *. scm all'indirizzo IP ILB

@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477788"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445461"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD
 
@@ -26,7 +26,7 @@ Per impostazione predefinita, le applicazioni registrate in un tenant di Azure A
 
 Analogamente, nel caso di un app [multi-tenant](howto-convert-app-to-be-multi-tenant.md), tutti gli utenti del tenant di Azure AD in cui è stato eseguito il provisioning dell'app potranno accedere all'applicazione dopo aver eseguito l'autenticazione nel rispettivo tenant.
 
-Gli sviluppatori e gli amministratori di tenant devono spesso soddisfare l'esigenza di limitare un'app a un determinato set di utenti. Per soddisfare questo requisito, gli sviluppatori possono usare comuni criteri di autorizzazione come il controllo degli accessi in base al ruolo, ma questo approccio richiede una considerevole quantità di lavoro da parte dello sviluppatore.
+Gli sviluppatori e gli amministratori di tenant devono spesso soddisfare l'esigenza di limitare un'app a un determinato set di utenti. Gli sviluppatori possono ottenere lo stesso risultato usando modelli di autorizzazione comuni come il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), ma questo approccio richiede una notevole quantità di lavoro da parte dello sviluppatore.
 
 Gli amministratori e gli sviluppatori tenant possono limitare un'app a un set specifico di utenti o gruppi di sicurezza nel tenant usando anche questa funzionalità incorporata di Azure AD.
 
@@ -65,7 +65,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
 1. Selezionare **Salva** per salvare questa modifica di configurazione.
 
-### <a name="app-registration"></a>Registrazione dell'app
+### <a name="app-registration"></a>Registrazione delle app
 
 1. Passare alla [**portale di Azure**](https://portal.azure.com/).
 1. Nella barra superiore selezionare l'account connesso. 

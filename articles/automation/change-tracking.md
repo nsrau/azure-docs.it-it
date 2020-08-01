@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185586"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447932"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -203,7 +203,7 @@ Una funzionalità chiave di Rilevamento modifiche e inventario è costituita da 
 
 - Per abilitare la funzionalità da un account di automazione, vedere [Abilitare Rilevamento modifiche e inventario da un account di automazione](automation-enable-changes-from-auto-acct.md).
 
-- Per abilitare la funzionalità esplorando la portale di Azure, vedere [abilitare rilevamento modifiche e inventario dal portale di Azure](automation-onboard-solutions-from-browse.md).
+- Per abilitare la funzionalità esplorando la portale di Azure, vedere [abilitare rilevamento modifiche e inventario dal portale di Azure](automation-enable-changes-from-browse.md).
 
 - Per abilitare la funzionalità da un runbook, vedere [Abilitare Rilevamento modifiche e inventario da un runbook](automation-enable-changes-from-runbook.md).
 

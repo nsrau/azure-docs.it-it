@@ -1,14 +1,14 @@
 ---
-title: Linee guida e procedure consigliate
+title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4a5f7e1f55eb5b4a68ee889ef6e1378eb573a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099185"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447277"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -137,7 +137,7 @@ Per semplificare la protezione dei dati di backup e soddisfare le esigenze di si
 
 ### <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
-* Il controllo degli accessi in base al ruolo di Azure consente la gestione degli accessi con granularità fine, la separazione dei compiti all'interno del team e la concessione della quantità di accesso agli utenti necessari per svolgere il proprio lavoro. [Altre informazioni](backup-rbac-rs-vault.md)sono disponibili qui.
+* Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente la gestione degli accessi con granularità fine, la separazione dei compiti all'interno del team e la concessione della quantità di accesso agli utenti necessari per svolgere i propri processi. [Altre informazioni](backup-rbac-rs-vault.md)sono disponibili qui.
 
 * Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup: collaboratori, operatori e lettori di backup. [Altre informazioni](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)sono disponibili qui.
 
@@ -239,7 +239,7 @@ Un utente o un amministratore di backup deve essere in grado di monitorare tutte
 * Inoltre,
   * È possibile inviare dati (ad esempio, processi, criteri e così via) all'area di lavoro **log Analytics** . In questo modo le funzionalità dei log di monitoraggio di Azure consentono di correlare i dati con altri dati di monitoraggio raccolti da monitoraggio di Azure, consolidare le voci di log da più sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi, usare query di log per eseguire analisi complesse e ottenere informazioni approfondite sulle voci di log. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)sono disponibili qui.
   * È possibile inviare dati a hub eventi per inviare voci all'esterno di Azure, ad esempio a una soluzione SIEM di terze parti (informazioni di sicurezza e gestione degli eventi) o ad altre soluzioni di log Analytics. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-azure-event-hubs)sono disponibili qui.
-  * È possibile inviare dati a un account di archiviazione di Azure se si desidera conservare i dati di log più lunghi di 90 giorni per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni, non è necessario configurare archivi in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to--azure-storage)
+  * È possibile inviare dati a un account di archiviazione di Azure se si desidera conservare i dati di log più lunghi di 90 giorni per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni, non è necessario configurare archivi in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to--azure-storage).
 
 ### <a name="alerting"></a>Creazione di avvisi
 

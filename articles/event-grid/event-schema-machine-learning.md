@@ -3,12 +3,12 @@ title: Azure Machine Learning come origine griglia di eventi
 description: Descrive le proprietà fornite per area di lavoro di Machine Learning eventi con griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090672"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458043"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning come origine griglia di eventi
 
@@ -188,13 +188,13 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| argomento | Stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | Stringa | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| eventType | Stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | Stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| dataVersion | Stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
@@ -203,8 +203,8 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| ModelName | string | Nome del modello registrato. |
-| ModelVersion | string | Versione del modello registrato. |
+| ModelName | Stringa | Nome del modello registrato. |
+| ModelVersion | Stringa | Versione del modello registrato. |
 | ModelTags | object | Tag del modello registrato. |
 | ModelProperties | object | Proprietà del modello registrato. |
 
@@ -212,9 +212,9 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| ServiceName | string | Nome del servizio distribuito. |
-| ServiceComputeType | string | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
-  | ModelIds | string | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
+| ServiceName | Stringa | Nome del servizio distribuito. |
+| ServiceComputeType | Stringa | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
+  | ModelIds | Stringa | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
 | ServiceTags | object | Tag del servizio distribuito. |
 | ServiceProperties | object | Proprietà del servizio distribuito. |
 
@@ -222,10 +222,10 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| experimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
-| experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
-| runId | string | ID dell'esecuzione completata. |
-| runType | string | Tipo di esecuzione dell'esecuzione completata. |
+| experimentId | Stringa | ID dell'esperimento a cui appartiene l'esecuzione. |
+| experimentname | Stringa | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| runId | Stringa | ID dell'esecuzione completata. |
+| runType | Stringa | Tipo di esecuzione dell'esecuzione completata. |
 | runTags | object | Tag dell'esecuzione completata. |
 | runProperties | object | Proprietà dell'esecuzione completata. |
 
@@ -233,11 +233,11 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| DataDriftId | string | ID del monitoraggio della deriva dati che ha attivato l'evento. |
-| Datadriftname | string | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
-| RunId | string | ID dell'esecuzione che ha rilevato la deriva dei dati. |
-| BaseDatasetId | string | ID del set di dati di base utilizzato per rilevare la deriva. |
-| TargetDatasetId | string | ID del set di dati di destinazione utilizzato per rilevare la deriva. |
+| DataDriftId | Stringa | ID del monitoraggio della deriva dati che ha attivato l'evento. |
+| Datadriftname | Stringa | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
+| RunId | Stringa | ID dell'esecuzione che ha rilevato la deriva dei dati. |
+| BaseDatasetId | Stringa | ID del set di dati di base utilizzato per rilevare la deriva. |
+| TargetDatasetId | Stringa | ID del set di dati di destinazione utilizzato per rilevare la deriva. |
 | DriftCoefficient | double | Risultato coefficiente che ha generato l'evento. |
 | StartTime | Datetime | Ora di inizio della serie temporale del set di dati di destinazione che ha provocato il rilevamento della deviazione.  |
 | EndTime | Datetime | Ora di fine della serie temporale del set di dati di destinazione che ha generato il rilevamento della deviazione. |
@@ -246,22 +246,22 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| experimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
-| experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
-| runId | string | ID dell'esecuzione completata. |
-| runType | string | Tipo di esecuzione dell'esecuzione completata. |
+| experimentId | Stringa | ID dell'esperimento a cui appartiene l'esecuzione. |
+| experimentname | Stringa | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| runId | Stringa | ID dell'esecuzione completata. |
+| runType | Stringa | Tipo di esecuzione dell'esecuzione completata. |
 | runTags | object | Tag dell'esecuzione completata. |
 | runProperties | object | Proprietà dell'esecuzione completata. |
-| runStatus | string | Stato dell'esecuzione. |
+| runStatus | Stringa | Stato dell'esecuzione. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 | Titolo | Descrizione |
 | ----- | ----- |
-| [USA eventi Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Panoramica dell'integrazione di Azure Machine Learning con griglia di eventi. |
+| [USA eventi Azure Machine Learning](../machine-learning/how-to-use-event-grid.md) | Panoramica dell'integrazione di Azure Machine Learning con griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md)
 * Per altre informazioni sulla creazione di una sottoscrizione di griglia di eventi di Azure, vedere [schema di sottoscrizione di griglia di eventi](subscription-creation-schema.md)
-* Per un'introduzione all'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [utilizzare eventi Azure Machine Learning](/azure/machine-learning/concept-event-grid-integration)
-* Per un esempio dell'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [creare flussi di lavoro di machine learning basati su eventi](/azure/machine-learning/how-to-use-event-grid)
+* Per un'introduzione all'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [utilizzare eventi Azure Machine Learning](../machine-learning/how-to-use-event-grid.md)
+* Per un esempio dell'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [creare flussi di lavoro di machine learning basati su eventi](../machine-learning/how-to-use-event-grid.md)

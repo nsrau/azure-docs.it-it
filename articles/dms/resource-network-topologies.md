@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187528"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448521"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie di rete per le migrazioni di Istanza gestita SQL di Azure con il servizio migrazione del database di Azure
 
@@ -39,7 +39,7 @@ Usare questa topologia se la Istanza gestita SQL di Azure è connessa alla rete 
 Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari seguenti:
 
 - Il Istanza gestita SQL è isolato dalla connettività locale, ma l'istanza del servizio migrazione del database di Azure è connessa alla rete locale.
-- Se sono presenti criteri di controllo degli accessi in base al ruolo (RBAC) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita il Istanza gestita SQL.
+- Se sono presenti criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita il Istanza gestita SQL.
 - Le reti virtuali usate per SQL Istanza gestita e il servizio migrazione del database di Azure si trovano in sottoscrizioni diverse.
 
 ![Topologia di rete per Istanza gestita di database SQL di Azure isolata dalla rete locale](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Usare questa topologia se la SQL Server di origine è ospitata in una macchina v
 Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari seguenti:
 
 - Viene eseguito il provisioning del Istanza gestita SQL in una rete virtuale isolata.
-- Se sono presenti criteri di controllo degli accessi in base al ruolo (RBAC) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita SQL Istanza gestita.
+- Se sono presenti criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita SQL Istanza gestita.
 - Le reti virtuali usate per SQL Istanza gestita e il servizio migrazione del database di Azure si trovano in sottoscrizioni diverse.
 
 ![Topologia di rete per migrazioni da cloud a cloud con una VNet isolata](media/resource-network-topologies/cloud-to-cloud-isolated.png)

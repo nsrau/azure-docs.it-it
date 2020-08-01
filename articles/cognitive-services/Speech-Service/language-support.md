@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087147"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457805"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -50,21 +50,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Arabo (Arabia Saudita)             | No                                                |
 | `ar-SY` | Arabo (Siria)                    | Modello linguistico                                    |
 | `ca-ES` | Catalano                           | Modello linguistico                                    |
+| `cs-CZ` | Ceco (Repubblica Ceca)            | Modello linguistico                                    | 
 | `da-DK` | Danese (Danimarca)                  | Modello linguistico                                    |
 | `de-DE` | Tedesco (Germania)                  | Modello acustico<br>Modello linguistico<br>Pronuncia |
 | `en-AU` | Inglese (Australia)               | Modello acustico<br>Modello linguistico                  |
 | `en-CA` | Inglese (Canada)                  | Modello acustico<br>Modello linguistico                  |
 | `en-GB` | Inglese (Regno Unito)          | Modello acustico<br>Modello linguistico<br>Pronuncia |
+| `en-HK` | Inglese (Hong Kong)               | Modello linguistico                                    | 
+| `en-IE` | Inglese (Irlanda)                 | Modello linguistico                                    | 
 | `en-IN` | Inglese (India)                   | Modello acustico<br>Modello linguistico                  |
 | `en-NZ` | Inglese (Nuova Zelanda)             | Modello acustico<br>Modello linguistico                  |
+| `en-PH` | Inglese (Filippine)             | Modello linguistico                                    | 
+| `en-SG` | Inglese (Singapore)               | Modello linguistico                                    | 
 | `en-US` | Inglese (Stati Uniti)           | Modello acustico<br>Modello linguistico<br>Pronuncia |
+| `en-ZA` | Inglese (Sud Africa)            | Modello linguistico                                    | 
+| `es-AR` | Spagnolo (Argentina)               | Modello linguistico                                    | 
+| `es-BO` | Spagnolo (Bolivia)                 | Modello linguistico                                    | 
+| `es-CL` | Spagnolo (Cile)                   | Modello linguistico                                    | 
+| `es-CO` | Spagnolo (Colombia)                | Modello linguistico                                    | 
+| `es-CR` | Spagnolo (Costa Rica)              | Modello linguistico                                    | 
+| `es-CU` | Spagnolo (Cuba)                    | Modello linguistico                                    | 
+| `es-DO` | Spagnolo (Repubblica Dominicana)      | Modello linguistico                                    | 
+| `es-EC` | Spagnolo (Ecuador)                 | Modello linguistico                                    | 
 | `es-ES` | Spagnolo (Spagna)                   | Modello acustico<br>Modello linguistico                  |
+| `es-GT` | Spagnolo (Guatemala)               | Modello linguistico                                    | 
+| `es-HN` | Spagnolo (Honduras)                | Modello linguistico                                    | 
 | `es-MX` | Spagnolo (Messico)                  | Modello acustico<br>Modello linguistico                  |
+| `es-NI` | Spagnolo (Nicaragua)               | Modello linguistico                                    | 
+| `es-PA` | Spagnolo (Panama)                  | Modello linguistico                                    | 
+| `es-PE` | Spagnolo (Perù)                    | Modello linguistico                                    | 
+| `es-PR` | Spagnolo (Porto Rico)             | Modello linguistico                                    | 
+| `es-PY` | Spagnolo (Paraguay)                | Modello linguistico                                    | 
+| `es-SV` | Spagnolo (El Salvador)             | Modello linguistico                                    | 
+| `es-US` | Spagnolo (Stati Uniti)                     | Modello linguistico                                    | 
+| `es-UY` | Spagnolo (Uruguay)                 | Modello linguistico                                    | 
+| `es-VE` | Spagnolo (Venezuela)               | Modello linguistico                                    | 
 | `fi-FI` | Finlandese (Finlandia)                 | Modello linguistico                                    |
 | `fr-CA` | Francese (Canada)                   | Modello acustico<br>Modello linguistico                  |
 | `fr-FR` | Francese (Francia)                   | Modello acustico<br>Modello linguistico<br>Pronuncia |
 | `gu-IN` | Gujarati (India)                 | Modello linguistico                                    |
 | `hi-IN` | Hindi (India)                     | Modello acustico<br>Modello linguistico                  |
+| `hu-HU` | Ungherese (Ungheria)               | Modello linguistico                                    | 
 | `it-IT` | Italiano (Italia)                   | Modello acustico<br>Modello linguistico<br>Pronuncia |
 | `ja-JP` | Giapponese (Giappone)                  | Modello linguistico                                    |
 | `ko-KR` | Coreano (Corea)                    | Modello linguistico                                    |
@@ -334,7 +360,7 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 
 | Impostazioni locali | Linguaggio | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
 |----|----|----|----|----|
-| it-IT | Inglese (Stati Uniti) | sì | sì | sì |
+| it-IT | Inglese (Stati Uniti) | Sì | sì | sì |
 |zh-CN  |Cinese (mandarino, semplificato)|    n/d|    sì|    sì|
 |de-DE  |Tedesco (Germania)   |n/d    |sì    |sì|
 |en-GB  |Inglese (Regno Unito)   |n/d    |sì    |sì|
@@ -343,10 +369,10 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 |en-CA  |Inglese (Canada)   |n/d|   sì|    sì|
 |fr-CA  |Francese (Canada)    |n/d    |sì|   sì|
 |it-IT  |Italiano|   n/d |sì|   sì|
-|es-ES| Spagnolo (Spagna) |n/d    |sì|   sì|
-|es-MX  |Spagnolo (Messico)   |n/d|   sì|    sì|
+|es-ES| Spagnolo (Spagna) |n/d    |sì|   Sì|
+|es-MX  |Spagnolo (Messico)   |n/d|   sì|    Sì|
 |ja-JP| Giapponese    |n/d    |sì    |sì|
-|pt-BR| Portoghese (Brasile)|    n/d|    sì|    sì|
+|pt-BR| Portoghese (Brasile)|    n/d|    sì|    Sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

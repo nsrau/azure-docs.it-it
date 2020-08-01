@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f75b9af6e9b2f92818fd8ec16d59db2f1bd0075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223789"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446879"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Eliminazione temporanea per l'archiviazione BLOB
 
@@ -93,7 +93,7 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 | [Put Block](/rest/api/storageservices/put-block) | BLOB in blocchi | Crea un nuovo blocco di cui eseguire il commit come parte di un BLOB in blocchi. | Se utilizzato per eseguire il commit di un blocco in un BLOB attivo, non viene apportata alcuna modifica. In caso di commit di un blocco in un BLOB eliminato temporaneamente, viene creato un nuovo BLOB e generato automaticamente uno snapshot per acquisire lo stato del BLOB eliminato temporaneamente. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | BLOB in blocchi | Esegue il commit di un BLOB specificando il set di ID dei blocchi che compongono il BLOB in blocchi. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza se e solo se si tratta di un BLOB in blocchi. Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Put Page](/rest/api/storageservices/put-page) | BLOB di pagine | Scrive un intervallo di pagine in un BLOB di pagine. | Nessuna modifica. I dati BLOB di pagine sovrascritti o cancellati con questa operazione non vengono salvati e non sono recuperabili. |
-| [Append Block](/rest/api/storageservices/append-block) | BLOB di accodamento | Scrive un blocco di dati alla fine di un BLOB di accodamento | Nessuna modifica. |
+| [Append Block](/rest/api/storageservices/append-block) | BLOB di accodamento | Scrive un blocco di dati alla fine di un BLOB di Accodamento | Nessuna modifica. |
 | [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | BLOB in blocchi, di Accodamento e di pagine | Imposta i valori delle proprietà di sistema definite per un BLOB. | Nessuna modifica. Le proprietà del BLOB sovrascritto non sono recuperabili. |
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | BLOB in blocchi, di Accodamento e di pagine | Imposta i metadati definiti dall'utente per il BLOB specificato come una o più coppie nome-valore. | Nessuna modifica. I metadati del BLOB sovrascritto non sono recuperabili. |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084050"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447354"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -76,7 +76,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 - **Lettore** può visualizzare le risorse di Azure esistenti.
 
-![Controllo degli accessi in base al ruolo di Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
 

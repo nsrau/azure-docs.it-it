@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091998"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446217"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -46,6 +46,8 @@ Quando si usa l'endpoint di streaming predefinito, `servicename` viene omesso, q
 ## <a name="types"></a>Tipi
 
 Sono disponibili due tipi di **endpoint di streaming** : **standard** (anteprima) e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming.
+
+Il limite massimo di unità di streaming è in genere 10. Contattaci [qui](https://azure.microsoft.com/support/create-ticket/) per aumentare il limite per l'account.
 
 La tabella seguente descrive i tipi:
 

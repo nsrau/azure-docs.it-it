@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015018"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448040"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -18,7 +18,7 @@ ms.locfileid: "87015018"
 
 Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [Esecuzione dei runbook per Hybrid Runbook Worker](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel data center locale o un altro ambiente cloud.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare di disporre di quanto segue.
 
@@ -28,7 +28,7 @@ Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoragg
 
 Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
 
-Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](automation-update-management.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
+Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](update-management/update-mgmt-overview.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
 
    Per aggiungere la funzionalità Gestione aggiornamenti all'area di lavoro, eseguire il cmdlet PowerShell seguente:
 
@@ -77,7 +77,7 @@ Per altri requisiti di rete per il ruolo di lavoro ibrido per runbook, vedere la
 È possibile aggiungere il computer di lavoro a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione. Si noti che è necessario supportare runbook di automazione, purché si usi lo stesso account sia per la funzionalità Automazione di Azure sia per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
 >[!NOTE]
->L'abilitazione di automazione di Azure [Gestione aggiornamenti](automation-update-management.md) configura automaticamente qualsiasi computer Windows connesso all'area di lavoro di log Analytics come ruolo di lavoro ibrido per Runbook per supportare la gestione degli aggiornamenti del sistema operativo. Tale ruolo di lavoro, tuttavia, non è registrato con alcun gruppo di ruoli di lavoro ibridi per runbook già definito nell'account di automazione.
+>L'abilitazione di automazione di Azure [Gestione aggiornamenti](update-management/update-mgmt-overview.md) configura automaticamente qualsiasi computer Windows connesso all'area di lavoro di log Analytics come ruolo di lavoro ibrido per Runbook per supportare la gestione degli aggiornamenti del sistema operativo. Tale ruolo di lavoro, tuttavia, non è registrato con alcun gruppo di ruoli di lavoro ibridi per runbook già definito nell'account di automazione.
 
 ## <a name="enabling-machines-for-management-with-azure-automation-state-configuration"></a>Abilitazione dei computer per la gestione con la configurazione dello stato di automazione di Azure
 
@@ -169,7 +169,7 @@ Heartbeat
 
 Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record di heartbeat all'area di lavoro assegnata. Per completare l'installazione e la configurazione dell'agente, eseguire queste operazioni.
 
-1. Abilitare la funzionalità per aggiungere il computer agente. Per Gestione aggiornamenti e le macchine virtuali di Azure, vedere [abilitare le VM di Azure](automation-onboard-solutions-from-automation-account.md#enable-azure-vms)e per le macchine virtuali non di Azure vedere [abilitare i computer nell'area di lavoro](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). Per Rilevamento modifiche e le macchine virtuali di Azure, vedere [abilitare le VM di Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)e per le macchine virtuali non di Azure vedere [abilitare i computer nell'area di lavoro](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Abilitare la funzionalità per aggiungere il computer agente. Per Gestione aggiornamenti e le macchine virtuali di Azure, vedere [abilitare Gestione aggiornamenti da un account di automazione](update-management/update-mgmt-enable-automation-account.md), [abilitare Gestione aggiornamenti esplorando il portale di Azure](update-management/update-mgmt-enable-portal.md), [abilitare Gestione aggiornamenti da un Runbook](update-management/update-mgmt-enable-runbook.md)o [abilitare Gestione aggiornamenti da una macchina virtuale di Azure](update-management/update-mgmt-enable-vm.md). Per Rilevamento modifiche e le macchine virtuali di Azure, vedere [abilitare le VM di Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)e per le macchine virtuali non di Azure vedere [abilitare i computer nell'area di lavoro](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
 2. Per confermare la versione del ruolo di lavoro ibrido per Runbook, individuare `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e prendere nota della sottocartella **Version** .
 

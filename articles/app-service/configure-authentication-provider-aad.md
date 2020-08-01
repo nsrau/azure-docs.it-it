@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 5d5348f8abe8d30c7f23882974b8c121af39636c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860521"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448142"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
@@ -103,7 +103,7 @@ Eseguire la procedura seguente:
     |Campo|Descrizione|
     |-|-|
     |ID client| Usare il valore di **ID applicazione (client)** della registrazione dell'app. |
-    |URL autorità di certificazione| Usare `<authentication-endpoint>/<tenant-id>/v2.0` e sostituire *\<authentication-endpoint>* con l'[endpoint di autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (ad esempio, "https://login.microsoft.com " per Azure globale), sostituendo anche *\< tenant-id>* con il valore di **ID della directory (tenant)** in cui è stata creata la registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, oltre che per scaricare i metadati appropriati in modo da determinare, ad esempio, i valori corretti delle chiavi di firma del token e dell'attestazione dell'autorità emittente del token corretti. La sezione `/v2.0` può essere omessa per le applicazioni che usano AAD v1. |
+    |URL autorità di certificazione| Usare `<authentication-endpoint>/<tenant-id>/v2.0` e sostituire *\<authentication-endpoint>* con l' [endpoint di autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) , ad esempio " https://login.microsoft.com " per Azure globale, sostituendo anche *\<tenant-id>* con l'ID di **Directory (tenant)** in cui è stata creata la registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, oltre che per scaricare i metadati appropriati in modo da determinare, ad esempio, i valori corretti delle chiavi di firma del token e dell'attestazione dell'autorità emittente del token corretti. Per le applicazioni che usano Azure AD V1 e per le app di funzioni di Azure, omettere `/v2.0` nell'URL.|
     |Segreto client (facoltativo)| Usare il segreto client generato nella registrazione dell'app.|
     |Destinatari token consentiti| Se si tratta di un'app cloud o server e si vogliono consentire i token di autenticazione di un'app Web, aggiungere qui il valore di **URI dell'ID applicazione** dell'app Web. L'**ID client** configurato viene *sempre* considerato implicitamente come destinatario consentito. |
 

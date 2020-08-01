@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326988"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457822"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Trasformare i dati nella finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -112,7 +112,7 @@ Ora che la pipeline è configurata per dividere i dati, è necessario specificar
     **Formato file**: csv
 
     > [!NOTE]
-    > Questo articolo presuppone che l'utente abbia accesso a un archivio dati registrato alla corrente area di lavoro di Azure Machine Learning. Per istruzioni su come configurare un archivio dati, vedere [Connettersi ai servizi di archiviazione di Azure](how-to-access-data.md#azure-machine-learning-studio).
+    > Questo articolo presuppone che l'utente abbia accesso a un archivio dati registrato alla corrente area di lavoro di Azure Machine Learning. Per istruzioni su come configurare un archivio dati, vedere [Connettersi ai servizi di archiviazione di Azure](how-to-access-data.md#studio).
 
     Se non è disponibile alcun archivio dati, è possibile crearne uno in questa fase. A titolo esemplificativo, in questo articolo i set di dati vengono salvati nell'account di archiviazione BLOB predefinito associato all'area di lavoro. I set di dati vengono salvati nel contenitore `azureml` in una nuova cartella denominata `data`.
 

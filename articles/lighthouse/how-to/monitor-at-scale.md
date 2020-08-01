@@ -3,12 +3,12 @@ title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
 ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 758437fdc7a32fd5937434ce10f16a8c792423d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5cace0396c5a1f430ce10ba29ee051b5e432c125
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072724"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448941"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -38,7 +38,7 @@ Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esplorare questa [cartella di lavoro di esempio creata da MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), che tiene traccia dei report di conformità delle patch eseguendo una [query sui log gestione aggiornamenti](../../automation/automation-update-management-query-logs.md) in più aree di lavoro log Analytics. 
+- Esplorare questa [cartella di lavoro di esempio creata da MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), che tiene traccia dei report di conformità delle patch eseguendo una [query sui log gestione aggiornamenti](../../automation/update-management/update-mgmt-query-logs.md) in più aree di lavoro log Analytics. 
 - Informazioni su [Monitoraggio di Azure](../../azure-monitor/index.yml).
 - Informazioni sui [log di monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md).
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).

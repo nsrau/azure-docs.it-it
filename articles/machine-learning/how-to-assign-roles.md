@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a49497cbe71dddb8ab6e76be9b3679dd62b0cee
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321616"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449028"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -125,7 +125,7 @@ Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>D: Quali sono le autorizzazioni necessarie per eseguire alcuni scenari comuni nel servizio Azure Machine Learning?
+### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>Q. Quali sono le autorizzazioni necessarie per eseguire alcuni scenari comuni nel servizio Azure Machine Learning?
 
 La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente:
 
@@ -147,13 +147,13 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 | Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente`Microsoft.Authorization/roleDefinitions/write` | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
 
 
-### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>D: Si pubblicano i ruoli predefiniti di Azure per il servizio Machine Learning?
+### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>Q. Si pubblicano i ruoli predefiniti di Azure per il servizio Machine Learning?
 
 Attualmente non vengono pubblicati i [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles) per il servizio Machine Learning. Un ruolo incorporato dopo la pubblicazione non può essere aggiornato e le definizioni di ruolo vengono ancora stabilite in base agli scenari e ai commenti dei clienti. 
 
 <a id="customroles"></a>
 
-### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>D: Esistono alcuni modelli di ruolo personalizzati per gli scenari più comuni nel servizio Machine Learning?
+### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>Q. Esistono alcuni modelli di ruolo personalizzati per gli scenari più comuni nel servizio Machine Learning?
 
 Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizzate che è possibile usare come base per definire ruoli personalizzati:
 
@@ -348,7 +348,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     }
     ```
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>D: Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 
@@ -356,7 +356,7 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>D: Ricerca per categorie individuare le operazioni supportate dal servizio Machine Learning?
+### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>Q. Ricerca per categorie individuare le operazioni supportate dal servizio Machine Learning?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 
@@ -367,9 +367,9 @@ az provider operation show –n Microsoft.MachineLearningServices
 Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 
-### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>D: Quali sono alcuni problemi comuni relativi all'uso di RBAC di Azure?
+### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>Q. Quali sono alcuni problemi comuni relativi all'uso di RBAC di Azure?
 
-Di seguito sono riportati alcuni aspetti da tenere presente quando si usano i controlli di accesso basati sui ruoli di Azure:
+Di seguito sono riportate alcune considerazioni da tenere presente quando si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
 - Quando si crea una risorsa in Azure, ad indicare un'area di lavoro, non si è direttamente il proprietario dell'area di lavoro. Il ruolo viene ereditato dal ruolo con ambito più elevato su cui si è autorizzati in tale sottoscrizione. Ad esempio, se si è un amministratore di rete e si dispone delle autorizzazioni per creare un'area di lavoro Machine Learning, a tale area di lavoro verrà assegnato il ruolo di amministratore di rete e non il ruolo proprietario.
 - Quando sono presenti due assegnazioni di ruolo per lo stesso utente di AAD con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
@@ -377,19 +377,19 @@ Di seguito sono riportati alcuni aspetti da tenere presente quando si usano i co
 - A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
 
 
-### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>D: Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
+### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
 
 Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo con le identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>D: Sono supportati i controlli degli accessi in base al ruolo nel portale di studio?
+### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>Q. Sono supportati i controlli degli accessi in base al ruolo nel portale di studio?
 
 Azure Machine Learning Studio supporta i controlli degli accessi in base al ruolo. 
 
 > [!IMPORTANT]
 > Dopo aver assegnato un ruolo personalizzato con autorizzazioni specifiche a un data scientist nell'area di lavoro, le azioni corrispondenti, ad esempio l'aggiunta di un pulsante di calcolo, vengono automaticamente nascoste agli utenti. Nascondendo questi elementi si evitano confusione nella visualizzazione dei controlli che restituiscono una notifica di accesso non autorizzato dal servizio quando vengono utilizzati.
 
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>D: Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. `<role-name>`Deve avere lo stesso formato restituito dal comando precedente.
 
@@ -397,7 +397,7 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. `<
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>D: Ricerca per categorie aggiornare una definizione di ruolo?
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. Ricerca per categorie aggiornare una definizione di ruolo?
 
 Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 
@@ -409,13 +409,13 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 > [!NOTE]
 > Gli aggiornamenti dei ruoli possono richiedere da 15 minuti a un'ora per essere applicati a tutte le assegnazioni di ruolo in tale ambito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>D: È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
 
 Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH nell'oggetto dell'area di lavoro, è possibile eseguire questa operazione inserendo l'azione seguente nella `"NotActions"` matrice nella definizione JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>D: Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
 
 È necessario disporre delle autorizzazioni a livello di sottoscrizione per eseguire qualsiasi operazione relativa alla quota nell'area di lavoro. Ciò significa che l'impostazione della quota a livello di sottoscrizione o della quota a livello di area di lavoro per le risorse di calcolo gestite può verificarsi solo se si dispone di autorizzazioni di scrittura nell'ambito della sottoscrizione. 
 

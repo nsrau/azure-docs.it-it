@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: d956ce273a7ea630bfdcf900fbbba5e8be30b254
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288453"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448987"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 
@@ -37,10 +37,10 @@ Il comando seguente crea una coppia di chiavi SSH usando la crittografia RSA e u
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Se si usa l'[interfaccia della riga di comando di Azure](/cli/azure) per creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create), facoltativamente è possibile creare i file della chiave SSH pubblica e privata usando con l'opzione `--generate-ssh-keys`. I file delle chiavi vengono archiviati nella directory ~/.ssh se non diversamente specificato con l'opzione `--ssh-dest-key-path`. L'opzione `--generate-ssh-keys` non sovrascriverà i file delle chiavi esistenti, ma restituirà un errore. Nel comando seguente sostituire *VMname* e *RGname* con i propri valori:
+Se si usa l'[interfaccia della riga di comando di Azure](/cli/azure) per creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create), facoltativamente è possibile creare i file della chiave SSH pubblica e privata usando con l'opzione `--generate-ssh-keys`. I file delle chiavi vengono archiviati nella directory ~/.ssh se non diversamente specificato con l'opzione `--ssh-dest-key-path`. Se esiste già una coppia di chiavi SSH e `--generate-ssh-keys` viene usata l'opzione, non verrà generata una nuova coppia di chiavi, ma verrà usata la coppia di chiavi esistente. Nel comando seguente sostituire *VMname* e *RGname* con i propri valori:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
 ```
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornire una chiave SSH pubblica quando si distribuisce una macchina virtuale

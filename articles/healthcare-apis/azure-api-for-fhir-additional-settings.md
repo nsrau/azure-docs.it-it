@@ -8,12 +8,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 896d5bafd879ff3ba09bd5b8922cde4cd8345689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64bdc60f8f9e291c4dc084b23f8ec5054cdc528f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871221"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447258"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Impostazioni aggiuntive per l'API di Azure per FHIR
 
@@ -29,7 +29,7 @@ Per ulteriori informazioni su come modificare le impostazioni predefinite, veder
 
 ## <a name="access-control"></a>Controllo di accesso
 
-L'API di Azure per FHIR consente solo agli utenti autorizzati di accedere all'API FHIR. È possibile configurare gli utenti autorizzati tramite due meccanismi diversi. La modalità principale e consigliata per configurare il controllo degli accessi è l'uso del [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/), accessibile tramite il **Pannello controllo di accesso (IAM)** . Il controllo degli accessi in base al ruolo di Azure funziona solo se si vuole proteggere l'accesso al piano dati tramite il tenant Azure Active Directory associato alla sottoscrizione. Se si vuole usare un tenant diverso, l'API di Azure per FHIR offre un meccanismo di controllo di accesso del piano dati FHIR locale. Le opzioni di configurazione non sono più ricche quando si usa il meccanismo RBAC locale. Per informazioni dettagliate, scegliere una delle opzioni seguenti:
+L'API di Azure per FHIR consente solo agli utenti autorizzati di accedere all'API FHIR. È possibile configurare gli utenti autorizzati tramite due meccanismi diversi. La modalità principale e consigliata per configurare il controllo degli accessi è l'uso del [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/), accessibile tramite il **Pannello controllo di accesso (IAM)** . Il controllo degli accessi in base al ruolo di Azure funziona solo se si vuole proteggere l'accesso al piano dati tramite il tenant Azure Active Directory associato alla sottoscrizione. Se si vuole usare un tenant diverso, l'API di Azure per FHIR offre un meccanismo di controllo di accesso del piano dati FHIR locale. Le opzioni di configurazione non sono più ricche quando si usa il meccanismo RBAC locale. Per informazioni dettagliate, scegliere una delle opzioni seguenti:
 
 * [Azure RBAC per il piano dati FHIR](configure-azure-rbac.md). Si tratta dell'opzione preferita quando si usa il tenant Azure Active Directory associato alla sottoscrizione.
 * [Controllo di accesso del piano dati FHIR locale](configure-local-rbac.md). Usare questa opzione solo quando è necessario usare un tenant di Azure Active Directory esterno per il controllo di accesso al piano dati. 

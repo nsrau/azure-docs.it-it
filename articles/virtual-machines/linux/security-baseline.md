@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385484"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446549"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -628,9 +628,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: usare la soluzione Azure Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository degli aggiornamenti configurato localmente per applicare patch ai sistemi supportati.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/automation-update-management.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](../../automation/automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -640,9 +640,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: è possibile usare una soluzione di gestione delle patch di terze parti. È possibile usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository degli aggiornamenti configurato localmente per applicare patch ai sistemi supportati.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/automation-update-management.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](../../automation/automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 

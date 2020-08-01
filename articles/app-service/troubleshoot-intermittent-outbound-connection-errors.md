@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289141"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447903"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
@@ -38,7 +38,7 @@ Quando le applicazioni o funzioni aprono rapidamente una nuova connessione, poss
 
 ## <a name="avoiding-the-problem"></a>Evitare il problema
 
-Se la destinazione è un servizio di Azure che supporta gli endpoint di servizio, è possibile evitare i problemi di esaurimento delle porte SNAT usando gli endpoint di servizio e l' [integrazione di VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) . Quando si usa l'integrazione VNet e si inseriscono gli endpoint di servizio nella subnet di integrazione, il traffico in uscita dell'app per tali servizi non avrà restrizioni per le porte SNAT in uscita.
+Se la destinazione è un servizio di Azure che supporta gli endpoint di servizio, è possibile evitare i problemi di esaurimento delle porte SNAT usando l' [integrazione VNet a livello](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) di area e gli endpoint di servizio o privati. Quando si usa l'integrazione VNet a livello di area e si inseriscono gli endpoint di servizio nella subnet di integrazione, il traffico in uscita dell'app per tali servizi non avrà restrizioni per le porte SNAT in uscita. Analogamente, se si usano l'integrazione VNet a livello di area e gli endpoint privati, non ci sono problemi di porta SNAT in uscita per tale destinazione. 
 
 Evitare il problema della porta SNAT significa evitare la creazione ripetuta di nuove connessioni allo stesso host e alla stessa porta.
 

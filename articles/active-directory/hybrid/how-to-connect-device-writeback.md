@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360130"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447088"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
 > [!NOTE]
@@ -61,7 +61,7 @@ Installare Azure AD Connect usando le impostazioni personalizzate o rapide È co
 
     a. **Fornire le credenziali di amministratore di enterprise**: se le credenziali di amministratore di enterprise vengono fornite per la foresta in cui i dispositivi devono essere riscritti, Azure AD Connect preparerà foresta automaticamente durante la configurazione di writeback dispositivi.
 
-    b. **Scarica lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare la active directory per il writeback dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Fornire lo script di PowerShell scaricato **CreateDeviceContainer.psq** all'amministratore dell'enterprise della foresta in cui verrà eseguito il writeback dei dispositivi.
+    b. **Scarica lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare la active directory per il writeback dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Specificare lo script di PowerShell scaricato **CreateDeviceContainer.ps1** all'amministratore dell'organizzazione della foresta in cui verrà eseguito il writeback dei dispositivi.
     ![Preparare la foresta di Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Per preparare la foresta active directory vengono eseguite le operazioni seguenti:

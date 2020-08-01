@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045910"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447703"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -220,7 +220,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 * [Aree supportate per l'area di lavoro Log Analytics collegata](./how-to/region-mappings.md)
 
-* [Log di query Gestione aggiornamenti](./automation-update-management-query-logs.md)
+* [Log di query Gestione aggiornamenti](./update-management/update-mgmt-query-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -646,9 +646,9 @@ Quando si usano i ruoli di lavoro ibridi per Runbook, i dischi virtuali delle ma
 
 Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali di Azure, usare Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Gestione aggiornamenti in Azure](./automation-update-management.md)
+* [Gestione aggiornamenti in Azure](./update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -660,9 +660,9 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali di Azure, è possibile usare Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Soluzione Gestione aggiornamenti in Azure](./automation-update-management.md)
+* [Soluzione Gestione aggiornamenti in Azure](./update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

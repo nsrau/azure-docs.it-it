@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781600"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445565"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -79,7 +79,7 @@ Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degl
 
 È anche necessaria una licenza di sottoscrizione valida Azure AD Premium P1 o superiore per ogni utente che verrà originata dall'app Cloud HR ed eseguito il provisioning in Active Directory o Azure AD. Il numero di licenze non corrette possedute nell'app HR cloud potrebbe causare errori durante il provisioning dell'utente.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 - Azure AD [amministratore di identità ibrido](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) per configurare l'agente di provisioning Azure ad Connect.
 - Azure AD ruolo di [amministratore dell'applicazione](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) per configurare l'app di provisioning nel portale di Azure
@@ -178,7 +178,7 @@ In base alla decisione scelta, scegliere uno degli scenari di distribuzione:
 
 Si consiglia la configurazione di produzione seguente:
 
-|Requisito|Recommendation|
+|Requisito|Raccomandazione|
 |:-|:-|
 |Numero di agenti di provisioning Azure AD Connect da distribuire|Due (per la disponibilità elevata e il failover)
 |Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
@@ -192,7 +192,7 @@ Questo scenario implica il provisioning degli utenti dall'app Cloud HR ai domini
 
 Si consiglia la configurazione di produzione seguente:
 
-|Requisito|Recommendation|
+|Requisito|Raccomandazione|
 |:-|:-|
 |Numero di agenti di provisioning di Azure AD Connect da distribuire in locale|Due per foresta Active Directory non contigua|
 |Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
@@ -257,7 +257,7 @@ Per impostazione predefinita, l'app del connettore di provisioning esegue il map
 
 Quando si avvia il processo di Joiner-Leavers, raccogliere i requisiti seguenti.
 
-| Processo | Requisiti |
+| Process | Requisiti |
 | - | - |
 | **Falegnami** | Dal punto di vista del ciclo di vita delle identità, come si gestiscono i riassunti? I riassunti mantengono gli ID dei dipendenti precedenti? |
 | | Si elaborano assunzioni future con data e si creano in anticipo Active Directory account? Questi account vengono creati in uno stato abilitato o disabilitato? |
@@ -276,7 +276,7 @@ Ogni app HR cloud viene fornita con app Cloud HR predefinite per Active Director
 
 Quando si avvia il processo di Joiners-Movers-Leavers, raccogliere i requisiti seguenti.
 
-| Processo | Requisiti |
+| Process | Requisiti |
 | - | - |
 | **Falegnami** | Il processo di creazione dell'account Active Directory manuale, automatizzato o parzialmente automatizzato? |
 | | Si prevede di propagare gli attributi personalizzati dall'app HR cloud a Active Directory? |
@@ -404,7 +404,6 @@ Per risolvere eventuali problemi che potrebbero verificarsi durante il provision
 
 - [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](application-provisioning-config-problem.md)
 - [Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione](user-provisioning-sync-attributes-for-mapping.md)
-- [Il provisioning utenti per un'applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori](application-provisioning-when-will-provisioning-finish.md)
 - [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
 - [Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
 - [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)

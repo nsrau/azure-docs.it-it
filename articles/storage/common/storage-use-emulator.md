@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070547"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447138"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -210,7 +210,7 @@ All'archiviazione BLOB nell'emulatore si applicano le seguenti differenze:
 * La copia incrementale consente di copiare gli snapshot dai BLOB sovrascritti, ma viene restituito un errore del servizio.
 * Il controllo Get page Ranges diff non funziona tra gli snapshot copiati con il BLOB di copia incrementale.
 * Un'operazione Put Blob può avere esito positivo su un BLOB esistente nell'emulatore di archiviazione con un lease attivo anche se l'ID lease non è stato specificato nella richiesta.
-* Le operazioni del BLOB di accodamento non sono supportate dall'emulatore. Se si tenta un'operazione su un blob di Accodamento restituisce un errore FeatureNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida).
+* Le operazioni di Accodamento BLOB non sono supportate dall'emulatore. Se si tenta un'operazione su un blob di Accodamento restituisce un errore FeatureNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida).
 
 ### <a name="differences-for-table-storage"></a>Differenze per l'archiviazione tabelle
 

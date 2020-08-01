@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76897046"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446967"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: cronologia delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.  
@@ -217,7 +217,7 @@ Azure AD Connect Health per la sincronizzazione è integrato con l'installazione
 ## <a name="november-2015"></a>Novembre 2015
 **Nuove funzionalità:**
 
-* Supporto per il [Controllo degli accessi in base al ruolo](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Supporto per il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **Nuove funzionalità di anteprima:**
 
@@ -253,4 +253,3 @@ Azure AD Connect Health per la sincronizzazione è integrato con l'installazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](whatis-hybrid-identity-health.md).
-

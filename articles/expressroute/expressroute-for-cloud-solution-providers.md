@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99b51610e41aaf8358e7e3069d38dfd8c68ae422
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281702"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446764"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
 Microsoft fornisce servizi su vasta scala per consentire a rivenditori e distributori tradizionali (CSP) di effettuare rapidamente il provisioning di nuovi servizi e soluzioni per i clienti senza dover investire nello sviluppo di questi nuovi servizi. Per offrire al Cloud Solution Provider (CSP) la possibilità di gestire direttamente questi nuovi servizi, Microsoft fornisce programmi e API che consentono al CSP di gestire le risorse di Microsoft Azure per conto dei clienti. Una di queste risorse è ExpressRoute. ExpressRoute consente al CSP di connettere le risorse esistenti dei clienti ai servizi di Azure. ExpressRoute è un collegamento delle comunicazioni privato a velocità elevata ai servizi in Azure. 
@@ -60,7 +60,7 @@ In questo scenario di connettività il cliente deve connettersi direttamente tra
 
 La scelta tra queste due opzioni si basa sulle esigenze del cliente e sulla propria esigenza corrente di fornire servizi di Azure. Informazioni dettagliate su questi modelli e sul controllo degli accessi in base al ruolo associato, sulla rete e sugli schemi progettuali delle identità sono disponibili nel collegamenti seguenti:
 
-* **Controllo degli accessi in base al ruolo** : il controllo degli accessi in base al ruolo si basa su Azure Active Directory.  Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [qui](../role-based-access-control/role-assignments-portal.md).
+* **Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)** : RBAC si basa su Azure Active Directory.  Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [qui](../role-based-access-control/role-assignments-portal.md).
 * **Rete** : include diversi argomenti sulla rete in Microsoft Azure.
 * **Azure Active Directory (Azure AD)**: Azure AD consente la gestione delle identità per Microsoft Azure e applicazioni SaaS di terze parti. Per altre informazioni su Azure AD, vedere [qui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
@@ -114,7 +114,7 @@ La tabella di route predefinita include le route seguenti:
 ### <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route definite dall'utente, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 A seconda del modello in uso, connessione diretta o connessione indiretta, il cliente definisce i criteri di sicurezza nella rete virtuale o fornisce i requisiti dei criteri di sicurezza al CSP per definirli per le reti virtuali. Possono essere definiti i criteri di sicurezza seguenti:
 
 1. **Isolamento del cliente** : la piattaforma Azure fornisce l'isolamento del cliente archiviando l'ID cliente e le informazioni sulla rete virtuale in un database sicuro, che viene usato per incapsulare il traffico di ogni cliente in un tunnel GRE.

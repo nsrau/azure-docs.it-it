@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781634"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445653"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -256,7 +256,7 @@ Scegliere i passaggi che si allineano ai requisiti della soluzione.
 
 Quando il servizio di provisioning Azure AD viene eseguito per la prima volta, il ciclo iniziale sul sistema di origine e i sistemi di destinazione crea uno snapshot di tutti gli oggetti utente per ogni sistema di destinazione.
 
-Quando si Abilita il provisioning automatico per un'applicazione, il ciclo iniziale può richiedere da 20 minuti a diverse ore. La durata dipende dalle dimensioni della directory Azure AD e dal numero di utenti nell'ambito del provisioning. Vedere [come migliorare le prestazioni del provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Quando si Abilita il provisioning automatico per un'applicazione, il ciclo iniziale può richiedere da 20 minuti a diverse ore. La durata dipende dalle dimensioni della directory Azure AD e dal numero di utenti nell'ambito del provisioning.
 
 Il servizio di provisioning archivia lo stato di entrambi i sistemi dopo il ciclo iniziale, migliorando le prestazioni dei cicli incrementali successivi.
 
@@ -299,8 +299,6 @@ Per risolvere eventuali problemi che possono verificarsi durante il provisioning
 * [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [Il provisioning utenti per un'applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

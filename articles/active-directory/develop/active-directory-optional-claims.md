@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/11/2020
+ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478332"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445585"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative alle app Azure AD
 
@@ -53,12 +53,10 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
-| `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant principale dell'utente.| Token JSON Web        |           | |
 | `sid`                      | ID sessione, usato per la disconnessione utente per sessione. | Token JSON Web        |  Account personali e Azure AD.   |         |
 | `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
 | `verified_primary_email`   | Originato dall'indirizzo di posta elettronica PrimaryAuthoritativeEmail dell'utente      | Token JSON Web        |           |         |
 | `verified_secondary_email` | Originato dall'indirizzo di posta elettronica SecondaryAuthoritativeEmail dell'utente   | Token JSON Web        |           |        |
-| `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente. | Token JSON Web |  |  |
 | `vnet`                     | Informazioni sull'identificatore di rete virtuale. | Token JSON Web        |           |      |
 | `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
 | `ctry`                     | Paese/Area geografica dell'utente | Token JSON Web |  | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese/area geografica a due lettere standard, ad esempio FR, JP, SZ e così via. |
@@ -68,8 +66,8 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | Lingua preferita del tenant delle risorse, se impostata. Nel formato LL ("it"). |
 | `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | Account del servizio gestito, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (gli utenti all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|
-| `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`                | Stato dell'account utente nel tenant | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
+| `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 | `idtyp`                    | Tipo di token   | Token di accesso JWT | Speciale: solo nei token di accesso solo app |  Il valore è `app` quando il token è un token solo app. Questo è il modo più accurato per un'API per determinare se un token è un token dell'app o un token dell'utente e dell'app.|
 
@@ -79,7 +77,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 
 **Tabella 3: attestazioni facoltative specifiche per v2.0**
 
-| Attestazione JWT     | Name                            | Description                                | Note |
+| Attestazione JWT     | Nome                            | Descrizione                                | Note |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Indirizzo IP                      | Indirizzo IP da cui il client ha effettuato l'accesso.   |       |
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |

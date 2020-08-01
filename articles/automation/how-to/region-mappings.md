@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261189"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447865"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
@@ -78,11 +78,11 @@ Dopo aver rimosso le funzionalità è possibile seguire questa procedura per sco
 
 In alternativa, è possibile scollegare l'area di lavoro dall'account di Automazione nell'area di lavoro.
 
-1. Nell'area di lavoro selezionare **Account di Automazione** in **Risorse correlate**. 
+1. Nell'area di lavoro selezionare **Account di Automazione** in **Risorse correlate**.
 2. Nella pagina Account di Automazione selezionare **Scollega account**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere informazioni aggiuntive su Gestione aggiornamenti in [Panoramica di Gestione aggiornamenti](../automation-update-management.md).
+* Vedere informazioni aggiuntive su Gestione aggiornamenti in [Panoramica di Gestione aggiornamenti](../update-management/update-mgmt-overview.md).
 * Scoprire di più su Rilevamento modifiche e inventario in [Panoramica di Rilevamento modifiche e inventario](../change-tracking.md).
 * Vedere altre informazioni su Avvio/Arresto di macchine virtuali durante gli orari di minore attività in [Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md).

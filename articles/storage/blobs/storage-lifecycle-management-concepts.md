@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6285c25c44b7b8c5b2c1d9c148424fc36912b57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 624b8e18f8c0fb523c27c41ce9c10af93c8b6190
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528705"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446675"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -202,7 +202,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -234,10 +234,10 @@ Ogni regola all'interno del criterio presenta diversi parametri:
 
 | Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | Stringa |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
-| `enabled`      | Booleano | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| `name`         | Stringa |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
 ## <a name="rules"></a>Regole
 
@@ -248,7 +248,8 @@ La definizione di ogni regola include un set di filtri e un set di azioni. Il [s
 La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all'interno di `container1` e iniziare con `foo` .  
 
 >[!NOTE]
->Gestione del ciclo di vita supporta solo il tipo di BLOB in blocchi.  
+>- Gestione del ciclo di vita supporta solo il tipo di BLOB in blocchi.<br>
+>- La gestione del ciclo di vita non influisce sui contenitori di sistema come $logs e $web.
 
 - Impostare il BLOB sul livello di accesso sporadico 30 giorni dopo l'ultima modifica
 - Impostare il BLOB sul livello archivio 90 giorni dopo l'ultima modifica
@@ -304,10 +305,10 @@ Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizi
 
 La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione di BLOB e l'eliminazione di snapshot BLOB. Definire almeno un'azione per ogni regola sui BLOB o sugli snapshot dei BLOB.
 
-| Azione        | BLOB di base                                   | Snapshot      |
+| Action        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
 | eliminazione        | Supportato                                   | Supportato     |
 
 >[!NOTE]

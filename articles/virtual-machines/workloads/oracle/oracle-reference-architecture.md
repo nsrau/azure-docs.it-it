@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525518"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448762"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
 
@@ -211,7 +211,7 @@ Durante la richiesta iniziale, il server applicazioni si connette al Director di
 
 Quando si distribuiscono i carichi di lavoro Oracle in Azure, Microsoft si occupa di tutte le patch a livello di sistema operativo host. Ogni manutenzione pianificata a livello di sistema operativo viene comunicata ai clienti in anticipo per consentire al cliente la manutenzione pianificata. Due server di due zone di disponibilità diversi non vengono mai sottoposti a patch simultaneamente. Vedere [gestire la disponibilità delle macchine virtuali](../../../virtual-machines/linux/manage-availability.md) per altri dettagli sulla manutenzione delle VM e sull'applicazione di patch. 
 
-L'applicazione di patch al sistema operativo della macchina virtuale può essere automatizzata tramite [automazione di Azure](../../../automation/automation-tutorial-update-management.md). È possibile automatizzare e pianificare l'applicazione di patch e la gestione del database Oracle usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [automazione di Azure](../../../automation/automation-tutorial-update-management.md) per ridurre al minimo i tempi di inattività. Vedere [recapito continuo e distribuzioni Blue/Green](/azure/devops/learn/what-is-continuous-delivery) per comprendere come può essere usato nel contesto dei database Oracle.
+L'applicazione di patch al sistema operativo della macchina virtuale può essere automatizzata usando [automazione di Azure Gestione aggiornamenti](../../../automation/update-management/update-mgmt-overview.md). Per ridurre al minimo i tempi di inattività, è possibile automatizzare e pianificare l'applicazione di patch e la gestione del database Oracle con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [Gestione aggiornamenti automazione di Azure](../../../automation/update-management/update-mgmt-overview.md) . Vedere [recapito continuo e distribuzioni Blue/Green](/azure/devops/learn/what-is-continuous-delivery) per comprendere come può essere usato nel contesto dei database Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considerazioni sull'architettura e sulla progettazione
 

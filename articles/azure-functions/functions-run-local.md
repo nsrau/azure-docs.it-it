@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085147"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449140"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -33,18 +33,19 @@ Per lo sviluppo di funzioni sul computer locale e la relativa pubblicazione in A
 
 Sono disponibili tre versioni di Azure Functions Core Tools. La versione in uso dipende dall'ambiente di sviluppo locale, dalla [scelta del linguaggio](supported-languages.md)e dal livello di supporto necessari:
 
-+ **Versione 1. x**: supporta la versione 1. x del runtime di funzioni di Azure. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://www.npmjs.com/package/azure-functions-core-tools).
-
 + [**Versione 3. x/2. x**](#v2): supporta [la versione 3. x o 2. x del runtime di funzioni di Azure](functions-versions.md). Queste versioni supportano [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)e [Linux](?tabs=linux#v2) e usano i gestori di pacchetti specifici della piattaforma o NPM per l'installazione.
 
++ **Versione 1. x**: supporta la versione 1. x del runtime di funzioni di Azure. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://www.npmjs.com/package/azure-functions-core-tools).
+
 Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
+
+## <a name="prerequisites"></a>Prerequisites
+
+Azure Functions Core Tools attualmente dipende dall'interfaccia della riga di comando di Azure per l'autenticazione con l'account Azure. Ciò significa che è necessario [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure localmente per poter eseguire la [pubblicazione in Azure](#publish) da Azure Functions Core Tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installare gli strumenti di base per Funzioni di Azure
 
 [Strumenti di base di Funzioni di Azure] comprende una versione dello stesso runtime che alimenta Funzioni di Azure che è possibile eseguire nel computer di sviluppo locale. Fornisce anche i comandi per creare le funzioni, connettersi ad Azure e distribuire i progetti della funzione.
-
->[!IMPORTANT]
->È necessario che l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure sia installata localmente per poterla pubblicare in Azure da Azure Functions Core Tools.  
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Versione 3. x e 2. x
 
@@ -55,27 +56,12 @@ La versione 3. x/2. x degli strumenti usa il runtime di funzioni di Azure compil
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-I passaggi seguenti usano npm per installare gli strumenti di base in Windows. È anche possibile usare [Chocolatey](https://chocolatey.org/). Per altre informazioni, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+I passaggi seguenti usano Windows Installer (MSI) per installare gli strumenti di base V3. x. Per ulteriori informazioni su altri programmi di installazione basati su pacchetti, necessari per installare gli strumenti di base V2. x, vedere il [file Leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installare [Node.js], che include npm.
-    - Per la versione 3. x degli strumenti, sono supportate solo Node.js 10 e versioni successive.
-    - Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
+1. Scaricare ed eseguire il programma di installazione degli strumenti di base, in base alla versione di Windows in uso:
 
-1. Installare il pacchetto degli strumenti di base:
-
-    ##### <a name="v3x-recommended"></a>V3. x (scelta consigliata)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### <a name="v2x"></a>v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   Potrebbero essere necessari alcuni minuti prima che NPM scarichi e installi il pacchetto di strumenti di base.
+    - [v3. x: Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2135274) (scelta consigliata. Il [debug di Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) richiede 64 bit).
+    - [V3. x-Windows 32 bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. Se non si prevede di usare i [bundle di estensione](functions-bindings-register.md#extension-bundles), installare [.NET Core 3. x SDK per Windows](https://dotnet.microsoft.com/download).
 
@@ -132,7 +118,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 1. Controllare il `/etc/apt/sources.list.d/dotnetdev.list` file per una delle stringhe di versione di Linux appropriate elencate di seguito:
 
-    | Distribuzione di Linux | Version |
+    | Distribuzione di Linux | Versione |
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
@@ -580,7 +566,7 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portale di Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: 'Creare una VM: portale'
@@ -848,7 +848,7 @@
         - name: Caricare un VHD su disco - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Importare/esportare un disco in modo sicuro - Portale
-          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Ridimensionare un disco
           href: expand-os-disk.md
         - name: Usare Storage Explorer per gestire i dischi

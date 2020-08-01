@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221279"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448699"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory
 
@@ -56,6 +56,12 @@ Se l'utente è un amministratore globale o un amministratore di ruoli con privil
 Quando si visualizzano i membri di un ruolo, selezionare **Descrizione** per visualizzare l'elenco completo delle autorizzazioni concesse in base all'assegnazione del ruolo. La pagina include collegamenti alla documentazione pertinente, che contiene indicazioni utili per la gestione dei ruoli della directory.
 
 ![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="download-role-assignments"></a>Scaricare le assegnazioni di ruolo
+
+Per scaricare tutte le assegnazioni per un ruolo specifico, nella pagina **ruoli e amministratori** selezionare un ruolo e quindi selezionare **Scarica assegnazioni di ruolo**. Viene scaricato un file CSV in cui sono elencate le assegnazioni in tutti gli ambiti per tale ruolo.
+
+![Scarica tutte le assegnazioni per un ruolo](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Assegnare un ruolo
 

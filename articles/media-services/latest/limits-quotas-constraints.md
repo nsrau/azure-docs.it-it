@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043492"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446338"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quote e limiti di servizi multimediali di Azure
@@ -28,19 +28,19 @@ Questo articolo elenca alcuni dei limiti di Servizi multimediali di Microsoft Az
 
 ## <a name="account-limits"></a>Limiti dell'account
 
-| Resource | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | [Account di servizi multimediali](media-services-account-concept.md) in una singola sottoscrizione | 25 (fisso) |
 
 ## <a name="asset-limits"></a>Limiti degli asset
 
-| Resource | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | [Asset](assets-concept.md) per account di servizi multimediali | 1\.000.000|
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 
-| Resource | Limite predefinito | 
+| Risorsa | Limite predefinito | 
 | --- | --- | 
 | Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>1</sup> |
 | [Account di archiviazione](storage-account-concept.md) | 100<sup>(2)</sup> (fisso) |
@@ -59,7 +59,7 @@ La tabella seguente illustra i limiti di media reserved Unit S1, S2 e S3. Se il 
 
 ## <a name="jobs-encoding--analyzing-limits"></a>Limiti di processi (codifica & analisi)
 
-| Resource | Limite predefinito | 
+| Risorsa | Limite predefinito | 
 | --- | --- | 
 | [Processi](transforms-jobs-concept.md) per account di servizi multimediali | 500.000 <sup>(3)</sup> (fisso)|
 | Input per processo | 50 (fisso)|
@@ -74,7 +74,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ## <a name="live-streaming-limits"></a>Limiti di streaming live
 
-| Resource | Limite predefinito | 
+| Risorsa | Limite predefinito | 
 | --- | --- | 
 | [Eventi live](live-events-outputs-concept.md) <sup>(4)</sup> per account di servizi multimediali |5|
 | Output Live per evento Live |3 <sup>(5)</sup> |
@@ -86,9 +86,10 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ## <a name="packaging--delivery-limits"></a>Creazione di pacchetti di limiti di recapito &
 
-| Resource | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | [Endpoint di streaming](streaming-endpoint-concept.md) (arrestati o in esecuzione) per ogni account di servizi multimediali|2 |
+| Unità di streaming Premium | 10 |
 | [Filtri manifesto dinamico](filters-dynamic-manifest-overview.md)|100|
 | [Criteri di streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizzatori di streaming](streaming-locators-concept.md) univoci associati a un asset in una sola volta | 100<sup>(7)</sup> (fisso) |
@@ -99,7 +100,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ## <a name="protection-limits"></a>Limiti di protezione
 
-| Resource | Limite predefinito | 
+| Risorsa | Limite predefinito | 
 | --- | --- | 
 | Opzioni per [criterio chiave](content-key-policy-concept.md) simmetrica |30 | 
 | Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1\.000.000|

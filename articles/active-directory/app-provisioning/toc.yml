@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Attributo di origine mancante
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Processo di provisioning lento
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: Log di provisioning
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Creare un endpoint SCIM e configurare il provisioning

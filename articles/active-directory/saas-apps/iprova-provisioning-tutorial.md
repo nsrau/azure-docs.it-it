@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367615"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448834"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Esercitazione: configurare iProva per il provisioning utenti automatico
 
@@ -52,7 +52,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e iProva](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare iProva per supportare il provisioning con Azure AD
+## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare iProva per supportare il provisioning con Azure AD
 
 1. Accedere a [IProva Admin Console](https://www.iProva.com/). Passare a **> gestione applicazioni**.
 
@@ -123,34 +123,33 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |displayName|string|
-   |title|string|
+   |displayName|Stringa|
+   |title|Stringa|
    |emails[type eq "work"].value|string|
-   |preferredLanguage|string|
-   |userName|string|
+   |preferredLanguage|Stringa|
+   |userName|Stringa|
    |addresses[type eq "work"].country|string|
-   |addresses[type eq "work"].locality|string|
-   |addresses[type eq "work"].postalCode|string|
-   |addresses[type eq "work"].formatted|string|
-   |addresses[type eq "work"].region|string|
-   |addresses[type eq "work"].streetAddress|string|
-   |indirizzi [tipo EQ "other"]. formattato|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |name.formatted|string|
-   |phoneNumbers[type eq "fax"].value|string|
-   |phoneNumbers[type eq "mobile"].value|string|
-   |phoneNumbers[type eq "work"].value|string|
-   |externalId|string|
-   |ruoli [Primary EQ "true"]. display|string|
-   |ruoli [Primary EQ "true"]. Type|string|
-   |ruoli [Primary EQ "true"]. Value|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
+   |addresses[type eq "work"].locality|Stringa|
+   |addresses[type eq "work"].postalCode|Stringa|
+   |addresses[type eq "work"].formatted|Stringa|
+   |addresses[type eq "work"].region|Stringa|
+   |addresses[type eq "work"].streetAddress|Stringa|
+   |indirizzi [tipo EQ "other"]. formattato|Stringa|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |name.formatted|Stringa|
+   |phoneNumbers[type eq "fax"].value|Stringa|
+   |phoneNumbers[type eq "mobile"].value|Stringa|
+   |phoneNumbers[type eq "work"].value|Stringa|
+   |externalId|Stringa|
+   |ruoli [Primary EQ "true"]. display|Stringa|
+   |ruoli [Primary EQ "true"]. Type|Stringa|
+   |ruoli [Primary EQ "true"]. Value|Stringa|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Stringa|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Stringa|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Stringa|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Stringa|
 
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to iProva**.

@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463451"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446865"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiare un BLOB con .NET
 
@@ -23,7 +23,7 @@ Questo articolo illustra come copiare un BLOB con un account di archiviazione di
 
 Quando si copia un BLOB nello stesso account di archiviazione, si tratta di un'operazione sincrona. Quando si esegue la copia tra gli account, si tratta di un'operazione asincrona. I metodi [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) e [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) restituiscono un valore ID di copia usato per controllare lo stato o per interrompere l'operazione di copia.
 
-Il BLOB di origine per un'operazione di copia può essere un BLOB in blocchi, un BLOB di Accodamento, un BLOB di pagine o uno snapshot. Se il Blob di destinazione esiste già, deve essere dello stesso tipo del Blob di origine. Eventuali Blob di destinazione esistenti verranno sovrascritti. 
+Il BLOB di origine per un'operazione di copia può essere un BLOB in blocchi, un BLOB di Accodamento, un BLOB di pagine o uno snapshot. Se il Blob di destinazione esiste già, deve essere dello stesso tipo del Blob di origine. Un BLOB di destinazione esistente verrà sovrascritto.
 
 Non è possibile modificare il BLOB di destinazione mentre è in corso un'operazione di copia. A un Blob di destinazione può corrispondere una sola operazione di copia Blob in attesa. In altre parole, un BLOB non può essere la destinazione di più operazioni di copia in sospeso.
 
@@ -35,18 +35,18 @@ Per tutti i tipi di BLOB, è possibile controllare la proprietà [CopyState. sta
 
 Un'operazione di copia può assumere uno dei seguenti formati:
 
-  - È possibile copiare un Blob di origine in un Blob di destinazione con un nome diverso. Il BLOB di destinazione può essere un BLOB esistente dello stesso tipo di BLOB (blocco, Accodamento o pagina) oppure può essere un nuovo blob creato dall'operazione di copia.
-  - È possibile copiare un BLOB di origine in un BLOB di destinazione con lo stesso nome, sostituendo in modo efficace il BLOB di destinazione. Tale operazione di copia rimuove tutti i blocchi di cui non è stato eseguito il commit e sovrascrive i metadati del BLOB di destinazione.
-  - È possibile copiare un file di origine nel servizio file di Azure in un BLOB di destinazione. Il BLOB di destinazione può essere un BLOB in blocchi esistente oppure può essere un nuovo BLOB in blocchi creato dall'operazione di copia. La copia da file a BLOB di pagine o BLOB di Accodamento non è supportata.
-  - È possibile copiare uno snapshot sul relativo BLOB di base. Promuovendo uno snapshot alla posizione del BLOB di base, è possibile ripristinare la versione precedente di un BLOB.
-  - È possibile copiare uno snapshot in un BLOB di destinazione con un nome diverso. Il BLOB di destinazione risultante è un BLOB scrivibile, non uno snapshot.
+- È possibile copiare un Blob di origine in un Blob di destinazione con un nome diverso. Il BLOB di destinazione può essere un BLOB esistente dello stesso tipo di BLOB (blocco, Accodamento o pagina) oppure può essere un nuovo blob creato dall'operazione di copia.
+- È possibile copiare un BLOB di origine in un BLOB di destinazione con lo stesso nome, sostituendo in modo efficace il BLOB di destinazione. Tale operazione di copia rimuove tutti i blocchi di cui non è stato eseguito il commit e sovrascrive i metadati del BLOB di destinazione.
+- È possibile copiare un file di origine nel servizio file di Azure in un BLOB di destinazione. Il BLOB di destinazione può essere un BLOB in blocchi esistente oppure può essere un nuovo BLOB in blocchi creato dall'operazione di copia. La copia da file a BLOB di pagine o BLOB di Accodamento non è supportata.
+- È possibile copiare uno snapshot sul relativo BLOB di base. Promuovendo uno snapshot alla posizione del BLOB di base, è possibile ripristinare la versione precedente di un BLOB.
+- È possibile copiare uno snapshot in un BLOB di destinazione con un nome diverso. Il BLOB di destinazione risultante è un BLOB scrivibile, non uno snapshot.
 
 ## <a name="copy-a-blob"></a>Copiare un BLOB
 
 Per copiare un BLOB, chiamare uno dei metodi seguenti:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 L'esempio di codice seguente ottiene un riferimento a un blob creato in precedenza e lo copia in un nuovo BLOB nello stesso contenitore:
 

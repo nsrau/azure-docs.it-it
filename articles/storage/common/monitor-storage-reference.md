@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077850"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446835"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Archiviazione di Azure
 
@@ -104,7 +104,7 @@ Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monito
 
 | Nome della dimensione | Descrizione |
 | ------------------- | ----------------- |
-| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob** e **Azure Data Lake storage**. Il BLOB di aggiunta è incluso in BlockBlob. |
+| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob** e **Azure Data Lake storage**. I BLOB di Accodamento sono inclusi in **BlockBlob**. |
 | **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. Per altre informazioni, vedere [Livello BLOB di Archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>**Hot**: livello di accesso frequente</li> <li>**Cool**: livello di accesso sporadico</li> <li>**Archivio**: livello archivio</li> <li>**Premium**: livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipi di livello per BLOB di pagine Premium</li> <li>**Standard**: tipo di livello per BLOB di pagine standard</li> <li>**Untiered**: tipo di livello per l'account di archiviazione per utilizzo generico v1</li> |
 | **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **Primary** e **Secondary**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
 | **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li><li>**ClientAccountBandwidthThrottlingError**: la richiesta è limitata per la larghezza di banda per il superamento dei [limiti di scalabilità dell'account di archiviazione](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la richiesta è limitata per la frequenza di richieste per il superamento dei [limiti di scalabilità dell'account di archiviazione](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: altro errore di limitazione sul lato client. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError sono esclusi.</li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li>**Operazione riuscita**: richiesta con esito positivo</li> <li> **SuccessWithThrottling**: la richiesta è riuscita quando un client SMB viene limitato al primo tentativo, ma ha esito positivo nei tentativi successivi.</li> |
@@ -143,13 +143,13 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 | Proprietà | Descrizione |
 |:--- |:---|
 |**time** | Ora UTC (Universal Time Coordinated) in cui la richiesta è stata ricevuta dalla risorsa di archiviazione. Ad esempio: `2018/11/08 21:09:36.6900118`.|
-|**resourceId** | ID risorsa dell'account di archiviazione. Ad esempio: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
+|**resourceId** | ID risorsa dell'account di archiviazione. ad esempio `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**category** | Categoria dell'operazione richiesta. Ad esempio: `StorageRead`, `StorageWrite` o `StorageDelete`.|
 |**operationName** | Tipo di operazione REST eseguita. <br> Per un elenco completo delle operazioni, vedere l'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | Versione del servizio di archiviazione specificata quando è stata effettuata la richiesta. Equivale al valore dell'intestazione **x-ms-version**. Ad esempio: `2017-04-17`.|
 |**schemaVersion** | Versione dello schema del log. Ad esempio: `1.0`.|
-|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato su `Unknown`. <br> Ad esempio: `206` |
-|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive il messaggio di stato `ClientOtherError` non viene usato. Questo campo contiene invece un codice di errore. Ad esempio: `SASSuccess`  |
+|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato su `Unknown`. <br> ad esempio `206` |
+|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l'argomento [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive il messaggio di stato `ClientOtherError` non viene usato. Questo campo contiene invece un codice di errore. ad esempio `SASSuccess`  |
 |**durationMs** | Tempo totale, espresso in millisecondi, per eseguire l'operazione richiesta. Questo valore include il tempo per leggere la richiesta in arrivo e inviare la risposta al richiedente. Ad esempio: `12`.|
 |**callerIpAddress** | Indirizzo IP del richiedente, incluso il numero di porta. Ad esempio: `192.100.0.102:4362`. |
 |**correlationId** | ID usato per correlare i log tra le risorse. Ad esempio: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
@@ -264,15 +264,15 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 |**conditionsUsed** | Elenco di coppie chiave-valore separate da punto e virgola che rappresentano una condizione. Le condizioni possono essere uno dei valori seguenti: <li> If-Modified-Since <li> If-Unmodified-Since <li> If-Match <li> If-None-Match  <br> Ad esempio: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
 |**contentLengthHeader** | Valore dell'intestazione Content-Length per la richiesta inviata al servizio di archiviazione. Se la richiesta ha avuto esito positivo, questo valore è uguale a requestBodySize. Se una richiesta ha avuto esito negativo, questo valore potrebbe essere diverso da requestBodySize oppure vuoto. |
 |**tlsVersion** | Versione di TLS usata nella connessione della richiesta. Ad esempio: `TLS 1.2`. |
-|**smbTreeConnectID** | SMB (Server Message Block) **treeConnectId** stabilito al momento della connessione ad albero. Ad esempio: `0x3` |
-|**smbPersistentHandleID** | ID handle permanente da una richiesta SMB2 CREATE che sopravvive alle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Persistent**. Ad esempio: `0x6003f` |
-|**smbVolatileHandleID** | ID handle volatile da una richiesta SMB2 CREATE che viene riciclato nelle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Volatile**. Ad esempio: `0xFFFFFFFF00000065` |
+|**smbTreeConnectID** | SMB (Server Message Block) **treeConnectId** stabilito al momento della connessione ad albero. ad esempio `0x3` |
+|**smbPersistentHandleID** | ID handle permanente da una richiesta SMB2 CREATE che sopravvive alle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Persistent**. ad esempio `0x6003f` |
+|**smbVolatileHandleID** | ID handle volatile da una richiesta SMB2 CREATE che viene riciclato nelle riconnessioni di rete,  a cui viene fatto riferimento in [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 come **SMB2_FILEID.Volatile**. ad esempio `0xFFFFFFFF00000065` |
 |**smbMessageID** | **MessageId** relativo alla connessione. Ad esempio: `0x3b165` |
-|**smbCreditsConsumed** | Ingresso o uscita utilizzati dalla richiesta, in unità di 64 K. Ad esempio: `0x3` |
-|**smbCommandDetail** | Altre informazioni su questa richiesta specifica anziché sul tipo generale di richiesta. Ad esempio: `0x2000 bytes at offset 0xf2000` |
-|**smbFileId** | **FileId** associato al file o alla directory.  Approssimativamente analogo a NTFS FileId. Ad esempio: `0x9223442405598953` |
-|**smbSessionID** | **SessionId** SMB2 stabilito al momento della configurazione della sessione. Ad esempio: `0x8530280128000049` |
-|**smbCommandMajor  uint32** | Valore in **SMB2_HEADER.Command**. Attualmente, si tratta di un numero compreso tra 0 e 18 inclusi. Ad esempio: `0x6` |
+|**smbCreditsConsumed** | Ingresso o uscita utilizzati dalla richiesta, in unità di 64 K. ad esempio `0x3` |
+|**smbCommandDetail** | Altre informazioni su questa richiesta specifica anziché sul tipo generale di richiesta. ad esempio `0x2000 bytes at offset 0xf2000` |
+|**smbFileId** | **FileId** associato al file o alla directory.  Approssimativamente analogo a NTFS FileId. ad esempio `0x9223442405598953` |
+|**smbSessionID** | **SessionId** SMB2 stabilito al momento della configurazione della sessione. ad esempio `0x8530280128000049` |
+|**smbCommandMajor  uint32** | Valore in **SMB2_HEADER.Command**. Attualmente, si tratta di un numero compreso tra 0 e 18 inclusi. ad esempio `0x6` |
 |**smbCommandMinor** | Sottoclasse di **SmbCommandMajor**, laddove appropriato. Ad esempio: `DirectoryCloseAndDelete` |
 
 ## <a name="see-also"></a>Vedere anche

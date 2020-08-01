@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387014"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445207"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -620,9 +620,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: usare la soluzione Azure Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/automation-update-management.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](../../automation/automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -632,9 +632,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: è possibile usare una soluzione di gestione delle patch di terze parti. È possibile usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali. Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Strumenti come System Center Updates Publisher (Updates Publisher) consentono di pubblicare aggiornamenti personalizzati in Windows Server Update Services (WSUS). Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
 
-* [Soluzione Gestione aggiornamenti in Azure](../../automation/automation-update-management.md)
+* [Soluzione Gestione aggiornamenti in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](../../automation/automation-tutorial-update-management.md)
+* [Gestire gli aggiornamenti e le patch per le macchine virtuali](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 

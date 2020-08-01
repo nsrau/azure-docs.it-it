@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011635"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448397"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 e V3
 
@@ -83,7 +83,8 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
     * Inserimento di una traccia audio invisibile all'utente quando l'input non ha audio
     * Inserimento di una traccia video quando l'input non ha video
 * Attualmente gli eventi live con transcodifica non supportano l'inserimento di slate nel corso del flusso e l'inserimento di marcatori di annunci tramite chiamata API. 
- 
+* Vedere `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` il codice di esempio per le procedure consigliate e i modelli relativi all'uso dell'API REST V2 in. SDK di NETCore.
+
 ## <a name="asset-specific-changes"></a>Modifiche specifiche dell'asset
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappare le proprietà Asset V3 alla versione V2
@@ -110,8 +111,8 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 |Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da servizi multimediali.|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
-|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Funzionalità supportata|Funzionalità supportata|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato|Non supportato|
+|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportato|Supportato|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportate|Non supportate|
 
 <sup>1</sup> anche se servizi multimediali supporta la gestione del contenuto in chiaro o senza alcuna forma di crittografia, questa operazione non è consigliata.
 

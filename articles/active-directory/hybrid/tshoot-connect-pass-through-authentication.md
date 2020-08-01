@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf3566e90802f73accdd27f1cd5435e4af7b9be
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281821"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447000"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -74,10 +74,8 @@ Per confermare che questo è il problema, verificare innanzitutto che l'agente d
 
 Se si ottiene lo stesso errore di nome utente/password, questo significa che l'agente di autenticazione pass-through funziona correttamente e il problema potrebbe essere che l'UPN locale non è instradabile. Per altre informazioni, vedere [configurazione dell'ID di accesso alternativo]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
-
-
-
-
+> [!IMPORTANT]
+> Se il server Azure AD Connect non è aggiunto a un dominio, un requisito indicato in [Azure ad Connect: prerequisiti](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), si verifica il problema di nome utente/password non valido.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 

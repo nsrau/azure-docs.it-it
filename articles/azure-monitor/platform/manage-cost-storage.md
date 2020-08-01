@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: bba634fa20c3bab6e3763f6cedcbeb77f4546098
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bbc6b4c1317ac31d6262892ac32e2d45cf4863db
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327872"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449091"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -579,7 +579,7 @@ Per segnalare se il volume di dati fatturabile inserito nelle ultime 24 ore è s
 - Per **Definire la condizione dell'avviso**, specificare l'area di lavoro Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
-   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se si vuole un diversi 
+   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
    - **Periodo di tempo** di *1440* minuti e **frequenza di avviso** a ogni *1440* minutesto eseguiti una volta al giorno.
 - Per **Definire i dettagli dell'avviso** specificare quanto segue:

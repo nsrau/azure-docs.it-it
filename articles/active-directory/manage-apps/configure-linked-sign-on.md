@@ -1,6 +1,6 @@
 ---
-title: Accesso collegato per app Azure AD-piattaforma di identità Microsoft
-description: Configurare l'Single Sign-On collegato (SSO) per le applicazioni aziendali Azure AD nella piattaforma di identità Microsoft (Azure AD)
+title: Configurare l'accesso collegato in Azure Active Directory
+description: Configurare l'accesso collegato in Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,44 +8,47 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763483"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459335"
 ---
 # <a name="configure-linked-sign-on"></a>Configurare l'accesso collegato
 
-Quando si aggiunge una raccolta o un'applicazione Web non raccolta, una delle opzioni di Single Sign-On disponibili è l' [accesso collegato](what-is-single-sign-on.md). Selezionare questa opzione per aggiungere un collegamento all'applicazione nel pannello di accesso Azure AD o nel portale di Office 365 dell'organizzazione. È possibile utilizzare questo metodo per aggiungere collegamenti alle applicazioni Web personalizzate che attualmente utilizzano Active Directory Federation Services (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente.
+Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML. È stata **collegata**un'altra opzione. Questo articolo illustra in modo più dettagliato l'opzione collegata.
+
+L'opzione **collegata** consente di configurare il percorso di destinazione quando un utente seleziona l'app nel portale [app personali](https://myapplications.microsoft.com/) o Office 365 dell'organizzazione.
+
+Di seguito sono riportati alcuni scenari comuni in cui l'opzione di collegamento è utile:
+- Aggiungere un collegamento a un'applicazione Web personalizzata che attualmente usa la Federazione, ad esempio Active Directory Federation Services (AD FS).
+- Aggiungere collegamenti profondi a pagine di SharePoint specifiche o ad altre pagine Web che si desidera visualizzare solo nei pannelli di accesso dell'utente.
+- Aggiungere un collegamento a un'app che non richiede l'autenticazione. 
+ 
+ L'opzione **collegata** non fornisce funzionalità di accesso tramite le credenziali Azure ad. Tuttavia, è comunque possibile utilizzare alcune delle altre funzionalità delle **applicazioni aziendali**. Ad esempio, è possibile usare i log di controllo e aggiungere un logo personalizzato e il nome dell'app.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiungere un'app della raccolta](add-gallery-app.md) oppure [Aggiungere un'app non della raccolta](add-non-gallery-app.md).
+Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Nella Guida introduttiva, in cui è possibile configurare Single Sign-On, sarà anche presente l'opzione **collegata** . 
 
-### <a name="open-the-app-and-select-linked-sign-on"></a>Aprire l'app e selezionare accesso collegato
+L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. L'opzione imposta semplicemente il percorso a cui gli utenti verranno inviati quando selezionano l'app nelle app [personali](https://myapplications.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore dell’applicazione cloud o amministratore dell’applicazione per il proprio tenant di Azure AD.
+> [!IMPORTANT] 
+> Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 
+>
+> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> Gli altri scenari in cui l' **accesso Single Sign-on** non sarà presente nella navigazione includono quando un'applicazione è ospitata in un altro tenant o se l'account non ha le autorizzazioni necessarie (amministratore globale, amministratore dell'applicazione cloud, amministratore dell'applicazione o proprietario dell'entità servizio). Le autorizzazioni possono anche causare uno scenario in cui è possibile aprire l' **accesso Single Sign-on** , ma non sarà possibile salvarlo. Per ulteriori informazioni sui ruoli amministrativi Azure AD, vedere ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Passare a **Azure Active Directory**  >  **applicazioni aziendali**. Viene visualizzato un esempio casuale delle applicazioni del tenant di Azure AD. 
+### <a name="configure-link"></a>Configura collegamento
 
-1. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**.
-
-1. Immettere il nome dell'applicazione nella casella di ricerca, quindi selezionarla nei risultati.
-
-1. Nella sezione **Gestisci** selezionare **Single Sign-On**. 
-
-1. Selezionare **collegato**.
-
-1. Immettere l'URL dell'applicazione a cui collegarsi. Digitare l'URL e selezionare **Salva**. 
+Per impostare un collegamento per un'app, selezionare **collegato** nella pagina **Single Sign-on** . Quindi, immettere il collegamento e selezionare **Salva**. Serve un promemoria per trovare queste opzioni? Vedere la [serie di avvio rapido](view-applications-portal.md).
  
-1. È possibile assegnare utenti e gruppi all'applicazione, che fa sì che l'applicazione venga visualizzata nell' [utilità di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [pannello di accesso Azure ad](end-user-experiences.md) per tali utenti.
-
-1. Selezionare **Salva**.
+Dopo aver configurato un'app, assegnarvi utenti e gruppi. Quando si assegnano utenti, è possibile controllare quando l'applicazione viene visualizzata in [app personali](https://myapplications.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

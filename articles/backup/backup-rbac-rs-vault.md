@@ -4,12 +4,12 @@ description: Usare il controllo degli accessi in base al ruolo per gestire l'acc
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371703"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445303"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 
@@ -37,7 +37,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | | Collaboratore macchine virtuali | Risorsa della VM |
 | Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |
+| | Collaboratore | Gruppo di risorse in cui verrà distribuita la VM |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
@@ -45,7 +45,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |
-| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
+| | Collaboratore | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
 | Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
@@ -77,7 +77,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo corri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
+* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md): Introduzione a rbac nel portale di Azure.
 * Informazioni su come gestire l'accesso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)

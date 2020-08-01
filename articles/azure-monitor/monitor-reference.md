@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 1f76966b0ed82ae3d4b32e54627a28e99b0dba2f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505721"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447314"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -141,27 +141,27 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Collegamento privato | No | No | No |  |
 |Piattaforma di comunicazione spooling del progetto | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |
-|Cache Redis | Sì | Sì | [Sì](insights/redis-cache-insights-overview.md) | |
+|Cache Redis | sì | Sì | [Sì](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | No | No | No |  |
 |Gestione risorse | No | No | No |  |
 |Ricerca al dettaglio: Bing | No | No | No |  |
-|Ricerca | Sì | Sì | No |  |
+|Ricerca | sì | sì | No |  |
 |Bus di servizio | Sì | Sì | No |  |
 |Service Fabric | No | Sì | No | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest.  |
 |Portale di iscrizione | No | No | No |  |
 |Site Recovery | No | Sì | No |  |
 |Spring Cloud Service | No | No | No |  |
-|SQL Data Warehouse | Sì | Sì | No |  |
+|SQL Data Warehouse | sì | sì | No |  |
 |Database SQL | Sì | Sì | No |  |
 |SQL Server Stretch Database | Sì | Sì | No |  |
 |Stack | No | No | No |  |
 |Archiviazione | Sì | No | [Sì](insights/storage-insights-overview.md) |  |
 |Cache di archiviazione | No | No | No |  |
 |Servizi di sincronizzazione archiviazione | No | No | No |  |
-|Analisi di flusso | Sì | Sì | No |  |
+|Analisi di flusso | sì | sì | No |  |
 |Time Series Insights | Sì | Sì | No |  |
 |TINA | No | No | No |  |
-|Gestione traffico | Sì | Sì | No |  |
+|Gestione traffico | sì | sì | No |  |
 |Stampa universale | No | No | No |  |
 |Set di scalabilità di macchine virtuali | No | Sì | [Sì](insights/vminsights-overview.md) | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest. |
 |Macchine virtuali | Sì | Sì | [Sì](insights/vminsights-overview.md) | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest. |
@@ -176,7 +176,7 @@ Le soluzioni e i servizi elencati nella tabella seguente archiviano i dati in un
 
 | Prodotto o servizio | Descrizione |
 |:---|:---|
-| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [Gestione aggiornamenti](../automation/automation-update-management.md). |
+| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [Gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md). |
 | [Azure Information Protection](/azure/information-protection/) | Classifica ed eventualmente protegge documenti e messaggi di posta elettronica. Vedere [Reporting centralizzato per Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro sicurezza di Azure](../security-center/index.yml) | Raccoglie e analizza gli eventi di sicurezza ed esegue l'analisi delle minacce. Vedere [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Si connette a varie origini, tra cui Office 365 e Amazon Web Services Cloud Trail. Vedere [Origini dati Connect](../sentinel/connect-data-sources.md). |

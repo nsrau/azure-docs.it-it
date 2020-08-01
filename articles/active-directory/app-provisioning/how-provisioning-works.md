@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781651"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445618"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -162,7 +162,7 @@ Dopo che tutti gli errori sono stati risolti, il processo di provisioning esce d
 
 ### <a name="how-long-provisioning-takes"></a>Tempo richiesto per il provisioning
 
-Le prestazioni variano a seconda che il processo di provisioning esegua un ciclo di provisioning iniziale o incrementale. Per informazioni dettagliate sul tempo necessario per il provisioning e su come monitorare lo stato del servizio di provisioning, vedere [Controllare lo stato del provisioning dell'utente](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Le prestazioni variano a seconda che il processo di provisioning esegua un ciclo di provisioning iniziale o incrementale. Per informazioni dettagliate sul tempo necessario per il provisioning e su come monitorare lo stato del servizio di provisioning, vedere [Controllare lo stato del provisioning dell'utente](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Come stabilire se il provisioning utenti viene eseguito correttamente
 

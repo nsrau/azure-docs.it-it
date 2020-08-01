@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024827"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448076"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -90,13 +90,13 @@ Il ruolo di lavoro ibrido per Runbook di automazione di Azure può essere usato 
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Gestione aggiornamenti nei ruoli di lavoro ibridi per runbook
 
-Quando [Gestione aggiornamenti](automation-update-management.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono configurati automaticamente come ruolo di lavoro ibrido per Runbook. Ogni ruolo di lavoro può supportare runbook specifici per la gestione degli aggiornamenti.
+Quando [Gestione aggiornamenti](update-management/update-mgmt-overview.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono configurati automaticamente come ruolo di lavoro ibrido per Runbook. Ogni ruolo di lavoro può supportare runbook specifici per la gestione degli aggiornamenti.
 
 Un computer configurato in questo modo non è registrato con nessun gruppo di lavoro ibrido per Runbook già definito nell'account di automazione. È possibile aggiungere il computer a un gruppo di ruolo di lavoro ibrido per Runbook, ma è necessario usare lo stesso account sia per Gestione aggiornamenti che per l'appartenenza al gruppo di lavoro ibrido per Runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Indirizzi di Gestione aggiornamenti per i ruoli di lavoro ibridi per runbook
 
-Oltre agli indirizzi e alle porte standard richiesti per il ruolo di lavoro ibrido per Runbook, Gestione aggiornamenti dispone di requisiti di configurazione di rete aggiuntivi descritti nella sezione relativa alla [pianificazione della rete](automation-update-management.md#ports) .
+Oltre agli indirizzi e alle porte standard richiesti per il ruolo di lavoro ibrido per Runbook, Gestione aggiornamenti dispone di requisiti di configurazione di rete aggiuntivi descritti nella sezione relativa alla [pianificazione della rete](update-management/update-mgmt-overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration di Automazione di Azure in un ruolo di lavoro ibrido per runbook
 

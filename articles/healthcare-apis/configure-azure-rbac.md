@@ -1,5 +1,5 @@
 ---
-title: Configurare il controllo degli accessi in base al ruolo di Azure per l'API di Azure per FHIR
+title: Configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per l'API di Azure per FHIR
 description: Questo articolo descrive come configurare il controllo degli accessi in base al ruolo di Azure per l'API di Azure per FHIR.
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417676"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447171"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurare RBAC di Azure per FHIR 
 
-In questo articolo si apprenderà come usare il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/) per assegnare l'accesso al piano dati dell'API di Azure per FHIR. Il controllo degli accessi in base al ruolo di Azure è il metodo preferito per l'assegnazione dell'accesso al piano dati quando gli utenti del piano dati vengono gestiti nel tenant Azure Active Directory associato alla sottoscrizione di Azure. Se si usa un tenant di Azure Active Directory esterno, fare riferimento al [riferimento all'assegnazione locale RBAC](configure-local-rbac.md).
+In questo articolo si apprenderà come usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/) per assegnare l'accesso al piano dati dell'API di Azure per FHIR. Il controllo degli accessi in base al ruolo di Azure è il metodo preferito per l'assegnazione dell'accesso al piano dati quando gli utenti del piano dati vengono gestiti nel tenant Azure Active Directory associato alla sottoscrizione di Azure. Se si usa un tenant di Azure Active Directory esterno, fare riferimento al [riferimento all'assegnazione locale RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confermare la modalità RBAC di Azure
 
