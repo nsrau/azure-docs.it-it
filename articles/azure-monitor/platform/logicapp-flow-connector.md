@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081560"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475737"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Connettore dei log di monitoraggio di Azure per app per la logica e Microsoft Flow
-[App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://ms.flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
+[App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
 
 Ad esempio, è possibile creare un'app per la logica per usare i dati di log di monitoraggio di Azure in una notifica di posta elettronica da Office 365, creare un bug in Azure DevOps o pubblicare un messaggio Slack.  È possibile attivare un flusso di lavoro da una semplice pianificazione o con un'azione in un servizio connesso, ad esempio quando viene ricevuto un messaggio di posta elettronica o un tweet. 
 
@@ -126,4 +126,4 @@ Al termine dell'app per la logica, controllare la posta del destinatario specifi
 
 - Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
 - Altre informazioni sulle [app](../../logic-apps/index.yml) per la logica
-- Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
+- Altre informazioni su [Power automatizzate](https://flow.microsoft.com).

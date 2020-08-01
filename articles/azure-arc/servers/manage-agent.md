@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067697"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474955"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -181,6 +181,9 @@ Per disconnettersi con le credenziali di accesso con privilegi elevati (interatt
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Riconnetti
+
+> [!WARNING]
+> Il `reconnect` comando è deprecato e non deve essere usato. Il comando verrà rimosso in una versione futura dell'agente e gli agenti esistenti non saranno in grado di completare la richiesta di riconnessione. Disconnettere [disconnect](#disconnect) il computer, quindi [riconnetterlo](#connect) .
 
 Questo parametro riconnette il computer già registrato o connesso con Azure Arc per server (anteprima). Questa operazione può essere necessaria, se il computer è stato spento per almeno 45 giorni, per la scadenza del certificato. Questo parametro usa le opzioni di autenticazione fornite per recuperare le nuove credenziali corrispondenti alla risorsa di Azure Resource Manager che rappresenta il computer.
 

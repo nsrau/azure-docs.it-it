@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f2d9407d9c7172839027e2650486695244f67889
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352218"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475686"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Architettura dell'anteprima Plug and Play
+# <a name="iot-plug-and-play-preview-architecture"></a>Architettura di Plug and Play IoT (anteprima)
 
 Il Plug and Play anteprima consente ai generatori di soluzioni di integrare Smart Device con le proprie soluzioni senza alcuna configurazione manuale. Il nucleo del Plug and Play Internet è un _modello_ di dispositivo che descrive le funzionalità di un dispositivo per un'applicazione con plug and Play Internet delle cose. Questo modello è strutturato come un set di interfacce che definiscono:
 
@@ -79,5 +79,5 @@ La soluzione back-end può usare le informazioni dalle definizioni di interfacci
 Ora che si dispone di una panoramica dell'architettura di un Plug and Play soluzione, i passaggi successivi sono ulteriori informazioni su:
 
 - [Repository del modello](./concepts-model-repository.md)
-- [Processo di individuazione del modello](./concepts-model-discovery.md)
+- [Integrazione di modelli digitali gemelli](./concepts-model-discovery.md)
 - [Sviluppo per Plug and Play](./concepts-developer-guide.md)

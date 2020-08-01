@@ -1,18 +1,18 @@
 ---
 title: Informazioni sui concetti relativi al repository dei modelli di Azure Microsoft Docs
 description: Per gli sviluppatori di soluzioni o i professionisti IT, è possibile ottenere informazioni sui concetti di base del repository di modelli di Azure.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 53ae5bf15c303f26d48550734f46e69ef1fcdd75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352314"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475499"
 ---
 # <a name="azure-iot-model-repository"></a>Repository del modello Azure Internet
 
@@ -42,7 +42,7 @@ Per visualizzare un modello pubblico a livello di codice usando l'API REST, vede
 
 ```csharp
 var httpClient = new HttpClient();
-httpClient.BaseAddress = new Uri("<url>");
+httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);

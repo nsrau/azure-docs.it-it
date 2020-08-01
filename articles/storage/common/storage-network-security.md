@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070663"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475414"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -120,7 +120,7 @@ Le regole predefinite di accesso alla rete per gli account di archiviazione poss
 
 Abilitare un [endpoint di servizio](/azure/virtual-network/virtual-network-service-endpoints-overview) per Archiviazione di Azure all'interno della rete virtuale. L'endpoint di servizio instrada il traffico dalla rete virtuale tramite un percorso ottimale al servizio Archiviazione di Azure. Con ogni richiesta vengono anche trasmesse le identità della subnet e della rete virtuale. Gli amministratori possono quindi configurare regole di rete per l'account di archiviazione che consentano la ricezione di richieste da subnet specifiche in una rete virtuale. Per accedere ai dati, i client ai quali viene garantito l'accesso con queste regole di rete devono continuare a soddisfare i requisiti di autorizzazione dell'account di archiviazione.
 
-Ogni account di archiviazione supporta fino a 100 regole di rete virtuale, che possono essere combinate con [regole di rete IP](#grant-access-from-an-internet-ip-range).
+Ogni account di archiviazione supporta fino a 200 regole della rete virtuale, che possono essere combinate con [le regole di rete IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Aree della rete virtuale disponibili
 
@@ -388,7 +388,7 @@ L'impostazione **Consenti servizi Microsoft attendibili** consente anche a una p
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy) |
+| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Ricerca cognitiva di Azure         | Microsoft.Search/searchServices        | Consente ai servizi Ricerca cognitiva di accedere agli account di archiviazione per l'indicizzazione, l'elaborazione e l'esecuzione di query. |
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività del Registro Azure Container possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime di Azure Data Factory. |
@@ -396,7 +396,7 @@ L'impostazione **Consenti servizi Microsoft attendibili** consente anche a una p
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
+| Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati di Archiviazione di Azure da Synapse Analytics. |

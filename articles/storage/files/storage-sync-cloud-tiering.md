@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460083"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -40,16 +40,19 @@ La suddivisione in livelli cloud non dipende dalla funzionalità NTFS per il ril
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual è la dimensione minima del file per un file a livello?
 
-Per gli agenti versione 9 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
+Per gli agenti versione 9 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. Le dimensioni minime dei file idonee per la suddivisione in livelli nel cloud vengono calcolate in base alla dimensione del cluster e a un minimo di 8 KB. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
 
 |Dimensioni cluster del volume (byte) |I file di questa dimensione o di dimensioni maggiori possono essere a livelli  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB o inferiore (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) e superiori    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)               | 128 KB  |
 
-Tutti i file System usati da Windows organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file (fino al multiplo successivo delle dimensioni del cluster).
+Con Windows Server 2019 e Sincronizzazione file di Azure Agent versione 12 e successive, sono supportate anche le dimensioni del cluster fino a 2 MB e la suddivisione in livelli delle dimensioni del cluster più grandi funziona allo stesso modo. Le versioni precedenti del sistema operativo o dell'agente supportano dimensioni del cluster fino a 64 KB.
+
+Tutti i file System usati da Windows, organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file fino al multiplo successivo delle dimensioni del cluster.
 
 Sincronizzazione file di Azure è supportato nei volumi NTFS con Windows Server 2012 R2 e versioni successive. Nella tabella seguente vengono descritte le dimensioni predefinite del cluster quando si crea un nuovo volume NTFS. 
 
@@ -60,9 +63,11 @@ Sincronizzazione file di Azure è supportato nei volumi NTFS con Windows Server 
 |32 TB-64 TB   | 16 KB         |
 |64 TB-128 TB  | 32 KB         |
 |128TB-256 TB | 64 KB         |
-|> 256 TB       | Non supportato |
+|> 256 TB       | Non supportate |
 
-Al momento della creazione del volume, è possibile che il volume sia stato formattato manualmente con una dimensione del cluster (unità di allocazione) diversa. Se il volume deriva da una versione precedente di Windows, le dimensioni predefinite del cluster possono essere diverse. [Questo articolo contiene informazioni più dettagliate sulle dimensioni predefinite del cluster.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+Al momento della creazione del volume, è possibile che il volume sia stato formattato manualmente con dimensioni del cluster diverse. Se il volume deriva da una versione precedente di Windows, le dimensioni predefinite del cluster possono essere diverse. [Questo articolo contiene informazioni più dettagliate sulle dimensioni predefinite del cluster.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Anche se si sceglie una dimensione del cluster inferiore a 4 KB, viene applicato un limite di 8 KB come dimensione del file più piccola che può essere suddivisa a livelli. (Anche se le dimensioni del cluster tecnicamente 2x equivalgono a meno di 8 KB).
+
+Il motivo del valore minimo assoluto è il modo in cui NTFS archivia i file di dimensioni molto ridotte da 1 KB a 4 KB. A seconda degli altri parametri del volume, è possibile che i file di piccole dimensioni non vengano archiviati in un cluster su disco. È possibilmente più efficiente archiviare tali file direttamente nella tabella dei file master del volume o nel "record MFT". Il punto di analisi a livelli cloud viene sempre archiviato su disco e occupa esattamente un cluster. La suddivisione in livelli di file di questo tipo può finire senza risparmiare spazio. Casi estremi possono anche finire usando più spazio con la suddivisione in livelli nel cloud abilitata. Per salvaguardarsi da tale dimensione, le dimensioni minime di un file a livello di suddivisione in livelli nel cloud sono pari a 8 KB in una dimensione del cluster di 4 KB o inferiore.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Come funzionano i criteri di suddivisione in livelli dello spazio disponibile nel volume?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Tenere presente che i criteri di spazio disponibile del volume hanno sempre la precedenza e quando non è disponibile spazio sufficiente sul volume per conservare il numero di giorni per i file come descritto nel criterio relativo alla data, Sincronizzazione file di Azure continuerà a eseguire la suddivisione in livelli dei file più freddi fino a quando non viene soddisfatta la percentuale di spazio disponibile nel volume.
 
-Supponiamo ad esempio di avere un criterio di suddivisione in livelli in base alla data impostato su 60 giorni e un criterio di suddivisione in livelli in base allo spazio disponibile nel volume impostato su 20%. Se, dopo aver applicato il criterio basato sulla data, lo spazio disponibile nel volume è inferiore al 20%, verrà applicato il criterio basato sullo spazio disponibile nel volume, che eseguirà l'override del criterio basato sulla data. Come risultato, verrà archiviato a livelli un maggior numero di file, in modo che la quantità di dati mantenuti sul server possa essere ridotta da 60 giorni a 45 giorni di dati. Di contro, questo criterio forzerà l'archiviazione a livelli dei file che non rientrano nell'intervallo di tempo anche se non è stata raggiunta la soglia dello spazio disponibile, pertanto un file vecchio di 61 giorni verrà archiviato a livelli anche se il volume è vuoto.
+Supponiamo ad esempio di avere un criterio di suddivisione in livelli in base alla data impostato su 60 giorni e un criterio di suddivisione in livelli in base allo spazio disponibile nel volume impostato su 20%. Se dopo aver applicato i criteri di data, è presente meno del 20% di spazio disponibile nel volume, i criteri di spazio disponibile del volume vengono avviati ed eseguono l'override dei criteri di data. Come risultato, verrà archiviato a livelli un maggior numero di file, in modo che la quantità di dati mantenuti sul server possa essere ridotta da 60 giorni a 45 giorni di dati. Di contro, questo criterio forzerà l'archiviazione a livelli dei file che non rientrano nell'intervallo di tempo anche se non è stata raggiunta la soglia dello spazio disponibile, pertanto un file vecchio di 61 giorni verrà archiviato a livelli anche se il volume è vuoto.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Come viene determinata la quantità appropriata di spazio disponibile nel volume?

@@ -7,12 +7,12 @@ ms.author: arduppal
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171432"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462021"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
 Questo articolo illustra come distribuire il servizio di archiviazione BLOB di Azure nel modulo Internet, che fungerebbe da server di pubblicazione di griglia di eventi per inviare gli eventi durante la creazione e l'eliminazione di BLOB in griglia di eventi.  
@@ -75,7 +75,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
         }
     ```    
 
- 1. Fare clic su **Salva**
+ 1. Fare clic su **Save** (Salva).
  1. Passare alla sezione successiva per aggiungere il modulo del Sottoscrittore di griglia di eventi di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
@@ -95,7 +95,7 @@ Questa sezione illustra come distribuire un altro modulo Internet che funge da g
    * **Nome**: Sottoscrittore
    * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opzioni di creazione del contenitore**: nessuna
-1. Fare clic su **Salva**
+1. Fare clic su **Save** (Salva).
 1. Passare alla sezione successiva per aggiungere il modulo di archiviazione BLOB di Azure
 
 ## <a name="deploy-azure-blob-storage-module"></a>Distribuire il modulo di archiviazione BLOB di Azure
@@ -146,7 +146,7 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
      - Per i contenitori Linux, **My-volume:/blobroot**
      - Per i contenitori di Windows,**My-volume: C:/BlobRoot**
 
-5. Fare clic su **Salva**
+5. Fare clic su **Save** (Salva).
 6. Fare clic su **Avanti** per passare alla sezione Route
 
     > [!NOTE]
@@ -318,7 +318,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
             }
     ```
 
-La procedura è stata completata. L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
+Congratulazioni! L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
 
 ### <a name="event-properties"></a>Proprietà degli eventi
 
@@ -326,26 +326,26 @@ Di seguito è riportato l'elenco delle proprietà di evento supportate, i relati
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| argomento | Stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | Stringa | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| eventType | Stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | Stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
+| dataVersion | Stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | Stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| api | string | L'operazione che ha attivato l'evento. Può essere uno dei valori seguenti: <ul><li>BlobCreated: i valori consentiti sono: `PutBlob` e`PutBlockList`</li><li>BlobDeleted: i valori consentiti sono `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>L' `DeleteAfterUpload` evento viene generato quando il BLOB viene eliminato automaticamente perché la proprietà desiderata deleteAfterUpload è impostata su true. </p><p>`AutoDelete`l'evento viene generato quando il BLOB viene eliminato automaticamente perché il valore della proprietà desiderata deleteAfterMinutes è scaduto.</p></li></ul>|
-| clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Per informazioni dettagliate, vedere [formato del log](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | ID richiesta generato dal servizio per l'operazione dell'API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
-| eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
-| contentType | string | Il tipo di contenuto specificato per il BLOB. |
+| api | Stringa | L'operazione che ha attivato l'evento. Può essere uno dei valori seguenti: <ul><li>BlobCreated: i valori consentiti sono: `PutBlob` e`PutBlockList`</li><li>BlobDeleted: i valori consentiti sono `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>L' `DeleteAfterUpload` evento viene generato quando il BLOB viene eliminato automaticamente perché la proprietà desiderata deleteAfterUpload è impostata su true. </p><p>`AutoDelete`l'evento viene generato quando il BLOB viene eliminato automaticamente perché il valore della proprietà desiderata deleteAfterMinutes è scaduto.</p></li></ul>|
+| clientRequestId | Stringa | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Per informazioni dettagliate, vedere [formato del log](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | ID richiesta generato dal servizio per l'operazione dell'API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+| eTag | Stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
+| contentType | Stringa | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | integer | La dimensione del BLOB in byte. |
-| blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
+| blobType | Stringa | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
 | url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
 
 

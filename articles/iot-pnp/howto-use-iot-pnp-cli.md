@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3699213fe61c64d7677ba026a8df54ccbbfe4b33
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352229"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475482"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installare e usare l'estensione Azure IoT per l'interfaccia della riga di comando di Azure
 
-L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come l'hub IoT. L'interfaccia della riga di comando di Azure è disponibile su Windows, Linux e MacOS. L'interfaccia della riga di comando di Azure è preinstallata anche in [Azure Cloud Shell](https://shell.azure.com). L'interfaccia della riga di comando di Azure consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning dei dispositivi e gli hub collegati senza installare alcuna estensione.
+L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come l'hub IoT. L'interfaccia della riga di comando di Azure è disponibile in Windows, Linux e macOS. L'interfaccia della riga di comando di Azure consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning dei dispositivi e gli hub collegati senza installare alcuna estensione.
 
 L'estensione Azure IoT per l'interfaccia della riga di comando di Azure è uno strumento da riga di comando che consente l'interazione e il test dei dispositivi Plug and Play IoT di anteprima. È possibile usare l'estensione a questi scopi:
 
@@ -51,9 +51,6 @@ Per accedere alla sottoscrizione di Azure eseguire questo comando:
 ```azurecli
 az login
 ```
-
-> [!NOTE]
-> Se si usa Azure Cloud Shell, l'accesso viene eseguito automaticamente e non è necessario il comando precedente.
 
 Per usare l'estensione IoT di Azure per l'interfaccia della riga di comando di Azure, è necessario:
 
@@ -93,7 +90,7 @@ Impostare il valore di una proprietà di lettura/scrittura:
 az iot pnp twin update --hub-name {iothub_name} --device-id {device_id} --json-patch '{"op":"add", "path":"/thermostat1/targetTemperature", "value": 54}'
 ```
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 Richiamare un comando:
 
@@ -109,6 +106,65 @@ Monitorare tutti gli eventi gemelli digitali Plug and Play IoT da un dispositivo
 az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 ```
 
+### <a name="manage-models-in-the-model-repository"></a>Gestire i modelli nel repository del modello
+
+È possibile usare i comandi del repository del modello dell'interfaccia della riga di comando di Azure per gestire i modelli nel repository.
+
+#### <a name="create-model-repository"></a>Creare un repository di modelli
+
+Creare un nuovo repository aziendale Plug and Play per il tenant se si è il primo utente nel tenant:
+
+```azurecli
+az iot pnp repo create
+```
+
+#### <a name="manage-model-repository-tenant-roles"></a>Gestisci ruoli tenant del repository di modelli
+
+Creare un'assegnazione di ruolo per un utente o un'entità servizio a una risorsa specifica.
+
+Ad esempio, assegnare user@consoso.com il ruolo di **ModelsCreator** per il tenant:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {tenant_id} --resource-type Tenant --subject-id {user@contoso.com} --subject-type User --role ModelsCreator
+```
+
+In alternativa user@consoso.com , assegnare il ruolo di **ModelAdministrator** per un modello specifico:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {model_id} --resource-type Model --subject-id {user@contoso.com} --subject-type User --role ModelAdministrator
+```
+
+#### <a name="create-a-model"></a>Creare un modello
+
+Creare un nuovo modello nel repository aziendale:
+
+```azurecli
+az iot pnp model create --model {model_json or path_to_file}
+```
+
+#### <a name="search-a-model"></a>Eseguire ricerche in un modello
+
+Elencare i modelli corrispondenti a una parola chiave specifica:
+
+```azurecli
+az iot pnp model list -q {search_keyword}
+```
+
+#### <a name="publish-a-model"></a>Pubblicare un modello
+
+Pubblicare un modello di dispositivo che si trova nel repository aziendale nel repository pubblico.
+
+Ad esempio, rendere pubblico il modello con ID `dtmi:com:example:ClimateSensor;1` :
+
+```azurecli
+az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
+```
+
+Per pubblicare un modello, è necessario soddisfare i requisiti seguenti:
+
+- Il tenant aziendale o dell'organizzazione deve essere un partner Microsoft. 
+- L'utente o l'entità servizio deve essere un membro del ruolo server di **pubblicazione** del tenant del repository.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sulle procedure si è appreso come installare e usare l'estensione IoT di Azure per l'interfaccia della riga di comando di Azure per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'imparare a usare Azure Internet [Explorer con i dispositivi](./howto-use-iot-explorer.md).
+In questo articolo sulle procedure si è appreso come installare e usare l'estensione Azure per l'interfaccia della riga di comando di Azure per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'imparare a usare Azure Internet [Explorer con i dispositivi](./howto-use-iot-explorer.md).

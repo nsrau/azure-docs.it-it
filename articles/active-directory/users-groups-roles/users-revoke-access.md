@@ -1,5 +1,5 @@
 ---
-title: Revocare l'accesso utente per l'emergenza in Azure Active Directory | Microsoft Docs
+title: Revocare l'accesso utente in situazioni di emergenza in Azure Active Directory | Microsoft Docs
 description: Aggiungere utenti in blocco nell'interfaccia di amministrazione di Azure AD in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -10,15 +10,15 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 06/26/2020
+ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ca5f7c6032a69286da72d8ef3640f64038eb3a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027189"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475210"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocare l'accesso utente in Azure Active Directory
 

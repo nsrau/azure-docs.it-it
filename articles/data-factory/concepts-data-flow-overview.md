@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635127"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475567"
 ---
 # <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -25,7 +25,7 @@ I flussi di dati di mapping forniscono un'esperienza visiva completamente senza 
 
 ![Architettura](media/data-flow/adf-data-flows.png "Architecture")
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Per creare un flusso di dati, selezionare il segno più in **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -93,41 +93,9 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 #### <a name="optimize"></a>Ottimizzazione
 
-La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento.
+La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento. Per ulteriori informazioni su come ottimizzare i flussi di dati, vedere la [Guida alle prestazioni del flusso di dati di mapping](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize1.png "Ottimizzazione") (Ottimizza)
-
-L'impostazione predefinita è **Usa il partizionamento corrente**, che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari è consigliabile questa impostazione.
-
-Sono presenti istanze in cui è possibile modificare il partizionamento. Se ad esempio si desidera restituire le trasformazioni a un singolo file nel lago, selezionare **partizione singola** in una trasformazione sink.
-
-Un altro caso in cui si potrebbe voler controllare gli schemi di partizionamento è l'ottimizzazione delle prestazioni. La regolazione del partizionamento consente di controllare la distribuzione dei dati tra i nodi di calcolo e le ottimizzazioni di località dei dati che possono avere effetti positivi e negativi sulle prestazioni complessive del flusso di dati. Per ulteriori informazioni, vedere la [Guida alle prestazioni del flusso di dati](concepts-data-flow-performance.md).
-
-Per modificare il partizionamento in qualsiasi trasformazione, selezionare la scheda **ottimizza** e selezionare il pulsante di opzione **imposta partizionamento** . Viene visualizzata una serie di opzioni per il partizionamento. Il metodo migliore per il partizionamento è diverso a seconda dei volumi di dati, delle chiavi candidate, dei valori null e della cardinalità. 
-
-Una procedura consigliata consiste nell'iniziare con il partizionamento predefinito, quindi provare diverse opzioni di partizionamento. È possibile eseguire il test usando le esecuzioni di debug della pipeline e visualizzare l'ora di esecuzione e l'utilizzo delle partizioni in ogni raggruppamento di trasformazione dalla visualizzazione monitoraggio. Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
-
-Sono disponibili le seguenti opzioni di partizionamento.
-
-##### <a name="round-robin"></a>Round Robin 
-
-Round Robin è una semplice partizione che distribuisce automaticamente i dati in modo uniforme tra le partizioni. Usare Round Robin se non si hanno candidati chiave validi per implementare una strategia di partizionamento intelligente solida. È possibile impostare il numero di partizioni fisiche.
-
-##### <a name="hash"></a>Hash
-
-Azure Data Factory produce un hash di colonne per produrre partizioni uniformi in modo che le righe con valori simili rientrino nella stessa partizione. Quando si usa l'opzione hash, verificare la possibile asimmetria della partizione. È possibile impostare il numero di partizioni fisiche.
-
-##### <a name="dynamic-range"></a>Intervallo dinamico
-
-L'intervallo dinamico usa intervalli dinamici Spark basati sulle colonne o sulle espressioni fornite. È possibile impostare il numero di partizioni fisiche. 
-
-##### <a name="fixed-range"></a>Intervallo fisso
-
-Consente di compilare un'espressione che fornisce un intervallo fisso per i valori nelle colonne di dati partizionati. Per evitare l'inclinazione della partizione, è necessario avere una conoscenza corretta dei dati prima di utilizzare questa opzione. I valori immessi per l'espressione vengono utilizzati come parte di una funzione di partizione. È possibile impostare il numero di partizioni fisiche.
-
-##### <a name="key"></a>Chiave
-
-Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizionamento delle chiavi potrebbe essere una strategia efficace. Il partizionamento delle chiavi crea partizioni per ogni valore univoco nella colonna. Non è possibile impostare il numero di partizioni perché il numero è basato su valori univoci nei dati.
+![Optimize](media/data-flow/optimize.png "Ottimizzazione") (Ottimizza)
 
 #### <a name="inspect"></a>Controllare
 

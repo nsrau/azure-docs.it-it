@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1c26164ed7a2b7c335d3977e143fcef28c8955db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373743"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475822"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
@@ -64,7 +64,7 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 | ------------- | ------------- |
 |**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
 |**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
+|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> *Per le attività di previsione,* vengono create queste funzionalità di data/ora aggiuntive: ISO anno, semestre semestrale, calendario mese come stringa, settimana, giorno della settimana come stringa, giorno del trimestre, giorno dell'anno, AM/PM (0 se l'ora è precedente a mezzogiorno (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno (12h)<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
 |**Trasformare e codificare***|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
 |**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
 |**Codifiche di destinazione**|Per le funzionalità categoriche, questo passaggio esegue il mapping di ogni categoria con un valore di destinazione medio per i problemi di regressione e la probabilità della classe per ogni classe per i problemi di classificazione. Viene applicata la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'overfitting del mapping e del rumore causato dalle categorie di dati di tipo sparse.|
@@ -163,9 +163,11 @@ text_transformations_used
 
 3. Nel passaggio della funzionalità di sweep, AutoML confronta BERT con la linea di base (elenco di parole funzionalità + incorporamenti di parole con training) su un campione dei dati e determina se BERT darebbe miglioramenti all'accuratezza. Se determina che il BERT garantisce prestazioni migliori rispetto alla linea di base, AutoML usa quindi BERT per il testo conteggi come strategia conteggi ottimale e procede con conoscenze l'intero dato. In tal caso, nel modello finale viene visualizzato "PretrainedTextDNNTransformer".
 
+BERT viene generalmente eseguito più a lungo rispetto alla maggior parte degli altri featurizers. È possibile velocizzare l'elaborazione offrendo più risorse di calcolo nel cluster. AutoML distribuirà il training BERT tra più nodi, se disponibili, fino a un massimo di 8 nodi. Questa operazione può essere eseguita impostando [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) su un valore maggiore di 1. Per ottenere prestazioni ottimali, è consigliabile usare SKU con funzionalità RDMA, ad esempio "STANDARD_NC24r" o "STANDARD_NC24rs_V3".
+
 AutoML supporta attualmente circa 100 lingue e, a seconda della lingua del set di dati, AutoML sceglie il modello BERT appropriato. Per i dati in tedesco, viene usato il modello di BERT tedesco. Per la lingua inglese, viene usato il modello di BERT inglese. Per tutti gli altri linguaggi, viene usato il modello di BERT multilingue.
 
-Nel codice riportato di seguito viene attivato il modello tedesco BERT, perché il linguaggio del set di dati viene specificato in "DEU", il codice della lingua di 3 lettere per il tedesco in base alla [classificazione ISO](https://iso639-3.sil.org/code/hbs):
+Nel codice riportato di seguito viene attivato il modello tedesco BERT, perché il linguaggio del set di dati viene specificato in "DEU", il codice della lingua di 3 lettere per il tedesco in base alla [classificazione ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

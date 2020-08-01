@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290984"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474326"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
@@ -42,6 +42,7 @@ Utilizzando un carattere jolly nel nome host, è possibile associare più nomi h
 
 >[!NOTE]
 >Questa funzionalità è attualmente disponibile solo tramite [Azure PowerShell](tutorial-multiple-sites-powershell.md) e l'interfaccia della riga di comando di [Azure](tutorial-multiple-sites-cli.md). Il supporto del portale sarà presto disponibile.
+> Si noti che poiché il supporto del portale non è completamente disponibile, se si usa solo il parametro HostNames, il listener sarà visualizzato come listener di base nel portale e nella colonna nome host della visualizzazione elenco listener non verranno visualizzati i nomi host configurati. Per tutte le modifiche apportate a un listener con caratteri jolly, assicurarsi di usare Azure PowerShell o CLI fino a quando non è supportato nel portale.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio, usare `-HostNames "*.contoso.com,*.fabrikam.com"`
 

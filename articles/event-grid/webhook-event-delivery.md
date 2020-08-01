@@ -3,19 +3,19 @@ title: Recapito eventi webhook
 description: Questo articolo descrive il recapito eventi webhook e la convalida degli endpoint quando si usano webhook.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118954"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461239"
 ---
 # <a name="webhook-event-delivery"></a>Recapito eventi webhook
 I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azure. Quando un nuovo evento è pronto, il servizio Griglia di eventi esegue il POST di una richiesta HTTP nell'endpoint configurato con l'evento nel corpo della richiesta.
 
 Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi richiede la dimostrazione della proprietà dell'endpoint del webhook prima dell'inizio del recapito di eventi a tale endpoint. Questo requisito impedisce a un utente malintenzionato di sovraccaricare l'endpoint con eventi. Quando si usa uno dei tre servizi di Azure elencati di seguito, l'infrastruttura di Azure gestisce automaticamente questa convalida:
 
-- App per la logica di Azure con il [connettore Griglia di eventi](https://docs.microsoft.com/connectors/azureeventgrid/)
+- App per la logica di Azure con il [connettore Griglia di eventi](/connectors/azureeventgrid/)
 - Automazione di Azure tramite [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Funzioni di Azure con il [trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md)
 

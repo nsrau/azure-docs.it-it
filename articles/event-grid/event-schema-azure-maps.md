@@ -3,16 +3,16 @@ title: Mappe di Azure come origine di griglia di eventi
 description: Descrive le proprietà e lo schema disponibili per gli eventi di Mappe di Azure con Griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106689"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461987"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Mappe di Azure come origine di griglia di eventi
 
-Questo articolo illustra le proprietà e lo schema per gli eventi di Mappe di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/event-schema). Viene inoltre visualizzato un elenco di guide introduttive ed esercitazioni per l'uso di mappe di Azure come origine evento.
+Questo articolo illustra le proprietà e lo schema per gli eventi di Mappe di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](./event-schema.md). Viene inoltre visualizzato un elenco di guide introduttive ed esercitazioni per l'uso di mappe di Azure come origine evento.
 
 ## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
@@ -100,25 +100,25 @@ L'esempio seguente illustra lo schema di **GeofenceResult**
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| argomento | Stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | Stringa | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| eventType | Stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | Stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati dell'evento di geofencing. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | Stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | Stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| apiCategory | string | Categoria API dell'evento. |
-| apiName | string | Nome API dell'evento. |
+| apiCategory | Stringa | Categoria API dell'evento. |
+| apiName | Stringa | Nome API dell'evento. |
 | issues | object | Elenca i problemi riscontrati durante l'elaborazione. Se vengono restituiti problemi, la risposta non includerà geometrie. |
-| responseCode | d'acquisto | Codice di risposta HTTP |
+| responseCode | Numero | Codice di risposta HTTP |
 | geometries | object | Elenca le geometrie del recinto che contengono la posizione della coordinata o si sovrappongono a searchBuffer intorno alla posizione. |
 
 L'oggetto error viene restituito quando si verifica un errore nell'API Mappe. L'oggetto error ha le proprietà seguenti:
@@ -131,7 +131,7 @@ L'oggetto ErrorDetails viene restituito quando si verifica un errore nell'API Ma
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| codice | string | Codice di stato HTTP. |
+| codice | Stringa | Codice di stato HTTP. |
 | message | string | Se disponibile, una descrizione leggibile dell'errore. |
 | innererror | InnerError | Se disponibile, un oggetto contenente informazioni specifiche del servizio relative all'errore. |
 
@@ -139,18 +139,18 @@ InnerError è un oggetto contenente informazioni specifiche del servizio relativ
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| codice | string | Messaggio di errore. |
+| codice | Stringa | Messaggio di errore. |
 
 L'oggetto geometries elenca gli ID delle geometrie dei recinti virtuali che sono scaduti rispetto all'ora utente nella richiesta. L'oggetto geometries include elementi di geometria con le proprietà seguenti: 
 
 | Proprietà | Type | Description |
 |:-------- |:---- |:----------- |
-| deviceid | string | ID del dispositivo. |
-| distance | string | <p>Distanza dalla coordinata al bordo più vicino del recinto virtuale. Un valore positivo indica che la coordinata è all'esterno del recinto virtuale. Se la coordinata è all'esterno del recinto virtuale, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è 999. Un valore negativo indica che la coordinata è all'interno del recinto virtuale. Se la coordinata è all'interno del poligono, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è -999. Un valore pari a 999 indica che è molto probabile che la coordinata sia all'esterno del recinto virtuale. Un valore pari a -999 indica che è molto probabile che la coordinata sia all'interno del recinto virtuale.<p> |
-| geometryid |string | ID univoco che identifica la geometria del recinto virtuale. |
-| nearestlat | d'acquisto | Latitudine del punto più vicino della geometria. |
-| nearestlon | d'acquisto | Longitudine del punto più vicino della geometria. |
-| udId | string | ID univoco restituito dal servizio di caricamento utente durante il caricamento di un recinto virtuale. Non verrà incluso nell'API POST di geofencing. |
+| deviceid | Stringa | ID del dispositivo. |
+| distance | Stringa | <p>Distanza dalla coordinata al bordo più vicino del recinto virtuale. Un valore positivo indica che la coordinata è all'esterno del recinto virtuale. Se la coordinata è all'esterno del recinto virtuale, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è 999. Un valore negativo indica che la coordinata è all'interno del recinto virtuale. Se la coordinata è all'interno del poligono, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è -999. Un valore pari a 999 indica che è molto probabile che la coordinata sia all'esterno del recinto virtuale. Un valore pari a -999 indica che è molto probabile che la coordinata sia all'interno del recinto virtuale.<p> |
+| geometryid |Stringa | ID univoco che identifica la geometria del recinto virtuale. |
+| nearestlat | Numero | Latitudine del punto più vicino della geometria. |
+| nearestlon | Numero | Longitudine del punto più vicino della geometria. |
+| udId | Stringa | ID univoco restituito dal servizio di caricamento utente durante il caricamento di un recinto virtuale. Non verrà incluso nell'API POST di geofencing. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 

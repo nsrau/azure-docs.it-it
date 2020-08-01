@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284388"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475635"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi e domande frequenti sulle unità amministrative](roles-admin-units-faq-troubleshoot.md)
+- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](roles-groups-concept.md)
+- [Risoluzione dei problemi assegnati ai gruppi di cloud](roles-groups-faq-troubleshooting.md)

@@ -2,14 +2,14 @@
 title: Rendere persistenti i dati di output in Archiviazione di Azure con l'API del servizio Batch
 description: Informazioni su come usare l'API del servizio Batch per rendere persistenti i dati di output di attività e processi Batch in Archiviazione di Azure.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143510"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475618"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -19,6 +19,9 @@ L'API del servizio Batch consente di rendere persistenti i dati di output in Arc
 
 Un vantaggio dell'uso dell'API del servizio Batch per rendere persistente l'output dell'attività è il fatto di non avere la necessità di l'applicazione eseguita dall'attività. Con poche modifiche dell'applicazione client, è invece possibile rendere persistente l'output dell'attività dall'interno dello stesso codice che crea l'attività.
 
+> [!IMPORTANT]
+> Il salvataggio permanente dei dati delle attività in archiviazione di Azure con l'API del servizio batch non funziona con i pool creati prima del [1 ° febbraio 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quando è appropriato usare l'API del servizio Batch per rendere persistente l'output delle attività?
 
 Il servizio Azure Batch offre diversi modi per rendere persistente l'output delle attività. Usare l'API del servizio Batch è un approccio pratico adatto in particolar modo per gli scenari seguenti:
@@ -26,9 +29,9 @@ Il servizio Azure Batch offre diversi modi per rendere persistente l'output dell
 - Si vuole scrivere codice per rendere persistente l'output dell'attività dall'interno dell'applicazione client, senza modificare l'applicazione eseguita dall'attività.
 - Si vuole rendere persistente l'output delle attività del servizio Batch e delle attività del gestore di processi create con la configurazione della macchina virtuale.
 - Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure con un nome arbitrario.
-- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
+Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per informazioni sulle altre opzioni per il salvataggio permanente dell'output delle attività, vedere [salvare in modo permanente l'output di processi e attività in archiviazione di Azure](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Creare un contenitore in Archiviazione di Azure
 
@@ -89,6 +92,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 }
 ```
 
+> [!NOTE]
+> Se si usa questo esempio con Linux, assicurarsi di modificare le barre rovesciate.
+
 ### <a name="specify-a-file-pattern-for-matching"></a>Specificare un modello di file per la corrispondenza
 
 Quando si specifica un file di output, è possibile usare la proprietà [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) per specificare un modello di file per la corrispondenza. Il modello di file potrebbe corrispondere a zero file, un singolo file o un set di file creati dall'attività.
@@ -147,7 +153,7 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-Per ogni caricamento di file, il servizio Batch scrive due file di log nel nodo di calcolo, `fileuploadout.txt` e `fileuploaderr.txt`. È possibile esaminare questi file di log per ottenere ulteriori informazioni su un errore specifico. Nei casi in cui il caricamento del file non è mai stato tentato, ad esempio perché non può essere eseguita l'attività stessa, questi file di log non esisteranno.
+Per ogni caricamento di file, il servizio Batch scrive due file di log nel nodo di calcolo, `fileuploadout.txt` e `fileuploaderr.txt`. È possibile esaminare questi file di log per ottenere ulteriori informazioni su un errore specifico. Se il caricamento del file non è mai stato effettuato, ad esempio perché non è stato possibile eseguire l'attività, i file di log non sono presenti.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnosticare le prestazioni di caricamento file
 
@@ -169,7 +175,7 @@ Se si sviluppa in un linguaggio diverso da C#, sarà necessario implementare man
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
+Il progetto di esempio [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) è uno degli [esempi di codice di Azure Batch](https://github.com/Azure/azure-batch-samples) disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
 
 1. Aprire il progetto in **Visual Studio 2019**.
 2. Aggiungere **le credenziali dell'account** di archiviazione e Batch a **AccountSettings.settings** nel progetto Microsoft.Azure.Batch.Samples.Common.
@@ -181,8 +187,5 @@ Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [ese
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su come rendere persistente l'output delle attività con la libreria File Conventions per .NET, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
-- Per informazioni su altri approcci per rendere persistente l'output delle attività in Azure Batch, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
+- Per altre informazioni su come salvare in modo permanente l'output delle attività con la libreria file Conventions per .NET, vedere [salvare i dati di processi e attività in archiviazione di Azure con la libreria batch file Conventions per .NET](batch-task-output-file-conventions.md).
+- Per informazioni sugli altri approcci per la permanenza dei dati di output in Azure Batch, vedere [salvare in modo permanente l'output di processi e attività in archiviazione di Azure](batch-task-output.md).

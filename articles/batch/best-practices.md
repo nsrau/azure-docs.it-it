@@ -1,14 +1,14 @@
 ---
 title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497778"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474904"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -56,6 +56,10 @@ Gli errori di allocazione del pool possono verificarsi in qualsiasi momento dura
 È possibile che i pool di Batch riscontrino eventi di tempi di inattività in Azure. Tenere presente questo aspetto quando si pianifica e si sviluppa uno scenario o un flusso di lavoro per Batch.
 
 In caso di errore di un nodo, Batch prova automaticamente a ripristinare i nodi di calcolo per conto dell'utente. Questo tentativo può attivare la ripianificazione di qualsiasi attività in esecuzione nel nodo ripristinato. Per altre informazioni sulle attività interrotte, vedere [Progettazione per la ripetizione di tentativi](#design-for-retries-and-re-execution).
+
+### <a name="third-party-images"></a>Immagini di terze parti
+
+I pool possono essere creati usando immagini di terze parti pubblicate in Azure Marketplace. Con gli account batch della modalità di sottoscrizione utente, è possibile che venga visualizzato l'errore "allocazione non riuscita a causa di un controllo di idoneità acquisti nel Marketplace" quando si crea un pool con immagini di terze parti. Per correggere l'errore, accettare le condizioni impostate dall'editore dell'immagine. A tale scopo, è possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
 

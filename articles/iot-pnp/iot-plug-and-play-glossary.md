@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d88ac62d9117df9d24c6d865e684a0972c87dae
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337314"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475465"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario terminologico per l'anteprima Plug and Play IoT
 
@@ -95,13 +95,9 @@ Il linguaggio di query dell'hub IoT viene usato per diversi scopi. Ad esempio, �
 
 Un dispositivo Plug and Play è in genere un dispositivo di elaborazione autonomo di piccole dimensioni che raccoglie dati o controlla altri dispositivi e che esegue software o firmware che implementa un [modello di dispositivo](#device-model).  Ad esempio, un dispositivo Plug and Play IoT potrebbe essere un dispositivo di monitoraggio ambientale o un controller per un sistema di irrigazione di un sistema agricolo intelligente. È possibile scrivere una soluzione IoT ospitata nel cloud per comandare, controllare e ricevere i dati da dispositivi Plug and Play IoT.
 
-## <a name="iot-plug-and-play-conventions"></a>Convenzioni Plug and Play
+## <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
 I [dispositivi](#iot-plug-and-play-device) plug and Play dovrebbero seguire un set di [convenzioni](concepts-convention.md) quando scambiano dati con una soluzione.
-
-## <a name="model-discovery"></a>Individuazione dei modelli
-
-Quando un [plug and Play dispositivo](#iot-plug-and-play-device) si connette a una soluzione Internet delle cose, la soluzione può individuare le funzionalità del dispositivo individuando il [modello di dispositivo](#device-model). La soluzione può trovare un modello di dispositivo in un [repository di modelli](#model-repository) o in un'altra posizione.
 
 ## <a name="model-id"></a>ID modello
 

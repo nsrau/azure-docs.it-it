@@ -11,13 +11,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 06/29/2020
-ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/22/2020
+ms.openlocfilehash: 5f58698de289efc0b74550260c2229f2a08d798d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326393"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461375"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -33,7 +33,9 @@ Con Azure Machine Learning set di impostazioni è possibile:
 
 * Condividere i dati e collaborare con altri utenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+[Vedere altre informazioni su come eseguire il training con i set di dati](how-to-train-with-datasets.md).
+
+## <a name="prerequisites"></a>Prerequisites
 
 Per creare e usare i set di impostazioni, è necessario:
 
@@ -50,27 +52,23 @@ Per creare e usare i set di impostazioni, è necessario:
 
 Quando si crea un set di dati, verificare la potenza di elaborazione del calcolo e le dimensioni dei dati in memoria. Le dimensioni dei dati nell'archiviazione non corrispondono alle dimensioni dei dati in un frame di dati. Ad esempio, i dati nei file CSV possono espandersi fino a 10 volte in un frame di dati, quindi un file CSV da 1 GB può diventare 10 GB in un frame di dati. 
 
-Il fattore principale è la dimensione del set di dati in memoria, ad esempio un frame di dati. È consigliabile che le dimensioni di calcolo e la potenza di elaborazione includano 2x le dimensioni della RAM. Quindi, se il dataframe è 10 GB, si vuole una destinazione di calcolo con 20 GB di RAM per garantire che il frame di frame possa adattarsi alla memoria ed essere elaborato. Se i dati sono compressi, possono espandersi ulteriormente; 20 GB di dati relativamente sparsi archiviati in formato parquet compresso possono espandersi fino a circa 800 GB di memoria. Poiché i file parquet archiviano i dati in un formato a colonne, se è necessaria solo la metà delle colonne, è sufficiente caricare circa 400 GB di memoria.
+Se i dati sono compressi, possono espandersi ulteriormente; 20 GB di dati relativamente sparsi archiviati in formato parquet compresso possono espandersi fino a circa 800 GB di memoria. Poiché i file parquet archiviano i dati in un formato a colonne, se è necessaria solo la metà delle colonne, è sufficiente caricare circa 400 GB di memoria.
  
 Se si usano Pandas, non c'è alcun motivo per avere più di 1 vCPU, perché questo è tutto ciò che verrà usato. È possibile parallelizzare facilmente a molti vCPU in un singolo Azure Machine Learning istanza/nodo di calcolo tramite Modin e Dask/Ray e scalabilità orizzontale in un cluster di grandi dimensioni, se necessario, semplicemente passando `import pandas as pd` a `import modin.pandas as pd` . 
  
-Se non è possibile ottenere una macchina virtuale sufficientemente grande per i dati, sono disponibili due opzioni: usare un Framework come Spark o Dask per eseguire l'elaborazione sulla memoria insufficiente dei dati, ovvero il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale raccolto alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare in orizzontale un cluster che può essere ancora usato in modo interattivo. 
+[Altre informazioni sull'ottimizzazione dell'elaborazione dei dati in Azure Machine Learning](concept-optimize-data-processing.md)
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
 Esistono due tipi di set di dati, in base al modo in cui gli utenti li utilizzano nel training:
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. Questo consente di materializzare i dati in un frame di dati Pandas o Spark. È possibile creare un `TabularDataset` oggetto da file con estensione CSV, TSV, parquet e JSON e dai risultati della query SQL. Per un elenco completo, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
-
 * La classe [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Con questo metodo è possibile scaricare o montare i file nel calcolo come oggetto filedataset. I file possono essere in qualsiasi formato, consentendo una gamma più ampia di scenari di apprendimento automatico, tra cui l'apprendimento avanzato. 
 
-## <a name="create-datasets"></a>Creare set di dati
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. Questo consente di materializzare i dati in un frame di dati Pandas o Spark. È possibile creare un `TabularDataset` oggetto da file con estensione CSV, TSV, parquet e JSON e dai risultati della query SQL. Per un elenco completo, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nell'attuale posizione, non si incorre in costi aggiuntivi di archiviazione. È possibile creare entrambi `TabularDataset` i `FileDataset` set di dati e usando Python SDK o il Azure Machine Learning Studio in https://ml.azure.com .
+## <a name="create-datasets-via-the-sdk"></a>Creare set di impostazioni tramite l'SDK
 
-Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici. 
-
-### <a name="use-the-sdk"></a>Usare l'SDK
+Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nell'attuale posizione, non si incorre in costi aggiuntivi di archiviazione. Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici. 
 
 Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) usando Python SDK:
 
@@ -80,6 +78,21 @@ Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) usa
 
 > [!Note]
 > È possibile creare un set di dati da più percorsi in più archivi dati. Non esiste un limite fisso per il numero di file o le dimensioni dei dati da cui è possibile creare un set di dati. Tuttavia, per ogni percorso dati verranno inviate alcune richieste al servizio di archiviazione per verificare se punta a un file o a una cartella. Questo sovraccarico può causare un peggioramento delle prestazioni o degli errori. Un set di dati che fa riferimento a una cartella con 1000 di file in viene considerato come riferimento a un percorso dati. Per ottenere prestazioni ottimali, è consigliabile creare un set di dati che fa riferimento a meno di 100 percorsi negli archivi dati.
+
+#### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
+
+Utilizzare il [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) Metodo sulla `FileDatasetFactory` classe per caricare file in qualsiasi formato e per creare un oggetto filedataset non registrato. Se lo spazio di archiviazione è dietro una rete virtuale o un firewall, impostare il parametro `validate=False` nel `from_files()` metodo. In questo modo viene ignorato il passaggio di convalida iniziale e si garantisce che sia possibile creare il set di dati da questi file protetti.
+
+```Python
+# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
+datastore_paths = [(datastore, 'animals')]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 
 #### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
 
@@ -126,8 +139,8 @@ titanic_ds.take(3).to_pandas_dataframe()
 |Indice|PassengerId|Survived|Pclass|Nome|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+1|2|Vero|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un volume CSV, e creare il set di dati da tale file. Il codice seguente illustra questo flusso di lavoro.
 
@@ -185,24 +198,22 @@ data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
+### <a name="register-datasets"></a>Registrare i set di impostazioni
 
-#### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
-
-Utilizzare il [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) Metodo sulla `FileDatasetFactory` classe per caricare file in qualsiasi formato e per creare un oggetto filedataset non registrato. Se lo spazio di archiviazione è dietro una rete virtuale o un firewall, impostare il parametro `validate=False` nel `from_files()` metodo. In questo modo viene ignorato il passaggio di convalida iniziale e si garantisce che sia possibile creare il set di dati da questi file protetti.
+Per completare il processo di creazione, registrare i set di impostazioni con un'area di lavoro. Usare il [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) metodo per registrare i set di elementi con l'area di lavoro per condividerli con altri utenti e riutilizzarli tra gli esperimenti nell'area di lavoro:
 
 ```Python
-# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
-datastore_paths = [(datastore, 'animals')]
-animal_ds = Dataset.File.from_files(path=datastore_paths)
-
-# create a FileDataset from image and label files behind public web urls
-web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
-             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
-mnist_ds = Dataset.File.from_files(path=web_paths)
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
-#### <a name="on-the-web"></a>Sul Web 
-Nei passaggi e nell'animazione seguenti viene illustrato come creare un set di dati in Azure Machine Learning Studio, https://ml.azure.com .
+## <a name="create-datasets-in-the-studio"></a>Creare set di impostazioni in studio
+
+I passaggi e l'animazione seguenti illustrano come creare un set di dati in [Azure Machine Learning Studio](https://ml.azure.com).
+
+> [!Note]
+> I set di impostazioni creati tramite Azure Machine Learning Studio vengono registrati automaticamente nell'area di lavoro.
 
 ![Creare un set di dati con l'interfaccia utente](./media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -216,19 +227,6 @@ Per creare un set di dati in studio:
 1. Selezionare **Avanti** per popolare i moduli **Impostazioni e anteprima** e **schema** ; vengono popolate in modo intelligente in base al tipo di file ed è possibile configurare ulteriormente il set di dati prima della creazione in questi moduli. 
 1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selezionare **Crea** per completare la creazione del set di dati.
-
-## <a name="register-datasets"></a>Registrare i set di impostazioni
-
-Per completare il processo di creazione, registrare i set di impostazioni con un'area di lavoro. Usare il [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) metodo per registrare i set di elementi con l'area di lavoro per condividerli con altri utenti e riutilizzarli tra gli esperimenti nell'area di lavoro:
-
-```Python
-titanic_ds = titanic_ds.register(workspace=workspace,
-                                 name='titanic_ds',
-                                 description='titanic training data')
-```
-
-> [!Note]
-> I set di impostazioni creati tramite Azure Machine Learning Studio vengono registrati automaticamente nell'area di lavoro.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Creare set di impostazioni con i set di impostazioni di Azure Open
 

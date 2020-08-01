@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 64bc8e76a4dcce963251219528bd93dd786f01cf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419615"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461358"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -410,17 +410,8 @@ Non sempre riguardano le modifiche più visibili, ma consentono al personale di 
 * SDK con disponibilità generale.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
-Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
-
-Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
-
-> [!WARNING]
-> Tutte le versioni **1.x** di Node Client SDK per API SQL verranno ritirate il **30 agosto 2020**. Questa operazione riguarda solo Node SDK sul lato client e non gli script sul lato server (stored procedure, trigger e funzioni definite dall'utente).
-> 
->
-<br/>
+Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |

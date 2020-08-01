@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337824"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461018"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
@@ -26,8 +26,8 @@ Questo modulo supporta l'esportazione dei dati nei servizi cloud data seguenti:
 
 - Contenitore BLOB di Azure
 - Condivisione file di Azure
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
 - Database SQL di Azure
 
 Prima di esportare i dati, è necessario prima registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per altre informazioni, vedere [accedere ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
@@ -43,7 +43,7 @@ Prima di esportare i dati, è necessario prima registrare un archivio dati nell'
 1. Per **archivio dati**selezionare un archivio dati esistente dall'elenco a discesa. È anche possibile creare un nuovo archivio dati. Per informazioni, vedere [accesso ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
 
     > [!NOTE]
-    > L'esportazione di dati di un determinato tipo di dati in una colonna del database SQL specificata come un altro tipo di dati non è supportata.
+    > L'esportazione di dati di un determinato tipo di dati in una colonna del database SQL specificata come un altro tipo di dati non è supportata. Non è necessario che la tabella di destinazione esista per prima.
 
 1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 

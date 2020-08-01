@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 97285ae9eadee3717f0b1a1510627392250424b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 108882fd9e585fadc98436c3404bd8945e80080f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037866"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460678"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Baseline della sicurezza di Azure per Service Fabric
 
@@ -626,7 +626,7 @@ In alternativa, per testare le patch del sistema operativo prima di passare all'
 
 * [Come aggiornare le macchine virtuali con il più recente modello del set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Automazione di Azure - Panoramica di Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Automazione di Azure - Panoramica di Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/update-management/update-mgmt-overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

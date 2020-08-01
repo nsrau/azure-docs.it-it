@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514085"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475057"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -132,28 +132,96 @@ Per portare online queste partizioni, eseguire i comandi riportati nelle sezioni
 
 #### <a name="for-lvm-partitions"></a>Per le partizioni LVM
 
-Per ottenere un elenco dei nomi del gruppo di volumi in un volume fisico:
+Una volta eseguito lo script, le partizioni LVM vengono montate nei volumi fisici/disk specificati nell'output dello script. Il processo è
+
+1. Ottenere l'elenco univoco dei nomi dei gruppi di volumi dai volumi fisici o dai dischi
+2. Elencare quindi i volumi logici nei gruppi di volumi
+3. Montare quindi i volumi logici in un percorso desiderato.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>Elenco di nomi di gruppi di volumi da volumi fisici
+
+Per elencare i nomi dei gruppi di volumi:
+
+```bash
+pvs -o +vguuid
+```
+
+Questo comando elenca tutti i volumi fisici (inclusi quelli presenti prima di eseguire lo script), i nomi dei gruppi di volumi corrispondenti e gli ID utente univoci (UUID) del gruppo di volumi. Di seguito è riportato un output di esempio del comando.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+La prima colonna (PV) Mostra il volume fisico, le colonne successive mostrano il nome del gruppo di volumi, il formato, gli attributi, le dimensioni, lo spazio disponibile e l'ID univoco del gruppo di volumi pertinenti. L'output del comando Mostra tutti i volumi fisici. Vedere l'output dello script e identificare i volumi correlati al backup. Nell'esempio precedente, l'output dello script avrebbe mostrato/dev/sdf e/dev/sdd. Quindi, il gruppo di volumi datavg_db appartiene allo script e il gruppo del volume Appvg_new appartiene al computer. L'idea finale consiste nel verificare che il nome di un gruppo di volumi univoco includa 1 ID univoco.
+
+###### <a name="duplicate-volume-groups"></a>Gruppi di volumi duplicati
+
+Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM sottoposta a backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Esaminare l'esempio seguente.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+L'output dello script avrebbe visualizzato/dev/sdg,/dev/SDH,/dev/sdm2 come allegato. Quindi, i nomi VG corrispondenti sono Appvg_new e rootvg. Gli stessi nomi, tuttavia, sono presenti anche nell'elenco VG del computer. È possibile verificare che 1 nome VG abbia 2 UUID.
+
+È ora necessario rinominare i nomi VG per i volumi basati su script, ad esempio/dev/sdg,/dev/SDH,/dev/sdm2. Per rinominare il gruppo di volumi, utilizzare il comando seguente
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Sono ora disponibili tutti i nomi VG con ID univoci.
+
+###### <a name="active-volume-groups"></a>Gruppi di volumi attivi
+
+Verificare che i gruppi di volumi corrispondenti ai volumi dello script siano attivi. Il comando seguente viene usato per visualizzare i gruppi di volumi attivi. Controllare se i gruppi di volumi correlati allo script sono presenti nell'elenco.
+
+```bash
+vgdisplay -a
+```  
+
+In caso contrario, attivare il gruppo di volumi usando il comando seguente.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-Per ottenere un elenco di tutti i volumi logici, dei nomi e dei relativi percorsi in un gruppo di volumi:
+##### <a name="listing-logical-volumes-within-volume-groups"></a>Elenco di volumi logici nei gruppi di volumi
+
+Una volta ottenuto l'elenco univoco e attivo dei VGs correlati allo script, i volumi logici presenti in tali gruppi possono essere elencati usando il comando seguente.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-Il comando ```lvdisplay``` indica inoltre se i gruppi di volumi sono attivi o meno. Se il gruppo di volumi è contrassegnato come inattivo, è necessario attivarlo di nuovo per il montaggio. Se il gruppo di volumi viene visualizzato come inattivo, utilizzare il comando seguente per attivarlo.
+Questo comando Visualizza il percorso di ogni volume logico come ' LV Path '.
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-Quando il nome del gruppo di volumi è attivo, eseguire il comando ```lvdisplay``` ancora una volta per visualizzare tutti gli attributi pertinenti.
+##### <a name="mounting-logical-volumes"></a>Montaggio di volumi logici
 
 Per montare i volumi logici nel percorso scelto:
 
@@ -161,6 +229,9 @@ Per montare i volumi logici nel percorso scelto:
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> Non usare "Mount-a". Questo comando monta tutti i dispositivi descritti in '/etc/fstab '. Questo potrebbe significare che i dispositivi duplicati possono essere montati. I dati possono essere reindirizzati ai dispositivi creati dallo script, che non mantengono i dati e pertanto potrebbero causare la perdita di dati.
 
 #### <a name="for-raid-arrays"></a>Per le matrici RAID
 

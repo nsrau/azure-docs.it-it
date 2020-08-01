@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243291"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475771"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Sottoscrizioni in Gestione API di Azure
 
@@ -41,7 +41,7 @@ Le sottoscrizioni possono essere associate a vari ambiti: prodotto, tutte le API
 
 ### <a name="subscriptions-for-a-product"></a>Sottoscrizioni per un prodotto
 
-In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo che una richiesta di sottoscrizione è stata approvata, automaticamente o dagli editori di API, lo sviluppatore può usare le chiavi disponibili per accedere a tutte le API nel prodotto. Al momento, il portale per sviluppatori Mostra solo le sottoscrizioni con ambito prodotto nella sezione profilo utente. 
+In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo l'approvazione di una richiesta di sottoscrizione (automaticamente o dagli editori delle API), lo sviluppatore può usare le chiavi in essa per accedere a tutte le API nel prodotto. Al momento, il portale per sviluppatori Mostra solo le sottoscrizioni con ambito prodotto nella sezione profilo utente. 
 
 ![Sottoscrizioni prodotto](./media/api-management-subscriptions/product-subscription.png)
 

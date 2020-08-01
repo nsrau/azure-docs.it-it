@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422862"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460984"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -66,6 +66,9 @@ Nel caso di macchine virtuali VMware e Hyper-V, la valutazione del server contra
 
 Questa lacuna può essere risolta abilitando l' [individuazione delle applicazioni](./how-to-discover-applications.md) nelle macchine virtuali VMware. Server Assessment usa il sistema operativo rilevato dalla macchina virtuale usando le credenziali Guest fornite. Questi dati del sistema operativo identificano le informazioni corrette del sistema operativo nel caso di macchine virtuali Windows e Linux.
 
+## <a name="operating-system-version-not-available"></a>Versione del sistema operativo non disponibile
+
+Per i server fisici, è necessario che siano disponibili le informazioni sulla versione secondaria del sistema operativo. Se non è disponibile, contattare supporto tecnico Microsoft. Per i computer VMware, server Assessment usa le informazioni del sistema operativo specificate per la macchina virtuale in server vCenter. Tuttavia, server vCenter non fornisce la versione secondaria per i sistemi operativi. Per individuare la versione secondaria, è necessario configurare l' [individuazione delle applicazioni](./how-to-discover-applications.md). Per le VM Hyper-V, l'individuazione della versione secondaria del sistema operativo non è supportata. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKU di Azure di dimensioni maggiori rispetto a quelle locali in una valutazione delle VM di Azure
 

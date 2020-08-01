@@ -2,13 +2,13 @@
 title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460695"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -49,7 +49,7 @@ Un criterio di entità o dello spazio dei nomi può contenere fino a 12 regole d
 
 A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Queste chiavi non possono essere perse perché sono sempre disponibili nel [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Se si rigenera o si modifica una chiave nel criterio, tutti i token emessi in precedenza in base a tale chiave diventano immediatamente non validi. Le connessioni in corso create in base a tali token continueranno invece a funzionare fino alla scadenza del token.
 
-Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticamente un criterio denominato **RootManageSharedAccessKey**. Questo criterio dispone delle autorizzazioni Manage per l'intero spazio dei nomi. È consigliabile considerare questa regola come un account **radice** amministratore e non usarla nell'applicazione. È possibile creare regole aggiuntive dei criteri nella scheda **Configura** per lo spazio dei nomi nel portale mediante Powershell o l'interfaccia della riga di comando di Azure.
+Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticamente un criterio denominato **RootManageSharedAccessKey**. Questo criterio dispone delle autorizzazioni Manage per l'intero spazio dei nomi. È consigliabile considerare questa regola come un account **radice** amministratore e non usarla nell'applicazione. È possibile creare regole di criteri aggiuntive nella scheda **Configura** per lo spazio dei nomi nel portale, tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
 
@@ -89,6 +89,9 @@ L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si ri
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
 Un token di firma di accesso condiviso è valido per tutte le risorse precedute dal prefisso `<resourceURI>` usato in `signature-string`.
+
+> [!NOTE]
+> Per esempi di generazione di un token SAS usando linguaggi di programmazione diversi, vedere [generare un token SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Rigenerazione delle chiavi
 
@@ -177,7 +180,7 @@ Se un token SAS viene assegnato a un mittente o ad un client, questi ultimi non 
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Usare la firma di accesso condiviso (a livello AMQP)
 
-Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'uso del token SAS con AMQP viene descritto nel documento dedicato ad [AMQP Claim-Based Security versione 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , in fase di bozza dal 2013 ma attualmente supportato da Azure.
+Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'utilizzo dei token di firma di accesso condiviso con AMQP è descritto nel documento [sulla sicurezza basata su attestazioni AMQP versione 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) che si trova nella bozza di lavoro a partire da 2013, ma è attualmente supportata da Azure.
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"**. Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
@@ -253,7 +256,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
-| **Namespace** | | |
+| **Spazio dei nomi** | | |
 | Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | **Service Registry** | | |
 | Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |

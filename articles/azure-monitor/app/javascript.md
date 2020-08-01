@@ -2,16 +2,14 @@
 title: applicazione Azure Insights per app Web JavaScript
 description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati dei client Web, le applicazioni a pagina singola (SPA) e i modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8cd0c7c73ac4f5c531d91d7e458300ab1b0ad1af
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371482"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475754"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -105,7 +103,7 @@ Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si 
 
 Le opzioni di configurazione disponibili sono 
 
-| Nome | Type | Descrizione
+| Nome | Tipo | Descrizione
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. l'impostazione predefinita è appInsights. ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -116,7 +114,7 @@ Le opzioni di configurazione disponibili sono
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Sono inclusi:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. incluse le seguenti:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -156,7 +154,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 | Nome | Predefinito | Descrizione |
 |------|---------|-------------|
-| instrumentationKey | Null | **Richiesto**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
+| instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
 | sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti. |
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
@@ -342,7 +340,9 @@ Ciò non significa che verrà supportato solo il set di funzionalità più basso
 
 ## <a name="open-source-sdk"></a>SDK open source
 
-Il Application Insights JavaScript SDK è open source per visualizzare il codice sorgente o per contribuire al progetto visitare il [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-JS).
+Il Application Insights JavaScript SDK è open source per visualizzare il codice sorgente o per contribuire al progetto visitare il [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-JS). 
+
+Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./release-notes.md).
 
 ## <a name="next-steps"></a><a name="next"></a> Passaggi successivi
 * [Tenere traccia dell'utilizzo](usage-overview.md)

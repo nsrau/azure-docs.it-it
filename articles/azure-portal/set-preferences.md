@@ -5,27 +5,28 @@ services: azure-portal
 keywords: impostazioni, timeout, lingua, regione
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763959"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461935"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Impostare le preferenze del portale di Azure
 
 È possibile modificare le impostazioni predefinite del portale di Azure per soddisfare le proprie preferenze. Ognuna delle impostazioni elencate di seguito può essere modificata:
 
 * [Timeout sessione inattiva](#change-the-idle-duration-for-inactive-sign-out)
+* [Sottoscrizione predefinita](#choose-your-default-subscription)
 * [Visualizzazione predefinita](#choose-your-default-view)
 * [Modalità menu del portale](#choose-a-portal-menu-mode)
 * [Tema di colore e contrasto elevato](#choose-a-theme)
 * [Notifiche popup](#enable-or-disable-pop-up-notifications)
-* [Lingua e formato locale](#change-language-and-regional-settings)
+* [Lingua e formato regionale](#change-language-and-regional-settings)
 
 ## <a name="change-general-portal-settings"></a>Modificare le impostazioni del portale generale
 
@@ -55,6 +56,18 @@ Se l'amministratore ha abilitato un criterio di timeout di inattività, selezion
 > Se si è un amministratore e si vuole applicare un'impostazione di timeout inattiva per tutti gli utenti del portale di Azure, vedere [impostare il timeout di inattività a livello di directory per gli utenti del portale di Azure](admin-timeout.md)
 >
 
+### <a name="choose-your-default-subscription"></a>Scegliere la sottoscrizione predefinita
+
+È possibile modificare la sottoscrizione che viene aperta per impostazione predefinita quando si accede al portale di Azure. Questa operazione è utile se si ha una sottoscrizione primaria con cui si lavora, ma si usano altre volte. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtrare l'elenco di risorse in base alla sottoscrizione.":::
+
+1. Selezionare l'icona di filtro directory e sottoscrizione nella parte superiore dello spostamento.
+1. Selezionare le sottoscrizioni desiderate come sottoscrizioni predefinite quando si avvia il portale. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Selezionare le sottoscrizioni desiderate come sottoscrizioni predefinite quando si avvia il portale."::: 
+
+
 ### <a name="choose-your-default-view"></a>Scegliere la visualizzazione predefinita 
 
 È possibile modificare la pagina che viene visualizzata per impostazione predefinita quando si accede al portale di Azure.
@@ -73,7 +86,7 @@ La modalità predefinita per il menu del portale controlla la quantità di spazi
 * Quando il menu del portale è in modalità a **comparsa** , è nascosto fino a quando non è necessario. Selezionare l'icona del menu per aprire o chiudere il menu.
 * Se si sceglie modalità **ancorata** per il menu del portale, è sempre visibile. È possibile comprimere il menu per fornire maggiore spazio di lavoro. 
 
-### <a name="choose-a-theme"></a>Scegli un tema
+### <a name="choose-a-theme"></a>Scegliere un tema
 
 Il tema scelto influiscono sui colori dello sfondo e del carattere visualizzati nell'portale di Azure. È possibile scegliere uno dei quattro temi colori predefiniti. Selezionare ogni anteprima per trovare il tema più adatto.
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f735668e1519a6a12082537dabfe17be3e96ffdd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168149"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460008"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 
@@ -82,10 +82,7 @@ Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per a
 
 La `Microsoft.Azure.CosmosDB.Table` libreria è attualmente disponibile solo per .NET Framework ed è in modalità di manutenzione e verrà presto deprecata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo alla libreria .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), di conseguenza è consigliabile eseguire l'aggiornamento a [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-Il pacchetto di anteprima [WindowsAzure. storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) è stato deprecato. L'SDK WindowsAzure.Storage-PremiumTable verrà ritirato il 15 novembre 2018. Da quella data, le richieste all'SDK ritirato non saranno consentite. 
-
-Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
-<br/>
+Il pacchetto di anteprima [WindowsAzure. storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) è stato deprecato. L'SDK WindowsAzure.Storage-PremiumTable verrà ritirato il 15 novembre 2018. Da quella data, le richieste all'SDK ritirato non saranno consentite.
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |

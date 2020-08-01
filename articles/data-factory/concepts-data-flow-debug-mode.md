@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a763a3bb4d46ba03808423d4d1283381c1174a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605386"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475601"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -25,7 +25,7 @@ Azure Data Factory modalità di debug del flusso di dati di mapping consente di 
 
 ![Dispositivo di scorrimento debug](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
 
-Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata di 60 minuti. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata di 60 minuti. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
 
 ![Esegui debug selezione IR](media/data-flow/debugbutton2.png "Esegui debug selezione IR")
 

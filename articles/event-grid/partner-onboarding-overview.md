@@ -3,12 +3,12 @@ title: Eseguire l'onboarding come partner di Griglia di eventi di Azure
 description: Onboarding come tipo di argomento del partner di griglia di eventi di Azure. Informazioni sul modello di risorse e sul flusso di pubblicazione per gli argomenti del partner.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116115"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461256"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Eseguire l'onboarding come partner di Griglia di eventi di Azure
 
@@ -155,8 +155,8 @@ Dopo aver pubblicato l'endpoint partnerNamespace, si riceve una risposta. La ris
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modello ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Schema modello ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [API REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Estensione dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [Estensione dell'interfaccia della riga di comando](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

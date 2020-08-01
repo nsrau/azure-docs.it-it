@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: c1c146783d54bf2df25a130b73ab430c6edeaef7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d39b5f414b1998a4c0eacbbf8fd792d27c70309c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319457"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474581"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Gli esempi in questo articolo illustrano come:
 
 Per una panoramica di alto livello del funzionamento degli ambienti in Azure Machine Learning, vedere [che cosa sono gli ambienti ml?](concept-environments.md) Per informazioni sulla configurazione degli ambienti di sviluppo, vedere [qui](how-to-configure-environment.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
@@ -262,7 +262,8 @@ myenv.docker.enabled = True
 
 Per impostazione predefinita, l'immagine Docker appena creata viene visualizzata nel registro contenitori associato all'area di lavoro.  Il nome del repository ha il formato *azureml/ \<uuid\> azureml_*. La parte dell'identificatore univoco (*UUID*) del nome corrisponde a un hash calcolato dalla configurazione dell'ambiente. Questa corrispondenza consente al servizio di determinare se un'immagine per l'ambiente specificato esiste già per il riutilizzo.
 
-Inoltre, il servizio utilizza automaticamente una delle [Immagini di base](https://github.com/Azure/AzureML-Containers)basate su Ubuntu Linux. Installa i pacchetti Python specificati. L'immagine di base ha versioni CPU e GPU. Azure Machine Learning rileva automaticamente la versione da utilizzare. È anche possibile usare un'immagine di [base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
+### <a name="use-a-custom-docker-image-or-dockerfile"></a>Usare un'immagine Docker personalizzata o Dockerfile 
+Il servizio usa automaticamente una delle [Immagini di base](https://github.com/Azure/AzureML-Containers)basate su Ubuntu Linux. Installa i pacchetti Python specificati. L'immagine di base ha versioni CPU e GPU. Azure Machine Learning rileva automaticamente la versione da utilizzare. È anche possibile usare un'immagine di [base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -407,7 +408,9 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## <a name="example-notebooks"></a>Notebook di esempio
+## <a name="notebooks"></a>Notebook
+
+Questo [articolo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) fornisce informazioni su come installare un ambiente conda come un kernel in un notebook.
 
 Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) si espande in base ai concetti e ai metodi illustrati in questo articolo.
 

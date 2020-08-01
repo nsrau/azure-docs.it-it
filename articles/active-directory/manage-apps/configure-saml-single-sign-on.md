@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1abde88b653ae0f0ef3651b161e806047e143078
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418781"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461188"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurare l'accesso Single Sign-On basato su SAML
 
@@ -25,7 +25,7 @@ Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'utilizzo di Azure AD come provider di identità e la configurazione di Single Sign-On (SSO) può essere semplice o complesso a seconda dell'applicazione utilizzata. Alcune applicazioni possono essere configurate con poche azioni. Altri richiedono una configurazione approfondita. Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Se l'applicazione che si sta aggiungendo è semplice, probabilmente non è necessario leggere questo articolo. Se l'applicazione che si sta aggiungendo richiede una configurazione personalizzata per SSO basato su SAML, questo articolo è adatto all'utente.
+L'uso di Azure AD come provider di identità (IdP) e la configurazione di Single Sign-On (SSO) può essere semplice o complesso a seconda dell'applicazione usata. Alcune applicazioni possono essere configurate con poche azioni. Altri richiedono una configurazione approfondita. Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Se l'applicazione che si sta aggiungendo è semplice, probabilmente non è necessario leggere questo articolo. Se l'applicazione che si sta aggiungendo richiede una configurazione personalizzata per SSO basato su SAML, questo articolo è adatto all'utente.
 
 Nella [serie di guide introduttive](view-applications-portal.md)è disponibile un articolo sulla configurazione di Single Sign-on. Si apprenderà come accedere alla pagina di configurazione SAML per un'app. La pagina di configurazione SAML include cinque sezioni. Queste sezioni sono descritte in dettaglio in questo articolo.
 

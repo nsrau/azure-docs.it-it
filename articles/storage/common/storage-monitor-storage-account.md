@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474360"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -141,7 +141,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
     ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Fare clic su **Salva**.
 
-I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
+I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati di log usando uno Storage Explorer come il [Microsoft Azure Storage Explorer](https://storageexplorer.com)o a livello di codice usando la libreria client di archiviazione o PowerShell.
 
 Per informazioni sull'accesso al contenitore $logs, vedere [Registrazione di Analisi archiviazione](storage-analytics-logging.md).
 

@@ -3,12 +3,12 @@ title: Configurare l'analisi di app Web per ASP.NET con Azure Application Insigh
 description: Configurare gli strumenti di analisi delle prestazioni, della disponibilità e del comportamento degli utenti per un sito Web ASP.NET, ospitato in locale o in Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324217"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475533"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -112,7 +112,10 @@ La risorsa di Azure che riceve i dati di telemetria dell'app è identificata da 
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Eseguire l'aggiornamento alle versioni future dell'SDK
-Per eseguire l'aggiornamento a una [nuova versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), aprire **Gestione pacchetti NuGet** e filtrare i pacchetti installati. Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna**.
+
+* [Note sulla versione](./release-notes.md)
+
+Per eseguire l'aggiornamento a una nuova versione dell'SDK, aprire **Gestione pacchetti NuGet**e filtrare i pacchetti installati. Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna**.
 
 Se sono state apportate personalizzazioni a ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento. Successivamente, unire le modifiche nella nuova versione.
 

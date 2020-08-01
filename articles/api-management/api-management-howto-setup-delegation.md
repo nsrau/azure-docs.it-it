@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243206"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461001"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
@@ -49,8 +49,6 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 1. Ricevere una richiesta nel formato seguente:
    
    > *http:\//www.sitoweb.com/apimdelegation?operation=SignIn&returnUrl={URL della pagina di origine}&salt={stringa}&sig={stringa}*
-   > 
-   > 
    
     Parametri di query per l'accesso o l'iscrizione:
    
@@ -84,6 +82,7 @@ Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli a
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 È necessario passare i parametri di query seguenti per le operazioni di gestione di account.
 
@@ -93,6 +92,7 @@ Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli a
 * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delega della sottoscrizione ai prodotti
+
 La delega della sottoscrizione ai prodotti funziona in modo analogo alla delega dell'accesso o dell'iscrizione. Il flusso di lavoro finale sarà il seguente:
 
 1. Lo sviluppatore seleziona un prodotto nel portale per sviluppatori di Gestione API e fa clic sul pulsante Sottoscrivi.
@@ -114,9 +114,9 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
      * "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto)
      * "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto
      * "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta
-   * **productId**: ID del prodotto a cui effettuare la sottoscrizione
+   * **ProductID**: su *Subscribe* : ID del prodotto a cui l'utente ha richiesto la sottoscrizione
    * **subscriptionId**: per *Unsubscribe* e *Renew* - ID della sottoscrizione del prodotto
-   * **userId**: ID dell'utente per il quale viene eseguita la richiesta
+   * **userid**: su *Subscribe* -ID dell'utente per cui viene effettuata la richiesta
    * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
    * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 

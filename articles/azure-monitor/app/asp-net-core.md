@@ -3,12 +3,12 @@ title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft 
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321395"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475516"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -30,7 +30,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 > [!NOTE]
 > ASP.NET Core 3. X richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Applicazione ASP.NET Core funzionante. Se è necessario creare un'applicazione ASP.NET Core, seguire questa [esercitazione ASP.NET Core](/aspnet/core/getting-started/).
 - Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](./create-new-resource.md).
@@ -455,7 +455,9 @@ Questo SDK richiede `HttpContext` e pertanto non funziona in alcuna applicazione
 
 ## <a name="open-source-sdk"></a>SDK open source
 
-[Leggere e contribuire al codice](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Leggere e contribuire al codice](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+
+Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./release-notes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,16 +3,16 @@ title: Scambiare messaggi con il bus di servizio di Azure
 description: Creare attività e flussi di lavoro automatizzati per l'invio e la ricezione di messaggi tramite il bus di servizio di Azure in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283997"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461613"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -31,7 +31,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Uno spazio dei nomi del bus di servizio e un'entità di messaggistica, ad esempio una coda. Questi elementi e l'app per la logica devono usare la stessa sottoscrizione di Azure. Se non si dispone di questi elementi, vedere l'articolo su come [creare uno spazio dei nomi del bus di servizio e una coda](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -45,7 +45,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo spazio dei nomi del bus di servizio.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nella [portale di Azure](https://portal.azure.com)accedere con l'account Azure.
 
 1. Passare allo *spazio dei nomi* del bus di servizio. Nella pagina dello spazio dei nomi selezionare **Criteri di accesso condivisi** in **Impostazioni**. In **attestazioni**verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
 
@@ -54,7 +54,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 1. Ottenere la stringa di connessione per lo spazio dei nomi del bus di servizio. Questa stringa è necessaria quando si forniscono le informazioni di connessione nell'app per la logica.
 
    1. Nel riquadro **criteri di accesso condivisi** selezionare **RootManageSharedAccessKey**.
-   
+
    1. Accanto alla stringa di connessione primaria selezionare il pulsante copia. Salvare la stringa di connessione per usarla successivamente.
 
       ![Copiare la stringa di connessione dello spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -171,4 +171,3 @@ Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
-

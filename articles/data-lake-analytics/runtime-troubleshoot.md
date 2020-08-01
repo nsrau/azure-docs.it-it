@@ -7,12 +7,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128812"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475261"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Informazioni su come risolvere gli errori di runtime di U-SQL a causa di modifiche di runtime
 
@@ -46,11 +46,6 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 Ad esempio, release_20190318_adl_3394512_2 significa che la seconda versione della build 3394512 della versione di runtime di marzo 18 2019 e release_20190318_adl_3394512_private significa una compilazione privata della stessa versione. Nota: la data è correlata al momento in cui è stata eseguita l'ultima archiviazione per tale versione e non necessariamente alla data di rilascio ufficiale.
 
-Di seguito sono riportate le versioni di Runtime attualmente disponibili.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 il valore predefinito corrente
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>Risoluzione dei problemi relativi alla versione di runtime di U-SQL
 

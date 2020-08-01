@@ -3,12 +3,12 @@ title: Pubblicare eventi con domini eventi con griglia di eventi di Azure
 description: Mostra come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423644"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460559"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -78,7 +78,7 @@ Prendere nota del valore di `endpoint` e `id` perché verranno richiesti per ges
 
 ## <a name="manage-access-to-topics"></a>Gestire l'accesso agli argomenti
 
-Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Per l'assegnazione di ruolo si usa il controllo dell'accesso basato sul ruolo per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
+Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](../role-based-access-control/role-assignments-cli.md). Per l'assegnazione di ruolo si usa il controllo dell'accesso basato sul ruolo per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
 
 In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
 

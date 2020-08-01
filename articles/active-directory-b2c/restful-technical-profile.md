@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1875c9147f62619d8961096adb6a0f3986496b41
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203657"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459442"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
-| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
+| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il `None` valore indica che l'API REST è anonima. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
 | AllowInsecureAuthInProduction| No| Indica se `AuthenticationType` può essere impostato su `none` in un ambiente di produzione ( `DeploymentMode` di [TrustFrameworkPolicy](trustframeworkpolicy.md) è impostato su `Production` o non è stato specificato). Valori possibili: true o false (impostazione predefinita). |
 | SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. I verbi HTTP richiamati da ciascuno di essi sono i seguenti:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Attualmente non usato; può essere ignorato. |
@@ -136,7 +136,7 @@ I metadati seguenti possono essere usati per configurare i messaggi di errore vi
 | UserMessageIfDnsResolutionFailed | No | Messaggio di errore per l'eccezione di risoluzione DNS. Se non è specificato, verrà restituito DefaultUserMessageIfRequestFailed. | 
 | UserMessageIfRequestTimeout | No | Messaggio di errore quando si verifica il timeout della connessione. Se non è specificato, verrà restituito DefaultUserMessageIfRequestFailed. | 
 
-## <a name="cryptographic-keys"></a>Chiavi crittografiche
+## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 Se il tipo di autenticazione è impostato su `None`, l'elemento **CryptographicKeys** non viene usato.
 

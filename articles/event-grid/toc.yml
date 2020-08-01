@@ -10,7 +10,7 @@
       href: compare-messaging-services.md
     - name: Note sulla versione
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -93,7 +93,7 @@
     - name: Modelli di Gestione risorse
       href: template-samples.md
     - name: Esempi di codice
-      href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+      href: /samples/browse/?term=Event+Grid
     - name: Criteri di Azure predefiniti
       href: ./policy-samples.md
 - name: Concetti

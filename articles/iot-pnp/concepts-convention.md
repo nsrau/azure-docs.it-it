@@ -7,14 +7,14 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352277"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475669"
 ---
-# <a name="iot-plug-and-play-conventions"></a>Convenzioni Plug and Play
+# <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
 I dispositivi Plug and Play anteprima dovrebbero seguire un set di convenzioni quando scambiano messaggi con un hub Internet. I dispositivi Plug and Play anteprima usano il protocollo MQTT per comunicare con l'hub Internet.
 
@@ -25,11 +25,11 @@ Si descrivono i dati di telemetria, le proprietà e i comandi implementati da un
 
 Per ulteriori informazioni, vedere la pagina relativa ai [componenti plug and Play nei modelli](concepts-components.md).
 
-## <a name="model-discovery"></a>Individuazione dei modelli
+## <a name="identify-the-model"></a>Identificare il modello
 
 Per annunciare il modello implementato, un Plug and Play dispositivo include l'ID del modello nel pacchetto di connessione MQTT aggiungendo `model-id` al `USERNAME` campo.
 
-Per individuare il modello implementato da un dispositivo, un servizio può ottenere l'ID modello da:
+Per identificare il modello implementato da un dispositivo, un servizio può ottenere l'ID modello da:
 
 - Il campo del dispositivo gemello `modelId` .
 - Il campo del gemello digitale `$metadata.$model` .
@@ -251,7 +251,7 @@ Il dispositivo deve confermare la ricezione della proprietà inviando una propri
    :::column-end:::
 :::row-end:::
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 Nessuna interfaccia di componente usa il nome del comando senza prefisso.
 

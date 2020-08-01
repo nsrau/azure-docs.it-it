@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c89bc434d9d67144a95b5c2f23e7664078fe7825
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063838"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474309"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Elemento Microsoft.Common.TextBox dell'interfaccia utente
 
@@ -29,6 +29,7 @@ Controllo che è possibile usare per modificare il testo non formattato.
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -60,6 +61,7 @@ Controllo che è possibile usare per modificare il testo non formattato.
 - La `isValid` proprietà contiene un'espressione che restituisce true o false. All'interno dell'espressione si definisce la condizione che determina se la casella di testo è valida.
 - La `message` proprietà è una stringa da visualizzare quando il valore della casella di testo non riesce a eseguire la convalida.
 - È possibile specificare un valore per `regex` quando `required` è impostato su **false**. In questo scenario non è richiesto un valore perché la convalida della casella di testo abbia esito positivo. Se viene specificato, deve corrispondere al modello di espressione regolare.
+- La `placeholder` proprietà è il testo della guida che scompare quando l'utente inizia la modifica. Se `placeholder` e `defaultValue` sono entrambi definiti, avrà la `defaultValue` precedenza e verrà visualizzato.
 
 ## <a name="example"></a>Esempio
 

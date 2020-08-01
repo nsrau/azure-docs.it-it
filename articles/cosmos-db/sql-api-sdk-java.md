@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323826"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461035"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -256,19 +256,11 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 * SDK con disponibilità generale
 
 ## <a name="release-and-retirement-dates"></a>Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
-
-Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
+Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Tutte le versioni **1.x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**.
-> 
->
-
-> [!WARNING]
-> Tutte le versioni dell'SDK per Java di SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**.
+> Tutte le versioni **1.x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**. Tutte le versioni dell'SDK per Java di SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**.
 > 
 > 
 

@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256965"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460100"
 ---
 # <a name="manage-the-mobility-agent"></a>Gestire l'agente di mobilità 
 
 Quando si usa Azure Site Recovery per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure, si configura l'agente di mobilità nel server. L'agente di mobilità coordina le comunicazioni tra il computer protetto, il server di configurazione/server di elaborazione con scalabilità orizzontale e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione dell'agente di mobilità dopo la distribuzione.
 
+>[!TIP]
+>Per scaricare il programma di installazione per una distribuzione del sistema operativo/Linux specifica, fare riferimento alle istruzioni disponibili [qui](vmware-physical-mobility-service-overview.md#locate-installer-files). Per eseguire l'aggiornamento automatico dal portale, non è necessario scaricare il programma di installazione. [ASR recupera automaticamente il programma di installazione dal server di configurazione e aggiorna l'agente](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,11 +31,11 @@ Quando si usa Azure Site Recovery per il ripristino di emergenza di macchine vir
 
      ![Finestra Elementi replicati](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. Fare clic sulla notifica e in **Aggiornamento agente** selezionare i computer in cui si intende aggiornare il servizio Mobility. Fare quindi clic su **OK**.
+4. Fare clic sulla notifica e in **Aggiornamento agente** selezionare i computer in cui si intende aggiornare il servizio Mobility. Quindi fare clic su **OK**.
 
      ![Elenco delle macchine virtuali in Elementi replicati](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. Viene avviato il processo di aggiornamento del servizio Mobility per ognuna delle macchine virtuali selezionate.
+5. Viene avviato il processo di aggiornamento del servizio Mobility per ognuna delle macchine virtuali selezionate. L'agente Mobility è stato aggiornato alla versione del server di configurazione. Se, ad esempio, il server di configurazione si trova nella versione 9,33, anche l'agente di mobilità in una macchina virtuale protetta viene aggiornato alla versione 9,33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Aggiornare il servizio Mobility tramite uno script di PowerShell in Windows Server
 

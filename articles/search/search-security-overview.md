@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 07/30/2020
+ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475431"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
 Questo articolo descrive le principali funzionalità di sicurezza di Azure ricerca cognitiva che possono proteggere il contenuto e le operazioni. 
 
-+ A livello di archiviazione, la crittografia dei dati inattivi è a livello di piattaforma, ma ricerca cognitiva offre anche un'opzione di "crittografia doppia" per i clienti che vogliono la doppia protezione delle chiavi di proprietà dell'utente e gestite da Microsoft.
++ A livello di archiviazione, la crittografia dei dati inattivi è a livello di piattaforma, ma ricerca cognitiva offre anche chiavi gestite dal cliente tramite Azure Key Vault per un ulteriore livello di crittografia.
 
 + La sicurezza in ingresso protegge l'endpoint del servizio di ricerca a livelli di sicurezza crescenti: dalle chiavi API della richiesta, alle regole in ingresso nel firewall, agli endpoint privati che proteggono completamente il servizio dalla rete Internet pubblica.
 
@@ -124,6 +124,10 @@ Al contrario, i diritti di amministratore sul contenuto ospitato nel servizio, a
 ## <a name="certifications-and-compliance"></a>Certificazioni e conformità
 
 Azure ricerca cognitiva è stato certificato conforme per più standard globali, regionali e specifici del settore sia per il cloud pubblico che per Azure per enti pubblici. Per l'elenco completo, scaricare il [white paper sulle **offerte di conformità Microsoft Azure** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) dalla pagina dei report di controllo ufficiale.
+
+Per garantire la conformità, è possibile usare i [criteri di Azure](../governance/policy/overview.md) per implementare le procedure consigliate per la sicurezza elevata del benchmark di [sicurezza di Azure](../security/benchmarks/introduction.md). Il benchmark di sicurezza di Azure è una raccolta di consigli sulla sicurezza, codificati in controlli di sicurezza che si riferiscono a azioni chiave che è necessario intraprendere per attenuare le minacce ai servizi e ai dati. Attualmente sono presenti 11 controlli di sicurezza, tra cui la [sicurezza della rete](../security/benchmarks/security-control-network-security.md), la [registrazione e il monitoraggio](../security/benchmarks/security-control-logging-monitoring.md)e la [protezione dei dati](../security/benchmarks/security-control-data-protection.md) , per citarne alcuni.
+
+Criteri di Azure è una funzionalità incorporata in Azure che consente di gestire la conformità per più standard, inclusi quelli del benchmark di sicurezza di Azure. Per i benchmark noti, i criteri di Azure offrono definizioni predefinite che consentono di creare i criteri in modo più semplice. Per ricerca cognitiva di Azure è attualmente disponibile una definizione predefinita per la registrazione diagnostica, il che significa che è possibile assegnare un criterio che identifica e corregge tutti i servizi di ricerca che non sono conformi al controllo di sicurezza di registrazione e monitoraggio. Per altre informazioni, vedere [controlli di conformità normativi di criteri di Azure per ricerca cognitiva di Azure](security-controls-policy.md).
 
 ## <a name="see-also"></a>Vedere anche
 
