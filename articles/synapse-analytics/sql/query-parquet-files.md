@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386623"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496237"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file Parquet con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ In questo articolo si apprenderà come scrivere una query con SQL su richiesta (
 
 `OPENROWSET`la funzione consente di leggere il contenuto del file parquet fornendo l'URL del file.
 
-### <a name="reading-parquet-file"></a>Lettura del file parquet
+### <a name="read-parquet-file"></a>Leggi file parquet
 
 Il modo più semplice per visualizzare il contenuto del `PARQUET` file consiste nel fornire l'URL del file per la `OPENROWSET` funzione e specificare parquet `FORMAT` . Se il file è disponibile pubblicamente o se l'identità del Azure AD può accedere a questo file, dovrebbe essere possibile visualizzare il contenuto del file usando la query come quella illustrata nell'esempio seguente:
 
@@ -37,7 +37,7 @@ from openrowset(
 
 Assicurarsi di accedere a questo file. Se il file è protetto con la chiave SAS o con identità Azure personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Uso dell'origine dati
+### <a name="data-source-usage"></a>Utilizzo dell'origine dati
 
 Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione e usare tale origine dati e il percorso relativo del file nella `OPENROWSET` funzione:
 

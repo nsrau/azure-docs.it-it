@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011449"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495183"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -36,7 +37,7 @@ Prima di iniziare, assicurarsi di aver effettuato la registrazione per le antepr
 - [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
 - [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed di modifiche nell'account di origine e il controllo delle versioni dei BLOB nell'account di destinazione.
 

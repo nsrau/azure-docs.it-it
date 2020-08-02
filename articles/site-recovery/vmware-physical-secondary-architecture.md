@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9b16a0edc1549a1b4d8ef5ba53d8b795f6d74e07
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418322"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496968"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architettura per la replica di server VMware o fisici in un sito locale secondario
 
@@ -55,9 +55,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 2. Dopo la replica iniziale, l'agente installato in ogni computer invia le modifiche della replica differenziale al server di elaborazione.
 3. Il server di elaborazione ottimizza i dati e li trasferisce nel server di destinazione master nel sito secondario. Il server di configurazione gestisce il processo di replica.
 
-**Figura 6: Replica da VMware a VMware**
-
-![Da VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagramma che illustra la replica di VM VMware e server fisici in un data center secondario](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327005"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495372"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importare dati in Azure Machine Learning Designer (anteprima)
 
@@ -32,7 +32,7 @@ Consigliamo di usare i [set di dati](concept-data.md#datasets) per importare i d
 
 ### <a name="register-a-dataset"></a>Registrazione di un set di dati
 
-È possibile registrare i set di dati esistenti [a livello di codice con l'SDK](how-to-create-register-datasets.md#use-the-sdk) o [visivamente in Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+È possibile registrare i set di dati esistenti [a livello di codice con l'SDK](how-to-create-register-datasets.md#datasets-sdk) o [visivamente in Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
 
 È anche possibile registrare l'output di qualsiasi modulo della finestra di progettazione come set di dati.
 
@@ -59,7 +59,7 @@ Sebbene sia consigliabile usare i set di dati per importare i dati, è anche pos
 Per informazioni dettagliate su come usare il modulo Import Data, vedere la [pagina di riferimento di Importa dati](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se nel set di dati sono presenti troppe colonne, potrebbe verificarsi il seguente errore: "Convalida non riuscita a causa della limitazione delle dimensioni". Per evitare che si verifichi, [registrare il set di dati nell'interfaccia Set di dati](how-to-create-register-datasets.md#use-the-ui).
+> Se nel set di dati sono presenti troppe colonne, potrebbe verificarsi il seguente errore: "Convalida non riuscita a causa della limitazione delle dimensioni". Per evitare che si verifichi, [registrare il set di dati nell'interfaccia Set di dati](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Origini supportate
 

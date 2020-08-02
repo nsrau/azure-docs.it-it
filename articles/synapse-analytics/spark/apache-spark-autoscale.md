@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075793"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500352"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionare automaticamente i pool di Apache Spark in Azure Synapse Analytics
 
@@ -67,9 +67,9 @@ Il numero iniziale di nodi corrisponderà al numero minimo. Questo valore defini
 
 Il completamento di un'operazione di ridimensionamento può richiedere da 1 a 5 minuti.
 
-### <a name="preparation-for-scaling-down"></a>Preparazione per la riduzione
+### <a name="prepare-for-scaling-down"></a>Preparare la scalabilità verso il basso
 
-Durante il processo di riduzione delle istanze, la funzionalità di scalabilità automatica imposterà i nodi nello stato di disattivazione in modo che non sia possibile avviare nuovi executor su tale nodo.
+Durante il processo di riduzione delle istanze, la scalabilità automatica inserirà i nodi nello stato di rimozione delle autorizzazioni in modo che non sia possibile avviare nuovi esecutori su tale nodo.
 
 I processi in esecuzione continueranno a essere eseguiti e verranno completati. I processi in sospeso rimarranno in attesa di essere pianificati come normali con un numero minore di nodi disponibili.
 

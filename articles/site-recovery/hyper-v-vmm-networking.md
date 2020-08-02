@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021665"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495944"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurare l'indirizzo IP per la connessione a un sito secondario locale dopo il failover
 
@@ -63,11 +63,11 @@ Il grafico seguente mostra le subnet prima e dopo il failover.
 
 **Prima del failover**
 
-![Prima del failover](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagramma che mostra le subnet prima del failover.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Dopo il failover**
 
-![Dopo il failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagramma che mostra le subnet dopo il failover.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Dopo il failover, Site Recovery alloca un indirizzo IP per ogni interfaccia di rete nella macchina virtuale. L'indirizzo viene allocato dal pool di indirizzi IP statici nella rete pertinente, per ogni istanza di macchina virtuale.
 
@@ -118,11 +118,11 @@ In questo esempio sono disponibili diversi indirizzi IP nei siti primari e secon
 
 **Prima del failover**
 
-![Indirizzo IP diverso - Prima del failover](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagramma che mostra diversi indirizzi IP prima del failover.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Dopo il failover**
 
-![Indirizzo IP diverso - Dopo il failover](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagramma che mostra diversi indirizzi IP dopo il failover.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 07/31/2020
 ms.author: b-juche
-ms.openlocfilehash: 6437e25a2d6afc547b03f2b2144df63728116ef4
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 19e02012c31246b3b6b4636ef61154fbade347ce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460236"
+ms.locfileid: "87494622"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -87,6 +87,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni di infrastruttu
 
 * [Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+* [Desktop virtuale Windows su scala Enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>Soluzioni HPC
 

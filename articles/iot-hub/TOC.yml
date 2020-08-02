@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è l'hub IoT di Azure?
       href: about-iot-hub.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Inviare dati di telemetria
@@ -25,8 +25,6 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
-        - name: Xamarin.Forms
-          href: quickstart-send-telemetry-xamarinforms.md
     - name: Controllare un dispositivo
       items:
         - name: Node.js

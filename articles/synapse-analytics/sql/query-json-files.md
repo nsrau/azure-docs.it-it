@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386640"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489725"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file JSON con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Questo articolo illustra come scrivere una query usando SQL su richiesta (antepr
 - File JSON standard in cui più documenti JSON vengono archiviati come matrice JSON.
 - File JSON delimitati da righe, in cui i documenti JSON sono separati da caratteri di nuova riga. Le estensioni comuni per questi tipi di file sono `jsonl` , `ldjson` e `ndjson` .
 
-## <a name="reading-json-documents"></a>Lettura di documenti JSON
+## <a name="read-json-documents"></a>Leggere documenti JSON
 
 Il modo più semplice per vedere il contenuto del file JSON consiste nel fornire l'URL del file per la `OPENROWSET` funzione, specificare CSV `FORMAT` e impostare i valori `0x0b` per `fieldterminator` e `fieldquote` . Se è necessario leggere i file JSON delimitati da righe, questo è sufficiente. Se si dispone di un file JSON classico, è necessario impostare i valori `0x0b` per `rowterminator` . `OPENROWSET`la funzione analizzerà JSON e restituirà tutti i documenti nel formato seguente:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Questa query restituirà ogni documento JSON come riga separata del set di risultati. Verificare che sia possibile accedere a questo file. Se il file è protetto con la chiave SAS o l'identità personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Uso dell'origine dati
+### <a name="data-source-usage"></a>Utilizzo dell'origine dati
 
 Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione e usare tale origine dati e il percorso relativo del file nella `OPENROWSET` funzione:
 

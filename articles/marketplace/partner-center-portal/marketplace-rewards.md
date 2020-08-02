@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 2ae8e170e3f31090b6babfee23e4505f5b736655
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319950"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496016"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -21,7 +21,7 @@ Il ricompense del Marketplace ti aiuta in una fase specifica di crescita, a part
 
 Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita consentono di passare alla fase successiva, consentendo di far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale di Microsoft sfruttando il Marketplace commerciale come piattaforma.
 
-I vantaggi si differenziano in base al fatto che l'offerta sia di [elenco, di valutazione o di transazione](../determine-your-listing-type.md#choose-a-publishing-option).
+I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](../determine-your-listing-type.md#choose-a-call-to-action).
 
 Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, in base all'idoneità.
 

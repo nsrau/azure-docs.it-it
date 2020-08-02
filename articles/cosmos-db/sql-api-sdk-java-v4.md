@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461052"
+ms.locfileid: "87500658"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 per API Core (SQL): note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -63,7 +63,30 @@ Azure Cosmos DB Java SDK v4 per API Core (SQL) combina un'API asincrona e un'API
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
+### <a name="440-beta1-unreleased"></a>4.4.0-beta. 1 (non rilasciato)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>Nuove funzioni e caratteristiche
+* La versione della libreria principale di Reactor è stata aggiornata a `3.3.8.RELEASE` . 
+* Aggiornamento della versione della libreria Reactor-Netty a `0.9.10.RELEASE` . 
+* Aggiornamento della versione della libreria Netty a `4.1.51.Final` . 
+* Sono state aggiunte nuove API di overload per `upsertItem` con `partitionKey` . 
+* Aggiunta del supporto per la traccia di telemetria aperta. 
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Correzione di un problema per cui SSLException viene generata in caso di annullamento di richieste in modalità GATEWAY.
+* Correzione del criterio di ripetizione della limitazione delle risorse per l'esecuzione delle stored procedure.
+* Correzione del problema per cui SDK si blocca nella modalità di DEBUG a livello di log. 
+* Picchi periodici fissi in latenza in modalità diretta. 
+* Correzione di un problema di tempo di inizializzazione client elevato. 
+* Correzione del bug del proxy HTTP durante la personalizzazione del client con la modalità diretta e il gateway. 
+* Il NPE potenziale fisso negli utenti passa opzioni null. 
+* Aggiunta di timeUnit a `requestLatency` nella stringa di diagnostica.
+* La stringa URI duplicata è stata rimossa dalla stringa di diagnostica. 
+* Correzione della stringa di diagnostica nel formato JSON appropriato per le operazioni di punto.
+* Correzione di un problema relativo all' `.single()` operatore che causa l'esplosione della catena del reattore in caso di eccezione non trovata. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Nuove funzioni e caratteristiche
 * Aggiunta dell'API abilitata per la registrazione degli script a `CosmosStoredProcedureRequestOptions` .
 * Il `DirectConnectionConfig` valore predefinito è 1h e il valore predefinito è `idleEndpointTimeout` `connectTimeout` 5S.
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066345"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495608"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -24,7 +24,7 @@ Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non 
 
 ## <a name="foreach-loop"></a>Ciclo "Foreach"
 
-Un ciclo "Foreach" ripete una o più azioni su ogni elemento della matrice e funziona solo nelle matrici. In un ciclo "Foreach" le iterazioni sono eseguite in parallelo. È tuttavia possibile eseguire un'iterazione per volta configurando un [ciclo "Foreach" sequenziale](#sequential-foreach-loop). 
+Un ciclo "Foreach" ripete una o più azioni su ogni elemento della matrice e funziona solo nelle matrici. Di seguito sono riportate alcune considerazioni in caso di uso dei cicli "Foreach":
 
-Di seguito sono riportate alcune considerazioni in caso di uso dei cicli "Foreach":
+* Per impostazione predefinita, le iterazioni in un ciclo "foreach" vengono eseguite allo stesso tempo o in parallelo. Questo comportamento differisce da quello di [Power automatizzate **per ogni** ciclo](/power-automate/apply-to-each) in cui le iterazioni vengono eseguite una alla volta o in sequenza. Tuttavia, è possibile [impostare le iterazioni sequenziali del ciclo "foreach"](#sequential-foreach-loop). Se, ad esempio, si desidera sospendere l'iterazione successiva in un ciclo "foreach" utilizzando l' [azione Delay](../connectors/connectors-native-delay.md), è necessario impostare il ciclo per l'esecuzione sequenziale.
 
-* Nei cicli annidati le iterazioni vengono sempre eseguite in sequenza, non in parallelo. Per eseguire le operazioni in parallelo per gli elementi di un ciclo annidato, creare e [chiamare un'app per la logica figlio](../logic-apps/logic-apps-http-endpoint.md).
+  L'eccezione al comportamento predefinito sono i cicli annidati in cui le iterazioni vengono sempre eseguite in modo sequenziale, non in parallelo. Per eseguire le operazioni in parallelo per gli elementi di un ciclo annidato, creare e [chiamare un'app per la logica figlio](../logic-apps/logic-apps-http-endpoint.md).
 
 * Per ottenere risultati prevedibili dalle operazioni sulle variabili durante ogni iterazione del ciclo, eseguire i cicli in modo sequenziale. Quando ad esempio un ciclo in esecuzione simultanea termina, l'incremento, il decremento e l'aggiunta alle operazioni sulle variabili restituiscono risultati prevedibili. Tuttavia, durante ogni iterazione del ciclo in esecuzione simultanea, queste operazioni potrebbero restituire risultati imprevisti. 
 
@@ -189,7 +189,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Impostare le proprietà della variabile](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome della variabile | 
    | **Tipo** | Integer | Nome del tipo di dati della variabile | 
@@ -230,7 +230,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Proprietà | valore | Descrizione |
+      | Property | Valore | Description |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 

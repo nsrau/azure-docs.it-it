@@ -4,18 +4,18 @@ description: Informazioni sul modo in cui le query con parametri SQL forniscono 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66bc89ef56dd0c2291903d531a4637210abd8df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74870820"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496985"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Query con parametri in Azure Cosmos DB
 
-Cosmos DB supporta le query con parametri espressi dalla nota @ Notation. SQL con parametri fornisce una gestione efficace e l'escape dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
+Azure Cosmos DB supporta le query con parametri espressi dalla nota @ Notation. SQL con parametri fornisce una gestione efficace e l'escape dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
 
 ## <a name="examples"></a>Esempi
 
@@ -27,7 +27,7 @@ Ad esempio, è possibile scrivere una query che accetta `lastName` e `address.st
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-È quindi possibile inviare questa richiesta a Cosmos DB come query JSON con parametri come la seguente:
+È quindi possibile inviare questa richiesta a Azure Cosmos DB come query JSON con parametri come la seguente:
 
 ```sql
     {
@@ -39,7 +39,7 @@ Ad esempio, è possibile scrivere una query che accetta `lastName` e `address.st
     }
 ```
 
-Nell'esempio seguente viene impostato l'argomento TOP con una query con parametri: 
+Nell'esempio seguente viene impostato l'argomento TOP con una query con parametri:
 
 ```sql
     {
@@ -50,8 +50,14 @@ Nell'esempio seguente viene impostato l'argomento TOP con una query con parametr
     }
 ```
 
-I valori dei parametri possono essere qualsiasi JSON valido: stringhe, numeri, valori booleani, valori null, persino matrici o JSON annidato. Poiché Cosmos DB è senza schema, i parametri non vengono convalidati rispetto a qualsiasi tipo.
+I valori dei parametri possono essere qualsiasi JSON valido: stringhe, numeri, valori booleani, valori null, persino matrici o JSON annidato. Poiché Azure Cosmos DB è senza schema, i parametri non vengono convalidati rispetto a qualsiasi tipo.
 
+Ecco alcuni esempi per le query con parametri in ogni SDK Azure Cosmos DB:
+
+- [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L195)
+- [Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L392-L421)
+- [Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts#L58-L79)
+- [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

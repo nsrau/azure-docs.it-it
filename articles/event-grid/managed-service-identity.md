@@ -3,12 +3,12 @@ title: Distribuzione di eventi con l'identità del servizio gestita
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371261"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499824"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -26,7 +26,7 @@ Per prima cosa si vedrà creare un argomento o un dominio con un'identità gesti
 
 ![Abilitare l'identità durante la creazione di un argomento](./media/managed-service-identity/create-topic-identity.png)
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 È anche possibile usare l'interfaccia della riga di comando di Azure per creare un argomento o un dominio con un'identità assegnata dal sistema. Usare il comando `az eventgrid topic create` con il parametro `--identity` impostato su `systemassigned`. Se non si specifica un valore per questo parametro, viene usato il valore predefinito `noidentity`. 
 
 ```azurecli-interactive
@@ -53,7 +53,7 @@ La procedura seguente illustra come abilitare l'identità gestita dal sistema pe
 
 È possibile utilizzare passaggi simili per abilitare un'identità per un dominio di griglia di eventi.
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 Usare il comando `az eventgrid topic update` con `--identity` impostato su `systemassigned` per abilitare un'identità assegnata dal sistema per un argomento esistente. Se si vuole disabilitare l'identità, specificare il valore `noidentity`. 
 
 ```azurecli-interactive
@@ -64,7 +64,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 Il comando per l'aggiornamento di un dominio esistente è simile (`az eventgrid domain update`).
 
 ## <a name="supported-destinations-and-rbac-roles"></a>Destinazioni e ruoli RBAC supportati
-Dopo aver abilitato l'identità per l'argomento o il dominio di griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory. Aggiungere questa identità ai ruoli appropriati per il controllo degli accessi in base al ruolo, in modo che l'argomento o il dominio possa inviare gli eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** per uno spazio dei nomi di hub eventi di Azure in modo che l'argomento di griglia di eventi possa inviare eventi a hub eventi in tale spazio dei nomi. 
+Dopo aver abilitato l'identità per l'argomento o il dominio di griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory. Aggiungere questa identità ai ruoli appropriati di Azure in modo che l'argomento o il dominio possa inviare eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** per uno spazio dei nomi di hub eventi di Azure in modo che l'argomento di griglia di eventi possa inviare eventi a hub eventi in tale spazio dei nomi. 
 
 Griglia di eventi di Azure supporta attualmente gli argomenti o i domini configurati con un'identità gestita assegnata dal sistema per l'invio di eventi alle destinazioni seguenti. Questa tabella elenca anche i ruoli in cui deve trovarsi l'identità per consentire all'argomento di inoltrare eventi.
 
@@ -93,7 +93,7 @@ Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argoment
 
 Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 L'esempio in questa sezione illustra come usare l'interfaccia della riga di comando di Azure per aggiungere un'identità a un ruolo RBAC. I comandi di esempio fanno riferimento ad argomenti di Griglia di eventi, ma sono simili a quelli per i domini di Griglia di eventi. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Ottenere l'ID entità per l'identità di sistema dell'argomento 

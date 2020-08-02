@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080710"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496203"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Supporto delle regole di confronto del database per sinapsi SQL
 
@@ -23,7 +23,7 @@ Le regole di confronto forniscono le impostazioni locali, la tabella codici, il 
 
 È possibile specificare le regole di confronto predefinite del database su richiesta di sinapsi SQL in fase di creazione usando l'istruzione CREATE DATABASE.
 
-## <a name="changing-collation"></a>Modifica delle regole di confronto
+## <a name="change-collation"></a>Modificare le regole di confronto
 Per modificare le regole di confronto predefinite per il database del pool SQL, è sufficiente eseguire l'aggiornamento al campo delle regole di confronto nell'esperienza di provisioning. Se, ad esempio, si desidera modificare le regole di confronto predefinite in maiuscole/minuscole, è sufficiente rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
 Per modificare le regole di confronto predefinite per il database SQL su richiesta, è possibile utilizzare l'istruzione ALTER DATABASE.
@@ -104,7 +104,7 @@ Inoltre, il pool SQL non supporta i tipi di regole di confronto seguenti:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Verifica delle regole di confronto correnti
+## <a name="check-the-current-collation"></a>Controllare le regole di confronto correnti
 Per verificare le regole di confronto correnti per il database, è possibile eseguire il seguente frammento T-SQL:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

@@ -1,14 +1,14 @@
 ---
 title: Configurare l'ambiente per l'operatore Blueprint
-description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito di controllo degli accessi in base al ruolo (RBAC).
+description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito operatore di Azure.
 ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a61997f5e3247e5b42d5e2f07c0fc38cc1b5114d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9390958507a135497c4c48a260a44bc0f4492ffa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864012"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499807"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 

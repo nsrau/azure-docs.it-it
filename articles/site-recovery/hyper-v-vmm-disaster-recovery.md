@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133998"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495973"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
 
@@ -80,7 +80,7 @@ Installare il provider di Azure Site Recovery nei server VMM, rilevare e registr
 4. Scaricare il file di installazione del provider di Azure Site Recovery.
 5. Scaricare la chiave di registrazione, È necessario seguire questa procedura quando si installa il provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
-    ![Impostare l'origine](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Screenshot delle opzioni per scaricare il provider e la chiave di registrazione.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Installare il provider su ogni server VMM. Negli host Hyper-V non è necessario installare niente in modo esplicito.
 
@@ -94,7 +94,7 @@ Installare il provider di Azure Site Recovery nei server VMM, rilevare e registr
 4. In **Installazione** accettare o modificare il percorso predefinito di installazione e quindi fare clic su **Installa**.
 5. Al termine dell'installazione fare clic su **Registra** per registrare il server nell'insieme di credenziali.
 
-    ![Percorso di installazione](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Screenshot della schermata di installazione del provider, incluso il percorso di installazione.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. In **Vault name**verificare il nome dell'insieme di credenziali in cui verrà registrato il server. Fare clic su **Avanti**.
 7. Nella pagina **Connessione del proxy**, specificare la modalità di connessione ad Azure del provider in esecuzione sul server VMM.
    - È possibile specificare che il provider debba connettersi direttamente a Internet o tramite un proxy. Se necessario, specificare le impostazioni proxy.
@@ -115,7 +115,7 @@ Selezionare il server VMM di destinazione e il cloud:
 1. Fare clic su **Preparare l'infrastruttura** > **Destinazione** e selezionare il server VMM di destinazione.
 2. Verranno visualizzati i cloud VMM sincronizzati con Site Recovery. Selezionare il cloud di destinazione.
 
-   ![Destinazione](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Screenshot del server VMM di destinazione e delle selezioni del cloud.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
@@ -138,7 +138,7 @@ Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo
 5. Selezionare **Eliminare la macchina virtuale di replica** per specificare che la macchina virtuale di replica deve essere eliminata nel caso in cui si disabiliti la protezione per la VM di origine. Con questa impostazione abilitata, quando si disabilita la protezione per la macchina virtuale di origine, questa viene rimossa dalla console di Site Recovery, le impostazioni di Site Recovery relative a VMM vengono rimosse dalla console VMM e la replica viene eliminata.
 6. Se si esegue la replica in rete, in **Metodo di replica iniziale** specificare se si preferisce avviare la replica iniziale o pianificarla. Per risparmiare larghezza di banda di rete, è opportuno pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.
 
-     ![Criteri di replica](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Screenshot delle opzioni dei criteri di replica.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. I nuovi criteri vengono associati automaticamente al cloud VMM. In **Criteri di replica** fare clic su **OK**. 
 

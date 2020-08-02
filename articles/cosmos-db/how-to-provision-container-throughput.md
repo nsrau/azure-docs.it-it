@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e02b169cbaf515217b0a9fdbaa844b9022fb4e12
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: fa03ae10239be4ec735a2d450343bf98fde00e70
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422165"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497036"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva standard (manuale) per un contenitore in Azure Cosmos
 
@@ -100,7 +100,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>API di MongoDB
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>API MongoDB
 
 ```csharp
 // refer to MongoDB .NET Driver

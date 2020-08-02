@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383886"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489708"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
 
@@ -31,7 +31,7 @@ Tutte le varianti precedenti verranno descritte di seguito.
 
 `OPENROWSET`la funzione consente di leggere il contenuto del file CSV fornendo l'URL del file.
 
-### <a name="reading-csv-file"></a>Lettura del file CSV
+### <a name="read-a-csv-file"></a>Leggi un file CSV
 
 Il modo più semplice per visualizzare il contenuto del `CSV` file consiste nel fornire l'URL del file per la `OPENROWSET` funzione, specificare csv `FORMAT` e 2,0 `PARSER_VERSION` . Se il file è disponibile pubblicamente o se l'identità del Azure AD può accedere a questo file, dovrebbe essere possibile visualizzare il contenuto del file usando la query come quella illustrata nell'esempio seguente:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 Consente `firstrow` di ignorare la prima riga del file CSV che rappresenta l'intestazione in questo caso. Verificare che sia possibile accedere a questo file. Se il file è protetto con la chiave SAS o l'identità personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Uso dell'origine dati
+### <a name="data-source-usage"></a>Utilizzo dell'origine dati
 
 Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Questa query restituisce gli stessi risultati se il parametro FIELDQUOTE è stato omesso, poiché il valore predefinito per FIELDQUOTE è una virgoletta doppia.
 
-## <a name="escaping-characters"></a>Uso di caratteri di escape
+## <a name="escape-characters"></a>Caratteri di escape
 
 La query seguente mostra come leggere un file con riga di intestazione, nuova riga in stile UNIX, colonne delimitate da virgole e l'uso di un carattere di escape per il delimitatore di campo (virgola) all'interno dei valori. Si noti la posizione diversa del file rispetto agli altri esempi.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Questa query avrà esito negativo se il parametro ESCAPECHAR non è specificato perché la virgola in "Slov,enia" verrebbe considerata come delimitatore di campo anziché come parte del nome del Paese/dell'area. "Slov,enia" verrebbe considerato come composto da due colonne. La riga specifica avrà quindi una colonna in più rispetto alle altre righe e una colonna in più rispetto a quelle definite nella clausola WITH.
 
-### <a name="escaping-quoting-characters"></a>Escape di caratteri di virgolette
+### <a name="escape-quoting-characters"></a>Caratteri di escape per virgolette
 
 Nella query seguente viene illustrato come leggere un file con una riga di intestazione, con una nuova riga di tipo UNIX, colonne delimitate da virgole e un carattere di virgolette doppie con caratteri di escape all'interno dei valori. Si noti la posizione diversa del file rispetto agli altri esempi.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Restituzione di subset di colonne
+## <a name="return-a-subset-of-columns"></a>Restituisce un subset di colonne
 
 Fino ad ora è stato specificato lo schema del file CSV usando il parametro WITH ed elencando tutte le colonne. È possibile specificare solo le colonne effettivamente necessarie nella query usando un numero ordinale per ogni colonna necessaria. Si ometteranno anche le colonne di nessun interesse.
 

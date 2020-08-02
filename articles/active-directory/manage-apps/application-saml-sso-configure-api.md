@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4dd6a40ed0fe0c4ec168300b3688fc3ba5cacbb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273423"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499144"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizzare la configurazione dell'accesso SSO basato su SAML per l'app con l'API Microsoft Graph
 
@@ -194,6 +194,8 @@ Usare la risposta della chiamata precedente per recuperare e salvare l'ID oggett
 
 In questo esempio si imposterà `saml` come modalità di accesso Single Sign-On nel [tipo di risorsa servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Altre proprietà dell'accesso SSO SAML che è possibile configurare sono: `notificationEmailAddresses`, `loginUrl` e `samlSingleSignOnSettings.relayState`
 
+Prima che questa query funzioni, è necessario fornire il consenso sulla scheda **modifica autorizzazioni** in Graph Explorer. Assicurarsi anche di usare l'ID **servicePrincipal** ottenuto in precedenza.
+
 #### <a name="request"></a>Richiesta
 
 <!-- {
@@ -224,6 +226,8 @@ HTTP/1.1 204
 ### <a name="set-basic-saml-urls-such-as-identifier-reply-url-sign-on-url"></a>Impostare gli URL SAML di base, ad esempio identificatore, URL di risposta, URL di accesso
 
 Impostare l'identificatore e gli URL di risposta per AWS nell'oggetto applicazione.
+
+Assicurarsi di usare l'ID **applicazione** ottenuto in precedenza.
 
 #### <a name="request"></a>Richiesta
 

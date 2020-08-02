@@ -7,21 +7,21 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460389"
+ms.locfileid: "87479813"
 ---
 # <a name="payout-summary-overview"></a>Panoramica del riepilogo proventi
 
 Il [riepilogo proventi](./payout-summary.md) presenta informazioni dettagliate sulle entrate realizzate con Microsoft. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
 
-Se si vendono offerte in Azure Marketplace, nel riepilogo proventi verranno visualizzate anche informazioni sui pagamenti andati a buon fine. Per altre informazioni sui pagamenti di Azure Marketplace, vedere [Criteri di partecipazione ad Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Se si vendono offerte in Azure Marketplace, nel riepilogo proventi verranno visualizzate anche informazioni sui pagamenti andati a buon fine. Per altre informazioni sui pagamenti di Azure Marketplace, vedere [Criteri di partecipazione ad Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Per poter beneficiare del pagamento, gli introiti devono raggiungere la [soglia di pagamento](./payment-thresholds-methods-timeframes.md) di 50 dollari statunitensi. Per informazioni dettagliate sulla soglia di pagamento, vedere il [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> Per poter beneficiare del pagamento, gli introiti devono raggiungere la [soglia di pagamento](./payment-thresholds-methods-timeframes.md) di 50 dollari statunitensi. Per informazioni dettagliate sulla soglia di pagamento, vedere il [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Per visualizzare i dettagli relativi ai pagamenti, accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home) e selezionare l'icona del payout nell'angolo superiore destro della schermata:
 

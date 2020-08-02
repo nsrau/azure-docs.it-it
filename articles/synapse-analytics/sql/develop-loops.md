@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964992"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495302"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Usare i cicli T-SQL in sinapsi SQL
 Questo articolo fornisce suggerimenti essenziali per l'uso di cicli T-SQL, la sostituzione di cursori e lo sviluppo di soluzioni correlate con il pool SQL in sinapsi SQL.
@@ -26,7 +26,7 @@ Sinapsi SQL supporta il ciclo [while](https://docs.microsoft.com/sql/t-sql/langu
 
 I cicli nel pool SQL sono utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Pertanto, i cicli [WHILE] rappresentano un'ottima alternativa per la sostituzione dei cursori.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Sostituzione di cursori nel pool SQL
+## <a name="replace-cursors-in-sql-pool"></a>Sostituisci cursori nel pool SQL
 
 Prima di immergersi in, è necessario prendere in considerazione la domanda seguente: "è possibile riscrivere il cursore per l'uso di operazioni basate su set?" In molti casi, la risposta è sì ed è spesso l'approccio migliore. Un'operazione basata su set viene spesso eseguita più velocemente rispetto a un approccio iterativo riga per riga.
 

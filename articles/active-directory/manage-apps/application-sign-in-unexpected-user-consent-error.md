@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763755"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499501"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
@@ -38,6 +38,8 @@ Perché un utente possa concedere le autorizzazioni richieste da un'applicazione
 Questo errore si verifica quando un utente non amministratore della società tenta di utilizzare un'applicazione che richiede autorizzazioni che solo un amministratore può concedere. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
 
 Questo errore può verificarsi anche quando si impedisce a un utente di acconsentire a un'applicazione a causa del rilevamento da parte di Microsoft che la richiesta di autorizzazioni è rischiosa. In questo caso, verrà registrato anche un evento di controllo con una categoria "ApplicationManagement", un tipo di attività di "consenso per l'applicazione" e il motivo dello stato "applicazione rischiosa rilevata".
+
+Un altro scenario in cui questo errore potrebbe verificarsi è quando è richiesta l'assegnazione dell'utente per l'applicazione, ma non è stato fornito alcun consenso da parte dell'amministratore. In questo caso, l'amministratore deve innanzitutto fornire il consenso dell'amministratore.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Errore dovuto a criteri che impediscono di concedere le autorizzazioni
 * **AADSTS90093:** un amministratore di &lt;NomeVisualizzatoTenant&gt; ha configurato criteri che impediscono di concedere a &lt;nome dell'app&gt; le autorizzazioni che richiede. Contattare un amministratore di &lt;NomeVisualizzatoTenant&gt; che possa concedere le autorizzazioni richieste dall'app per conto dell'utente.

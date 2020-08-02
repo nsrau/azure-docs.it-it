@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430987"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497053"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore in Azure Cosmos DB
 
@@ -244,11 +244,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="cassandra-api"></a>API Cassandra
 
-È possibile eseguire il provisioning degli account Azure Cosmos DB per API Cassandra per la scalabilità automatica usando i [comandi di CQL](manage-scale-cassandra.md#use-autoscale), l'interfaccia della riga di comando di [Azure](cli-samples.md) [Azure Resource Manager](resource-manager-samples.md)o
+È possibile eseguire il provisioning degli account Azure Cosmos DB per API Cassandra per la scalabilità automatica usando i [comandi di CQL](manage-scale-cassandra.md#use-autoscale), l'interfaccia della riga di comando di [Azure](cli-samples.md), i [modelli Azure Resource Manager](resource-manager-samples.md) [Azure PowerShell](powershell-samples.md)
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
 
-È possibile eseguire il provisioning degli account Azure Cosmos DB per l'API MongoDB per la scalabilità automatica usando i [comandi di estensione MongoDB](mongodb-custom-commands.md), l'interfaccia della riga di comando di [Azure](cli-samples.md) [Azure Resource Manager](resource-manager-samples.md)o
+È possibile eseguire il provisioning degli account di Azure Cosmos DB per l'API MongoDB per la scalabilità automatica usando i [comandi di estensione MongoDB](mongodb-custom-commands.md), l'interfaccia della riga di comando di [Azure](cli-samples.md), [Azure Resource Manager](resource-manager-samples.md) [Azure PowerShell](powershell-samples.md)
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -257,6 +257,10 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure può essere usata per eseguire il provisioning della velocità effettiva di ridimensionamento automatico in un database o in risorse a livello Azure Cosmos DB di Per esempi, vedere [esempi dell'interfaccia della riga di comando di Azure per Azure Cosmos DB](cli-samples.md).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell può essere usato per eseguire il provisioning della velocità effettiva di ridimensionamento automatico in un database o in risorse a livello di contenitore per tutte le API Azure Cosmos DB Per esempi, vedere [Azure PowerShell Samples for Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

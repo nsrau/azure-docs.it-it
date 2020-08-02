@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: edcecefab6243645c47af0ec1b8dd4b26fe22bb7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131821"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501117"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Baseline della sicurezza di Azure per Cosmos DB
 
@@ -324,7 +324,7 @@ Come accedere alle chiavi a livello di codice usando Azure Active Directory:http
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
-**Linee guida**: non applicabile; Azure Cosmos DB non supporta gli account di amministratore.  Tutti gli accessi sono integrati con Azure Active Directory e il controllo degli accessi in base al ruolo di Azure (RBAC).
+**Linee guida**: non applicabile; Azure Cosmos DB non supporta gli account di amministratore.  Tutti gli accessi sono integrati con Azure Active Directory e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 
 

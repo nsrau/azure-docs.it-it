@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183976"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489538"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Pagina autocertificata ( `selfasserted` )
+  - Correzioni per la localizzazione e l'accessibilità.
+- Pagina SSP unificata ( `unifiedssp` )
+  - Aggiunta del supporto per più collegamenti di iscrizione.
+  - Aggiunta del supporto per la convalida dell'input dell'utente in base alle regole del predicato definite nei criteri.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
   - Supporto per la conversione di Chrome
 - Pagine unificate e autocertificate
   - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
+- Pagina autocertificata
+  - È stato aggiunto un ritardo di convalida dell'input utente configurabile per migliorare l'esperienza utente.
 
 ## <a name="110"></a>1.1.0
 

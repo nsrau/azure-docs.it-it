@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto FedRAMP High
 description: Panoramica dell'esempio di progetto FedRAMP High. Questo esempio di progetto consente ai clienti di valutare specifici controlli FedRAMP High.
-ms.date: 01/31/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 3a26c6f8e781a1bb2ff30ca9e2c179bcda8eadec
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: a8761d02d089013bccd31a9968367b26c3d22f87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517117"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495863"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Panoramica dell'esempio di progetto FedRAMP High
 

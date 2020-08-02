@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655748"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500794"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Baseline di sicurezza di Azure per Database di Azure per PostgreSQL - Server singolo
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o Firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
 **Indicazioni**: configurare Collegamento privato per Database di Azure per PostgreSQL con endpoint privati. Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un endpoint privato. Collegamento privato di Azure in pratica porta i servizi di Azure all'interno della rete virtuale privata. Il traffico tra la rete virtuale e l'istanza di PostgreSQL attraversa la rete backbone Microsoft.
 
@@ -42,11 +42,11 @@ Come configurare le regole del firewall di Database di Azure per PostgreSQL: htt
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
-**Indicazioni**: quando l'istanza di Database di Azure per PostgreSQL è protetta per un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, identificare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
+**Indicazioni**: quando l'istanza di Database di Azure per PostgreSQL è protetta per un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
 Come configurare Collegamento privato per Database di Azure per PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
@@ -56,7 +56,7 @@ Come abilitare e usare Analisi del traffico: https://docs.microsoft.com/azure/ne
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteggere le applicazioni Web critiche
 
@@ -64,7 +64,7 @@ Come abilitare e usare Analisi del traffico: https://docs.microsoft.com/azure/ne
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: negare le comunicazioni con indirizzi IP dannosi noti
 
@@ -78,7 +78,7 @@ Come configurare Protezione DDoS: https://docs.microsoft.com/azure/virtual-netwo
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: registrare i pacchetti di rete e i log dei flussi
 
@@ -90,7 +90,7 @@ Come abilitare e usare Analisi del traffico: https://docs.microsoft.com/azure/ne
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: distribuire sistemi di rilevamento intrusioni/prevenzione intrusioni (IDS/IPS) basati sulla rete
 
@@ -100,7 +100,7 @@ Come configurare Advanced Threat Protection per Database di Azure per PostgreSQL
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: gestire il traffico verso le applicazioni Web
 
@@ -108,7 +108,7 @@ Come configurare Advanced Threat Protection per Database di Azure per PostgreSQL
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
@@ -122,7 +122,7 @@ Informazioni sull'uso dei tag di servizio per Database di Azure per PostgreSQL: 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: mantenere configurazioni di sicurezza standard per i dispositivi di rete
 
@@ -140,7 +140,7 @@ Come creare un progetto di Azure: https://docs.microsoft.com/azure/governance/bl
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
@@ -154,7 +154,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
@@ -166,7 +166,7 @@ Come creare avvisi in Monitoraggio di Azure: https://docs.microsoft.com/azure/az
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
@@ -179,7 +179,7 @@ Come creare avvisi in Monitoraggio di Azure: https://docs.microsoft.com/azure/az
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
@@ -193,7 +193,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
@@ -207,7 +207,7 @@ Come configurare le impostazioni di diagnostica per il log attività di Azure: h
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
@@ -216,7 +216,7 @@ Come configurare le impostazioni di diagnostica per il log attività di Azure: h
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
@@ -228,7 +228,7 @@ Archiviazione dei log delle risorse in un account di archiviazione di Azure: htt
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
 
@@ -242,7 +242,7 @@ Come eseguire query personalizzate in Monitoraggio di Azure: https://docs.micros
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: abilitare gli avvisi per le attività anomale
 
@@ -262,7 +262,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
@@ -270,7 +270,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: abilitare la registrazione delle query DNS
 
@@ -278,7 +278,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
@@ -306,7 +306,7 @@ Informazioni sulla gestione dell'accesso per Database di Azure per PostgreSQL: h
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
@@ -320,7 +320,7 @@ Come aggiornare la password amministratore: https://docs.microsoft.com/azure/pos
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
@@ -333,7 +333,7 @@ Informazioni su come creare utenti amministratore in Database di Azure per Postg
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
 
@@ -349,7 +349,7 @@ Informazioni su SSO con Azure AD: https://docs.microsoft.com/azure/active-direct
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
@@ -363,7 +363,7 @@ Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure: https://d
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
 
@@ -375,7 +375,7 @@ Come abilitare MFA in Azure: https://docs.microsoft.com/azure/active-directory/a
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: registrare e inviare avvisi per le attività sospette dagli account amministrativi
 
@@ -393,7 +393,7 @@ Informazioni sui rilevamenti dei rischi di Azure AD: https://docs.microsoft.com/
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: gestire le risorse di Azure solo dalle posizioni approvate
 
@@ -403,7 +403,7 @@ Come configurare località denominate in Azure: https://docs.microsoft.com/azure
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
@@ -417,7 +417,7 @@ Usare Azure Active Directory per l'autenticazione con Database di Azure per Post
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare con regolarità l'accesso degli utenti
 
@@ -431,7 +431,7 @@ Esaminare gli utenti PostgreSQL e i ruoli assegnati: https://www.postgresql.org/
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: monitorare i tentativi di accesso agli account disattivati
 
@@ -445,7 +445,7 @@ Come integrare i log attività di Azure in Monitoraggio di Azure: https://docs.m
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
 
@@ -465,7 +465,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -475,7 +475,7 @@ Elenco dei servizi Customer Lockbox supportati: https://docs.microsoft.com/azure
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -489,7 +489,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -521,7 +521,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
@@ -533,13 +533,13 @@ Come configurare la crittografia in transito per Database di Azure per PostgreSQ
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
 **Indicazioni**: le funzionalità di identificazione, classificazione e prevenzione della perdita dei dati non sono ancora disponibili per Database di Azure per PostgreSQL. Implementare una soluzione di terze parti, se necessaria ai fini della conformità.
 
-Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per impedire la perdita e l'esposizione dei dati dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
+Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
 Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -549,7 +549,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Indicazioni**: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso al piano di controllo di Database di Azure per PostgreSQL, ad esempio il portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo non influisce sulle autorizzazioni utente all'interno del database.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per PostgreSQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo non influisce sulle autorizzazioni utente all'interno del database.
 
 Come configurare il controllo degli accessi in base al ruolo di Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -557,7 +557,7 @@ Come configurare l'accesso utente con SQL per Database di Azure per PostgreSQL: 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
@@ -569,7 +569,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
 
@@ -586,7 +586,7 @@ Informazioni sulla crittografia dei dati inattivi per Database di Azure per Post
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche apportate alle risorse di Azure critiche
 
@@ -596,7 +596,7 @@ Come creare avvisi per gli eventi del log attività di Azure: https://docs.micro
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
@@ -610,7 +610,7 @@ Copertura delle funzionalità per i servizi PaaS di Azure nel Centro sicurezza d
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
@@ -618,7 +618,7 @@ Copertura delle funzionalità per i servizi PaaS di Azure nel Centro sicurezza d
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: distribuire una soluzione di gestione delle patch automatizzata per il software di terze parti
 
@@ -626,7 +626,7 @@ Copertura delle funzionalità per i servizi PaaS di Azure nel Centro sicurezza d
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: confrontare le analisi di vulnerabilità back-to-back
 
@@ -642,7 +642,7 @@ Copertura delle funzionalità per i servizi PaaS di Azure nel Centro sicurezza d
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Microsoft
+**Responsabilità**: Microsoft
 
 ## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
@@ -660,7 +660,7 @@ Informazioni sul controllo degli accessi in base al ruolo di Azure: https://docs
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: mantenere i metadati degli asset
 
@@ -670,7 +670,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
@@ -684,7 +684,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: mantenere un inventario delle risorse di Azure approvate e dei titoli software
 
@@ -692,11 +692,11 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare le risorse di Azure non approvate
 
-**Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:
 
 - Tipi di risorse non consentiti
 
@@ -710,7 +710,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
@@ -718,7 +718,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -726,7 +726,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -734,11 +734,11 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
-**Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:
 
 - Tipi di risorse non consentiti
 
@@ -750,7 +750,7 @@ Come negare un tipo di risorsa specifico con Criteri di Azure: https://docs.micr
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="610-implement-approved-application-list"></a>6.10: implementare l'elenco di applicazioni approvate
 
@@ -758,7 +758,7 @@ Come negare un tipo di risorsa specifico con Criteri di Azure: https://docs.micr
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: limitare la capacità degli utenti di interagire con Azure Resource Manager tramite script
 
@@ -768,7 +768,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
 
@@ -776,7 +776,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separare fisicamente o logicamente le applicazioni ad alto rischio
 
@@ -784,7 +784,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
@@ -804,7 +804,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
@@ -812,7 +812,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
@@ -824,7 +824,7 @@ Informazioni sugli effetti di Criteri di Azure: https://docs.microsoft.com/azure
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: garantire la sicurezza delle configurazioni del sistema operativo
 
@@ -832,7 +832,7 @@ Informazioni sugli effetti di Criteri di Azure: https://docs.microsoft.com/azure
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -844,7 +844,7 @@ Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
@@ -852,7 +852,7 @@ Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: distribuire strumenti di gestione della configurazione di sistema
 
@@ -862,7 +862,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: distribuire gli strumenti di gestione della configurazione di sistema per i sistemi operativi
 
@@ -870,7 +870,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: implementare il monitoraggio automatizzato della configurazione per i servizi di Azure
 
@@ -880,7 +880,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
@@ -902,7 +902,7 @@ Come fornire l'autenticazione di Key Vault con un'identità gestita: https://doc
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
@@ -918,17 +918,17 @@ Come eseguire l'integrazione con identità gestite di Azure: https://docs.micros
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
-**Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre inviterà a trasferire le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
+**Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
 
 Come impostare Credential Scanner: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="malware-defense"></a>Difesa da malware
 
@@ -943,7 +943,7 @@ Il software antimalware Microsoft è abilitato nell'host sottostante che support
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
@@ -953,7 +953,7 @@ Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>Passaggio 8.3: assicurarsi che le firme e il software antimalware siano aggiornati
 
@@ -979,7 +979,7 @@ Informazioni sulla configurazione iniziale di Database di Azure per PostgreSQL: 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: eseguire backup completi del sistema e il backup di tutte le chiavi gestite dal cliente
 
@@ -993,7 +993,7 @@ Come eseguire il backup di chiavi di Key Vault: https://docs.microsoft.com/power
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
 
@@ -1007,7 +1007,7 @@ Come eseguire il backup di un server in Database di Azure per PostgreSQL: https:
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
@@ -1017,7 +1017,7 @@ Informazioni sul backup e sul ripristino in Database di Azure per PostgreSQL: ht
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
@@ -1037,27 +1037,27 @@ Il cliente può inoltre sfruttare la guida alla gestione degli eventi imprevisti
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare l'assegnazione della priorità, ovvero l'individuazione degli avvisi che devono essere analizzati per primi. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
+**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
 
-Inoltre, contrassegnare chiaramente le sottoscrizioni (ad esempio, di produzione o non di produzione) e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure.
+Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione) e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure.
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Indicazioni**: con cadenza regolare, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi. Identificare i punti deboli e le lacune e rivedere il piano secondo le necessità.
+**Indicazioni**: con cadenza regolare, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
 Fare riferimento alla pubblicazione NIST: Guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
@@ -1067,11 +1067,11 @@ Come impostare il contatto di sicurezza del Centro sicurezza di Azure: https://d
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
-**Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuativo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi in Sentinel.
+**Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi in Sentinel.
 
 Come configurare l'esportazione continua: https://docs.microsoft.com/azure/security-center/continuous-export
 
@@ -1079,7 +1079,7 @@ Come trasmettere gli avvisi in Azure Sentinel: https://docs.microsoft.com/azure/
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
@@ -1089,7 +1089,7 @@ Come configurare l'automazione del flusso di lavoro e le app per la logica: http
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
@@ -1103,7 +1103,7 @@ Come configurare l'automazione del flusso di lavoro e le app per la logica: http
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ## <a name="next-steps"></a>Passaggi successivi
 

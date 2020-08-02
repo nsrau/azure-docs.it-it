@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281549"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497597"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -47,8 +47,22 @@ Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di cri
 
 È possibile pianificare l'uso automatico degli snapshot del volume usando i criteri di snapshot. È anche possibile modificare i criteri di snapshot in base alle esigenze o eliminare un criterio di snapshot non più necessario.  
 
-> [!IMPORTANT] 
-> Per utilizzare la funzionalità dei criteri di snapshot è necessario l'elenco elementi consentiti Inviare un messaggio di posta elettronica a anffeedback@microsoft.com con l'ID sottoscrizione per richiedere questa funzionalità.
+### <a name="register-the-feature"></a>Registrare la funzionalità
+
+1. La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Verificare lo stato della registrazione della funzionalità: 
+
+    > [!NOTE]
+    > Il **RegistrationState** potrebbe trovarsi nello `Registering` stato per alcuni minuti prima di modificare in `Registered` . Prima di continuare, attendere che lo stato sia **registrato** .
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Creare un criterio di snapshot 
 
@@ -144,7 +158,7 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
 
     ![Ripristino in un nuovo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Fare clic su **Verifica + crea**.  Fare clic su **Crea**.   
+4. Fare clic su **Verifica + crea**.  Scegliere **Crea**.   
     Il nuovo volume usa lo stesso protocollo usato dallo snapshot.   
     Il nuovo volume in cui viene ripristinato lo snapshot viene visualizzato nel pannello Volumi.
 

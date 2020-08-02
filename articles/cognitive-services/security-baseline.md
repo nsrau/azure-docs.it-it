@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498345"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Baseline della sicurezza di Azure per servizi cognitivi
 
@@ -28,7 +28,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
-**Linee guida**: Servizi cognitivi di Azure fornisce un modello di sicurezza a più livelli. Questo modello consente di proteggere gli account di servizi cognitivi in un subset specifico di reti. Quando vengono configurate le regole di rete, solo le applicazioni che richiedono dati tramite il set di reti specificato possono accedere all'account. È possibile limitare l'accesso alle risorse con il filtro delle richieste, consentendo solo le richieste che hanno origine da indirizzi IP, intervalli IP o da un elenco di subnet in reti virtuali di Azure specificati.
+**Linee guida**: Servizi cognitivi di Azure fornisce un modello di sicurezza a più livelli. Questo modello consente di proteggere gli account di Servizi cognitivi in un subset specifico di reti. Quando vengono configurate le regole di rete, solo le applicazioni che richiedono dati tramite il set di reti specificato possono accedere all'account. È possibile limitare l'accesso alle risorse con il filtro delle richieste, consentendo solo le richieste che hanno origine da indirizzi IP, intervalli IP o da un elenco di subnet in reti virtuali di Azure specificati.
 
 Il supporto per la rete virtuale e l'endpoint di servizio per servizi cognitivi è limitato a un set specifico di aree.
 
@@ -73,7 +73,7 @@ Si noti inoltre che è necessario disabilitare l'ispezione approfondita dei pacc
 **Linee guida**: quando le macchine virtuali vengono distribuite nella stessa rete virtuale del contenitore dei servizi cognitivi di Azure, definire e implementare configurazioni di sicurezza standard per le risorse di rete correlate con criteri di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi "Microsoft. CognitiveServices" e "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete della cache di Azure per le istanze di Redis. È anche possibile usare le definizioni di criteri predefinite, ad esempio:
 - Lo standard di protezione DDoS deve essere abilitato
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 Se si usano servizi cognitivi all'interno di un contenitore, è possibile aumentare la distribuzione del contenitore con una soluzione di firewall per applicazioni Web front-end che filtra il traffico dannoso e supporta la crittografia TLS end-to-end, mantenendo l'endpoint contenitore privato e sicuro.
 

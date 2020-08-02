@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 867babcf7160ce6e589197be0a3186e5a2156238
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423576"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489878"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ Per la maggior parte degli esempi nella documentazione e negli esempi viene usat
 
 ## <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 
-Per utilizzare l'autenticazione dell'entità servizio (SP), è necessario innanzitutto creare il servizio SP e concedergli l'accesso all'area di lavoro. Come indicato in precedenza, il controllo degli accessi in base al ruolo di Azure (RBAC) viene usato per controllare l'accesso, quindi è necessario decidere anche quale accesso concedere a SP.
+Per utilizzare l'autenticazione dell'entità servizio (SP), è necessario innanzitutto creare il servizio SP e concedergli l'accesso all'area di lavoro. Come indicato in precedenza, il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) viene usato per controllare l'accesso, quindi è necessario decidere anche quale accesso concedere a SP.
 
 > [!IMPORTANT]
 > Quando si usa un'entità servizio, concedere a tale entità l' __accesso minimo necessario per l'attività__ per cui viene usato. Non è ad esempio possibile concedere a un proprietario dell'entità servizio o a un accesso collaboratore se ne viene usato solo uno per la lettura del token di accesso per una distribuzione Web.

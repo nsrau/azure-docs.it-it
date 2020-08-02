@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461800"
+ms.locfileid: "87500964"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Ottimizzare l'elaborazione dei dati con Azure Machine Learning
 
@@ -64,7 +64,6 @@ Se le indicazioni precedenti non sono sufficienti e non è possibile ottenere un
 * Usare un Framework come `Spark` o `Dask` per elaborare i dati di memoria insufficiente. In questa opzione il frame di frame viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale raccolto alla fine.  
 
 * Scalabilità orizzontale in un cluster con un Framework distribuito. In questa opzione, i carichi di elaborazione dei dati vengono suddivisi ed elaborati in più CPU che lavorano in parallelo, con il risultato finale raccolto alla fine.
-
 
 ### <a name="recommended-distributed-frameworks"></a>Framework distribuiti consigliati
 

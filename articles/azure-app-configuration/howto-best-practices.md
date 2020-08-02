@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367521"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500301"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
@@ -86,6 +86,10 @@ Richieste eccessive alla configurazione dell'app possono comportare una limitazi
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importazione dei dati di configurazione nella configurazione dell'app
 
 La configurazione dell'app offre la possibilità di [importare](https://aka.ms/azconfig-importexport1) in blocco le impostazioni di configurazione dai file di configurazione correnti usando il portale di Azure o l'interfaccia della riga di comando. È anche possibile usare le stesse opzioni per esportare i valori dalla configurazione dell'app, ad esempio tra archivi correlati. Se si vuole configurare una sincronizzazione continuativa con il repository GitHub, è possibile usare l' [azione GitHub](https://aka.ms/azconfig-gha2) per poter continuare a usare le procedure di controllo del codice sorgente esistenti sfruttando al contempo i vantaggi della configurazione dell'app.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Distribuzione in più aree nella configurazione dell'app
+
+La configurazione dell'app è servizio a livello di area. Per le applicazioni con diverse configurazioni per area, l'archiviazione di queste configurazioni in un'istanza può creare un singolo punto di errore. La distribuzione di una sola istanza di configurazione dell'app per area geografica in più aree può essere un'opzione migliore. Può essere utile per il ripristino di emergenza a livello di area, le prestazioni e il silo di sicurezza. La configurazione in base all'area migliora anche la latenza e USA quote di limitazione separate, poiché la limitazione è per istanza. Per applicare la mitigazione del ripristino di emergenza, è possibile usare [più archivi di configurazione](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
