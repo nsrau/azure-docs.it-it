@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 33c3cf4b9da33b15d7a7d1c14b0c3fb892b60121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317808"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503566"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
 ## <a name="transactions-by-publishing-option"></a>Transazioni per opzione di pubblicazione
 
-L'editore o Microsoft è responsabile della gestione delle transazioni delle licenze software per le offerte nel marketplace commerciale. L'opzione di pubblicazione scelta per l'offerta determinerà chi gestisce la transazione. Vedere [Determinare l'opzione di pubblicazione](./determine-your-listing-type.md#choose-a-publishing-option) per la disponibilità e le spiegazioni di ogni opzione di pubblicazione.
+L'editore o Microsoft è responsabile della gestione delle transazioni delle licenze software per le offerte nel marketplace commerciale. L'opzione di pubblicazione scelta per l'offerta determinerà chi gestisce la transazione. Vedere [Determinare l'opzione di pubblicazione](./determine-your-listing-type.md#choose-a-call-to-action) per la disponibilità e le spiegazioni di ogni opzione di pubblicazione.
 
 ### <a name="list-trial-and-byol-publishing-options"></a>Opzioni di pubblicazione di inserzioni, valutazioni e BYOL
 
@@ -136,7 +136,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 |Microsoft paga l'80% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft paga il 90% del costo di licenza   |   $ 80,00 al mese <br> \* $ 90,00 al mese    |
 |Microsoft trattiene il 20% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft trattiene il 10% del costo di licenza.  |  $ 20,00 al mese <br> \* 10,00 $     |
 
-Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incetivized. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica a SaaS incentivate, VM, app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
+Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica a SaaS incentivate, VM, app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
@@ -163,7 +163,7 @@ I clienti effettuano in genere gli acquisti tramite il contratto Enterprise Agre
 
 #### <a name="billing-questions-and-support"></a>Domande sulla fatturazione e supporto
 
-Per altre informazioni e normative legali, vedere il [Contratto per gli editori](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponibile nel Centro per i partner).
+Per altre informazioni e normative legali, vedere il [Contratto per gli editori](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (disponibile nel Centro per i partner).
 
 Per assistenza sulle domande relative alla fatturazione, contattare il [supporto per gli editori del marketplace commerciale](https://aka.ms/marketplacepublishersupport).
 

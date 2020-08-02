@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370275"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501951"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Baseline della sicurezza di Azure per l'analisi delle sinapsi
 
@@ -584,7 +584,7 @@ Inoltre, è possibile configurare un criterio di maschera dati dinamica (DDM) ne
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
-**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso ai database SQL di Azure nel pool di SQL sinapsi.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso ai database SQL di Azure nel pool di SQL sinapsi.
 
 L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e dalle autorizzazioni a livello di oggetto dell'account utente. È consigliabile concedere agli utenti i privilegi minimi necessari.
 
@@ -1014,7 +1014,7 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 **Linee guida**: gli snapshot del pool SQL sinapsi vengono eseguiti automaticamente durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni. Si noti che, se necessario, è anche possibile attivare manualmente gli snapshot.
 
-* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

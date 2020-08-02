@@ -3,12 +3,12 @@ title: Risoluzione dei problemi-QnA Maker
 description: L'elenco curato delle domande più frequenti relative al servizio QnA Maker consentirà di adottare il servizio più rapidamente e con risultati migliori.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502580"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -87,7 +87,7 @@ Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, 
 <details>
 <summary><b>È possibile condividere una knowledge base con un collaboratore che non è nello stesso tenant di AAD, per modificare una knowledge base?</b></summary>
 
-**Risposta**: la condivisione si basa sul controllo degli accessi in base al ruolo di Azure (RBAC). Se è possibile condividere _qualsiasi_ risorsa in Azure con un altro utente, è anche possibile condividere QnA Maker.
+**Risposta**: la condivisione si basa sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Se è possibile condividere _qualsiasi_ risorsa in Azure con un altro utente, è anche possibile condividere QnA Maker.
 
 </details>
 

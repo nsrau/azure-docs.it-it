@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075709"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503192"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Ottimizzazione delle transazioni nel pool SQL
+# <a name="optimize-transactions-in-sql-pool"></a>Ottimizzare le transazioni nel pool SQL
 
 Questo articolo illustra come ottimizzare le prestazioni del codice transazionale nel pool SQL riducendo al contempo il rischio di rollback di lunga durata.
 
@@ -82,7 +82,7 @@ Si noti che eventuali scritture di aggiornamento di indici secondari o non clust
 
 Il caricamento di dati in una tabella non vuota con un indice cluster può spesso contenere una combinazione di righe con registrazione completa e con registrazione minima. Un indice cluster è un albero B (bilanciato) di pagine. Se la pagina in cui si scrive contiene già righe provenienti da un'altra transazione, la scrittura verrà eseguita con registrazione completa. Se invece la pagina è vuota, la scrittura verrà eseguita con registrazione minima.
 
-## <a name="optimizing-deletes"></a>Ottimizzazione delle eliminazioni
+## <a name="optimize-deletes"></a>Ottimizza eliminazioni
 
 DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per sostituire la tabella precedente con quella nuova.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Ottimizzazione degli aggiornamenti
+## <a name="optimize-updates"></a>Ottimizzazione degli aggiornamenti
 
 UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > Per creare nuovamente tabelle di grandi dimensioni è possibile sfruttare le funzionalità di gestione del carico di lavoro del pool SQL. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="optimizing-with-partition-switching"></a>Ottimizzazione con cambio della partizione
+## <a name="optimize-with-partition-switching"></a>Ottimizzazione con cambio di partizione
 
 In caso di modifiche su larga scala in una [partizione di tabella](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) può risultare utile adottare un modello di cambio della partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, un'operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
 

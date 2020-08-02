@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262481"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503736"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Ridimensionare la velocità effettiva Azure Cosmos DB usando il trigger timer di funzioni di Azure
 
 Le prestazioni di un account Azure Cosmos si basano sulla quantità di velocità effettiva con provisioning espressa in unità richiesta al secondo (UR/sec). Il provisioning è a una seconda granularità e viene fatturato in base alle UR/sec più alte all'ora. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. La maggior parte dei carichi di lavoro di produzione queste funzionalità. Tuttavia, negli ambienti di sviluppo e test in cui Azure Cosmos DB viene usato solo durante le ore lavorative, è possibile aumentare la velocità effettiva al mattino e ridurla di nuovo nella sera dopo le ore lavorative.
 
-È possibile impostare la velocità effettiva tramite [Azure Resource Manager modelli](resource-manager-samples.md), l'interfaccia della riga di comando di [Azure](cli-samples.md)e [PowerShell](powershell-samples-sql.md), per gli account API di base (SQL) o usando gli SDK Azure Cosmos DB specifici del linguaggio. Il vantaggio di usare modelli di Gestione risorse, l'interfaccia della riga di comando di Azure o PowerShell è che supportano tutte le API del modello di Azure Cosmos DB.
+È possibile impostare la velocità effettiva tramite [Azure Resource Manager modelli](resource-manager-samples.md), l'interfaccia della riga di comando di [Azure](cli-samples.md)e [PowerShell](powershell-samples.md), per gli account API di base (SQL) o usando gli SDK Azure Cosmos DB specifici del linguaggio. Il vantaggio di usare modelli di Gestione risorse, l'interfaccia della riga di comando di Azure o PowerShell è che supportano tutte le API del modello di Azure Cosmos DB.
 
 ## <a name="throughput-scheduler-sample-project"></a>Progetto di esempio di utilità di pianificazione della velocità effettiva
 

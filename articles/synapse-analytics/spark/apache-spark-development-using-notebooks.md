@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7dc0fcae9a6fea789d30bac10511007454ecc5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045689"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504022"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire i notebook di sinapsi Studio (anteprima) in Azure sinapsi Analytics
 
@@ -191,6 +191,10 @@ Selezionare i puntini di sospensione **(...)** all'estrema destra per accedere a
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
+### <a name="cancel-all-running-cells"></a>Annulla tutte le celle in esecuzione
+Fare clic sul pulsante **Annulla tutto** per annullare le celle o le celle in attesa nella coda. 
+   ![Annulla-tutte le celle](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+
 ### <a name="cell-status-indicator"></a>Indicatore di stato delle celle
 
 Sotto la cella viene visualizzato il relativo stato di esecuzione dettagliato, che indica lo stato di avanzamento corrente. Al termine dell'esecuzione della cella, viene visualizzato un riepilogo dell'esecuzione con la durata totale e l'ora di fine, informazioni che verranno mantenute per riferimento futuro.
@@ -200,6 +204,7 @@ Sotto la cella viene visualizzato il relativo stato di esecuzione dettagliato, c
 ### <a name="spark-progress-indicator"></a>Indicatore di avanzamento Spark
 
 Il notebook di Azure Synapse Studio è basato esclusivamente su Spark. Le celle di codice vengono eseguite in remoto nel pool Spark. Viene fornito un indicatore di stato del processo Spark con una barra di avanzamento in tempo reale che consente di comprendere lo stato di esecuzione del processo.
+Il numero di attività per ogni processo o fase consente di identificare il livello parallelo del processo Spark. È anche possibile esaminare più a fondo l'interfaccia utente di Spark di un processo specifico (o fase) facendo clic sul collegamento sul nome del processo o della fase.
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -208,7 +213,11 @@ Il notebook di Azure Synapse Studio è basato esclusivamente su Spark. Le celle 
 
 È possibile specificare la durata del timeout, il numero e le dimensioni degli executor da assegnare alla sessione Spark corrente in **Configura sessione**. Riavviare la sessione di Spark per rendere effettive le modifiche alla configurazione. Tutte le variabili del notebook memorizzate nella cache vengono cancellate.
 
-![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+[![gestione della sessione](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+
+Un Consiglio di sessione Spark è ora disponibile nel pannello di configurazione della sessione Spark. È possibile selezionare un pool Spark direttamente dal pannello configurazione della sessione e verificare il numero di nodi che usano e il numero di esecutori rimanenti disponibili. Queste informazioni possono essere utili per impostare correttamente le dimensioni della sessione anziché modificarle.
+
+![sessione-consigli](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
 
 ## <a name="bring-data-to-a-notebook"></a>Importare i dati in un notebook
@@ -264,15 +273,25 @@ df = spark.read.option("header", "true") \
 
 ## <a name="visualize-data-in-a-notebook"></a>Visualizzare i dati in un notebook
 
-### <a name="display"></a>Display()
+### <a name="produce-rendered-table-view"></a>Genera visualizzazione tabella sottoposta a rendering
 
 Viene fornita una visualizzazione tabulare dei risultati con l'opzione per creare un grafico a barre, un grafico a linee, un grafico a torta, un grafico a dispersione e un grafico ad area. È possibile visualizzare i dati senza dover scrivere codice. I grafici possono essere personalizzati nelle **Opzioni del grafico**. 
 
-Per impostazione predefinita, l'output dei comandi magic **%%sql** appare nella visualizzazione tabella di cui è stato eseguito il rendering. Per produrre la visualizzazione tabella di cui è stato eseguito il rendering, è possibile chiamare **display(`<DataFrame name>`)** nei DataFrame di Spark o nella funzione RDD (Resilient Distributed DataSet).
+Per impostazione predefinita, l'output dei comandi magic **%%sql** appare nella visualizzazione tabella di cui è stato eseguito il rendering. <code>display(df)</code>Per produrre la visualizzazione della tabella di cui è stato eseguito il rendering, è possibile chiamare in Spark Dataframes o funzione RDD (Resilient Distributed DataSets).
 
-   ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
-### <a name="displayhtml"></a>DisplayHTML()
+### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualizza i grafici predefiniti dal set di dati su larga scala 
+
+Per impostazione predefinita, la <code>display(df)</code> funzione utilizzerà solo le prime 1000 righe dei dati per eseguire il rendering dei grafici. Controllare l' **aggregazione su tutti i risultati** e fare clic sul pulsante **applica** . la generazione del grafico viene applicata dall'intero set di dati. Un processo Spark viene attivato quando viene modificata l'impostazione del grafico, il completamento del calcolo e il rendering del grafico richiedono un po' di tempo. 
+    [![Builtin-grafici-aggregazione-tutti](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
+
+
+### <a name="visualize-data-statistic-information"></a>Visualizzare le informazioni statistiche sui dati
+È possibile usare <code>display(df, summary = true)</code> per controllare il riepilogo delle statistiche di un frame di dati Spark specifico che include il nome della colonna, il tipo di colonna, i valori univoci e i valori mancanti per ogni colonna. È anche possibile selezionare una colonna specifica per visualizzare il valore minimo, il valore massimo, il valore medio e la deviazione standard.
+    [![Builtin-grafici-riepilogo ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
+
+### <a name="render-html-or-interactive-libraries"></a>Eseguire il rendering di HTML o di librerie interattive
 
 È possibile eseguire il rendering di librerie HTML o interattive, ad esempio **bokeh**, usando **displayHTML()** .
 
@@ -332,9 +351,36 @@ Nelle proprietà del notebook è possibile specificare se includere l'output del
 ## <a name="magic-commands"></a>Comandi magic
 È possibile usare i comandi magic noti di Jupyter nei notebook di Azure Synapse Studio. Controllare l'elenco seguente per i comandi magic correnti disponibili. Inviaci i tuoi casi d'uso su GitHub per poter continuare a creare ulteriori comandi magic per soddisfare le tue esigenze.
 
-Comandi magic disponibili per le righe: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Magic line disponibili: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% tempo](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% tempo](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Comandi magic disponibili per le celle: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
+
+
+## <a name="orchestrate-notebook"></a>Orchestrazione notebook
+
+### <a name="add-a-notebook-to-a-pipeline"></a>Aggiungere un notebook a una pipeline
+
+Fare clic sul pulsante **Aggiungi alla pipeline** nell'angolo superiore destro per aggiungere un notebook a una pipeline esistente o creare una nuova pipeline.
+
+![Aggiungi a pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+
+### <a name="designate-a-parameters-cell"></a>Designare una cella parametri
+
+Per parametrizzare il notebook, selezionare i puntini di sospensione (...) per accedere al menu delle azioni delle celle aggiuntivo all'estrema destra. Selezionare quindi **Imposta/Rimuovi cella parametro** per indicare la cella come cella parametri.
+
+![interruttore-parametro](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
+
+Azure Data Factory cerca la cella Parameters e considera questa cella come impostazioni predefinite per i parametri passati in fase di esecuzione. Il motore di esecuzione aggiungerà una nuova cella sotto la cella Parameters con i parametri di input per sovrascrivere i valori predefiniti. Quando non è stata specificata alcuna cella parametri, la cella inserita verrà inserita nella parte superiore del notebook.
+
+### <a name="assign-parameters-values-from-a-pipeline"></a>Assegnare i valori dei parametri da una pipeline
+
+Dopo aver creato un notebook con i parametri, è possibile eseguirlo da una pipeline con l'attività di Azure sinapsi notebook. Dopo aver aggiunto l'attività nell'area di disegno della pipeline, sarà possibile impostare i valori dei parametri nella sezione **parametri di base** della scheda **Impostazioni** . 
+
+![Assign-parametro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+
+Quando si assegnano valori di parametro, è possibile usare il [linguaggio delle espressioni della pipeline](../../data-factory/control-flow-expression-language-functions.md) o le variabili di [sistema](../../data-factory/control-flow-system-variables.md).
+
+
 
 ## <a name="shortcut-keys"></a>Combinazioni di tasti
 
@@ -352,7 +398,7 @@ Analogamente a Jupyter Notebook, i notebook di Azure Synapse Studio hanno un'int
 
 Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire più facilmente il codice nei notebook di Azure Synapse.
 
-| Azione |Scelte rapide del notebook di Synapse Studio  |
+| Action |Scelte rapide del notebook di Synapse Studio  |
 |--|--|
 |Eseguire la cella corrente e selezionare in basso | MAIUSC+INVIO |
 |Eseguire la cella corrente e inserire in basso | ALT+INVIO |
@@ -390,7 +436,7 @@ Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire pi�
 |Passare alla modalità comandi| ESC |
 
 ## <a name="next-steps"></a>Passaggi successivi
-
+- [Estrai notebook di esempio sinapsi](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Avvio rapido: Creare un pool di Apache Spark (anteprima) in Azure Synapse Analytics con gli strumenti Web](../quickstart-apache-spark-notebook.md)
 - [Che cos'è Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Usare .NET per Apache Spark con Azure Synapse Analytics](spark-dotnet.md)

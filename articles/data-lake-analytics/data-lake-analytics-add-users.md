@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126075"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502937"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Aggiunta di un utente nel portale di Azure
 
@@ -32,8 +32,8 @@ Concedere "R-X" o "RWX", in base alle esigenze, alle cartelle che contengono dat
 ## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Facoltativamente, aggiungere il ruolo **Lettore** di Azure Data Lake Storage Gen1 all'utente.
 1.  Individuare l'account Azure Data Lake Storage Gen1.
 2.  Fare clic su **Utenti**.
-3. Scegliere **Aggiungi**.
-4.  Selezionare un ruolo Controllo degli accessi in base al ruolo di Azure per assegnare questo gruppo.
+3. Fare clic su **Aggiungi**.
+4.  Selezionare un ruolo di Azure per assegnare questo gruppo.
 5.  Assegnare il ruolo Lettore. Questo ruolo dispone del set minimo di autorizzazioni necessarie per esplorare o gestire i dati archiviati in Azure Data Lake Storage Gen1. Assegnare questo ruolo se il gruppo non deve gestire i servizi di Azure.
 6.  Digitare il nome del gruppo.
 7.  Fare clic su **OK**.
@@ -54,4 +54,3 @@ Il comando di esempio per concedere all'utente l'accesso per inviare processi, v
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introduzione a Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-

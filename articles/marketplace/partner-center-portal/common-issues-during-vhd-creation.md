@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: d717d93b616e8acd296c89322b7277cda5ade3a3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323996"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504314"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -34,8 +34,8 @@ Non è possibile. Dopo la creazione di una macchina virtuale, gli utenti (inclus
 
 I presenti articoli illustrano come reimpostare Servizi Desktop remoto per macchine virtuali basate su Windows e su Linux:
 
-* [Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una macchina virtuale Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che usano l'estensione VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una macchina virtuale Windows](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che usano l'estensione VMAccess](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>Ricerca per categorie: generare nuovi certificati SSH
 
@@ -59,7 +59,7 @@ Sì, se ospitate in Azure. Azure assegna un identificatore univoco denominato [I
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>In una macchina virtuale, com'è possibile gestire l'estensione di script personalizzati nell'attività di avvio?
 
-Per informazioni dettagliate su come usare l'estensione di script personalizzato usando il modulo Azure PowerShell e i modelli di Azure Resource Manager, nonché i passaggi di risoluzione dei problemi in Windows, vedere [Estensione di script personalizzati per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+Per informazioni dettagliate su come usare l'estensione di script personalizzato usando il modulo Azure PowerShell e i modelli di Azure Resource Manager, nonché i passaggi di risoluzione dei problemi in Windows, vedere [Estensione di script personalizzati per Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Le applicazioni o i servizi a 32 bit sono supportati in Azure Marketplace?
 

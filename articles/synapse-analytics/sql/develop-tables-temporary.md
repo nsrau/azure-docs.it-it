@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020561"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503209"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelle temporanee in sinapsi SQL
 
@@ -23,7 +23,7 @@ Questo articolo contiene indicazioni essenziali per l'uso di tabelle temporanee 
 
 Il pool SQL e le risorse SQL su richiesta (anteprima) possono usare le tabelle temporanee. SQL su richiesta presenta limitazioni che vengono discusse alla fine di questo articolo. 
 
-## <a name="what-are-temporary-tables"></a>Introduzione delle tabelle temporanee
+## <a name="temporary-tables"></a>Tabelle temporanee
 
 Le tabelle temporanee sono utili per l'elaborazione dati, soprattutto durante la trasformazione in cui i risultati intermedi sono temporanei. Con la sinapsi SQL, le tabelle temporanee esistono a livello di sessione.  Sono visibili solo per la sessione in cui sono state create. Di conseguenza, vengono eliminati automaticamente quando la sessione si disconnette. 
 
@@ -98,7 +98,7 @@ GROUP BY
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Eliminazione delle tabelle temporanee
+### <a name="drop-temporary-tables"></a>Elimina tabelle temporanee
 Quando viene creata una nuova sessione, non deve esistere alcuna tabella temporanea.  Tuttavia, se si chiama lo stesso stored procedure che crea un oggetto temporaneo con lo stesso nome, per garantire che le `CREATE TABLE` istruzioni abbiano esito positivo, usare un semplice controllo di pre-esistenza con `DROP` : 
 
 ```sql
@@ -116,7 +116,7 @@ Nello sviluppo di stored procedure in genere i comandi di eliminazione vengono r
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Modularizzazione del codice
+### <a name="modularize-code"></a>Codice modularizzare
 Le tabelle temporanee possono essere utilizzate in qualsiasi punto di una sessione utente. Questa funzionalità può quindi essere sfruttata per consentire di modularizzare il codice dell'applicazione.  Per illustrare, il stored procedure seguente genera DDL per aggiornare tutte le statistiche nel database in base al nome della statistica:
 
 ```sql

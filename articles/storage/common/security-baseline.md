@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371686"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501373"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -292,7 +292,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: modificare le password predefinite se applicabile
 
-**Indicazioni**: gli account di archiviazione di Azure e Azure Active Directory hanno il concetto di password predefinite o vuote. Archiviazione di Azure implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure, nonché la chiave condivisa e le firme di accesso condiviso (SAS). Una caratteristica di autenticazione con chiave condivisa e firma di accesso condiviso è che non è associata alcuna identità al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza. 
+**Indicazioni**: gli account di archiviazione di Azure e Azure Active Directory hanno il concetto di password predefinite o vuote. Archiviazione di Azure implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), nonché le firme di accesso condiviso e della chiave condivisa. Una caratteristica di autenticazione con chiave condivisa e firma di accesso condiviso è che non è associata alcuna identità al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza. 
 
 - [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

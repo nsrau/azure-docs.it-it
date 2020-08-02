@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075624"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504416"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Domande frequenti sul desktop virtuale Windows
+# <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
 Questo articolo risponde alle domande frequenti e spiega le procedure consigliate per desktop virtuale di Windows.
 
@@ -46,7 +46,7 @@ Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio 
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Windows Virtual Desktop supporta la suddivisione di modelli Azure Active Directory?
 
-Quando un utente viene assegnato a un gruppo di app, il servizio esegue una semplice assegnazione di ruolo controllo degli accessi in base al ruolo di Azure. Di conseguenza, l'Azure Active Directory dell'utente (AD) e il Azure AD del gruppo di app devono trovarsi nella stessa posizione. Tutti gli oggetti servizio, ad esempio i pool host, i gruppi di app e le aree di lavoro, devono trovarsi anche nello stesso Azure AD dell'utente.
+Quando un utente viene assegnato a un gruppo di app, il servizio esegue una semplice assegnazione di ruolo di Azure. Di conseguenza, l'Azure Active Directory dell'utente (AD) e il Azure AD del gruppo di app devono trovarsi nella stessa posizione. Tutti gli oggetti servizio, ad esempio i pool host, i gruppi di app e le aree di lavoro, devono trovarsi anche nello stesso Azure AD dell'utente.
 
 È possibile creare macchine virtuali (VM) in un Azure AD diverso, purché la Active Directory venga sincronizzata con il Azure AD dell'utente nella stessa rete virtuale (VNET).
 
@@ -118,7 +118,7 @@ Limitazioni o quote in FSLogix dipendono dall'infrastruttura di archiviazione us
 
 La tabella seguente fornisce un esempio di come le risorse di un profilo FSLogix devono supportare ogni utente. I requisiti possono variare notevolmente a seconda dell'utente, delle applicazioni e dell'attività per ogni profilo. 
 
-| Resource | Requisito |
+| Risorsa | Requisito |
 |---|---|
 | IOPS a stato stazionario | 10 |
 | IOPS di accesso/disconnessione | 50 |
