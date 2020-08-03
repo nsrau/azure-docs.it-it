@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389599"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482856"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -30,13 +30,14 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 
 1. Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
 2. Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
-3. Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
-4. Fare clic sulla scheda **Tutti** e selezionare **Accedi con ROPC**.
-5. Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
-6. In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
-7. Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
-8. Selezionare **OK**, quindi **Crea**.
-9. Fare clic su **Esegui il flusso utente**.
+3. Selezionare **flussi utente**e selezionare **nuovo flusso utente**.
+4. Selezionare **Accedi usando le credenziali password del proprietario della risorsa (ROPC)**.
+5. In **versione**verificare che sia selezionata l'opzione **Anteprima** e quindi selezionare **Crea**.
+7. Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
+8. In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
+9. Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
+10. Selezionare **OK**, quindi **Crea**.
+11. Fare clic su **Esegui il flusso utente**.
 
    Verrà visualizzato un endpoint come nell'esempio seguente:
 
@@ -98,7 +99,7 @@ Costruire una chiamata POST simile a quella indicata qui con le informazioni rip
 
 | Chiave | valore |
 | --- | ----- |
-| grant_type | token di aggiornamento |
+| grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
@@ -131,7 +132,3 @@ Una risposta con esito positivo è simile all'esempio seguente:
 L'implementazione di Azure AD B2C soddisfa gli standard OAuth 2.0 o per le credenziali password del proprietario della risorsa client pubblico e deve essere compatibile con la maggior parte degli SDK client. Questo flusso è stato testato in modo approfondito, in produzione, con AppAuth per iOS e AppAuth per Android. Per informazioni aggiornate, vedere le informazioni relative all'[SDK di app native per OAuth 2.0 e OpenID Connect con implementazione delle procedure consigliate moderne](https://appauth.io/).
 
 Scaricare esempi funzionanti, configurati per l'uso con Azure AD B2C da GitHub, [per Android](https://aka.ms/aadb2cappauthropc) e [per iOS](https://aka.ms/aadb2ciosappauthropc).
-
-
-
-

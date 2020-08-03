@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/11/2019
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce4574870ad8c0bfd945e49f129b82177b3138a1
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 9c7f0ead3a2f93d7f390106b8e7471d58b709023
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115701"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481564"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 3. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Flussi utente (criteri)** .
+4. Selezionare **Flussi utente**.
 2. Selezionare un flusso utente e fare clic su **Proprietà**.
 3. In **Complessità password** impostare la complessità delle password per questo flusso utente su **Semplice**, **Alta** o **Personalizzata**.
 
@@ -62,7 +62,7 @@ Consente di accettare solo cifre (PIN) o l'intero set di caratteri.
 - **Solo numeri** consente di immettere solo cifre (0-9) durante la configurazione di una password.
 - **Tutti** consente qualsiasi lettera, numero o simbolo.
 
-### <a name="length"></a>Lunghezza
+### <a name="length"></a>Length
 
 Consente di controllare i requisiti di lunghezza della password.
 

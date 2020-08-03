@@ -7,19 +7,60 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/08/2019
-ms.openlocfilehash: b5e26ef72d4be38c021cbedbcaf1fa919d7276d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: eb533ef93f012e99d135c49725ef8add77b6f7ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511977"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484199"
 ---
 # <a name="archived-release-notes"></a>Note sulla versione archiviate
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure.
+
+## <a name="release-date-07132020"></a>Data di rilascio: 07/13/2020
+
+Questa versione è valida per HDInsight 3.6 e 4.0. La versione di HDInsight è resa disponibile per tutte le aree in diversi giorni. La data di release riportata indica la data di rilascio di release della prima area. Se non vengono visualizzate le modifiche riportate di seguito, attendere che la versione risieda nella propria area in diversi giorni.
+
+### <a name="new-features"></a>Nuove funzionalità
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Supporto per Customer Lockbox per Microsoft Azure
+Azure HDInsight supporta ora Azure Customer Lockbox. Fornisce un'interfaccia per consentire ai clienti di rivedere e approvare o rifiutare le richieste di accesso ai dati del cliente. Viene usato quando il tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto. Per ulteriori informazioni, vedere [Customer Lockbox per Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+
+#### <a name="service-endpoint-policies-for-storage"></a>Criteri dell'endpoint di servizio per l'archiviazione
+I clienti possono ora usare i criteri di endpoint di servizio (SEP) nella subnet del cluster HDInsight. Altre informazioni sui [criteri dell'endpoint di servizio di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+### <a name="deprecation"></a>Deprecazione
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Deprecazione di Spark 2.1 e 2.2 in un cluster Spark HDInsight 3.6
+A partire dal 1 2020 luglio, i clienti non possono creare nuovi cluster Spark con Spark 2,1 e 2,2 in HDInsight 3,6. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Valutare il passaggio a Spark 2.3 in HDInsight 3.6 entro il 30 giugno 2020 per evitare potenziali interruzioni del sistema o del supporto.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Deprecazione di Spark 2.3 nel cluster Spark HDInsight 4.0
+A partire dal 1 2020 luglio, i clienti non possono creare nuovi cluster Spark con Spark 2,3 in HDInsight 4,0. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Valutare il passaggio a Spark 2.4 in HDInsight 4.0 entro il 30 giugno 2020 per evitare potenziali interruzioni del sistema o del supporto.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Deprecazione di Kafka 1.1 nel cluster Kafka di HDInsight 4.0
+A partire dal 1° luglio 2020, i clienti non potranno creare nuovi cluster Kafka con Kafka 1.1 in HDInsight 4.0. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Valutare il passaggio a Kafka 2.1 in HDInsight 4.0 entro il 30 giugno 2020 per evitare potenziali interruzioni del sistema o del supporto.
+
+### <a name="behavior-changes"></a>Modifiche del comportamento
+Non è necessario prestare attenzione alle modifiche del comportamento.
+
+### <a name="upcoming-changes"></a>Modifiche imminenti
+Nelle versioni future verranno apportate le modifiche seguenti. 
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Possibilità di selezionare uno SKU Zookeeper diverso per i servizi Spark, Hadoop e ML
+HDInsight attualmente non supporta la modifica dello SKU Zookeeper per i tipi di cluster Spark, Hadoop e ML Services. USA A2_v2 SKU/a2 per i nodi Zookeeper e i clienti non vengono addebitati. Nella prossima versione i clienti potranno modificare lo SKU Zookeeper per i servizi Spark, Hadoop e ML in base alle esigenze. Verranno addebitati i nodi Zookeeper con SKU diversi da A2_v2/a2. Lo SKU predefinito sarà ancora A2_V2/a2 e senza costi aggiuntivi.
+
+### <a name="bug-fixes"></a>Correzioni di bug
+HDInsight continua a migliorare l'affidabilità e le prestazioni del cluster. 
+#### <a name="fixed-hive-warehouse-connector-issue"></a>Problema di connettore warehouse di hive fisso
+Si è verificato un problema per l'usabilità del connettore del warehouse di hive nella versione precedente. Il problema è stato risolto. 
+
+#### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Il notebook Zeppelin fisso tronca il problema degli zeri iniziali
+Zeppelin ha troncato erroneamente gli zeri iniziali nell'output della tabella per il formato della stringa. Questo problema è stato risolto in questa versione.
+
+### <a name="component-version-change"></a>Modifica della versione dei componenti
+Questa release non prevede alcuna modifica della versione dei componenti. È possibile trovare le versioni dei componenti correnti per HDInsight 4,0 e HDInsight 3,6 in [questo documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
 
 ## <a name="release-date-06112020"></a>Data di rilascio: 06/11/2020
 
@@ -145,10 +186,10 @@ Questa versione è valida per HDInsight 3.6 e 4.0.
 ### <a name="new-features"></a>Nuove funzionalità
 
 #### <a name="service-tags"></a>Tag di servizio
-I tag di servizio semplificano la sicurezza per le macchine virtuali di Azure e le reti virtuali di Azure, consentendo di limitare facilmente l'accesso alla rete ai servizi di Azure. È possibile usare i tag di servizio nelle regole del gruppo di sicurezza di rete (NSG) per consentire o negare il traffico a un servizio di Azure specifico a livello globale o per area di Azure. Azure fornisce la manutenzione degli indirizzi IP sottostanti ogni tag. I tag del servizio HDInsight per i gruppi di sicurezza di rete (gruppi) sono gruppi di indirizzi IP per i servizi di gestione e integrità. Questi gruppi consentono di ridurre al minimo la complessità per la creazione delle regole di sicurezza. I clienti di HDInsight possono abilitare il tag del servizio tramite il portale di Azure, PowerShell e l'API REST. Per altre informazioni, vedere [Tag del servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+I tag di servizio semplificano la sicurezza per le macchine virtuali di Azure e le reti virtuali di Azure, consentendo di limitare facilmente l'accesso alla rete ai servizi di Azure. È possibile usare i tag di servizio nelle regole del gruppo di sicurezza di rete (NSG) per consentire o negare il traffico a un servizio di Azure specifico a livello globale o per area di Azure. Azure fornisce la manutenzione degli indirizzi IP sottostanti ogni tag. I tag del servizio HDInsight per i gruppi di sicurezza di rete (gruppi) sono gruppi di indirizzi IP per i servizi di gestione e integrità. Questi gruppi consentono di ridurre al minimo la complessità per la creazione delle regole di sicurezza. I clienti di HDInsight possono abilitare il tag del servizio tramite portale di Azure, PowerShell e l'API REST. Per altre informazioni, vedere [Tag del servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### <a name="custom-ambari-db"></a>Database Ambari personalizzato
-HDInsight consente ora di usare il database SQL per Apache Ambari. È possibile configurare il database Ambari personalizzato dal portale di Azure o tramite il modello di Resource Manager.  Questa funzionalità consente di scegliere il database SQL appropriato per le proprie esigenze di elaborazione e capacità. È anche possibile aggiornare facilmente per soddisfare i requisiti di crescita aziendale. Per altre informazioni, vedere [configurare cluster HDInsight con un database Ambari personalizzato](hdinsight-custom-ambari-db.md).
+HDInsight consente ora di usare il database SQL per Apache Ambari. È possibile configurare il database Ambari personalizzato dall'portale di Azure o tramite Gestione risorse modello.  Questa funzionalità consente di scegliere il database SQL appropriato per le proprie esigenze di elaborazione e capacità. È anche possibile aggiornare facilmente per soddisfare i requisiti di crescita aziendale. Per altre informazioni, vedere [configurare cluster HDInsight con un database Ambari personalizzato](hdinsight-custom-ambari-db.md).
 
 ![Database Ambari personalizzato](./media/hdinsight-release-notes/custom-ambari-db.png)
 
@@ -992,7 +1033,7 @@ Questa versione fornisce Ranger 0.7.0 e le patch di Apache seguenti:
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): la valutazione dei criteri non riesce per le condizioni dei criteri su più righe.
 
-#### <a name="slider"></a>Slider
+#### <a name="slider"></a>Dispositivo di scorrimento
 
 Questa versione fornisce Slider 0.92.0 con nessuna patch Apache aggiuntiva.
 
@@ -1126,7 +1167,7 @@ Questa versione fornisce Spark 2.3.0 e le patch di Apache seguenti:
 
 Questa versione fornisce Sqoop 1.4.6 con nessuna patch Apache aggiuntiva.
 
-#### <a name="storm"></a>Storm
+#### <a name="storm"></a>Tempesta
 
 Questa versione fornisce Storm 1.1.1 e le patch di Apache seguenti:
 
@@ -1160,7 +1201,7 @@ Questa versione fornisce Zeppelin 0.7.3 con nessuna patch Apache aggiuntiva.
 
 Questa versione fornisce ZooKeeper 3.4.6 e le patch di Apache seguenti:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest ha esito negativo in Mac OS X.
+-   [Zookeeper-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): errore di ClientPortBindTest in MacOS X.
 
 -   [Zookeeper-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[ JDK8 \] ordinare gli elementi figlio per il confronto nei test AsyncOps.
 
@@ -1240,7 +1281,7 @@ Questa sezione descrive tutte le CVE (Common Vulnerabilities and Exposures) che 
 | **Fornitore:** Hortonworks |
 | **Versioni interessate:** tutte le versioni di HDP 2.3/2.4/2.5 incluse le versioni 0.5.x/0.6.0/0.6.1/0.6.2 di Apache Ranger  |
 | **Utenti interessati:** tutti gli utenti dello strumento di amministrazione di criteri di Ranger. |
-| **Impatto:** Apache Ranger è vulnerabile a uno scripting archiviato tra siti quando si immettono le condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare alcune esecuzioni di codice javascript arbitrario quando gli utenti normali si collegano e accedono ai criteri. |
+| **Impatto:** Apache Ranger è vulnerabile a uno scripting archiviato tra siti quando si immettono le condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare codice JavaScript arbitrario eseguito quando gli utenti normali accedono e accedono ai criteri. |
 | **Dettaglio della correzione:** aggiunta di logica per purificare l'input dell'utente.  |
 | **Azione consigliata:** gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+)  |
 
@@ -1516,7 +1557,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 | BUG-99672              | [ATLAS-2524](https://issues.apache.org/jira/browse/ATLAS-2524)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hook Hive con notifiche V2 - gestione non corretta dell'operazione 'alter view as'                                                              |
 | BUG-99809              | [HBASE-20375](https://issues.apache.org/jira/browse/HBASE-20375)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Non usare getCurrentUserCredentials nel modulo hbase-spark                                                                                  |
 
-**Facilità di supporto**
+**Supporto**
 
 | **ID Bug di Hortonworks** | **Apache JIRA**                                                  | **Summary**                                                                                   |
 |------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -1761,7 +1802,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
       ```
         
-  - **Opzione \#2: applicare le modifiche Javascript**
+  - **Opzione \# 2: applicare le modifiche JavaScript**
         
       Passaggi per aggiornare il file JS:
         

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d85ffca8c72e7a247d5bbd1e593335fd7995b594
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170138"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481682"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versioni del layout di pagina e JavaScript in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Nelle **Proprietà**del flusso utente è possibile abilitare JavaScript. L'abili
 
 ## <a name="select-a-page-layout-version"></a>Selezionare una versione del layout di pagina
 
-Se si Abilita JavaScript nelle proprietà del flusso utente, è possibile specificare una versione del layout di pagina per le pagine del flusso utente. Aprire il flusso utente e selezionare **layout di pagina**. In **nome layout**selezionare una pagina flusso utente e scegliere la **versione del layout di pagina**.
+Se si Abilita JavaScript nelle proprietà del flusso utente, è possibile specificare una versione del layout di pagina per le pagine del flusso utente. Aprire il flusso utente e selezionare **layout di pagina**. In **nome layout**selezionare una pagina flusso utente e scegliere la **versione del layout di pagina (anteprima)**.
 
 Per informazioni sulle diverse versioni del layout di pagina, vedere il [log delle modifiche della versione del layout di pagina](page-layout.md).
 

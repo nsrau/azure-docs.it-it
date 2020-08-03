@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040266"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480408"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Concetti e funzionalità della foresta di risorse per Azure Active Directory Domain Services
 
@@ -23,10 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) offre un'esperienza di acce
 
 Sebbene sia sicuro e offra vantaggi aggiuntivi per la sicurezza, alcune organizzazioni non possono sincronizzare gli hash delle password utente per Azure AD o Azure AD DS. Gli utenti di un'organizzazione potrebbero non conoscerne la password perché usano solo l'autenticazione mediante smart card. Queste limitazioni impediscono ad alcune organizzazioni di usare Azure AD DS per lo spostamento in Azure delle applicazioni classiche locali.
 
-Per rispondere a queste esigenze e restrizioni, è possibile creare un dominio gestito che usa una foresta di risorse. Questo articolo concettuale spiega cosa sono le foreste e il modo in cui considerano attendibili le altre risorse per fornire un metodo di autenticazione protetto. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
-
-> [!IMPORTANT]
-> Le foreste di risorse Azure AD DS attualmente non supportano Azure HDInsight o File di Azure. Le foreste utente Azure AD DS predefinite supportano entrambi i servizi aggiuntivi.
+Per rispondere a queste esigenze e restrizioni, è possibile creare un dominio gestito che usa una foresta di risorse. Questo articolo concettuale spiega cosa sono le foreste e il modo in cui considerano attendibili le altre risorse per fornire un metodo di autenticazione protetto.
 
 ## <a name="what-are-forests"></a>Che cosa sono le foreste?
 
@@ -36,7 +33,7 @@ In un dominio gestito Azure AD DS, la foresta contiene solo un dominio. Le fores
 
 Per impostazione predefinita, un dominio gestito viene creato come foresta *utente* . Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Gli account utente possono eseguire l'autenticazione direttamente nel dominio gestito, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli hash delle password possono essere sincronizzati e gli utenti non usano metodi di accesso esclusivi come l'autenticazione mediante smart card.
 
-In una foresta di *risorse* di dominio gestito, gli utenti eseguono l'autenticazione su un *trust* tra foreste unidirezionale rispetto ai servizi di dominio Active Directory locali. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con il dominio gestito. Gli oggetti e le credenziali utente esistono solo in AD DS locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
+In una foresta di *risorse* di dominio gestito, gli utenti eseguono l'autenticazione su un *trust* tra foreste unidirezionale rispetto ai servizi di dominio Active Directory locali. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con il dominio gestito. Gli oggetti e le credenziali utente esistono solo in AD DS locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione.
 
 Le foreste di risorse offrono inoltre la possibilità di trasferire le applicazioni in modalità lift-and-shift con un componente alla volta. Molte applicazioni locali legacy sono a più livelli e spesso usano un server Web o un front-end e molti componenti correlati al database. Questi livelli rendono difficile trasferire in modalità lift-and-shift l'intera applicazione nel cloud in un unico passaggio. Con le foreste di risorse è possibile trasferire l'applicazione nel cloud mediante un approccio a più fasi, semplificando così lo spostamento dell'applicazione in Azure.
 
@@ -116,7 +113,7 @@ I trust forniscono questo meccanismo per convalidare le richieste di autenticazi
 
 Per ulteriori informazioni sui trust, vedere [Funzionamento dei trust tra foreste in Azure AD DS][concepts-trust]
 
-Per iniziare a creare un dominio gestito con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [ Creare un trust tra foreste in uscita per un dominio locale (anteprima)][create-forest-trust].
+Per iniziare a creare un dominio gestito con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [creare un trust tra foreste in uscita per un dominio locale][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

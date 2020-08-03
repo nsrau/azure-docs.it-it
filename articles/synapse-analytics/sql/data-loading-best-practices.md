@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963887"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486817"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento di dati per il data warehousing
 
 Suggerimenti e ottimizzazioni delle prestazioni per il caricamento di dati
 
-## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
+## <a name="prepare-data-in-azure-storage"></a>Preparare i dati in archiviazione di Azure
 
 Per ridurre al minimo la latenza, usare un percorso condiviso per il livello di archiviazione e il data warehouse.
 
@@ -34,13 +34,13 @@ Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottene
 
 Suddividere i file compressi di grandi dimensioni in file compressi di dimensioni inferiori.
 
-## <a name="running-loads-with-enough-compute"></a>Esecuzione di carichi con risorse di calcolo sufficienti
+## <a name="run-loads-with-enough-compute"></a>Eseguire i caricamenti con un numero sufficiente di risorse di calcolo
 
 Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
 
 Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 
-### <a name="example-of-creating-a-loading-user"></a>Esempio di creazione di un utente addetto al caricamento
+### <a name="create-a-loading-user"></a>Creazione di un utente di caricamento
 
 Questo esempio crea un utente addetto al caricamento per la classe di risorse staticrc20. Il primo passaggio consiste nel **connettersi al master** e creare un account di accesso.
 
@@ -62,7 +62,7 @@ Per eseguire un caricamento con risorse per le classi di risorse staticRC20, acc
 
 Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](resource-consumption-models.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio. Per le classi dinamiche, un livello di servizio inferiore renderà probabilmente necessario usare una classe di risorse di maggiori dimensioni per l'utente addetto al caricamento.
 
-## <a name="allowing-multiple-users-to-load"></a>Consentire il caricamento a più utenti
+## <a name="allow-multiple-users-to-load"></a>Consentire il caricamento di più utenti
 
 È spesso necessario fare in modo che più utenti possano caricare dati in un data warehouse. Il caricamento con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) richiede autorizzazioni CONTROL per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi. È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
 
@@ -75,13 +75,13 @@ Si supponga ad esempio che esistano gli schemi di database schema_A per il repar
 
 User_A e user_B sono ora bloccati dallo schema dell'altro reparto.
 
-## <a name="loading-to-a-staging-table"></a>Caricamento in una tabella di staging
+## <a name="load-to-a-staging-table"></a>Eseguire il caricamento in una tabella di staging
 
 Per ottenere la massima velocità di caricamento per spostare i dati in una tabella di data warehouse, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione.
 
 Il caricamento è in genere un processo in due fasi in cui i dati vengono prima caricati in una tabella di staging, quindi inseriti in una tabella di data warehouse di produzione. Se la tabella di produzione usa una distribuzione hash, il tempo totale necessario per il caricamento e l'inserimento può essere ridotto se si definisce una tabella di staging con la distribuzione hash. Il caricamento nella tabella di staging richiede più tempo, ma il secondo passaggio di inserimento delle righe nella tabella di produzione non comporta lo spostamento dei dati tra le distribuzioni.
 
-## <a name="loading-to-a-columnstore-index"></a>Caricamento in un indice columnstore
+## <a name="load-to-a-columnstore-index"></a>Caricare in un indice columnstore
 
 Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup. In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questo influisce a propria volta sulle prestazioni delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](data-load-columnstore-compression.md).
 
@@ -92,19 +92,19 @@ Gli indici columnstore richiedono una grande quantità di memoria per la compres
 
 Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL sinapsi. Se non è possibile usare la modalità polibase per caricare e usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica ottimale è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
 
-## <a name="handling-loading-failures"></a>Gestione degli errori di caricamento
+## <a name="manage-loading-failures"></a>Gestione degli errori di caricamento
 
 Un caricamento con una tabella esterna può avere esito negativo con l'errore *"Query interrotta. È stata raggiunta la soglia massima di rifiuti durante la lettura da un'origine esterna"*. Questo messaggio indica che i dati esterni contengono record dirty. Un record di dati viene considerato dirty se i tipi di dati e il numero di colonne non corrispondono alle definizioni di colonna della tabella esterna oppure se i dati non sono conformi al formato di file esterno specificato.
 
 Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato di file esterno siano corrette e che i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia dirty, è possibile scegliere di rifiutare tali record per le query usando le opzioni di rifiuto in CREATE EXTERNAL TABLE.
 
-## <a name="inserting-data-into-a-production-table"></a>Inserimento di dati in una tabella di produzione
+## <a name="insert-data-into-a-production-table"></a>Inserire dati in una tabella di produzione
 
 Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Gli inserimenti singleton non offrono tuttavia la stessa efficienza di un caricamento bulk.
 
 Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più, inviare in batch gli inserimenti per poterne eseguire il caricamento bulk.  Sviluppare i processi per aggiungere i singoli inserimenti in un file e quindi creare un altro processo che carica periodicamente il file.
 
-## <a name="creating-statistics-after-the-load"></a>Creazione di statistiche dopo il caricamento
+## <a name="create-statistics-after-the-load"></a>Creare statistiche dopo il caricamento
 
 Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Questa operazione può essere eseguita manualmente oppure è possibile abilitare le [statistiche create automaticamente](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165329"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479847"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -36,7 +36,7 @@ Analisi del traffico prevede i prerequisiti seguenti:
 
 Per abilitare Analisi del traffico, l'account deve soddisfare una delle seguenti condizioni:
 
-- L'account deve avere uno dei seguenti ruoli di controllo degli accessi in base al ruolo (RBAC) nell'ambito dell'abbonamento: proprietario, collaboratore, lettore o collaboratore di rete.
+- L'account deve avere uno dei seguenti ruoli di Azure nell'ambito della sottoscrizione: proprietario, collaboratore, lettore o collaboratore rete.
 - Se l'account non è assegnato a uno dei ruoli appena elencati, deve essere assegnato a un ruolo personalizzato al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione.
             
     - Microsoft.Network/applicationGateways/read
@@ -401,4 +401,3 @@ La pagina della topologia di subnet virtuale contiene due sezioni principali:
 - Per spostarsi su altri nodi evidenziati nella visualizzazione della topologia, utilizzare il tasto `Shift+Right arrow` per spostarsi in avanti. 
 - Sui nodi evidenziati, lo stato attivo si sposta sulla **casella degli strumenti Informazioni** relativa al nodo. Per impostazione predefinita, la messa a fuoco viene spostata sul pulsante **Altri dettagli** nella **casella degli strumenti Informazioni**. Per spostarsi ulteriormente all'interno della visualizzazione della **casella**, usare i tasti `Right arrow` e `Left arrow` per andare in avanti o indietro. Premere `Enter` equivale a selezionare il pulsante con stato attivo nella **casella degli strumenti Informazioni**.
 - Una volta selezionati tali nodi, è possibile consultarne tutte le connessioni, una per una, premendo il tasto `Shift+Left arrow`. L’attenzione si sposta sulla **casella degli strumenti Informazioni** di tale connessione. In qualsiasi momento è possibile spostare nuovamente l’attenzione sul nodo premendo nuovamente `Shift+Right arrow`.    
-

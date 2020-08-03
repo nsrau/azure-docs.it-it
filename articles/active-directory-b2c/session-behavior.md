@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c47b0249824a3683b8f24cc01cc5eea5ccf32585
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385247"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482669"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
     - Valore minimo (inclusivo): 15 minuti.
     - Valore massimo (inclusivo): 1440 minuti.
 - **Timeout della sessione dell'app Web** : [tipo di scadenza della sessione](session-overview.md#session-expiry-type), in *sequenza*o *assoluto*. 
-- **Configurazione di Single Sign-on** : [ambito della sessione](session-overview.md#session-scope) del comportamento di Single Sign-on (SSO) tra più app e flussi utente nel tenant di Azure ad B2C. 
+- **Configurazione di Single Sign-on** : [ambito della sessione](session-overview.md#session-scope) del comportamento di Single Sign-on (SSO) tra più app e flussi utente nel tenant di Azure ad B2C.
 
 
 ## <a name="configure-the-properties"></a>Configurare le proprietà
@@ -38,7 +38,7 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Flussi utente (criteri)** .
+4. Selezionare **Flussi utente**.
 5. Aprire il flusso utente creato in precedenza.
 6. Selezionare **Proprietà**.
 7. Configurare la **durata della sessione dell'app Web (minuti)**, il **timeout della sessione dell'app Web**, la **configurazione dell'accesso Single Sign-on**e **richiedere il token ID nelle richieste di disconnessione** , se necessario.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757620"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482584"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Per [gestire la compatibilità dei token](configure-tokens.md) vengono usate le 
 
 ## <a name="pass-through"></a>Pass-through
 
-Quando viene avviato un percorso utente, Azure AD B2C riceve un token di accesso dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si [attiva un'attestazione nel flusso utente](idp-pass-through-user-flow.md) o si [definisce un'attestazione nel criterio personalizzato](idp-pass-through-custom.md) per passare il token alle applicazioni registrate in Azure AD B2C. L'applicazione deve usare un [flusso utente v2](user-flow-versions.md) per sfruttare i vantaggi offerti dal passaggio del token come attestazione.
+Quando viene avviato un percorso utente, Azure AD B2C riceve un token di accesso dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si [attiva un'attestazione nel flusso utente](idp-pass-through-user-flow.md) o si [definisce un'attestazione nel criterio personalizzato](idp-pass-through-custom.md) per passare il token alle applicazioni registrate in Azure AD B2C. L'applicazione deve usare un [flusso utente consigliato](user-flow-versions.md) per sfruttare il passaggio del token come attestazione.
 
 Azure AD B2C attualmente supporta solo il passaggio di token di accesso dei provider di identità OAuth 2.0, tra cui Facebook e Google. Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 

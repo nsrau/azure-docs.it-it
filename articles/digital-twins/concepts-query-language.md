@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 960fff073353375cd50b31bc7284134ca733f142
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337926"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488024"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
@@ -20,23 +20,7 @@ Tenere presente che il centro dei dispositivi gemelli digitali di Azure è il [*
 
 Per inviare una query al servizio da un'app client, si userà l' [**API di query**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview)dei dispositivi digitali gemelli di Azure. Questo consente agli sviluppatori di scrivere query e applicare filtri per trovare set di dispositivi gemelli digitali nel grafico gemello e altre informazioni sullo scenario dei gemelli digitali di Azure.
 
-## <a name="query-language-features"></a>Funzionalità del linguaggio di query
-
-I dispositivi gemelli digitali di Azure forniscono funzionalità di query complete rispetto al grafo gemello. Le query vengono descritte usando la sintassi simile a SQL, in un linguaggio di query simile al [linguaggio di query dell'hub](../iot-hub/iot-hub-devguide-query-language.md) Internet con molte funzionalità confrontabili.
-
-> [!NOTE]
-> Tutte le operazioni di query di Azure Digital Twins fanno distinzione tra maiuscole e minuscole.
-
-Di seguito sono riportate le operazioni disponibili in Azure Digital Gemells Query Store lingua:
-* Ottiene i gemelli per le proprietà dei gemelli digitali (inclusi i [tag](how-to-use-tags.md)).
-* Ottiene i dispositivi gemelli per le interfacce dei gemelli digitali.
-* Ottiene i gemelli in base alle proprietà della relazione.
-* Ottenere i gemelli su più tipi di relazione ( `JOIN` query). Esistono limitazioni sul numero di istanze `JOIN` consentite (un livello per l'anteprima pubblica).
-* Usare la funzione personalizzata `IS_OF_MODEL(twinCollection, twinTypeName)` , che consente di filtrare in base al [modello](concepts-models.md)del gemello. Supporta l'ereditarietà.
-* Usare funzioni scalari: `IS_BOOL` , `IS_DEFINED` , `IS_NULL` , `IS_NUMBER` , `IS_OBJECT` , `IS_PRIMITIVE` , `IS_STRING` , `STARTS_WITH` , `ENDS_WITH` .
-* Utilizzare gli operatori di confronto delle query: `IN` / `NIN` , `=` , `!=` , `<` , `>` , `<=` , `>=` .
-* Usare qualsiasi combinazione ( `AND` , `OR` , `NOT` operatore) della versione precedente.
-* Use continuation: viene creata un'istanza dell'oggetto query con una dimensione di pagina (fino a 100). È possibile recuperare i gemelli digitali una pagina alla volta specificando il token di continuazione nelle chiamate successive all'API.
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

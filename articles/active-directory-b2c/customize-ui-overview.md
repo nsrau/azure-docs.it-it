@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116427"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486732"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -188,7 +188,7 @@ Una volta configurata la personalizzazione dell'azienda, abilitarla nei flussi u
 
 1. Nel menu a sinistra del portale di Azure selezionare **Azure ad B2C**.
 1. In **Criteri** selezionare **Flussi utente (criteri)** .
-1. Selezionare il flusso utente per il quale si desidera abilitare la personalizzazione dell'azienda. Le informazioni personalizzate distintive dell'azienda **non sono supportate** per i tipi di flusso utente per l' *accesso V1* e la *modifica del profilo v1* .
+1. Selezionare il flusso utente per il quale si desidera abilitare la personalizzazione dell'azienda. Le informazioni personalizzate distintive dell'azienda **non sono supportate** per i tipi di flusso utente standard per l' *accesso* e la *modifica del profilo* standard.
 1. In **Personalizza**selezionare **layout di pagina**e quindi selezionare il layout che si desidera personalizzare. Ad esempio, selezionare la **pagina di iscrizione o di accesso unificata**.
 1. Per la **versione del layout di pagina (anteprima)**, scegliere la versione **1.2.0** o successiva.
 1. Selezionare **Salva**.

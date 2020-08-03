@@ -1,5 +1,6 @@
 ---
 title: Flussi utente in Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Altre informazioni sul framework di criteri estendibile di Azure Active Directory B2C e su come creare vari tipi di flussi utente.
 services: active-directory-b2c
 author: msmimart
@@ -7,24 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc0e297ca16bf2605993e36942de9d31c331680
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115860"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481598"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flussi utente in Azure Active Directory B2C
 
-Il Framework di criteri estendibile di Azure Active Directory B2C (Azure AD B2C) rappresenta il livello di attendibilità principale del servizio. I criteri descrivono in modo completo le esperienze per le identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati **flussi utente**.
-
-## <a name="what-are-user-flows"></a>Cosa sono i flussi utente?
-
-Un flusso utente consente di controllare i comportamenti nelle applicazioni configurando le impostazioni seguenti:
+Per semplificare la configurazione delle attività di identità più comuni per le applicazioni, il portale di Azure AD B2C include criteri predefiniti e configurabili detti **flussi utente**. Un flusso utente consente di determinare il modo in cui gli utenti interagiscono con l'applicazione quando eseguono operazioni come l'accesso, l'iscrizione, la modifica di un profilo o la reimpostazione della password. Con i flussi utente è possibile controllare le funzionalità seguenti:
 
 - I tipi di account usati per l'accesso, ad esempio account di social networking, come Facebook o account locali
 - Gli attributi da raccogliere dall'utente, ad esempio nome, codice postale e misura del piede
@@ -62,13 +59,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Versioni del flusso utente
 
-Nel portale di Azure vengono aggiunte continuamente nuove [versioni dei flussi utente](user-flow-versions.md). Quando si inizia con Azure AD B2C, è consigliabile usare flussi utente testati. Quando si crea un nuovo flusso utente, è possibile scegliere il flusso utente necessario nella scheda **Consigliati**.
+Azure AD B2C include diversi tipi di flussi utente:
 
-Sono attualmente consigliati i flussi utente seguenti:
-
-- **Iscrizione e accesso** - Consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti vengono indirizzati al percorso corretto in base al contesto. È consigliabile usare questo flusso utente anziché un flusso utente di **iscrizione** o di **accesso**.
+- **Iscrizione e accesso** - Consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti vengono indirizzati al percorso corretto in base al contesto. Sono inclusi anche flussi utente di **iscrizione** o **accesso** distinti. Tuttavia, in genere è consigliabile usare il flusso di accesso combinato e l'accesso dell'utente.
 - **Modifica del profilo** - Consente agli utenti di modificare le informazioni del profilo personale.
 - **Reimpostazione password** - Consente di configurare se e come gli utenti possono reimpostare le password.
+
+La maggior parte dei tipi di flusso utente ha una versione **consigliata** e una versione **standard** . Per informazioni dettagliate, vedere [versioni dei flussi utente](user-flow-versions.md).
+
+> [!IMPORTANT]
+> Se si è già lavorato con i flussi utente in Azure AD B2C prima, si noterà che è stato modificato il modo in cui si fa riferimento alle versioni del flusso utente. In precedenza, abbiamo offerto versioni V1 (pronte per l'ambiente di produzione) e versioni V 1.1 e V2 (anteprima). A questo punto, i flussi utente sono stati consolidati in due versioni:
+>
+>- I flussi utente **consigliati** sono le nuove versioni di anteprima dei flussi utente. Sono testati accuratamente e combinano tutte le funzionalità delle versioni **v2** e **v 1.1** legacy. In futuro, i nuovi flussi utente consigliati verranno mantenuti e aggiornati. Quando si passa a questi nuovi flussi utente consigliati, sarà possibile accedere alle nuove funzionalità non appena vengono rilasciate.
+>- I flussi utente standard, precedentemente noti come **V1**, sono disponibili a **livello** generale, flussi utente pronti per la produzione. Se i flussi utente sono cruciali e dipendono da versioni altamente stabili, è possibile continuare a usare i flussi utente standard, rendendo conto che tali versioni non verranno gestite e aggiornate.
+>
+>Tutti i flussi utente di anteprima legacy (V 1.1 e v2) si trovano in un percorso deprecato entro **il 1 agosto 2021**. Laddove possibile, è consigliabile [passare ai nuovi flussi utente **consigliati** il](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) prima possibile, in modo da poter sfruttare sempre le funzionalità e gli aggiornamenti più recenti.
 
 ## <a name="linking-user-flows"></a>Collegamento dei flussi utente
 

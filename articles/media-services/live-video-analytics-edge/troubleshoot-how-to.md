@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285459"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486443"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -234,7 +234,7 @@ L'analisi video in tempo reale tramite il processore di estensione HTTP può est
 
     ![Screenshot che mostra lo stato di esecuzione dei moduli nell'hub Azure.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Verificare se si stanno inviando eventi all'endpoint URL corretto. Il contenitore esterno per intelligenza artificiale espone un URL e una porta attraverso cui riceve e restituisce i dati dalle richieste POST. Questo URL viene specificato come `endpoint: url` proprietà per il processore di estensione http. Come illustrato nell' [URL della topologia](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), l'endpoint viene impostato sul parametro URL di inferenza. Verificare che il valore predefinito per il [parametro](http://yolov3/score) o il valore passato sia accurato. È possibile testare per verificare se funziona usando l'URL client (cURL).  
+* Verificare se si stanno inviando eventi all'endpoint URL corretto. Il contenitore esterno per intelligenza artificiale espone un URL e una porta attraverso cui riceve e restituisce i dati dalle richieste POST. Questo URL viene specificato come `endpoint: url` proprietà per il processore di estensione http. Come illustrato nell' [URL della topologia](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), l'endpoint viene impostato sul parametro URL di inferenza. Verificare che il valore predefinito per il parametro o il valore passato sia accurato. È possibile testare per verificare se funziona usando l'URL client (cURL).  
 
     Ad esempio, di seguito è riportato un contenitore Yolo V3 in esecuzione nel computer locale con un indirizzo IP di 172.17.0.3. Usare Docker ispeziona per trovare l'indirizzo IP.
 
