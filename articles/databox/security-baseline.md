@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d1de40944b4ab15268cda576f477c08fc179f1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497325"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Baseline della sicurezza di Azure per Azure Data Box
 
@@ -216,7 +216,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: gestire un inventario degli account utente con accesso amministrativo al Azure Data Box. Per configurare il controllo degli accessi in base al ruolo (RBAC), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. è possibile controllare chi può accedere all'ordine quando viene creato l'ordine. Configurare i ruoli di controllo degli accessi in base al ruolo (RBAC) in diversi ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di controllo degli accessi in base al ruolo determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura a un subset di operazioni.
+**Linee guida**: gestire un inventario degli account utente con accesso amministrativo al Azure Data Box. Per configurare il controllo degli accessi in base al ruolo (RBAC), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. è possibile controllare chi può accedere all'ordine quando viene creato l'ordine. Configurare i ruoli di Azure in vari ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di Azure determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura in un subset di operazioni.
 
 * [Informazioni sui ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 

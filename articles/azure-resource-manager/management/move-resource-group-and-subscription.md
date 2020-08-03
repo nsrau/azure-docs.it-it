@@ -3,12 +3,13 @@ title: Spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di r
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539279"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498872"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione
 

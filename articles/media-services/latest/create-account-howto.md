@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
-ms.openlocfilehash: e32a9053e4ab7cc3618f7b50b7291a660a14e1b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b48aa215b621ab617ef3ff99ce66d972059a4ffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053497"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498756"
 ---
 # <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
 
@@ -64,7 +65,7 @@ Questo articolo illustra come creare un account di Servizi multimediali usando i
 
     Quando viene creato l'account di servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** con stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della [crittografia dinamica](content-protection-overview.md), l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** . 
 
-## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

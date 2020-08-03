@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2a534bd0cb89e837ff2315cb3fb9cfe70ad01f5f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078987"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497648"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -39,22 +39,22 @@ Creare un'identità gestita assegnata dall'utente, se non è già disponibile.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **User assegnata** e fare clic su **identità gestita assegnata dall'utente**.
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 1. Immettere un nome per l'identità gestita, selezionare la sottoscrizione, il gruppo di risorse e la località corretti.
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 
 Per altre informazioni sul funzionamento delle identità gestite in Azure HDInsight, vedere [identità gestite in Azure HDInsight](hdinsight-managed-identities.md).
 
 ![Creare un'identità gestita assegnata dall'utente](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-### <a name="create-a-data-lake-storage-gen2-account"></a>Creare un account di Data Lake Storage Gen2
+### <a name="create-a-data-lake-storage-gen2-account"></a>Creare un account Data Lake Storage Gen2
 
 Creare un account di archiviazione di Azure Data Lake Storage Gen2.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **storage** e fare clic su **account di archiviazione**.
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 1. Nella schermata **Crea account di archiviazione** :
     1. Selezionare la sottoscrizione e il gruppo di risorse corretti.
     1. Immettere un nome per l'account Data Lake Storage Gen2.
@@ -159,7 +159,7 @@ Data Lake Storage Gen2 usa un modello di controllo di accesso che supporta il co
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace set di autorizzazioni a utenti, gruppi ed entità servizio per le risorse di Azure. Tali risorse di Azure sono in genere vincolate alle risorse di primo livello (ad esempio gli account di archiviazione di Azure). Per archiviazione di Azure e anche Data Lake Storage Gen2, questo meccanismo è stato esteso alla risorsa file system.
 
- Per altre informazioni sulle autorizzazioni per i file con RBAC, vedere [controllo degli accessi in base al ruolo di Azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ Per altre informazioni sulle autorizzazioni per i file con RBAC, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 Per altre informazioni sulle autorizzazioni per i file con ACL, vedere [elenchi di controllo di accesso su file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

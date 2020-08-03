@@ -4,24 +4,24 @@ description: Aggiungere un database nel database SQL di Azure a un gruppo di fai
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045255"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496339"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Esercitazione: aggiungere un database SQL di Azure a un gruppo di failover automatico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Un [gruppo di failover](auto-failover-group-overview.md) è un livello di astrazione dichiarativo che consente di raggruppare più database con replica geografica. Informazioni su come configurare un gruppo di failover per un database SQL di Azure e il failover di test usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.  In questa esercitazione si apprenderà come:
+Un [gruppo di failover](auto-failover-group-overview.md) è un livello di astrazione dichiarativo che consente di raggruppare più database con replica geografica. Informazioni su come configurare un gruppo di failover per un database SQL di Azure e il failover di test usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.  In questa esercitazione verrà illustrato come:
 
 > [!div class="checklist"]
 >
@@ -327,7 +327,7 @@ Questa parte dell'esercitazione usa i cmdlet dell'interfaccia della riga di coma
 
 ---
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Pulire le risorse eliminando il gruppo di risorse.
 

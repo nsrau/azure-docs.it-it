@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204307"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498804"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e l'ordine di importazione Azure Data Box Heavy
 
@@ -35,7 +35,7 @@ Questo articolo descrive in dettaglio i vari meccanismi o strumenti disponibili 
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurare il controllo di accesso nell'ordine
 
-È possibile controllare chi può accedere all'ordine quando viene creato per la prima volta. Configurare i ruoli di controllo degli accessi in base al ruolo (RBAC) in diversi ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di controllo degli accessi in base al ruolo determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura a un subset di operazioni.
+È possibile controllare chi può accedere all'ordine quando viene creato per la prima volta. Configurare i ruoli di Azure in vari ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di Azure determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura in un subset di operazioni.
 
 I due ruoli che possono essere definiti per il servizio Azure Data Box sono:
 

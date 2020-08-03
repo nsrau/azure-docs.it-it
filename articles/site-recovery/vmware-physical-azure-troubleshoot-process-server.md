@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499756"
 ---
 # <a name="troubleshoot-the-process-server"></a>Risolvere i problemi del server di elaborazione
 
@@ -91,7 +91,7 @@ In assenza di heartbeat dal server di elaborazione (codice errore 806), eseguire
 
  Spesso gli errori di replica iniziale e in corso sono causati da problemi di connettività tra le macchine virtuali di origine e il server di elaborazione oppure tra il server di elaborazione e Azure. Questi passaggi sono riepilogati nel diagramma seguente, seguiti da procedure per facilitarne l'esecuzione.
 
-![Risolvere i problemi di connettività e di replica](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Diagramma di flusso che illustra i passaggi per risolvere i problemi di connettività e replica.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Passaggio 4: Verificare la sincronizzazione dell'ora nella macchina virtuale di origine
@@ -170,7 +170,7 @@ Controllare se il server di elaborazione esegue attivamente il push dei dati in 
   2. Selezionare la scheda **Prestazioni** > **Apri Monitoraggio risorse**.
   3. Nella pagina **Monitoraggio risorse** selezionare la scheda **Rete**. In **Processi con attività di rete** controllare se cbengine.exe sta inviando attivamente volumi di dati di grandi dimensioni.
 
-       ![Volumi in Processi con attività di rete](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Screenshot che mostra un numero elevato di volumi in processi con attività di rete.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Se cbengine.exe non invia una quantità notevole di dati, completare i passaggi illustrati nelle sezioni seguenti.
 
@@ -179,7 +179,7 @@ Controllare se il server di elaborazione esegue attivamente il push dei dati in 
 1. In Monitoraggio risorse selezionare **cbengine.exe**.
 2. In **Connessioni TCP** verificare se vi è connettività tra il server di elaborazione e Archiviazione di Azure.
 
-  ![Connettività tra cbengine.exe e l'URL di Archiviazione BLOB di Azure](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Screenshot che mostra la connettività tra cbengine.exe e l'URL di archiviazione BLOB di Azure.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Verificare i servizi
 

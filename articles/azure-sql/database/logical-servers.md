@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367573"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498090"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Che cos'è un server SQL logico nel database SQL di Azure e in una sinapsi di Azure?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Un server nel database SQL e in una sinapsi di Azure:
 - È la risorsa padre per database, pool elastici e data warehouse
 - Fornisce uno spazio dei nomi per database, pool elastici e database data warehouse
 - È un contenitore logico con semantica di durata elevata: eliminare un server ed Elimina i relativi database, i pool elastici e i pool SQK
-- Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/azure/role-based-access-control/overview) : i database, i pool elastici e i database data warehouse all'interno di un server ereditano i diritti di accesso dal server
+- Partecipa al [controllo degli accessi in base al ruolo (RBAC)](/azure/role-based-access-control/overview) di Azure: i database, i pool elastici e i database data warehouse all'interno di un server ereditano i diritti di accesso dal server
 - È un elemento di ordine superiore dell'identità di database, pool elastici e database di data warehouse per la gestione delle risorse di Azure (vedere lo schema URL per i database e i pool)
 - Colloca risorse in un'area
 - Fornisce un endpoint di connessione per l'accesso ai database (`<serverName>`.database.windows.net)

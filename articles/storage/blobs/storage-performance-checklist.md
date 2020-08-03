@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473943"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495132"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
 
@@ -65,7 +65,7 @@ Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accoda
 Se si sta per raggiungere il numero massimo di account di archiviazione consentiti per una determinata combinazione di sottoscrizione/area, valutare lo scenario e determinare se si applica una delle condizioni seguenti:
 
 - Si usano gli account di archiviazione per archiviare dischi non gestiti e aggiungere tali dischi alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di usare Managed Disks. I dischi gestiti vengono ridimensionati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md)
-- Si sta usando un account di archiviazione per cliente per l'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare ruoli di controllo degli accessi in base al ruolo (RBAC) per ogni contenitore. Per altre informazioni, vedere [Concedere l'accesso ai dati dei BLOB e delle code di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
+- Si sta usando un account di archiviazione per cliente per l'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare i ruoli di Azure in base ai singoli contenitori. Per altre informazioni, vedere [Concedere l'accesso ai dati dei BLOB e delle code di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
 - Si usano più account di archiviazione per la partizione per aumentare il traffico in ingresso, in uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, se possibile Microsoft consiglia di sfruttare l'innalzamento dei limiti degli account di archiviazione per ridurre il numero di account di archiviazione necessari per il carico di lavoro. Contattare il [supporto di Azure](https://azure.microsoft.com/support/options/) per richiedere l'espansione dei limiti dell'account di archiviazione. Per altre informazioni, vedere [Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Obiettivi di capacità e transazioni
@@ -131,7 +131,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 
 Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva.  L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.  
 
-### <a name="location"></a>Posizione
+### <a name="location"></a>Location
 
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.  
 
@@ -155,7 +155,7 @@ Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessar
 
 La memorizzazione nella cache svolge un ruolo importante per le prestazioni. Nelle sezioni seguenti vengono descritte le procedure consigliate per la memorizzazione nella cache.
 
-### <a name="reading-data"></a>Lettura di dati
+### <a name="reading-data"></a>Lettura dei dati
 
 In generale, è preferibile leggere i dati una sola volta. Si consideri l'esempio di un'applicazione Web che ha recuperato un BLOB MiB 50 dall'archiviazione di Azure per fungere da contenuto per un utente. Idealmente, l'applicazione memorizza nella cache il BLOB localmente su disco e quindi recupera la versione memorizzata nella cache per le successive richieste utente.
 

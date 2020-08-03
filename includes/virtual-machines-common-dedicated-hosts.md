@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133855"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386530"
 ---
 ## <a name="limitations"></a>Limitazioni
 
@@ -53,7 +53,7 @@ Se si assegna un gruppo host a una zona di disponibilità, tutte le macchine vir
 
 Un host può essere creato in un dominio di errore specifico. Analogamente alla macchina virtuale in un set di scalabilità o un set di disponibilità, gli host in domini di errore diversi verranno posizionati su rack fisici diversi nel data center. Quando si crea un gruppo host, è necessario specificare il numero di domini di errore. Quando si creano host all'interno del gruppo host, si assegna il dominio di errore per ogni host. Le macchine virtuali non richiedono alcuna assegnazione di dominio di errore.
 
-I domini di errore non corrispondono alla collocazione. Avere lo stesso dominio di errore per due host non significa che siano vicini tra loro.
+I domini di errore non corrispondono a quelli della condivisione percorso. Avere lo stesso dominio di errore per due host non significa che siano vicini tra loro.
 
 I domini di errore hanno come ambito il gruppo host. Si consiglia di non prendere in considerazione l'anti-affinità tra due gruppi host, a meno che non si trovino in zone di disponibilità diverse.
 

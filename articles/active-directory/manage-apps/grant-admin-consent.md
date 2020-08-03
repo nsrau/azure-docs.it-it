@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848364"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501015"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
@@ -31,9 +31,16 @@ Per concedere il consenso dell'amministratore a livello di tenant, è necessario
 
 > [!IMPORTANT]
 > Quando a un'applicazione viene concesso il consenso dell'amministratore a livello di tenant, tutti gli utenti saranno in grado di accedere all'app a meno che non sia stata configurata per richiedere l'assegnazione dell'utente. Per limitare gli utenti che possono accedere a un'applicazione, richiedere l'assegnazione dell'utente e quindi assegnare utenti o gruppi all'applicazione. Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](methods-for-assigning-users-and-groups.md).
+>
+> Il ruolo di amministratore globale è necessario per fornire il consenso dell'amministratore per l'API Microsoft Graph.
+>
+
 
 > [!WARNING]
 > La concessione del consenso dell'amministratore a livello di tenant a un'applicazione consentirà all'app e all'autore dell'app di accedere ai dati dell'organizzazione. Esaminare attentamente le autorizzazioni richieste dall'applicazione prima di concedere il consenso.
+>
+> Il ruolo di amministratore globale è necessario per fornire il consenso dell'amministratore per l'API Microsoft Graph.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Concedere il consenso dell'amministratore dal portale di Azure
 

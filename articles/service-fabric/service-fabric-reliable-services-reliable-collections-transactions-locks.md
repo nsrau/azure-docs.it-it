@@ -4,12 +4,12 @@ description: Transazioni e blocco delle raccolte Reliable Collections e di Relia
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245110"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500283"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
 
@@ -68,7 +68,7 @@ Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma c
 
 La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 
-| Richiesto\Concesso | Nessuno | Condiviso | Aggiornamento | Esclusivo |
+| Richiesto\Concesso | nessuno | Condiviso | Aggiornamento | Esclusivo |
 | --- |:--- |:--- |:--- |:--- |
 | Condiviso |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Aggiornamento |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
@@ -77,7 +77,7 @@ La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 L'argomento timeout nelle API Reliable Collections viene usato per il rilevamento dei deadlock.
 Si supponga, ad esempio, che due transazioni (T1 e T2) stiano cercando di leggere e aggiornare K1.
 È possibile che si verifichi un deadlock, poiché entrambe le transazioni si concludono con il blocco condiviso.
-In questo caso, si verifica il timeout di una o entrambe le operazioni. In questo scenario, un blocco di aggiornamento potrebbe impedire un deadlock di questo tipo.
+In questo caso, si verifica il timeout di una o entrambe le operazioni. In questo scenario un blocco di aggiornamento potrebbe impedire un deadlock di questo tipo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

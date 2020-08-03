@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: bd28f949d35d38c9e64af7ff4196aa1754fbc37a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172663"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499365"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Modificare dinamicamente il livello di servizio di un volume
 
 È possibile modificare il livello di servizio di un volume esistente spostando il volume in un altro pool di capacità che utilizza il [livello di servizio](azure-netapp-files-service-levels.md) desiderato per il volume. Questa modifica sul posto a livello di servizio per il volume non richiede la migrazione dei dati. Non influisca inoltre sull'accesso al volume.  
-
-> [!IMPORTANT] 
-> Per utilizzare questa funzionalità è necessario aggiungere l'elenco elementi Consenti Inviare un messaggio di posta elettronica a anffeedback@microsoft.com con l'ID sottoscrizione per richiedere questa funzionalità.
 
 Questa funzionalità consente di soddisfare le esigenze del carico di lavoro su richiesta.  È possibile modificare un volume esistente per usare un livello di servizio superiore per ottenere prestazioni migliori o per usare un livello di servizio inferiore per l'ottimizzazione dei costi. Ad esempio, se il volume si trova attualmente in un pool di capacità che usa il livello di servizio *standard* e si vuole che il volume usi il livello di servizio *Premium* , è possibile spostare il volume in modo dinamico in un pool di capacità che usa il livello di servizio *Premium* .  
 
@@ -39,7 +36,24 @@ Il pool di capacità in cui si desidera spostare il volume deve essere già esis
 * Se si sposta un volume in un pool di capacità di un livello di servizio superiore (ad esempio, passando dal livello *standard* al livello *Premium* o *ultra* ), è necessario attendere almeno sette giorni prima che sia possibile spostare di nuovo il volume in un pool di capacità di un livello di servizio inferiore (ad esempio, passando da *ultra* a *Premium* o *standard*).  
 Questo periodo di attesa non si applica se si sposta il volume in un pool di capacità con lo stesso livello di servizio o un livello di servizio inferiore.
 
-## <a name="steps"></a>Passaggi
+## <a name="register-the-feature"></a>Registrare la funzionalità
+
+1. La funzionalità per spostare un volume in un altro pool di capacità è attualmente in fase di anteprima. Se è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+2. Verificare lo stato della registrazione della funzionalità: 
+
+    > [!NOTE]
+    > Il **RegistrationState** potrebbe trovarsi nello `Registering` stato per alcuni minuti prima di modificare in `Registered` . Prima di continuare, attendere che lo stato sia **registrato** .
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+## <a name="move-a-volume-to-another-capacity-pool"></a>Spostare un volume in un altro pool di capacità
 
 1.  Nella pagina volumi, fare clic con il pulsante destro del mouse sul volume di cui si desidera modificare il livello di servizio. Selezionare **Cambia pool**.
 

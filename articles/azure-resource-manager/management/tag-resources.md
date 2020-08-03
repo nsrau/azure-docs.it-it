@@ -3,12 +3,13 @@ title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizz
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337535"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499994"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 

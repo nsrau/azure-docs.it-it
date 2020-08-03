@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78933753"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496441"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -42,13 +42,13 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
 
    2. Scegliere una **sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Se si dispone di una sola sottoscrizione, questo campo viene popolato automaticamente (e non è selezionabile).
 
-   3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Gruppi di risorse di Azure).
+   3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Gruppi di risorse di Azure).
 
    4. Specificare il **percorso** del servizio che ospita gli account di archiviazione e il servizio StorSimple Data Manager. Il servizio Gestione dispositivi StorSimple, il servizio Data Manager e l'account di archiviazione associato devono trovarsi tutti nelle aree supportate.
     
    5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
     
-   6. Fare clic su **Crea**.
+   6. Scegliere **Crea**.
 
       ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
@@ -133,7 +133,7 @@ Per creare una definizione del processo, seguire questa procedura.
 
 ### <a name="run-the-job-definition"></a>Eseguire la definizione di processo
 
-Per spostare i dati da StorSimple all'account di archiviazione specificato nella definizione del processo, è necessario eseguire tale definizione. In fase di esecuzione, è possibile specificare alcuni parametri in modo diverso. Attenersi alla procedura seguente:
+Per spostare i dati da StorSimple all'account di archiviazione specificato nella definizione del processo, è necessario eseguire tale definizione. In fase di esecuzione, è possibile specificare alcuni parametri in modo diverso. La procedura è la seguente:
 
 1. Fare clic sul servizio StorSimple Data Manager e passare a **Gestione > Definizioni processi**. Selezionare e fare clic sulla definizione del processo che si vuole eseguire.
      

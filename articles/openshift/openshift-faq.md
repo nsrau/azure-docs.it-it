@@ -5,13 +5,13 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219231"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497580"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -235,3 +235,7 @@ Per i cluster 3,11, i dati non vengono crittografati a livello di ETCD. L'opzion
 Per i cluster 4. x, il disco di Azure (Premium_LRS) viene configurato come classe di archiviazione predefinita. Per i provider di archiviazione aggiuntivi e per i dettagli di configurazione (incluso file di Azure), vedere la documentazione di Red Hat sull' [archivio permanente](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
 Per i cluster 3,11, per impostazione predefinita vengono fornite due classi di archiviazione: una per i dischi di Azure (Premium_LRS) e una per file di Azure.
+
+## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>ARO archivia i dati dei clienti al di fuori dell'area del cluster?
+
+No. Tutti i dati creati in un cluster ARO vengono mantenuti all'interno dell'area del cluster.

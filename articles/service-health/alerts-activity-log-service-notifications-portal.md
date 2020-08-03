@@ -3,29 +3,29 @@ title: Ricevere gli avvisi del log attività nelle notifiche del servizio di Azu
 description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel servizio di Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a8723698cddfb519687525820475517b93219a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499273"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Creare avvisi del log attività per le notifiche del servizio usando il portale di Azure
 ## <a name="overview"></a>Panoramica
 
 Questo articolo illustra come usare la portale di Azure per configurare gli avvisi del log attività per le notifiche sull'integrità del servizio usando il portale di Azure.  
 
-Le notifiche sull'integrità del servizio vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) , dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
+Le notifiche sull'integrità del servizio vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). Dato il volume elevato di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata che semplifica la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
 
 È possibile ricevere un avviso quando Azure invia le notifiche sull'integrità del servizio alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:
 
-- La classe di notifica dell'integrità del servizio (problemi del servizio, manutenzione pianificata, avvisi di integrità).
+- La classe di notifica sull'integrità del servizio (problemi del servizio, manutenzione pianificata, avvisi di integrità, avvisi di sicurezza).
 - La sottoscrizione interessata.
 - I servizi interessati.
 - Le aree interessate.
 
 > [!NOTE]
-> Le notifiche sull'integrità del servizio non inviano un avviso relativo a eventi di integrità delle risorse.
+> Le notifiche sull'integrità del servizio non inviano avvisi per gli eventi di integrità delle risorse.
 
 È anche possibile configurare l'utente a cui deve essere inviato l'avviso:
 
@@ -40,7 +40,7 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="alert-and-new-action-group-using-azure-portal"></a>Avviso e nuovo gruppo di azioni usando il portale di Azure
+## <a name="create-service-health-alert-using-azure-portal"></a>Creare un avviso di integrità del servizio utilizzando portale di Azure
 1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
 
     ![Il servizio "Integrità del servizio"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -49,54 +49,31 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
     ![La scheda "Avvisi di integrità"](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
-1. Selezionare **Create service health alert** (Crea avviso di integrità del servizio) e compilare i campi.
+1. Selezionare **Aggiungi avviso integrità servizio** e compilare i campi.
 
     ![Il comando "Create service health alert" (Crea avviso di integrità del servizio)](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1. Selezionare la **Sottoscrizione**, i **Servizi** e le **Aree** per cui si vogliono ricevere gli avvisi.
+1. Selezionare la **sottoscrizione**, i **Servizi**e le **aree** per cui si desidera ricevere avvisi.
 
-    ![Finestra di dialogo "Aggiungi avviso del log attività"](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    [![Finestra di dialogo "Aggiungi avviso del log attività"](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png#lightbox)
 
-    > [!NOTE]
-    > Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
+> [!NOTE]
+>Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
 
-1. Scegliere i **Tipi di evento** per i quali si vogliono ricevere gli avvisi relativi a: *Problema del servizio*, *Manutenzione pianificata* e *Avvisi di integrità* 
+5. Scegliere i **tipi di evento** per i quali si desidera ricevere un avviso: *problema del servizio*, *manutenzione pianificata*, *avvisi di integrità*e *avvisi di sicurezza*.
 
-1. Definire i dettagli dell'avviso immettendo un **Nome regola di avviso** e una **Descrizione**.
+6. Fare clic su **Seleziona gruppo di azioni** per scegliere un gruppo di azioni esistente o creare un nuovo gruppo di azioni. Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md).
 
-1. Selezionare il **Gruppo di risorse** in cui si vuole che venga salvato l'avviso.
 
-1. Creare un nuovo gruppo di azioni selezionando **Nuovo gruppo di azioni**. Immettere un nome nella casella **nome gruppo di azioni** e immettere un nome nella casella **nome breve** . Viene fatto riferimento al nome breve nelle notifiche inviate all'attivazione dell'avviso.
+7. Definire i dettagli dell'avviso immettendo un **Nome regola di avviso** e una **Descrizione**.
 
-    ![Creare un nuovo gruppo di azioni](media/alerts-activity-log-service-notifications/action-group-creation.png)
+8. Selezionare il **Gruppo di risorse** in cui si vuole che venga salvato l'avviso.
 
-1. Definire un elenco di ricevitori specificando i dati seguenti relativi al ricevitore:
 
-    a. **Nome**: immettere il nome, l'alias o l'identificatore del ricevitore.
-
-    b. **Tipo di azione**: selezionare SMS, posta elettronica, webhook, app di Azure e altro.
-
-    c. **Dettagli:** in base al tipo di azione selezionato, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, ecc.
-
-1. Selezionare **OK** per creare il gruppo di azioni e quindi **Crea regola di avviso** per completare l'avviso.
 
 Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
 Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md). Per informazioni sullo schema webhook per gli avvisi del log attività, vedere [Webhook per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
-
->[!NOTE]
->Il gruppo di azione definito in questi passaggi è riutilizzabile come gruppo di azione esistente per tutte le future definizioni di avviso.
->
-
-## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avviso con un gruppo di azioni esistente usando il portale di Azure
-
-1. Per creare la notifica sull'integrità del servizio, seguire i passaggi da 1 a 6 della sezione precedente. 
-
-1. In **Definire il gruppo di azioni** fare clic sul pulsante **Seleziona gruppo di azioni**. Selezionare il gruppo di azioni appropriato.
-
-1. Selezionare **Aggiungi** per creare il gruppo di azioni e quindi **Crea regola di avviso** per completare l'avviso.
-
-Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

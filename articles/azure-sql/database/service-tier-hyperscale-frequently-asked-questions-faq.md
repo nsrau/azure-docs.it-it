@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024018"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500147"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -331,7 +331,7 @@ Per la maggior parte dei problemi di prestazioni, in particolare quelli non radi
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>Quanto tempo è necessario per la scalabilità verticale e orizzontale di una replica di calcolo
 
-La scalabilità verso l'alto o verso il basso dovrebbe richiedere 5-10 minuti indipendentemente dalla dimensione dei dati.
+La scalabilità verso l'alto o verso il basso richiede in genere fino a 2 minuti indipendentemente dalla dimensione dei dati.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Il database è offline mentre vengono eseguite le operazioni di ridimensionamento
 

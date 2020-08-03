@@ -4,16 +4,16 @@ description: Come eseguire la migrazione a strumenti di sviluppo di Azure Resour
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c002f4e0a5a7c780f394a07cdd132c5e198877ed
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085515"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500181"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight
 
@@ -56,7 +56,7 @@ Se si usano i comandi `azure hdinsight job` per inviare processi al cluster HDIn
 
 Per informazioni su altri modi per eseguire MapReduce, Apache Hive e Apache Pig con Apache Hadoop in modo interattivo, vedere [Usare MapReduce con Hadoop in HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usare Apache Hive con Apache Hadoop in HDInsight](hadoop/hdinsight-use-hive.md) e [Usare Apache Pig con Apache Hadoop in HDInsight](hadoop/hdinsight-use-pig.md).
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 **Creazione di un cluster**
 
 * Comando precedente (ASM): `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
@@ -146,8 +146,8 @@ Per altre informazioni sull'utilizzo, vedere [Personalizzare cluster HDInsight b
 
 * **Add-AzHDInsightClusterIdentity**: aggiunge un'identità del cluster a un oggetto di configurazione del cluster in modo che il cluster HDInsight possa accedere a Azure Data Lake storage. Vedere [Creare un cluster HDInsight con Data Lake Storage tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
-### <a name="examples"></a>Esempio
-**Crea cluster**
+### <a name="examples"></a>Esempi
+**Creare cluster**
 
 Comando precedente (ASM): 
 
@@ -253,7 +253,7 @@ Questa sezione include puntatori ad altre informazioni relative all'esecuzione d
 | Trovare l'account di archiviazione predefinito per i cluster HDInsight con .NET SDK |Vedere la sezione su come trovare l'account di archiviazione predefinito in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | Eliminare cluster HDInsight con .NET SDK |Vedere la sezione su come eliminare cluster in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'operazione con l'SDK basato su ASM e il frammento di codice equivalente per l'SDK basato su Gestione risorse.
 
 **Creazione di un client CRUD del cluster**

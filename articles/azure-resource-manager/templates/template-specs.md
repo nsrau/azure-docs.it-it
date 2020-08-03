@@ -2,28 +2,34 @@
 title: Cenni preliminari sulle specifiche del modello
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47dcf44b35ad5c0b77dd0b88d683071a7f2f4ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097727"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497801"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
-Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (ARM template) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per condividere la specifica del modello. gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
+Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (ARM template) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo per condividere la specifica del modello.
 
 **Microsoft. resources/templateSpecs** è il nuovo tipo di risorsa per le specifiche del modello. È costituito da un modello principale e da un numero qualsiasi di modelli collegati. Azure archivia in modo sicuro le specifiche del modello nei gruppi di risorse. Le specifiche del modello supportano il [controllo delle versioni](#versioning).
 
 Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Si utilizzano gli stessi comandi e si passano gli stessi parametri per il modello.
 
-Il vantaggio di usare le specifiche dei modelli è che i team dell'organizzazione non devono ricreare o copiare i modelli per gli scenari comuni. È possibile creare modelli canonici e condividerli. I modelli inclusi in una specifica del modello devono essere verificati dagli amministratori dell'organizzazione per seguire i requisiti e le linee guida dell'organizzazione.
-
 > [!NOTE]
 > Le specifiche del modello sono attualmente in anteprima. Per usarlo, è necessario [iscriversi all'elenco di attesa](https://aka.ms/templateSpecOnboarding).
+
+## <a name="why-use-template-specs"></a>Perché usare le specifiche del modello?
+
+Se i modelli sono attualmente presenti in un repository GitHub o in un account di archiviazione, si verificano diverse esigenze durante il tentativo di condividere e usare i modelli. Per la distribuzione da parte di un utente, il modello deve essere locale o l'URL del modello deve essere accessibile pubblicamente. Per aggirare questa limitazione, è possibile condividere copie del modello con gli utenti che devono distribuirlo o aprire l'accesso al repository o all'account di archiviazione. Quando gli utenti possiedono copie locali di un modello, queste copie possono divergere dal modello originale. Quando si rende accessibile pubblicamente un repository o un account di archiviazione, è possibile consentire agli utenti non intenzionati di accedere al modello.
+
+Il vantaggio di usare le specifiche dei modelli è che è possibile creare modelli canonici e condividerli con i team dell'organizzazione. Le specifiche del modello sono sicure perché sono disponibili per Azure Resource Manager per la distribuzione, ma non sono accessibili agli utenti senza autorizzazione RBAC. Gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
+
+I modelli inclusi in una specifica del modello devono essere verificati dagli amministratori dell'organizzazione per seguire i requisiti e le linee guida dell'organizzazione.
 
 ## <a name="create-template-spec"></a>Crea specifica modello
 

@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.openlocfilehash: 60f5813cf5ff0d52b57f7a4b55d86195051f217f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999072"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501083"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Creare una macchina virtuale da una versione di immagine generalizzata usando l'interfaccia della riga di comando
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035826"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495659"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -174,7 +174,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
    3. Verificare la sequenza di backup/ripristino e la tempistica e apportare le correzioni necessarie. Verificare che i tempi di backup siano sufficienti. È anche necessario testare le attività di ripristino e ripristino orario. Assicurarsi che i tempi di ripristino si trovino entro i contratti di RTO quando la RTO si basa su un processo di ripristino del database o della macchina virtuale.
    4. Testare l'architettura e la funzionalità di ripristino di emergenza tra aree diverse.
 1. Controlli di sicurezza.
-   1. Testare la validità dell'architettura del controllo degli accessi in base al ruolo (RBAC) di Azure. L'obiettivo è separare e limitare l'accesso e le autorizzazioni di diversi team. Ad esempio, i membri del team di base SAP dovrebbero essere in grado di distribuire le macchine virtuali e assegnare dischi da archiviazione di Azure in una rete virtuale di Azure specificata. Il team di base SAP, tuttavia, non deve essere in grado di creare le proprie reti virtuali o di modificare le impostazioni delle reti virtuali esistenti. I membri del team di rete non devono essere in grado di distribuire le macchine virtuali in reti virtuali in cui sono in esecuzione le macchine virtuali di applicazioni SAP e DBMS. Né i membri di questo team possono modificare gli attributi delle macchine virtuali o persino eliminare le VM o i dischi.  
+   1. Testare la validità dell'architettura del controllo degli accessi in base al ruolo di Azure (RBAC di Azure). L'obiettivo è separare e limitare l'accesso e le autorizzazioni di diversi team. Ad esempio, i membri del team di base SAP dovrebbero essere in grado di distribuire le macchine virtuali e assegnare dischi da archiviazione di Azure in una rete virtuale di Azure specificata. Il team di base SAP, tuttavia, non deve essere in grado di creare le proprie reti virtuali o di modificare le impostazioni delle reti virtuali esistenti. I membri del team di rete non devono essere in grado di distribuire le macchine virtuali in reti virtuali in cui sono in esecuzione le macchine virtuali di applicazioni SAP e DBMS. Né i membri di questo team possono modificare gli attributi delle macchine virtuali o persino eliminare le VM o i dischi.  
    1.  Verificare che il [gruppo di sicurezza di rete e](../../../virtual-network/security-overview.md) le regole ASC funzionino come previsto e proteggano le risorse protette.
    1.  Assicurarsi che tutte le risorse che devono essere crittografate lo siano effettivamente. Definire e implementare i processi per eseguire il backup dei certificati, archiviare e accedere a tali certificati e ripristinare le entità crittografate.
    1.  Usare [crittografia dischi di Azure](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) per i dischi del sistema operativo laddove possibile da un punto di vista del supporto del sistema operativo.

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130138"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496118"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -35,7 +35,7 @@ Un progetto U-SQL può essere compilato con Microsoft Build Engine (MSBuild), pa
 
 Prima di configurare un'attività di compilazione per un progetto U-SQL, assicurarsi di disporre della versione più recente del progetto U-SQL. Aprire il file di progetto U-SQL nell'editor e verificare che siano presenti gli elementi di importazione seguenti:
 
-```   
+```xml
 <!-- check for SDK Build target in current path then in USQLSDKPath-->
 <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
 <Import Project="$(USQLSDKPath)\UsqlSDKBuild.targets" Condition="!Exists('UsqlSDKBuild.targets') And '$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\UsqlSDKBuild.targets')" />
@@ -66,14 +66,14 @@ Gli script U-SQL in un progetto U-SQL potrebbero includere istruzioni di query p
 Leggere altre informazioni sul [progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->DROP Statement può causare un problema di eliminazione accidentale. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti MSBuild. **AllowDropStatement** Abilita l'operazione di rilascio non correlata ai dati, ad esempio drop assembly e drop table valued Function. **AllowDataDropStatement** consentirà l'operazione drop relativa ai dati, ad esempio drop table e drop schema. Prima di usare AllowDataDropStatement, è necessario abilitare AllowDropStatement.
+> L'istruzione DROP può causare un'eliminazione accidentale. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti MSBuild. **AllowDropStatement** Abilita l'operazione di rilascio non correlata ai dati, ad esempio drop assembly e drop table valued Function. **AllowDataDropStatement** consentirà l'operazione drop relativa ai dati, ad esempio drop table e drop schema. Prima di usare AllowDataDropStatement, è necessario abilitare AllowDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Compilare il progetto U-SQL con la riga di comando di MSBuild
 
 Prima di tutto, eseguire la migrazione del progetto e ottenere il pacchetto NuGet. Chiamare quindi la riga di comando di MSBuild standard con gli argomenti aggiuntivi seguenti per compilare il progetto U-SQL: 
 
-``` 
+```console
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
 ``` 
 
@@ -100,7 +100,7 @@ Oltre alla riga di comando, è anche possibile usare un'attività di MSBuild o V
 
     ![Definire variabili di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
-    ```
+    ```console
     /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
@@ -109,9 +109,7 @@ Oltre alla riga di comando, è anche possibile usare un'attività di MSBuild o V
 Dopo avere eseguito una compilazione, tutti gli script nel progetto U-SQL vengono compilati e restituiti in un file ZIP denominato `USQLProjectName.usqlpack`. La struttura della cartella nel progetto viene mantenuta nell'output di compilazione compresso.
 
 > [!NOTE]
->
-> I file code-behind per ogni script U-SQL vengono uniti come istruzione inline nell'output di compilazione dello script.
->
+> I file code-behind per ogni script U-SQL verranno uniti come un'istruzione inline nell'output di compilazione dello script.
 
 ## <a name="test-u-sql-scripts"></a>Testare gli script U-SQL
 
@@ -229,6 +227,10 @@ Function Main()
 
 Main
 ```
+
+>[!NOTE]
+> I comandi: `Submit-AzDataLakeAnalyticsJob` e `Wait-AzDataLakeAnalyticsJob` sono entrambi Azure PowerShell cmdlet per Azure Data Lake Analytics in Azure Resource Manager Framework. Si neeed una workstation con Azure PowerShell installato. Per altri comandi ed esempi, è possibile fare riferimento all' [elenco](https://docs.microsoft.com/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) dei comandi.
+>
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Distribuire i processi U-SQL tramite Azure Data Factory
 
@@ -453,7 +455,7 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Default Value | Richiesto |
+| Parametro | Descrizione | Default Value | Necessario |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -462,13 +464,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Default Value|Richiesto|
+|Parametro|Descrizione|Default Value|Necessario|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Default Value|Richiesto|
+|Parametro|Descrizione|Default Value|Necessario|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|

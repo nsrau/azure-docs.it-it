@@ -3,12 +3,13 @@ title: Configurare gli endpoint privati per gli argomenti o i domini di griglia 
 description: Questo articolo descrive come configurare gli endpoint privati per gli argomenti o il dominio di griglia di eventi di Azure.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7796c4160cbf40a241db901e31cc91edc361b00d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495285"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
@@ -195,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>Script di esempio
 Ecco uno script di esempio che crea le risorse di Azure seguenti:
 
-- Resource group
+- Gruppo di risorse
 - Rete virtuale
 - Subnet nella rete virtuale
 - Argomento di griglia di eventi di Azure

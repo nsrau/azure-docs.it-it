@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466018"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496424"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
 
@@ -81,7 +81,7 @@ Eseguire la migrazione di dati, carichi di lavoro e applicazioni usando il model
    
 6. Cercare i riferimenti URI che contengono la stringa `adl://` nei file di codice o nei notebook di databricks, Apache hive file HQL o qualsiasi altro file usato come parte dei carichi di lavoro. Sostituire questi riferimenti con l' [URI formattato Gen2](data-lake-storage-introduction-abfs-uri.md) del nuovo account di archiviazione. Ad esempio, l'URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` potrebbe diventare `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
-7. Configurare la sicurezza per l'account in modo da includere [ruoli di controllo degli accessi in base al ruolo](../common/storage-auth-aad-rbac-portal.md), sicurezza a livello di [file e cartelle](data-lake-storage-access-control.md)e [firewall e reti virtuali di archiviazione di Azure](../common/storage-network-security.md).
+7. Configurare la sicurezza per l'account in modo da includere i [ruoli di Azure](../common/storage-auth-aad-rbac-portal.md), la sicurezza a [livello di file e cartelle](data-lake-storage-access-control.md)e i [firewall e le reti virtuali di archiviazione di Azure](../common/storage-network-security.md).
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>Passaggio 4: cutover da Gen1 a Gen2
 
@@ -96,7 +96,7 @@ In questa tabella vengono confrontate le funzionalità di Gen1 a quella di Gen2.
 |Area |Prima generazione   |Seconda generazione |
 |---|---|---|
 |Organizzazione dei dati|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di file e cartelle|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di contenitori, file e cartelle |
-|Ridondanza geografica| [Archiviazione con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage)| [con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
+|Ridondanza geografica| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |Authentication|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chiave di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autorizzazione|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>Dati- [ACL](data-lake-storage-access-control.md)|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>[ACL](data-lake-storage-access-control.md)dati, [RBAC](../../role-based-access-control/overview.md) |
 |Crittografia: dati inattivi|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -207,4 +207,3 @@ Questo è il modello più semplice.
 - Informazioni sulle varie parti della configurazione della sicurezza per un account di archiviazione. Vedere [Guida alla sicurezza di archiviazione di Azure](../common/storage-security-guide.md).
 - Ottimizzare le prestazioni per il Data Lake Store. Vedere [ottimizzare Azure Data Lake storage Gen2 per le prestazioni](data-lake-storage-performance-tuning-guidance.md)
 - Esaminare le procedure consigliate per la gestione dei Data Lake Store. Vedere le procedure consigliate [per l'uso di Azure Data Lake storage Gen2](data-lake-storage-best-practices.md)
-

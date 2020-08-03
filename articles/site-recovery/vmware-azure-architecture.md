@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424410"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498953"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
@@ -30,9 +30,7 @@ La tabella e l'immagine seguenti offrono una visualizzazione generale dei compon
 **Server VMware** | Le macchine virtuali VMware sono ospitate in server vSphere ESXi locali. È consigliabile usare un server vCenter per gestire gli host. | Durante la distribuzione di Site Recovery, aggiungere i server VMware all'insieme di credenziali di Servizi di ripristino.
 **Computer replicati** | Il servizio Mobility viene installato in ogni macchina virtuale VMware da replicare. | È consigliabile consentire l'installazione automatica dal server di elaborazione. In alternativa, è possibile installare manualmente il servizio o usare un metodo di distribuzione automatizzato, ad esempio Configuration Manager.
 
-**Architettura da VMware ad Azure**
-
-![Componenti](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagramma che illustra le relazioni tra l'architettura di replica da VMware ad Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurare la connettività di rete in uscita
 
@@ -71,9 +69,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
     - Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia ad archiviazione di Azure tramite la porta 443 in uscita.
 5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure, denominato disco di inizializzazione ASR. I punti di ripristino vengono creati su questo disco.
 
-**Processo di replica da VMware ad Azure**
-
-![Processo di replica](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagramma che illustra il processo di replica da VMware ad Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Processo di risincronizzazione
 
@@ -108,9 +104,8 @@ Dopo aver configurato la replica e aver eseguito un'analisi di ripristino di eme
     - Fase 3: al termine del failback dei carichi di lavoro, riabilitare la replica per le macchine virtuali locali.
     
  
-**Failback di VMware da Azure**
 
-![Failback](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagramma che mostra il failback di VMware da Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

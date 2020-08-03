@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371040"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500879"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -33,9 +33,7 @@ Azure Lighthouse consente una maggiore flessibilità nella gestione delle risors
 
 È possibile eseguire le attività di gestione nelle risorse delegate direttamente nel portale oppure usando le API e gli strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell. Quando si usano le risorse delegate, è possibile utilizzare tutte le API esistenti, purché la funzionalità sia supportata per la gestione tra tenant e l'utente disponga delle autorizzazioni appropriate.
 
-Il [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) Mostra `tenantID` per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene al tenant del provider di servizi o a un tenant del cliente gestito.
-
-Analogamente, i comandi dell'interfaccia della riga di comando di Azure, ad esempio [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list), mostrano gli attributi **homeTenantId** e **managedByTenants**.
+I comandi dell'interfaccia della riga di comando di Azure, ad esempio [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) , mostrano gli attributi **homeTenantId** e **managedByTenants** per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene al tenant del provider di servizi o a un tenant del cliente gestito.
 
 > [!TIP]
 > Se, quando si usa l'interfaccia della riga di comando di Azure, questi valori non vengono visualizzati, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.
@@ -70,7 +68,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Gestione dei costi di Azure e fatturazione](../../cost-management-billing/index.yml):
 
-- Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso al controllo degli accessi in base al ruolo (RBAC) di Azure che il partner ha per la sottoscrizione del cliente.
+- Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso in base al ruolo di Azure (controllo degli accessi in base al ruolo di Azure) che il partner ha per la sottoscrizione del cliente.
 
 [Servizio Azure Kubernetes](../../aks/index.yml):
 

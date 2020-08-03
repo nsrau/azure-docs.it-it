@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b171c5ff5bc848a0005fad5a2e0b6c0ca548724
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372298"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496074"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
 
@@ -36,7 +36,7 @@ A ogni sottoscrizione di Azure è associato un Azure Active Directory che gestis
 
 Quando si assegna un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, viene indicato anche l'ambito in cui sono attive le autorizzazioni concesse dal ruolo. Per le operazioni di gestione, è possibile assegnare un ruolo a livello di sottoscrizione, gruppo di risorse o account di archiviazione. È possibile assegnare un ruolo RBAC a un'entità di sicurezza usando il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia](../../cli-install-nodejs.md)della riga di comando di Azure, [PowerShell](/powershell/azure/)o l' [API REST del provider di risorse di archiviazione di Azure](/rest/api/storagerp).
 
-Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure).](../../role-based-access-control/overview.md) e i ruoli di [amministratore della sottoscrizione classica, i ruoli RBAC di Azure e i ruoli di amministratore Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure).](../../role-based-access-control/overview.md) e i ruoli di [amministratore della sottoscrizione classica, i ruoli di Azure e](../../role-based-access-control/rbac-and-directory-admin-roles.md)i ruoli di amministratore Azure ad.
 
 ### <a name="built-in-roles-for-management-operations"></a>Ruoli predefiniti per le operazioni di gestione
 

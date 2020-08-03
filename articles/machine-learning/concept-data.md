@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552634"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500981"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -60,21 +60,24 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 + Condivisione file di Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ database SQL di Azure
++ Database SQL di Azure
 + Database di Azure per PostgreSQL
 + File system di Databricks
 + Database di Azure per MySQL
 
 ## <a name="datasets"></a>Set di dati
 
-Azure Machine Learning set di dati sono riferimenti che puntano ai dati nel servizio di archiviazione. Non si tratta di copie dei dati, quindi non sono previsti costi di archiviazione aggiuntivi. Per interagire con i dati nell'archiviazione, [creare un set](how-to-create-register-datasets.md) di dati per creare un pacchetto dei dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
+Azure Machine Learning set di dati sono riferimenti che puntano ai dati nel servizio di archiviazione. Non sono copie dei dati, quindi non sono previsti costi di archiviazione aggiuntivi e l'integrità delle origini dati originali non è a rischio.
+
+ Per interagire con i dati nell'archiviazione, [creare un set](how-to-create-register-datasets.md) di dati per creare un pacchetto dei dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
 
 I set di dati possono essere creati da file locali, URL pubblici, set di dati [aperti di Azure](https://azure.microsoft.com/services/open-datasets/)o servizi di archiviazione di Azure tramite archivi dati. Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un parquet, e creare il set di dati da tale file.  
 
 Sono supportati 2 tipi di set di impostazioni: 
-+ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ Un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. È possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
++ Un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
+
++ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Le funzionalità di set di impostazioni aggiuntive sono disponibili nella documentazione seguente:
 
