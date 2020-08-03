@@ -40,12 +40,14 @@
       items:
         - name: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
           href: how-to-use-cli.md
-        - name: Configurare un'istanza e l'autenticazione (con script)
-          href: how-to-set-up-instance-scripted.md
-        - name: Configurare un'istanza e l'autenticazione (interfaccia della riga di comando)
-          href: how-to-set-up-instance-cli.md
-        - name: Configurare un'istanza e l'autenticazione (portale)
-          href: how-to-set-up-instance-portal.md
+        - name: Configurare un'istanza e l'autenticazione
+          items:
+            - name: Versione con script
+              href: how-to-set-up-instance-scripted.md
+            - name: Versione dell'interfaccia della riga di comando
+              href: how-to-set-up-instance-cli.md
+            - name: Versione del portale
+              href: how-to-set-up-instance-portal.md
         - name: Scrivere il codice di autenticazione dell'app
           href: how-to-authenticate-client.md
     - name: Modelli di progettazione

@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i modelli di Azure Resource Manager?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare modelli - Portale
       href: quickstart-create-templates-use-the-portal.md
@@ -210,8 +210,10 @@
     - name: Specifiche di modello
       items:
         - name: Creare con modelli collegati
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: Distribuire come modello collegato
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: Modelli avanzati
       items:
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Tenant
           href: deploy-to-tenant.md
-        - name: Gruppo di più risorse
-          href: cross-resource-group-deployment.md
+        - name: Distribuzioni tra più ambiti
+          href: cross-scope-deployment.md
     - name: Specificare i parametri
       items:
         - name: Creare il file di parametri

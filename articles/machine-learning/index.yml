@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
-  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+  ms.openlocfilehash: 40a8fc105dd297ec4bc70ecc0a27b9fa295d3fe1
+  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/30/2020
-  ms.locfileid: "87433077"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87474513"
 landingContent:
 - title: Introduzione a Machine Learning
   linkLists:
@@ -25,12 +25,18 @@ landingContent:
     links:
     - text: Notebook di Python
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: Finestra di progettazione (trascinamento della selezione)
-      url: tutorial-designer-automobile-price-train-score.md
     - text: AutoML (nessun codice/poco codice)
       url: tutorial-first-experiment-automated-ml.md
+    - text: Finestra di progettazione (trascinamento della selezione)
+      url: tutorial-designer-automobile-price-train-score.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
+- title: Modello di ML personalizzato in Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire il modello locale nel cloud
+      url: how-to-deploy-existing-model.md
 - title: Usare AutoML o il trascinamento della selezione in Studio
   linkLists:
   - linkListType: overview
@@ -45,50 +51,10 @@ landingContent:
     links:
     - text: 'AutoML: creare un modello di classificazione'
       url: tutorial-first-experiment-automated-ml.md
-    - text: 'AutoML: eseguire il training e distribuire modelli ML'
-      url: how-to-use-automated-ml-for-ml-models.md
     - text: 'Finestra di progettazione: prevedere i prezzi delle auto'
       url: tutorial-designer-automobile-price-train-score.md
-    - text: Creare un progetto di etichettatura di immagini
+    - text: Etichettare immagini per la classificazione
       url: tutorial-labeling.md
-- title: Trasferire il modello in Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Distribuire il modello locale nel cloud
-      url: how-to-deploy-existing-model.md
-- title: Eseguire il training con Python SDK
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Creare il primo esperimento di Machine Learning
-      url: tutorial-1st-experiment-sdk-setup.md
-    - text: Classificare le immagini
-      url: tutorial-train-models-with-aml.md
-    - text: Prevedere le tariffe dei taxi con AutoML
-      url: tutorial-auto-train-models.md
-    - text: Creare pipeline di ML di Azure
-      url: tutorial-pipeline-batch-scoring-classification.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurare l'ambiente
-      url: how-to-configure-environment.md
-    - text: Interpretare e spiegare i modelli
-      url: how-to-machine-learning-interpretability.md
-    - text: Confronto tra Deep Learning e Machine Learning
-      url: concept-deep-learning-vs-machine-learning.md
-    - text: Eseguire il training e la registrazione di modelli Scikit-learn
-      url: how-to-train-scikit-learn.md
-    - text: Eseguire il training e la registrazione di modelli TensorFlow
-      url: how-to-train-tensorflow.md
-    - text: Eseguire il training e la registrazione di modelli PyTorch
-      url: how-to-train-pytorch.md
-    - text: Eseguire il training e la registrazione di modelli Keras
-      url: how-to-train-keras.md
-    - text: Apprendimento per rinforzo
-      url: how-to-use-reinforcement-learning.md
-    - text: Che cosa sono le pipeline di Machine Learning?
-      url: concept-ml-pipelines.md
 - title: 'MLOps: Distribuire e gestire i modelli'
   linkLists:
   - linkListType: how-to-guide
@@ -101,6 +67,34 @@ landingContent:
       url: how-to-consume-web-service.md
     - text: Stima in batch
       url: how-to-use-parallel-run-step.md
+    - text: Repository di esempi di MLOps
+      url: https://github.com/microsoft/MLOps
+- title: Eseguire il training con Python SDK
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare il primo esperimento di Machine Learning
+      url: tutorial-1st-experiment-sdk-setup.md
+    - text: Prevedere le tariffe dei taxi con AutoML
+      url: tutorial-auto-train-models.md
+    - text: Creare pipeline di ML di Azure
+      url: tutorial-pipeline-batch-scoring-classification.md
+    - text: Classificare le immagini
+      url: tutorial-train-models-with-aml.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare l'ambiente
+      url: how-to-configure-environment.md
+    - text: Eseguire il training di modelli Scikit-learn
+      url: how-to-train-scikit-learn.md
+    - text: Eseguire il training di modelli di TensorFlow
+      url: how-to-train-tensorflow.md
+    - text: Eseguire il training di modelli di PyTorch
+      url: how-to-train-pytorch.md
+    - text: Eseguire il training di modelli Keras
+      url: how-to-train-keras.md
+    - text: Che cosa sono le pipeline di Machine Learning?
+      url: concept-ml-pipelines.md
 - title: Passare alla documentazione di riferimento
   linkLists:
   - linkListType: reference
@@ -109,8 +103,6 @@ landingContent:
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
     - text: Algoritmi e moduli della finestra di progettazione
       url: algorithm-module-reference/module-reference.md
-    - text: Repository di esempi di MLOps
-      url: https://github.com/microsoft/MLOps
     - text: API REST
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: Interfaccia della riga di comando di Machine Learning

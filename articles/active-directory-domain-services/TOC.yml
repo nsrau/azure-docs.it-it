@@ -9,7 +9,7 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Creare un dominio gestito di base
+    - name: Creare un dominio gestito
       href: tutorial-create-instance.md
     - name: Configurare la rete virtuale per le app
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Configurare la sincronizzazione dell'hash delle password
       href: tutorial-configure-password-hash-sync.md
-    - name: Creare un dominio gestito avanzato
+    - name: Creare un set di repliche (anteprima)
+      href: tutorial-create-replica-set.md
+    - name: Creare un dominio gestito personalizzato
       href: tutorial-create-instance-advanced.md
-    - name: Creare un trust tra foreste (anteprima)
+    - name: Creare un trust tra foreste
       href: tutorial-create-forest-trust.md
 - name: Esempi
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: Configurare la sincronizzazione con ambito con Azure AD PowerShell
       href: powershell-scoped-synchronization.md
+    - name: Creare una foresta di risorse e un trust con Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Concetti
   items:
     - name: Nozioni fondamentali sull'amministrazione
       href: administration-concepts.md
     - name: Scenari comuni di distribuzione
       href: scenarios.md
+    - name: Set di repliche (anteprima)
+      href: concepts-replica-sets.md
     - name: Foreste e trust
       items:
         - name: Foreste di risorse

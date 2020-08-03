@@ -237,21 +237,41 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP
       href: sap-proximity-placement-scenarios.md
-- name: Integrazione delle identità AAD con SAP e Single-Sign-On
+- name: Integrare Azure AD con applicazioni SAP
   items:
-    - name: Integrazione con SAP Cloud
-      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integrazione di AAD con SAP Cloud Platform Identity Authentication
+    - name: Eseguire il provisioning di utenti da SAP SuccessFactors ad Active Directory
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Eseguire il provisioning di utenti da SAP SuccessFactors ad Azure AD
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Eseguire il writeback di utenti da Azure AD a SAP SuccessFactors
+      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Eseguire il provisioning di utenti in SAP Cloud Platform Identity Authentication Service
+      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Cloud Platform Identity Authentication Service
       href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Configurare Single-Sign-On con SAP Cloud Platform
+    - name: Configurare l'accesso SSO con SAP SuccessFactors
+      href: ../../../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Analytics Cloud
+      href: ../../../active-directory/saas-apps/sapboc-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Fiori
+      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Qualtrics
+      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Ariba
+      href: ../../../active-directory/saas-apps/ariba-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Concur Travel and Expense
+      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Cloud Platform
       href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integrazione di AAD con SAP NetWeaver
+    - name: Configurare l'accesso SSO con SAP NetWeaver
       href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integrazione di AAD con SAP Business ByDesign
+    - name: Configurare l'accesso SSO con SAP Business ByDesign
       href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integrazione di AAD con SAP HANA DBMS
+    - name: Configurare l'accesso SSO con SAP HANA
       href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Accesso Single Sign-On SAML a SAP Fiori Launchpad con Azure AD
+    - name: Configurare l'accesso SSO con SAP Cloud for Customer
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configurare l'accesso SSO con SAP Fiori Launchpad
       href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
 - name: Integrazione di Servizi di Azure in SAP
   items:

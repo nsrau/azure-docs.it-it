@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -452,6 +452,8 @@
       displayName: security
     - name: Versioni del flusso utente
       href: user-flow-versions.md
+    - name: Versioni del flusso utente legacy
+      href: user-flow-versions-legacy.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

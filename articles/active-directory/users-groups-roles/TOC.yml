@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegare le autorizzazioni di amministrazione di app
               href: roles-delegate-app-roles.md
+        - name: Usare i gruppi per gestire le assegnazioni di ruoli
+          items:
+            - name: Panoramica delle assegnazioni di ruoli basate su gruppi
+              href: roles-groups-concept.md
+            - name: Creare un gruppo assegnabile a un ruolo
+              href: roles-groups-create-eligible.md
+            - name: Assegnare ruoli a un gruppo
+              href: roles-groups-assign-role.md
+            - name: Rimuovere le assegnazioni di ruoli da un gruppo
+              href: roles-groups-remove-assignment.md
+            - name: Visualizzare le assegnazioni di ruoli di un gruppo
+              href: roles-groups-view-assignments.md
+            - name: Rendere un gruppo idoneo per un ruolo in PIM
+              href: roles-groups-pim-eligible.md
+            - name: Domande frequenti e risoluzione dei problemi
+              href: roles-groups-faq-troubleshooting.md
         - name: Ruoli con privilegi minimi per attività
           href: roles-delegate-by-task.md
         - name: Ruoli di Microsoft 365
@@ -189,7 +205,7 @@
           items:
             - name: Panoramica sulle unità amministrative
               href: directory-administrative-units.md
-            - name: Aggiungere e gestire unità amministrative
+            - name: Aggiungere e gestire le unità amministrative
               href: roles-admin-units-manage.md
             - name: Aggiungere e gestire utenti nelle unità amministrative
               href: roles-admin-units-add-manage-users.md

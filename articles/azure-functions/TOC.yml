@@ -10,7 +10,7 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opzioni del piano di hosting
       href: functions-scale.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una funzione
@@ -129,6 +129,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
+    - name: Framework
+      items:
+        - name: Express.js
+          href: shift-expressjs.md
     - name: Sicurezza
       items:
         - name: Panoramica della sicurezza

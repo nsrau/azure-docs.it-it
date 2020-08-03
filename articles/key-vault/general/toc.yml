@@ -67,7 +67,9 @@
     - name: Eliminazione temporanea
       items:
         - name: Eliminazione temporanea di Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Eliminazione temporanea attivata per impostazione predefinita
+          href: soft-delete-change.md
     - name: 'Autenticazione, richieste e risposte'
       href: authentication-requests-and-responses.md
     - name: Guida alla limitazione delle richieste per Azure Key Vault

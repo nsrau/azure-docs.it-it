@@ -46,18 +46,24 @@
       href: manage-dhcp.md
     - name: Ripristino di emergenza
       href: disaster-recovery.md
-    - name: Server di Backup di Azure per AVS
-      items:
-        - name: Configurare il server di Backup di Azure per AVS
-          href: set-up-mabs-for-avs.md
-        - name: Eseguire il backup di macchine virtuali AVS con il server di Backup di Azure
-          href: backup-avs-vms-with-mabs.md
     - name: Integrazione nativa di Azure
       items:
         - name: Gestione API
           href: concepts-api-management.md
         - name: Hub e spoke
           href: concepts-avs-hub-and-spoke-integration.md
+        - name: Server di Backup di Azure per AVS
+          items:
+            - name: Configurare un server di backup per la soluzione Azure VMware
+              href: set-up-mabs-for-avs.md
+            - name: Eseguire il backup di VM della soluzione Azure VMware con il server di backup
+              href: backup-avs-vms-with-mabs.md
+        - name: Gateway applicazione nella soluzione Azure VMware
+          href: protect-avs-web-apps-with-app-gateway.md
+    - name: Soluzioni VMware
+      items:
+        - name: Configurareoperazioni vRealize per la soluzione Azure VMware
+          href: vrealize-operations-for-avs.md
 - name: Informazioni di riferimento
   items: null
 - name: Risorse
