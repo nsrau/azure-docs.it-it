@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500599"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425214"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
@@ -25,6 +25,8 @@ Quando si condividono dischi Ultra, presentano le seguenti limitazioni aggiuntiv
 
 - Attualmente limitato al supporto Azure Resource Manager o SDK. 
 - Solo i dischi di base possono essere utilizzati con alcune versioni del cluster di failover di Windows Server. per informazioni dettagliate, vedere [requisiti hardware per il clustering di failover e opzioni di archiviazione](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+I dischi Ultra condivisi sono disponibili in tutte le aree che supportano i dischi ultra per impostazione predefinita e non richiedono l'iscrizione per l'uso.
 
 ### <a name="premium-ssds"></a>SSD Premium
 
@@ -38,4 +40,4 @@ Quando si condividono dischi Ultra, presentano le seguenti limitazioni aggiuntiv
 - Solo i dischi di base possono essere utilizzati con alcune versioni del cluster di failover di Windows Server. per informazioni dettagliate, vedere [requisiti hardware per il clustering di failover e opzioni di archiviazione](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Il supporto di backup di Azure e Azure Site Recovery non è ancora disponibile.
 
-Se si è interessati a provare i dischi condivisi, [iscriversi per l'accesso](https://aka.ms/AzureSharedDiskGASignUp).
+Se si è interessati a provare unità SSD Premium condivise, [iscriversi per l'accesso](https://aka.ms/AzureSharedDiskGASignUp).
