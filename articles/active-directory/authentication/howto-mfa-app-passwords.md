@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485484"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489793"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Multi-Factor Authentication di Azure con le applicazioni legacy usando le password dell'app
 
@@ -88,6 +88,12 @@ Per impostazione predefinita, gli utenti non possono creare password dell'app. L
 5. Nella pagina **Impostazioni servizio** selezionare l'opzione **Consenti agli utenti di creare password dell'app per accedere alle app non basate su browser**.
 
     ![Screenshot del portale di Azure che mostra le impostazioni del servizio per l'autenticazione a più fattori per consentire all'utente di creare password dell'app](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Quando si disabilita la possibilità per gli utenti di creare password di app, le password delle app esistenti continuano a funzionare. Tuttavia, gli utenti non possono gestire o eliminare le password delle app esistenti dopo aver disabilitato questa funzionalità.
+>
+> Quando si disabilita la possibilità di creare password dell'app, è anche consigliabile [creare un criterio di accesso condizionale per disabilitare l'uso dell'autenticazione legacy](../conditional-access/block-legacy-authentication.md). Questo approccio impedisce il funzionamento delle password di app esistenti e impone l'uso di metodi di autenticazione moderni.
 
 ## <a name="create-an-app-password"></a>Creare una password di app
 

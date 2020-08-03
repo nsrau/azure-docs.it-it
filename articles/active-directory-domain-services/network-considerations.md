@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040028"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488653"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -113,6 +113,8 @@ Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il 
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Consenti  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Consenti  | Sì      | Gestione del dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Consenti  | Sì      | Gestione del dominio. |
+
+Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente. Non eliminare questo gruppo di sicurezza di rete. Il servizio di bilanciamento del carico non funziona correttamente senza di esso.
 
 > [!WARNING]
 > Non modificare manualmente le configurazioni e le risorse di rete. Quando si associa un gruppo di sicurezza di rete configurato in modo non configurato o una tabella di route definita dall'utente con la subnet in cui viene distribuito il dominio gestito, è possibile che si verifichino problemi di gestione e gestione del dominio da parte di Microsoft. Viene anche interrotta la sincronizzazione tra il tenant Azure AD e il dominio gestito.

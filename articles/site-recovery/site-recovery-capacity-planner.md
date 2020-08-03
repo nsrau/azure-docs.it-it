@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129953"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490575"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Pianificare la capacità per il ripristino di emergenza di macchine virtuali Hyper-V 
 
@@ -47,7 +47,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 2. Nella casella di riepilogo **Select a planner type** (Selezionare un tipo di strumento di pianificazione) selezionare **Quick Planner** (Strumento di pianificazione rapida).
 
-   ![Introduzione](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Screenshot dell'opzione selezionare un tipo di pianificatore con Planner rapido selezionato.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. Nel foglio di lavoro **Capacity Planner** immettere le informazioni necessarie. Compilare tutti i campi contrassegnati con un cerchio rosso nello screenshot seguente:
 
@@ -61,7 +61,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
    e. In **Number of hours in which initial replication for the batch of virtual machines should complete** (Numero di ore in cui deve essere completata la replica iniziale per il batch delle macchine virtuali) e in **Number of virtual machines per initial replication batch** (Numero di macchine virtuali per batch di replica iniziale) immettere le impostazioni usate per calcolare i requisiti della replica iniziale. Quando Site Recovery viene distribuito, viene caricato l'intero set di dati iniziale.
 
-   ![Input](./media/site-recovery-capacity-planner/inputs.png)
+   ![Screenshot del foglio di Capacity Planner, che mostra le informazioni di input obbligatorie.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. Dopo aver immesso i valori per l'ambiente di origine, l'output visualizzato include:
 
@@ -77,7 +77,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
    * **Number of additional Process Servers required** (Numero di server di elaborazione aggiuntivi necessari): indica se sono necessari server di elaborazione aggiuntivi oltre al server di elaborazione in esecuzione nel server di configurazione per impostazione predefinita.
    * **100% di spazio di archiviazione aggiuntivo nell'origine**: indica se è necessario spazio di archiviazione aggiuntivo nella posizione di origine.
 
-      ![Output](./media/site-recovery-capacity-planner/output.png)
+      ![Screenshot dell'output visualizzato in base all'input fornito.](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Eseguire lo strumento di pianificazione dettagliata
 
@@ -85,7 +85,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 2. Nella casella di riepilogo **Select a planner type** (Selezionare un tipo di strumento di pianificazione) selezionare **Detailed Planner** (Strumento di pianificazione dettagliata).
 
-   ![Guida introduttiva](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Screenshot dell'opzione Seleziona un tipo di pianificatore con pianificatore dettagliato selezionato.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. Nel foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) immettere le informazioni necessarie. È necessario compilare tutti i campi contrassegnati.
 
@@ -105,7 +105,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
    h. In **Mapping Azure VM size** (Dimensioni VM di Azure per mapping) immettere le dimensioni delle macchine virtuali di Azure di cui eseguire il mapping. Se non si vuole eseguire questa operazione manualmente, selezionare **Compute IaaS VMs** (Calcola VM IaaS). Se si inserisce un'impostazione manuale e quindi si seleziona **Compute IaaS VMs** (Calcola VM IaaS), l'impostazione manuale può essere sovrascritta. Il processo di calcolo identifica automaticamente la migliore corrispondenza per quanto riguarda le dimensioni delle macchine virtuali di Azure.
 
-   ![Foglio di lavoro Workload Qualification (Qualifica carico di lavoro)](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Screenshot del foglio di lavoro di qualificazione del carico di lavoro, che mostra le informazioni di input obbligatorie.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. Se si seleziona **Compute IaaS VMs** (Calcola VM IaaS), lo strumento esegue queste operazioni:
 
@@ -117,12 +117,12 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 Vengono visualizzate le colonne da AA ad AE che forniscono informazioni per ogni macchina virtuale.
 
-![Colonne di output da AA ad AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Screenshot che mostra le colonne di output da AA ad AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Esempio
 In questo esempio, per sei macchine virtuali con i valori riportati nella tabella lo strumento calcola e assegna la migliore corrispondenza di macchina virtuale di Azure e i requisiti di archiviazione di Azure.
 
-![Assegnazioni di qualifica del carico di lavoro](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Screenshot che illustra le assegnazioni delle qualifiche dei carichi di lavoro](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * Nell'output dell'esempio si noti quanto segue:
 
@@ -144,7 +144,7 @@ Dopo aver immesso tutte le informazioni, fare clic su **Submit data to the plann
 
 2. Per apportare modifiche, è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e quindi selezionare nuovamente **Submit data to the planner tool** (Invia dati a strumento di pianificazione).
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Screenshot che Mostra gli input modificati e gli output risultanti nel foglio di Capacity Planner.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni su come eseguire](./hyper-v-deployment-planner-overview.md) lo strumento di pianificazione della capacità.

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221442"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489640"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Modificare lo SKU per un dominio gestito Azure Active Directory Domain Services esistente
 
-In Azure Active Directory Domain Services (Azure AD DS), le prestazioni e le funzionalità disponibili sono basate sul tipo di SKU. Queste differenze tra le funzionalità includono la frequenza di backup o il numero massimo di trust tra foreste in uscita unidirezionali (attualmente in anteprima).
+In Azure Active Directory Domain Services (Azure AD DS), le prestazioni e le funzionalità disponibili sono basate sul tipo di SKU. Queste differenze tra le funzionalità includono la frequenza di backup o il numero massimo di trust tra foreste in uscita unidirezionali.
 
 Si seleziona uno SKU quando si crea il dominio gestito ed è possibile attivare o disattivare gli SKU in base alle esigenze aziendali modificate dopo la distribuzione del dominio gestito. Le modifiche ai requisiti aziendali potrebbero includere la necessità di backup più frequenti o la creazione di trust tra foreste aggiuntivi. Per ulteriori informazioni sui limiti e sui prezzi dei diversi SKU, vedere la pagina relativa ai [concetti relativi a sku Azure AD DS][concepts-sku] e alle pagine relative ai [prezzi di Azure AD DS][pricing] .
 
@@ -38,7 +38,7 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 
 ## <a name="sku-change-limitations"></a>Limitazioni della modifica dello SKU
 
-È possibile modificare o ridurre gli SKU dopo la distribuzione del dominio gestito. Tuttavia, se si usa una foresta di risorse (attualmente in anteprima) e sono stati creati trust tra foreste in uscita unidirezionali da Azure AD DS a un ambiente di servizi di dominio Active Directory locale, esistono alcune limitazioni per l'operazione di modifica dello SKU. Gli SKU *Premium* e *Enterprise* definiscono un limite per il numero di trust che è possibile creare. Non è possibile passare a uno SKU con un limite massimo inferiore rispetto al momento della configurazione.
+È possibile modificare o ridurre gli SKU dopo la distribuzione del dominio gestito. Tuttavia, se si usa una foresta di risorse e sono stati creati trust tra foreste in uscita unidirezionali da Azure AD DS a un ambiente Active Directory Domain Services locale, esistono alcune limitazioni per l'operazione di modifica dello SKU. Gli SKU *Premium* e *Enterprise* definiscono un limite per il numero di trust che è possibile creare. Non è possibile passare a uno SKU con un limite massimo inferiore rispetto al momento della configurazione.
 
 Ad esempio:
 
@@ -66,7 +66,7 @@ Per modificare il tipo di SKU può essere necessario un minuto o due.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si dispone di una foresta di risorse e si desidera creare trust aggiuntivi dopo la modifica dello SKU, vedere [creare un trust tra foreste in uscita per un dominio locale in Azure AD DS (anteprima)][create-trust].
+Se si dispone di una foresta di risorse e si desidera creare trust aggiuntivi dopo la modifica dello SKU, vedere [creare un trust tra foreste in uscita per un dominio locale in Azure AD DS][create-trust].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

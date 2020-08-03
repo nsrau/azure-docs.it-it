@@ -4,14 +4,14 @@ description: Informazioni sugli operatori SQL come l'uguaglianza, il confronto e
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063564"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498838"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatori in Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Questo articolo illustra in dettaglio i vari operatori supportati da Azure Cosmo
 
 La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
-| **Op** | **Non definito** | **Null** | **Boolean** | **Number** | **Stringa** | **Object** | **Matrice** |
+| **Op** | **Non definito** | **Null** | **Boolean** | **Number** | **Stringa** | **Object** | **Di matrice** |
 |---|---|---|---|---|---|---|---|
 | **Non definito** | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito |
 | **Null** | Non definito | **Ok** | Non definito | Non definito | Non definito | Non definito | Non definito |
@@ -29,11 +29,19 @@ La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API 
 | **Number** | Non definito | Non definito | Non definito | **Ok** | Non definito | Non definito | Non definito |
 | **Stringa** | Non definito | Non definito | Non definito | Non definito | **Ok** | Non definito | Non definito |
 | **Object** | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** | Non definito |
-| **Matrice** | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** |
+| **Di matrice** | Non definito | Non definito | Non definito | Non definito | Non definito | Non definito | **Ok** |
 
 Per gli operatori di confronto, ad esempio `>` ,, `>=` `!=` , `<` e, il confronto tra i `<=` tipi o tra due oggetti o matrici produce `Undefined` .  
 
 Se il risultato dell'espressione scalare è `Undefined` , l'elemento non è incluso nel risultato, perché `Undefined` non è uguale a `true` .
+
+Il confronto tra un numero e un valore stringa, ad esempio, produce `Undefined` . Pertanto, il filtro non include alcun risultato.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 
@@ -46,8 +54,8 @@ Restituisce `true` quando una delle condizioni è `true` .
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |True |False |Non definito |
-| **Non definito** |True |Non definito |Non definito |
+| **False** |Vero |Falso |Non definito |
+| **Non definito** |Vero |Non definito |Non definito |
 
 **Operatore AND**
 
@@ -55,27 +63,27 @@ Restituisce `true` quando entrambe le espressioni sono `true` .
 
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
-| **True** |True |False |Non definito |
-| **False** |False |False |False |
-| **Non definito** |Non definito |False |Non definito |
+| **True** |Vero |Falso |Non definito |
+| **False** |Falso |Falso |Falso |
+| **Non definito** |Non definito |Falso |Non definito |
 
 **Operatore NOT**
 
 Inverte il valore di qualsiasi espressione booleana.
 
-|  | **NON** |
+|  | **NOT** |
 | --- | --- |
-| **True** |False |
-| **False** |True |
+| **True** |Falso |
+| **False** |Vero |
 | **Non definito** |Non definito |
 
-**Precedenza tra gli operatori**
+**Ordine di precedenza degli operatori**
 
 Gli operatori logici `OR` , `AND` e `NOT` hanno il livello di precedenza riportato di seguito:
 
-| **Operatore** | **Priority** |
+| **Operatore** | **Priorità** |
 | --- | --- |
-| **NON** |1 |
+| **NOT** |1 |
 | **E** |2 |
 | **OR** |3 |
 

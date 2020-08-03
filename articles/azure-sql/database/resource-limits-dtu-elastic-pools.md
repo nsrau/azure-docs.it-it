@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420992"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498294"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Questo articolo fornisce i limiti dettagliati delle risorse per i database nel d
 
 Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le risorse disponibili a ogni livello di servizio e di calcolo. È possibile impostare il livello di servizio, le dimensioni di calcolo e la quantità di risorse di archiviazione utilizzando:
 
-* [Azure portal](elastic-pool-manage.md#azure-portal)
+* [Portale di Azure](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Interfaccia della riga di comando di Azure](elastic-pool-manage.md#azure-cli)
 * [API REST](elastic-pool-manage.md#rest-api).
@@ -40,7 +40,7 @@ Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le
 
 I limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database S2 è 120. Pertanto, anche il numero massimo di ruoli di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (che è equivalente a S2).
  
-Le risorse fornite a un pool elastico possono superare le risorse fornite a un singolo database all'esterno di un pool elastico per lo stesso numero di DTU. Ciò significa che l'utilizzo di eDTU di un pool elastico può essere inferiore alla somma dell'utilizzo di DTU tra i database all'interno del pool, a seconda dei modelli di carico di lavoro. Ad esempio, in un caso estremo con un solo database in un pool elastico in cui l'utilizzo di DTU del database è pari al 100%, è possibile che l'utilizzo del eDTU del pool sia 50% per determinati modelli di carico di lavoro. Questo problema può verificarsi anche se non è stato impostato alcun valore di DTU massimo esplicito per database. In tal caso, il consumo di DTU del database in pool è limitato allo stesso modo del consumo DTU di un database singolo con l'obiettivo di servizio corrispondente.
+Per lo stesso numero di DTU, le risorse fornite a un pool elastico possono superare le risorse fornite a un singolo database all'esterno di un pool elastico. Ciò significa che l'utilizzo di eDTU di un pool elastico può essere inferiore alla somma dell'utilizzo di DTU tra i database all'interno del pool, a seconda dei modelli di carico di lavoro. Ad esempio, in un caso estremo con un solo database in un pool elastico in cui l'utilizzo di DTU del database è pari al 100%, è possibile che l'utilizzo del eDTU del pool sia 50% per determinati modelli di carico di lavoro. Questo problema può verificarsi anche se il numero massimo di DTU per database rimane in corrispondenza del valore massimo supportato per le dimensioni del pool specificate.
 
 > [!NOTE]
 > Il limite di risorse di archiviazione per pool in ognuna delle tabelle seguenti non include tempdb e l'archiviazione dei log.
@@ -55,8 +55,8 @@ Le risorse fornite a un pool elastico possono superare le risorse fornite a un s
 | Numero massimo di database per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Numero massimo di sessioni simultanee per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Opzioni per il numero minimo di eDTU per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Opzioni per il numero massimo di eDTU per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Opzioni DTU minime per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Numero massimo di DTU per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Spazio di archiviazione massimo per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -74,8 +74,8 @@ Le risorse fornite a un pool elastico possono superare le risorse fornite a un s
 | Numero massimo di database per pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opzioni per il numero minimo di eDTU per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Opzioni per il numero massimo di eDTU per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Opzioni DTU minime per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Numero massimo di DTU per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Spazio di archiviazione massimo per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -95,8 +95,8 @@ Le risorse fornite a un pool elastico possono superare le risorse fornite a un s
 | Numero massimo di database per pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opzioni per il numero minimo di eDTU per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Opzioni per il numero massimo di eDTU per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Opzioni DTU minime per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Numero massimo di DTU per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -137,8 +137,8 @@ Le risorse fornite a un pool elastico possono superare le risorse fornite a un s
 | Numero massimo di database per pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Numero massimo di sessioni simultanee per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opzioni per il numero minimo di eDTU per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Opzioni per il numero massimo di eDTU per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Opzioni DTU minime per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Numero massimo di DTU per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Spazio di archiviazione massimo per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

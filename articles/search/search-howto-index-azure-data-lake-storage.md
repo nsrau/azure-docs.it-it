@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 880238558c03cca6a582960eef4e647c0e6875e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe05a474f4f6ee70c07e0e19621487d51d92966d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084110"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490627"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indicizzazione di documenti in Azure Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ L'indicizzazione del contenuto nel Data Lake Storage Gen2 è identica a quella d
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Azure Data Lake Storage Gen2 implementa un [modello di controllo di accesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) che supporta il controllo degli accessi in base al ruolo di Azure (RBAC) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Quando si indicizza il contenuto da Data Lake Storage Gen2, Azure ricerca cognitiva non estrae le informazioni RBAC e ACL dal contenuto. Di conseguenza, queste informazioni non verranno incluse nell'indice del ricerca cognitiva di Azure.
+Azure Data Lake Storage Gen2 implementa un [modello di controllo di accesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli elenchi di controllo di accesso (ACL) simili a POSIX. Quando si indicizza il contenuto da Data Lake Storage Gen2, Azure ricerca cognitiva non estrae le informazioni RBAC e ACL dal contenuto. Di conseguenza, queste informazioni non verranno incluse nell'indice del ricerca cognitiva di Azure.
 
 Se la gestione del controllo di accesso in ogni documento nell'indice è importante, spetta allo sviluppatore dell'applicazione implementare il [taglio di sicurezza](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
 

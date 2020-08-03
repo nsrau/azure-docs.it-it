@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735048"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489674"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ In Azure AD DS la foresta contiene solo un dominio. Le foreste AD DS locali cont
 
 Per impostazione predefinita, un dominio gestito viene creato come foresta *utente* . Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Gli account utente possono eseguire l'autenticazione direttamente nel dominio gestito, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli hash delle password possono essere sincronizzati e gli utenti non usano metodi di accesso esclusivi come l'autenticazione mediante smart card.
 
-In una foresta di *risorse* Azure AD DS, gli utenti eseguono l'autenticazione su un *trust* tra foreste da AD DS locale. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con Azure AD DS. Gli oggetti e le credenziali utente esistono solo in AD DS locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
+In una foresta di *risorse* Azure AD DS, gli utenti eseguono l'autenticazione su un *trust* tra foreste da AD DS locale. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con Azure AD DS. Gli oggetti e le credenziali utente esistono solo in AD DS locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione.
 
 Per altre informazioni sui tipi di foresta in Azure AD DS, vedere [che cosa sono le foreste di risorse?][concepts-forest] e [come funzionano i trust tra foreste in Azure AD DS?][concepts-trust]
 
@@ -102,7 +102,7 @@ Con l'aumentare del livello di SKU, viene aumentata la frequenza degli snapshot 
 
 ### <a name="outbound-forest-trusts"></a>Trust tra foreste in uscita
 
-Nella sezione precedente sono stati descritti i trust tra foreste in uscita unidirezionali da un dominio gestito a un ambiente Active Directory Domain Services locale (attualmente in anteprima). Lo SKU determina il numero massimo di trust tra foreste che è possibile creare per un dominio gestito. Esaminare i requisiti aziendali e delle applicazioni per determinare il numero di trust effettivamente necessari e scegliere lo SKU Azure AD DS appropriato. Anche in questo caso, se i requisiti aziendali cambiano ed è necessario creare trust tra foreste aggiuntivi, è possibile passare a uno SKU diverso.
+Nella sezione precedente sono stati descritti i trust tra foreste in uscita unidirezionali da un dominio gestito a un ambiente di servizi di dominio Active Directory locale. Lo SKU determina il numero massimo di trust tra foreste che è possibile creare per un dominio gestito. Esaminare i requisiti aziendali e delle applicazioni per determinare il numero di trust effettivamente necessari e scegliere lo SKU Azure AD DS appropriato. Anche in questo caso, se i requisiti aziendali cambiano ed è necessario creare trust tra foreste aggiuntivi, è possibile passare a uno SKU diverso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170106"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489470"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrazione di Trusona con Azure Active Directory B2C
 
@@ -125,25 +125,26 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
 
 ### <a name="create-a-user-flow-policy"></a>Creare un criterio di flusso utente
 
-1. A questo punto dovrebbe essere visualizzato Trusona come **nuovo provider di identità OpenID Connect** elencato nei provider di identità B2C.
+A questo punto dovrebbe essere visualizzato Trusona come **nuovo provider di identità OpenID Connect** elencato nei provider di identità B2C.
 
-2. Selezionare **flussi utente (criteri)** dal pannello di navigazione sinistro.
+1. Nel tenant di Azure AD B2C, in **criteri**, selezionare **flussi utente**.
 
-3. Selezionare **Aggiungi**  >  **nuovo flusso utente**  >  **e accedi**.
+1. Selezionare **nuovo flusso utente**.
 
-### <a name="configure-the-policy"></a>Configurare i criteri
+1. Selezionare **iscrizione e accesso**, selezionare una versione e quindi fare clic su **Crea**.
 
-1. Assegnare un nome ai criteri.
+1. Immettere un **nome** per il criterio.
 
-2. Selezionare il provider di **identità Trusona**appena creato.
+1. Nella sezione **Identity Providers (provider di identità** ) selezionare il **provider di identità Trusona**appena creato.
 
-3. Poiché Trusona è intrinsecamente a più fattori, è preferibile lasciare disabilitata l'autenticazione a più fattori.
+   > [!NOTE]
+   > Poiché Trusona è intrinsecamente a più fattori, è preferibile lasciare disabilitata l'autenticazione a più fattori.
 
-4. Selezionare **Crea**.
+1. Selezionare **Crea**.
 
-5. In **attributi utente e attestazioni**scegliere **Mostra altro**. Nel modulo selezionare almeno un attributo specificato durante l'installazione del provider di identità nella sezione precedente.
+1. In **attributi utente e attestazioni**scegliere **Mostra altro**. Nel modulo selezionare almeno un attributo specificato durante l'installazione del provider di identità nella sezione precedente.
 
-6. Selezionare **OK**.  
+1. Selezionare **OK**.  
 
 ### <a name="test-the-policy"></a>Testare i criteri
 

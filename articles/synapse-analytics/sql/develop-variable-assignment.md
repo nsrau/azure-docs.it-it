@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bd04d037f7852bd7d9ea51719abf27f09093b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85101015"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495676"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Assegnazione di variabili con sinapsi SQL
+# <a name="assign-variables-with-synapse-sql"></a>Assegnare variabili con sinapsi SQL
 
 In questo articolo sono disponibili suggerimenti per l'assegnazione di variabili T-SQL con sinapsi SQL.
 
-## <a name="setting-variables-with-declare"></a>Impostazione delle variabili con DECLARE
+## <a name="set-variables-with-declare"></a>Imposta variabili con dichiara
 
 Le variabili in sinapsi SQL vengono impostate tramite l' `DECLARE` istruzione o l' `SET` istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile in sinapsi SQL.
 
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Impostazione di valori con SET
+## <a name="set-values-with-set"></a>Imposta valori con SET
 
 SET è un metodo comune per l'impostazione di una singola variabile.
 

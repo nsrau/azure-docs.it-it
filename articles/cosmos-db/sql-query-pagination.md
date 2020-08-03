@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 978cc67336fe7f6f89970007215da73da0737f08
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7f7f895b61e3c638cb347a2d73bb5ee458b31acd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433578"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498821"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginazione in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ A volte i risultati delle query verranno suddivisi in più pagine. I risultati d
 
 È possibile specificare il numero massimo di elementi restituiti da una query impostando `MaxItemCount` . `MaxItemCount`Viene specificato per ogni richiesta e garantisce che il motore di query restituisca tale numero di elementi o meno. È possibile impostare `MaxItemCount` su `-1` se non si desidera applicare un limite al numero di risultati per esecuzione di query.
 
-Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. Sono inclusi:
+Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. incluse le seguenti:
 
 - Il contenitore è stato limitato e non sono disponibili ur per restituire altri risultati di query
 - La risposta dell'esecuzione della query è troppo grande
@@ -38,13 +38,10 @@ Per garantire risultati accurati delle query, è necessario passare a tutte le p
 
 Di seguito sono riportati alcuni esempi per l'elaborazione dei risultati da query con più pagine:
 
-[.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
-
-[SDK per Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
-
-[Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
-
-[Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
+- [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
+- [SDK per Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
+- [Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
 ## <a name="continuation-tokens"></a>Token di continuazione
 
@@ -52,9 +49,8 @@ In .NET SDK e Java SDK è possibile usare facoltativamente i token di continuazi
 
 Ecco alcuni esempi per l'uso di token di continuazione:
 
-[.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
-
-[SDK per Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
+- [SDK per Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
 
 Se la query restituisce un token di continuazione, sono presenti ulteriori risultati della query.
 

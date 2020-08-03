@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b834dda926b7da1241a325e1453143eccafaf30
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387831"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488772"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Azure AD B2C attualmente supporta solo il passaggio del token di accesso dei pro
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* L'applicazione deve usare un [flusso utente v2](user-flow-versions.md).
+* L'applicazione deve usare un [flusso utente consigliato](user-flow-versions.md).
 * Il flusso utenti è configurato con un provider di identità OAuth 2.0.
 
 ## <a name="enable-the-claim"></a>Abilitare l'attestazione

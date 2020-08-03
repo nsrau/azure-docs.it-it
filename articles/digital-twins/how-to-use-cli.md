@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537463"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499093"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
 
@@ -25,13 +25,19 @@ Oltre a gestire l'istanza di Azure Digital Twins nell'portale di Azure, i dispos
 * Gestione delle [Route](concepts-route-events.md)
 * Configurazione della [sicurezza](concepts-security.md) tramite il controllo degli accessi in base al ruolo (RBAC)
 
-I comandi di Azure Digital Twins fanno parte dell' [estensione Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension)della riga di comando di Azure. È possibile visualizzare la documentazione di riferimento per questi comandi come parte del `az iot` set di comandi: [AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
-
-## <a name="deploy-and-validate"></a>Distribuire e convalidare
+## <a name="uses-deploy-and-validate"></a>Usi (Deploy e Validate)
 
 Oltre alla gestione generale dell'istanza, l'interfaccia della riga di comando è anche uno strumento utile per la distribuzione e la convalida.
 * È possibile utilizzare i comandi del piano di controllo per rendere la distribuzione di una nuova istanza ripetibile o automatizzata.
 * I comandi del piano dati possono essere usati per controllare rapidamente i valori nell'istanza e verificare che le operazioni siano state completate come previsto.
+
+## <a name="get-the-extension"></a>Ottenere l'estensione
+
+I comandi di Azure Digital Twins fanno parte dell' [estensione Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension)della riga di comando di Azure. È possibile visualizzare la documentazione di riferimento per questi comandi come parte del `az iot` set di comandi: [AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+
+È possibile assicurarsi di avere la versione più recente dell'estensione con questi passaggi. È possibile eseguire questi comandi nell' [Azure cloud Shell](../cloud-shell/overview.md) o in un'interfaccia della riga di comando di [Azure locale](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

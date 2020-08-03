@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 242e2a2bf743777dd43a4c84194ebd894b5edd3c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c97d5d3119644a6426152b1b832fabac3dde4863
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290403"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498413"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Usare PowerShell per creare un ruolo personalizzato in un lab di Azure DevTest Labs
 
@@ -41,7 +41,7 @@ Questo script usa i comandi seguenti:
 | Comando | Note |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Ottiene le operazioni per un provider di risorse di Azure che sono entità a protezione diretta che usano il Controllo degli accessi in base al ruolo di Azure. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Elenca tutti i ruoli Controllo degli accessi in base al ruolo di Azure disponibili per l'assegnazione. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Elenca tutti i ruoli di Azure disponibili per l'assegnazione. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Crea un ruolo personalizzato. |
 
 ## <a name="next-steps"></a>Passaggi successivi

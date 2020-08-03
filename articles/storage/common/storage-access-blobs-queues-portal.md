@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128727"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501407"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
 
@@ -38,7 +38,7 @@ Per accedere ai dati BLOB e di Accodamento con la chiave di accesso dell'account
 Quando si tenta di accedere ai dati del BLOB o della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati BLOB e di Accodamento. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
 
 > [!NOTE]
-> L'amministratore e il coamministratore del servizio ruoli di amministratore della sottoscrizione classica includono l'equivalente del ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e Queue con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore e il coamministratore del servizio ruoli di amministratore della sottoscrizione classica includono l'equivalente del ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e Queue con la chiave dell'account. Per altre informazioni, vedere ruoli di [amministratore della sottoscrizione classica, ruoli di Azure e ruoli di amministratore Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 

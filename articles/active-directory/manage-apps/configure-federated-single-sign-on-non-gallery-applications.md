@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763551"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497240"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
 
-Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella raccolta *senza scrivere codice*, è necessario disporre di una sottoscrizione Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Panoramica dei passaggi necessari
-La panoramica generale seguente mostra i passaggi necessari per configurare l'accesso Single Sign-On federato con SAML 2.0 per un'applicazione non inclusa nella raccolta, ad esempio perché personalizzata.
+Questo articolo fornisce una panoramica generale dei passaggi necessari per configurare Single Sign-On federati con SAML 2,0 per un'applicazione non inclusa nella raccolta (ad esempio, personalizzata).
 
 -   Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421451"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498617"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -34,7 +34,7 @@ La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza
 **Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Gli account di archiviazione della cache devono essere standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
 **Risorse di destinazione** | Le risorse di destinazione vengono usate durante la replica e in caso di failover. Site Recovery può configurare le risorse di destinazione per impostazione predefinita oppure è possibile crearle o personalizzarle.<br/><br/> Nell'area di destinazione verificare che sia possibile creare macchine virtuali e che la sottoscrizione disponga di risorse sufficienti per supportare le dimensioni di macchina virtuale che saranno necessarie nell'area di destinazione. 
 
-![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagramma che illustra la replica di origine e di destinazione.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Risorse di destinazione
 
@@ -116,7 +116,7 @@ Quando si abilita la replica per una macchina virtuale di Azure, accade quanto s
 4. Site Recovery elabora i dati nella cache e li invia all'account di archiviazione di destinazione o ai dischi gestiti di replica.
 5. Al termine dell'elaborazione dei dati, i punti di ripristino coerenti con l'arresto anomalo del sistema vengono generati ogni pochi minuti. I punti di ripristino coerenti con l'app vengono generati in base all'impostazione specificata nei criteri di replica.
 
-![Abilitare il processo di replica - Passaggio 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagramma che illustra il processo di replica, passaggio 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processo di replica**
 
@@ -191,7 +191,7 @@ Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gru
 
 Quando si avvia un failover, le macchine virtuali vengono create nel gruppo di risorse di destinazione, nella rete virtuale di destinazione, nella subnet di destinazione e nel set di disponibilità di destinazione. Durante un failover è possibile usare qualsiasi punto di ripristino.
 
-![Processo di failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagramma che illustra il processo di failover con gli ambienti di origine e di destinazione.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

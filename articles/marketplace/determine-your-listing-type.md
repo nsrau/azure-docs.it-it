@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/22/2020
-ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103654"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498073"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
@@ -47,18 +47,7 @@ La tabella seguente illustra le opzioni di pubblicazione per i tipi di offerta i
 
 &#42;&#42; Le offerte di Microsoft 365 sono gratuite per l'installazione e possono essere monetizzate tramite l'offerta SaaS come servizio di licenza. Per altre informazioni, vedere [Monetizzare il componente aggiuntivo Office 365 tramite il marketplace commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="selecting-a-storefront"></a>Selezione di una vetrina
-
-Prima di selezionare un'opzione di pubblicazione, è importante comprendere i requisiti di idoneità della vetrina per le soluzioni, le app e i servizi del marketplace commerciale. Ogni vetrina risponde a requisiti univoci dei clienti ed è destinata a target specifici. Il tipo di offerta, le funzionalità di transazione e la categoria o il settore determineranno dove pubblicare l'offerta.
-
-Le applicazioni **Microsoft AppSource** sono soluzioni line-of-business che possono essere integrate in Azure o realizzate per Dynamics 365, Office 365, Power BI o Power Apps. I servizi di consulenza di AppSource sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Dynamics 365 e Power BI o di accelerarne l'uso.
-
-Le applicazioni **Azure Marketplace** sono blocchi predefiniti tecnici integrati o realizzati per Azure e destinati a responsabili IT o sviluppatori. I servizi di consulenza di Azure Marketplace sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Azure o di accelerarne l'uso.
-
->[!Note]
->"Cross-listing" (solo per app SaaS): se l'offerta SaaS è destinata a un pubblico tecnico (Azure Marketplace) e a un gruppo di destinatari di business (AppSource), è possibile selezionare una categoria e/o una sottocategoria applicabile a entrambe le vetrine. Tenere presente che lo scopo dell'offerta "cross-listing" deve essere basato su una proposta di valore che si estende a entrambi i destinatari. Fare clic [qui](./gtm-offer-listing-best-practices.md#categories) per visualizzare le categorie applicabili a ogni storefront.
-
-## <a name="choose-a-publishing-option"></a>Scegliere un'opzione di pubblicazione
+## <a name="choose-a-call-to-action"></a>Scegliere una chiamata a Action
 
 Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei clienti e consentono nel contempo di accedere alla condivisione dei lead e ai [vantaggi del marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Si noti l'invito all'azione che corrisponde all'opzione di pubblicazione:
 
@@ -71,6 +60,43 @@ Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei 
 
 > [!Note]
 > Quando si usa l'opzione di pubblicazione delle transazioni, è importante avere presenti le considerazioni relative a prezzi, fatturazione e proventi prima di selezionare un tipo di offerta e di creare l'offerta. Per altre informazioni, vedere l'articolo [Funzionalità per le transazioni del marketplace commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+
+## <a name="selecting-a-storefront"></a>Selezione di una vetrina
+
+Ogni vetrina risponde a requisiti univoci dei clienti ed è destinata a target specifici. Il tipo di offerta, le funzionalità di transazione e la categoria determineranno la posizione in cui verrà pubblicata l'offerta. Le categorie e le sottocategorie sono mappate a ogni storefront in base ai destinatari:
+
+**Microsoft AppSource** è destinato agli utenti aziendali che cercano soluzioni line-of-business o di settore e servizi di consulenza per Dynamics 365, Microsoft 365 e Power Platform.
+
+**Azure Marketplace** è destinato a professionisti IT e sviluppatori che cercano soluzioni compilate per o in Azure, oltre a servizi di consulenza che accelerano l'uso di Azure.
+
+Selezionare la categoria e la sottocategoria che meglio si allineano con i destinatari di destinazione. Ad esempio, una web application firewall deve essere pubblicata in Azure Marketplace, sotto la categoria sicurezza, in quanto i destinatari desiderati sono professionisti IT. Un'app di gestione del contratto deve invece essere pubblicata in AppSource nella categoria Sales, perché i destinatari sono utenti aziendali. La selezione della categoria o della sottocategoria non corretta può comportare la pubblicazione dell'offerta nella vetrina errata.
+
+### <a name="publishing-to-both-storefronts-saas-offers-only"></a>Pubblicazione in entrambe le vetrine (solo offerte SaaS)
+
+Le offerte SaaS possono essere pubblicate in Azure Marketplace o in AppSource. Se l'offerta SaaS è destinata *a un pubblico* tecnico (Azure Marketplace) e a un pubblico aziendale (AppSource), selezionare una categoria e/o una sottocategoria applicabile a ogni storefront. Le offerte pubblicate in entrambe le vetrine devono avere una proposta di valore che si estende ai professionisti IT *e* agli utenti aziendali.
+
+> [!IMPORTANT]
+> Le offerte SaaS con fatturazione a consumo sono disponibili tramite Azure Marketplace e il portale di Azure. Le offerte SaaS con solo piani privati sono disponibili tramite il portale di Azure.
+
+| Fatturazione a consumo | Piano pubblico | Piano privato | Disponibile in: |
+|---|---|---|---|
+| sì             | Sì         | No           | Azure Marketplace e portale di Azure |
+| sì             | sì         | sì          | Azure Marketplace e portale di Azure * |
+| Sì             | No          | Sì          | Solo portale di Azure |
+| No              | No          | Sì          | Solo portale di Azure |
+
+&#42; il piano privato dell'offerta sarà disponibile solo tramite il portale di Azure
+
+Ad esempio, un'offerta con fatturazione a consumo e solo un piano privato (nessun piano pubblico) viene acquistata dai clienti nel portale di Azure. Scopri di più sulle [offerte private in Microsoft Commercial Marketplace](private-offers.md).
+
+### <a name="categories"></a>Categorie
+
+Le categorie e le sottocategorie sono mappate a ogni storefront in base ai destinatari. Selezionare le categorie e le sottocategorie che meglio si allineano con l'offerta e con i destinatari desiderati. È possibile selezionare:
+
+- Almeno una delle due categorie. È possibile scegliere una categoria primaria e secondaria.
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se non si seleziona alcuna sottocategoria, l'offerta sarà comunque individuabile nella categoria selezionata.
+
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

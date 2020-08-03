@@ -4,12 +4,13 @@ description: Quando si usa per la prima volta Language Understanding (LUIS), non
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496900"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -58,7 +59,7 @@ Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi
 
 I limiti di utilizzo sono basati sul piano tariffario.
 
-Se si supera la quota transazioni al secondo (TPS), viene visualizzato un errore HTTP 429. Se si supera la quota di transazioni per mese (TPS), viene visualizzato un errore HTTP 403.
+Se si supera la quota di transazioni al secondo, viene visualizzato un errore HTTP 429. Se si supera la quota di transazioni al mese, viene visualizzato un errore HTTP 403.
 
 
 ### <a name="reset-authoring-key"></a>Reimpostare la chiave di creazione
@@ -243,7 +244,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Type|Impostazione|Valore|
+    |Tipo|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|

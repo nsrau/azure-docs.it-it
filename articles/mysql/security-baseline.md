@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654783"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496774"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Baseline di sicurezza di Azure per Database di Azure per MySQL
 
 La baseline di sicurezza di Azure per Database di Azure per MySQL contiene raccomandazioni utili per migliorare il comportamento della distribuzione in termini di sicurezza.
 
-La baseline per questo servizio è tratta da [Azure Security Benchmark, versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
 Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1 Proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
 **Indicazioni**: configurare Collegamento privato per Database di Azure per MySQL con endpoint privati. Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un endpoint privato. Collegamento privato di Azure trasferisce in pratica i servizi di Azure nella rete virtuale privata. Il traffico tra la rete virtuale e l'istanza di MySQL viaggia attraverso la rete backbone Microsoft.
 
@@ -42,11 +42,11 @@ Come configurare le regole del firewall di Database di Azure per MySQL: https://
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2 Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
-**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare identificare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
+**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
 Come configurare Collegamento privato per Database di Azure per MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
 
@@ -58,7 +58,7 @@ Come abilitare e usare Analisi del traffico: https://docs.microsoft.com/azure/ne
 
 **Responsabilità**: Customer
 
-### <a name="13-protect-critical-web-applications"></a>1.3 Proteggere le applicazioni Web critiche
+### <a name="13-protect-critical-web-applications"></a>1.3: proteggere le applicazioni Web critiche
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
@@ -82,7 +82,7 @@ Come configurare Protezione DDoS: https://docs.microsoft.com/azure/virtual-netwo
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5 Registrare i pacchetti di rete e i log dei flussi
 
-**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. È quindi possibile configurare un gruppo di sicurezza di rete (NSG) per ridurre il rischio di esfiltrazione di dati. Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare identificare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
+**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. È quindi possibile configurare un gruppo di sicurezza di rete (NSG) per ridurre il rischio di esfiltrazione di dati. Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, identificare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
 Come abilitare i log dei flussi NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
@@ -102,7 +102,7 @@ Come configurare Advanced Threat Protection per Database di Azure per MySQL: htt
 
 **Responsabilità**: Customer
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7 Gestire il traffico verso le applicazioni Web
+### <a name="17-manage-traffic-to-web-applications"></a>1.7: gestire il traffico verso le applicazioni Web
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
@@ -112,7 +112,7 @@ Come configurare Advanced Threat Protection per Database di Azure per MySQL: htt
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 Ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
-**Indicazioni**: per le risorse che devono accedere alle istanze di Database di Azure per MySQL, usare tag di servizio Rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Se si specifica il nome del tag di servizio (ad esempio SQL.WestUs) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
+**Indicazioni**: per le risorse che devono accedere alle istanze di Database di Azure per MySQL, usare tag di servizio Rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, SQL.WestUs) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
 
 Nota: Database di Azure per MySQL usa i tag di servizio "Microsoft.Sql".
 
@@ -190,7 +190,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 Abilitare la registrazione di controllo per le risorse di Azure
 
@@ -206,9 +206,9 @@ Come configurare le impostazioni di diagnostica per il log attività di Azure: h
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
-### <a name="24-collect-security-logs-from-operating-systems"></a>2.4 Raccogliere i log di sicurezza dai sistemi operativi
+### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -230,7 +230,7 @@ Archiviazione dei log delle risorse in un account di archiviazione di Azure: htt
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 Monitorare ed esaminare i log
 
-**Indicazioni**: analizzare e monitorare i log delle istanze di Database di Azure per MySQL per individuare un comportamento anomalo. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o nelle informazioni di sicurezza e gestione degli eventi di terze parti.
+**Indicazioni**: analizzare e monitorare i log delle istanze di Database di Azure per MySQL per individuare un comportamento anomalo. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
 Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -350,7 +350,7 @@ Informazioni su SSO con Azure AD: https://docs.microsoft.com/azure/active-direct
 
 **Responsabilità**: Customer
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 Usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
 **Indicazioni**: abilitare Azure Active Directory Multi-Factor Authentication (MFA) e seguire le raccomandazioni sulla gestione delle identità e degli accessi nel Centro sicurezza di Azure. Quando si usano token Azure AD per accedere al database, è possibile richiedere l'autenticazione a più fattori per gli accessi al database.
 
@@ -388,13 +388,13 @@ Come configurare Advanced Threat Protection per Database di Azure per MySQL: htt
 
 Come distribuire Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Informazioni sui rilevamenti di rischi di Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Informazioni sui rilevamenti dei rischi di Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Customer
 
-### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 Gestire le risorse di Azure solo dalle posizioni approvate
+### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: gestire le risorse di Azure solo dalle posizioni approvate
 
 **Indicazioni**: usare le località denominate di accesso condizionale per consentire l'accesso al portale e ad Azure Resource Manager solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche.
 
@@ -404,7 +404,7 @@ Come configurare località denominate in Azure: https://docs.microsoft.com/azure
 
 **Responsabilità**: Customer
 
-### <a name="39-use-azure-active-directory"></a>3.9 Usare Azure Active Directory
+### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
 **Indicazioni**: usare Azure Active Directory (AD) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
 
@@ -442,7 +442,7 @@ Come integrare i log attività di Azure in Monitoraggio di Azure: https://docs.m
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 Avvisare in caso di deviazione dal comportamento di accesso dell'account
 
@@ -456,13 +456,13 @@ Come configurare Advanced Threat Protection per Database di Azure per MySQL: htt
 
 Panoramica di Azure AD Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
 
-Come visualizzare gli accessi a rischio per Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Come visualizzare gli accessi rischiosi per Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
 Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 Fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -488,7 +488,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Responsabilità**: Customer
 
-### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 Isolare i sistemi che archiviano o elaborano informazioni riservate
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Usare una combinazione di Collegamento privato, endpoint di servizio e/o regole del firewall per isolare e limitare l'accesso in rete alle istanze di Database di Azure per MySQL.
 
@@ -505,7 +505,7 @@ Come configurare le regole del firewall di Database di Azure per MySQL: https://
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3 Monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
@@ -545,9 +545,9 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Indicazioni**: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso al piano di controllo di Database di Azure per MySQL, ad esempio il portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo di Azure non influisce sulle autorizzazioni utente all'interno del database.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per MySQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo non influisce sulle autorizzazioni utente all'interno del database.
 
 Come configurare il controllo degli accessi in base al ruolo di Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -557,7 +557,7 @@ Come configurare l'accesso utente con SQL per Database di Azure per MySQL: https
 
 **Responsabilità**: Customer
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 Usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -597,7 +597,7 @@ Come creare avvisi per gli eventi del log attività di Azure: https://docs.micro
 
 ## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: Gestione della vulnerabilità](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle vulnerabilità](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 Eseguire strumenti di analisi della vulnerabilità automatizzati
 
@@ -642,7 +642,7 @@ Copertura delle funzionalità per i servizi PaaS di Azure nel Centro sicurezza d
 
 **Responsabilità**: Microsoft
 
-## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
+## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
 *Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
@@ -684,7 +684,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Responsabilità**: Customer
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4 Mantenere un inventario delle risorse di Azure approvate e dei titoli software
+### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: mantenere un inventario delle risorse di Azure approvate e dei titoli software
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo e Azure in generale.
 
@@ -692,7 +692,7 @@ Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Responsabilità**: Customer
 
-### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 Monitorare la presenza di risorse di Azure non approvate
+### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare le risorse di Azure non approvate
 
 **Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:
 
@@ -704,13 +704,13 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Come creare query con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
 **Responsabilità**: Customer
 
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 Monitorare le applicazioni software non approvate nelle risorse di calcolo
+### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -750,7 +750,7 @@ Come negare un tipo di risorsa specifico con Criteri di Azure: https://docs.micr
 
 **Responsabilità**: Customer
 
-### <a name="610-implement-approved-application-list"></a>6.10 Implementare l'elenco di applicazioni approvate
+### <a name="610-implement-approved-application-list"></a>6.10: implementare l'elenco di applicazioni approvate
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -768,7 +768,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Responsabilità**: Customer
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 Limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
+### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -802,7 +802,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Responsabilità**: Customer
 
-### <a name="72-establish-secure-operating-system-configurations"></a>7.2 Definire configurazioni sicure del sistema operativo
+### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -812,7 +812,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 Garantire la sicurezza delle configurazioni delle risorse di Azure
 
-**Indicazioni**: usare criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
+**Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
 
 Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -822,7 +822,7 @@ Informazioni sugli effetti di Criteri di Azure: https://docs.microsoft.com/azure
 
 **Responsabilità**: Customer
 
-### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 Garantire la sicurezza delle configurazioni del sistema operativo
+### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: garantire la sicurezza delle configurazioni del sistema operativo
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -842,7 +842,7 @@ Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 **Responsabilità**: Customer
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Archiviare in modo sicuro immagini personalizzate del sistema operativo
+### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -860,7 +860,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Responsabilità**: Customer
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8 Distribuire gli strumenti di gestione della configurazione di sistema per i sistemi operativi
+### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: distribuire gli strumenti di gestione della configurazione di sistema per i sistemi operativi
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -878,7 +878,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Responsabilità**: Customer
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 Implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -892,7 +892,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 Come eseguire l'integrazione con identità gestite di Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Come creare un'istanza di Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Come creare un insieme di credenziali delle chiavi: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
 Come fornire l'autenticazione di Key Vault con un'identità gestita: https://docs.microsoft.com/azure/key-vault/managed-identity
 
@@ -904,9 +904,9 @@ Come fornire l'autenticazione di Key Vault con un'identità gestita: https://doc
 
 **Indicazioni**: l'istanza di Database di Azure per MySQL supporta l'autenticazione Azure Active Directory per accedere ai database.  Durante la creazione dell'istanza di Database di Azure per MySQL, è possibile fornire le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di database.  
 
-Per Macchine virtuali di Azure o le applicazioni Web in esecuzione nel Servizio app di Azure usato per accedere alle istanze di Database di Azure per MySQL, usare l'identità del servizio gestita insieme ad Azure Key Vault per archiviare e recuperare le credenziali per tale istanza. Verificare che l'eliminazione temporanea di Azure Key Vault sia abilitata.
+Per Macchine virtuali di Azure o le applicazioni Web in esecuzione nel Servizio app di Azure usato per accedere alle istanze di Database di Azure per MySQL, usare l'identità del servizio gestita insieme ad Azure Key Vault per archiviare e recuperare le credenziali per tale istanza. Assicurarsi che l'eliminazione temporanea di Azure Key Vault sia abilitata.
 
-Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
 
 Come configurare le identità gestite: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
@@ -916,7 +916,7 @@ Come eseguire l'integrazione con identità gestite di Azure: https://docs.micros
 
 **Responsabilità**: Customer
 
-### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 Eliminare l'esposizione involontaria delle credenziali
+### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
 **Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
 
@@ -930,7 +930,7 @@ Come impostare Credential Scanner: https://secdevtools.azurewebsites.net/helpcre
 
 *Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 Usare software antimalware gestito in modo centralizzato
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usare software antimalware gestito in modo centralizzato
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -948,9 +948,9 @@ Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Condiviso
+**Responsibilità**: Condiviso
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 Verificare che le firme e il software antimalware siano aggiornati
+### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>Passaggio 8.3: assicurarsi che le firme e il software antimalware siano aggiornati
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
@@ -993,7 +993,7 @@ Come eseguire il backup di chiavi di Key Vault: https://docs.microsoft.com/power
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 Convalidare tutti i backup, incluse le chiavi gestite dal cliente
 
-**Indicazioni**: In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale. Sono disponibili due tipi di ripristino: ripristino temporizzato e ripristino geografico. Il ripristino temporizzato è disponibile con entrambe le opzioni di ridondanza per il backup e crea un nuovo server nella stessa area del server originale. Il ripristino geografico è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa.
+**Indicazioni**: In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale. Sono disponibili due tipi di ripristino: ripristino temporizzato e ripristino geografico. Il ripristino temporizzato è disponibile con entrambe le opzioni di ridondanza per il backup e crea un nuovo server nella stessa area del server originario. Il ripristino geografico è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
@@ -1019,7 +1019,7 @@ Informazioni sul backup e sul ripristino in Database di Azure per MySQL: https:/
 
 *Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
-### <a name="101-create-an-incident-response-guide"></a>10.1 Creare un piano di risposta agli eventi imprevisti
+### <a name="101-create-an-incident-response-guide"></a>10.1: creare una guida per rispondere agli eventi imprevisti
 
 **Indicazioni**: creare una guida per rispondere agli eventi imprevisti per la propria organizzazione. Assicurasi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi di gestione degli eventi imprevisti, dal rilevamento alla verifica post-evento imprevisto.
 
@@ -1035,27 +1035,27 @@ Il cliente può inoltre sfruttare la guida alla gestione degli eventi imprevisti
 
 **Responsabilità**: Customer
 
-### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
+### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
+**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
 
-Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione, e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure.
+Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione) e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure.
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
 **Responsabilità**: Customer
 
-### <a name="103-test-security-response-procedures"></a>10.3 Testare le procedure di risposta per la sicurezza
+### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
 **Indicazioni**: con cadenza regolare, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
-Fare riferimento alla pubblicazione NIST, ovvero guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Fare riferimento alla pubblicazione NIST: Guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
 **Responsabilità**: Customer
 
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 Specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente.  Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
@@ -1065,7 +1065,7 @@ Come impostare il contatto di sicurezza del Centro sicurezza di Azure: https://d
 
 **Responsabilità**: Customer
 
-### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 Incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
+### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi in Sentinel.
 
@@ -1077,11 +1077,11 @@ Come trasmettere gli avvisi in Azure Sentinel: https://docs.microsoft.com/azure/
 
 **Responsabilità**: Customer
 
-### <a name="106-automate-the-response-to-security-alerts"></a>10.6 Automatizzare la risposta agli avvisi di sicurezza
+### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
-**Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite App per la logica negli avvisi di sicurezza e nelle raccomandazioni.
+**Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite "app per la logica" per gli avvisi e le raccomandazioni di sicurezza.
 
-Come configurare l'automazione del flusso di lavoro e App per la logica: https://docs.microsoft.com/azure/security-center/workflow-automation
+Come configurare l'automazione del flusso di lavoro e le app per la logica: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1091,7 +1091,7 @@ Come configurare l'automazione del flusso di lavoro e App per la logica: https:/
 
 *Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1 Eseguire con regolarità test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici in termini di sicurezza entro 60 giorni
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: eseguire con regolarità test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici in termini di sicurezza entro 60 giorni
 
 **Indicazioni**: seguire le regole di engagement Microsoft per assicurarsi che i propri test di penetrazione non violino i criteri Microsoft all'indirizzo https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
@@ -1103,5 +1103,5 @@ Come configurare l'automazione del flusso di lavoro e App per la logica: https:/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Vedere altre informazioni sulle [baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 8e4b5fdecfc5b9fcb2deb68a482b084a6e6ed6d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447171"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496169"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurare RBAC di Azure per FHIR 
 
@@ -30,7 +30,7 @@ L' **autorità** deve essere impostata sul tenant di Azure Active Directory asso
 
 Per concedere a utenti, entità servizio o gruppi l'accesso al piano dati FHIR, fare clic su **controllo di accesso (IAM)**, quindi fare clic su **assegnazioni di ruolo** e su **+ Aggiungi**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Aggiungere l'assegnazione di ruolo RBAC di Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Aggiungere l'assegnazione di ruolo di Azure":::
 
 Nella selezione del **ruolo** cercare uno dei ruoli predefiniti per il piano dati FHIR:
 
@@ -53,7 +53,7 @@ L'API di Azure per FHIR memorizza nella cache le decisioni per un massimo di 5 m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come assegnare i ruoli RBAC di Azure per il piano dati FHIR. Ulteriori informazioni sulle impostazioni aggiuntive per l'API di Azure per FHIR:
+In questo articolo si è appreso come assegnare i ruoli di Azure per il piano dati FHIR. Ulteriori informazioni sulle impostazioni aggiuntive per l'API di Azure per FHIR:
  
 >[!div class="nextstepaction"]
 >[Impostazioni aggiuntive API di Azure per FHIR](azure-api-for-fhir-additional-settings.md)

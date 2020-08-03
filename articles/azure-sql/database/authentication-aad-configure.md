@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281158"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499178"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione Azure AD con SQL di Azure
 
@@ -360,7 +360,7 @@ Poiché SQL Istanza gestita supporta Azure AD entità server (account di accesso
 Tuttavia, l'uso di Azure Active Directory autenticazione con il database SQL e la sinapsi di Azure richiede l'uso di utenti di database indipendente in base a un'identità Azure AD. Un utente del database indipendente non dispone di un account di accesso nel database master e viene mappato a un'identità in Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Gli utenti del database, tranne gli amministratori, non possono essere creati tramite il portale di Azure. I ruoli RBAC non vengono propagati al database nel database SQL, nel Istanza gestita SQL o nella sinapsi di Azure. I ruoli Controllo degli accessi in base al ruolo di Azure vengono usati per la gestione delle risorse di Azure e non si applicano alle autorizzazioni di database. Ad esempio, il ruolo **collaboratore SQL Server** non concede l'accesso per connettersi al database nel database SQL, nel istanza gestita SQL o nella sinapsi di Azure. L'autorizzazione di accesso deve essere concessa direttamente nel database tramite istruzioni Transact-SQL.
+> Gli utenti del database, tranne gli amministratori, non possono essere creati tramite il portale di Azure. I ruoli di Azure non vengono propagati al database nel database SQL, nel Istanza gestita SQL o nella sinapsi di Azure. I ruoli di Azure vengono usati per la gestione delle risorse di Azure e non si applicano alle autorizzazioni del database. Ad esempio, il ruolo **collaboratore SQL Server** non concede l'accesso per connettersi al database nel database SQL, nel istanza gestita SQL o nella sinapsi di Azure. L'autorizzazione di accesso deve essere concessa direttamente nel database tramite istruzioni Transact-SQL.
 
 > [!WARNING]
 > I caratteri speciali, come i due punti `:` o `&` la e commerciale, quando sono inclusi come nomi utente in T-SQL `CREATE LOGIN` e le `CREATE USER` istruzioni non sono supportati.
@@ -544,4 +544,3 @@ Informazioni aggiuntive sulla risoluzione dei problemi relativi all'autenticazio
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

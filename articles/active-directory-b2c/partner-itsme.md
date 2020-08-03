@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170123"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489516"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurare itsme OpenID Connect (OIDC) con Azure Active Directory B2C
 
@@ -72,11 +72,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > In assenza di un tenant, [creare un tenant di Azure AD B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
-1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory contenente il tenant di Azure AD B2C.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory contenente il tenant di Azure AD B2C.
 
 2. In **servizi di Azure**selezionare **Azure ad B2C** (oppure selezionare **altri servizi** e usare la casella di ricerca **tutti i servizi** per cercare *Azure ad B2C*).
 
-3. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
+3. Selezionare **Provider di identità** e quindi selezionare **Nuovo provider di OpenID Connect**.
 
 4. Compilare il modulo con le informazioni seguenti:
 
@@ -85,7 +85,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    | Nome | itsme |
    | URL dei metadati | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>dove `<environment>` è `e2e` (ambiente di test) o `prd` (produzione)  |
    | ClientID     | **ID client**, noto anche come **codice partner**  |
-   | Client Secret | Il **client_secret** |
+   | Segreto client | Il **client_secret** |
    | Ambito  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
    |Tipo di risposta | codice |
    |Modalità di risposta | query |
@@ -104,7 +104,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Selezionare **nuovo flusso utente**.
 
-3. Scegliere **Iscriviti e accedi**.
+3. Selezionare **iscrizione e accesso**, selezionare una versione e quindi fare clic su **Crea**.
 
 4. Immettere un **Nome**.
 

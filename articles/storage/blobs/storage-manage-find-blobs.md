@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355659"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499875"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)
 
@@ -63,7 +63,7 @@ Si considerino i tag di esempio seguenti che possono essere impostati
 > "Priority" = '01 ' 
 >
 
-Per modificare gli attributi del tag di indice esistenti, è innanzitutto necessario recuperare gli attributi del tag esistenti, modificare gli attributi dei tag e sostituire con l'operazione SetBlobTags. Per rimuovere tutti i tag index dal BLOB, chiamare l'operazione SetBlobTags senza specificare attributi tag. Poiché i tag degli indici BLOB sono una risorsa secondaria per il contenuto dei dati BLOB, SetBlobTags non modifica alcun contenuto sottostante e non modifica il valore Last-Modified-Time o ETag (tag di entità) del BLOB. È possibile creare o modificare i tag di indice per tutti i BLOB di base correnti e le versioni precedenti. Tuttavia, non è possibile modificare i tag negli snapshot o nei BLOB eliminati temporaneamente. 
+Per modificare gli attributi del tag di indice esistenti, è innanzitutto necessario recuperare gli attributi del tag esistenti, modificare gli attributi dei tag e sostituire con l'operazione SetBlobTags. Per rimuovere tutti i tag index dal BLOB, chiamare l'operazione SetBlobTags senza specificare attributi tag. Poiché i tag degli indici BLOB sono una risorsa secondaria per il contenuto dei dati BLOB, SetBlobTags non modifica alcun contenuto sottostante e non modifica il valore Last-Modified-Time o eTag (tag di entità) del BLOB. È possibile creare o modificare i tag di indice per tutti i BLOB di base correnti e le versioni precedenti. Tuttavia, non è possibile modificare i tag negli snapshot o nei BLOB eliminati temporaneamente. 
 
 Ai tag di indice BLOB si applicano i limiti seguenti:
 - Ogni BLOB può avere fino a 10 tag di indice BLOB
@@ -130,7 +130,7 @@ La tabella seguente mostra tutti gli operatori validi per le operazioni condizio
 |     <      |  Minore di    | "Age" < "32" |
 |     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-|     OPPURE     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
+|     o     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
 
 > [!NOTE]
 > Sono disponibili due operatori aggiuntivi, non uguali e logici, che sono consentiti nell'intestazione x-ms-if-Tags condizionale per l'operazione BLOB, ma non esistono nell'operazione FindBlobsByTags.
@@ -293,6 +293,7 @@ In questa sezione vengono descritti i problemi noti e le condizioni nell'antepri
 -   Il failover dell'account non è al momento supportato. È possibile che l'indice BLOB non venga aggiornato correttamente dopo il failover.
 -   La gestione del ciclo di vita supporta attualmente solo i controlli di uguaglianza con corrispondenza dell'indice BLOB.
 -   CopyBlob non copia i tag degli indici BLOB dal BLOB di origine al nuovo BLOB di destinazione. È possibile specificare i tag che si desidera applicare al BLOB di destinazione durante l'operazione di copia. 
+- CopyBlob (copia asincrona) da un altro account di archiviazione con tag applicati nel BLOB di destinazione attualmente il motore dell'indice BLOB non restituisce il BLOB e i relativi tag nel set di filtri. È consigliabile usare CopyBlob da URL (copia di sincronizzazione) nel frattempo.
 -   I tag vengono mantenuti durante la creazione dello snapshot. Tuttavia, la promozione di uno snapshot non è attualmente supportata e può causare un set di tag vuoto.
 
 ## <a name="faq"></a>Domande frequenti
@@ -308,5 +309,7 @@ No, Azure Resource Manager tag consentono di organizzare le risorse del piano di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere un esempio di come usare l'indice BLOB. Vedere [usare l'indice BLOB per gestire e trovare i dati](storage-blob-index-how-to.md)
+Per un esempio di come usare l'indice BLOB, vedere [usare l'indice BLOB per gestire e trovare i dati](storage-blob-index-how-to.md).
+
+Informazioni sulla [gestione del ciclo](storage-lifecycle-management-concepts.md) di vita e sull'impostazione di una regola con corrispondenza dell'indice BLOB.
 

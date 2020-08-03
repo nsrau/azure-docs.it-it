@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046771"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490286"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Progettazione di una strategia di caricamento dei dati di base per il pool SQL di sinapsi di Azure
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Progettare una strategia di caricamento dei dati di base per il pool SQL di sinapsi di Azure
 
 I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Il pool SQL di Azure è un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. L'uso di un processo di estrazione, caricamento e trasformazione (ELT) può trarre vantaggio da MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento.
 
@@ -25,7 +25,7 @@ Sebbene il pool SQL supporti molti metodi di caricamento, tra cui opzioni non di
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>Definizione di ELT
+## <a name="extract-load-and-transform-elt"></a>Estrazione, caricamento e trasformazione (ELT)
 
 Estrazione, caricamento e trasformazione (ELT) è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un data warehouse e quindi trasformati.
 
@@ -55,7 +55,7 @@ Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da r
 | **Tipo di dati parquet** |                      **Tipo di dati SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        TINYINT        |                           TINYINT                            |
-|       smallint        |                           smallint                           |
+|       SMALLINT        |                           SMALLINT                           |
 |          INT          |                             INT                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
@@ -69,12 +69,12 @@ Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da r
 |        string         |                           varchar                            |
 |        BINARY         |                            BINARY                            |
 |        BINARY         |                          varbinary                           |
-|       timestamp       |                             date                             |
+|       timestamp       |                             Data                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           Datetime                           |
 |       timestamp       |                             time                             |
-|       date            |                             Data                             |
+|       Data            |                             Data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Trasferire i dati in Archiviazione BLOB di Azure o in Azure Data Lake Store

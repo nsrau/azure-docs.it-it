@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025303"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495149"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
@@ -20,7 +20,7 @@ La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni
 Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella sottoscrizione. Per altre informazioni sul costo del DNS, vedere la pagina relativa ai [prezzi del DNS][dns-pricing].
 
 > [!CAUTION]
-> Il componente aggiuntivo di routing dell'applicazione HTTP consente di creare rapidamente un controller di ingresso e accedere alle applicazioni. Questo componente aggiuntivo non è consigliato per gli ambienti di produzione. Per distribuzioni di ingresso pronte per la produzione che includono più repliche e il supporto TLS, vedere [Creare un controller di ingresso HTTPS](./ingress-tls.md).
+> Il componente aggiuntivo di routing dell'applicazione HTTP consente di creare rapidamente un controller di ingresso e accedere alle applicazioni. Questo componente aggiuntivo non è attualmente progettato per l'uso in un ambiente di produzione e non è consigliato per l'uso in produzione. Per distribuzioni di ingresso pronte per la produzione che includono più repliche e il supporto TLS, vedere [Creare un controller di ingresso HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Panoramica della soluzione di routing HTTP
 
@@ -203,7 +203,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Ripetere il passaggio `kubectl delete` precedente per tutte le risorse *addon-http-application-routing* rimaste nel cluster.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Usare il comando [kubectl logs][kubectl-logs] per visualizzare i log applicazioni dell'applicazione External-DNS. I log dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
 

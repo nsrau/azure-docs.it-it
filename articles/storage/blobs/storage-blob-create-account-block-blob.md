@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c23c034af40d7db2379f9d02357131a00482bd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463570"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495744"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creare un account BlockBlobStorage
 
@@ -40,12 +41,12 @@ Questo articolo sulle procedure richiede il modulo Azure PowerShell AZ versione 
 
 È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti:
 
-- È possibile eseguire i comandi dell'interfaccia della riga di comando dall'interno del portale di Azure, Azure Cloud Shell.
-- È possibile installare l'interfaccia della riga di comando ed eseguire i comandi CLI localmente.
+- È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell.
+- È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale.
 
 ### <a name="use-azure-cloud-shell"></a>Usare Azure Cloud Shell
 
-Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. L'interfaccia della riga di comando di Azure è preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **cloud Shell** nel menu nella sezione in alto a destra del portale di Azure:
+Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttamente nel portale di Azure. L'interfaccia della riga di comando di Azure è preinstallata e configurata per l'uso con l'account corrente. Fare clic sul pulsante **cloud Shell** nel menu nella sezione in alto a destra del portale di Azure:
 
 [![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -108,7 +109,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 7. Per le altre impostazioni, configurare quanto segue:
 
-   |Campo     |valore  |
+   |Campo     |Valore  |
    |---------|---------|
    |**Prestazioni**    |  Selezionare **Premium**.   |
    |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
@@ -209,4 +210,4 @@ Per creare un account BLOB in blocchi usando l'interfaccia della riga di comando
 
 - Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-- Per ulteriori informazioni sui gruppi di risorse, vedere [Azure Resource Manager Overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

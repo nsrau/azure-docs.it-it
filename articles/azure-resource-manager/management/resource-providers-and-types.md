@@ -3,12 +3,13 @@ title: Provider di risorse e tipi di risorse
 description: Descrive i provider di risorse che supportano Gestione risorse, i relativi schemi e le versioni API disponibili, nonché le aree che possono ospitare le risorse.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 581b653c6d4769f7777b0ca56f136d25443c1ae4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702772"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500011"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -34,7 +35,7 @@ Per un elenco con il mapping dei provider di risorse ai servizi di Azure, vedere
 Per visualizzare tutti i provider di risorse e lo stato di registrazione della propria sottoscrizione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu del portale di Azure selezionare **Tutti i servizi**.
+2. Selezionare **Tutti i servizi** nel menu del portale di Azure.
 
     ![selezionare sottoscrizioni](./media/resource-providers-and-types/select-all-services.png)
 
@@ -51,7 +52,7 @@ Per visualizzare tutti i provider di risorse e lo stato di registrazione della p
 Per visualizzare le informazioni relative uno specifico provider di risorse:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu del portale di Azure selezionare **Tutti i servizi**.
+2. Selezionare **Tutti i servizi** nel menu del portale di Azure.
 3. Nella casella **Tutti i servizi** immettere **esplora risorse** e quindi selezionare **Esplora risorse**.
 
     ![Selezionare Tutti i servizi](./media/resource-providers-and-types/select-resource-explorer.png)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124732"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496713"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -32,7 +32,7 @@ Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
 Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Per la creazione di cluster è necessario che un proprietario accetti le condizioni del servizio software e autorizzare le modifiche alle risorse di rete e di archiviazione.
 
-Esistono alcune soluzioni alternative per consentire a un utente non proprietario di creare un vFXT per il cluster di Azure. Questi scenari coinvolgono la limitazione delle risorse e l'assegnazione di ruoli di controllo degli accessi in base al ruolo (RBAC) aggiuntivi al creatore. In tutti questi casi, è necessario che un proprietario della sottoscrizione accetti in anticipo [i termini del software vFXT](#accept-software-terms) .
+Esistono alcune soluzioni alternative per consentire a un utente non proprietario di creare un vFXT per il cluster di Azure. Questi scenari coinvolgono la limitazione delle risorse e l'assegnazione di ruoli aggiuntivi di Azure al creatore. In tutti questi casi, è necessario che un proprietario della sottoscrizione accetti in anticipo [i termini del software vFXT](#accept-software-terms) .
 
 | Scenario | Restrizioni | Accedere ai ruoli necessari per creare il cluster vFXT. |
 |----------|--------|-------|

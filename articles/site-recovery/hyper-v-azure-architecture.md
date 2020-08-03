@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416333"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495727"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
 
@@ -36,7 +36,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Architettura della replica da Hyper-V ad Azure (senza VMM)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagramma che mostra il sito Hyper-V locale nell'architettura di Azure senza VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componenti dell'architettura - Hyper-V con VMM
@@ -53,7 +53,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Architettura della replica da Hyper-V ad Azure (con VMM)**
 
-![Componenti](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagramma che mostra il sito Hyper-V locale nell'architettura di Azure con VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurare la connettività di rete in uscita
 
@@ -76,7 +76,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 ## <a name="replication-process"></a>Processo di replica
 
-![Replica da Hyper-V ad Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagramma che illustra il processo di replica da Hyper-V ad Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Processo di replica e ripristino**
 
@@ -86,7 +86,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. È possibile monitorare il processo nella scheda **processi** .      ![ ](media/hyper-v-azure-architecture/image1.png) Elenco ![ processi Abilita drill-down per la protezione](media/hyper-v-azure-architecture/image2.png)
+4. È possibile monitorare il processo nella scheda **processi** .      ![Screenshot dell'elenco dei processi nella scheda processi. ](media/hyper-v-azure-architecture/image1.png) ![Screenshot della schermata di abilitazione della protezione con altri dettagli.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati
@@ -123,7 +123,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 2. Al termine della risincronizzazione, dovrebbe riprendere la normale replica differenziale.
 3. Se non si vuole attendere la risincronizzazione predefinita al di fuori degli orari di lavoro, è possibile risincronizzare una macchina virtuale manualmente, ad esempio quando si verifica un'interruzione. A questo scopo, nel portale di Azure selezionare la macchina virtuale > **Risincronizza**.
 
-    ![Risincronizzazione manuale](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Screenshot che mostra l'opzione Risincronizza.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Processo di esecuzione di nuovi tentativi

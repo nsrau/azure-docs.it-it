@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438898"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498124"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -119,7 +119,7 @@ Vedere altre informazioni su come usare il controllo degli accessi in base al ru
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Controllo RBAC di Azure per l'autorizzazione Kubernetes (anteprima)
 
-Con l'integrazione con il controllo degli accessi in base al ruolo di Azure, AKS userà un server webhook di autorizzazione Kubernetes per consentire di gestire le autorizzazioni e le assegnazioni di risorse cluster K8s integrate Azure AD usando la definizione dei ruoli e le assegnazioni di ruolo di Azure.
+Con l'integrazione con controllo degli accessi in base al ruolo di Azure, AKS userà un server webhook di autorizzazione Kubernetes per consentire di gestire le autorizzazioni e le assegnazioni di risorse cluster K8s integrate Azure AD usando la definizione di ruolo e le assegnazioni di ruolo di Azure.
 
 ![Controllo degli accessi in base al ruolo di Azure per Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

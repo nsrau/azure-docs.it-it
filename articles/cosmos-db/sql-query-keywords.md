@@ -4,14 +4,14 @@ description: Informazioni sulle parole chiave SQL per Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261568"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496682"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
 
@@ -35,9 +35,6 @@ Questo articolo descrive in dettaglio le parole chiave che possono essere usate 
 ```
 
 Diversamente da ANSI SQL, nell'API SQL è possibile esprimere query di intervallo su proprietà di tipi misti. Ad esempio, `grade` può essere un numero come `5` in alcuni elementi e una stringa come `grade4` in altri. In questi casi, come in JavaScript, il confronto tra i due tipi diversi restituisce `Undefined` , quindi l'elemento viene ignorato.
-
-> [!TIP]
-> Per velocizzare i tempi di esecuzione delle query, creare un criterio di indicizzazione che utilizza un tipo di indice di intervallo rispetto a qualsiasi proprietà o percorso numerico che la `BETWEEN` clausola filtra.
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -76,7 +73,7 @@ I risultati sono:
 ]
 ```
 
-DISTINCT può essere usato anche nella proiezione all'interno di una sottoquery:
+`DISTINCT`può essere usato anche nella proiezione all'interno di una sottoquery:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -168,4 +165,4 @@ I risultati sono:
 
 - [Introduzione](sql-query-getting-started.md)
 - [Join](sql-query-join.md)
-- [Sottoquery](sql-query-subquery.md)
+- [Subqueries](sql-query-subquery.md) (Sottoquery)

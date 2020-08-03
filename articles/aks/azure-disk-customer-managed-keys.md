@@ -4,12 +4,12 @@ description: Bring your own key (BYOK) per crittografare i dischi dati e del sis
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057292"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499620"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Usare le chiavi personalizzate (BYOK) con i dischi di Azure in Azure Kubernetes Service (AKS)
 
@@ -161,8 +161,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Limitazioni
 
-* Crittografia del disco dati supportata con Kubernetes versione 1,17 e successive   
-* Disponibile solo nelle aree in cui BYOK è supportato
+* Crittografia del disco dati supportata con Kubernetes versione 1,17 e successive
 * La crittografia con chiavi gestite dal cliente è attualmente solo per i nuovi cluster AKS. i cluster esistenti non possono essere aggiornati
 
 ## <a name="next-steps"></a>Passaggi successivi
