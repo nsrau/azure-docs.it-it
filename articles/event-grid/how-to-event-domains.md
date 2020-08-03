@@ -3,12 +3,13 @@ title: Pubblicare eventi con domini eventi con griglia di eventi di Azure
 description: Mostra come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460559"
+ms.locfileid: "87502036"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 

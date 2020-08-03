@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958379"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494996"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Usare stored procedure nel pool SQL
 
@@ -27,7 +27,7 @@ Il pool SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora
 
 Tuttavia, per mantenere la scalabilità e le prestazioni del pool SQL sono disponibili anche alcune funzionalità e funzionalità con differenze comportamentali e altre che non sono supportate.
 
-## <a name="introducing-stored-procedures"></a>Introduzione alle stored procedure
+## <a name="stored-procedures-in-sql-pool"></a>Stored procedure nel pool SQL
 
 Le stored procedure sono un ottimo modo per incapsulare il codice SQL, archiviandolo vicino i dati nel data warehouse. Le stored procedure consentono agli sviluppatori di rendere modulari le soluzioni incapsulando il codice in unità gestibili, facilitano così il riutilizzo del codice stesso. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
 

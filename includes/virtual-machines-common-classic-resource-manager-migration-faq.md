@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 014d1ea4575b17b1d4017c9519bee6c5ea66ceb5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527210"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515345"
 ---
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Che cos'è il Service Manager di Azure e cosa significa per la versione classica?
+
+La parola "classica" nella macchina virtuale IaaS (classica) si riferisce alle macchine virtuali gestite da Azure Service Manager (ASM). Azure Service Manager (ASM) è il vecchio piano di controllo di Azure responsabile della creazione, della gestione e dell'eliminazione di macchine virtuali ed esecuzione di altre operazioni del piano di controllo. 
+
+## <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
+
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) è il piano di controllo più recente di Azure responsabile della creazione, della gestione, dell'eliminazione di macchine virtuali e dell'esecuzione di altre operazioni del piano di controllo. 
+
 ## <a name="what-is-the-time-required-for-migration"></a>Qual è il tempo necessario per una migrazione?
 
 La pianificazione e l'esecuzione di una migrazione dipendono notevolmente dalla complessità dell'architettura e possono richiedere circa due mesi.  

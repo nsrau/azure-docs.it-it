@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800330"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501815"
 ---
-# <a name="what-is-the-speech-cli"></a>Che cos'è l'interfaccia della riga di comando vocale?
+# <a name="what-is-the-speech-cli"></a>Che cos'è l'interfaccia della riga di comando per Voce?
 
 L'interfaccia della riga di comando vocale è uno strumento da riga di comando per l'uso del servizio di riconoscimento vocale senza scrivere codice. L'interfaccia della riga di comando vocale richiede una configurazione minima ed è facile iniziare subito a sperimentare le funzionalità chiave del servizio di riconoscimento vocale per verificare se i casi d'uso possono essere soddisfatti. In pochi minuti, è possibile eseguire semplici flussi di lavoro di test come il riconoscimento vocale in batch da una directory di file o una sintesi vocale su una raccolta di stringhe da un file. Oltre ai semplici flussi di lavoro, l'interfaccia della riga di comando vocale è pronta per l'ambiente di produzione e può essere ridimensionata per eseguire processi di dimensioni maggiori usando `.bat` script automatici o Shell.
 

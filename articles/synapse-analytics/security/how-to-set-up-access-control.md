@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089312"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501917"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima)
 
@@ -82,7 +82,7 @@ Nel portale di Azure, creare un'area di lavoro Synapse:
   - Assegnare **WS1\_SparkAdmins** agli amministratori di Synapse Spark
   - Assegnare **WS1\_SQLAdmins** agli amministratori di Synapse SQL
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSAGGIO 4: configurare Data Lake Storage Gen2 per l'uso con l'area di lavoro Synapse
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSAGGIO 4: configurare Data Lake Storage Gen2 per l'uso da area di lavoro sinapsi
 
 L'area di lavoro Synapse deve accedere a STG1 e CNT1 per poter eseguire le pipeline e le attività di sistema.
 
@@ -100,7 +100,7 @@ L'area di lavoro Synapse deve accedere a STG1 e CNT1 per poter eseguire le pipel
 - In **Impostazioni**, fare clic su **Amministratore SQL Active Directory**
 - Fare clic su **Imposta amministratore** e selezionare WS1\_SQLAdmins
 
-## <a name="step-6-maintaining-access-control"></a>PASSAGGIO 6: mantenere il controllo di accesso
+## <a name="step-6-maintain-access-control"></a>PASSAGGIO 6: gestire il controllo di accesso
 
 La configurazione è terminata.
 

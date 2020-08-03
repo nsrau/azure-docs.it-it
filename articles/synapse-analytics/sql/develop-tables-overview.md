@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431878"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494826"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Progettare tabelle con sinapsi SQL
 
@@ -28,24 +28,24 @@ Nella tabella seguente sono elencati gli argomenti relativi al pool SQL rispetto
 | Argomento                                                        | Pool SQL | SQL su richiesta |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determinare la categoria della tabella](#determine-table-category)        | Sì                | No                      |
-| [Nomi di schemi.](#schema-names)                                | Sì                | Sì                     |
+| [Nomi di schemi.](#schema-names)                                | sì                | Sì                     |
 | [Nomi di tabella](#table-names)                                  | Sì                | No                      |
 | [Persistenza delle tabelle](#table-persistence)                      | Sì                | No                      |
 | [Tabella normale](#regular-table)                              | Sì                | No                      |
-| [Tabella temporanea](#temporary-table)                          | Sì                | Sì                     |
-| [Tabella esterna](#external-table)                            | Sì                | Sì                     |
-| [Tipi di dati](#data-types)                                    | Sì                | Sì                     |
+| [Tabella temporanea](#temporary-table)                          | sì                | Sì                     |
+| [Tabella esterna](#external-table)                            | sì                | Sì                     |
+| [Tipi di dati](#data-types)                                    | sì                | Sì                     |
 | [Tabelle con distribuzione](#distributed-tables)                    | Sì                | No                      |
 | [Tabelle con distribuzione hash](#hash-distributed-tables)          | Sì                | No                      |
 | [Tabelle replicate](#replicated-tables)                      | Sì                | No                      |
 | [Tabelle round robin](#round-robin-tables)                    | Sì                | No                      |
 | [Metodi di distribuzione comuni per le tabelle](#common-distribution-methods-for-tables) | Sì                | No                      |
-| [Partizioni](#partitions)                                    | Sì                | Sì                     |
+| [Partizioni](#partitions)                                    | sì                | Sì                     |
 | [Indici columnstore](#columnstore-indexes)                  | Sì                | No                      |
-| [Statistiche](#statistics)                                    | Sì                | Sì                     |
+| [Statistiche](#statistics)                                    | sì                | Sì                     |
 | [Chiave primaria e chiave univoca](#primary-key-and-unique-key)    | Sì                | No                      |
 | [Comandi per la creazione di tabelle](#commands-for-creating-tables) | Sì                | No                      |
-| [Allineamento dei dati di origine con il data warehouse](#aligning-source-data-with-the-data-warehouse) | Sì                | No                      |
+| [Allineamento dei dati di origine con il data warehouse](#align-source-data-with-the-data-warehouse) | Sì                | No                      |
 | [Funzionalità di tabella non supportate](#unsupported-table-features)    | Sì                | No                      |
 | [Query di dimensioni della tabella](#table-size-queries)                    | Sì                | No                      |
 
@@ -75,7 +75,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL, è possibile utili
 
 | Tabella WideWorldImportersDW  | Tipo di tabella. | Pool SQL |
 |:-----|:-----|:------|:-----|
-| city | Dimension | wwi.DimCity |
+| Città | Dimension | wwi.DimCity |
 | JSON | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
@@ -144,7 +144,7 @@ La categoria di tabella determina spesso l'opzione ottimale per la distribuzione
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
 | Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
+| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="partitions"></a>Partizioni
 
@@ -212,9 +212,9 @@ La chiave primaria è supportata solo se vengono usati entrambi non CLUSTER e no
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una tabella esterna. La definizione della tabella viene archiviata nel pool SQL. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Popola una nuova tabella con i risultati di un'istruzione SELECT. Le colonne e i tipi di dati della tabella si basano sui risultati dell'istruzione SELECT. Per importare i dati, questa istruzione può selezionare da una tabella esterna. |
-| [CREA TABELLA ESTERNA COME SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una nuova tabella esterna esportando i risultati di un'istruzione SELECT in una posizione esterna,  Il percorso è archiviazione BLOB di Azure o Azure Data Lake Storage. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una nuova tabella esterna esportando i risultati di un'istruzione SELECT in una posizione esterna,  Il percorso è archiviazione BLOB di Azure o Azure Data Lake Storage. |
 
-## <a name="aligning-source-data-with-the-data-warehouse"></a>Allineamento dei dati di origine con il data warehouse
+## <a name="align-source-data-with-the-data-warehouse"></a>Allinea i dati di origine alla data warehouse
 
 Le tabelle del data warehouse vengono popolate caricando i dati da un'altra origine dati. Per ottenere un carico corretto, il numero e i tipi di dati delle colonne nei dati di origine devono essere allineati con la definizione della tabella nella data warehouse.
 

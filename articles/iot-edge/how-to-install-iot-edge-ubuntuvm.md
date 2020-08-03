@@ -9,16 +9,17 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800563"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494078"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
-Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Dopo aver configurato un dispositivo con il runtime di IoT Edge, è possibile avviare la distribuzione della logica di business dal cloud.
+Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Quando un dispositivo viene configurato con il runtime IoT Edge, è possibile iniziare a distribuirvi la logica di business dal cloud.
 
 Per altre informazioni sul funzionamento del runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
@@ -39,7 +40,7 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 1. Nella finestra appena avviata compilare i campi del modulo disponibili:
 
     > [!div class="mx-imgBorder"]
-    > [![Screenshot che mostra il modello iotedge-VM-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+    > [![Screenshot che mostra il modello iotedge-vm-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **Sottoscrizione**: sottoscrizione di Azure attiva in cui distribuire la macchina virtuale.
 
@@ -63,9 +64,9 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 
     Dopo aver compilato tutti i campi, selezionare la casella di controllo nella parte inferiore della pagina per accettare i termini e selezionare **Acquista** per iniziare la distribuzione.
 
-1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>` . `<location>` cloudapp.azure.com.
+1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa macchina virtuale deve essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del valore di **Nome DNS** associato, che deve essere nel formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    Il **nome DNS** può essere ottenuto dalla sezione **Panoramica** della macchina virtuale appena distribuita all'interno del portale di Azure.
+    È possibile ottenere il valore di **Nome DNS** dalla sezione **Panoramica** della nuova macchina virtuale distribuita nel portale di Azure.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot che mostra il nome DNS della macchina virtuale iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -138,7 +139,7 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>` . `<location>` cloudapp.azure.com.
+1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa macchina virtuale deve essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del valore di **Nome DNS** associato, che deve essere nel formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     Il **nome DNS** può essere ottenuto dall'output in formato JSON del passaggio precedente, all'interno della sezione **Outputs** come parte della voce **SSH pubblica** .  Il valore di questa voce può essere usato per SSH nel computer appena distribuito.
 

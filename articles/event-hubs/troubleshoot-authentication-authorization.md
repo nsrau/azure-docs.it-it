@@ -3,18 +3,18 @@ title: Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azu
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322424"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502104"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azure
 L'articolo [risolvere i problemi di connettività](troubleshooting-guide.md) fornisce suggerimenti per la risoluzione dei problemi di connettività con hub eventi di Azure. Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Se si usa Azure Active Directory
-Se si usa Azure Active Directory (Azure AD) per l'autenticazione e l'autorizzazione con hub eventi di Azure, verificare che l'identità che accede a hub eventi sia un membro del **ruolo di controllo degli accessi in base al ruolo (RBAC)** appropriato nell' **ambito di risorse** corretto (gruppo di consumer, Hub eventi, spazio dei nomi, gruppo di risorse o sottoscrizione).
+Se si usa Azure Active Directory (Azure AD) per l'autenticazione e l'autorizzazione con hub eventi di Azure, verificare che l'identità che accede a hub eventi sia un membro del **ruolo di Azure** appropriato nell' **ambito di risorse** corretto (gruppo di consumer, Hub eventi, spazio dei nomi, gruppo di risorse o sottoscrizione).
 
 ### <a name="rbac-roles"></a>Ruoli Controllo degli accessi in base al ruolo
 - [Proprietario dei dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) per l'accesso completo alle risorse di hub eventi.

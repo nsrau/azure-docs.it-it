@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079690"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502682"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -83,7 +83,7 @@ Come per qualsiasi applicazione o servizio, l'obiettivo è eseguire l'app per le
 
 #### <a name="user-management-permissions"></a>Autorizzazioni di gestione dell'utente
 
-Funzioni supporta il controllo degli [accessi in base al ruolo di Azure](../role-based-access-control/overview.md)predefinito. I ruoli di controllo degli accessi in base al ruolo supportati da Funzioni sono [Collaboratore](../role-based-access-control/built-in-roles.md#contributor), [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Lettore](../role-based-access-control/built-in-roles.md#owner). 
+Funzioni supporta il controllo degli [accessi in base al ruolo di Azure incorporato (RBAC di Azure)](../role-based-access-control/overview.md). I ruoli di Azure supportati dalle funzioni sono [collaboratore](../role-based-access-control/built-in-roles.md#contributor), [proprietario](../role-based-access-control/built-in-roles.md#owner)e [lettore](../role-based-access-control/built-in-roles.md#owner). 
 
 Le autorizzazioni sono effettive a livello di app per le funzioni. Il ruolo di Collaboratore è necessario per eseguire la maggior parte delle attività a livello di app per le funzioni. Solo il ruolo di Proprietario può eliminare un'app per le funzioni. 
 
@@ -207,4 +207,3 @@ I servizi gateway, quali [gateway applicazione di Azure](../application-gateway/
 
 + [Informazioni di base sulla sicurezza di Azure per Funzioni di Azure](security-baseline.md)
 + [Diagnostica di Funzioni di Azure](functions-diagnostics.md)
-        

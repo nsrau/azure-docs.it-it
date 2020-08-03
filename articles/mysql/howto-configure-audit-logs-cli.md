@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 1a26f3c1b57fd750cbb59f32ddc8bd0ea85293ca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112764"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503328"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurare e accedere ai log di controllo nell'interfaccia della riga di comando di Azure
 
@@ -21,7 +22,7 @@ ms.locfileid: "86112764"
 
 Per proseguire con questa guida, si richiedono:
 
-- [Server di Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: d035ef4bc90410cbf0899c038047dd5e6a001f10
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462331"
+ms.locfileid: "87502648"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Spostamento da Express.js a funzioni di Azure
 
@@ -24,7 +24,7 @@ Quando si esegue la migrazione del codice a un'architettura senza server, il ref
 
 - **Route predefinita**: per impostazione predefinita, gli endpoint di funzioni di Azure vengono esposti sotto la `api` Route. Le regole di routing sono configurabili tramite [ `routePrefix` nel _host.jssu_ file](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Configurazione e convenzioni**: un'app per le funzioni usa il _function.jssu_ file per definire i verbi HTTP, definire i criteri di sicurezza e può configurare l' [input e l'output](./functions-triggers-bindings.md)della funzione. Per impostazione predefinita, il nome della cartella che contiene i file di funzione definisce il nome dell'endpoint, ma è possibile modificare il nome tramite la proprietà Route nel [function.jssu](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
+- **Configurazione e convenzioni**: un'app per le funzioni usa il _function.jssu_ file per definire i verbi HTTP, definire i criteri di sicurezza e può configurare l' [input e l'output](./functions-triggers-bindings.md)della funzione. Per impostazione predefinita, il nome della cartella che contiene i file di funzione definisce il nome dell'endpoint, ma è possibile modificare il nome tramite la `route` proprietà nell' [function.jssu](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
 
 > [!TIP]
 > Per altre informazioni, vedere l'esercitazione interattiva [refactoring Node.js ed Express API per le API senza server con funzioni di Azure](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).

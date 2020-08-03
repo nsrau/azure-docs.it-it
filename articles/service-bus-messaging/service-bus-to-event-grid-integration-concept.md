@@ -6,12 +6,13 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9c9c061e31ac4d3eba8d31352253bb25b62a9b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340579"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503294"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -171,7 +172,7 @@ A questo punto è possibile esplorare le altre opzioni di configurazione oppure 
 
 * Ottenere [esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
 * Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/azure/event-grid/).
-* Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
+* Scopri di più sulle [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
 * Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/).
 * Altre informazioni sul [bus di servizio](https://docs.microsoft.com/azure/service-bus/).
 

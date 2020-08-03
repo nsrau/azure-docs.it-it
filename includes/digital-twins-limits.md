@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133848"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507256"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -19,7 +19,9 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Area | Funzionalità | Limite predefinito | Regolabile? |
 | --- | --- | --- | --- |
 | Risorsa di Azure | Numero di istanze di dispositivi gemelli digitali di Azure in un'area, per sottoscrizione | 10 | Sì |
-| Dispositivi gemelli digitali | Numero di gemelli in un'istanza di dispositivi gemelli digitali di Azure | 200.000 | Sì |
+| Gemelli digitali | Numero di gemelli in un'istanza di dispositivi gemelli digitali di Azure | 200.000 | Sì |
+| Gemelli digitali | Numero di relazioni in ingresso per un singolo gemello | 5\.000 | No |
+| Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
 | Routing | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
 | Routing | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |

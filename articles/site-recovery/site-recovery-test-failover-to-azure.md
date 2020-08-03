@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699057"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503498"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Eseguire un failover di test (esercitazione sul ripristino di emergenza) in Azure 
 
@@ -25,7 +25,7 @@ Il failover di test viene eseguito per convalidare la strategia di replica e di 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 Questa procedura descrive come eseguire un failover di test per un piano di ripristino. Se si desidera eseguire un failover di test per una singola macchina virtuale, seguire i passaggi descritti [qui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Failover di test](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Screenshot della pagina del failover di test nella portale di Azure.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. In Site Recovery portale di Azure fare clic su **piani di ripristino**  >  *recoveryplan_name*  >  **failover di test**.
@@ -48,7 +48,7 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 8. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test.
 
 
-![Failover di test](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Screenshot della scheda processi di failover di test.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 L'attivazione di un failover di test comporta l'esecuzione dei passaggi seguenti:
 

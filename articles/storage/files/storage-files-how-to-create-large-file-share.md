@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 538cbfea2480573c190a1dd0ee0480e21aecefe2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510726"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502087"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
@@ -48,11 +49,11 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 1. Impostare la replica sull'archiviazione con **ridondanza locale** o sull' **archiviazione con ridondanza della zona**.
 1. Lasciare i valori predefiniti per questi campi:
 
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
-   |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
+   |Tipologia account     |Archiviazione v2 (utilizzo generico V2)         |
    |Livello di accesso     |Accesso frequente         |
 
 1. Selezionare **Avanzate**, quindi selezionare il pulsante di opzione **abilitato** a destra di **condivisioni file di grandi dimensioni**.
@@ -132,7 +133,7 @@ La creazione di una condivisione file di grandi dimensioni è quasi identica all
 
 1. Dall'account di archiviazione selezionare **condivisioni file**.
 1. Selezionare **+ condivisione file**.
-1. Immettere un nome per la condivisione file. È anche possibile impostare le dimensioni della quota, fino a 100 TiB. Quindi selezionare **Crea** 
+1. Immettere un nome per la condivisione file. È anche possibile impostare le dimensioni della quota, fino a 100 TiB. Selezionare quindi **Crea**. 
 
 ![Interfaccia utente di portale di Azure che mostra le caselle nome e quota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

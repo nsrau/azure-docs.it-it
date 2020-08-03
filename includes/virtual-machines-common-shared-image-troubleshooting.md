@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226413"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507348"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l' `--debug` opzione con l'interfaccia della riga di comando e l' `-Debug` opzione con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
@@ -76,7 +76,7 @@ Possibili cause:
 
 *L'utente che cerca di creare una macchina virtuale o un set di scalabilità di macchine virtuali non ha accesso in lettura alla versione dell'immagine.*
 
-Contattare il proprietario della sottoscrizione e chiedere di concedere l'accesso in lettura alla versione dell'immagine o alle risorse padre, come la raccolta di immagini condivisa o la definizione dell'immagine, tramite [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Contattare il proprietario della sottoscrizione e chiedere di concedere l'accesso in lettura alla versione dell'immagine o alle risorse padre, ad esempio la raccolta di immagini condivise o la definizione dell'immagine, tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *Non è possibile trovare la versione dell'immagine.*
 
@@ -97,6 +97,3 @@ Usare il flag **--expand ReplicationStatus** per controllare se la replica in tu
 ## <a name="azure-limits-and-quotas"></a>Limiti e quote di Azure 
 
 [Limiti e quote di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) si applicano a tutte le risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine. Assicurarsi di rispettare i limiti per le sottoscrizioni. 
-
-
-

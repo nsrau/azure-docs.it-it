@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077876"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502172"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -58,7 +58,7 @@ Una firma di accesso condiviso è un URI con fimra che punta a una o più risors
 
 - Con una *chiave di delega utente* creata con le credenziali Azure Active Directory (Azure ad). Una firma di accesso condiviso di delega utente è firmata con la chiave di delega utente.
 
-    Per ottenere la chiave di delega utente e creare la firma di accesso condiviso, è necessario assegnare a un'entità di sicurezza Azure AD un ruolo di controllo degli accessi in base al ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per informazioni dettagliate sui ruoli di controllo degli accessi in base al ruolo con autorizzazioni per ottenere la chiave di delega utente, vedere creare una firma di accesso condiviso [utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+    Per ottenere la chiave di delega utente e creare la firma di accesso condiviso, è necessario assegnare a un'entità di sicurezza Azure AD un ruolo di Azure che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per informazioni dettagliate sui ruoli di Azure con le autorizzazioni per ottenere la chiave di delega utente, vedere creare una firma di accesso condiviso [(API REST) di delega utente](/rest/api/storageservices/create-user-delegation-sas).
 
 - Con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio e una firma di accesso condiviso dell'account sono firmate con la chiave account di archiviazione Per creare una firma di accesso condiviso con la chiave dell'account, un'applicazione deve avere accesso alla chiave dell'account.
 

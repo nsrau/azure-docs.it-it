@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529030"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495064"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -44,14 +44,14 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 
 1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica**Aggiungi impostazioni di  >  **diagnostica**.
 
-    ![Selezionare la registrazione delle risorse](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Screenshot che mostra l'opzione Aggiungi impostazione di diagnostica.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.
 4. Selezionare **diagnostica di Azure** nell'interruttore.
 5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Quindi fare clic su **OK**.
 
-    ![Selezionare l'area di lavoro](./media/monitoring-log-analytics/select-workspace.png)
+    ![Screenshot della schermata delle impostazioni di diagnostica.](./media/monitoring-log-analytics/select-workspace.png)
 
 I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostics**) nell'area di lavoro selezionata.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![RPO query](./media/monitoring-log-analytics/example1.png)
+![Screenshot che mostra un grafico a barre delle macchine virtuali di Azure replicate con Site Recovery.](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Eseguire query Site Recovery processi
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![RPO macchina virtuale query](./media/monitoring-log-analytics/example2.png)
+![Screenshot di un grafico di tendenza che tiene traccia del RPO di una specifica VM di Azure.](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Frequenza di modifica dei dati di query (varianza) e velocità di caricamento per una macchina virtuale di Azure
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Modifica dati query](./media/monitoring-log-analytics/example3.png)
+![Screenshot di un grafico di tendenza per una specifica VM di Azure.](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Frequenza di modifica dei dati di query (varianza) e velocità di caricamento per un computer VMware o fisico
 

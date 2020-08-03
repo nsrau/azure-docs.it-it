@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258392"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494486"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e Azure Data Box Heavy gli ordini di esportazione
 
@@ -34,7 +34,7 @@ Nella tabella seguente viene illustrato un riepilogo dei Data Box passaggi dell'
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurare il controllo di accesso nell'ordine
 
-È possibile controllare chi può accedere all'ordine quando viene creato per la prima volta. Configurare i ruoli di controllo degli accessi in base al ruolo (RBAC) in diversi ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di controllo degli accessi in base al ruolo determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura a un subset di operazioni.
+È possibile controllare chi può accedere all'ordine quando viene creato per la prima volta. Configurare i ruoli di Azure in vari ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di Azure determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura in un subset di operazioni.
 
 I due ruoli che possono essere definiti per il servizio Azure Data Box sono:
 
@@ -122,14 +122,14 @@ Di seguito è riportato un esempio di output quando il *log di copia* contiene e
 </CopyLog>    
 ```
 
-Per esportare i file sono disponibili le opzioni seguenti: 
+Per esportare i file, è possibile scegliere tra le opzioni seguenti: 
 
-- È possibile trasferire i file che non possono essere copiati in rete. 
-- Se la dimensione dei dati è maggiore della capacità del dispositivo utilizzabile, viene eseguita una copia parziale e tutti i file che non sono stati copiati sono elencati in questo log. È possibile utilizzare questo log come XML di input per creare un nuovo ordine di Data Box e quindi copiare tali file.
+- È possibile trasferire i file che non è stato possibile copiare in rete. 
+- Se le dimensioni dei dati sono maggiori della capacità utilizzabile del dispositivo, viene eseguita una copia parziale e in questo log vengono elencati tutti i file che non sono stati copiati. È possibile usare questo log come XML di input per creare un nuovo ordine per Data Box in cui copiare tali file.
 
 ### <a name="verbose-log"></a>Log dettagliato
 
-Il *log dettagliato* contiene un elenco di tutti i file che sono stati esportati correttamente dall'account di archiviazione di Azure. Il log contiene anche le dimensioni del file e il calcolo del checksum.
+Il *log dettagliato* contiene un elenco di tutti i file che sono stati esportati correttamente dall'account di archiviazione di Azure, con l'indicazione delle dimensioni del file e il calcolo del checksum.
 
 Il log dettagliato contiene le informazioni nel formato seguente:
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [risolvere i problemi relativi alla data box e data box Heavy](data-box-troubleshoot.md).
-
-
-
-
