@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: 4931556aa6948b6b05b2bbbfa62e281e21aa6058
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367470"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512755"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guida alla disponibilità elevata e al ripristino di emergenza per Data Lake Storage Gen1
 
@@ -34,11 +34,11 @@ Se si verifica un'interruzione del servizio nell'area, è quindi possibile acced
 
 Anche se Data Lake Storage Gen1 offre la resilienza dei dati tramite le repliche automatiche, ciò non impedisce all'applicazione o agli sviluppatori/utenti di danneggiare i dati o di eliminarli accidentalmente.
 
-### <a name="best-practices"></a>Procedure consigliate
-
 Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutto i criteri di accesso corretti per l'account Data Lake Storage Gen1. Questo include l'applicazione dei [blocchi delle risorse di Azure](../azure-resource-manager/management/lock-resources.md) per bloccare le risorse importanti e l'applicazione del controllo di accesso a livello di file e di account usando le [funzionalità di sicurezza data Lake storage Gen1](data-lake-store-security-overview.md)disponibili. È anche opportuno creare regolarmente copie dei dati critici usando [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) in un altro account Data Lake Storage Gen1, in una cartella o in una sottoscrizione di Azure. Queste copie possono essere usate per il ripristino in seguito a un danneggiamento dei dati o un evento imprevisto di eliminazione. Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
 
 È anche possibile abilitare la [registrazione diagnostica](data-lake-store-diagnostic-logs.md) per un account data Lake storage Gen1 per raccogliere gli itinerari di controllo dell'accesso ai dati. I percorsi di controllo forniscono informazioni su chi potrebbe avere eliminato o aggiornato un file.
+
+È possibile provare a ripristinare un elemento eliminato usando il modulo [AZ. archivio data lake](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell per data Lake storage gen 1. In particolare, vedere il comando [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Assicurarsi di esaminare la sezione [Descrizione](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) prima di provare a usare questo comando.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

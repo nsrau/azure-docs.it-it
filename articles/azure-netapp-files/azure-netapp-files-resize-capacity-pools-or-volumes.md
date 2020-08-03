@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare un volume o pool di capacità per Azure NetApp Files | Microsoft Docs
-description: Viene descritto come modificare le dimensioni di un volume o un pool di capacità.
+description: Informazioni su come modificare le dimensioni di un pool di capacità o di un volume. Il ridimensionamento del pool di capacità modifica la capacità di Azure NetApp Files acquistata.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: 7da604e8e49b0732680e5f641d1ff6e899ad474d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483483"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512874"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ridimensionare un pool di capacità o un volume
 È possibile modificare le dimensioni di un pool o un volume di capacità in base alle esigenze. 

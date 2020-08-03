@@ -1,6 +1,6 @@
 ---
 title: Creare un volume SMB per Azure NetApp Files | Microsoft Docs
-description: Descrive come creare un volume SMB per Azure NetApp Files.
+description: Questo articolo illustra come creare un volume SMBv3 in Azure NetApp Files. Informazioni sui requisiti per le connessioni Active Directory e i servizi del dominio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169967"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513078"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -163,8 +163,20 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
      * **Utenti dei criteri di backup**  
         È possibile includere account aggiuntivi che richiedono privilegi elevati per l'account computer creato per l'uso con Azure NetApp Files. Agli account specificati sarà consentito modificare le autorizzazioni NTFS a livello di file o di cartella. È ad esempio possibile specificare un account del servizio senza privilegi usato per la migrazione dei dati a una condivisione file SMB in Azure NetApp Files.  
 
-        > [!IMPORTANT] 
-        > L'uso della funzionalità utenti dei criteri di backup richiede l'inserimento nell'elenco elementi consentiti. Inviare un messaggio di posta elettronica a anffeedback@microsoft.com con l'ID sottoscrizione per richiedere questa funzionalità. 
+        La funzionalità **utenti criteri di backup** è attualmente in anteprima. Se è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Verificare lo stato della registrazione della funzionalità: 
+
+        > [!NOTE]
+        > Il **RegistrationState** potrebbe trovarsi nello `Registering` stato per alcuni minuti prima di modificare in `Registered` . Prima di continuare, attendere che lo stato sia **registrato** .
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Credenziali, inclusi **nome utente** e **password**
 

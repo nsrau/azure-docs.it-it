@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050960"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512976"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
 Prima della registrazione combinata, gli utenti dovevano registrare i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service separatamente. Gli utenti erano confusi che venivano usati metodi simili per Multi-Factor Authentication e SSPR, ma dovevano registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di Multi-Factor Authentication e SSPR.
+
+> [!NOTE]
+> A partire dal 15 agosto 2020, tutti i nuovi tenant di Azure AD verranno automaticamente abilitati per la registrazione combinata.
 
 Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a usare la registrazione di sicurezza combinata, vedere l'articolo seguente:
 
@@ -48,18 +51,18 @@ Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<languag
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-| Metodo | Registrazione | Modifica | Delete |
+| Metodo | Registrazione | Modifica | Elimina |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
 | Token hardware | No | No | Sì |
-| Telefono | Sì | Sì | Sì |
-| Telefono alternativo | Sì | Sì | Sì |
+| Telefono | sì | sì | sì |
+| Telefono alternativo | sì | sì | sì |
 | Telefono ufficio | No | No | No |
-| E-mail | Sì | Sì | Sì |
+| E-mail | sì | sì | sì |
 | Domande di sicurezza | Sì | No | Sì |
 | Password dell'app | Sì | No | Sì |
-| Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |
+| Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| sì | sì | sì |
 
 > [!NOTE]
 > Le password dell'app sono disponibili solo per gli utenti che sono stati applicati per Multi-Factor Authentication. Le password dell'app non sono disponibili per gli utenti abilitati per Multi-Factor Authentication tramite criteri di accesso condizionale.

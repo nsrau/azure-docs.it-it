@@ -1,6 +1,6 @@
 ---
 title: SDK Azure NetApp Files e strumenti dell'interfaccia della riga di comando | Microsoft Docs
-description: Elenca gli SDK e gli strumenti della riga di comando (CLI) supportati da Azure NetApp Files.
+description: 'Informazioni sugli SDK supportati per Azure NetApp Files e le relative posizioni pubblicate in GitHub e sugli strumenti da riga di comando supportati: interfaccia della riga di comando di Azure e PowerShell.'
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045468"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513622"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK e strumenti dell'interfaccia della riga di comando di Azure NetApp Files
 

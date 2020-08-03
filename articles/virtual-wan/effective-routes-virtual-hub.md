@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037767"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513707"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visualizzare le route effettive dell'hub virtuale
 
 È possibile visualizzare tutte le route dell'hub WAN virtuale nel portale di Azure. Questo articolo illustra la procedura per visualizzare le route valide. Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Nel portale di Azure, alcune di queste funzionalità potrebbero ancora essere implementate e non saranno disponibili fino alla settimana del 3 agosto. 
+> Nel portale di Azure, alcune di queste funzionalità potrebbero ancora essere implementate e non saranno disponibili fino alla settimana del 17 agosto. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selezionare le connessioni o le tabelle di route
@@ -52,11 +52,11 @@ I valori nella tabella di esempio seguente implicano che la connessione o la tab
 
 Utilizzare la barra di scorrimento nella parte inferiore della tabella per visualizzare il percorso "AS".
 
-| **Prefisso** |  **Tipo hop successivo** | **Hop successivo** |  **Origine route** |**Percorso AS** |
+| **Prefix** |  **Tipo hop successivo** | **Hop successivo** |  **Origine route** |**Percorso AS** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/Subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
-**Considerazioni**
+**Considerazioni:**
 
 * Se viene visualizzato 0.0.0.0/0 nell'output **Get effective Routes** , significa che la route esiste in una delle tabelle di route. Tuttavia, se la route è stata configurata per Internet, per la connessione è necessario un flag aggiuntivo **"enableInternetSecurity": true** . La route valida nella scheda di interfaccia di rete della macchina virtuale non visualizzerà la route se il flag "enableInternetSecurity" nella connessione è "false".
 
@@ -64,5 +64,5 @@ Utilizzare la barra di scorrimento nella parte inferiore della tabella per visua
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica di WAN virtuale](virtual-wan-about.md).
+* Per altre informazioni sulla rete WAN virtuale, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
 * Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).

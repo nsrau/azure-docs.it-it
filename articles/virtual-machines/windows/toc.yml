@@ -403,6 +403,13 @@
           href: ps-template.md
         - name: Connettersi a una macchina virtuale
           href: connect-logon.md
+        - name: Connettersi a VM Linux
+          displayName: ssh keygen ssk-key putty
+          items:
+            - name: Nel portale
+              href: ../ssh-keys-portal.md
+            - name: In Windows
+              href: ../linux/ssh-from-windows.md
         - name: Usare la licenza con il vantaggio Azure Hybrid
           href: hybrid-use-benefit-licensing.md
         - name: Usare diritti di hosting multi-tenant per Windows 10

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086031"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513792"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
@@ -40,11 +40,11 @@ In questa tabella sono elencate le funzionalità di archiviazione BLOB che è po
 |Api di archiviazione BLOB|Disponibile a livello generale|Anteprima|[Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Avvio rapido: Gestire i BLOB con Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Avvio rapido: Gestire i BLOB con Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
 |Log di diagnostica|Disponibile a livello generale|Anteprima <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Registrazione di Analisi di archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Livello di accesso archivio|Disponibile a livello generale|Non supportate|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Criteri di gestione del ciclo di vita|Disponibile a livello generale|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Registrazione in Monitoraggio di Azure|Anteprima |Non ancora supportato|[Monitoraggio di archiviazione di Azure](../common/monitor-storage.md)|
 |Snapshot|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Snapshot BLOB](snapshots-overview.md)|
 |Siti Web statici|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
 |Archiviazione non modificabile|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
-|Criteri di gestione del ciclo di vita|Anteprima|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Blobfuse|Anteprima|Non ancora supportato|[Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md)|
 |Feed delle modifiche|Non ancora supportato|Non ancora supportato|[Supporto del feed di modifiche in Archiviazione BLOB di Azure](storage-blob-change-feed.md)|
 |Failover dell'account|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

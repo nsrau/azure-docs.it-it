@@ -1,17 +1,17 @@
 ---
 title: Ripristino di emergenza per la condivisione di dati di Azure
 description: Ripristino di emergenza per la condivisione di dati di Azure
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/18/2019
-ms.openlocfilehash: 8c53450094801825b86b74505fbe34dc8defe4f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 61804aaf65a97485e2b2b5bb4869c335a14ce812
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110965"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513559"
 ---
 # <a name="disaster-recovery-for-azure-data-share"></a>Ripristino di emergenza per la condivisione di dati di Azure
 
@@ -19,13 +19,13 @@ Questo articolo illustra come configurare un ambiente di ripristino di emergenza
 
 ## <a name="achieving-business-continuity-for-azure-data-share"></a>Raggiungimento della continuità aziendale per la condivisione di dati di Azure
 
-Per prepararsi a un'interruzione del data center, il provider di dati può avere un ambiente di condivisione dati di cui è stato effettuato il provisioning in un'area secondaria. È possibile adottare misure che garantiranno un failover uniforme nel caso in cui si verifichi un'interruzione del data center. 
+Per prepararsi a un'interruzione del data center, il provider di dati può avere un ambiente di condivisione dati di cui è stato effettuato il provisioning in un'area secondaria. È possibile adottare misure per garantire un failover uniforme nel caso in cui si verifichi un'interruzione del data center. 
 
-I provider di dati possono eseguire il provisioning di risorse di condivisione dati di Azure secondarie in un'area Queste risorse di condivisione dati possono essere configurate in modo da includere i set di dati presenti nell'ambiente di condivisione dati primario. I consumer di dati possono essere aggiunti alla condivisione dati quando si configura l'ambiente di ripristino di emergenza o aggiunti in un momento successivo (ad esempio come parte dei passaggi di failover manuale.
+I provider di dati possono eseguire il provisioning di risorse di condivisione dati di Azure secondarie in un'area Queste risorse di condivisione dati possono essere configurate per includere le condivisioni e i set di dati presenti nella risorsa di condivisione dati di Azure primaria. Possono invitare i consumer di dati nelle condivisioni secondarie quando si configura l'ambiente di ripristino di emergenza o in un secondo momento, ad esempio come parte dei passaggi di failover manuale.
 
-Se i consumer di dati hanno una sottoscrizione di condivisione attiva in un ambiente secondario di cui è stato effettuato il provisioning per finalità di ripristino di emergenza, possono abilitare la pianificazione dello snapshot come parte di un failover. Se i consumer di dati non vogliono sottoscrivere un'area secondaria per scopi di ripristino di emergenza, possono essere invitati nella condivisione di dati secondaria in un momento successivo. 
+Se i consumer di dati hanno sottoscrizioni di condivisione attive in un ambiente secondario di cui è stato effettuato il provisioning per finalità di ripristino di emergenza, possono abilitare la pianificazione snapshot come parte del failover Se i consumer di dati non vogliono sottoscrivere un'area secondaria per scopi di ripristino di emergenza, possono essere invitati alla condivisione secondaria in un secondo momento. 
 
-I consumer di dati possono avere una sottoscrizione di condivisione attiva inattiva per finalità di ripristino di emergenza oppure i provider di dati possono aggiungerli in un momento successivo come parte delle procedure di failover manuale. 
+I consumer di dati possono avere una sottoscrizione di condivisione attiva inattiva per finalità di ripristino di emergenza oppure i provider di dati possono invitare tali abbonamenti in un secondo momento come parte delle procedure di failover manuale. 
 
 ## <a name="related-information"></a>Informazioni correlate
 

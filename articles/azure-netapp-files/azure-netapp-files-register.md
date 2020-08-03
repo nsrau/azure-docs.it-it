@@ -1,6 +1,6 @@
 ---
 title: Effettuare la registrazione per Azure NetApp Files | Microsoft Docs
-description: Viene descritto come eseguire la registrazione per utilizzare Azure NetApp Files.
+description: Informazioni su come registrarsi per Azure NetApp Files inviando una richiesta di attesa e registrando il provider di risorse di Azure per Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956305"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512925"
 ---
 # <a name="register-for-azure-netapp-files"></a>Effettuare la registrazione per Azure NetApp Files
 

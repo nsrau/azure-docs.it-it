@@ -1,26 +1,26 @@
 ---
-title: "Concetti: mapping dei modelli nel connettore Internet (anteprima) funzionalità dell'API di Azure per FHIR"
-description: Informazioni su come creare due tipi di modelli di mapping nel connettore Internet. Il modello di mapping dei dispositivi trasforma i dati del dispositivo in uno schema normalizzato. Il modello di mapping di FHIR trasforma un messaggio normalizzato in una risorsa di osservazione basata su FHIR.
+title: "Concetti: mapping dei modelli nel connettore Azure Internet per FHIR (anteprima) funzionalità dell'API di Azure per FHIR"
+description: Informazioni su come creare due tipi di modelli di mapping nel connettore Azure per FHIR (anteprima). Il modello di mapping dei dispositivi trasforma i dati del dispositivo in uno schema normalizzato. Il modello di mapping di FHIR trasforma un messaggio normalizzato in una risorsa di osservazione basata su FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: dadd14d4ca28f367eaa7fd07099514bf420af5af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099405"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513350"
 ---
-# <a name="iot-connector-preview-mapping-templates"></a>Modelli di mapping del connettore Internet (anteprima)
-Questo articolo illustra come configurare il connettore Internet con i modelli di mapping.
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Connettore Azure per i modelli di mapping di FHIR (anteprima)
+Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
 
-Il connettore Internet è necessario per due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi**, è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping**, controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
+Il connettore Azure per FHIR richiede due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi**, è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping**, controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
 
-I modelli di mapping sono composti in un documento JSON basato sul tipo. Questi documenti JSON vengono quindi aggiunti al connettore Internet tramite il portale di Azure. Il documento di mapping dei dispositivi viene aggiunto tramite la pagina **Configura mapping dei dispositivi** e il documento di mapping di FHIR tramite la pagina **Configura mapping FHIR** .
+I modelli di mapping sono composti in un documento JSON basato sul tipo. Questi documenti JSON vengono quindi aggiunti al connettore Azure per FHIR tramite il portale di Azure. Il documento di mapping dei dispositivi viene aggiunto tramite la pagina **Configura mapping dei dispositivi** e il documento di mapping di FHIR tramite la pagina **Configura mapping FHIR** .
 
 > [!NOTE]
 > I modelli di mapping vengono archiviati in un archivio BLOB sottostante e caricati dal BLOB per ogni esecuzione di calcolo. Una volta aggiornati, i risultati dovrebbero essere applicati immediatamente. 
@@ -81,7 +81,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 ---
 **Frequenza cardiaca**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": {
@@ -115,7 +115,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 ---
 **Pressione del sangue**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": {
@@ -153,7 +153,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 
 **Proiettare più misurazioni da un singolo messaggio**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": {
@@ -208,7 +208,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 
 **Proietta più misurazioni da array nel messaggio**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": [
@@ -261,7 +261,7 @@ Quando si usa questo modello, il presupposto è che i messaggi valutati siano st
 ---
 **Frequenza cardiaca**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": {
@@ -297,7 +297,7 @@ Quando si usa questo modello, il presupposto è che i messaggi valutati siano st
 ---
 **Pressione del sangue**
 
-*Messaggio*
+*Message*
 ```json
 {
     "Body": {
@@ -376,7 +376,7 @@ Rappresenta il tipo di dati FHIR di [CodeableConcept](http://hl7.org/fhir/dataty
 
 | Proprietà | Descrizione 
 | --- | --- 
-|**Testo**|Rappresentazione in testo normale. 
+|**Text**|Rappresentazione in testo normale. 
 |**Codici**|Una o più [codifiche](http://hl7.org/fhir/datatypes-definitions.html#coding) da applicare all'osservazione creata.
 |**Codici []. Codice**|Codice per la [codifica](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codici []. Sistema**|Sistema per la [codifica](http://hl7.org/fhir/datatypes-definitions.html#coding).
@@ -562,10 +562,11 @@ Rappresenta il tipo di dati FHIR di [CodeableConcept](http://hl7.org/fhir/dataty
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le domande frequenti sul connettore Internet
+Vedere le domande frequenti sul connettore Azure per FHIR (anteprima).
 
 >[!div class="nextstepaction"]
->[Domande frequenti sul connettore Internet](fhir-faq.md#iot-connector-preview)
+>[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#iot-connector-preview)
 
+* Nel portale di Azure, il connettore Azure per FHIR viene indicato come connettore Internet (anteprima).
 
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.

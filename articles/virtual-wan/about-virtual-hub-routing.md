@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171874"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513724"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -27,7 +27,7 @@ Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to
 Le sezioni seguenti descrivono i concetti chiave del routing dell'hub virtuale.
 
 > [!NOTE]
-> Alcuni di questi nuovi concetti per la tabella di route Hub, l'associazione, la propagazione e le route statiche in una connessione di rete virtuale potrebbero ancora essere implementati e previsti per il completamento nella settimana del 3 agosto.
+> Alcuni di questi nuovi concetti per la tabella di route Hub, l'associazione, la propagazione e le route statiche in una connessione di rete virtuale potrebbero ancora essere implementati e dovrebbero essere completati nella settimana del 17 agosto.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabella di route Hub
@@ -77,9 +77,9 @@ Le tabelle di route includono ora funzionalità per l'associazione e la propagaz
 
 * **Clienti WAN virtuali standard con route preesistenti nell'hub virtuale**:
 
-Per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto per il completamento della distribuzione in Azure. Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
+Per utilizzare le nuove funzionalità della tabella di route, attendere fino alla settimana del 17 agosto per il completamento della distribuzione in Azure. Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
 
-* **Utenti della rete WAN virtuale Basic con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto che venga completata la distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
+* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 17 agosto per il completamento della distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerazioni sul routing della rete WAN virtuale
 
